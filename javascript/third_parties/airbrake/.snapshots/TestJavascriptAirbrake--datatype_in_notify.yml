@@ -1,0 +1,19 @@
+high:
+    - rule:
+        cwe_ids:
+            - "201"
+        id: javascript_third_parties_airbrake
+        description: Sensitive data sent to Airbrake detected.
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_airbrake
+      line_number: 18
+      filename: datatype_in_notify.js
+      category_groups:
+        - Personal Data
+      parent_line_number: 16
+      parent_content: |-
+        airbrake.notify({
+              error: err,
+              params: { user: user.ipAddress },
+            })
+
+

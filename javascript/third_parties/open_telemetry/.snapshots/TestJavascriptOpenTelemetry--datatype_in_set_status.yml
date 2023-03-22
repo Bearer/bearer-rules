@@ -1,0 +1,19 @@
+medium:
+    - rule:
+        cwe_ids:
+            - "201"
+        id: javascript_third_parties_open_telemetry
+        description: Sensitive data sent to Open Telemetry detected.
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_open_telemetry
+      line_number: 9
+      filename: datatype_in_set_status.js
+      category_groups:
+        - PII
+      parent_line_number: 7
+      parent_content: |-
+        span.setStatus({
+              code: opentelemetry.SpanStatusCode.ERROR,
+              message: "Bad connection for " + currentUser.emailAddress
+            })
+
+

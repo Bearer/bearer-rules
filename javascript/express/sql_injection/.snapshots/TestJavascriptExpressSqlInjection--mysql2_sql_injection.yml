@@ -1,0 +1,40 @@
+high:
+    - rule:
+        cwe_ids:
+            - "89"
+        id: javascript_express_sql_injection
+        description: SQL injection vulnerability detected.
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_sql_injection
+      line_number: 12
+      filename: mysql2_sql_injection.js
+      parent_line_number: 12
+      parent_content: |-
+        connection.query(
+        		"SELECT * FROM `user` WHERE name = " + req.params.customer.name
+        	)
+    - rule:
+        cwe_ids:
+            - "89"
+        id: javascript_express_sql_injection
+        description: SQL injection vulnerability detected.
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_sql_injection
+      line_number: 18
+      filename: mysql2_sql_injection.js
+      parent_line_number: 18
+      parent_content: |-
+        pool.query(
+        		"SELECT * FROM users WHERE name = " + req.params.user_name,
+        		function () {}
+        	)
+    - rule:
+        cwe_ids:
+            - "89"
+        id: javascript_express_sql_injection
+        description: SQL injection vulnerability detected.
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_sql_injection
+      line_number: 23
+      filename: mysql2_sql_injection.js
+      parent_line_number: 23
+      parent_content: conn.query("SELECT * FROM users WHERE name = " + req.params.user_name, function () {})
+
+

@@ -1,0 +1,33 @@
+high:
+    - rule:
+        cwe_ids:
+            - "276"
+        id: ruby_rails_session_key_using_user_input
+        description: User input detected in a session key.
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_session_key_using_user_input
+      line_number: 1
+      filename: unsafe.rb
+      parent_line_number: 1
+      parent_content: session[params[:key]]
+    - rule:
+        cwe_ids:
+            - "276"
+        id: ruby_rails_session_key_using_user_input
+        description: User input detected in a session key.
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_session_key_using_user_input
+      line_number: 3
+      filename: unsafe.rb
+      parent_line_number: 3
+      parent_content: session[request.env[:key]]
+    - rule:
+        cwe_ids:
+            - "276"
+        id: ruby_rails_session_key_using_user_input
+        description: User input detected in a session key.
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_session_key_using_user_input
+      line_number: 5
+      filename: unsafe.rb
+      parent_line_number: 5
+      parent_content: session["test-#{cookies["oops"]}"]
+
+
