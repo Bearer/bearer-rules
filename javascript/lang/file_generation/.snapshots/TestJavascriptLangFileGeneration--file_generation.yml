@@ -10,11 +10,12 @@ medium:
       category_groups:
         - PII
       parent_line_number: 18
-      parent_content: |-
+      snippet: |-
         fs.writeFile("data.csv", JSON.stringify(users), "utf-8", (err) => {
           if (err) console.log(err)
           else console.log("Data saved")
         })
+      fingerprint: 7dc547c0485fb50177dd96e6cc520f43_0
     - rule:
         cwe_ids:
             - "313"
@@ -26,11 +27,12 @@ medium:
       category_groups:
         - PII
       parent_line_number: 18
-      parent_content: |-
+      snippet: |-
         fs.writeFile("data.csv", JSON.stringify(users), "utf-8", (err) => {
           if (err) console.log(err)
           else console.log("Data saved")
         })
+      fingerprint: 7dc547c0485fb50177dd96e6cc520f43_1
     - rule:
         cwe_ids:
             - "313"
@@ -42,10 +44,10 @@ medium:
       category_groups:
         - PII
       parent_line_number: 18
-      parent_content: |-
+      snippet: |-
         fs.writeFile("data.csv", JSON.stringify(users), "utf-8", (err) => {
           if (err) console.log(err)
           else console.log("Data saved")
         })
-
+      fingerprint: 7dc547c0485fb50177dd96e6cc520f43_2
 
