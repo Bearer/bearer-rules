@@ -8,7 +8,7 @@ concurrency:
 
 jobs:
   lint:
-    name: Lint
+    name: Lint Rules
     runs-on: ubuntu-latest
     steps:
       - name: Check out Git repository
