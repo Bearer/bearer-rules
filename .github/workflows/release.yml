@@ -35,9 +35,9 @@ jobs:
           fetch-depth: 0
       - run: mkdir release
       - name: Archive Ruby
-        run: tar -czvf release/ruby.tar.gz ./ruby
+        run: tar -czvf release/ruby.tar.gz ./ruby/**/*.yml
       - name: Archive Javascript
-        run: tar -czvf release/javascript.tar.gz ./javascript
+        run: tar -czvf release/javascript.tar.gz ./javascript/**/*.yml
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
