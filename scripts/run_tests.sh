@@ -4,10 +4,19 @@
 
 printf "INFO: Running tests...\n"
 
-N=10
-
 TEST_COUNT=0
 FAILURES=0
+
+trap printexit SIGINT
+printexit() {
+  printf "INFO: $TEST_COUNT tests run\n"
+  if [ $FAILURES != 0 ]
+    exit 0
+  then
+    printf "ERROR: $FAILURES tests failed\n"
+    exit 1
+  fi
+}
 
 for dir in $(find $PWD -type d -name "testdata"); do
   (
@@ -25,14 +34,14 @@ for dir in $(find $PWD -type d -name "testdata"); do
 
       printf "$test_snapshot\n"
 
-      # docker run --platform linux/amd64 --rm -v $dir:/tmp/scan/$dir bearer/bearer:latest-amd64 scan /tmp/scan$file --only-rule=$rule_id --disable-default-rules=true --format=yaml > $test_result
+      docker run --platform linux/amd64 --rm -v $dir:/tmp/scan/$dir bearer/bearer:latest-amd64 scan /tmp/scan$file --only-rule=$rule_id --disable-default-rules=true --format=yaml > $test_result
 
       if [ -n "$UPDATE_SNAPSHOTS" ] # || [ ! -f $test_snapshot ]
       then
         printf "INFO: Building snapshot...\n"
         cat $test_result > $test_snapshot
       else
-        # diff $test_result $test_snapshot
+        diff $test_result $test_snapshot
 
         if [ $? -ne 0 ]
         then
@@ -40,19 +49,7 @@ for dir in $(find $PWD -type d -name "testdata"); do
         fi
       fi
     done
-  ) &
-
-  if [[ $(jobs -r -p | wc -l) -ge $N ]]; then
-      # job limit reached ; wait until some job finishes
-      wait -n
-  fi
+  )
 done
 
-wait
-
-printf "INFO: $TEST_COUNT tests run\n"
-if [ $FAILURES != 0 ]
-then
-  printf "ERROR: $FAILURES tests failed\n"
-  exit 1
-fi
+printexit()
