@@ -13,6 +13,5 @@
 ## Checklist
 
 - [ ] I've added a snapshot that shows my rule works as expected.
-- [ ] My rule has adequate metadata to explain it's use.
-or added.
+- [ ] My rule has adequate metadata to explain its use.
 - [ ] PR title follows [Conventional Commits](https://www.conventionalcommits.org/) format
