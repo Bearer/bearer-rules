@@ -13,9 +13,22 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        group:
+          [
+            "javascript/aws_lambda",
+            "javascript/express",
+            "javascript/lang",
+            "javascript/react",
+            "javascript/third_parties",
+            "ruby/lang",
+            "ruby/rails",
+            "ruby/third_parties",
+          ]
     steps:
       - uses: actions/checkout@v3
-      - name: Run tests
-        run: ./scripts/run_tests.sh
+      - name: Test ${{ matrix.group }}
+        run: ./scripts/run_tests.sh  ${{ matrix.group }}
         shell: bash
