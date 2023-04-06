@@ -10,8 +10,8 @@ languages:
 auxiliary:
   - id: express_default_session_config_name_attribute
     patterns:
-      - |
-        { name: $<_> }
+    - |
+      { name: $<_> }
 severity: medium
 metadata:
   description: "Session cookie with default config detected."
@@ -27,4 +27,4 @@ metadata:
   cwe_id:
     - 523
     - 522
-  id: "javascript_express_default_session_config"
+  id: "express_default_session_config"
