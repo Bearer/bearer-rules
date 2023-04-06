@@ -1,50 +1,50 @@
 patterns:
-- pattern: "$<VAR>.update($<DATA_TYPE>)\n"
-  filters:
-  - variable: VAR
-    detection: create_hash
-  - variable: DATA_TYPE
-    detection: datatype
-- pattern: "$<VAR>.update()\n"
-  filters:
-  - variable: VAR
-    detection: create_hash
-- pattern: CryptoJS.$<METHOD>($<DATA_TYPE>)
-  filters:
-  - variable: METHOD
-    values:
-    - SHA1
-    - MD5
-  - variable: DATA_TYPE
-    detection: datatype
-- pattern: CryptoJS.HmacSHA1($<DATA_TYPE>, $<_>)
-  filters:
-  - variable: DATA_TYPE
-    detection: datatype
-- pattern: CryptoJS.$<MODULE>.encrypt($<DATA_TYPE>, $<_>)
-  filters:
-  - variable: MODULE
-    values:
-    - RC4
-    - DES
-  - variable: DATA_TYPE
-    detection: datatype
-languages:
-- javascript
-auxiliary:
-- id: create_hash
-  patterns:
-  - pattern: crypto.$<METHOD>($<ALGORITHM>$<...>)
+  - pattern: "$<VAR>.update($<DATA_TYPE>)\n"
     filters:
-    - variable: METHOD
-      values:
-      - createHmac
-      - createHash
-    - variable: ALGORITHM
-      regex: (?i)['"]sha1|md5["']
+      - variable: VAR
+        detection: create_hash
+      - variable: DATA_TYPE
+        detection: datatype
+  - pattern: "$<VAR>.update()\n"
+    filters:
+      - variable: VAR
+        detection: create_hash
+  - pattern: CryptoJS.$<METHOD>($<DATA_TYPE>)
+    filters:
+      - variable: METHOD
+        values:
+          - SHA1
+          - MD5
+      - variable: DATA_TYPE
+        detection: datatype
+  - pattern: CryptoJS.HmacSHA1($<DATA_TYPE>, $<_>)
+    filters:
+      - variable: DATA_TYPE
+        detection: datatype
+  - pattern: CryptoJS.$<MODULE>.encrypt($<DATA_TYPE>, $<_>)
+    filters:
+      - variable: MODULE
+        values:
+          - RC4
+          - DES
+      - variable: DATA_TYPE
+        detection: datatype
+languages:
+  - javascript
+auxiliary:
+  - id: create_hash
+    patterns:
+      - pattern: crypto.$<METHOD>($<ALGORITHM>$<...>)
+        filters:
+          - variable: METHOD
+            values:
+              - createHmac
+              - createHash
+          - variable: ALGORITHM
+            regex: (?i)['"]sha1|md5["']
 skip_data_types:
-- Unique Identifier
-- Passwords
+  - Unique Identifier
+  - Passwords
 metadata:
   description: Weak encryption library usage detected.
   remediation_message: |
@@ -68,6 +68,6 @@ metadata:
     ## Resources
     - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options)
   cwe_id:
-  - 327
+    - 327
   id: javascript_lang_weak_encryption
   documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_encryption

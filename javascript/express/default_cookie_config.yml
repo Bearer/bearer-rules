@@ -1,69 +1,69 @@
 patterns:
-- pattern: |
-    {
-      cookie: $<!>$<HASH_CONTENT>
-    }
-  filters:
-  - variable: HASH_CONTENT
-    detection: express_default_cookie_config_hash_val
-  - either:
-    - not:
-        variable: HASH_CONTENT
-        detection: express_default_cookie_config_name_attribute
-    - not:
-        variable: HASH_CONTENT
-        detection: express_default_cookie_config_expiry_attribute
-    - not:
-        variable: HASH_CONTENT
-        detection: express_default_cookie_config_path_attribute
-    - not:
-        variable: HASH_CONTENT
-        detection: express_default_cookie_config_domain_attribute
-    - not:
-        variable: HASH_CONTENT
-        detection: express_default_cookie_config_secure_attribute
-- pattern: cookieSession($<!>$<HASH_CONTENT>)
-  filters:
-  - variable: HASH_CONTENT
-    detection: express_default_cookie_config_hash_val
-  - either:
-    - not:
-        variable: HASH_CONTENT
-        detection: express_default_cookie_config_name_attribute
-    - not:
-        variable: HASH_CONTENT
-        detection: express_default_cookie_config_expiry_attribute
-    - not:
-        variable: HASH_CONTENT
-        detection: express_default_cookie_config_path_attribute
-    - not:
-        variable: HASH_CONTENT
-        detection: express_default_cookie_config_domain_attribute
-    - not:
-        variable: HASH_CONTENT
-        detection: express_default_cookie_config_secure_attribute
+  - pattern: |
+      {
+        cookie: $<!>$<HASH_CONTENT>
+      }
+    filters:
+      - variable: HASH_CONTENT
+        detection: express_default_cookie_config_hash_val
+      - either:
+          - not:
+              variable: HASH_CONTENT
+              detection: express_default_cookie_config_name_attribute
+          - not:
+              variable: HASH_CONTENT
+              detection: express_default_cookie_config_expiry_attribute
+          - not:
+              variable: HASH_CONTENT
+              detection: express_default_cookie_config_path_attribute
+          - not:
+              variable: HASH_CONTENT
+              detection: express_default_cookie_config_domain_attribute
+          - not:
+              variable: HASH_CONTENT
+              detection: express_default_cookie_config_secure_attribute
+  - pattern: cookieSession($<!>$<HASH_CONTENT>)
+    filters:
+      - variable: HASH_CONTENT
+        detection: express_default_cookie_config_hash_val
+      - either:
+          - not:
+              variable: HASH_CONTENT
+              detection: express_default_cookie_config_name_attribute
+          - not:
+              variable: HASH_CONTENT
+              detection: express_default_cookie_config_expiry_attribute
+          - not:
+              variable: HASH_CONTENT
+              detection: express_default_cookie_config_path_attribute
+          - not:
+              variable: HASH_CONTENT
+              detection: express_default_cookie_config_domain_attribute
+          - not:
+              variable: HASH_CONTENT
+              detection: express_default_cookie_config_secure_attribute
 languages:
-- javascript
+  - javascript
 auxiliary:
-- id: express_default_cookie_config_hash_val
-  patterns:
-  - "{}\n"
-- id: express_default_cookie_config_name_attribute
-  patterns:
-  - "{ name: $<_> }\n"
-- id: express_default_cookie_config_expiry_attribute
-  patterns:
-  - "{ maxAge: $<_> }\n"
-  - "{ expires: $<_> }\n"
-- id: express_default_cookie_config_path_attribute
-  patterns:
-  - "{ path: $<_> }\n"
-- id: express_default_cookie_config_domain_attribute
-  patterns:
-  - "{ domain: $<_> }\n"
-- id: express_default_cookie_config_secure_attribute
-  patterns:
-  - "{ secure: $<_> }\n"
+  - id: express_default_cookie_config_hash_val
+    patterns:
+      - "{}\n"
+  - id: express_default_cookie_config_name_attribute
+    patterns:
+      - "{ name: $<_> }\n"
+  - id: express_default_cookie_config_expiry_attribute
+    patterns:
+      - "{ maxAge: $<_> }\n"
+      - "{ expires: $<_> }\n"
+  - id: express_default_cookie_config_path_attribute
+    patterns:
+      - "{ path: $<_> }\n"
+  - id: express_default_cookie_config_domain_attribute
+    patterns:
+      - "{ domain: $<_> }\n"
+  - id: express_default_cookie_config_secure_attribute
+    patterns:
+      - "{ secure: $<_> }\n"
 severity: medium
 metadata:
   description: Cookie with default config detected.
@@ -79,7 +79,7 @@ metadata:
     ## Resources
     - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
   cwe_id:
-  - 523
-  - 522
+    - 523
+    - 522
   id: javascript_express_default_cookie_config
   documentation_url: https://docs.bearer.com/reference/rules/javascript_express_default_cookie_config

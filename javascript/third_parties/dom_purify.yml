@@ -1,16 +1,16 @@
 patterns:
-- pattern: DOMPurify.sanitize($<_>, $<CONFIG>)
-  filters:
-  - not:
-      variable: CONFIG
-      detection: javascript_dom_purify_safe_config
+  - pattern: DOMPurify.sanitize($<_>, $<CONFIG>)
+    filters:
+      - not:
+          variable: CONFIG
+          detection: javascript_dom_purify_safe_config
 auxiliary:
-- id: javascript_dom_purify_safe_config
-  patterns:
-  - pattern: "{ RETURN_DOM_FRAGMENT: true }\n"
-  - pattern: "{ RETURN_DOM_IMPORT: true }\n"
+  - id: javascript_dom_purify_safe_config
+    patterns:
+      - pattern: "{ RETURN_DOM_FRAGMENT: true }\n"
+      - pattern: "{ RETURN_DOM_IMPORT: true }\n"
 languages:
-- javascript
+  - javascript
 severity: high
 metadata:
   description: Unsecure use of DOMPurify detected.
@@ -34,6 +34,6 @@ metadata:
     ## Resources
     - [Vulnerability explained](https://research.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass)
   cwe_id:
-  - 79
+    - 79
   id: javascript_third_parties_dom_purify
   documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_dom_purify

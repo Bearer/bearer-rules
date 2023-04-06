@@ -1,15 +1,15 @@
 patterns:
-- pattern: session($<!>$<HASH_CONTENT>)
-  filters:
-  - not:
-      variable: HASH_CONTENT
-      detection: express_default_session_config_name_attribute
+  - pattern: session($<!>$<HASH_CONTENT>)
+    filters:
+      - not:
+          variable: HASH_CONTENT
+          detection: express_default_session_config_name_attribute
 languages:
-- javascript
+  - javascript
 auxiliary:
-- id: express_default_session_config_name_attribute
-  patterns:
-  - "{ name: $<_> }\n"
+  - id: express_default_session_config_name_attribute
+    patterns:
+      - "{ name: $<_> }\n"
 severity: medium
 metadata:
   description: Session cookie with default config detected.
@@ -23,7 +23,7 @@ metadata:
     ## Resources
     - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
   cwe_id:
-  - 523
-  - 522
+    - 523
+    - 522
   id: javascript_express_default_session_config
   documentation_url: https://docs.bearer.com/reference/rules/javascript_express_default_session_config
