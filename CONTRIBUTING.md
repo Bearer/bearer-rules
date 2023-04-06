@@ -36,4 +36,4 @@ Here are the basic steps to adding a new rule.
 
 ## Have questions?
 
-You can find more guides and everything you need to started in the [Contributing to Bearer](https://docs.bearer.com/contributing/) documentation, or join the [Discord Community][https://discord.gg/eaHZBJUXRF].
+You can find more guides and everything you need to get started in the [Contributing to Bearer](https://docs.bearer.com/contributing/) documentation, or join the [Discord Community](https://discord.gg/eaHZBJUXRF).
