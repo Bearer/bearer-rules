@@ -14,7 +14,7 @@ bearer-rules is the default rules repository for [Bearer](https://github.com/Bea
 
 ### How can I update an existing Bearer rule?
 
-If you'd like to suggest an improvement or expansion to an existing rule in this repo, that's great news! Local setup instructions can be found in the [contribution guide](CONTRIBUTING.md), and you can also check out (our guide here)[https://docs.bearer.com/guides/custom-rule/#the-rule-configuration-file] for further context on the understanding rule syntax and accepted YAML attributes.
+If you'd like to suggest an improvement or expansion to an existing rule in this repo, that's great news! Local setup instructions can be found in the [contribution guide](CONTRIBUTING.md), and you can also check out [our guide here](https://docs.bearer.com/guides/custom-rule/#the-rule-configuration-file) for further context on the understanding rule syntax and accepted YAML attributes.
 
 Be sure to add some testdata for your change!
 
