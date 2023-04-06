@@ -113,10 +113,10 @@ low:
             - [Express sendFile API reference](http://expressjs.com/en/5x/api.html#res.sendFile)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_external_file_upload
       line_number: 12
-      filename: send_file_with_external_input.js
+      filename: /tmp/scan/send_file_with_external_input.js
       parent_line_number: 12
       snippet: res.sendFile(file)
-      fingerprint: 594fb35e8692ca06ee83e8313e32ec58_0
+      fingerprint: 4634e93fc3864b375759f06d6f62df93_0
     - rule:
         cwe_ids:
             - "73"
@@ -142,10 +142,10 @@ low:
             - [Express sendFile API reference](http://expressjs.com/en/5x/api.html#res.sendFile)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_external_file_upload
       line_number: 13
-      filename: send_file_with_external_input.js
+      filename: /tmp/scan/send_file_with_external_input.js
       parent_line_number: 13
       snippet: res.sendFile(path.resolve(file))
-      fingerprint: 594fb35e8692ca06ee83e8313e32ec58_1
+      fingerprint: 4634e93fc3864b375759f06d6f62df93_1
     - rule:
         cwe_ids:
             - "73"
@@ -171,10 +171,10 @@ low:
             - [Express sendFile API reference](http://expressjs.com/en/5x/api.html#res.sendFile)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_external_file_upload
       line_number: 14
-      filename: send_file_with_external_input.js
+      filename: /tmp/scan/send_file_with_external_input.js
       parent_line_number: 14
       snippet: res.sendFile(req.params.file, {}, () => {})
-      fingerprint: 594fb35e8692ca06ee83e8313e32ec58_2
+      fingerprint: 4634e93fc3864b375759f06d6f62df93_2
     - rule:
         cwe_ids:
             - "73"
@@ -200,8 +200,8 @@ low:
             - [Express sendFile API reference](http://expressjs.com/en/5x/api.html#res.sendFile)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_external_file_upload
       line_number: 15
-      filename: send_file_with_external_input.js
+      filename: /tmp/scan/send_file_with_external_input.js
       parent_line_number: 15
       snippet: 'res.sendFile("file.txt", { root: path.join(__dirname, req.params.root) })'
-      fingerprint: 594fb35e8692ca06ee83e8313e32ec58_3
+      fingerprint: 4634e93fc3864b375759f06d6f62df93_3
 

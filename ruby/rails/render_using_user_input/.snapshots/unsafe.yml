@@ -28,10 +28,10 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_render_using_user_input
       line_number: 1
-      filename: unsafe.rb
+      filename: /tmp/scan/unsafe.rb
       parent_line_number: 1
       snippet: 'render html: params[:oops]'
-      fingerprint: 97ba27de9580afc544c5e9fa599efaa2_0
+      fingerprint: 735e5b06ed659bb94a176014e9ac88ed_0
     - rule:
         cwe_ids:
             - "79"
@@ -61,8 +61,8 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_render_using_user_input
       line_number: 2
-      filename: unsafe.rb
+      filename: /tmp/scan/unsafe.rb
       parent_line_number: 2
       snippet: 'render inline: "<h1>#{params[:oops]}</h1>"'
-      fingerprint: 97ba27de9580afc544c5e9fa599efaa2_1
+      fingerprint: 735e5b06ed659bb94a176014e9ac88ed_1
 

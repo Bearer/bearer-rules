@@ -19,7 +19,7 @@ high:
             -->
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_file_generation
       line_number: 9
-      filename: file_generation.js
+      filename: /tmp/scan/file_generation.js
       category_groups:
         - PII
         - Personal Data
@@ -29,7 +29,7 @@ high:
           if (err) console.log(err)
           else console.log("Data saved")
         })
-      fingerprint: 7dc547c0485fb50177dd96e6cc520f43_0
+      fingerprint: b24a58b69e90bc70354ffa7c98bd4a25_0
     - rule:
         cwe_ids:
             - "313"
@@ -50,7 +50,7 @@ high:
             -->
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_file_generation
       line_number: 10
-      filename: file_generation.js
+      filename: /tmp/scan/file_generation.js
       category_groups:
         - PII
         - Personal Data
@@ -60,5 +60,5 @@ high:
           if (err) console.log(err)
           else console.log("Data saved")
         })
-      fingerprint: 7dc547c0485fb50177dd96e6cc520f43_1
+      fingerprint: b24a58b69e90bc70354ffa7c98bd4a25_1
 

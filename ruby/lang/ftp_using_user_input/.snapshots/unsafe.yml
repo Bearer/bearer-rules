@@ -30,10 +30,10 @@ high:
             - [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_ftp_using_user_input
       line_number: 1
-      filename: unsafe.rb
+      filename: /tmp/scan/unsafe.rb
       parent_line_number: 1
       snippet: Net::FTP.new(params[:oops])
-      fingerprint: 8227f94cd757037c8b11ea06e98c47ce_0
+      fingerprint: b7168de86c767268a16ea9e4f34c9451_0
     - rule:
         cwe_ids:
             - "22"
@@ -65,13 +65,13 @@ high:
             - [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_ftp_using_user_input
       line_number: 3
-      filename: unsafe.rb
+      filename: /tmp/scan/unsafe.rb
       parent_line_number: 3
       snippet: |-
         Net::FTP.open("example.com", username: params[:user]) do
 
         end
-      fingerprint: 8227f94cd757037c8b11ea06e98c47ce_1
+      fingerprint: b7168de86c767268a16ea9e4f34c9451_1
     - rule:
         cwe_ids:
             - "22"

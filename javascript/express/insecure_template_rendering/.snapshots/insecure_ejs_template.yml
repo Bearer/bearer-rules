@@ -17,10 +17,10 @@ low:
             - [OWASP Injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html#injection-prevention-rules)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_insecure_template_rendering
       line_number: 11
-      filename: insecure_ejs_template.js
+      filename: /tmp/scan/insecure_ejs_template.js
       parent_line_number: 11
       snippet: ejs.compile(req.body.user, options)
-      fingerprint: e77e3991805c5dddd3dbadf5173a120a_0
+      fingerprint: 4addef535c5f209c13ea6d7cf8ae3886_0
     - rule:
         cwe_ids:
             - "1336"
@@ -39,8 +39,8 @@ low:
             - [OWASP Injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html#injection-prevention-rules)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_insecure_template_rendering
       line_number: 16
-      filename: insecure_ejs_template.js
+      filename: /tmp/scan/insecure_ejs_template.js
       parent_line_number: 16
       snippet: ejs.render(req.params.name, data, options)
-      fingerprint: e77e3991805c5dddd3dbadf5173a120a_1
+      fingerprint: 4addef535c5f209c13ea6d7cf8ae3886_1
 

@@ -16,7 +16,7 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_sentry
       line_number: 2
-      filename: javascript_capture_exception.js
+      filename: /tmp/scan/javascript_capture_exception.js
       category_groups:
         - PII
         - Personal Data
@@ -25,5 +25,5 @@ high:
         Sentry.captureException(
           new Error(`user ${current_user.email} couldn't log in!`)
         )
-      fingerprint: ccfe5be6347096dc61dca940fa92542d_0
+      fingerprint: c084554b397361ccc75dda80c238da09_0
 

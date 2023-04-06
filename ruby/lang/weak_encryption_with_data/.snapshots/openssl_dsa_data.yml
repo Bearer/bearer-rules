@@ -34,13 +34,13 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_with_data
       line_number: 3
-      filename: openssl_dsa_data.rb
+      filename: /tmp/scan/openssl_dsa_data.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 3
       snippet: dsa_encrypt.export(cipher, user.email)
-      fingerprint: 607962fcd21fb4f53e687ef5840b5ea0_0
+      fingerprint: 8940c8d24999c442b2e34961d956620f_0
     - rule:
         cwe_ids:
             - "326"

@@ -31,13 +31,13 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_datadog
       line_number: 3
-      filename: unsecure.js
+      filename: /tmp/scan/unsecure.js
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 11
       snippet: client.event("user", "logged_in", {}, user)
-      fingerprint: 15317e7b0c29169d3b524d33116994d5_0
+      fingerprint: aa6c1059da0df87a6361a6147650c71f_0
     - rule:
         cwe_ids:
             - "201"
@@ -70,11 +70,11 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_datadog
       line_number: 3
-      filename: unsecure.js
+      filename: /tmp/scan/unsecure.js
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 11
       snippet: client.event("user", "logged_in", {}, user)
-      fingerprint: 15317e7b0c29169d3b524d33116994d5_1
+      fingerprint: aa6c1059da0df87a6361a6147650c71f_1
 

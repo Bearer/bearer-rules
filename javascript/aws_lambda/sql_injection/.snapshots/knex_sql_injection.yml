@@ -33,11 +33,11 @@ high:
             - [OWASP sql injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_aws_lambda_sql_injection
       line_number: 6
-      filename: knex_sql_injection.js
+      filename: /tmp/scan/knex_sql_injection.js
       parent_line_number: 6
       snippet: |-
         knex.select('user.cart_details')
             .from('users')
             .whereRaw('name = '+ event.user.name)
-      fingerprint: a6be1e7b4f812b3709823c952fd60b64_0
+      fingerprint: 26034f81cc220afaa2385ac58ca5b2d9_0
 

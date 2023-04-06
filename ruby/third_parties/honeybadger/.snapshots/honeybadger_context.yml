@@ -16,7 +16,7 @@ high:
             - [Honeybadger Docs](https://docs.honeybadger.io/lib/ruby/integration-guides/rails-exception-tracking/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_honeybadger
       line_number: 1
-      filename: honeybadger_context.rb
+      filename: /tmp/scan/honeybadger_context.rb
       category_groups:
         - PII
         - Personal Data
@@ -25,7 +25,7 @@ high:
         Honeybadger.context({
           tags: tags
         })
-      fingerprint: 2a45f28c5674d44e38bfeec519c6ab39_0
+      fingerprint: a684a1d8a19ec0da7fe637bdee94ea75_0
     - rule:
         cwe_ids:
             - "201"
@@ -43,7 +43,7 @@ high:
             - [Honeybadger Docs](https://docs.honeybadger.io/lib/ruby/integration-guides/rails-exception-tracking/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_honeybadger
       line_number: 1
-      filename: honeybadger_context.rb
+      filename: /tmp/scan/honeybadger_context.rb
       category_groups:
         - PII
         - Personal Data
@@ -52,7 +52,7 @@ high:
         Honeybadger.context({
           tags: tags
         })
-      fingerprint: 2a45f28c5674d44e38bfeec519c6ab39_1
+      fingerprint: a684a1d8a19ec0da7fe637bdee94ea75_1
     - rule:
         cwe_ids:
             - "201"
@@ -70,7 +70,7 @@ high:
             - [Honeybadger Docs](https://docs.honeybadger.io/lib/ruby/integration-guides/rails-exception-tracking/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_honeybadger
       line_number: 8
-      filename: honeybadger_context.rb
+      filename: /tmp/scan/honeybadger_context.rb
       category_groups:
         - PII
         - Personal Data
@@ -79,5 +79,5 @@ high:
         Honeybadger.context({
           my_data: current_user.email
         })
-      fingerprint: 2a45f28c5674d44e38bfeec519c6ab39_2
+      fingerprint: a684a1d8a19ec0da7fe637bdee94ea75_2
 

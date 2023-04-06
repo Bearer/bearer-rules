@@ -34,13 +34,13 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_with_data
       line_number: 1
-      filename: rc4_data.rb
+      filename: /tmp/scan/rc4_data.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 1
       snippet: RC4.new("insecure").encrypt(user.password)
-      fingerprint: 74009776053c7b35b9dac0a188aed511_0
+      fingerprint: d7ff91b3b9fc4f3216238594dcdb31c4_0
     - rule:
         cwe_ids:
             - "326"

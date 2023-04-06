@@ -2,7 +2,7 @@ high:
     - rule:
         cwe_ids:
             - "798"
-        id: javascript_hardcoded_secret
+        id: javascript_lang_hardcoded_secret
         title: Hardcoded secret detected
         description: |
             ## Description
@@ -28,9 +28,9 @@ high:
 
             ## Resources
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_hardcoded_secret
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
       line_number: 1
-      filename: unsecure_object.js
+      filename: /tmp/scan/unsecure_object.js
       category_groups:
         - PII
         - Personal Data
@@ -42,5 +42,5 @@ high:
         	callbackURL: "/oauth2/redirect/google",
         	scope: ["profile"],
         }
-      fingerprint: 9e504ef584b3b4c2768db81bed4a2915_0
+      fingerprint: 08b891215f23b5f7082f674966366927_0
 

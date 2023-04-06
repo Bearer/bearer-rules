@@ -34,7 +34,7 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_with_data
       line_number: 2
-      filename: blowfish_data.rb
+      filename: /tmp/scan/blowfish_data.rb
       category_groups:
         - PII
         - Personal Data
@@ -43,7 +43,7 @@ high:
         Crypt::Blowfish.new("insecure").encrypt_block { |user|
           user.password
         }
-      fingerprint: bee4a5691ff5b71c49e0773b2447be42_0
+      fingerprint: 1957ad8a69b7b750502c4d02a421abbd_0
     - rule:
         cwe_ids:
             - "326"
@@ -79,7 +79,7 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_with_data
       line_number: 6
-      filename: blowfish_data.rb
+      filename: /tmp/scan/blowfish_data.rb
       category_groups:
         - PII
         - Personal Data
@@ -88,7 +88,7 @@ high:
         Crypt::Blowfish.new("insecure").encrypt_block do |user|
           user.password
         end
-      fingerprint: bee4a5691ff5b71c49e0773b2447be42_1
+      fingerprint: 1957ad8a69b7b750502c4d02a421abbd_1
     - rule:
         cwe_ids:
             - "326"

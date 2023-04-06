@@ -30,13 +30,13 @@ high:
             - [Demystifying cookie security in rails 6](https://dev.to/ayushn21/demystifying-cookie-security-in-rails-6-1j2f#:~:text=Rails%20provides%20a%20special%20kind,data%20in%20the%20session%20cookie)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_cookies
       line_number: 1
-      filename: datatype_in_signed_cookies.rb
+      filename: /tmp/scan/datatype_in_signed_cookies.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 1
       snippet: cookies.signed[:info] = user.email
-      fingerprint: 0bc36f6fd36597f1a15e4e12cd6e6cc8_0
+      fingerprint: 734f8d2d3891905dd8959264a815a369_0
     - rule:
         cwe_ids:
             - "315"
@@ -68,11 +68,11 @@ high:
             - [Demystifying cookie security in rails 6](https://dev.to/ayushn21/demystifying-cookie-security-in-rails-6-1j2f#:~:text=Rails%20provides%20a%20special%20kind,data%20in%20the%20session%20cookie)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_cookies
       line_number: 2
-      filename: datatype_in_signed_cookies.rb
+      filename: /tmp/scan/datatype_in_signed_cookies.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 2
       snippet: cookies.permanent.signed[:secret] = user.first_name
-      fingerprint: 0bc36f6fd36597f1a15e4e12cd6e6cc8_1
+      fingerprint: 734f8d2d3891905dd8959264a815a369_1
 

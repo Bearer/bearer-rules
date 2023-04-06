@@ -2,7 +2,7 @@ high:
     - rule:
         cwe_ids:
             - "312"
-        id: javascript_jwt
+        id: javascript_lang_jwt
         title: Sensitive data in a JWT detected.
         description: |
             ## Description
@@ -27,9 +27,9 @@ high:
 
             ## Resources
               - [OWASP sensitive data exposure](https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure)
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_jwt
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_jwt
       line_number: 3
-      filename: unsecure.js
+      filename: /tmp/scan/unsecure.js
       category_groups:
         - PII
         - Personal Data
@@ -39,5 +39,5 @@ high:
         	{ user: { email: "jhon@gmail.com" } },
         	process.env.JWT_SECRET
         )
-      fingerprint: 0d02d2bf09c4b783d7c32239f1af43fe_0
+      fingerprint: 78247201b634dcfdf73ec0c2f866e033_0
 

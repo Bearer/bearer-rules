@@ -23,14 +23,14 @@ medium:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_http_verb_confusion
       line_number: 1
-      filename: unsafe.rb
+      filename: /tmp/scan/unsafe.rb
       parent_line_number: 1
       snippet: |-
         if request.get?
         else
           change_state
         end
-      fingerprint: 321bd706c0672870ab92a7e6107bf90d_0
+      fingerprint: ac3a3caaf7de89ce8a51f3ba2ae0a2bb_0
     - rule:
         cwe_ids:
             - "650"
@@ -55,10 +55,10 @@ medium:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_http_verb_confusion
       line_number: 6
-      filename: unsafe.rb
+      filename: /tmp/scan/unsafe.rb
       parent_line_number: 6
       snippet: change_state unless request.get?
-      fingerprint: 321bd706c0672870ab92a7e6107bf90d_1
+      fingerprint: ac3a3caaf7de89ce8a51f3ba2ae0a2bb_1
     - rule:
         cwe_ids:
             - "650"
@@ -83,11 +83,11 @@ medium:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_http_verb_confusion
       line_number: 8
-      filename: unsafe.rb
+      filename: /tmp/scan/unsafe.rb
       parent_line_number: 8
       snippet: |-
         unless request.get?
           change_state
         end
-      fingerprint: 321bd706c0672870ab92a7e6107bf90d_2
+      fingerprint: ac3a3caaf7de89ce8a51f3ba2ae0a2bb_2
 

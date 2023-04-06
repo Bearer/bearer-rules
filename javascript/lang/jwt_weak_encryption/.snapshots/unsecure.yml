@@ -2,7 +2,7 @@ low:
     - rule:
         cwe_ids:
             - "327"
-        id: javascript_jwt_weak_encryption
+        id: javascript_lang_jwt_weak_encryption
         title: Weak jwt encryption deceted
         description: |
             ## Description
@@ -21,13 +21,13 @@ low:
 
             ## Resources
             - [OWASP weak encryption](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption)
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_jwt_weak_encryption
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_jwt_weak_encryption
       line_number: 3
-      filename: unsecure.js
+      filename: /tmp/scan/unsecure.js
       parent_line_number: 3
       snippet: |-
         jwt.sign({ foo: "bar" }, process.env.JWT_SECRET, {
         	algorithm: "none",
         })
-      fingerprint: a9ee605621c71f1b5acba0c3b6d8feca_0
+      fingerprint: 79ff742b503a954fe475b762f7f6c024_0
 

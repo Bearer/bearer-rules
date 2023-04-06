@@ -34,10 +34,10 @@ low:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 3
-      filename: openssl_dsa.rb
+      filename: /tmp/scan/openssl_dsa.rb
       parent_line_number: 3
       snippet: dsa_encrypt.export(cipher, "hello world")
-      fingerprint: 3ac03435d3a94bdff430e93b27d81198_0
+      fingerprint: e7ec1070f0a9fc804b62dfc4d9dd4899_0
     - rule:
         cwe_ids:
             - "331"
@@ -73,8 +73,8 @@ low:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 5
-      filename: openssl_dsa.rb
+      filename: /tmp/scan/openssl_dsa.rb
       parent_line_number: 5
       snippet: OpenSSL::PKey::DSA.new(2048).to_pem(cipher, "hello world")
-      fingerprint: 3ac03435d3a94bdff430e93b27d81198_1
+      fingerprint: e7ec1070f0a9fc804b62dfc4d9dd4899_1
 

@@ -13,7 +13,7 @@ high:
             When using a third-party, ensure all sensitive data is removed.
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_openai
       line_number: 10
-      filename: insecure.js
+      filename: /tmp/scan/insecure.js
       category_groups:
         - PII
         - Personal Data
@@ -23,5 +23,5 @@ high:
           model: "text-davinci-003",
           prompt: `Hello world ${user.email}`,
         })
-      fingerprint: c329804218c8c70b82b16047dd3025b2_0
+      fingerprint: 7331d9e96cd16520f5dd8913c19f9384_0
 

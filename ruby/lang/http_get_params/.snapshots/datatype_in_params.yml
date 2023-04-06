@@ -48,14 +48,14 @@ critical:
             - [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_get_params
       line_number: 1
-      filename: datatype_in_params.rb
+      filename: /tmp/scan/datatype_in_params.rb
       category_groups:
         - PII
         - Personal Data
         - Personal Data (Sensitive)
       parent_line_number: 1
       snippet: URI("https://my.api.com/users/search?ethnic_origin=#{user.ethnic_origin}")
-      fingerprint: f34fb10ce48303451898c1db1c78265d_0
+      fingerprint: 5d3eb183e864df53294e1a6c48bf6b9a_0
 high:
     - rule:
         cwe_ids:
@@ -106,11 +106,11 @@ high:
             - [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_get_params
       line_number: 3
-      filename: datatype_in_params.rb
+      filename: /tmp/scan/datatype_in_params.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 3
       snippet: RestClient.get("https://my.api.com/users/search?first_name=#{user.first_name}")
-      fingerprint: f34fb10ce48303451898c1db1c78265d_0
+      fingerprint: 5d3eb183e864df53294e1a6c48bf6b9a_0
 

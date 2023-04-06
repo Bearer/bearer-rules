@@ -3,7 +3,7 @@ medium:
         cwe_ids:
             - "523"
             - "522"
-        id: express_default_session_config
+        id: javascript_express_default_session_config
         title: Session cookie with default config detected.
         description: |
             ## Description
@@ -14,10 +14,10 @@ medium:
 
             ## Resources
             - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
-        documentation_url: https://docs.bearer.com/reference/rules/express_default_session_config
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_default_session_config
       line_number: 9
-      filename: default_session_config.js
+      filename: /tmp/scan/default_session_config.js
       parent_line_number: 9
       snippet: '{}'
-      fingerprint: 6e2d08aeb03d99a4665c6b2cd7f7531d_0
+      fingerprint: 6737918c527517aac5dd3fec39d0524e_0
 

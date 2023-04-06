@@ -28,10 +28,10 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 2
-      filename: unsafe_event.rb
+      filename: /tmp/scan/unsafe_event.rb
       parent_line_number: 2
       snippet: 'Dir["foo", base: event["oops"]]'
-      fingerprint: e1d843263981fc379f819368579af3eb_0
+      fingerprint: e0d97cec90a581cc8b77da03023979ed_0
     - rule:
         cwe_ids:
             - "22"
@@ -61,10 +61,10 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 4
-      filename: unsafe_event.rb
+      filename: /tmp/scan/unsafe_event.rb
       parent_line_number: 4
       snippet: Dir.chdir("/home/#{event["oops"]}")
-      fingerprint: e1d843263981fc379f819368579af3eb_1
+      fingerprint: e0d97cec90a581cc8b77da03023979ed_1
     - rule:
         cwe_ids:
             - "22"
@@ -94,10 +94,10 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 6
-      filename: unsafe_event.rb
+      filename: /tmp/scan/unsafe_event.rb
       parent_line_number: 6
       snippet: File.exist?(event["oops"])
-      fingerprint: e1d843263981fc379f819368579af3eb_2
+      fingerprint: e0d97cec90a581cc8b77da03023979ed_2
     - rule:
         cwe_ids:
             - "22"
@@ -127,10 +127,10 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 8
-      filename: unsafe_event.rb
+      filename: /tmp/scan/unsafe_event.rb
       parent_line_number: 8
       snippet: IO.readlines("/home/#{event["oops"]}")
-      fingerprint: e1d843263981fc379f819368579af3eb_3
+      fingerprint: e0d97cec90a581cc8b77da03023979ed_3
     - rule:
         cwe_ids:
             - "22"
@@ -160,12 +160,12 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 10
-      filename: unsafe_event.rb
+      filename: /tmp/scan/unsafe_event.rb
       parent_line_number: 10
       snippet: |-
         Kernel.open(event["oops"], "w+") do
           end
-      fingerprint: e1d843263981fc379f819368579af3eb_4
+      fingerprint: e0d97cec90a581cc8b77da03023979ed_4
     - rule:
         cwe_ids:
             - "22"
@@ -195,10 +195,10 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 13
-      filename: unsafe_event.rb
+      filename: /tmp/scan/unsafe_event.rb
       parent_line_number: 13
       snippet: open(event["oops"])
-      fingerprint: e1d843263981fc379f819368579af3eb_5
+      fingerprint: e0d97cec90a581cc8b77da03023979ed_5
     - rule:
         cwe_ids:
             - "22"
@@ -228,10 +228,10 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 15
-      filename: unsafe_event.rb
+      filename: /tmp/scan/unsafe_event.rb
       parent_line_number: 15
       snippet: PStore.new(event["oops"])
-      fingerprint: e1d843263981fc379f819368579af3eb_6
+      fingerprint: e0d97cec90a581cc8b77da03023979ed_6
     - rule:
         cwe_ids:
             - "22"
@@ -261,10 +261,10 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 17
-      filename: unsafe_event.rb
+      filename: /tmp/scan/unsafe_event.rb
       parent_line_number: 17
       snippet: Pathname.new(event["oops"])
-      fingerprint: e1d843263981fc379f819368579af3eb_7
+      fingerprint: e0d97cec90a581cc8b77da03023979ed_7
     - rule:
         cwe_ids:
             - "22"
@@ -294,10 +294,10 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 18
-      filename: unsafe_event.rb
+      filename: /tmp/scan/unsafe_event.rb
       parent_line_number: 18
       snippet: path + event["two"]
-      fingerprint: e1d843263981fc379f819368579af3eb_8
+      fingerprint: e0d97cec90a581cc8b77da03023979ed_8
     - rule:
         cwe_ids:
             - "22"
@@ -327,10 +327,10 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 19
-      filename: unsafe_event.rb
+      filename: /tmp/scan/unsafe_event.rb
       parent_line_number: 19
       snippet: path / event["two"]
-      fingerprint: e1d843263981fc379f819368579af3eb_9
+      fingerprint: e0d97cec90a581cc8b77da03023979ed_9
     - rule:
         cwe_ids:
             - "22"
@@ -360,8 +360,8 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 20
-      filename: unsafe_event.rb
+      filename: /tmp/scan/unsafe_event.rb
       parent_line_number: 20
       snippet: path.join("a", event["three"])
-      fingerprint: e1d843263981fc379f819368579af3eb_10
+      fingerprint: e0d97cec90a581cc8b77da03023979ed_10
 

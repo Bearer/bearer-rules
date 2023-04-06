@@ -17,7 +17,7 @@ high:
             - [Segment JavaScript docs](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_segment
       line_number: 8
-      filename: datatype_in_track.js
+      filename: /tmp/scan/datatype_in_track.js
       category_groups:
         - Personal Data
       parent_line_number: 5
@@ -27,7 +27,7 @@ high:
           userId: user.id,
           userIpAddr: user.ip_address,
         })
-      fingerprint: 7962fdb50924228eb50532bd49443112_0
+      fingerprint: cc2ce3e312115b7dd7e8788b76bfd006_0
     - rule:
         cwe_ids:
             - "201"
@@ -46,11 +46,11 @@ high:
             - [Segment JavaScript docs](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_segment
       line_number: 17
-      filename: datatype_in_track.js
+      filename: /tmp/scan/datatype_in_track.js
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 17
       snippet: browser.track(user.email)
-      fingerprint: 7962fdb50924228eb50532bd49443112_1
+      fingerprint: cc2ce3e312115b7dd7e8788b76bfd006_1
 

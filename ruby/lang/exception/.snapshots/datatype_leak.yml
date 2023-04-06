@@ -24,13 +24,13 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exception
       line_number: 1
-      filename: datatype_leak.rb
+      filename: /tmp/scan/datatype_leak.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 1
       snippet: raise CustomException.new(user.email)
-      fingerprint: 865a10823630b4befef09e4971d946ef_0
+      fingerprint: bdb5fa36fb9ad27c03343392a79911d1_0
     - rule:
         cwe_ids:
             - "210"
@@ -56,11 +56,11 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exception
       line_number: 2
-      filename: datatype_leak.rb
+      filename: /tmp/scan/datatype_leak.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 2
       snippet: 'raise "User doesn''t exist #{user.email}"'
-      fingerprint: 865a10823630b4befef09e4971d946ef_1
+      fingerprint: bdb5fa36fb9ad27c03343392a79911d1_1
 

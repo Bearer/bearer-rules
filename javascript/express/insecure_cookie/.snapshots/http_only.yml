@@ -3,7 +3,7 @@ low:
         cwe_ids:
             - "1004"
             - "614"
-        id: express_insecure_cookie
+        id: javascript_express_insecure_cookie
         title: Missing secure options for cookie detected.
         description: |
             ## Description
@@ -16,10 +16,10 @@ low:
 
             ## Resources
             - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
-        documentation_url: https://docs.bearer.com/reference/rules/express_insecure_cookie
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_insecure_cookie
       line_number: 13
-      filename: http_only.js
+      filename: /tmp/scan/http_only.js
       parent_line_number: 13
       snippet: 'httpOnly: true'
-      fingerprint: 2c50605bef820829b7d58a87086381c9_0
+      fingerprint: a3401281a9cc695052ce16e731b8de16_0
 

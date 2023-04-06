@@ -16,7 +16,7 @@ high:
             - [Open Telemetry Docs](https://opentelemetry.io/docs/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_open_telemetry
       line_number: 5
-      filename: datatype_in_add_event.js
+      filename: /tmp/scan/datatype_in_add_event.js
       category_groups:
         - PII
         - Personal Data
@@ -25,5 +25,5 @@ high:
         currentSpan.addEvent('my-event', {
           'event.metadata': customer.emailAddress
         })
-      fingerprint: c07461857f570fe7124dbbff054fcfc5_0
+      fingerprint: 35db29d5a59fd2a71ec54b83282ce43a_0
 
