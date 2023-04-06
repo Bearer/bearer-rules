@@ -12,6 +12,10 @@ bearer-rules is the default rules repository for [Bearer](https://github.com/Bea
 
 ## :question: FAQs
 
+### How can I update an existing Bearer rule?
+
+If you'd like to suggest an improvement or expansion to an existing rule in this repo, that's great news! Check out (our guide here)[https://docs.bearer.com/guides/custom-rule/#the-rule-configuration-file] for further context on the understanding rule syntax and accepted YAML attributes.
+
 ### How can I run my own version of these rules with Bearer?
 
 Simple! Fork this repository, and, when running Bearer, disable default rules and instead pull your forked rules from an external directory.
