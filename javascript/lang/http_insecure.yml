@@ -1,52 +1,47 @@
 patterns:
-  - pattern: |
-      $<LIBRARY>.$<METHOD>($<INSECURE_URL>$<...>)
-    filters:
-      - variable: INSECURE_URL
-        detection: insecure_url
-      - variable: LIBRARY
-        values:
-          - axios
-          - http
-      - variable: METHOD
-        values:
-          - get
-          - post
-          - patch
-          - delete
-  - pattern: |
-      axios($<INSECURE_CONFIG>)
-    filters:
-      - variable: INSECURE_CONFIG
-        detection: javascript_http_insecure_axios_object
-  - pattern: |
-      fetch($<INSECURE_URL>$<...>)
-    filters:
-      - variable: INSECURE_URL
-        detection: insecure_url
-  - pattern: |
-      $<REQUEST>.open($<_>, $<INSECURE_URL>$<...>);
-    filters:
-      - variable: INSECURE_URL
-        detection: insecure_url
-      - variable: REQUEST
-        values:
-          - req
-          - request
-          - xhttp
+- pattern: "$<LIBRARY>.$<METHOD>($<INSECURE_URL>$<...>)\n"
+  filters:
+  - variable: INSECURE_URL
+    detection: insecure_url
+  - variable: LIBRARY
+    values:
+    - axios
+    - http
+  - variable: METHOD
+    values:
+    - get
+    - post
+    - patch
+    - delete
+- pattern: axios($<INSECURE_CONFIG>)
+  filters:
+  - variable: INSECURE_CONFIG
+    detection: javascript_http_insecure_axios_object
+- pattern: fetch($<INSECURE_URL>$<...>)
+  filters:
+  - variable: INSECURE_URL
+    detection: insecure_url
+- pattern: "$<REQUEST>.open($<_>, $<INSECURE_URL>$<...>);\n"
+  filters:
+  - variable: INSECURE_URL
+    detection: insecure_url
+  - variable: REQUEST
+    values:
+    - req
+    - request
+    - xhttp
 auxiliary:
-  - id: javascript_http_insecure_axios_object
-    patterns:
-      - pattern: |
-          { url: $<INSECURE_URL> }
-        filters:
-          - variable: INSECURE_URL
-            detection: insecure_url
+- id: javascript_http_insecure_axios_object
+  patterns:
+  - pattern: "{ url: $<INSECURE_URL> }\n"
+    filters:
+    - variable: INSECURE_URL
+      detection: insecure_url
 languages:
-  - javascript
+- javascript
 severity: low
 metadata:
-  description: "Connection with an unsecure HTTP communication detected."
+  description: Connection with an unsecure HTTP communication detected.
   remediation_message: |
     ## Description
 
@@ -67,5 +62,5 @@ metadata:
     ## Resources
     - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
   cwe_id:
-    - 319
-  id: "javascript_http_insecure"
+  - 319
+  id: javascript_lang_http_insecure
