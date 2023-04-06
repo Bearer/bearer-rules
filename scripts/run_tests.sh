@@ -6,7 +6,11 @@ printf "INFO: Running tests...\n"
 
 TEST_COUNT=0
 FAILURES=0
-TARGET=$1
+if [ ! -z "$1" ]; then
+  TARGET="$PWD/$1"
+else
+  TARGET=$PWD
+fi
 
 trap printexit SIGINT
 printexit() {
@@ -19,11 +23,10 @@ printexit() {
   exit 0
 }
 
-for dir in $(find ${PWD}/$TARGET -type d -name "testdata"); do
+for dir in $(find $TARGET -type d -name "testdata"); do
   rule_id="${dir//$PWD\//}"
   rule_id="${rule_id///testdata/}"
   rule_id="${rule_id//\//_}"
-  printf "$rule_id\n"
 
   for file in $(find $dir -type f); do
     TEST_COUNT=$((TEST_COUNT+1))
@@ -35,15 +38,13 @@ for dir in $(find ${PWD}/$TARGET -type d -name "testdata"); do
 
     docker run --platform linux/amd64 --rm -v $dir:/tmp/scan -v $PWD:/tmp/rules bearer/bearer:canary-amd64 scan /tmp/scan/$filename --only-rule=$rule_id --disable-default-rules=true --external-rule-dir=/tmp/rules --format=yaml > $test_result
 
-    if [ -n "$UPDATE_SNAPSHOTS" ] || [ ! -f $test_snapshot ]
-    then
+    if [ -n "$UPDATE_SNAPSHOTS" ] || [ ! -f $test_snapshot ]; then
       printf "INFO: Building snapshot...\n"
       cat $test_result > $test_snapshot
     else
       diff $test_result $test_snapshot
 
-      if [ $? -ne 0 ]
-      then
+      if [ $? -ne 0 ]; then
         FAILURES=$((FAILURES+1))
       fi
     fi
