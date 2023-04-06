@@ -9,7 +9,7 @@ patterns:
       - not:
           variable: DATA
           detection: javascript_dangerous_insert_html_sanitzed_input
-  - pattern: "$<_>.$<PROPERTY> = $<DATA>\n"
+  - pattern: $<_>.$<PROPERTY> = $<DATA>
     filters:
       - variable: PROPERTY
         values:
@@ -18,7 +18,7 @@ patterns:
       - not:
           variable: DATA
           detection: javascript_dangerous_insert_html_sanitzed_input
-  - pattern: "$<_>.$<METHOD>($<...>$<DATA>$<...>)\n"
+  - pattern: $<_>.$<METHOD>($<...>$<DATA>$<...>)
     filters:
       - variable: METHOD
         values:
@@ -33,7 +33,7 @@ patterns:
 auxiliary:
   - id: javascript_dangerous_insert_html_sanitzed_input
     patterns:
-      - pattern: "$<STRING_LITERAL>\n"
+      - pattern: $<STRING_LITERAL>
         filters:
           - variable: STRING_LITERAL
             detection: string_literal
@@ -43,7 +43,7 @@ auxiliary:
       - "$<_>.sanitizeHtml()"
   - id: javascript_dangerous_insert_html_unsanitzed_input
     patterns:
-      - "`$<...>${$<...>$<_>$<...>}$<...>`\n"
+      - `$<...>${$<...>$<_>$<...>}$<...>`
 languages:
   - javascript
 severity: high

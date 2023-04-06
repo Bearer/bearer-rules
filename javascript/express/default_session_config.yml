@@ -9,7 +9,7 @@ languages:
 auxiliary:
   - id: express_default_session_config_name_attribute
     patterns:
-      - "{ name: $<_> }\n"
+      - { name: $<_> }
 severity: medium
 metadata:
   description: Session cookie with default config detected.

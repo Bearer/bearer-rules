@@ -7,8 +7,8 @@ patterns:
 auxiliary:
   - id: javascript_dom_purify_safe_config
     patterns:
-      - pattern: "{ RETURN_DOM_FRAGMENT: true }\n"
-      - pattern: "{ RETURN_DOM_IMPORT: true }\n"
+      - pattern: "{ RETURN_DOM_FRAGMENT: true }"
+      - pattern: "{ RETURN_DOM_IMPORT: true }"
 languages:
   - javascript
 severity: high

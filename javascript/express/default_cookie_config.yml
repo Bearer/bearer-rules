@@ -47,23 +47,23 @@ languages:
 auxiliary:
   - id: express_default_cookie_config_hash_val
     patterns:
-      - "{}\n"
+      - {}
   - id: express_default_cookie_config_name_attribute
     patterns:
-      - "{ name: $<_> }\n"
+      - { name: $<_> }
   - id: express_default_cookie_config_expiry_attribute
     patterns:
-      - "{ maxAge: $<_> }\n"
-      - "{ expires: $<_> }\n"
+      - { maxAge: $<_> }
+      - { expires: $<_> }
   - id: express_default_cookie_config_path_attribute
     patterns:
-      - "{ path: $<_> }\n"
+      - { path: $<_> }
   - id: express_default_cookie_config_domain_attribute
     patterns:
-      - "{ domain: $<_> }\n"
+      - { domain: $<_> }
   - id: express_default_cookie_config_secure_attribute
     patterns:
-      - "{ secure: $<_> }\n"
+      - { secure: $<_> }
 severity: medium
 metadata:
   description: Cookie with default config detected.

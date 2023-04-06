@@ -1,5 +1,5 @@
 patterns:
-  - pattern: "$<LIBRARY>.$<METHOD>($<INSECURE_URL>$<...>)\n"
+  - pattern: $<LIBRARY>.$<METHOD>($<INSECURE_URL>$<...>)
     filters:
       - variable: INSECURE_URL
         detection: insecure_url
@@ -21,7 +21,7 @@ patterns:
     filters:
       - variable: INSECURE_URL
         detection: insecure_url
-  - pattern: "$<REQUEST>.open($<_>, $<INSECURE_URL>$<...>);\n"
+  - pattern: $<REQUEST>.open($<_>, $<INSECURE_URL>$<...>);
     filters:
       - variable: INSECURE_URL
         detection: insecure_url
@@ -33,7 +33,7 @@ patterns:
 auxiliary:
   - id: javascript_http_insecure_axios_object
     patterns:
-      - pattern: "{ url: $<INSECURE_URL> }\n"
+      - pattern: "{ url: $<INSECURE_URL> }"
         filters:
           - variable: INSECURE_URL
             detection: insecure_url

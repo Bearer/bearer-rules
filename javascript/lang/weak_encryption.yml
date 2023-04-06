@@ -1,11 +1,11 @@
 patterns:
-  - pattern: "$<VAR>.update($<DATA_TYPE>)\n"
+  - pattern: $<VAR>.update($<DATA_TYPE>)
     filters:
       - variable: VAR
         detection: create_hash
       - variable: DATA_TYPE
         detection: datatype
-  - pattern: "$<VAR>.update()\n"
+  - pattern: $<VAR>.update()
     filters:
       - variable: VAR
         detection: create_hash
