@@ -199,7 +199,8 @@ auxiliary:
       - Shell::CommandProcessor.new$<...>
   - id: ruby_lang_path_using_user_input_shell_cmd_trans_user_input
     patterns:
-      - pattern: $<METHOD>($<...>$<USER_INPUT>$<...>)$<...>
+      - pattern:
+          $<METHOD>($<...>$<USER_INPUT>$<...>)$<...>
         filters:
           - variable: METHOD
             values:
@@ -246,3 +247,4 @@ metadata:
     - 22
     - 73
   id: ruby_lang_path_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input

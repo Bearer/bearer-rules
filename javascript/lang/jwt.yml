@@ -1,16 +1,17 @@
-type: risk
+---
 patterns:
-  - pattern: |
-      jwt.sign($<...>$<DATA_TYPE>$<...>)
-    filters:
-      - variable: DATA_TYPE
-        detection: datatype
+- pattern: 'jwt.sign($<...>$<DATA_TYPE>$<...>)
+
+'
+  filters:
+  - variable: DATA_TYPE
+    detection: datatype
 languages:
-  - javascript
+- javascript
 skip_data_types:
-  - "Unique Identifier"
+- Unique Identifier
 metadata:
-  description: "Sensitive data in a JWT detected."
+  description: Sensitive data in a JWT detected.
   remediation_message: |
     ## Description
 
@@ -35,5 +36,6 @@ metadata:
     ## Resources
       - [OWASP sensitive data exposure](https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure)
   cwe_id:
-    - 312
-  id: "javascript_lang_jwt"
+  - 312
+  id: javascript_lang_jwt
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_jwt

@@ -1,13 +1,13 @@
-type: risk
+---
 patterns:
-  - pattern: |
-      jwt.sign($<_>, $<_>, {
-        algorithm: "none"
-      })
+- pattern: |
+    jwt.sign($<_>, $<_>, {
+      algorithm: "none"
+    })
 languages:
-  - javascript
+- javascript
 metadata:
-  description: "Weak jwt encryption deceted"
+  description: Weak jwt encryption deceted
   remediation_message: |
     ## Description
 
@@ -25,8 +25,7 @@ metadata:
 
     ## Resources
     - [OWASP weak encryption](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption)
-
-  dsr_id: "DSR-5"
   cwe_id:
-    - 327
-  id: "javascript_lang_jwt_weak_encryption"
+  - 327
+  id: javascript_lang_jwt_weak_encryption
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_jwt_weak_encryption

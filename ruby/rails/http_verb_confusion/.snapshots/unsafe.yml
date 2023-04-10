@@ -21,16 +21,16 @@ medium:
               alter_state
             end
             ```
-        documentation_url: ""
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_http_verb_confusion
       line_number: 1
-      filename: /tmp/scan/unsafe.rb
+      filename: unsafe.rb
       parent_line_number: 1
       snippet: |-
         if request.get?
         else
           change_state
         end
-      fingerprint: ac3a3caaf7de89ce8a51f3ba2ae0a2bb_0
+      fingerprint: 321bd706c0672870ab92a7e6107bf90d_0
     - rule:
         cwe_ids:
             - "650"
@@ -53,12 +53,12 @@ medium:
               alter_state
             end
             ```
-        documentation_url: ""
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_http_verb_confusion
       line_number: 6
-      filename: /tmp/scan/unsafe.rb
+      filename: unsafe.rb
       parent_line_number: 6
       snippet: change_state unless request.get?
-      fingerprint: ac3a3caaf7de89ce8a51f3ba2ae0a2bb_1
+      fingerprint: 321bd706c0672870ab92a7e6107bf90d_1
     - rule:
         cwe_ids:
             - "650"
@@ -81,13 +81,13 @@ medium:
               alter_state
             end
             ```
-        documentation_url: ""
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_http_verb_confusion
       line_number: 8
-      filename: /tmp/scan/unsafe.rb
+      filename: unsafe.rb
       parent_line_number: 8
       snippet: |-
         unless request.get?
           change_state
         end
-      fingerprint: ac3a3caaf7de89ce8a51f3ba2ae0a2bb_2
+      fingerprint: 321bd706c0672870ab92a7e6107bf90d_2
 

@@ -1,15 +1,17 @@
+---
 patterns:
-  - pattern: |
-      localStorage.setItem($<...>$<DATA_TYPE>$<...>)
-    filters:
-      - variable: DATA_TYPE
-        detection: datatype
+- pattern: 'localStorage.setItem($<...>$<DATA_TYPE>$<...>)
+
+'
+  filters:
+  - variable: DATA_TYPE
+    detection: datatype
 languages:
-  - javascript
+- javascript
 skip_data_types:
-  - "Unique Identifier"
+- Unique Identifier
 metadata:
-  description: "Sensitive data stored in HTML local storage detected."
+  description: Sensitive data stored in HTML local storage detected.
   remediation_message: |
     ## Description
 
@@ -34,5 +36,6 @@ metadata:
     ## Resources
       - [OWASP sensitive data exposure](https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure)
   cwe_id:
-    - 312
-  id: "javascript_lang_session"
+  - 312
+  id: javascript_lang_session
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_session
