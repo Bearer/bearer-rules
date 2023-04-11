@@ -24,29 +24,4 @@ high:
       parent_line_number: 2
       snippet: elasticsearch.index(user)
       fingerprint: ecad9dd9a0c8e7be0c49b8f00088a959_0
-    - rule:
-        cwe_ids:
-            - "201"
-        id: javascript_third_parties_elasticsearch
-        title: Sensitive data sent to ElasticSearch detected.
-        description: |
-            ## Description
-
-            Leaking sensitive data to database is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to elasticsearch.
-
-            ## Remediations
-
-            <!--
-            ## Resources
-            Coming soon.
-            -->
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_elasticsearch
-      line_number: 1
-      filename: /tmp/scan/unsecure.js
-      category_groups:
-        - PII
-        - Personal Data
-      parent_line_number: 2
-      snippet: elasticsearch.index(user)
-      fingerprint: ecad9dd9a0c8e7be0c49b8f00088a959_1
 
