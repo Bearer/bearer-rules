@@ -7,6 +7,6 @@ const jwt = await new jose.SignJWT({ 'urn:example:claim': true })
   .setExpirationTime('2h')
   .sign(secret)
 
-const jwt2 = await new jose.SignJWT().sign(config.secret)
+const jwt2 = await (new jose.SignJWT()).sign(secret)
 
 console.log(jwt)
