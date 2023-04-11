@@ -36,7 +36,7 @@ for dir in $(find $TARGET -type d -name "testdata"); do
     test_snapshot=${test_snapshot%.*}.yml
     filename=$(basename $file)
 
-    docker run --platform linux/amd64 --rm -v $dir:/tmp/scan -v $PWD:/tmp/rules bearer/bearer:canary-amd64 scan /tmp/scan/$filename --only-rule=$rule_id --disable-default-rules=true --external-rule-dir=/tmp/rules --format=yaml > $test_result
+    docker run --platform linux/amd64 --rm -v $dir:/tmp/scan -v $PWD:/tmp/rules bearer/bearer:latest-amd64 scan /tmp/scan/$filename --only-rule=$rule_id --disable-default-rules=true --external-rule-dir=/tmp/rules --format=yaml > $test_result
 
     if [ -n "$UPDATE_SNAPSHOTS" ] || [ ! -f $test_snapshot ]; then
       printf "INFO: Building snapshot...\n"
