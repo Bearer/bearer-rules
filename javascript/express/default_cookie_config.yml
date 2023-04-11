@@ -22,8 +22,7 @@ patterns:
           - not:
               variable: HASH_CONTENT
               detection: express_default_cookie_config_secure_attribute
-  - pattern: |
-      cookieSession($<!>$<HASH_CONTENT>)
+  - pattern: cookieSession($<!>$<HASH_CONTENT>)
     filters:
       - variable: HASH_CONTENT
         detection: express_default_cookie_config_hash_val
@@ -74,7 +73,7 @@ auxiliary:
         { secure: $<_> }
 severity: medium
 metadata:
-  description: "Cookie with default config detected."
+  description: Cookie with default config detected.
   remediation_message: |
     ## Description
     To make sure cookies don't open your application up to exploits or unauthorized access, don't use default cookie values.
@@ -89,4 +88,5 @@ metadata:
   cwe_id:
     - 523
     - 522
-  id: "javascript_express_default_cookie_config"
+  id: javascript_express_default_cookie_config
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_express_default_cookie_config

@@ -93,7 +93,7 @@ auxiliary:
         Google::Cloud::Dataflow::$<_>::SnapshotJobRequest.new
       - pattern: |
           $<CLIENT>.get_snapshot
-        fitlers:
+        filters:
           - variable: CLIENT
             detection: google_dataflow_snapshots_client_init
   - id: google_dataflow_value_classes
@@ -133,3 +133,4 @@ metadata:
   cwe_id:
     - 201
   id: ruby_third_parties_google_dataflow
+  documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_google_dataflow
