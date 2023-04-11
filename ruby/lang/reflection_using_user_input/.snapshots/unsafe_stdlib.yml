@@ -35,10 +35,10 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input
       line_number: 1
-      filename: unsafe_stdlib.rb
+      filename: /tmp/scan/unsafe_stdlib.rb
       parent_line_number: 1
       snippet: Object.const_get(params[:class])
-      fingerprint: ee293268391c14ee59c7cd9e36e078c0_0
+      fingerprint: 1710f02abd79906a01a2af480f498a47_0
     - rule:
         cwe_ids:
             - "94"
@@ -75,10 +75,10 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input
       line_number: 2
-      filename: unsafe_stdlib.rb
+      filename: /tmp/scan/unsafe_stdlib.rb
       parent_line_number: 2
       snippet: Object.const_set(params[:class], 42)
-      fingerprint: ee293268391c14ee59c7cd9e36e078c0_1
+      fingerprint: 1710f02abd79906a01a2af480f498a47_1
     - rule:
         cwe_ids:
             - "94"
@@ -115,10 +115,10 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input
       line_number: 3
-      filename: unsafe_stdlib.rb
+      filename: /tmp/scan/unsafe_stdlib.rb
       parent_line_number: 3
       snippet: Object.remove_const(params[:class])
-      fingerprint: ee293268391c14ee59c7cd9e36e078c0_2
+      fingerprint: 1710f02abd79906a01a2af480f498a47_2
     - rule:
         cwe_ids:
             - "94"
@@ -155,10 +155,10 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input
       line_number: 5
-      filename: unsafe_stdlib.rb
+      filename: /tmp/scan/unsafe_stdlib.rb
       parent_line_number: 5
       snippet: method(params[:method])
-      fingerprint: ee293268391c14ee59c7cd9e36e078c0_3
+      fingerprint: 1710f02abd79906a01a2af480f498a47_3
     - rule:
         cwe_ids:
             - "94"
@@ -195,10 +195,10 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input
       line_number: 7
-      filename: unsafe_stdlib.rb
+      filename: /tmp/scan/unsafe_stdlib.rb
       parent_line_number: 7
       snippet: x.define_method(params[:method]) {}
-      fingerprint: ee293268391c14ee59c7cd9e36e078c0_4
+      fingerprint: 1710f02abd79906a01a2af480f498a47_4
     - rule:
         cwe_ids:
             - "94"
@@ -235,10 +235,10 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input
       line_number: 9
-      filename: unsafe_stdlib.rb
+      filename: /tmp/scan/unsafe_stdlib.rb
       parent_line_number: 9
       snippet: params[:method].to_sym.to_proc
-      fingerprint: ee293268391c14ee59c7cd9e36e078c0_5
+      fingerprint: 1710f02abd79906a01a2af480f498a47_5
     - rule:
         cwe_ids:
             - "94"
@@ -275,10 +275,10 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input
       line_number: 11
-      filename: unsafe_stdlib.rb
+      filename: /tmp/scan/unsafe_stdlib.rb
       parent_line_number: 11
       snippet: bad_things(&params[:method].to_sym)
-      fingerprint: ee293268391c14ee59c7cd9e36e078c0_6
+      fingerprint: 1710f02abd79906a01a2af480f498a47_6
     - rule:
         cwe_ids:
             - "94"
@@ -315,8 +315,8 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input
       line_number: 12
-      filename: unsafe_stdlib.rb
+      filename: /tmp/scan/unsafe_stdlib.rb
       parent_line_number: 12
       snippet: x.bad_things(&params[:method].to_sym)
-      fingerprint: ee293268391c14ee59c7cd9e36e078c0_7
+      fingerprint: 1710f02abd79906a01a2af480f498a47_7
 

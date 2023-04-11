@@ -16,7 +16,7 @@ high:
             - [Open Telemetry Docs](https://opentelemetry.io/docs/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_open_telemetry
       line_number: 9
-      filename: datatype_in_set_status.js
+      filename: /tmp/scan/datatype_in_set_status.js
       category_groups:
         - PII
         - Personal Data
@@ -26,5 +26,5 @@ high:
               code: opentelemetry.SpanStatusCode.ERROR,
               message: "Bad connection for " + currentUser.emailAddress
             })
-      fingerprint: 800b1e73e5b7dcbfe428e5119722f598_0
+      fingerprint: ef59d117ee41cb80ddf4a299fa07cc3e_0
 

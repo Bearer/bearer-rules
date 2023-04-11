@@ -2,7 +2,7 @@ high:
     - rule:
         cwe_ids:
             - "201"
-        id: javascript_google_analytics
+        id: javascript_third_parties_google_analytics
         title: Sensitive data sent to Google Analytic detected.
         description: |
             ## Description
@@ -25,9 +25,9 @@ high:
 
             ## Resources
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_google_analytics
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_google_analytics
       line_number: 3
-      filename: unsecure.js
+      filename: /tmp/scan/unsecure.js
       category_groups:
         - PII
         - Personal Data
@@ -38,5 +38,5 @@ high:
         		email: "jhon@gmail.com",
         	},
         })
-      fingerprint: e9e519779eae41a91fc30ad3b62a84a3_0
+      fingerprint: 6021ce3d6d7ac1b2281463cdd3a190fb_0
 

@@ -27,10 +27,10 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_insecure
       line_number: 3
-      filename: insecure_net_http.rb
+      filename: /tmp/scan/insecure_net_http.rb
       parent_line_number: 3
       snippet: Net::HTTP.post_form("http://my.api.com/users/search")
-      fingerprint: 3bf618c5f169740a6892f6784db0e242_0
+      fingerprint: 1b251a7e7e50cc68c520841f12a24b23_0
     - rule:
         cwe_ids:
             - "319"
@@ -59,12 +59,12 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_insecure
       line_number: 5
-      filename: insecure_net_http.rb
+      filename: /tmp/scan/insecure_net_http.rb
       parent_line_number: 5
       snippet: |-
         Net::HTTP.start("http://my.api.com/users/search") do
         end
-      fingerprint: 3bf618c5f169740a6892f6784db0e242_1
+      fingerprint: 1b251a7e7e50cc68c520841f12a24b23_1
     - rule:
         cwe_ids:
             - "319"
@@ -93,8 +93,8 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_insecure
       line_number: 8
-      filename: insecure_net_http.rb
+      filename: /tmp/scan/insecure_net_http.rb
       parent_line_number: 8
       snippet: 'Net::HTTP::Get.new("http://my.api.com/users/search", { "X-Test": 42 })'
-      fingerprint: 3bf618c5f169740a6892f6784db0e242_2
+      fingerprint: 1b251a7e7e50cc68c520841f12a24b23_2
 

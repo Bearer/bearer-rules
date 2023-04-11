@@ -33,10 +33,10 @@ high:
             - [OWASP nosql injection explained](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_aws_lambda_query_injection
       line_number: 10
-      filename: dynamodb_query_injection.js
+      filename: /tmp/scan/dynamodb_query_injection.js
       parent_line_number: 10
       snippet: new QueryCommand(params)
-      fingerprint: 66820ec309f9420978198526e6038a5f_0
+      fingerprint: 935ff7a84e97260fb4021f6377821c75_0
     - rule:
         cwe_ids:
             - "89"
@@ -71,10 +71,10 @@ high:
             - [OWASP nosql injection explained](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_aws_lambda_query_injection
       line_number: 18
-      filename: dynamodb_query_injection.js
+      filename: /tmp/scan/dynamodb_query_injection.js
       parent_line_number: 18
       snippet: docClient.query(event["query"]["params"], function(err, data) {})
-      fingerprint: 66820ec309f9420978198526e6038a5f_1
+      fingerprint: 935ff7a84e97260fb4021f6377821c75_1
     - rule:
         cwe_ids:
             - "89"
@@ -109,8 +109,8 @@ high:
             - [OWASP nosql injection explained](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_aws_lambda_query_injection
       line_number: 32
-      filename: dynamodb_query_injection.js
+      filename: /tmp/scan/dynamodb_query_injection.js
       parent_line_number: 32
       snippet: new QueryCommand(params)
-      fingerprint: 66820ec309f9420978198526e6038a5f_2
+      fingerprint: 935ff7a84e97260fb4021f6377821c75_2
 

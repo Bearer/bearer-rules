@@ -34,13 +34,13 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 5
-      filename: openssl_rsa_data.rb
+      filename: /tmp/scan/openssl_rsa_data.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 5
       snippet: rsa_encrypt.export(cipher, user.password)
-      fingerprint: f7881251d777fec00daf7eac6b5d2ace_0
+      fingerprint: 50c53016b42972af5401228ccb82fc01_0
     - rule:
         cwe_ids:
             - "331"
@@ -76,11 +76,11 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 7
-      filename: openssl_rsa_data.rb
+      filename: /tmp/scan/openssl_rsa_data.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 7
       snippet: OpenSSL::PKey::RSA.new(1024).to_pem(cipher, user.first_name)
-      fingerprint: f7881251d777fec00daf7eac6b5d2ace_1
+      fingerprint: 50c53016b42972af5401228ccb82fc01_1
 

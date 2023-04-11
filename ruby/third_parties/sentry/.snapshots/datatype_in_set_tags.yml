@@ -16,13 +16,13 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_sentry
       line_number: 1
-      filename: datatype_in_set_tags.rb
+      filename: /tmp/scan/datatype_in_set_tags.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 1
       snippet: 'Sentry.set_tags(email: user.email)'
-      fingerprint: 1c288ce1bbdf17f40c1a689e9996579b_0
+      fingerprint: bc6a648d51ee42cbd89de98ecc294478_0
     - rule:
         cwe_ids:
             - "201"
@@ -40,13 +40,13 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_sentry
       line_number: 4
-      filename: datatype_in_set_tags.rb
+      filename: /tmp/scan/datatype_in_set_tags.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 4
       snippet: 'scope.set_tags(email: user.email)'
-      fingerprint: 1c288ce1bbdf17f40c1a689e9996579b_1
+      fingerprint: bc6a648d51ee42cbd89de98ecc294478_1
     - rule:
         cwe_ids:
             - "201"
@@ -64,11 +64,11 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_sentry
       line_number: 8
-      filename: datatype_in_set_tags.rb
+      filename: /tmp/scan/datatype_in_set_tags.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 8
       snippet: 'scope.set_tags(email: user.email)'
-      fingerprint: 1c288ce1bbdf17f40c1a689e9996579b_2
+      fingerprint: bc6a648d51ee42cbd89de98ecc294478_2
 

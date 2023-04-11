@@ -32,8 +32,8 @@ high:
             - [OWASP - Server-Side Request Forgery (SSRF) prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_server_side_request_forgery
       line_number: 12
-      filename: node_fetch_ssrf_injection.js
+      filename: /tmp/scan/node_fetch_ssrf_injection.js
       parent_line_number: 12
       snippet: fetch("https://" + req.query.path)
-      fingerprint: 26b9f4665fdfcaba8db99af878e8b501_0
+      fingerprint: fcb2cf6884778d24589dc17f7dc7efe7_0
 

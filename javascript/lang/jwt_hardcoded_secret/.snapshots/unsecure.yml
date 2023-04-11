@@ -2,7 +2,7 @@ high:
     - rule:
         cwe_ids:
             - "798"
-        id: javascript_jwt_hardcoded_secret
+        id: javascript_lang_jwt_hardcoded_secret
         title: Hardcoded jwt secret deteted
         description: |
             ## Description
@@ -21,10 +21,10 @@ high:
 
             ## Resources
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_jwt_hardcoded_secret
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_jwt_hardcoded_secret
       line_number: 3
-      filename: unsecure.js
+      filename: /tmp/scan/unsecure.js
       parent_line_number: 3
       snippet: 'jwt.sign({ foo: "bar" }, "someSecret")'
-      fingerprint: 00589880ba468827dcd091e5dfb04118_0
+      fingerprint: c6a3bc21b0de9e1ee2ca6f728add6a14_0
 

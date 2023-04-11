@@ -2,7 +2,7 @@ high:
     - rule:
         cwe_ids:
             - "798"
-        id: javascript_jwt_hardcoded_secret
+        id: javascript_lang_jwt_hardcoded_secret
         title: Hardcoded jwt secret deteted
         description: |
             ## Description
@@ -21,14 +21,14 @@ high:
 
             ## Resources
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_jwt_hardcoded_secret
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_jwt_hardcoded_secret
       line_number: 5
-      filename: unsecure_jose_jwt.js
+      filename: /tmp/scan/unsecure_jose_jwt.js
       parent_line_number: 5
       snippet: |-
         new jose.SignJWT({ 'urn:example:claim': true })
           .setIssuedAt()
           .setExpirationTime('2h')
           .sign(secret)
-      fingerprint: 7c599a49f18f8f39a152c36f65972edc_0
+      fingerprint: 64e0c9a50fa93c2e14540fa7355c0478_0
 

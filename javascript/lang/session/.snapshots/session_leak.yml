@@ -2,7 +2,7 @@ high:
     - rule:
         cwe_ids:
             - "312"
-        id: javascript_session
+        id: javascript_lang_session
         title: Sensitive data stored in HTML local storage detected.
         description: |
             ## Description
@@ -27,13 +27,13 @@ high:
 
             ## Resources
               - [OWASP sensitive data exposure](https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure)
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_session
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_session
       line_number: 1
-      filename: session_leak.js
+      filename: /tmp/scan/session_leak.js
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 3
       snippet: localStorage.setItem("user", user)
-      fingerprint: d081e8105d6ae2165d155f17906a1170_0
+      fingerprint: 885f362f243a45caed8c42c5d8e15460_0
 

@@ -33,8 +33,8 @@ high:
             - [OWASP sql injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_aws_lambda_sql_injection
       line_number: 8
-      filename: pg_sql_injection.js
+      filename: /tmp/scan/pg_sql_injection.js
       parent_line_number: 8
       snippet: client.query('SELECT * FROM users WHERE user.name = ' + event.user.name)
-      fingerprint: 1dc8804ee672f7b9a89fb07cd25ca6cf_0
+      fingerprint: 9db0522a2a235293ac87df9b53b5dbdb_0
 

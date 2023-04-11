@@ -16,13 +16,13 @@ high:
             - [Open Telemetry Docs](https://opentelemetry.io/docs/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_open_telemetry
       line_number: 6
-      filename: datatype_in_set_attribute.js
+      filename: /tmp/scan/datatype_in_set_attribute.js
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 6
       snippet: span.setAttribute("current-user", currentUser.emailAddress)
-      fingerprint: 8a07b30f80bef1b76aef3330ebe140e1_0
+      fingerprint: acff79d0c5fd36461ebf2a24d5843705_0
     - rule:
         cwe_ids:
             - "201"
@@ -40,11 +40,11 @@ high:
             - [Open Telemetry Docs](https://opentelemetry.io/docs/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_open_telemetry
       line_number: 11
-      filename: datatype_in_set_attribute.js
+      filename: /tmp/scan/datatype_in_set_attribute.js
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 11
       snippet: span.setAttribute("current-user", user.email)
-      fingerprint: 8a07b30f80bef1b76aef3330ebe140e1_1
+      fingerprint: acff79d0c5fd36461ebf2a24d5843705_1
 

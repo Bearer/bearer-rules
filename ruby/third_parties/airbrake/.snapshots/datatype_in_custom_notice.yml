@@ -16,7 +16,7 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 5
-      filename: datatype_in_custom_notice.rb
+      filename: /tmp/scan/datatype_in_custom_notice.rb
       category_groups:
         - PII
         - Personal Data
@@ -25,5 +25,5 @@ high:
         def to_airbrake
             { params: { user: current_user.email } }
           end
-      fingerprint: e3f494735d08357aad87832026eae004_0
+      fingerprint: 1fa16501bc68b13647d6b62a596bbd41_0
 

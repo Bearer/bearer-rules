@@ -3,7 +3,7 @@ medium:
         cwe_ids:
             - "523"
             - "522"
-        id: express_default_cookie_config
+        id: javascript_express_default_cookie_config
         title: Cookie with default config detected.
         description: |
             ## Description
@@ -16,9 +16,9 @@ medium:
 
             ## Resources
             - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
-        documentation_url: https://docs.bearer.com/reference/rules/express_default_cookie_config
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_default_cookie_config
       line_number: 11
-      filename: default_cookie_session_config.js
+      filename: /tmp/scan/default_cookie_session_config.js
       parent_line_number: 11
       snippet: |-
         {
@@ -27,5 +27,5 @@ medium:
             secure: true,
             maxAge: 24 * 60 * 60 * 1000,
           }
-      fingerprint: 1ff98ac850681443899120830a7ed5c3_0
+      fingerprint: aec8d7681eb89e1a65569d4489683c66_0
 

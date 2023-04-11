@@ -45,13 +45,13 @@ high:
             - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_sql_injection
       line_number: 12
-      filename: mysql2_sql_injection.js
+      filename: /tmp/scan/mysql2_sql_injection.js
       parent_line_number: 12
       snippet: |-
         connection.query(
         		"SELECT * FROM `user` WHERE name = " + req.params.customer.name
         	)
-      fingerprint: 6ab447a0217cef645dfc88f86abb0c3a_0
+      fingerprint: 591f97ba038b74067e24800a5cf27197_0
     - rule:
         cwe_ids:
             - "89"
@@ -98,14 +98,14 @@ high:
             - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_sql_injection
       line_number: 18
-      filename: mysql2_sql_injection.js
+      filename: /tmp/scan/mysql2_sql_injection.js
       parent_line_number: 18
       snippet: |-
         pool.query(
         		"SELECT * FROM users WHERE name = " + req.params.user_name,
         		function () {}
         	)
-      fingerprint: 6ab447a0217cef645dfc88f86abb0c3a_1
+      fingerprint: 591f97ba038b74067e24800a5cf27197_1
     - rule:
         cwe_ids:
             - "89"
@@ -152,8 +152,8 @@ high:
             - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_sql_injection
       line_number: 23
-      filename: mysql2_sql_injection.js
+      filename: /tmp/scan/mysql2_sql_injection.js
       parent_line_number: 23
       snippet: conn.query("SELECT * FROM users WHERE name = " + req.params.user_name, function () {})
-      fingerprint: 6ab447a0217cef645dfc88f86abb0c3a_2
+      fingerprint: 591f97ba038b74067e24800a5cf27197_2
 

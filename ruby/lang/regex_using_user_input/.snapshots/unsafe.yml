@@ -25,10 +25,10 @@ low:
             - [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_regex_using_user_input
       line_number: 1
-      filename: unsafe.rb
+      filename: /tmp/scan/unsafe.rb
       parent_line_number: 1
       snippet: /#{params[:oops]}.*/
-      fingerprint: 1e8ee47f5cc7f8e0addb596acc3642ab_0
+      fingerprint: c08b304b13481147c3fbc701116587f0_0
     - rule:
         cwe_ids:
             - "1333"
@@ -55,10 +55,10 @@ low:
             - [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_regex_using_user_input
       line_number: 3
-      filename: unsafe.rb
+      filename: /tmp/scan/unsafe.rb
       parent_line_number: 3
       snippet: '%r{abc#{params[:oops]}def}'
-      fingerprint: 1e8ee47f5cc7f8e0addb596acc3642ab_1
+      fingerprint: c08b304b13481147c3fbc701116587f0_1
     - rule:
         cwe_ids:
             - "1333"
@@ -85,8 +85,8 @@ low:
             - [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_regex_using_user_input
       line_number: 5
-      filename: unsafe.rb
+      filename: /tmp/scan/unsafe.rb
       parent_line_number: 5
       snippet: Regexp.new(params[:oops])
-      fingerprint: 1e8ee47f5cc7f8e0addb596acc3642ab_2
+      fingerprint: c08b304b13481147c3fbc701116587f0_2
 

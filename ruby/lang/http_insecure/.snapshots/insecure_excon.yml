@@ -27,10 +27,10 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_insecure
       line_number: 1
-      filename: insecure_excon.rb
+      filename: /tmp/scan/insecure_excon.rb
       parent_line_number: 1
       snippet: 'Excon.new("http://my.api.com/insecure", foo: true)'
-      fingerprint: 55c11a2725f21f0f542b7b0a88988395_0
+      fingerprint: 31091309e687ef7690258d5e194a5520_0
     - rule:
         cwe_ids:
             - "319"
@@ -59,8 +59,8 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_insecure
       line_number: 3
-      filename: insecure_excon.rb
+      filename: /tmp/scan/insecure_excon.rb
       parent_line_number: 3
       snippet: 'Excon.get("http://my.api.com/insecure", foo: true)'
-      fingerprint: 55c11a2725f21f0f542b7b0a88988395_1
+      fingerprint: 31091309e687ef7690258d5e194a5520_1
 

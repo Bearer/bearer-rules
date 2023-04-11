@@ -16,13 +16,13 @@ high:
             - [Open Telemetry Docs](https://opentelemetry.io/docs/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_open_telemetry
       line_number: 7
-      filename: datatype_in_record_exception.rb
+      filename: /tmp/scan/datatype_in_record_exception.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 7
       snippet: 'current_span.status = OpenTelemetry::Trace::Status.error("error for user #{current_user.email}")'
-      fingerprint: 22fdada1a042c5a6b49b42fcaf14cc92_0
+      fingerprint: c8c91235a65a581e05caf92182ed0668_0
     - rule:
         cwe_ids:
             - "201"
@@ -40,10 +40,10 @@ high:
             - [Open Telemetry Docs](https://opentelemetry.io/docs/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_open_telemetry
       line_number: 17
-      filename: datatype_in_record_exception.rb
+      filename: /tmp/scan/datatype_in_record_exception.rb
       category_groups:
         - Personal Data
       parent_line_number: 17
       snippet: 'current_span.record_exception(ex, attributes: { "user.ip" => user.ip_address })'
-      fingerprint: 22fdada1a042c5a6b49b42fcaf14cc92_1
+      fingerprint: c8c91235a65a581e05caf92182ed0668_1
 

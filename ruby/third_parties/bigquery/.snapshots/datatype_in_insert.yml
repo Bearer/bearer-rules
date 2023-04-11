@@ -15,7 +15,7 @@ high:
             - [BigQuery docs](https://cloud.google.com/ruby/docs)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_bigquery
       line_number: 4
-      filename: datatype_in_insert.rb
+      filename: /tmp/scan/datatype_in_insert.rb
       category_groups:
         - PII
         - Personal Data
@@ -24,5 +24,5 @@ high:
         dataset.insert("my_table", rows) do |result|
           call
         end
-      fingerprint: 328d2c307d14fffec14e504772fdae91_0
+      fingerprint: 5c01ca1e09f612f29a16c66debf9f68e_0
 

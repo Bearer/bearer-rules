@@ -22,14 +22,14 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_algolia
       line_number: 7
-      filename: datatype_in_save_object.js
+      filename: /tmp/scan/datatype_in_save_object.js
       category_groups:
         - Personal Data
       parent_line_number: 8
       snippet: |-
         index
           .saveObject(userObj, { autoGenerateObjectIDIfNotExist: true })
-      fingerprint: f7cd3e6cc20d31411535c7bef6ba52cc_0
+      fingerprint: 6773515146b585c843598f8fc4a5b65b_0
     - rule:
         cwe_ids:
             - "201"
@@ -53,11 +53,11 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_algolia
       line_number: 12
-      filename: datatype_in_save_object.js
+      filename: /tmp/scan/datatype_in_save_object.js
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 12
       snippet: 'index.saveObjects([{ email: user.email }])'
-      fingerprint: f7cd3e6cc20d31411535c7bef6ba52cc_1
+      fingerprint: 6773515146b585c843598f8fc4a5b65b_1
 

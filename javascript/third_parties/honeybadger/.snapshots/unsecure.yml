@@ -2,7 +2,7 @@ high:
     - rule:
         cwe_ids:
             - "201"
-        id: javascript_honeybadger
+        id: javascript_third_parties_honeybadger
         title: Sensitive data sent to Honeybadger detected.
         description: |
             ## Description
@@ -25,13 +25,13 @@ high:
 
             ## Resources
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_honeybadger
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_honeybadger
       line_number: 3
-      filename: unsecure.js
+      filename: /tmp/scan/unsecure.js
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 5
       snippet: Honeybadger.setContext(context)
-      fingerprint: 9298a232e4b1abb3732c757053e9acfd_0
+      fingerprint: f5ff216ec31d42ab7a3ebaa74290fbe0_0
 
