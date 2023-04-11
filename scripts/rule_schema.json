@@ -81,6 +81,9 @@
                 "description": {
                     "type": "string"
                 },
+                "documentation_url": {
+                    "type": "string"
+                },
                 "remediation_message": {
                     "type": "string"
                 },
@@ -101,7 +104,8 @@
                 "cwe_id",
                 "description",
                 "id",
-                "remediation_message"
+                "remediation_message",
+                "documentation_url"
             ],
             "title": "Metadata"
         },
