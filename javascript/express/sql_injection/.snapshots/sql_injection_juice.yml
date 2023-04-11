@@ -44,9 +44,18 @@ high:
             - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
             - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
         documentation_url: ""
-      line_number: 7
-      filename: /tmp/scan/sequelize_sql_injection.js
-      parent_line_number: 7
-      snippet: sqlite.query(customerQuery)
-      fingerprint: 6415dd5b8ceb462b69f7b605dac668f3_0
+      line_number: 4
+      filename: /tmp/scan/sql_injection_juice.js
+      parent_line_number: 4
+      snippet: |-
+        models.sequelize
+                .query(
+                  `SELECT * FROM Users WHERE email = '${
+                    req.body.email || ""
+                  }' AND password = '${security.hash(
+                    req.body.password || ""
+                  )}' AND deletedAt IS NULL`,
+                  { model: UserModel, plain: true }
+                )
+      fingerprint: 7da00c9f24bdf23b9e01291430a7b095_0
 

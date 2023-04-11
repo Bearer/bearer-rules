@@ -22,9 +22,9 @@ high:
             ## Resources
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: ""
-      line_number: 3
-      filename: /tmp/scan/unsecure.js
-      parent_line_number: 3
-      snippet: 'jwt.sign({ foo: "bar" }, "someSecret")'
-      fingerprint: c6a3bc21b0de9e1ee2ca6f728add6a14_0
+      line_number: 6
+      filename: /tmp/scan/insecure_jwt.js
+      parent_line_number: 6
+      snippet: 'myJWT.sign(user, privateKey, { expiresInMinutes: 60 * 5, algorithm: "RS256" })'
+      fingerprint: 43270446e8bae6dff72d28d82ca29955_0
 
