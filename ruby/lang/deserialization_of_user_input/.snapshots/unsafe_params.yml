@@ -27,10 +27,10 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 1
-      filename: unsafe_params.rb
+      filename: /tmp/scan/unsafe_params.rb
       parent_line_number: 1
       snippet: YAML.load(params[:oops])
-      fingerprint: 96a48cf9bfa9a6955f687c13537653a9_0
+      fingerprint: ca2a2052653735d8f601a8038140721a_0
     - rule:
         cwe_ids:
             - "502"
@@ -59,10 +59,10 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 3
-      filename: unsafe_params.rb
+      filename: /tmp/scan/unsafe_params.rb
       parent_line_number: 3
       snippet: Psych.load(params[:oops])
-      fingerprint: 96a48cf9bfa9a6955f687c13537653a9_1
+      fingerprint: ca2a2052653735d8f601a8038140721a_1
     - rule:
         cwe_ids:
             - "502"
@@ -91,10 +91,10 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 5
-      filename: unsafe_params.rb
+      filename: /tmp/scan/unsafe_params.rb
       parent_line_number: 5
       snippet: Syck.load(params[:oops])
-      fingerprint: 96a48cf9bfa9a6955f687c13537653a9_2
+      fingerprint: ca2a2052653735d8f601a8038140721a_2
     - rule:
         cwe_ids:
             - "502"
@@ -123,10 +123,10 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 7
-      filename: unsafe_params.rb
+      filename: /tmp/scan/unsafe_params.rb
       parent_line_number: 7
       snippet: JSON.load(params[:oops])
-      fingerprint: 96a48cf9bfa9a6955f687c13537653a9_3
+      fingerprint: ca2a2052653735d8f601a8038140721a_3
     - rule:
         cwe_ids:
             - "502"
@@ -155,12 +155,12 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 9
-      filename: unsafe_params.rb
+      filename: /tmp/scan/unsafe_params.rb
       parent_line_number: 9
       snippet: |-
         Oj.load(params[:oops]) do |json|
         end
-      fingerprint: 96a48cf9bfa9a6955f687c13537653a9_4
+      fingerprint: ca2a2052653735d8f601a8038140721a_4
     - rule:
         cwe_ids:
             - "502"
@@ -189,10 +189,10 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 11
-      filename: unsafe_params.rb
+      filename: /tmp/scan/unsafe_params.rb
       parent_line_number: 11
       snippet: Oj.object_load(params[:oops])
-      fingerprint: 96a48cf9bfa9a6955f687c13537653a9_5
+      fingerprint: ca2a2052653735d8f601a8038140721a_5
     - rule:
         cwe_ids:
             - "502"
@@ -221,10 +221,10 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 13
-      filename: unsafe_params.rb
+      filename: /tmp/scan/unsafe_params.rb
       parent_line_number: 13
       snippet: Marshal.load(params[:oops])
-      fingerprint: 96a48cf9bfa9a6955f687c13537653a9_6
+      fingerprint: ca2a2052653735d8f601a8038140721a_6
     - rule:
         cwe_ids:
             - "502"
@@ -253,8 +253,8 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 14
-      filename: unsafe_params.rb
+      filename: /tmp/scan/unsafe_params.rb
       parent_line_number: 14
       snippet: Marshal.restore(params[:oops])
-      fingerprint: 96a48cf9bfa9a6955f687c13537653a9_7
+      fingerprint: ca2a2052653735d8f601a8038140721a_7
 

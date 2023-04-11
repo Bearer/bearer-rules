@@ -16,13 +16,13 @@ high:
             - [Google Analytics docs](https://developers.google.com/analytics/devguides/reporting/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_google_analytics
       line_number: 1
-      filename: datatype_in_user_classes.rb
+      filename: /tmp/scan/datatype_in_user_classes.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 1
       snippet: 'Google::Apis::AnalyticsreportingV4::User.new(user_id: user.email)'
-      fingerprint: 2e7f04531d6a71956cae261704b576f8_0
+      fingerprint: 7fef3704f79b9c5db298cd4022990acd_0
     - rule:
         cwe_ids:
             - "201"
@@ -40,7 +40,7 @@ high:
             - [Google Analytics docs](https://developers.google.com/analytics/devguides/reporting/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_google_analytics
       line_number: 4
-      filename: datatype_in_user_classes.rb
+      filename: /tmp/scan/datatype_in_user_classes.rb
       category_groups:
         - Personal Data
       parent_line_number: 3
@@ -48,5 +48,5 @@ high:
         Google::Apis::AnalyticsreportingV4::UserActivitySession.update!(
           session_id: DateTime.now + user.ip_address
         )
-      fingerprint: 2e7f04531d6a71956cae261704b576f8_1
+      fingerprint: 7fef3704f79b9c5db298cd4022990acd_1
 

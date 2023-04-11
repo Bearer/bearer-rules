@@ -16,7 +16,7 @@ high:
             - [Google Analytics docs](https://developers.google.com/analytics/devguides/reporting/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_google_analytics
       line_number: 2
-      filename: datatype_in_custom_dimension.rb
+      filename: /tmp/scan/datatype_in_custom_dimension.rb
       category_groups:
         - PII
         - Personal Data
@@ -25,5 +25,5 @@ high:
         Google::Apis::AnalyticsreportingV4::CustomDimension.new(
           value: user.email
         )
-      fingerprint: 20835043be22cc0d750385881269f91d_0
+      fingerprint: 01bfaae9d58962eae1a61d71b18bd18a_0
 

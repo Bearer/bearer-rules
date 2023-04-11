@@ -16,7 +16,7 @@ high:
             - [Honeybadger Docs](https://docs.honeybadger.io/lib/ruby/integration-guides/rails-exception-tracking/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_honeybadger
       line_number: 3
-      filename: honeybadger_methods.rb
+      filename: /tmp/scan/honeybadger_methods.rb
       category_groups:
         - PII
         - Personal Data
@@ -25,5 +25,5 @@ high:
         def to_honeybadger_context
             { user: { id: id, email: email } }
           end
-      fingerprint: ef7694d62e7b884e3e3cb782b33a3fb2_0
+      fingerprint: 56628817329b46cc0bd0a48db28cd364_0
 

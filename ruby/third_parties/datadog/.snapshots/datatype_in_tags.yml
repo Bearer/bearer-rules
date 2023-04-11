@@ -17,13 +17,13 @@ high:
             - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_datadog
       line_number: 2
-      filename: datatype_in_tags.rb
+      filename: /tmp/scan/datatype_in_tags.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 3
       snippet: c.tags = user
-      fingerprint: 92dc8eee1f673495e39efdc73d198cfb_0
+      fingerprint: 2c62579630cb712ef706004829b9e6dd_0
     - rule:
         cwe_ids:
             - "201"
@@ -42,13 +42,13 @@ high:
             - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_datadog
       line_number: 7
-      filename: datatype_in_tags.rb
+      filename: /tmp/scan/datatype_in_tags.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 7
       snippet: span.set_tag('user.email', user.email)
-      fingerprint: 92dc8eee1f673495e39efdc73d198cfb_1
+      fingerprint: 2c62579630cb712ef706004829b9e6dd_1
     - rule:
         cwe_ids:
             - "201"
@@ -67,13 +67,13 @@ high:
             - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_datadog
       line_number: 9
-      filename: datatype_in_tags.rb
+      filename: /tmp/scan/datatype_in_tags.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 9
       snippet: Datadog::Tracing.active_span&.set_tag('customer.id', user.email)
-      fingerprint: 92dc8eee1f673495e39efdc73d198cfb_2
+      fingerprint: 2c62579630cb712ef706004829b9e6dd_2
     - rule:
         cwe_ids:
             - "201"
@@ -92,13 +92,13 @@ high:
             - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_datadog
       line_number: 10
-      filename: datatype_in_tags.rb
+      filename: /tmp/scan/datatype_in_tags.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 10
       snippet: Datadog::Tracing.active_span.set_tag('customer.id', user.email)
-      fingerprint: 92dc8eee1f673495e39efdc73d198cfb_3
+      fingerprint: 2c62579630cb712ef706004829b9e6dd_3
     - rule:
         cwe_ids:
             - "201"
@@ -117,7 +117,7 @@ high:
             - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_datadog
       line_number: 12
-      filename: datatype_in_tags.rb
+      filename: /tmp/scan/datatype_in_tags.rb
       category_groups:
         - PII
         - Personal Data
@@ -126,7 +126,7 @@ high:
         Datadog::Tracing.trace("web.request", tags: { email: user.email }) do |span, trace|
           call
         end
-      fingerprint: 92dc8eee1f673495e39efdc73d198cfb_4
+      fingerprint: 2c62579630cb712ef706004829b9e6dd_4
     - rule:
         cwe_ids:
             - "201"
@@ -145,11 +145,11 @@ high:
             - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_datadog
       line_number: 17
-      filename: datatype_in_tags.rb
+      filename: /tmp/scan/datatype_in_tags.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 17
       snippet: span.set_tag('user.email', user.email)
-      fingerprint: 92dc8eee1f673495e39efdc73d198cfb_5
+      fingerprint: 2c62579630cb712ef706004829b9e6dd_5
 

@@ -24,11 +24,11 @@ medium:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_insecure_smtp
       line_number: 8
-      filename: verify_none.rb
+      filename: /tmp/scan/verify_none.rb
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 8
       snippet: 'openssl_verify_mode: "none"'
-      fingerprint: 52686dc48c6602c724a86a7b5f88602e_0
+      fingerprint: f9277b02f8919886f9e44612f169fcad_0
 
