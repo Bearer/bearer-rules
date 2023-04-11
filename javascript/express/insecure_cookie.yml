@@ -1,29 +1,28 @@
----
 patterns:
-- pattern: |
-    {
-      cookie: {
+  - pattern: |
+      {
+        cookie: {
+          $<!>secure: false
+        }
+      }
+  - pattern: |
+      {
+        cookie: {
+          $<!>httpOnly: true
+        }
+      }
+  - pattern: |
+      cookieSession({
         $<!>secure: false
-      }
-    }
-- pattern: |
-    {
-      cookie: {
+      })
+  - pattern: |
+      cookieSession({
         $<!>httpOnly: true
-      }
-    }
-- pattern: |
-    cookieSession({
-      $<!>secure: false
-    })
-- pattern: |
-    cookieSession({
-      $<!>httpOnly: true
-    })
+      })
 languages:
-- javascript
+  - javascript
 metadata:
-  description: Missing secure options for cookie detected.
+  description: "Missing secure options for cookie detected."
   remediation_message: |
     ## Description
     To make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.
@@ -36,7 +35,7 @@ metadata:
     ## Resources
     - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
   cwe_id:
-  - 1004
-  - 614
+    - 1004
+    - 614
   id: javascript_express_insecure_cookie
   documentation_url: https://docs.bearer.com/reference/rules/javascript_express_insecure_cookie
