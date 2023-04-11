@@ -26,10 +26,10 @@ medium:
             - [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_open_redirect
       line_number: 2
-      filename: open_redirect.js
+      filename: /tmp/scan/open_redirect.js
       parent_line_number: 2
       snippet: res.redirect(req.params.url)
-      fingerprint: 4e437d5d0ff71e600352157c6a240eb5_0
+      fingerprint: d4d8a6e1c0492312e32ce6e6c0c431e6_0
     - rule:
         cwe_ids:
             - "601"
@@ -57,10 +57,10 @@ medium:
             - [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_open_redirect
       line_number: 3
-      filename: open_redirect.js
+      filename: /tmp/scan/open_redirect.js
       parent_line_number: 3
       snippet: res.redirect(req.query.url + "/bar")
-      fingerprint: 4e437d5d0ff71e600352157c6a240eb5_1
+      fingerprint: d4d8a6e1c0492312e32ce6e6c0c431e6_1
     - rule:
         cwe_ids:
             - "601"
@@ -88,10 +88,10 @@ medium:
             - [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_open_redirect
       line_number: 4
-      filename: open_redirect.js
+      filename: /tmp/scan/open_redirect.js
       parent_line_number: 4
       snippet: res.redirect("https://" + req.params.url + "/bar")
-      fingerprint: 4e437d5d0ff71e600352157c6a240eb5_2
+      fingerprint: d4d8a6e1c0492312e32ce6e6c0c431e6_2
     - rule:
         cwe_ids:
             - "601"
@@ -119,8 +119,8 @@ medium:
             - [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_open_redirect
       line_number: 5
-      filename: open_redirect.js
+      filename: /tmp/scan/open_redirect.js
       parent_line_number: 5
       snippet: res.redirect("http://" + req.params.path + "/bar")
-      fingerprint: 4e437d5d0ff71e600352157c6a240eb5_3
+      fingerprint: d4d8a6e1c0492312e32ce6e6c0c431e6_3
 

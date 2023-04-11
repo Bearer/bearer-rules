@@ -2,7 +2,7 @@ low:
     - rule:
         cwe_ids:
             - "319"
-        id: javascript_http_insecure
+        id: javascript_lang_http_insecure
         title: Connection with an unsecure HTTP communication detected.
         description: |
             ## Description
@@ -23,10 +23,10 @@ low:
 
             ## Resources
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_http_insecure
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_http_insecure
       line_number: 5
-      filename: request_insecure.js
+      filename: /tmp/scan/request_insecure.js
       parent_line_number: 5
       snippet: xhttp.open("GET", insecure_url, true)
-      fingerprint: 9caf1c625e8510eae24dfdf3445f074a_0
+      fingerprint: a9d59ed0b87cae1efe4bb346201499c9_0
 

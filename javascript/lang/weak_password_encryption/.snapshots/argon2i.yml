@@ -3,7 +3,7 @@ high:
         cwe_ids:
             - "327"
             - "916"
-        id: javascript_weak_password_encryption
+        id: javascript_lang_weak_password_encryption
         title: Weak encryption library usage detected.
         description: |
             ## Description
@@ -25,9 +25,9 @@ high:
 
             ## Resources
             - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options)
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_weak_password_encryption
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_password_encryption
       line_number: 4
-      filename: argon2i.js
+      filename: /tmp/scan/argon2i.js
       category_groups:
         - PII
         - Personal Data
@@ -38,5 +38,5 @@ high:
             memoryCost: 2 ** 16,
             hashLength: 50,
           })
-      fingerprint: a58fc137c5b45ed1bf8f11a41b26e223_0
+      fingerprint: 0f2a18f9c2d16025d11dfda506ac2868_0
 

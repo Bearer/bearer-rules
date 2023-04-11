@@ -16,10 +16,10 @@ medium:
             - [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_open_redirect
       line_number: 4
-      filename: insecure.js
+      filename: /tmp/scan/insecure.js
       parent_line_number: 4
       snippet: window.location.href = myPath
-      fingerprint: 6e0ea50cad602d864fb0bd40211daba9_0
+      fingerprint: 4ceb07cea7b5fb655c3a2dc8039e9c83_0
     - rule:
         cwe_ids:
             - "601"
@@ -37,8 +37,8 @@ medium:
             - [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_open_redirect
       line_number: 5
-      filename: insecure.js
+      filename: /tmp/scan/insecure.js
       parent_line_number: 5
       snippet: location.href = myPath2
-      fingerprint: 6e0ea50cad602d864fb0bd40211daba9_1
+      fingerprint: 4ceb07cea7b5fb655c3a2dc8039e9c83_1
 

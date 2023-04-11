@@ -2,7 +2,7 @@ high:
     - rule:
         cwe_ids:
             - "327"
-        id: javascript_weak_encryption
+        id: javascript_lang_weak_encryption
         title: Weak encryption library usage detected.
         description: |
             ## Description
@@ -24,19 +24,19 @@ high:
 
             ## Resources
             - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options)
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_weak_encryption
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_encryption
       line_number: 4
-      filename: md5.js
+      filename: /tmp/scan/md5.js
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 4
       snippet: crypto.createHmac("md5", key).update(user.email)
-      fingerprint: 0f998b98cc9f987fb155d95b934a2462_0
+      fingerprint: d4248b06db327b71c67cf7754e63f985_0
     - rule:
         cwe_ids:
             - "327"
-        id: javascript_weak_encryption
+        id: javascript_lang_weak_encryption
         title: Weak encryption library usage detected.
         description: |
             ## Description
@@ -58,19 +58,19 @@ high:
 
             ## Resources
             - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options)
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_weak_encryption
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_encryption
       line_number: 5
-      filename: md5.js
+      filename: /tmp/scan/md5.js
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 5
       snippet: crypto.createHash("md5").update(user.email)
-      fingerprint: 0f998b98cc9f987fb155d95b934a2462_1
+      fingerprint: d4248b06db327b71c67cf7754e63f985_1
     - rule:
         cwe_ids:
             - "327"
-        id: javascript_weak_encryption
+        id: javascript_lang_weak_encryption
         title: Weak encryption library usage detected.
         description: |
             ## Description
@@ -92,13 +92,13 @@ high:
 
             ## Resources
             - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options)
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_weak_encryption
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_encryption
       line_number: 9
-      filename: md5.js
+      filename: /tmp/scan/md5.js
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 9
       snippet: CryptoJS.MD5(user.email)
-      fingerprint: 0f998b98cc9f987fb155d95b934a2462_2
+      fingerprint: d4248b06db327b71c67cf7754e63f985_2
 

@@ -17,8 +17,8 @@ low:
             - [OWASP Injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html#injection-prevention-rules)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_insecure_template_rendering
       line_number: 13
-      filename: insecure_liquid_template.js
+      filename: /tmp/scan/insecure_liquid_template.js
       parent_line_number: 13
       snippet: 'engine.render(req.params.text, { hello: "world" })'
-      fingerprint: 7264f489a10dbe0c262bab1338d087a1_0
+      fingerprint: 87d156b83c56864c09a53461b86c010b_0
 

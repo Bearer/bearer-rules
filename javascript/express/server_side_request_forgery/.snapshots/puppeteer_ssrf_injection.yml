@@ -32,10 +32,10 @@ high:
             - [OWASP - Server-Side Request Forgery (SSRF) prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_server_side_request_forgery
       line_number: 15
-      filename: puppeteer_ssrf_injection.js
+      filename: /tmp/scan/puppeteer_ssrf_injection.js
       parent_line_number: 15
       snippet: page.setContent(content)
-      fingerprint: 318f87254f8f0e44e6139b5ef12abc3f_0
+      fingerprint: a0099bce0a5a02966b8f4af83dadd902_0
     - rule:
         cwe_ids:
             - "918"
@@ -69,8 +69,8 @@ high:
             - [OWASP - Server-Side Request Forgery (SSRF) prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_server_side_request_forgery
       line_number: 16
-      filename: puppeteer_ssrf_injection.js
+      filename: /tmp/scan/puppeteer_ssrf_injection.js
       parent_line_number: 16
       snippet: page.goto("https://" + req.query.path)
-      fingerprint: 318f87254f8f0e44e6139b5ef12abc3f_1
+      fingerprint: a0099bce0a5a02966b8f4af83dadd902_1
 

@@ -2,7 +2,7 @@ high:
     - rule:
         cwe_ids:
             - "327"
-        id: javascript_weak_encryption
+        id: javascript_lang_weak_encryption
         title: Weak encryption library usage detected.
         description: |
             ## Description
@@ -24,13 +24,13 @@ high:
 
             ## Resources
             - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options)
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_weak_encryption
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_encryption
       line_number: 3
-      filename: rc4.js
+      filename: /tmp/scan/rc4.js
       category_groups:
         - PII
         - Personal Data
       parent_line_number: 3
       snippet: CryptoJS.RC4.encrypt(user.email, "secret key")
-      fingerprint: 52ad6114081ffe4fa9da7f7fba034d11_0
+      fingerprint: d0a15749b5e84ac7d68eba7178cb7925_0
 

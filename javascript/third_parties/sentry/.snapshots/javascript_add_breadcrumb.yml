@@ -16,7 +16,7 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_sentry
       line_number: 2
-      filename: javascript_add_breadcrumb.js
+      filename: /tmp/scan/javascript_add_breadcrumb.js
       category_groups:
         - PII
         - Personal Data
@@ -26,5 +26,5 @@ high:
           message: `my message for ${user.email}`,
           // ...
         })
-      fingerprint: 51f5ec8e972ab1d8ac18a963406e1ff4_0
+      fingerprint: 195e9eeb9d723dba96e5f01412e2a27f_0
 
