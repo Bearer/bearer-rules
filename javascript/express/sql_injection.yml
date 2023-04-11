@@ -5,10 +5,7 @@ patterns:
       - variable: USER_INPUT
         detection: javascript_express_sql_injection_request_input
       - variable: KNEX_CLIENT
-        values:
-          - knex
-          - knexClient
-          - client
+        detection: javascript_express_sql_injection_knex_client
       - variable: METHOD
         values:
           - fromRaw
@@ -80,6 +77,15 @@ auxiliary:
         filters:
           - variable: MYSQL_POOL
             detection: javascript_express_sql_injection_mysql_pool
+  - id: javascript_express_sql_injection_knex_client
+    patterns:
+      - pattern: $<KNEX_CLIENT_INIT>
+        filters:
+          - variable: KNEX_CLIENT_INIT
+            values:
+              - knex
+              - knexClient
+              - client
 languages:
   - javascript
 severity: high

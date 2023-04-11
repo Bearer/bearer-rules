@@ -69,7 +69,7 @@ auxiliary:
       - pattern: $<MYSQL_POOL>.getConnection(function($<_>, $<!>$<_>) {})
         filters:
           - variable: MYSQL_POOL
-            detection: javascript_express_sql_injection_mysql_pool
+            detection: javascript_aws_lambda_sql_injection_mysql_pool
 languages:
   - javascript
 severity: high

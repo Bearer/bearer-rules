@@ -43,7 +43,7 @@ auxiliary:
           - variable: ORIGIN
             regex: (?i)['"]access-control-allow-origin["']
           - variable: USER_INPUT
-            detection: javascript_express_external_resource_req_object
+            detection: javascript_express_insecure_allow_origin_req_object
 metadata:
   description: "Insecure Access-Control-Allow-Origin detected."
   remediation_message: |
