@@ -1,0 +1,216 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Rule",
+    "definitions": {
+        "Rule": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "languages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "trigger": {
+                    "$ref": "#/definitions/Trigger"
+                },
+                "patterns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Pattern"
+                    }
+                },
+                "auxiliary": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Auxiliary"
+                    }
+                },
+                "metadata": {
+                    "$ref": "#/definitions/Metadata"
+                },
+                "detectors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": ["schema_rb", "sql_lang_create_table"]
+                    }
+                },
+                "processors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": ["db_encrypted", "rails_encrypted"]
+                    }
+                },
+                "auto_encrypt_prefix": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "string",
+                    "enum": ["warning", "low", "medium", "high", "critical"]
+                },
+                "skip_data_types": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "only_data_types": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "disabled": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "languages",
+                "metadata",
+                "patterns"
+            ],
+            "title": "Rule"
+        },
+        "Metadata": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "documentation_url": {
+                    "type": "string"
+                },
+                "remediation_message": {
+                    "type": "string"
+                },
+                "cwe_id": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "associated_recipe" : {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "cwe_id",
+                "description",
+                "id",
+                "remediation_message",
+                "documentation_url"
+            ],
+            "title": "Metadata"
+        },
+        "Auxiliary": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "patterns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Pattern"
+                    }
+                }
+            },
+            "required": [
+                "id",
+                "patterns"
+            ],
+            "title": "Auxiliary"
+        },
+        "Pattern": {
+            "type": ["object", "string"],
+            "additionalProperties": false,
+            "properties": {
+                "pattern": {
+                    "type": "string"
+                },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Filter"
+                    }
+                }
+            },
+            "required": [
+                "pattern"
+            ],
+            "title": "Pattern"
+        },
+        "Filter": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "variable": {
+                    "type": "string"
+                },
+                "regex": {
+                    "type": "string"
+                },
+                "detection": {
+                    "type": "string"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "less_than": {
+                    "type":"number"
+                },
+                "less_than_or_equal": {
+                    "type":"number"
+                },
+                "greater_than": {
+                    "type":"number"
+                },
+                "greater_than_or_equal": {
+                    "type":"number"
+                },
+                "contains": {
+                    "type":"boolean"
+                },
+                "either": {
+                    "type":"array",
+                    "items": {
+                        "$ref": "#/definitions/Filter"
+                    }
+                },
+                "not": {
+                    "$ref": "#/definitions/Filter"
+                }
+            },
+            "minProperties": 1,
+            "title": "Filter"
+        },
+        "Trigger": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "required_detection": {
+                    "type": "string"
+                },
+                "data_types_required": {
+                    "type":"boolean"
+                },
+                "match_on": {
+                    "type": "string",
+                    "enum": ["presence", "absence", "stored_data_types"]
+                }
+            },
+            "minProperties": 1,
+            "title": "Filter"
+        }
+    }
+}
