@@ -1,24 +1,23 @@
 patterns:
   - pattern: |
       {
-        cookie: {
-          $<!>secure: false
-        }
+        cookie: $<INSECURE_COOKIE>
       }
+    filters:
+      - variable: INSECURE_COOKIE
+        detection: javascript_express_insecure_cookie_insecure_cookie
   - pattern: |
-      {
-        cookie: {
-          $<!>httpOnly: true
-        }
-      }
-  - pattern: |
-      cookieSession({
-        $<!>secure: false
-      })
-  - pattern: |
-      cookieSession({
-        $<!>httpOnly: true
-      })
+      cookieSession($<INSECURE_COOKIE>)
+    filters:
+      - variable: INSECURE_COOKIE
+        detection: javascript_express_insecure_cookie_insecure_cookie
+auxiliary:
+  - id: javascript_express_insecure_cookie_insecure_cookie
+    patterns:
+      - pattern: |
+          { $<!>secure: false }
+      - pattern: |
+          { $<!>httpOnly: false }
 languages:
   - javascript
 metadata:

@@ -10,8 +10,8 @@ app.use(helmet.hidePoweredBy())
 app.use(
   cookieSession({
     domain: "example.com",
-    httpOnly: true,
-    secure: true,
+    httpOnly: false,
+    secure: false,
     name: "my-custom-cookie-name",
     maxAge: 24 * 60 * 60 * 1000,
     path: "/some-path",

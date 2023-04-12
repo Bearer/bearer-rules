@@ -19,7 +19,12 @@ patterns:
       - variable: USER_INPUT
         detection: javascript_express_sql_injection_request_input
   - pattern: |
-      $<SEQUELIZE>.query($<USER_INPUT>)
+      $<_>.sequelize.query($<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: javascript_express_sql_injection_request_input
+  - pattern: |
+      $<SEQUELIZE>.query($<USER_INPUT>$<...>)
     filters:
       - variable: SEQUELIZE
         detection: javascript_express_sql_injection_sequelize_init
@@ -132,5 +137,5 @@ metadata:
     - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
   cwe_id:
     - 89
-  id: "javascript_express_sql_injection"
+  id: javascript_express_sql_injection
   documentation_url: https://docs.bearer.com/reference/rules/javascript_express_sql_injection

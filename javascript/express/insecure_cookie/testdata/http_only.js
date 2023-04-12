@@ -10,7 +10,7 @@ app.use(
   session({
     cookie: {
       domain: "example.com",
-      httpOnly: true,
+      httpOnly: false,
       secure: true,
       name: "my-custom-cookie-name",
       maxAge: 24 * 60 * 60 * 1000,

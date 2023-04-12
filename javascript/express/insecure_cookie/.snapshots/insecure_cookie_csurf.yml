@@ -18,18 +18,12 @@ low:
             - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_insecure_cookie
       line_number: 10
-      filename: /tmp/scan/insecure_cookie.js
+      filename: /tmp/scan/insecure_cookie_csurf.js
       parent_line_number: 10
       snippet: |-
         {
-            cookie: {
-              domain: "example.com",
-              secure: false, // Ensures the browser only sends the cookie over HTTPS.
-              httpOnly: false,
-              name: "my-custom-cookie-name",
-              maxAge: 24 * 60 * 60 * 1000,
-              path: "/some-path",
-            },
+            cookie: { ...csrfOptions, httpOnly: true },
+            // cookie: { secure: false, httpOnly: true },
           }
-      fingerprint: fd60780da9867f6507dca2426fa76562_0
+      fingerprint: 5f193edf65fe666da4adc6a5666455f9_0
 
