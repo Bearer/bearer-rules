@@ -1,0 +1,39 @@
+low:
+    - rule:
+        cwe_ids:
+            - "79"
+        id: ruby_lang_manual_html_sanitization
+        title: Manual HTML sanitization detected.
+        description: |
+            ## Description
+            Sanitizing HTML manually is error prone and can lead to Cross Site
+            Scripting (XSS) vulnerabilities.
+
+            ## Remediations
+
+            ❌ Avoid manually escaping HTML:
+
+            ```ruby
+            sanitized_user_input = user.Input
+              .gsub('<', '&lt;')
+              .gsub('>', '&gt;')
+            html = "<strong>#{sanitized_user_input}</strong>"
+            ```
+
+            ✅ Use a HTML sanitization library:
+
+            ```ruby
+            html = sanitize("<strong>#{user.Input}</strong>")
+            ```
+
+            ## Resources
+            - [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_manual_html_sanitization
+      line_number: 1
+      filename: /tmp/scan/unsafe.rb
+      parent_line_number: 1
+      snippet: |-
+        user.Input
+          .gsub('<', '&lt;')
+      fingerprint: 5a603bf8a07b0273502f8e86e7b25c92_0
+
