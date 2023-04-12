@@ -1,2 +1,35 @@
-{}
+low:
+    - rule:
+        cwe_ids:
+            - "1004"
+            - "614"
+        id: javascript_express_insecure_cookie
+        title: Missing secure options for cookie detected.
+        description: |
+            ## Description
+            To make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.
+
+            ## Remediations
+            ✅ Set cookie security values to use HTTP(S) instead of client-side javascript.
+
+            ✅ Set `secure` values to `true` to force cookies to only send over HTTPS.
+
+            ## Resources
+            - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_insecure_cookie
+      line_number: 10
+      filename: /tmp/scan/http_only.js
+      parent_line_number: 10
+      snippet: |-
+        {
+            cookie: {
+              domain: "example.com",
+              httpOnly: false,
+              secure: true,
+              name: "my-custom-cookie-name",
+              maxAge: 24 * 60 * 60 * 1000,
+              path: "/some-path",
+            },
+          }
+      fingerprint: a3401281a9cc695052ce16e731b8de16_0
 
