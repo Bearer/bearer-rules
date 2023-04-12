@@ -1,0 +1,43 @@
+patterns:
+  - pattern: |
+      $<_>.$<METHOD>($<_>, $<UNSAFE>)
+    filters:
+      - variable: METHOD
+        values:
+          - sub
+          - gsub
+      - variable: UNSAFE
+        regex: "&(lt|gt|apos|quot|amp);"
+languages:
+  - ruby
+severity: low
+metadata:
+  description: "Manual HTML sanitization detected."
+  remediation_message: |
+    ## Description
+    Sanitizing HTML manually is error prone and can lead to Cross Site
+    Scripting (XSS) vulnerabilities.
+
+    ## Remediations
+
+    ❌ Avoid manually escaping HTML:
+
+    ```ruby
+    sanitized_user_input = user.Input
+      .gsub('<', '&lt;')
+      .gsub('>', '&gt;')
+    html = "<strong>#{sanitized_user_input}</strong>"
+    ```
+
+    ✅ Use a HTML sanitization library:
+
+    ```ruby
+    html = sanitize("<strong>#{user.Input}</strong>")
+    ```
+
+    ## Resources
+    - [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)
+  cwe_id:
+    - 79
+  id: ruby_lang_manual_html_sanitization
+  documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_manual_html_sanitization

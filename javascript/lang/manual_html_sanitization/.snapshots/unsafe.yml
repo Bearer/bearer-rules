@@ -1,0 +1,39 @@
+low:
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_manual_html_sanitization
+        title: Manual HTML sanitization detected.
+        description: |
+            ## Description
+            Sanitizing HTML manually is error prone and can lead to Cross Site
+            Scripting (XSS) vulnerabilities.
+
+            ## Remediations
+
+            ❌ Avoid manually escaping HTML:
+
+            ```javascript
+            const sanitizedUserInput = user.Input
+              .replaceAll('<', '&lt;')
+              .replaceAll('>', '&gt;');
+            const html = `<strong>${sanitizedUserInput}</strong>`;
+            ```
+
+            ✅ Use a HTML sanitization library:
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html';
+
+            const html = sanitizeHtml(`<strong>${user.Input}</strong>`);
+            ```
+
+            ## Resources
+            - [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_manual_html_sanitization
+      line_number: 1
+      filename: /tmp/scan/unsafe.js
+      parent_line_number: 1
+      snippet: user.Input.replaceAll('<', '&lt;')
+      fingerprint: c0518627978b47860a26bc3654430cc1_0
+
