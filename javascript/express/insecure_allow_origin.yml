@@ -6,6 +6,7 @@ patterns:
         values:
           - set
           - header
+          - setHeader
       - variable: ORIGIN
         regex: (?i)['"]access-control-allow-origin["']
       - variable: USER_INPUT
