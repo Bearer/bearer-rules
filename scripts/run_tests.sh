@@ -36,6 +36,7 @@ for dir in $(find $TARGET -type d -name "testdata"); do
     test_snapshot=${test_snapshot%.*}.yml
     filename=$(basename $file)
 
+    # docker rmi bearer/bearer:latest-amd64
     docker run --platform linux/amd64 --rm -v $dir:/tmp/scan -v $PWD:/tmp/rules bearer/bearer:latest-amd64 scan /tmp/scan/$filename --only-rule=$rule_id --disable-default-rules=true --external-rule-dir=/tmp/rules --format=yaml > $test_result
 
     if [ -n "$UPDATE_SNAPSHOTS" ] || [ ! -f $test_snapshot ]; then
