@@ -1,0 +1,37 @@
+high:
+    - rule:
+        cwe_ids:
+            - "1295"
+            - "532"
+        id: java_lang_logger
+        title: Sensitive data in a logger message detected.
+        description: |
+            ## Description
+
+            Leaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.
+
+            ## Remediations
+
+            ❌ Avoid using sensitive data in logger messages:
+
+            ```java
+            logger.info(user.email)
+            ```
+
+            ✅ If you need to identify a user, use their unique identifier instead of their personal identifiable information:
+
+            ```java
+            logger.info(user.uuid)
+            ```
+            ## Resources
+            - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
+        documentation_url: TODO
+      line_number: 2
+      filename: /Users/vjeranfistric/go/src/github.com/bearer/bearer-rules/java/lang/logger/testdata/simple.java
+      category_groups:
+        - PII
+        - Personal Data
+      parent_line_number: 3
+      snippet: logger.error(name)
+      fingerprint: d70bb87393c287f996daf48931a8a624_0
+
