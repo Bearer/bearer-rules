@@ -1,16 +1,12 @@
 patterns:
   - pattern: |
-      $<EXPRESS>.disable($<POWERED_BY>)
+      $<_>.disable($<POWERED_BY>)
     filters:
-      - variable: EXPRESS
-        detection: javascript_express_reduce_fingerprint_express_init
       - variable: POWERED_BY
         regex: (?i)['"]x-powered-by['"]
   - pattern: |
-      $<EXPRESS>.use($<FUNCTION_CALL>)
+      $<_>.use($<FUNCTION_CALL>)
     filters:
-      - variable: EXPRESS
-        detection: javascript_express_reduce_fingerprint_express_init
       - variable: FUNCTION_CALL
         detection: javascript_express_reduce_fingerprint_helmet_configuration
 auxiliary:
@@ -20,6 +16,7 @@ auxiliary:
   - id: javascript_express_reduce_fingerprint_helmet_configuration
     patterns:
       - helmet.hidePoweredBy()
+      - hidePoweredBy()
 languages:
   - javascript
 trigger:
