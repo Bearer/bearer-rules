@@ -14,19 +14,20 @@ high:
             Use safe sql libraries methods which sanitze user input
 
             Sequelize example
-            ```javascript
-              const { Op } = require("sequelize");
 
-              module.exports= async function(event, context) {
-                await Post.findAll({
-                  where: {
-                    [Op.or]: [
-                      { authorId: event.authorID },
-                      { authorId: 13 }
-                    ]
-                  }
-                });
-              };
+            ```javascript
+            const { Op } = require("sequelize");
+
+            module.exports= async function(event, context) {
+              await Post.findAll({
+                where: {
+                  [Op.or]: [
+                    { authorId: event.authorID },
+                    { authorId: 13 }
+                  ]
+                }
+              });
+            };
             ```
 
             ## Resources
