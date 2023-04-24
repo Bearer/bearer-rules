@@ -1,0 +1,16 @@
+low:
+    - rule:
+        cwe_ids:
+            - "1295"
+            - "532"
+        id: java_lang_sqli
+        title: SQL injection threat detected
+        description: |
+            TODO
+        documentation_url: TODO
+      line_number: 16
+      filename: /Users/vjeranfistric/go/src/github.com/bearer/bearer-rules/java/lang/sqli/testdata/string_concatenation.java
+      parent_line_number: 16
+      snippet: stmt.executeQuery(sqlQuery)
+      fingerprint: c746853316f14b4825d3ea7afb6ff614_0
+

@@ -1,0 +1,44 @@
+patterns:
+  - pattern: |
+      $<_>.$<METHOD>($<DYNAMIC_INPUT_LITERAL>)
+    filters:
+      - variable: METHOD
+        values:
+          - execute
+          - executeQuery
+          - prepareStatement
+      - variable: DYNAMIC_INPUT_LITERAL
+        detection: java_lang_sqli_dynamic_input
+auxiliary:
+  - id: java_lang_sqli_dynamic_input
+    patterns:
+      - pattern: |
+          $<STRING_LITERAL> + $<DYNAMIC_INPUT>
+        filters:
+          - variable: STRING_LITERAL
+            detection: string_literal
+            contains: false
+          - not:
+              variable: DYNAMIC_INPUT
+              detection: string_literal
+              contains: false
+languages:
+  - java
+trigger:
+  match_on: presence
+metadata:
+  description: "SQL injection threat detected"
+  remediation_message: |
+    Instead of using dynamically crafted string for your sql query use prepared statements instead
+
+    PreparedStatement
+    ```java
+    myStmt = myCon.prepareStatement(select * from students where age> ? and name = ?);
+    myStmt.setInt(1,10);     
+    myStmt.setString(2,"Chhavi");  
+    ```
+  cwe_id:
+    - 1295
+    - 532
+  id: "java_lang_sqli"
+  documentation_url: TODO

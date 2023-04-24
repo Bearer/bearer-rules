@@ -20,6 +20,11 @@ rule_file="${BEARER_RULES_LOCATION}${target}.yml"
 test_dir="${BEARER_RULES_LOCATION}${target}"
 test_data="${test_dir}/testdata"
 
+# ensure there is empty snapshot dir
+snapshot_dir="${test_dir}/.snapshots"
+rm -rf $snapshot_dir
+mkdir -p $snapshot_dir
+
 for file in $(find $test_data -type f); do
 
     file_with_extension=$(basename -- $file)
@@ -30,9 +35,7 @@ for file in $(find $test_data -type f); do
 
     rule_id=$(yq '.metadata.id' $rule_file)
 
-    snapshot_dir="${test_dir}/.snapshots"
-    rm -rf $snapshot_dir
-    mkdir -p $snapshot_dir
+
 
     snapshot_file="${snapshot_dir}/${file_name}.yml"
 
