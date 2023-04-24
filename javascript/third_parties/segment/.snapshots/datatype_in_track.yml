@@ -27,7 +27,7 @@ high:
           userId: user.id,
           userIpAddr: user.ip_address,
         })
-      fingerprint: cc2ce3e312115b7dd7e8788b76bfd006_0
+      fingerprint: cc2ce3e312115b7dd7e8788b76bfd006_1
     - rule:
         cwe_ids:
             - "201"
@@ -52,5 +52,5 @@ high:
         - Personal Data
       parent_line_number: 17
       snippet: browser.track(user.email)
-      fingerprint: cc2ce3e312115b7dd7e8788b76bfd006_1
+      fingerprint: cc2ce3e312115b7dd7e8788b76bfd006_0
 
