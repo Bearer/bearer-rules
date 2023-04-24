@@ -18,30 +18,49 @@ patterns:
       axios($<INSECURE_CONFIG>)
     filters:
       - variable: INSECURE_CONFIG
-        detection: javascript_http_insecure_axios_object
+        detection: javascript_lang_http_insecure_axios_object
   - pattern: |
       fetch($<INSECURE_URL>$<...>)
     filters:
       - variable: INSECURE_URL
         detection: insecure_url
   - pattern: |
-      $<REQUEST>.open($<_>, $<INSECURE_URL>$<...>);
+      $<XML_HTTP>.open($<_>, $<INSECURE_URL>$<...>)
+    filters:
+      - variable: XML_HTTP
+        detection: javascript_lang_http_insecure_xmlhttp
+      - variable: INSECURE_URL
+        detection: insecure_url
+  - pattern: |
+      request($<INSECURE_URL>$<...>)
     filters:
       - variable: INSECURE_URL
         detection: insecure_url
-      - variable: REQUEST
+  - pattern: |
+      request.$<METHOD>($<INSECURE_URL>$<...>)
+    filters:
+      - variable: METHOD
         values:
-          - req
-          - request
-          - xhttp
+          - get
+          - head
+          - options
+          - post
+          - put
+          - patch
+          - del
+      - variable: INSECURE_URL
+        detection: insecure_url
 auxiliary:
-  - id: javascript_http_insecure_axios_object
+  - id: javascript_lang_http_insecure_axios_object
     patterns:
       - pattern: |
           { url: $<INSECURE_URL> }
         filters:
           - variable: INSECURE_URL
             detection: insecure_url
+  - id: javascript_lang_http_insecure_xmlhttp
+    patterns:
+      - new XMLHttpRequest()
 languages:
   - javascript
 severity: low
