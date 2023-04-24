@@ -282,7 +282,7 @@ high:
       filename: /tmp/scan/injected_params.rb
       parent_line_number: 11
       snippet: 'ActiveRecord::Base.connection.exec_query("SELECT #{params[:oops]}")'
-      fingerprint: 8896752ba26cde38f85b0a614f701feb_5
+      fingerprint: 8896752ba26cde38f85b0a614f701feb_6
     - rule:
         cwe_ids:
             - "89"
@@ -329,5 +329,5 @@ high:
       filename: /tmp/scan/injected_params.rb
       parent_line_number: 13
       snippet: 'connection.select_all("SELECT #{params[:oops]}")'
-      fingerprint: 8896752ba26cde38f85b0a614f701feb_6
+      fingerprint: 8896752ba26cde38f85b0a614f701feb_7
 

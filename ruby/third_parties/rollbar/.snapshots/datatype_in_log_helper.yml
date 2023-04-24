@@ -98,7 +98,7 @@ high:
         - Personal Data
       parent_line_number: 4
       snippet: 'Rollbar.critical(e, { user: { first_name: "someone" } })'
-      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_3
+      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_7
     - rule:
         cwe_ids:
             - "201"
@@ -123,7 +123,7 @@ high:
         - Personal Data
       parent_line_number: 6
       snippet: 'Rollbar.error("oops #{user.email}")'
-      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_4
+      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_3
     - rule:
         cwe_ids:
             - "201"
@@ -148,7 +148,7 @@ high:
         - Personal Data
       parent_line_number: 8
       snippet: 'Rollbar.debug("oops #{user.email}")'
-      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_5
+      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_4
     - rule:
         cwe_ids:
             - "201"
@@ -173,7 +173,7 @@ high:
         - Personal Data
       parent_line_number: 10
       snippet: 'Rollbar.info("oops #{user.email}")'
-      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_6
+      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_5
     - rule:
         cwe_ids:
             - "201"
@@ -198,5 +198,5 @@ high:
         - Personal Data
       parent_line_number: 12
       snippet: 'Rollbar.warning("oops #{user.email}")'
-      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_7
+      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_6
 

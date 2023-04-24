@@ -26,7 +26,7 @@ high:
             "user.id" => user.id,
             "user.first_name" => user.first_name
           })
-      fingerprint: f93b2a9000a3ae500833a7cdabfa2d02_0
+      fingerprint: f93b2a9000a3ae500833a7cdabfa2d02_1
     - rule:
         cwe_ids:
             - "201"
@@ -50,5 +50,5 @@ high:
         - Personal Data
       parent_line_number: 14
       snippet: current_span.set_attribute("current_users", users)
-      fingerprint: f93b2a9000a3ae500833a7cdabfa2d02_1
+      fingerprint: f93b2a9000a3ae500833a7cdabfa2d02_0
 

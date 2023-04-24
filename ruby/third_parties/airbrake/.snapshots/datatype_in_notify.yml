@@ -22,7 +22,7 @@ high:
         - Personal Data
       parent_line_number: 1
       snippet: Airbrake.notify(user.first_name)
-      fingerprint: d75c95df4a5b7a85b679cfb93fab738b_0
+      fingerprint: d75c95df4a5b7a85b679cfb93fab738b_2
     - rule:
         cwe_ids:
             - "201"
@@ -49,7 +49,7 @@ high:
         Airbrake.notify('App crashed!', {
           current_user: user.email
         })
-      fingerprint: d75c95df4a5b7a85b679cfb93fab738b_1
+      fingerprint: d75c95df4a5b7a85b679cfb93fab738b_0
     - rule:
         cwe_ids:
             - "201"
@@ -76,5 +76,5 @@ high:
         Airbrake.notify('App crashed') do |notice|
           notice[:params][:email] = customer.email
         end
-      fingerprint: d75c95df4a5b7a85b679cfb93fab738b_2
+      fingerprint: d75c95df4a5b7a85b679cfb93fab738b_1
 
