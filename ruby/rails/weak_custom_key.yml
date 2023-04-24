@@ -2,8 +2,8 @@ patterns:
   - pattern: |
       encrypts $<...> key: $<LENGTH>
     filters:
-    - variable: LENGTH
-      less_than: 12
+      - variable: LENGTH
+        less_than: 12
 languages:
   - ruby
 metadata:
