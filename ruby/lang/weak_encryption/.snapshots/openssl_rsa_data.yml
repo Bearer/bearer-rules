@@ -40,7 +40,7 @@ high:
         - Personal Data
       parent_line_number: 5
       snippet: rsa_encrypt.export(cipher, user.password)
-      fingerprint: 50c53016b42972af5401228ccb82fc01_0
+      fingerprint: 50c53016b42972af5401228ccb82fc01_1
     - rule:
         cwe_ids:
             - "331"
@@ -82,5 +82,5 @@ high:
         - Personal Data
       parent_line_number: 7
       snippet: OpenSSL::PKey::RSA.new(1024).to_pem(cipher, user.first_name)
-      fingerprint: 50c53016b42972af5401228ccb82fc01_1
+      fingerprint: 50c53016b42972af5401228ccb82fc01_0
 
