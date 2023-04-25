@@ -11,22 +11,20 @@ on:
 permissions:
   contents: read
 jobs:
+  set_matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.load.outputs.matrix }}
+    steps:
+      - id: load
+        run: $(cat ./scripts/test_matrix.json | jq -c) >> $GITHUB_OUTPUT
   build:
+    needs: set_matrix
     runs-on: ubuntu-latest
     timeout-minutes: 10
     strategy:
       matrix:
-        group:
-          [
-            "javascript/aws_lambda",
-            "javascript/express",
-            "javascript/lang",
-            "javascript/react",
-            "javascript/third_parties",
-            "ruby/lang",
-            "ruby/rails",
-            "ruby/third_parties",
-          ]
+        group: ${{ fromJSON(needs.set_matrix.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v3
       - name: Test ${{ matrix.group }}
