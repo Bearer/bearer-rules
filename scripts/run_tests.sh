@@ -12,6 +12,8 @@ else
   TARGET=$PWD
 fi
 
+BEARER_VERSION=${BEARER_VERSION=latest}
+
 trap printexit SIGINT
 printexit() {
   printf "INFO: $TEST_COUNT tests run\n"
@@ -22,6 +24,8 @@ printexit() {
   printf "INFO: tests passed ok!\n"
   exit 0
 }
+
+docker pull bearer/bearer:$BEARER_VERSION
 
 for dir in $(find $TARGET -type d -name "testdata"); do
   rule_id="${dir//$PWD\//}"
@@ -36,8 +40,7 @@ for dir in $(find $TARGET -type d -name "testdata"); do
     test_snapshot=${test_snapshot%.*}.yml
     filename=$(basename $file)
 
-    # docker rmi bearer/bearer:latest-amd64
-    docker run --platform linux/amd64 --rm -v $dir:/tmp/scan -v $PWD:/tmp/rules bearer/bearer:latest-amd64 scan /tmp/scan/$filename --only-rule=$rule_id --disable-default-rules=true --external-rule-dir=/tmp/rules --format=yaml > $test_result
+    docker run --platform linux/amd64 --rm -v $dir:/tmp/scan -v $PWD:/tmp/rules bearer/bearer:$BEARER_VERSION scan /tmp/scan/$filename --only-rule=$rule_id --disable-default-rules=true --external-rule-dir=/tmp/rules --format=yaml > $test_result
 
     if [ -n "$UPDATE_SNAPSHOTS" ] || [ ! -f $test_snapshot ]; then
       printf "INFO: Building snapshot...\n"
