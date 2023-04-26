@@ -1,0 +1,39 @@
+languages:
+  - javascript
+patterns:
+  - pattern: |
+      $<_>.postMessage($<_>, $<ORIGIN>$<...>)
+    filters:
+      - variable: ORIGIN
+        regex: \A["']\*["']\z
+  - pattern: |
+      postMessage($<_>, $<ORIGIN>$<...>)
+    filters:
+      - variable: ORIGIN
+        regex: \A["']\*["']\z
+severity: medium
+metadata:
+  description: "Permissive origin in postMessage detected."
+  remediation_message: |
+    ## Description
+
+    Using "*" (any) as the target origin of a postMessage call allows
+    third-parties to read the message.
+
+    ## Remediations
+
+    ❌ Avoid using "*" as the target origin:
+
+    ```javascript
+    window.postMessage(message, '*')
+    ```
+
+    ✅ Specify the origin for your target application:
+
+    ```javascript
+    window.postMessage(message, 'https://myapp.example.com')
+    ```
+  cwe_id:
+    - 923
+  id: "javascript_lang_post_message_origin"
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_post_message_origin
