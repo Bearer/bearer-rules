@@ -1,0 +1,108 @@
+languages:
+  - javascript
+patterns:
+  - pattern: |
+      $<LIBRARY>.$<METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: javascript_lang_http_url_using_user_input_user_input
+      - variable: LIBRARY
+        values:
+          - axios
+          - http
+      - variable: METHOD
+        values:
+          - get
+          - post
+          - patch
+          - delete
+  - pattern: |
+      axios($<USER_INPUT_CONFIG>)
+    filters:
+      - variable: USER_INPUT_CONFIG
+        detection: javascript_lang_http_url_using_user_input_axios_object
+  - pattern: |
+      fetch($<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: javascript_lang_http_url_using_user_input_user_input
+  - pattern: |
+      $<XML_HTTP>.open($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: XML_HTTP
+        detection: javascript_lang_http_url_using_user_input_xmlhttp
+      - variable: USER_INPUT
+        detection: javascript_lang_http_url_using_user_input_user_input
+  - pattern: |
+      request($<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: javascript_lang_http_url_using_user_input_user_input
+  - pattern: |
+      request.$<METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: METHOD
+        values:
+          - get
+          - head
+          - options
+          - post
+          - put
+          - patch
+          - del
+      - variable: USER_INPUT
+        detection: javascript_lang_http_url_using_user_input_user_input
+auxiliary:
+  - id: javascript_lang_http_url_using_user_input_axios_object
+    patterns:
+      - pattern: |
+          { url: $<USER_INPUT> }
+        filters:
+          - variable: USER_INPUT
+            detection: javascript_lang_http_url_using_user_input_user_input
+  - id: javascript_lang_http_url_using_user_input_xmlhttp
+    patterns:
+      - new XMLHttpRequest()
+  - id: javascript_lang_http_url_using_user_input_user_input
+    patterns:
+      # Express
+      - req.params
+      - req.query
+      - req.body
+      - req.cookies
+      - req.headers
+      # AWS
+      - event.$<_>
+      - event[$<_>]
+severity: high
+metadata:
+  description: "HTTP communication with user-controlled destination detected."
+  remediation_message: |
+    ## Description
+
+    Applications should not connect to locations formed from user input.
+    This rule checks for URLs containing user-supplied data.
+
+    ## Remediations
+
+    ❌ Avoid using user input in HTTP URLs:
+
+    ```javascript
+    const response = axios.get(`https://${req.params.host}`)
+    ```
+
+    ✅ Use user input indirectly to form a URL:
+
+    ```javascript
+    const hosts = new Map([
+      ["option1", "api1.com"],
+      ["option2", "api2.com"]
+    ])
+
+    const host = hosts.get(req.params.host)
+    const response = axois.get(`https://${host}`)
+    ```
+  cwe_id:
+    - 918
+  id: javascript_lang_http_url_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input

@@ -1,0 +1,212 @@
+high:
+    - rule:
+        cwe_ids:
+            - "798"
+        id: javascript_lang_hardcoded_secret
+        title: Hardcoded secret detected
+        description: |
+            ## Description
+
+            Code is not a safe place to store secrets, use environment variables instead.
+
+            ## Remediations
+            ```javascript
+              passport.use(new OAuth2Strategy({
+                  authorizationURL: 'https://www.example.com/oauth2/authorize',
+                  tokenURL: 'https://www.example.com/oauth2/token',
+                  clientID:  process.env.CLIENT_ID,
+                  clientSecret: process.env.CLIENT_SECRET,
+                  callbackURL: "http://localhost:3000/auth/example/callback"
+                },
+                function(accessToken, refreshToken, profile, cb) {
+                  User.findOrCreate({ exampleId: profile.id }, function (err, user) {
+                    return cb(err, user);
+                  });
+                }
+              ));
+            ```
+
+            ## Resources
+            - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
+      line_number: 1
+      filename: /tmp/scan/insecure_crypto.js
+      parent_line_number: 1
+      snippet: 'crypto.createHmac(''sha256'', ''secretHardcodedString'', { encoding: "utf-8" })'
+      fingerprint: b552fdae91842beef21617bdcfa7c484_0
+    - rule:
+        cwe_ids:
+            - "798"
+        id: javascript_lang_hardcoded_secret
+        title: Hardcoded secret detected
+        description: |
+            ## Description
+
+            Code is not a safe place to store secrets, use environment variables instead.
+
+            ## Remediations
+            ```javascript
+              passport.use(new OAuth2Strategy({
+                  authorizationURL: 'https://www.example.com/oauth2/authorize',
+                  tokenURL: 'https://www.example.com/oauth2/token',
+                  clientID:  process.env.CLIENT_ID,
+                  clientSecret: process.env.CLIENT_SECRET,
+                  callbackURL: "http://localhost:3000/auth/example/callback"
+                },
+                function(accessToken, refreshToken, profile, cb) {
+                  User.findOrCreate({ exampleId: profile.id }, function (err, user) {
+                    return cb(err, user);
+                  });
+                }
+              ));
+            ```
+
+            ## Resources
+            - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
+      line_number: 3
+      filename: /tmp/scan/insecure_crypto.js
+      parent_line_number: 3
+      snippet: crypto.createSecretKey('secretHardcodedString', "utf-8")
+      fingerprint: b552fdae91842beef21617bdcfa7c484_1
+    - rule:
+        cwe_ids:
+            - "798"
+        id: javascript_lang_hardcoded_secret
+        title: Hardcoded secret detected
+        description: |
+            ## Description
+
+            Code is not a safe place to store secrets, use environment variables instead.
+
+            ## Remediations
+            ```javascript
+              passport.use(new OAuth2Strategy({
+                  authorizationURL: 'https://www.example.com/oauth2/authorize',
+                  tokenURL: 'https://www.example.com/oauth2/token',
+                  clientID:  process.env.CLIENT_ID,
+                  clientSecret: process.env.CLIENT_SECRET,
+                  callbackURL: "http://localhost:3000/auth/example/callback"
+                },
+                function(accessToken, refreshToken, profile, cb) {
+                  User.findOrCreate({ exampleId: profile.id }, function (err, user) {
+                    return cb(err, user);
+                  });
+                }
+              ));
+            ```
+
+            ## Resources
+            - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
+      line_number: 5
+      filename: /tmp/scan/insecure_crypto.js
+      parent_line_number: 5
+      snippet: crypto.createPrivateKey('secretHardcodedString')
+      fingerprint: b552fdae91842beef21617bdcfa7c484_2
+    - rule:
+        cwe_ids:
+            - "798"
+        id: javascript_lang_hardcoded_secret
+        title: Hardcoded secret detected
+        description: |
+            ## Description
+
+            Code is not a safe place to store secrets, use environment variables instead.
+
+            ## Remediations
+            ```javascript
+              passport.use(new OAuth2Strategy({
+                  authorizationURL: 'https://www.example.com/oauth2/authorize',
+                  tokenURL: 'https://www.example.com/oauth2/token',
+                  clientID:  process.env.CLIENT_ID,
+                  clientSecret: process.env.CLIENT_SECRET,
+                  callbackURL: "http://localhost:3000/auth/example/callback"
+                },
+                function(accessToken, refreshToken, profile, cb) {
+                  User.findOrCreate({ exampleId: profile.id }, function (err, user) {
+                    return cb(err, user);
+                  });
+                }
+              ));
+            ```
+
+            ## Resources
+            - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
+      line_number: 7
+      filename: /tmp/scan/insecure_crypto.js
+      parent_line_number: 7
+      snippet: 'crypto.privateDecrypt({ key: ''secretHardcodedString'' }, buffer)'
+      fingerprint: b552fdae91842beef21617bdcfa7c484_3
+    - rule:
+        cwe_ids:
+            - "798"
+        id: javascript_lang_hardcoded_secret
+        title: Hardcoded secret detected
+        description: |
+            ## Description
+
+            Code is not a safe place to store secrets, use environment variables instead.
+
+            ## Remediations
+            ```javascript
+              passport.use(new OAuth2Strategy({
+                  authorizationURL: 'https://www.example.com/oauth2/authorize',
+                  tokenURL: 'https://www.example.com/oauth2/token',
+                  clientID:  process.env.CLIENT_ID,
+                  clientSecret: process.env.CLIENT_SECRET,
+                  callbackURL: "http://localhost:3000/auth/example/callback"
+                },
+                function(accessToken, refreshToken, profile, cb) {
+                  User.findOrCreate({ exampleId: profile.id }, function (err, user) {
+                    return cb(err, user);
+                  });
+                }
+              ));
+            ```
+
+            ## Resources
+            - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
+      line_number: 9
+      filename: /tmp/scan/insecure_crypto.js
+      parent_line_number: 9
+      snippet: 'crypto.privateEncrypt({ passphrase: ''secretHardcodedString'' }, buffer)'
+      fingerprint: b552fdae91842beef21617bdcfa7c484_4
+    - rule:
+        cwe_ids:
+            - "798"
+        id: javascript_lang_hardcoded_secret
+        title: Hardcoded secret detected
+        description: |
+            ## Description
+
+            Code is not a safe place to store secrets, use environment variables instead.
+
+            ## Remediations
+            ```javascript
+              passport.use(new OAuth2Strategy({
+                  authorizationURL: 'https://www.example.com/oauth2/authorize',
+                  tokenURL: 'https://www.example.com/oauth2/token',
+                  clientID:  process.env.CLIENT_ID,
+                  clientSecret: process.env.CLIENT_SECRET,
+                  callbackURL: "http://localhost:3000/auth/example/callback"
+                },
+                function(accessToken, refreshToken, profile, cb) {
+                  User.findOrCreate({ exampleId: profile.id }, function (err, user) {
+                    return cb(err, user);
+                  });
+                }
+              ));
+            ```
+
+            ## Resources
+            - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
+      line_number: 12
+      filename: /tmp/scan/insecure_crypto.js
+      parent_line_number: 12
+      snippet: s.sign('secretHardcodedString', "utf-8")
+      fingerprint: b552fdae91842beef21617bdcfa7c484_5
+
