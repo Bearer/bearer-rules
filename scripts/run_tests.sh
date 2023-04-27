@@ -44,6 +44,7 @@ for dir in $(find $TARGET -type d -name "testdata"); do
 
     if [ -n "$UPDATE_SNAPSHOTS" ] || [ ! -f $test_snapshot ]; then
       printf "INFO: Building snapshot...\n"
+      mkdir -p $(dirname $test_snapshot)
       cat $test_result > $test_snapshot
     else
       diff $test_result $test_snapshot
