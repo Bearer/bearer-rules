@@ -1,0 +1,64 @@
+languages:
+  - ruby
+patterns:
+  - pattern: $<METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: METHOD
+        values:
+          - format
+          - sprintf
+          - printf
+      - variable: USER_INPUT
+        detection: ruby_lang_format_string_using_user_input_user_input
+  - pattern: Kernel.$<METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: METHOD
+        values:
+          - format
+          - sprintf
+          - printf
+      - variable: USER_INPUT
+        detection: ruby_lang_format_string_using_user_input_user_input
+  - pattern: $<USER_INPUT> % []
+    filters:
+      - variable: USER_INPUT
+        detection: ruby_lang_format_string_using_user_input_user_input
+  # Unsupported:
+  #   printf(io, format, ...) - can't distinguish arg types
+  #   user_input % single_value - could confuse with number mod
+auxiliary:
+  - id: ruby_lang_format_string_using_user_input_user_input
+    patterns:
+      - params
+      - request
+      - cookies
+      - | # AWS lambda
+        def $<_>($<!>event:, context:)
+        end
+severity: low
+metadata:
+  description: "User input in format string detected."
+  remediation_message: |
+    ## Description
+
+    If an application includes user input directly in a format string, an
+    attacker can use format specifiers in the user input to produce misleading
+    or fabricated messages.
+
+    ## Remediations
+
+    ❌ Avoid format strings containing user input:
+
+    ```ruby
+    sprintf("The value was #{params[:value]}")
+    ```
+
+    ✅ Use a literal format string with additional arguments:
+
+    ```ruby
+    sprintf("The value was %s", params[:value])
+    ```
+  cwe_id:
+    - 134
+  id: ruby_lang_format_string_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_format_string_using_user_input
