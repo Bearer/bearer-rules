@@ -1,0 +1,67 @@
+---
+patterns:
+  - pattern: |
+      new File($<...>$<FILE_USER_INPUT>$<...>);
+    filters:
+      - variable: FILE_USER_INPUT
+        detection: java_lang_path_traversal_unsanitized_input
+  - pattern: |
+      new FileOutputStream($<...>$<FILE_OUTPUT_USER_INPUT>$<...>)
+    filters:
+      - variable: FILE_OUTPUT_USER_INPUT
+        detection: java_lang_path_traversal_unsanitized_input
+  - pattern: |
+      new FileInputStream($<...>$<FILE_INPUT_USER_INPUT>$<...>)
+    filters:
+      - variable: FILE_INPUT_USER_INPUT
+        detection: java_lang_path_traversal_unsanitized_input
+auxiliary:
+  - id: java_lang_path_traversal_unsanitized_input
+    patterns:
+      - pattern: |
+          $<USER_INPUT>;
+        filters:
+          - variable: USER_INPUT
+            detection: java_lang_path_traversal_request_input
+          - not:
+              variable: USER_INPUT
+              detection: java_lang_path_traversal_sanitized_input
+  - id: java_lang_path_traversal_sanitized_input
+    patterns:
+      - pattern: FilenameUtils.getName($<...>)
+  - id: java_lang_path_traversal_request_input
+    patterns:
+      - pattern: |
+          $<PARAMETER_REQUEST>.$<METHOD>()
+        filters:
+          - variable: PARAMETER_REQUEST
+            values:
+              - req
+              - request
+          - variable: METHOD
+            values:
+              - getParameterValues
+              - getParameter
+      - pattern: $<COOKIE_REQUEST>.getCookies()
+        filters:
+          - variable: COOKIE_REQUEST
+            values:
+              - req
+              - request
+languages:
+  - java
+trigger:
+  match_on: presence
+metadata:
+  description: SQL injection threat detected
+  remediation_message: |
+    classes used:
+    # java.io.File
+    # java.io.FileOutputStream
+    # java.io.FileInputStream
+    # org.apache.commons.io.FilenameUtils.getName
+  cwe_id:
+    - 1295
+    - 532
+  id: java_lang_path_traversal
+  documentation_url: TODO
