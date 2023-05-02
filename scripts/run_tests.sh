@@ -24,8 +24,11 @@ printexit() {
   printf "INFO: tests passed ok!\n"
   exit 0
 }
-
-docker pull bearer/bearer:$BEARER_VERSION
+if [ -n "$BEARER_WORKSPACE" ]; then
+  printf "WARNING: When using localy built binary snapshot will not be consistant. Use for debug only\n"
+else
+  docker pull bearer/bearer:$BEARER_VERSION
+fi
 
 for dir in $(find $TARGET -type d -name "testdata"); do
   rule_id="${dir//$PWD\//}"
@@ -41,7 +44,14 @@ for dir in $(find $TARGET -type d -name "testdata"); do
     filename=$(basename $file)
 
     echo "TEST: $test_snapshot"
-    docker run --platform linux/amd64 --rm -v $dir:/tmp/scan -v $PWD:/tmp/rules bearer/bearer:$BEARER_VERSION scan /tmp/scan/$filename --only-rule=$rule_id --disable-default-rules=true --external-rule-dir=/tmp/rules --format=yaml > $test_result
+    if [ -n "$BEARER_WORKSPACE" ]; then
+      rule_loc=$PWD
+      cd $BEARER_WORKSPACE
+      go run ./cmd/bearer/main.go scan $dir/$filename --only-rule=$rule_id --disable-default-rules=true --external-rule-dir=$rule_loc --format=yaml > $test_result
+      cd $rule_loc
+    else
+      docker run --platform linux/amd64 --rm -v $dir:/tmp/scan -v $PWD:/tmp/rules bearer/bearer:$BEARER_VERSION scan /tmp/scan/$filename --only-rule=$rule_id --disable-default-rules=true --external-rule-dir=/tmp/rules --format=yaml > $test_result
+    fi
 
     if [ -n "$UPDATE_SNAPSHOTS" ] || [ ! -f $test_snapshot ]; then
       printf "INFO: Building snapshot...\n"
