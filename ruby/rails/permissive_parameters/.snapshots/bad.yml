@@ -1,0 +1,62 @@
+medium:
+    - rule:
+        cwe_ids:
+            - "915"
+        id: ruby_rails_permissive_parameters
+        title: Overly permissive request parameters detected.
+        description: |
+            ## Description
+
+            Being overly permissive with request parameters can allow an attacker to
+            update arbitrary model attributes.
+
+            ## Remediations
+
+            ❌ Avoid blanket permitting of parameters:
+
+            ```ruby
+            params.permit!
+            ```
+
+            ✅ Only permit parameters the user should be able to update:
+
+            ```ruby
+            params.permit(:name, :email)
+            ```
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_permissive_parameters
+      line_number: 1
+      filename: /tmp/scan/bad.rb
+      parent_line_number: 1
+      snippet: params.permit!
+      fingerprint: 4ada1717774c2aa01998e9b04b82f795_0
+    - rule:
+        cwe_ids:
+            - "915"
+        id: ruby_rails_permissive_parameters
+        title: Overly permissive request parameters detected.
+        description: |
+            ## Description
+
+            Being overly permissive with request parameters can allow an attacker to
+            update arbitrary model attributes.
+
+            ## Remediations
+
+            ❌ Avoid blanket permitting of parameters:
+
+            ```ruby
+            params.permit!
+            ```
+
+            ✅ Only permit parameters the user should be able to update:
+
+            ```ruby
+            params.permit(:name, :email)
+            ```
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_permissive_parameters
+      line_number: 3
+      filename: /tmp/scan/bad.rb
+      parent_line_number: 3
+      snippet: ActionController::Parameters.permit_all_parameters = true
+      fingerprint: 4ada1717774c2aa01998e9b04b82f795_1
+

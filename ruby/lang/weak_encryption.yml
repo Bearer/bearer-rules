@@ -1,23 +1,93 @@
 patterns:
-  - pattern: |
-      Digest::SHA1.hexidigest()
-  - pattern: |
-      Digest::SHA1.hexidigest($<DATA_TYPE>)
+  - pattern: Digest::$<ALGORITHM>.$<METHOD>()
     filters:
+      - variable: ALGORITHM
+        values:
+          - MD5
+          - SHA1
+      - variable: METHOD
+        values:
+          - digest
+          - hexdigest
+          - base64digest
+  - pattern: Digest::$<ALGORITHM>.$<METHOD>($<DATA_TYPE>)
+    filters:
+      - variable: ALGORITHM
+        values:
+          - MD5
+          - SHA1
+      - variable: METHOD
+        values:
+          - digest
+          - hexdigest
+          - base64digest
+      - variable: DATA_TYPE
+        detection: datatype
+  - pattern: OpenSSL::Digest.digest($<ALGORITHM>, $<_>)
+    filters:
+      - variable: ALGORITHM
+        regex: (?i)['"](SHA1?|DSS1?|MD\d)['"]
+  - pattern: OpenSSL::Digest.digest($<ALGORITHM>, $<DATA_TYPE>)
+    filters:
+      - variable: ALGORITHM
+        regex: (?i)['"](SHA1?|DSS1?|MD\d)['"]
+      - variable: DATA_TYPE
+        detection: datatype
+  - pattern: OpenSSL::Digest::$<ALGORITHM>.digest($<_>)
+    filters:
+      - variable: ALGORITHM
+        regex: \A(SHA1?|DSS1?|MD\d)\z
+  - pattern: OpenSSL::Digest::$<ALGORITHM>.digest($<DATA_TYPE>)
+    filters:
+      - variable: ALGORITHM
+        regex: \A(SHA1?|DSS1?|MD\d)\z
       - variable: DATA_TYPE
         detection: datatype
   - pattern: |
-      Digest::MD5.hexdigest()
-  - pattern: |
-      Digest::MD5.hexdigest($<DATA_TYPE>)
+      $<DIGEST>.update()
     filters:
+      - variable: DIGEST
+        detection: ruby_lang_weak_encryption_digest
+  - pattern: |
+      $<DIGEST>.update($<DATA_TYPE>)
+    filters:
+      - variable: DIGEST
+        detection: ruby_lang_weak_encryption_digest
+      - variable: DATA_TYPE
+        detection: datatype
+  - pattern: |
+      $<DIGEST> << $<_>
+    filters:
+      - variable: DIGEST
+        detection: ruby_lang_weak_encryption_digest
+  - pattern: |
+      $<DIGEST> << $<DATA_TYPE>
+    filters:
+      - variable: DIGEST
+        detection: ruby_lang_weak_encryption_digest
+      - variable: DATA_TYPE
+        detection: datatype
+  - pattern: $<DIGEST>.$<METHOD>($<_>)
+    filters:
+      - variable: METHOD
+        values:
+          - digest
+          - hexdigest
+          - base64digest
+  - pattern: $<DIGEST>.$<METHOD>($<DATA_TYPE>)
+    filters:
+      - variable: METHOD
+        values:
+          - digest
+          - hexdigest
+          - base64digest
       - variable: DATA_TYPE
         detection: datatype
   - pattern: |
       $<VAR>.$<METHOD>()
     filters:
       - variable: VAR
-        detection: rc4_init
+        detection: ruby_lang_weak_encryption_rc4_init
       - variable: METHOD
         values:
           - encrypt
@@ -27,7 +97,7 @@ patterns:
       $<VAR>.$<METHOD>($<DATA_TYPE>)
     filters:
       - variable: VAR
-        detection: rc4_init
+        detection: ruby_lang_weak_encryption_rc4_init
       - variable: METHOD
         values:
           - encrypt
@@ -39,7 +109,7 @@ patterns:
       $<VAR>.$<METHOD>()
     filters:
       - variable: VAR
-        detection: openssl_rsa_init
+        detection: ruby_lang_weak_encryption_openssl_rsa_init
       - variable: METHOD
         values:
           - private_decrypt
@@ -50,7 +120,7 @@ patterns:
       $<VAR>.$<METHOD>($<DATA_TYPE>)
     filters:
       - variable: VAR
-        detection: openssl_rsa_init
+        detection: ruby_lang_weak_encryption_openssl_rsa_init
       - variable: METHOD
         values:
           - private_decrypt
@@ -63,7 +133,7 @@ patterns:
       $<VAR>.$<METHOD>()
     filters:
       - variable: VAR
-        detection: openssl_rsa_init
+        detection: ruby_lang_weak_encryption_openssl_rsa_init
       - variable: METHOD
         values:
           - export
@@ -73,7 +143,7 @@ patterns:
       $<VAR>.$<METHOD>($<_>, $<DATA_TYPE>)
     filters:
       - variable: VAR
-        detection: openssl_rsa_init
+        detection: ruby_lang_weak_encryption_openssl_rsa_init
       - variable: METHOD
         values:
           - export
@@ -85,7 +155,7 @@ patterns:
       $<VAR>.$<METHOD>()
     filters:
       - variable: VAR
-        detection: openssl_dsa_init
+        detection: ruby_lang_weak_encryption_openssl_dsa_init
       - variable: METHOD
         values:
           - export
@@ -95,7 +165,7 @@ patterns:
       $<VAR>.$<METHOD>($<_>, $<DATA_TYPE>)
     filters:
       - variable: VAR
-        detection: openssl_dsa_init
+        detection: ruby_lang_weak_encryption_openssl_dsa_init
       - variable: METHOD
         values:
           - export
@@ -107,7 +177,7 @@ patterns:
       $<VAR>.$<METHOD>()
     filters:
       - variable: VAR
-        detection: blowfish_init
+        detection: ruby_lang_weak_encryption_blowfish_init
       - variable: METHOD
         values:
           - encrypt_pair
@@ -118,7 +188,7 @@ patterns:
       $<VAR>.$<METHOD>($<DATA_TYPE>)
     filters:
       - variable: VAR
-        detection: blowfish_init
+        detection: ruby_lang_weak_encryption_blowfish_init
       - variable: METHOD
         values:
           - encrypt_string
@@ -129,7 +199,7 @@ patterns:
       $<VAR>.$<METHOD>($<_>, $<DATA_TYPE>)
     filters:
       - variable: VAR
-        detection: blowfish_init
+        detection: ruby_lang_weak_encryption_blowfish_init
       - variable: METHOD
         values:
           - encrypt_pair
@@ -142,7 +212,7 @@ patterns:
       end
     filters:
       - variable: VAR
-        detection: blowfish_init
+        detection: ruby_lang_weak_encryption_blowfish_init
       - variable: METHOD
         values:
           - encrypt_block
@@ -153,7 +223,7 @@ patterns:
       end
     filters:
       - variable: VAR
-        detection: blowfish_init
+        detection: ruby_lang_weak_encryption_blowfish_init
       - variable: METHOD
         values:
           - encrypt_block
@@ -163,25 +233,37 @@ patterns:
 languages:
   - ruby
 auxiliary:
-  - id: rc4_init
+  - id: ruby_lang_weak_encryption_rc4_init
     patterns:
       - |
         RC4.new()
-  - id: openssl_rsa_init
+  - id: ruby_lang_weak_encryption_openssl_rsa_init
     patterns:
       - pattern: |
           OpenSSL::PKey::RSA.new($<LENGTH>)
         filters:
           - variable: LENGTH
             less_than: 2048
-  - id: openssl_dsa_init
+  - id: ruby_lang_weak_encryption_openssl_dsa_init
     patterns:
       - |
         OpenSSL::PKey::DSA.new()
-  - id: blowfish_init
+  - id: ruby_lang_weak_encryption_blowfish_init
     patterns:
       - |
         Crypt::Blowfish.new()
+  - id: ruby_lang_weak_encryption_digest
+    patterns:
+      - Digest::SHA1.new
+      - Digest::MD5.new
+      - pattern: OpenSSL::Digest.new($<ALGORITHM>)
+        filters:
+          - variable: ALGORITHM
+            regex: (?i)\A['"](SHA1?|DSS1?|MD\d)['"]\z
+      - pattern: OpenSSL::Digest::$<ALGORITHM>.new
+        filters:
+          - variable: ALGORITHM
+            regex: \A(SHA1?|DSS1?|MD\d)\z
 metadata:
   description: "Weak encryption library usage detected."
   remediation_message: |

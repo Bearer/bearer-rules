@@ -1,0 +1,62 @@
+medium:
+    - rule:
+        cwe_ids:
+            - "923"
+        id: javascript_lang_post_message_origin
+        title: Permissive origin in postMessage detected.
+        description: |
+            ## Description
+
+            Using "*" (any) as the target origin of a postMessage call allows
+            third-parties to read the message.
+
+            ## Remediations
+
+            ❌ Avoid using "*" as the target origin:
+
+            ```javascript
+            window.postMessage(message, '*')
+            ```
+
+            ✅ Specify the origin for your target application:
+
+            ```javascript
+            window.postMessage(message, 'https://myapp.example.com')
+            ```
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_post_message_origin
+      line_number: 1
+      filename: /tmp/scan/bad.js
+      parent_line_number: 1
+      snippet: postMessage(message, '*')
+      fingerprint: 3dc7d592d91b529220e9504b33d15c7d_0
+    - rule:
+        cwe_ids:
+            - "923"
+        id: javascript_lang_post_message_origin
+        title: Permissive origin in postMessage detected.
+        description: |
+            ## Description
+
+            Using "*" (any) as the target origin of a postMessage call allows
+            third-parties to read the message.
+
+            ## Remediations
+
+            ❌ Avoid using "*" as the target origin:
+
+            ```javascript
+            window.postMessage(message, '*')
+            ```
+
+            ✅ Specify the origin for your target application:
+
+            ```javascript
+            window.postMessage(message, 'https://myapp.example.com')
+            ```
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_post_message_origin
+      line_number: 3
+      filename: /tmp/scan/bad.js
+      parent_line_number: 3
+      snippet: window.postMessage(message, "*")
+      fingerprint: 3dc7d592d91b529220e9504b33d15c7d_1
+

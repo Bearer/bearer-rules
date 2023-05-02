@@ -1,0 +1,31 @@
+languages:
+  - ruby
+patterns:
+  - pattern: $<_>.permit!
+  - pattern: ActionController::Parameters.permit_all_parameters = true
+severity: medium
+metadata:
+  description: "Overly permissive request parameters detected."
+  remediation_message: |
+    ## Description
+
+    Being overly permissive with request parameters can allow an attacker to
+    update arbitrary model attributes.
+
+    ## Remediations
+
+    ❌ Avoid blanket permitting of parameters:
+
+    ```ruby
+    params.permit!
+    ```
+
+    ✅ Only permit parameters the user should be able to update:
+
+    ```ruby
+    params.permit(:name, :email)
+    ```
+  cwe_id:
+    - 915
+  id: ruby_rails_permissive_parameters
+  documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_permissive_parameters

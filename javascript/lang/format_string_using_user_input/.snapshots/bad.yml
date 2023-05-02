@@ -1,0 +1,95 @@
+low:
+    - rule:
+        cwe_ids:
+            - "134"
+        id: javascript_lang_format_string_using_user_input
+        title: User input in format string detected.
+        description: |
+            ## Description
+
+            If an application includes user input directly in a format string, an
+            attacker can use format specifiers in the user input to produce misleading
+            or fabricated messages.
+
+            ## Remediations
+
+            ❌ Avoid format strings containing user input:
+
+            ```javascript
+            console.log(`The value was ${req.params.value}`)
+            ```
+
+            ✅ Use a literal format string with additional arguments:
+
+            ```javascript
+            console.log("The value was %s", req.params.value)
+            ```
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_format_string_using_user_input
+      line_number: 1
+      filename: /tmp/scan/bad.js
+      parent_line_number: 1
+      snippet: 'console.error(`Value: ${req.params.value}`, e)'
+      fingerprint: 6f76b089b4cff1123588cf15c64cd6d1_0
+    - rule:
+        cwe_ids:
+            - "134"
+        id: javascript_lang_format_string_using_user_input
+        title: User input in format string detected.
+        description: |
+            ## Description
+
+            If an application includes user input directly in a format string, an
+            attacker can use format specifiers in the user input to produce misleading
+            or fabricated messages.
+
+            ## Remediations
+
+            ❌ Avoid format strings containing user input:
+
+            ```javascript
+            console.log(`The value was ${req.params.value}`)
+            ```
+
+            ✅ Use a literal format string with additional arguments:
+
+            ```javascript
+            console.log("The value was %s", req.params.value)
+            ```
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_format_string_using_user_input
+      line_number: 3
+      filename: /tmp/scan/bad.js
+      parent_line_number: 3
+      snippet: 'util.format(`Value: ${req.params.value}`)'
+      fingerprint: 6f76b089b4cff1123588cf15c64cd6d1_1
+    - rule:
+        cwe_ids:
+            - "134"
+        id: javascript_lang_format_string_using_user_input
+        title: User input in format string detected.
+        description: |
+            ## Description
+
+            If an application includes user input directly in a format string, an
+            attacker can use format specifiers in the user input to produce misleading
+            or fabricated messages.
+
+            ## Remediations
+
+            ❌ Avoid format strings containing user input:
+
+            ```javascript
+            console.log(`The value was ${req.params.value}`)
+            ```
+
+            ✅ Use a literal format string with additional arguments:
+
+            ```javascript
+            console.log("The value was %s", req.params.value)
+            ```
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_format_string_using_user_input
+      line_number: 5
+      filename: /tmp/scan/bad.js
+      parent_line_number: 5
+      snippet: 'util.formatWithOptions({}, `Value: ${req.params.value} %s`, x)'
+      fingerprint: 6f76b089b4cff1123588cf15c64cd6d1_2
+

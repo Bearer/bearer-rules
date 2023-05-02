@@ -40,15 +40,18 @@ for dir in $(find $TARGET -type d -name "testdata"); do
     test_snapshot=${test_snapshot%.*}.yml
     filename=$(basename $file)
 
+    echo "TEST: $test_snapshot"
     docker run --platform linux/amd64 --rm -v $dir:/tmp/scan -v $PWD:/tmp/rules bearer/bearer:$BEARER_VERSION scan /tmp/scan/$filename --only-rule=$rule_id --disable-default-rules=true --external-rule-dir=/tmp/rules --format=yaml > $test_result
 
     if [ -n "$UPDATE_SNAPSHOTS" ] || [ ! -f $test_snapshot ]; then
       printf "INFO: Building snapshot...\n"
+      mkdir -p $(dirname $test_snapshot)
       cat $test_result > $test_snapshot
     else
       diff $test_result $test_snapshot
 
       if [ $? -ne 0 ]; then
+        echo "FAIL: $test_snapshot"
         FAILURES=$((FAILURES+1))
       fi
     fi
