@@ -1,9 +1,9 @@
 patterns:
   - pattern: |
-      encrypts $<...> key: $<LENGTH>
+      encrypts key: $<LENGTH>
     filters:
       - variable: LENGTH
-        less_than: 12
+        length_less_than: 12
 languages:
   - ruby
 metadata:
