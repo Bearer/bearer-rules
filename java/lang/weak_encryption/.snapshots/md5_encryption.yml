@@ -1,2 +1,16 @@
-{}
+low:
+    - rule:
+        cwe_ids:
+            - "1295"
+            - "532"
+        id: java_lang_weak_encryption
+        title: Insecure encryption algorithm detected
+        description: |
+            # java.security.MessageDigest
+        documentation_url: TODO
+      line_number: 29
+      filename: /Users/vjeranfistric/go/src/github.com/bearer/bearer-rules/java/lang/weak_encryption/testdata/md5_encryption.java
+      parent_line_number: 29
+      snippet: MessageDigest.getInstance("MD5")
+      fingerprint: 572d3a9e054230b97829d95934557c7d_0
 

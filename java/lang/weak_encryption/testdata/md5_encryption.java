@@ -17,14 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@AssignmentHints({"crypto-hashing.hints.1", "crypto-hashing.hints.2"})
 public class HashingAssignment extends AssignmentEndpoint {
 
-
-  @RequestMapping(path = "/crypto/hashing/md5", produces = MediaType.TEXT_HTML_VALUE)
-  @ResponseBody
-  public String getMd5(HttpServletRequest request) throws NoSuchAlgorithmException {
+  public String getMd5(HttpServletRequest request) {
 
     String md5Hash = (String) request.getSession().getAttribute("md5Hash");
     if (md5Hash == null) {

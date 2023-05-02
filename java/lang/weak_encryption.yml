@@ -1,11 +1,9 @@
 patterns:
   - pattern: |
-      MessageDigest.getInstance($<ALGORITHM>$<...>)
+      MessageDigest.getInstance($<ALGORITHM>)
     filters:
       - variable: ALGORITHM
-        values:
-          - MD5
-          - SHA-1
+        regex: (?i)['"](MD5|SHA-1)['"]
 languages:
   - java
 trigger:
