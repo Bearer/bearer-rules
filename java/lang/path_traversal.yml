@@ -4,31 +4,30 @@ patterns:
       new File($<...>$<FILE_USER_INPUT>$<...>);
     filters:
       - variable: FILE_USER_INPUT
-        detection: java_lang_path_traversal_unsanitized_input
+        detection: java_lang_path_traversal_request_input
+      - not:
+          variable: FILE_USER_INPUT
+          detection: java_lang_path_traversal_sanitized_input
   - pattern: |
       new FileOutputStream($<...>$<FILE_OUTPUT_USER_INPUT>$<...>)
     filters:
       - variable: FILE_OUTPUT_USER_INPUT
-        detection: java_lang_path_traversal_unsanitized_input
+        detection: java_lang_path_traversal_request_input
+      - not:
+          variable: FILE_OUTPUT_USER_INPUT
+          detection: java_lang_path_traversal_sanitized_input
   - pattern: |
       new FileInputStream($<...>$<FILE_INPUT_USER_INPUT>$<...>)
     filters:
       - variable: FILE_INPUT_USER_INPUT
-        detection: java_lang_path_traversal_unsanitized_input
+        detection: java_lang_path_traversal_request_input
+      - not:
+          variable: FILE_INPUT_USER_INPUT
+          detection: java_lang_path_traversal_sanitized_input
 auxiliary:
-  - id: java_lang_path_traversal_unsanitized_input
-    patterns:
-      - pattern: |
-          $<USER_INPUT>;
-        filters:
-          - variable: USER_INPUT
-            detection: java_lang_path_traversal_request_input
-          - not:
-              variable: USER_INPUT
-              detection: java_lang_path_traversal_sanitized_input
   - id: java_lang_path_traversal_sanitized_input
     patterns:
-      - pattern: FilenameUtils.getName($<...>)
+      - pattern: FilenameUtils.getName()
   - id: java_lang_path_traversal_request_input
     patterns:
       - pattern: |
