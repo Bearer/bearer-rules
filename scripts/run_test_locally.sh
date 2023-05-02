@@ -35,8 +35,6 @@ for file in $(find $test_data -type f); do
 
     rule_id=$(yq '.metadata.id' $rule_file)
 
-
-
     snapshot_file="${snapshot_dir}/${file_name}.yml"
 
     bearer_program="./cmd/bearer/main.go"
