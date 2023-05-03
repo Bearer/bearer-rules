@@ -7,10 +7,10 @@ low:
         title: Insecure encryption algorithm detected
         description: |
             # java.security.MessageDigest
-        documentation_url: TODO
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_weak_encryption
       line_number: 29
-      filename: /Users/vjeranfistric/go/src/github.com/bearer/bearer-rules/java/lang/weak_encryption/testdata/md5_encryption.java
+      filename: /tmp/scan/md5_encryption.java
       parent_line_number: 29
       snippet: MessageDigest.getInstance("MD5")
-      fingerprint: 572d3a9e054230b97829d95934557c7d_0
+      fingerprint: 653d771970df0dd82ced5610e71a0193_0
 

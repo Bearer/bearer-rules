@@ -5,12 +5,11 @@ low:
             - "532"
         id: java_lang_sqli
         title: SQL injection threat detected
-        description: |
-            TODO
-        documentation_url: TODO
+        description: "Instead of using dynamically crafted string for your sql query use prepared statements instead\n\nPreparedStatement\n```java\nmyStmt = myCon.prepareStatement(select * from students where age> ? and name = ?);\nmyStmt.setInt(1,10);     \nmyStmt.setString(2,\"Chhavi\");  \n```\n"
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_sqli
       line_number: 16
-      filename: /Users/vjeranfistric/go/src/github.com/bearer/bearer-rules/java/lang/sqli/testdata/string_concatenation.java
+      filename: /tmp/scan/string_concatenation.java
       parent_line_number: 16
       snippet: stmt.executeQuery(sqlQuery)
-      fingerprint: c746853316f14b4825d3ea7afb6ff614_0
+      fingerprint: 8561d23bebc1cce1822c6a6f141f54cc_0
 
