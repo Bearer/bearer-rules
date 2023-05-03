@@ -1,0 +1,40 @@
+patterns:
+  - pattern: |
+      new RegExp($<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: javascript_lang_regex_using_user_input_user_input
+auxiliary:
+  - id: javascript_lang_regex_using_user_input_user_input
+    patterns:
+      # Express
+      - req.params
+      - req.query
+      - req.body
+      - req.cookies
+      - req.headers
+      # AWS
+      - event.$<_>
+      - event[$<_>]
+languages:
+  - javascript
+metadata:
+  description: "Regular expression built from user input detected."
+  remediation_message: |
+    ## Description
+
+    Applications should avoid constructing regular expressions from user input.
+    Regular expressions can have exponential worst-case computational
+    complexity, allowing users to trigger this behaviour can result in
+    excessive CPU consumption causing a regular expression denial of service (ReDoS).
+
+    ## Remediations
+
+    ❌ Avoid using untrusted or user data when building regular expressions
+
+    ## Resources
+    - [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)
+  cwe_id:
+    - 1333
+  id: javascript_lang_regex_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_regex_using_user_input
