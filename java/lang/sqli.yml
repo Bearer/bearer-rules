@@ -27,44 +27,35 @@ languages:
 trigger:
   match_on: presence
 metadata:
-  description: "SQL injection threat detected"
+  description: "Unsanitized user input in SQL query detected."
   remediation_message: |
-    Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead
+    ## Description
 
-    Dynamically crafted string
+    Including unsanitized data, such as user input or request data, in raw SQL
+    queries makes your application vulnerable to SQL injection attacks.
+
+    ## Remediations
+
+    ❌ Avoid raw queries, especially those that contain unsanitized user input:
+
     ```java
-    public class SQLExample {
-      static final String DB_URL = "jdbc:mysql://localhost/bearer";
-      static final String USER = "guest";
-      static final String PASS = "guest";
-
-      public static void main(String[] args) {
-
-          String sqlQuery = "select name from users where id='"+ args[1] + "'"
-          // Open a connection
-          try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlQuery);) {
-            // Extract data from result set
-            while (rs.next()) {
-                // Retrieve by column name
-                System.out.println(", Name: " + rs.getString("name"));
-            }
-          } catch (SQLException e) {
-            e.printStackTrace();
-          } 
-      }
-    }
+      Statement stmt = conn.createStatement();
+      ResultSet rs = stmt.executeQuery("select name from users where id='"+ uri.getQueryParameter("user_id") "'")) {
     ```
 
-    PreparedStatement
+
+    ✅ Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead
+
     ```java
     myStmt = myCon.prepareStatement("select * from students where age > ? and name = ?");
-    myStmt.setInt(1,10);     
-    myStmt.setString(2,"Chhavi");  
+    myStmt.setInt(1, uri.getQueryParameter("age"));     
+    myStmt.setString(2, uri.getQueryParameter("name"));  
     ```
+
+    ## Resources
+    - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
+    - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
   cwe_id:
-    - 1295
-    - 532
+    - 89
   id: "java_lang_sqli"
   documentation_url: https://docs.bearer.com/reference/rules/java_lang_sqli
