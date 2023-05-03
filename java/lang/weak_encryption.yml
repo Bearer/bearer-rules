@@ -1,0 +1,19 @@
+patterns:
+  - pattern: |
+      MessageDigest.getInstance($<ALGORITHM>)
+    filters:
+      - variable: ALGORITHM
+        regex: (?i)['"](MD5|SHA-1)['"]
+languages:
+  - java
+trigger:
+  match_on: presence
+metadata:
+  description: "Insecure encryption algorithm detected"
+  remediation_message: |
+    # java.security.MessageDigest
+  cwe_id:
+    - 1295
+    - 532
+  id: "java_lang_weak_encryption"
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_weak_encryption

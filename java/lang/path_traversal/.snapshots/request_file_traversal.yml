@@ -1,0 +1,20 @@
+low:
+    - rule:
+        cwe_ids:
+            - "1295"
+            - "532"
+        id: java_lang_path_traversal
+        title: SQL injection threat detected
+        description: |
+            classes used:
+            # java.io.File
+            # java.io.FileOutputStream
+            # java.io.FileInputStream
+            # org.apache.commons.io.FilenameUtils.getName
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_path_traversal
+      line_number: 18
+      filename: /tmp/scan/request_file_traversal.java
+      parent_line_number: 18
+      snippet: new File("user/profile/", image)
+      fingerprint: cc3910529bff20cfb6f98dd91557ba40_0
+

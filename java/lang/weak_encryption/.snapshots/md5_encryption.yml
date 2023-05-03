@@ -1,0 +1,16 @@
+low:
+    - rule:
+        cwe_ids:
+            - "1295"
+            - "532"
+        id: java_lang_weak_encryption
+        title: Insecure encryption algorithm detected
+        description: |
+            # java.security.MessageDigest
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_weak_encryption
+      line_number: 29
+      filename: /tmp/scan/md5_encryption.java
+      parent_line_number: 29
+      snippet: MessageDigest.getInstance("MD5")
+      fingerprint: 653d771970df0dd82ced5610e71a0193_0
+

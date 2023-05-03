@@ -1,0 +1,15 @@
+low:
+    - rule:
+        cwe_ids:
+            - "1295"
+            - "532"
+        id: java_lang_sqli
+        title: SQL injection threat detected
+        description: "Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead\n\nDynamically crafted string\n```java\npublic class SQLExample {\n  static final String DB_URL = \"jdbc:mysql://localhost/bearer\";\n  static final String USER = \"guest\";\n  static final String PASS = \"guest\";\n\n  public static void main(String[] args) {\n\n      String sqlQuery = \"select name from users where id='\"+ args[1] + \"'\"\n      // Open a connection\n      try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);\n        Statement stmt = conn.createStatement();\n        ResultSet rs = stmt.executeQuery(sqlQuery);) {\n        // Extract data from result set\n        while (rs.next()) {\n            // Retrieve by column name\n            System.out.println(\", Name: \" + rs.getString(\"name\"));\n        }\n      } catch (SQLException e) {\n        e.printStackTrace();\n      } \n  }\n}\n```\n\nPreparedStatement\n```java\nmyStmt = myCon.prepareStatement(\"select * from students where age > ? and name = ?\");\nmyStmt.setInt(1,10);     \nmyStmt.setString(2,\"Chhavi\");  \n```\n"
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_sqli
+      line_number: 16
+      filename: /tmp/scan/string_concatenation.java
+      parent_line_number: 16
+      snippet: stmt.executeQuery(sqlQuery)
+      fingerprint: 8561d23bebc1cce1822c6a6f141f54cc_0
+

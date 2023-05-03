@@ -1,0 +1,70 @@
+patterns:
+  - pattern: |
+      $<_>.$<METHOD>($<DYNAMIC_INPUT_LITERAL>)
+    filters:
+      - variable: METHOD
+        values:
+          - execute
+          - executeQuery
+          - prepareStatement
+      - variable: DYNAMIC_INPUT_LITERAL
+        detection: java_lang_sqli_dynamic_input
+auxiliary:
+  - id: java_lang_sqli_dynamic_input
+    patterns:
+      - pattern: |
+          $<STRING_LITERAL> + $<DYNAMIC_INPUT>
+        filters:
+          - variable: STRING_LITERAL
+            detection: string_literal
+            contains: false
+          - not:
+              variable: DYNAMIC_INPUT
+              detection: string_literal
+              contains: false
+languages:
+  - java
+trigger:
+  match_on: presence
+metadata:
+  description: "SQL injection threat detected"
+  remediation_message: |
+    Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead
+
+    Dynamically crafted string
+    ```java
+    public class SQLExample {
+      static final String DB_URL = "jdbc:mysql://localhost/bearer";
+      static final String USER = "guest";
+      static final String PASS = "guest";
+
+      public static void main(String[] args) {
+
+          String sqlQuery = "select name from users where id='"+ args[1] + "'"
+          // Open a connection
+          try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlQuery);) {
+            // Extract data from result set
+            while (rs.next()) {
+                // Retrieve by column name
+                System.out.println(", Name: " + rs.getString("name"));
+            }
+          } catch (SQLException e) {
+            e.printStackTrace();
+          } 
+      }
+    }
+    ```
+
+    PreparedStatement
+    ```java
+    myStmt = myCon.prepareStatement("select * from students where age > ? and name = ?");
+    myStmt.setInt(1,10);     
+    myStmt.setString(2,"Chhavi");  
+    ```
+  cwe_id:
+    - 1295
+    - 532
+  id: "java_lang_sqli"
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_sqli
