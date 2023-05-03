@@ -1,0 +1,212 @@
+high:
+    - rule:
+        cwe_ids:
+            - "79"
+        id: ruby_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```ruby
+            html = "<h1>#{params[:title]}</h1>"
+            ```
+
+            ✅ Use a templating language such as ERB, and place the template in a separate file.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```ruby
+            html = "<h1>#{strip_tags(params[:title])}</h1>"
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_raw_html_using_user_input
+      line_number: 1
+      filename: /tmp/scan/bad.rb
+      parent_line_number: 1
+      snippet: '"<h1 class=\"test\">#{params[:oops]}</h1>"'
+      fingerprint: e656ad1fa2ca8c10a0a51f19d4d6a852_0
+    - rule:
+        cwe_ids:
+            - "79"
+        id: ruby_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```ruby
+            html = "<h1>#{params[:title]}</h1>"
+            ```
+
+            ✅ Use a templating language such as ERB, and place the template in a separate file.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```ruby
+            html = "<h1>#{strip_tags(params[:title])}</h1>"
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_raw_html_using_user_input
+      line_number: 2
+      filename: /tmp/scan/bad.rb
+      parent_line_number: 2
+      snippet: '"<h1>#{params[:oops]}</h1>"'
+      fingerprint: e656ad1fa2ca8c10a0a51f19d4d6a852_1
+    - rule:
+        cwe_ids:
+            - "79"
+        id: ruby_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```ruby
+            html = "<h1>#{params[:title]}</h1>"
+            ```
+
+            ✅ Use a templating language such as ERB, and place the template in a separate file.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```ruby
+            html = "<h1>#{strip_tags(params[:title])}</h1>"
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_raw_html_using_user_input
+      line_number: 4
+      filename: /tmp/scan/bad.rb
+      parent_line_number: 4
+      snippet: 'raw("Hello: #{params[:oops]}")'
+      fingerprint: e656ad1fa2ca8c10a0a51f19d4d6a852_2
+    - rule:
+        cwe_ids:
+            - "79"
+        id: ruby_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```ruby
+            html = "<h1>#{params[:title]}</h1>"
+            ```
+
+            ✅ Use a templating language such as ERB, and place the template in a separate file.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```ruby
+            html = "<h1>#{strip_tags(params[:title])}</h1>"
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_raw_html_using_user_input
+      line_number: 5
+      filename: /tmp/scan/bad.rb
+      parent_line_number: 5
+      snippet: '"<h1>#{params[:oops]}</h1>"'
+      fingerprint: e656ad1fa2ca8c10a0a51f19d4d6a852_3
+    - rule:
+        cwe_ids:
+            - "79"
+        id: ruby_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```ruby
+            html = "<h1>#{params[:title]}</h1>"
+            ```
+
+            ✅ Use a templating language such as ERB, and place the template in a separate file.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```ruby
+            html = "<h1>#{strip_tags(params[:title])}</h1>"
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_raw_html_using_user_input
+      line_number: 7
+      filename: /tmp/scan/bad.rb
+      parent_line_number: 7
+      snippet: '"Hello: #{params[:oops]}".html_safe'
+      fingerprint: e656ad1fa2ca8c10a0a51f19d4d6a852_5
+    - rule:
+        cwe_ids:
+            - "79"
+        id: ruby_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```ruby
+            html = "<h1>#{params[:title]}</h1>"
+            ```
+
+            ✅ Use a templating language such as ERB, and place the template in a separate file.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```ruby
+            html = "<h1>#{strip_tags(params[:title])}</h1>"
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_raw_html_using_user_input
+      line_number: 9
+      filename: /tmp/scan/bad.rb
+      parent_line_number: 9
+      snippet: 'ERB.new("Test: " + params[:oops])'
+      fingerprint: e656ad1fa2ca8c10a0a51f19d4d6a852_6
+

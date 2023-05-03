@@ -1,0 +1,71 @@
+languages:
+  - javascript
+patterns:
+  - pattern: $<STRING>
+    filters:
+      - variable: STRING
+        string_regex: <\w+(\s[^>]*)?>
+      - variable: STRING
+        detection: javascript_lang_raw_html_using_user_input_user_input
+      - not:
+          variable: STRING
+          detection: javascript_lang_raw_html_using_user_input_sanitized
+auxiliary:
+  - id: javascript_lang_raw_html_using_user_input_user_input_source
+    patterns:
+      # Express
+      - req.params
+      - req.query
+      - req.body
+      - req.cookies
+      - req.headers
+      # AWS
+      - event.$<_>
+      - event[$<_>]
+  - id: javascript_lang_raw_html_using_user_input_user_input
+    patterns:
+      - pattern: $<USER_INPUT>
+        filters:
+          - variable: USER_INPUT
+            detection: javascript_lang_raw_html_using_user_input_user_input_source
+            contains: false
+  - id: javascript_lang_raw_html_using_user_input_sanitized
+    patterns:
+      - pattern: sanitizeHtml($<SANITIZED_USER_INPUT>$<...>)
+        filters:
+          - variable: SANITIZED_USER_INPUT
+            detection: javascript_lang_raw_html_using_user_input_user_input
+severity: high
+metadata:
+  description: "Unsanitized user input detected in raw HTML string."
+  remediation_message: |
+    ## Description
+
+    Applications should not include unsanitized user input in HTML. This
+    can allow cross-site scripting (XSS) attacks.
+
+    ## Remediations
+
+    ❌ Avoid including user input directly in HTML strings:
+
+    ```javascript
+    const html = `<h1>${req.params.title}</h1>`
+    ```
+
+    ✅ Use a framework or templating language to construct the HTML.
+
+    ✅ When HTML strings must be used, sanitize user input:
+
+    ```javascript
+    import sanitizeHtml from 'sanitize-html'
+
+    const sanitizedTitle = sanitizeHtml(req.params.title)
+    const html = `<h1>${sanitizedTitle}</h1>`
+    ```
+
+    ## Resources
+    - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+  cwe_id:
+    - 79
+  id: javascript_lang_raw_html_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
