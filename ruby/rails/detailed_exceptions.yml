@@ -1,0 +1,63 @@
+patterns:
+  - pattern: config.consider_all_requests_local = true
+    filters:
+      - not:
+          filename_regex: (\A|/)(development|test)\.rb\z
+  - pattern: |
+      class $<NAME> < $<_>
+        $<!>$<METHOD>
+      end
+    filters:
+      - variable: NAME
+        regex: Controller\z
+      - variable: METHOD
+        detection: show_detailed_exceptions_method
+        contains: false
+      - not:
+          variable: METHOD
+          detection: show_detailed_exceptions_method_false
+          contains: false
+auxiliary:
+  - id: show_detailed_exceptions_method
+    patterns:
+      - |
+        def show_detailed_exceptions?
+        end
+  - id: show_detailed_exceptions_method_false
+    patterns:
+      - |
+        def show_detailed_exceptions?
+          false
+        end
+languages:
+  - ruby
+severity: low
+metadata:
+  description: "Detailed error reporting detected."
+  remediation_message: |
+    ## Description
+
+    Returning detailed error messages to users could reveal sensitive
+    information. This could lead to
+
+    ## Remediations
+
+    ❌ Don't configure your application to return details for every error:
+
+    ```ruby
+    config.consider_all_requests_local = false
+    ```
+
+    ❌ Don't use `show_detailed_exceptions?` in controllers:
+
+    ```ruby
+    class MyController < ApplicationController
+      def show_detailed_exceptions?
+        ...
+      end
+    end
+    ```
+  cwe_id:
+    - 209
+  id: ruby_rails_detailed_exceptions
+  documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_detailed_exceptions
