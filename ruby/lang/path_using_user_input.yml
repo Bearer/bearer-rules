@@ -152,6 +152,14 @@ patterns:
           - template
       - variable: USER_INPUT
         detection: ruby_lang_path_using_user_input_user_input
+  - pattern: render($<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: ruby_lang_path_using_user_input_user_input
+      - not:
+          variable: USER_INPUT
+          detection: ruby_lang_path_using_user_input_render_first_arg_pair
+          contains: false
   - pattern: |
       $<METHOD>({ $<ARGUMENT>: $<USER_INPUT> })
     filters:
@@ -216,6 +224,10 @@ auxiliary:
               - unlink
           - variable: USER_INPUT
             detection: ruby_lang_path_using_user_input_user_input
+  - id: ruby_lang_path_using_user_input_render_first_arg_pair
+    patterns:
+      - pattern: |
+          render($<!>$<_>: $<_>)
 languages:
   - ruby
 severity: high
