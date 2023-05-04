@@ -1,16 +1,34 @@
 low:
     - rule:
         cwe_ids:
-            - "1295"
-            - "532"
+            - "22"
         id: java_lang_path_traversal
-        title: SQL injection threat detected
+        title: Possible path traversal vulnerability detected
         description: |
-            classes used:
-            # java.io.File
-            # java.io.FileOutputStream
-            # java.io.FileInputStream
-            # org.apache.commons.io.FilenameUtils.getName
+            ## Description
+
+            Allowing unsanitized user input in path resolution methods means an attacker could gain access to files and folders outside of the intended scope.
+
+            ## Remediations
+            ❌ Avoid wherever possible
+
+            ✅ Sanitize user input when resolving paths, for example:
+            Use `FilenameUtils.getName()` to mitigate against unwanted patterns in the path (such as `\..\..`)
+
+            ```java
+              public class Cls extends HttpServlet
+              {
+
+                  public void handleRequest(HttpServletRequest request, HttpServletResponse response)
+                  {
+                      String image = request.getParameter("user_profile_picture");
+                      File file = new File("user/profile/" + FilenameUtils.getName(image));
+                  }
+              }
+            ```
+
+            ## Resources
+            - [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/java_lang_path_traversal
       line_number: 18
       filename: /tmp/scan/request_file_traversal.java
