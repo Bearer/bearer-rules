@@ -71,7 +71,7 @@ metadata:
     ❌ Avoid wherever possible
 
     ✅ Sanitize user input when resolving paths, for example:
-    - Use `FilenameUtils.getName()` to mitigate against unwanted patterns in the path (such as `\..\..`)
+    Use `FilenameUtils.getName()` to mitigate against unwanted patterns in the path (such as `\..\..`)
 
     ```java
       public class Cls extends HttpServlet
