@@ -1,9 +1,10 @@
 patterns:
   - pattern: |
-      $<KNEX_CLIENT>.$<METHOD>($<...>$<USER_INPUT>$<...>)
+      $<KNEX_CLIENT>.$<METHOD>($<...>$<DATA>$<...>)
     filters:
-      - variable: USER_INPUT
-        detection: javascript_express_sql_injection_request_input
+      - variable: DATA
+        detection: javascript_express_sql_injection_data
+        contains: false
       - variable: KNEX_CLIENT
         detection: javascript_express_sql_injection_knex_client
       - variable: METHOD
@@ -12,51 +13,73 @@ patterns:
           - whereRaw
           - raw
   - pattern: |
-      $<PG_CLIENT>.query($<...>$<USER_INPUT>$<...>)
+      $<PG_CLIENT>.query($<...>$<DATA>$<...>)
     filters:
       - variable: PG_CLIENT
         detection: javascript_express_sql_injection_pg_client
-      - variable: USER_INPUT
-        detection: javascript_express_sql_injection_request_input
+      - variable: DATA
+        detection: javascript_express_sql_injection_data
+        contains: false
   - pattern: |
-      $<_>.sequelize.query($<USER_INPUT>$<...>)
+      $<_>.sequelize.query($<DATA>$<...>)
     filters:
-      - variable: USER_INPUT
-        detection: javascript_express_sql_injection_request_input
+      - variable: DATA
+        detection: javascript_express_sql_injection_data
+        contains: false
   - pattern: |
-      $<SEQUELIZE>.query($<USER_INPUT>$<...>)
+      $<SEQUELIZE>.query($<DATA>$<...>)
     filters:
+      - variable: DATA
+        detection: javascript_express_sql_injection_data
+        contains: false
       - variable: SEQUELIZE
         detection: javascript_express_sql_injection_sequelize_init
-      - variable: USER_INPUT
-        detection: javascript_express_sql_injection_request_input
   - pattern: |
-      $<MYSQL_CONN>.$<METHOD>($<...>$<USER_INPUT>$<...>)
+      $<MYSQL_CONN>.$<METHOD>($<...>$<DATA>$<...>)
     filters:
       - variable: MYSQL_CONN
         detection: javascript_express_sql_injection_mysql_conn
-      - variable: USER_INPUT
-        detection: javascript_express_sql_injection_request_input
+      - variable: DATA
+        detection: javascript_express_sql_injection_data
+        contains: false
       - variable: METHOD
         values:
           - query
           - execute
   - pattern: |
-      $<MYSQL_POOL>.query($<...>$<USER_INPUT>$<...>)
+      $<MYSQL_POOL>.query($<...>$<DATA>$<...>)
     filters:
       - variable: MYSQL_POOL
         detection: javascript_express_sql_injection_mysql_pool
-      - variable: USER_INPUT
-        detection: javascript_express_sql_injection_request_input
+      - variable: DATA
+        detection: javascript_express_sql_injection_data
+        contains: false
   - pattern: |
-      $<CONN>.query($<USER_INPUT>, $<_>)
+      $<CONN>.query($<DATA>, $<_>)
     filters:
       - variable: CONN
         detection: javascript_express_sql_injection_pool_conn
-      - variable: USER_INPUT
-        detection: javascript_express_sql_injection_request_input
+      - variable: DATA
+        detection: javascript_express_sql_injection_data
+        contains: false
 auxiliary:
-  - id: javascript_express_sql_injection_request_input
+  - id: javascript_express_sql_injection_data
+    patterns:
+      - pattern: $<USER_INPUT>
+        filters:
+          - variable: USER_INPUT
+            detection: javascript_express_sql_injection_user_input
+          - not:
+              variable: USER_INPUT
+              detection: javascript_express_sql_injection_user_input_sanitized
+      - pattern: const { $<!>$<_> } = $<USER_INPUT>
+        filters:
+          - variable: USER_INPUT
+            detection: javascript_express_sql_injection_user_input
+          - not:
+              variable: USER_INPUT
+              detection: javascript_express_sql_injection_user_input_sanitized
+  - id: javascript_express_sql_injection_request_input_source
     patterns:
       - req.params
       - req.query
@@ -91,6 +114,20 @@ auxiliary:
               - knex
               - knexClient
               - client
+  - id: javascript_express_sql_injection_user_input_sanitized
+    patterns:
+      - pattern: |
+          $<_>.hash($<SANITIZED_USER_INPUT>)
+        filters:
+          - variable: SANITIZED_USER_INPUT
+            detection: javascript_express_sql_injection_user_input
+  - id: javascript_express_sql_injection_user_input
+    patterns:
+      - pattern: $<MATCHED_USER_INPUT>
+        filters:
+          - variable: MATCHED_USER_INPUT
+            detection: javascript_express_sql_injection_request_input_source
+            contains: false
 languages:
   - javascript
 severity: high
