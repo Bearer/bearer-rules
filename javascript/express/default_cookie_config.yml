@@ -22,6 +22,9 @@ patterns:
           - not:
               variable: HASH_CONTENT
               detection: javascript_express_default_cookie_config_secure_attribute
+          - not:
+              variable: HASH_CONTENT
+              detection: javascript_express_default_cookie_config_httponly_attribute
   - pattern: |
       cookieSession($<!>$<HASH_CONTENT>)
     filters:
@@ -43,6 +46,9 @@ patterns:
           - not:
               variable: HASH_CONTENT
               detection: javascript_express_default_cookie_config_secure_attribute
+          - not:
+              variable: HASH_CONTENT
+              detection: javascript_express_default_cookie_config_httponly_attribute
 languages:
   - javascript
 auxiliary:
@@ -72,6 +78,10 @@ auxiliary:
     patterns:
       - |
         { secure: $<_> }
+  - id: javascript_express_default_cookie_config_httponly_attribute
+    patterns:
+      - |
+        { httpOnly: $<_> }
 severity: medium
 metadata:
   description: "Cookie with default config detected."
