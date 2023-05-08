@@ -60,7 +60,7 @@ patterns:
       - variable: USER_INPUT
         detection: ruby_lang_exec_using_user_input_user_input
   - pattern: |
-      `{$<...>$<USER_INPUT>$<...>`
+      `$<...>$<USER_INPUT>$<...>`
     filters:
       - variable: USER_INPUT
         detection: ruby_lang_exec_using_user_input_user_input
