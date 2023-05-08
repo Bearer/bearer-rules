@@ -10,8 +10,18 @@ patterns:
       - variable: MODULE
         values:
           - Dir
-          - File
           - Pathname
+      - variable: USER_INPUT
+        detection: ruby_lang_path_using_user_input_user_input
+  - pattern: File.$<METHOD>($<...>$<USER_INPUT>$<...>)$<...>
+    filters:
+      - not:
+          variable: METHOD
+          values:
+            - basename
+            - extname
+            - fnmatch
+            - fnmatch?
       - variable: USER_INPUT
         detection: ruby_lang_path_using_user_input_user_input
   - pattern: |

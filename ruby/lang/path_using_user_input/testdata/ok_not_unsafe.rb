@@ -4,6 +4,7 @@ Dir.chdir("/home/#{x}")
 
 event = not_from_handler
 File.exist?(event["oops"])
+File.basename(params[:filename])
 
 IO.readlines("/home/#{x}")
 
