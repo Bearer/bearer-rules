@@ -26,11 +26,7 @@ metadata:
         cipher.init(Cipher.ENCRYPT_MODE, key);
         byte[] cipherText = cipher.doFinal(plainText);
     ```
-
-    ## Resources
-    - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
-    - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
   cwe_id:
-    - 89
+    - 327
   id: "java_lang_desede_usage"
   documentation_url: https://docs.bearer.com/reference/rules/java_lang_desede_usage
