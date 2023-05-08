@@ -1,6 +1,6 @@
 patterns:
   - pattern: |
-      redirect_to($<USER_INPUT>)
+      redirect_to($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: ruby_rails_open_redirect_user_input

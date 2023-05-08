@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-    def notify
-      redirect_to(params[:id])
-    end
+  def notify
+    redirect_to params[:id], status: :found
   end
+end
