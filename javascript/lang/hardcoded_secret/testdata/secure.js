@@ -13,3 +13,7 @@ crypto.privateEncrypt({ passphrase: process.env["SECRET"] }, buffer)
 
 const s = crypto.createSign('RSA-SHA256')
 s.sign(process.env["SECRET"], "utf-8")
+
+const apiKey = "**"
+o.password = "***"
+const foo = { password: "••" }
