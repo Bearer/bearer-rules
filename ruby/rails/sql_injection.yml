@@ -69,7 +69,7 @@ auxiliary:
   - id: ruby_rails_sql_injection_user_input_source
     patterns:
       - params
-      - request
+      - request.$<_>
       - cookies
       - | # AWS lambda
         def $<_>($<!>event:, context:)

@@ -3,14 +3,14 @@ patterns:
       redirect_to($<USER_INPUT>)
     filters:
       - variable: USER_INPUT
-        detection: ruby_rails_redirect_to_user_input
+        detection: ruby_rails_open_redirect_user_input
 languages:
   - ruby
 auxiliary:
-  - id: ruby_rails_redirect_to_user_input
+  - id: ruby_rails_open_redirect_user_input
     patterns:
       - params
-      - request
+      - request.$<_>
       - cookies
 severity: medium
 metadata:

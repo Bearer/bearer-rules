@@ -21,7 +21,7 @@ auxiliary:
   - id: ruby_rails_render_using_user_input_user_input
     patterns:
       - params
-      - request
+      - request.$<_>
       - cookies
   - id: ruby_rails_render_using_user_input_sanitized
     patterns:

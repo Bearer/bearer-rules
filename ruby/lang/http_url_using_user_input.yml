@@ -301,7 +301,7 @@ auxiliary:
   - id: ruby_lang_http_url_using_user_input_user_input
     patterns:
       - params
-      - request
+      - request.$<_>
       - cookies
       - | # AWS lambda
         def $<_>($<!>event:, context:)
