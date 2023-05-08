@@ -33,11 +33,17 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: ruby_lang_path_using_user_input_user_input
+      - not:
+          variable: USER_INPUT
+          detection: ruby_lang_path_using_user_input_open_sanitized
   - pattern: |
       open($<USER_INPUT>$<...>)$<...>
     filters:
       - variable: USER_INPUT
         detection: ruby_lang_path_using_user_input_user_input
+      - not:
+          variable: USER_INPUT
+          detection: ruby_lang_path_using_user_input_open_sanitized
   - pattern: |
       PStore.new($<USER_INPUT>$<...>)
     filters:
@@ -181,7 +187,7 @@ patterns:
       - variable: USER_INPUT
         detection: ruby_lang_path_using_user_input_user_input
 auxiliary:
-  - id: ruby_lang_path_using_user_input_user_input
+  - id: ruby_lang_path_using_user_input_user_input_source
     patterns:
       - params
       - request.$<_>
@@ -189,6 +195,19 @@ auxiliary:
       - | # AWS lambda
         def $<_>($<!>event:, context:)
         end
+  - id: ruby_lang_path_using_user_input_user_input
+    patterns:
+      - pattern: $<MATCHED_USER_INPUT>
+        filters:
+          - variable: MATCHED_USER_INPUT
+            detection: ruby_lang_path_using_user_input_user_input_source
+            contains: false
+  - id: ruby_lang_path_using_user_input_open_sanitized
+    patterns:
+      - pattern: URI($<SANITIZED_USER_INPUT>)
+        filters:
+          - variable: SANITIZED_USER_INPUT
+            detection: ruby_lang_path_using_user_input_user_input
   - id: ruby_lang_path_using_user_input_pathname
     patterns:
       - Rails.root

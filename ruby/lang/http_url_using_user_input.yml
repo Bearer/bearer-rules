@@ -88,11 +88,18 @@ patterns:
         detection: ruby_lang_http_url_using_user_input_net_http
       - variable: USER_INPUT
         detection: ruby_lang_http_url_using_user_input_user_input
-  - pattern: |
-      URI($<USER_INPUT>)
+  - pattern: $<URI>.open$<...>
     filters:
-      - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+      - variable: URI
+        detection: ruby_lang_http_url_using_user_input_uri
+  - pattern: open($<URI>$<...>)$<...>
+    filters:
+      - variable: URI
+        detection: ruby_lang_http_url_using_user_input_uri
+  - pattern: Kernel.open($<URI>$<...>)$<...>
+    filters:
+      - variable: URI
+        detection: ruby_lang_http_url_using_user_input_uri
   - pattern: |
       Curl.http($<_>, $<USER_INPUT>$<...>)$<...>
     filters:
@@ -257,6 +264,12 @@ auxiliary:
               - new
               - newobj
               - start
+  - id: ruby_lang_http_url_using_user_input_uri
+    patterns:
+      - pattern: URI($<USER_INPUT>)
+        filters:
+          - variable: USER_INPUT
+            detection: ruby_lang_http_url_using_user_input_user_input
   - id: ruby_lang_http_url_using_user_input_net_http
     patterns:
       - pattern: |

@@ -57,3 +57,10 @@ end
 
 
 Faraday.post(x)
+
+unused_uri = URI(params[:url])
+
+uri = URI(x)
+open(uri, "r")
+Kernel.open(uri) {}
+uri.open
