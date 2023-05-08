@@ -14,8 +14,8 @@ patterns:
 auxiliary:
   - id: javascript_aws_lambda_query_injection_user_input
     patterns:
-      - event.$<_>
-      - event[$<_>]
+      - async function ($<!>event, $<_>) {}
+      - async ($<!>event, $<_>) => {}
   - id: javascript_aws_lambda_query_injection_hash
     patterns:
       - |

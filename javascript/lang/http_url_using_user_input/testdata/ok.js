@@ -25,3 +25,11 @@ const request = require('request')
 const imageRequest = request.get(url)
 
 request(url, function () {})
+
+export const handler = async (event, context) => {
+  axios.get(url)
+}
+
+exports.handler = async function (event, context) {
+  axios.get(url)
+}

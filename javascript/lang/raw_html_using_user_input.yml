@@ -20,8 +20,8 @@ auxiliary:
       - req.cookies
       - req.headers
       # AWS
-      - event.$<_>
-      - event[$<_>]
+      - async function ($<!>event, $<_>) {}
+      - async ($<!>event, $<_>) => {}
   - id: javascript_lang_raw_html_using_user_input_user_input
     patterns:
       - pattern: $<USER_INPUT>

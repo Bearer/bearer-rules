@@ -215,4 +215,76 @@ high:
       parent_line_number: 27
       snippet: request(url, function () {})
       fingerprint: 62309be37a26b5016cdbcb3c143da49f_5
+    - rule:
+        cwe_ids:
+            - "918"
+        id: javascript_lang_http_url_using_user_input
+        title: HTTP communication with user-controlled destination detected.
+        description: |
+            ## Description
+
+            Applications should not connect to locations formed from user input.
+            This rule checks for URLs containing user-supplied data.
+
+            ## Remediations
+
+            ❌ Avoid using user input in HTTP URLs:
+
+            ```javascript
+            const response = axios.get(`https://${req.params.host}`)
+            ```
+
+            ✅ Use user input indirectly to form a URL:
+
+            ```javascript
+            const hosts = new Map([
+              ["option1", "api1.com"],
+              ["option2", "api2.com"]
+            ])
+
+            const host = hosts.get(req.params.host)
+            const response = axois.get(`https://${host}`)
+            ```
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input
+      line_number: 31
+      filename: /tmp/scan/bad.js
+      parent_line_number: 31
+      snippet: axios.get(event.url)
+      fingerprint: 62309be37a26b5016cdbcb3c143da49f_6
+    - rule:
+        cwe_ids:
+            - "918"
+        id: javascript_lang_http_url_using_user_input
+        title: HTTP communication with user-controlled destination detected.
+        description: |
+            ## Description
+
+            Applications should not connect to locations formed from user input.
+            This rule checks for URLs containing user-supplied data.
+
+            ## Remediations
+
+            ❌ Avoid using user input in HTTP URLs:
+
+            ```javascript
+            const response = axios.get(`https://${req.params.host}`)
+            ```
+
+            ✅ Use user input indirectly to form a URL:
+
+            ```javascript
+            const hosts = new Map([
+              ["option1", "api1.com"],
+              ["option2", "api2.com"]
+            ])
+
+            const host = hosts.get(req.params.host)
+            const response = axois.get(`https://${host}`)
+            ```
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input
+      line_number: 35
+      filename: /tmp/scan/bad.js
+      parent_line_number: 35
+      snippet: axios.get(event["url"])
+      fingerprint: 62309be37a26b5016cdbcb3c143da49f_7
 

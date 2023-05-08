@@ -14,8 +14,8 @@ auxiliary:
       - req.cookies
       - req.headers
       # AWS
-      - event.$<_>
-      - event[$<_>]
+      - async function ($<!>event, $<_>) {}
+      - async ($<!>event, $<_>) => {}
 languages:
   - javascript
 metadata:
