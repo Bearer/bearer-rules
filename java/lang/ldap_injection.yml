@@ -1,0 +1,78 @@
+patterns:
+  - pattern: |
+      $<CONTEXT>.search($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: CONTEXT
+        values:
+          - context
+          - ctx
+          - dirContext
+          - dirCtx
+      - variable: USER_INPUT
+        detection: java_lang_ldap_injection_user_input
+auxiliary:
+  - id: java_lang_ldap_injection_user_input
+    patterns:
+      - pattern: |
+          $<REQUEST>.$<REQUEST_METHOD>()
+        filters:
+          - variable: REQUEST
+            values:
+              - req
+              - request
+          - variable: REQUEST_METHOD
+            values:
+              - getCookies
+              - getHeader
+              - getQueryString
+              - getRequestURI
+              - getRequestURL
+              - getAttribute
+              - getInputStream
+              - getParameter
+              - getParameterMap
+              - getParameterNames
+              - getParameterValues
+              - getReader
+              - getHeaderNames
+              - getPart
+              - getParts
+languages:
+  - java
+trigger:
+  match_on: presence
+metadata:
+  description: "LDAP injection threat detected"
+  remediation_message: |
+    ## Description
+      Unsatized input going into LDAP query detected. This could lead to LDAP injection, which could result in attackers modifying objects in the LDAP tree structure. Ensure data passed to an LDAP query is not controllable or properly sanitize the data.
+
+    ## Remediations
+
+    ✅ Sanitize LDAP query data
+
+    ```java
+      public class Cls extends HttpServlet
+      {
+
+          public void handleRequest(HttpServletRequest request, HttpServletResponse response)
+          {
+              String userID = request.getParameter("userID");
+              String sanitizedUserID = sanitize(userID);
+
+              String filter = "(&(objectclass=person))(|(uid=" + sanitizedUserID + ")(street={0}))";
+              String base = "ou=users,ou=system";
+              Object[] filters = new Object[] {"First avenue"};
+              javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+
+              dirContext.search(base, filter, filters, sc);
+          }
+      }
+    ```
+
+    ## References
+    - [LDAP Injection](https://owasp.org/www-community/attacks/LDAP_Injection)
+  cwe_id:
+    - 90
+  id: "java_lang_ldap_injection"
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_ldap_injection
