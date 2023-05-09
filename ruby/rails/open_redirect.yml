@@ -4,10 +4,28 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: ruby_rails_open_redirect_user_input
+      - not:
+          variable: USER_INPUT
+          detection: ruby_rails_open_redirect_sanitized
 languages:
   - ruby
 auxiliary:
+  - id: ruby_rails_open_redirect_sanitized
+    patterns:
+      - pattern: $<METHOD>($<...>$<SANITIZED_USER_INPUT>$<...>)
+        filters:
+          - variable: METHOD
+            regex: _(path|url)\z
+          - variable: SANITIZED_USER_INPUT
+            detection: ruby_rails_open_redirect_user_input
   - id: ruby_rails_open_redirect_user_input
+    patterns:
+      - pattern: $<MATCHED_USER_INPUT>
+        filters:
+          - variable: MATCHED_USER_INPUT
+            detection: ruby_rails_open_redirect_user_input_source
+            contains: false
+  - id: ruby_rails_open_redirect_user_input_source
     patterns:
       - params
       - request.$<_>
