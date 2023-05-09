@@ -8,7 +8,7 @@ patterns:
         regex: \A([/'"]|%r.).*.\z
       - not:
           variable: REGEX
-          regex: \A([/'"]|%r.)\\A.*\\[zZ].\z
+          regex: \A([/'"]|%r.)\\A.*\\[zZ](.|/[a-z]*)\z
   - pattern: |
       validates_format_of with: $<REGEX>
     filters:
@@ -16,7 +16,7 @@ patterns:
         regex: \A([/'"]|%r.).*.\z
       - not:
           variable: REGEX
-          regex: \A([/'"]|%r.)\\A.*\\[zZ].\z
+          regex: \A([/'"]|%r.)\\A.*\\[zZ](.|/[a-z]*)\z
 metadata:
   description: "Validation using permissive regular expression detected."
   remediation_message: |

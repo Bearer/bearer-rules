@@ -1,4 +1,5 @@
 validates :attr, format: { with: /\Aoops\z/ }
+validates :attr, format: { with: /\Aoops\z/i }
 validates :attr, format: { with: %r[\Aoops\Z] }
 validates :attr, format: { with: "\Aoops\z" }
 validates :attr, format: { with: x }
