@@ -1,7 +1,9 @@
 patterns:
   - pattern: |
-      expressjwt($<HASH_CONTENT>)
+      $<EXPRESS_JWT>($<HASH_CONTENT>)
     filters:
+      - variable: EXPRESS_JWT
+        regex: (?i)(expressjwt)
       - variable: HASH_CONTENT
         detection: javascript_express_jwt_not_revoked_secret
       - not:
