@@ -13,7 +13,8 @@ patterns:
 auxiliary:
   - id: javascript_aws_lambda_cross_site_scripting_event
     patterns:
-      - event
+      - async function ($<!>event, $<_>) {}
+      - async ($<!>event, $<_>) => {}
 languages:
   - javascript
 severity: high

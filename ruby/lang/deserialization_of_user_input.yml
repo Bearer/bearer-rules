@@ -14,7 +14,7 @@ patterns:
         detection: ruby_lang_deserialization_of_user_input_user_input
       - not:
           variable: USER_INPUT
-          detection: ruby_lang_deserialization_of_user_input_sanitized_user_input
+          detection: ruby_lang_deserialization_of_user_input_sanitized
   - pattern: |
       Marshal.restore($<USER_INPUT>$<...>)
     filters:
@@ -22,7 +22,7 @@ patterns:
         detection: ruby_lang_deserialization_of_user_input_user_input
       - not:
           variable: USER_INPUT
-          detection: ruby_lang_deserialization_of_user_input_sanitized_user_input
+          detection: ruby_lang_deserialization_of_user_input_sanitized
   - pattern: |
       Oj.object_load($<USER_INPUT>$<...>)$<...>
     filters:
@@ -30,24 +30,33 @@ patterns:
         detection: ruby_lang_deserialization_of_user_input_user_input
       - not:
           variable: USER_INPUT
-          detection: ruby_lang_deserialization_of_user_input_sanitized_user_input
+          detection: ruby_lang_deserialization_of_user_input_sanitized
 auxiliary:
-  - id: ruby_lang_deserialization_of_user_input_sanitized_user_input
+  - id: ruby_lang_deserialization_of_user_input_sanitized
     patterns:
-      - JSON.parse()
-      - Nokogiri::XML()
-  - id: ruby_lang_deserialization_of_user_input_user_input
+      - pattern: JSON.parse($<SANITIZED_USER_INPUT>)
+        filters:
+          - variable: SANITIZED_USER_INPUT
+            detection: ruby_lang_deserialization_of_user_input_user_input
+      - pattern: Nokogiri::XML($<SANITIZED_USER_INPUT>)
+        filters:
+          - variable: SANITIZED_USER_INPUT
+            detection: ruby_lang_deserialization_of_user_input_user_input
+  - id: ruby_lang_deserialization_of_user_input_user_input_source
     patterns:
       - | # AWS lambda
         def $<_>($<!>event:, context:)
         end
-      - pattern: $<INNER_USER_INPUT>
+      - params
+      - request.$<_>
+      - cookies
+  - id: ruby_lang_deserialization_of_user_input_user_input
+    patterns:
+      - pattern: $<MATCHED_USER_INPUT>
         filters:
-          - variable: INNER_USER_INPUT
-            values:
-              - params
-              - request
-              - cookies
+          - variable: MATCHED_USER_INPUT
+            detection: ruby_lang_deserialization_of_user_input_user_input_source
+            contains: false
 languages:
   - ruby
 severity: high

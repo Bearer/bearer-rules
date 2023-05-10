@@ -1,0 +1,47 @@
+languages:
+  - javascript
+patterns:
+  - pattern: new WebSocket($<INSECURE_URL>$<...>)
+    filters:
+      - variable: INSECURE_URL
+        detection: javascript_lang_websocket_insecure_url
+        contains: false
+auxiliary:
+  - id: javascript_lang_websocket_insecure_url
+    patterns:
+      - pattern: $<URL>
+        filters:
+          - variable: URL
+            string_regex: '\A(ws|http):'
+          - not:
+              variable: URL
+              string_regex: '\A(ws|http)://(localhost|127\.0\.0\.1)'
+severity: low
+metadata:
+  description: "Insecure websocket communication detected."
+  remediation_message: |
+    ## Description
+
+    Applications should only connect to APIs using SSL connections. This rule
+    checks that all websocket connections use SSL.
+
+    ## Remediations
+
+    ❌ Avoid using unsecured outgoing websocket communication:
+
+    ```javascript
+    const client = new WebSocket('ws://insecure-api.com')
+    ```
+
+    ✅ Always connect using SSL:
+
+    ```javascript
+    const client = new WebSocket('wss://secure-api.com')
+    ```
+
+    ## Resources
+    - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
+  cwe_id:
+    - 319
+  id: javascript_lang_websocket_insecure
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_websocket_insecure

@@ -8,7 +8,7 @@ auxiliary:
   - id: ruby_rails_session_key_using_user_input_user_input
     patterns:
       - params
-      - request
+      - request.$<_>
       - cookies
 languages:
   - ruby

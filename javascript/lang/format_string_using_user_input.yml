@@ -30,8 +30,8 @@ auxiliary:
       - req.cookies
       - req.headers
       # AWS
-      - event.$<_>
-      - event[$<_>]
+      - async function ($<!>event, $<_>) {}
+      - async ($<!>event, $<_>) => {}
 severity: low
 metadata:
   description: "User input in format string detected."

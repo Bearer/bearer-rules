@@ -10,3 +10,6 @@ call("secret" => x)
 { "secret" => x }
 
 Passwordless.default_from_address = "some_address@bear.com"
+
+call(api_key: "**")
+call(api_key: "•••")

@@ -96,7 +96,7 @@ high:
       line_number: 4
       filename: /tmp/scan/unsafe_rails.rb
       parent_line_number: 4
-      snippet: 'render_to_string({ file: "/templates/#{params[:oops]}" })'
+      snippet: render("something/#{params[:oops]}")
       fingerprint: 99da8d49acffa4d91e80acc91cd1a5c3_2
     - rule:
         cwe_ids:
@@ -126,9 +126,42 @@ high:
             ## Resources
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
-      line_number: 6
+      line_number: 5
       filename: /tmp/scan/unsafe_rails.rb
-      parent_line_number: 6
-      snippet: 'send_file params[:oops], type: "text/html"'
+      parent_line_number: 5
+      snippet: 'render_to_string({ file: "/templates/#{params[:oops]}" })'
       fingerprint: 99da8d49acffa4d91e80acc91cd1a5c3_3
+    - rule:
+        cwe_ids:
+            - "22"
+            - "73"
+        id: ruby_lang_path_using_user_input
+        title: Do not use user input to form file paths.
+        description: |
+            ## Description
+            Using raw unsanitized input when forming filenames or file paths is bad practice.
+            It can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.
+
+            ## Remediations
+            ❌ Avoid wherever possible
+
+            ✅ Validate expected file paths using `File` methods
+
+            ```ruby
+              path = File.expand("/home/" + params[:resource_name])
+              if path.starts_with?("/home/")
+                Dir.chdir(path)
+              else
+                # path is unexpected
+              end
+            ```
+
+            ## Resources
+            - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
+      line_number: 7
+      filename: /tmp/scan/unsafe_rails.rb
+      parent_line_number: 7
+      snippet: 'send_file params[:oops], type: "text/html"'
+      fingerprint: 99da8d49acffa4d91e80acc91cd1a5c3_4
 

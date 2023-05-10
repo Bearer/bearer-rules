@@ -1,0 +1,27 @@
+low:
+    - rule:
+        cwe_ids:
+            - "1333"
+        id: javascript_lang_regex_using_user_input
+        title: Regular expression built from user input detected.
+        description: |
+            ## Description
+
+            Applications should avoid constructing regular expressions from user input.
+            Regular expressions can have exponential worst-case computational
+            complexity, allowing users to trigger this behaviour can result in
+            excessive CPU consumption causing a regular expression denial of service (ReDoS).
+
+            ## Remediations
+
+            ❌ Avoid using untrusted or user data when building regular expressions
+
+            ## Resources
+            - [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_regex_using_user_input
+      line_number: 1
+      filename: /tmp/scan/bad.js
+      parent_line_number: 1
+      snippet: new RegExp(`abc${req.params.oops}`, 'i')
+      fingerprint: b1bcb8fc8ddea5d10e1ed23067f8008b_0
+

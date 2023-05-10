@@ -1,0 +1,200 @@
+low:
+    - rule:
+        cwe_ids:
+            - "319"
+        id: ruby_lang_websocket_insecure
+        title: Insecure websocket communication detected.
+        description: |
+            ## Description
+
+            Applications should only connect to APIs using SSL connections. This rule
+            checks that all websocket connections use SSL.
+
+            ## Remediations
+
+            ❌ Avoid using unsecured outgoing websocket communication:
+
+            ```ruby
+            client = Faye::WebSocket::Client.new('ws://insecure-api.com')
+            ```
+
+            ✅ Always connect using SSL:
+
+            ```ruby
+            client = Faye::WebSocket::Client.new('wss://secure-api.com')
+            ```
+
+            ## Resources
+            - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_websocket_insecure
+      line_number: 1
+      filename: /tmp/scan/bad.rb
+      parent_line_number: 1
+      snippet: 'Kontena::Websocket::Client.connect("ws://insecure.com", open_timeout: 10) {}'
+      fingerprint: e565fd801fa463b5da999403fd9c7f4c_0
+    - rule:
+        cwe_ids:
+            - "319"
+        id: ruby_lang_websocket_insecure
+        title: Insecure websocket communication detected.
+        description: |
+            ## Description
+
+            Applications should only connect to APIs using SSL connections. This rule
+            checks that all websocket connections use SSL.
+
+            ## Remediations
+
+            ❌ Avoid using unsecured outgoing websocket communication:
+
+            ```ruby
+            client = Faye::WebSocket::Client.new('ws://insecure-api.com')
+            ```
+
+            ✅ Always connect using SSL:
+
+            ```ruby
+            client = Faye::WebSocket::Client.new('wss://secure-api.com')
+            ```
+
+            ## Resources
+            - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_websocket_insecure
+      line_number: 3
+      filename: /tmp/scan/bad.rb
+      parent_line_number: 3
+      snippet: WebSocket::Client::Simple.connect("ws://insecure.com", {}) {}
+      fingerprint: e565fd801fa463b5da999403fd9c7f4c_1
+    - rule:
+        cwe_ids:
+            - "319"
+        id: ruby_lang_websocket_insecure
+        title: Insecure websocket communication detected.
+        description: |
+            ## Description
+
+            Applications should only connect to APIs using SSL connections. This rule
+            checks that all websocket connections use SSL.
+
+            ## Remediations
+
+            ❌ Avoid using unsecured outgoing websocket communication:
+
+            ```ruby
+            client = Faye::WebSocket::Client.new('ws://insecure-api.com')
+            ```
+
+            ✅ Always connect using SSL:
+
+            ```ruby
+            client = Faye::WebSocket::Client.new('wss://secure-api.com')
+            ```
+
+            ## Resources
+            - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_websocket_insecure
+      line_number: 4
+      filename: /tmp/scan/bad.rb
+      parent_line_number: 4
+      snippet: WebSocket::Client::Simple::Client.new.connect("ws://insecure.com", {})
+      fingerprint: e565fd801fa463b5da999403fd9c7f4c_2
+    - rule:
+        cwe_ids:
+            - "319"
+        id: ruby_lang_websocket_insecure
+        title: Insecure websocket communication detected.
+        description: |
+            ## Description
+
+            Applications should only connect to APIs using SSL connections. This rule
+            checks that all websocket connections use SSL.
+
+            ## Remediations
+
+            ❌ Avoid using unsecured outgoing websocket communication:
+
+            ```ruby
+            client = Faye::WebSocket::Client.new('ws://insecure-api.com')
+            ```
+
+            ✅ Always connect using SSL:
+
+            ```ruby
+            client = Faye::WebSocket::Client.new('wss://secure-api.com')
+            ```
+
+            ## Resources
+            - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_websocket_insecure
+      line_number: 6
+      filename: /tmp/scan/bad.rb
+      parent_line_number: 6
+      snippet: Faye::WebSocket::Client.new("ws://insecure.com", nil)
+      fingerprint: e565fd801fa463b5da999403fd9c7f4c_3
+    - rule:
+        cwe_ids:
+            - "319"
+        id: ruby_lang_websocket_insecure
+        title: Insecure websocket communication detected.
+        description: |
+            ## Description
+
+            Applications should only connect to APIs using SSL connections. This rule
+            checks that all websocket connections use SSL.
+
+            ## Remediations
+
+            ❌ Avoid using unsecured outgoing websocket communication:
+
+            ```ruby
+            client = Faye::WebSocket::Client.new('ws://insecure-api.com')
+            ```
+
+            ✅ Always connect using SSL:
+
+            ```ruby
+            client = Faye::WebSocket::Client.new('wss://secure-api.com')
+            ```
+
+            ## Resources
+            - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_websocket_insecure
+      line_number: 8
+      filename: /tmp/scan/bad.rb
+      parent_line_number: 8
+      snippet: 'WebSocket::Handshake::Client.new(url: "ws://insecure.com")'
+      fingerprint: e565fd801fa463b5da999403fd9c7f4c_4
+    - rule:
+        cwe_ids:
+            - "319"
+        id: ruby_lang_websocket_insecure
+        title: Insecure websocket communication detected.
+        description: |
+            ## Description
+
+            Applications should only connect to APIs using SSL connections. This rule
+            checks that all websocket connections use SSL.
+
+            ## Remediations
+
+            ❌ Avoid using unsecured outgoing websocket communication:
+
+            ```ruby
+            client = Faye::WebSocket::Client.new('ws://insecure-api.com')
+            ```
+
+            ✅ Always connect using SSL:
+
+            ```ruby
+            client = Faye::WebSocket::Client.new('wss://secure-api.com')
+            ```
+
+            ## Resources
+            - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_websocket_insecure
+      line_number: 9
+      filename: /tmp/scan/bad.rb
+      parent_line_number: 9
+      snippet: 'WebSocket::Handshake::Client.new(secure: false, host: "insecure.com")'
+      fingerprint: e565fd801fa463b5da999403fd9c7f4c_5
+

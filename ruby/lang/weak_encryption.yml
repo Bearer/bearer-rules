@@ -69,6 +69,8 @@ patterns:
         detection: datatype
   - pattern: $<DIGEST>.$<METHOD>($<_>)
     filters:
+      - variable: DIGEST
+        detection: ruby_lang_weak_encryption_digest
       - variable: METHOD
         values:
           - digest
@@ -76,6 +78,8 @@ patterns:
           - base64digest
   - pattern: $<DIGEST>.$<METHOD>($<DATA_TYPE>)
     filters:
+      - variable: DIGEST
+        detection: ruby_lang_weak_encryption_digest
       - variable: METHOD
         values:
           - digest

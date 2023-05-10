@@ -1,6 +1,6 @@
 const { exec, execSync, spawn, spawnSync } = require('node:child_process');
 
-exports.handler = async (event) => {
+exports.handler = async (event, _context) => {
   exec("ls "+event["user_dir"]+"| wc -l", (err, stdout, stderr) => {
     // do something
   });

@@ -29,18 +29,12 @@ high:
             ## Resources
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
-      line_number: 1
+      line_number: 3
       filename: /tmp/scan/unsecure_object.js
       category_groups:
         - PII
         - Personal Data
-      parent_line_number: 1
-      snippet: |-
-        {
-        	clientID: process.env["GOOGLE_CLIENT_ID"],
-        	clientSecret: "secretHardcodedString",
-        	callbackURL: "/oauth2/redirect/google",
-        	scope: ["profile"],
-        }
+      parent_line_number: 3
+      snippet: 'clientSecret: "secretHardcodedString"'
       fingerprint: 08b891215f23b5f7082f674966366927_0
 

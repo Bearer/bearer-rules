@@ -1,8 +1,16 @@
 languages:
   - ruby
 patterns:
-  - pattern: $<_>.permit!
+  - pattern: $<PARAMS>.permit!
+    filters:
+      - not:
+          variable: PARAMS
+          detection: ruby_rails_permissive_parameters_sliced
   - pattern: ActionController::Parameters.permit_all_parameters = true
+auxiliary:
+  - id: ruby_rails_permissive_parameters_sliced
+    patterns:
+      - $<_>.slice()
 severity: medium
 metadata:
   description: "Overly permissive request parameters detected."

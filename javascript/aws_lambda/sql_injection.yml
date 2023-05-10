@@ -50,7 +50,8 @@ patterns:
 auxiliary:
   - id: javascript_aws_lambda_sql_injection_event
     patterns:
-      - event.$<_>
+      - async function ($<!>event, $<_>) {}
+      - async ($<!>event, $<_>) => {}
   - id: javascript_aws_lambda_sql_injection_pg_client
     patterns:
       - new Client()
