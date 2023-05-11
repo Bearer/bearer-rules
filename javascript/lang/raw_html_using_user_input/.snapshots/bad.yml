@@ -75,4 +75,543 @@ high:
       parent_line_number: 2
       snippet: '`<h1>${req.params.oops}</h1>`'
       fingerprint: a0a2333cacbf9549cd4f61e405954319_1
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```javascript
+            const html = `<h1>${req.params.title}</h1>`
+            ```
+
+            ✅ Use a framework or templating language to construct the HTML.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html'
+
+            const sanitizedTitle = sanitizeHtml(req.params.title)
+            const html = `<h1>${sanitizedTitle}</h1>`
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
+      line_number: 4
+      filename: /tmp/scan/bad.js
+      parent_line_number: 4
+      snippet: doT.compile(req.params.oops, {})
+      fingerprint: a0a2333cacbf9549cd4f61e405954319_2
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```javascript
+            const html = `<h1>${req.params.title}</h1>`
+            ```
+
+            ✅ Use a framework or templating language to construct the HTML.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html'
+
+            const sanitizedTitle = sanitizeHtml(req.params.title)
+            const html = `<h1>${sanitizedTitle}</h1>`
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
+      line_number: 6
+      filename: /tmp/scan/bad.js
+      parent_line_number: 6
+      snippet: ejs.compile(req.params.oops, {})
+      fingerprint: a0a2333cacbf9549cd4f61e405954319_3
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```javascript
+            const html = `<h1>${req.params.title}</h1>`
+            ```
+
+            ✅ Use a framework or templating language to construct the HTML.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html'
+
+            const sanitizedTitle = sanitizeHtml(req.params.title)
+            const html = `<h1>${sanitizedTitle}</h1>`
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
+      line_number: 8
+      filename: /tmp/scan/bad.js
+      parent_line_number: 8
+      snippet: Handlebars.compile(req.params.oops, {})
+      fingerprint: a0a2333cacbf9549cd4f61e405954319_4
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```javascript
+            const html = `<h1>${req.params.title}</h1>`
+            ```
+
+            ✅ Use a framework or templating language to construct the HTML.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html'
+
+            const sanitizedTitle = sanitizeHtml(req.params.title)
+            const html = `<h1>${sanitizedTitle}</h1>`
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
+      line_number: 10
+      filename: /tmp/scan/bad.js
+      parent_line_number: 10
+      snippet: Hogan.parse(Hogan.scan(req.params.oops), null)
+      fingerprint: a0a2333cacbf9549cd4f61e405954319_5
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```javascript
+            const html = `<h1>${req.params.title}</h1>`
+            ```
+
+            ✅ Use a framework or templating language to construct the HTML.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html'
+
+            const sanitizedTitle = sanitizeHtml(req.params.title)
+            const html = `<h1>${sanitizedTitle}</h1>`
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
+      line_number: 12
+      filename: /tmp/scan/bad.js
+      parent_line_number: 12
+      snippet: $.templates(req.params.oops)
+      fingerprint: a0a2333cacbf9549cd4f61e405954319_6
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```javascript
+            const html = `<h1>${req.params.title}</h1>`
+            ```
+
+            ✅ Use a framework or templating language to construct the HTML.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html'
+
+            const sanitizedTitle = sanitizeHtml(req.params.title)
+            const html = `<h1>${sanitizedTitle}</h1>`
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
+      line_number: 14
+      filename: /tmp/scan/bad.js
+      parent_line_number: 14
+      snippet: template(req.params.oops, {})
+      fingerprint: a0a2333cacbf9549cd4f61e405954319_7
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```javascript
+            const html = `<h1>${req.params.title}</h1>`
+            ```
+
+            ✅ Use a framework or templating language to construct the HTML.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html'
+
+            const sanitizedTitle = sanitizeHtml(req.params.title)
+            const html = `<h1>${sanitizedTitle}</h1>`
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
+      line_number: 15
+      filename: /tmp/scan/bad.js
+      parent_line_number: 15
+      snippet: _.template(req.params.oops, {})
+      fingerprint: a0a2333cacbf9549cd4f61e405954319_8
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```javascript
+            const html = `<h1>${req.params.title}</h1>`
+            ```
+
+            ✅ Use a framework or templating language to construct the HTML.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html'
+
+            const sanitizedTitle = sanitizeHtml(req.params.title)
+            const html = `<h1>${sanitizedTitle}</h1>`
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
+      line_number: 17
+      filename: /tmp/scan/bad.js
+      parent_line_number: 17
+      snippet: compiler.compileSync(req.params.oops, "test.js")
+      fingerprint: a0a2333cacbf9549cd4f61e405954319_9
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```javascript
+            const html = `<h1>${req.params.title}</h1>`
+            ```
+
+            ✅ Use a framework or templating language to construct the HTML.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html'
+
+            const sanitizedTitle = sanitizeHtml(req.params.title)
+            const html = `<h1>${sanitizedTitle}</h1>`
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
+      line_number: 19
+      filename: /tmp/scan/bad.js
+      parent_line_number: 19
+      snippet: Mustache.render(req.params.oops, {})
+      fingerprint: a0a2333cacbf9549cd4f61e405954319_10
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```javascript
+            const html = `<h1>${req.params.title}</h1>`
+            ```
+
+            ✅ Use a framework or templating language to construct the HTML.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html'
+
+            const sanitizedTitle = sanitizeHtml(req.params.title)
+            const html = `<h1>${sanitizedTitle}</h1>`
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
+      line_number: 21
+      filename: /tmp/scan/bad.js
+      parent_line_number: 21
+      snippet: nunjucks.renderString(req.params.oops, {})
+      fingerprint: a0a2333cacbf9549cd4f61e405954319_11
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```javascript
+            const html = `<h1>${req.params.title}</h1>`
+            ```
+
+            ✅ Use a framework or templating language to construct the HTML.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html'
+
+            const sanitizedTitle = sanitizeHtml(req.params.title)
+            const html = `<h1>${sanitizedTitle}</h1>`
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
+      line_number: 23
+      filename: /tmp/scan/bad.js
+      parent_line_number: 23
+      snippet: pug.render(req.params.oops, {})
+      fingerprint: a0a2333cacbf9549cd4f61e405954319_12
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```javascript
+            const html = `<h1>${req.params.title}</h1>`
+            ```
+
+            ✅ Use a framework or templating language to construct the HTML.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html'
+
+            const sanitizedTitle = sanitizeHtml(req.params.title)
+            const html = `<h1>${sanitizedTitle}</h1>`
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
+      line_number: 25
+      filename: /tmp/scan/bad.js
+      parent_line_number: 25
+      snippet: Sqrl.render(req.params.oops, {})
+      fingerprint: a0a2333cacbf9549cd4f61e405954319_13
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```javascript
+            const html = `<h1>${req.params.title}</h1>`
+            ```
+
+            ✅ Use a framework or templating language to construct the HTML.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html'
+
+            const sanitizedTitle = sanitizeHtml(req.params.title)
+            const html = `<h1>${sanitizedTitle}</h1>`
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
+      line_number: 27
+      filename: /tmp/scan/bad.js
+      parent_line_number: 27
+      snippet: Template7.compile(req.params.oops, {})
+      fingerprint: a0a2333cacbf9549cd4f61e405954319_14
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_raw_html_using_user_input
+        title: Unsanitized user input detected in raw HTML string.
+        description: |
+            ## Description
+
+            Applications should not include unsanitized user input in HTML. This
+            can allow cross-site scripting (XSS) attacks.
+
+            ## Remediations
+
+            ❌ Avoid including user input directly in HTML strings:
+
+            ```javascript
+            const html = `<h1>${req.params.title}</h1>`
+            ```
+
+            ✅ Use a framework or templating language to construct the HTML.
+
+            ✅ When HTML strings must be used, sanitize user input:
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html'
+
+            const sanitizedTitle = sanitizeHtml(req.params.title)
+            const html = `<h1>${sanitizedTitle}</h1>`
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
+      line_number: 29
+      filename: /tmp/scan/bad.js
+      parent_line_number: 29
+      snippet: |-
+        webix.ui({
+          id: "mylayout",
+          rows: [
+            { view: "toolbar", id: "mybar" },
+            { template: req.params.oops }
+          ]
+        })
+      fingerprint: a0a2333cacbf9549cd4f61e405954319_15
 
