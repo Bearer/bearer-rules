@@ -4,34 +4,19 @@ patterns:
     filters:
       - variable: FILE_USER_INPUT
         detection: java_lang_path_traversal_user_input
-      - not:
-          variable: FILE_USER_INPUT
-          detection: java_lang_path_traversal_sanitized_input
   - pattern: |
       new FileOutputStream($<...>$<FILE_OUTPUT_USER_INPUT>$<...>)
     filters:
       - variable: FILE_OUTPUT_USER_INPUT
         detection: java_lang_path_traversal_user_input
-      - not:
-          variable: FILE_OUTPUT_USER_INPUT
-          detection: java_lang_path_traversal_sanitized_input
   - pattern: |
       new FileInputStream($<...>$<FILE_INPUT_USER_INPUT>$<...>)
     filters:
       - variable: FILE_INPUT_USER_INPUT
         detection: java_lang_path_traversal_user_input
-      - not:
-          variable: FILE_INPUT_USER_INPUT
-          detection: java_lang_path_traversal_sanitized_input
 auxiliary:
   - id: java_lang_path_traversal_user_input
-    patterns:
-      - pattern: $<USER_INPUT>;
-        filters:
-          - variable: USER_INPUT
-            detection: java_lang_path_traversal_user_input_source
-            contains: false
-  - id: java_lang_path_traversal_user_input_source
+    sanitizer: java_lang_path_traversal_sanitized_input
     patterns:
       - pattern: |
           $<PARAMETER_REQUEST>.$<METHOD>()
@@ -52,10 +37,7 @@ auxiliary:
               - request
   - id: java_lang_path_traversal_sanitized_input
     patterns:
-      - pattern: FilenameUtils.getName($<SANITIZED_USER_INPUT>)
-        filters:
-          - variable: SANITIZED_USER_INPUT
-            detection: java_lang_path_traversal_user_input
+      - pattern: FilenameUtils.getName($<!>$<_>)
 languages:
   - java
 trigger:

@@ -7,9 +7,6 @@ patterns:
         string_regex: <\w+(\s[^>]*)?>
       - variable: STRING
         detection: javascript_lang_raw_html_using_user_input_user_input
-      - not:
-          variable: STRING
-          detection: javascript_lang_raw_html_using_user_input_sanitized
   - pattern: $<LIB>.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: LIB
@@ -20,9 +17,6 @@ patterns:
           - template
       - variable: STRING
         detection: javascript_lang_raw_html_using_user_input_user_input
-      - not:
-          variable: STRING
-          detection: javascript_lang_raw_html_using_user_input_sanitized
   - pattern: ejs.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -31,9 +25,6 @@ patterns:
           - render
       - variable: STRING
         detection: javascript_lang_raw_html_using_user_input_user_input
-      - not:
-          variable: STRING
-          detection: javascript_lang_raw_html_using_user_input_sanitized
   - pattern: Handlebars.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -42,9 +33,6 @@ patterns:
           - precompile
       - variable: STRING
         detection: javascript_lang_raw_html_using_user_input_user_input
-      - not:
-          variable: STRING
-          detection: javascript_lang_raw_html_using_user_input_sanitized
   - pattern: Hogan.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -53,9 +41,6 @@ patterns:
           - parse
       - variable: STRING
         detection: javascript_lang_raw_html_using_user_input_user_input
-      - not:
-          variable: STRING
-          detection: javascript_lang_raw_html_using_user_input_sanitized
   - pattern: $<OBJECT>.templates($<STRING>$<...>)
     filters:
       - variable: OBJECT
@@ -64,17 +49,11 @@ patterns:
           - jsrender
       - variable: STRING
         detection: javascript_lang_raw_html_using_user_input_user_input
-      - not:
-          variable: STRING
-          detection: javascript_lang_raw_html_using_user_input_sanitized
   # lodash
   - pattern: template($<STRING>$<...>)
     filters:
       - variable: STRING
         detection: javascript_lang_raw_html_using_user_input_user_input
-      - not:
-          variable: STRING
-          detection: javascript_lang_raw_html_using_user_input_sanitized
   # lodash or underscore
   - pattern: $<LIB>.template($<STRING>$<...>)
     filters:
@@ -85,9 +64,6 @@ patterns:
           - underscore
       - variable: STRING
         detection: javascript_lang_raw_html_using_user_input_user_input
-      - not:
-          variable: STRING
-          detection: javascript_lang_raw_html_using_user_input_sanitized
   # marko
   - pattern: compiler.$<METHOD>($<STRING>$<...>)
     filters:
@@ -97,9 +73,6 @@ patterns:
           - compileSync
       - variable: STRING
         detection: javascript_lang_raw_html_using_user_input_user_input
-      - not:
-          variable: STRING
-          detection: javascript_lang_raw_html_using_user_input_sanitized
   - pattern: Mustache.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -108,9 +81,6 @@ patterns:
           - render
       - variable: STRING
         detection: javascript_lang_raw_html_using_user_input_user_input
-      - not:
-          variable: STRING
-          detection: javascript_lang_raw_html_using_user_input_sanitized
   - pattern: nunjucks.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -119,9 +89,6 @@ patterns:
           - compile
       - variable: STRING
         detection: javascript_lang_raw_html_using_user_input_user_input
-      - not:
-          variable: STRING
-          detection: javascript_lang_raw_html_using_user_input_sanitized
   - pattern: pug.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -130,9 +97,6 @@ patterns:
           - compile
       - variable: STRING
         detection: javascript_lang_raw_html_using_user_input_user_input
-      - not:
-          variable: STRING
-          detection: javascript_lang_raw_html_using_user_input_sanitized
   - pattern: Sqrl.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -142,22 +106,17 @@ patterns:
           - parse
       - variable: STRING
         detection: javascript_lang_raw_html_using_user_input_user_input
-      - not:
-          variable: STRING
-          detection: javascript_lang_raw_html_using_user_input_sanitized
   - pattern: Template7.compile($<STRING>$<...>)
     filters:
       - variable: STRING
         detection: javascript_lang_raw_html_using_user_input_user_input
-      - not:
-          variable: STRING
-          detection: javascript_lang_raw_html_using_user_input_sanitized
   - pattern: webix.ui($<TEMPLATE>)
     filters:
       - variable: TEMPLATE
         detection: javascript_lang_raw_html_using_user_input_webix_template
 auxiliary:
-  - id: javascript_lang_raw_html_using_user_input_user_input_source
+  - id: javascript_lang_raw_html_using_user_input_user_input
+    sanitizer: javascript_lang_raw_html_using_user_input_sanitized
     patterns:
       # Express
       - req.params
@@ -168,19 +127,9 @@ auxiliary:
       # AWS
       - async function ($<!>event, $<_>) {}
       - async ($<!>event, $<_>) => {}
-  - id: javascript_lang_raw_html_using_user_input_user_input
-    patterns:
-      - pattern: $<USER_INPUT>
-        filters:
-          - variable: USER_INPUT
-            detection: javascript_lang_raw_html_using_user_input_user_input_source
-            contains: false
   - id: javascript_lang_raw_html_using_user_input_sanitized
     patterns:
-      - pattern: sanitizeHtml($<SANITIZED_USER_INPUT>$<...>)
-        filters:
-          - variable: SANITIZED_USER_INPUT
-            detection: javascript_lang_raw_html_using_user_input_user_input
+      - pattern: sanitizeHtml($<!>$<_>$<...>)
   - id: javascript_lang_raw_html_using_user_input_webix_template
     patterns:
       - pattern: |
@@ -188,9 +137,6 @@ auxiliary:
         filters:
           - variable: STRING
             detection: javascript_lang_raw_html_using_user_input_user_input
-          - not:
-              variable: STRING
-              detection: javascript_lang_raw_html_using_user_input_sanitized
 severity: high
 metadata:
   description: "Unsanitized user input detected in raw HTML string."

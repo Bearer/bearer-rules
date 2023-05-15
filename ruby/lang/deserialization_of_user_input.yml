@@ -12,37 +12,23 @@ patterns:
           - Marshal
       - variable: USER_INPUT
         detection: ruby_lang_deserialization_of_user_input_user_input
-      - not:
-          variable: USER_INPUT
-          detection: ruby_lang_deserialization_of_user_input_sanitized
   - pattern: |
       Marshal.restore($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: ruby_lang_deserialization_of_user_input_user_input
-      - not:
-          variable: USER_INPUT
-          detection: ruby_lang_deserialization_of_user_input_sanitized
   - pattern: |
       Oj.object_load($<USER_INPUT>$<...>)$<...>
     filters:
       - variable: USER_INPUT
         detection: ruby_lang_deserialization_of_user_input_user_input
-      - not:
-          variable: USER_INPUT
-          detection: ruby_lang_deserialization_of_user_input_sanitized
 auxiliary:
   - id: ruby_lang_deserialization_of_user_input_sanitized
     patterns:
-      - pattern: JSON.parse($<SANITIZED_USER_INPUT>)
-        filters:
-          - variable: SANITIZED_USER_INPUT
-            detection: ruby_lang_deserialization_of_user_input_user_input
-      - pattern: Nokogiri::XML($<SANITIZED_USER_INPUT>)
-        filters:
-          - variable: SANITIZED_USER_INPUT
-            detection: ruby_lang_deserialization_of_user_input_user_input
-  - id: ruby_lang_deserialization_of_user_input_user_input_source
+      - pattern: JSON.parse($<!>$<_>)
+      - pattern: Nokogiri::XML($<!>$<_>)
+  - id: ruby_lang_deserialization_of_user_input_user_input
+    sanitizer: ruby_lang_deserialization_of_user_input_sanitized
     patterns:
       - | # AWS lambda
         def $<_>($<!>event:, context:)
@@ -50,13 +36,6 @@ auxiliary:
       - params
       - request.$<_>
       - cookies
-  - id: ruby_lang_deserialization_of_user_input_user_input
-    patterns:
-      - pattern: $<MATCHED_USER_INPUT>
-        filters:
-          - variable: MATCHED_USER_INPUT
-            detection: ruby_lang_deserialization_of_user_input_user_input_source
-            contains: false
 languages:
   - ruby
 severity: high
