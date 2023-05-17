@@ -8,16 +8,15 @@ patterns:
           - resolve
       - variable: USER_INPUT
         detection: javascript_express_path_traversal_request_obj
-      - not:
-          variable: USER_INPUT
-          detection: javascript_express_path_traversal_sanitized_user_input
 auxiliary:
   - id: javascript_express_path_traversal_request_obj
+    sanitizer: javascript_express_path_traversal_sanitized_user_input
     patterns:
       - pattern: $<DATA>
         filters:
           - variable: DATA
             detection: javascript_express_path_traversal_user_input
+            contains: false
       - pattern: const { $<!>$<_> } = $<DATA>
         filters:
           - variable: DATA

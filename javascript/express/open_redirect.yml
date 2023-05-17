@@ -4,25 +4,20 @@ patterns:
     filters:
       - variable: DATA
         detection: javascript_express_open_redirect_data
-        contains: false
 auxiliary:
   - id: javascript_express_open_redirect_data
+    sanitizer: javascript_express_open_redirect_sanitized
     patterns:
       - pattern: $<USER_INPUT>
         filters:
           - variable: USER_INPUT
             detection: javascript_express_open_redirect_user_input
-          - not:
-              variable: USER_INPUT
-              detection: javascript_express_open_redirect_sanitized
+            contains: false
       - pattern: const { $<!>$<_> } = $<USER_INPUT>
         filters:
           - variable: USER_INPUT
             detection: javascript_express_open_redirect_user_input
-          - not:
-              variable: USER_INPUT
-              detection: javascript_express_open_redirect_sanitized
-  - id: javascript_express_open_redirect_user_input_source
+  - id: javascript_express_open_redirect_user_input
     patterns:
       - req.params
       - req.query
@@ -32,19 +27,7 @@ auxiliary:
   - id: javascript_express_open_redirect_sanitized
     patterns:
       - pattern: |
-          !$<SANITIZED>
-        filters:
-          - variable: SANITIZED
-            detection: javascript_express_open_redirect_user_input
-  # MATCHED_USER_INPUT ensures that the main rule and the sanitized rule refer
-  # to the same input source node
-  - id: javascript_express_open_redirect_user_input
-    patterns:
-      - pattern: $<MATCHED_USER_INPUT>
-        filters:
-          - variable: MATCHED_USER_INPUT
-            detection: javascript_express_open_redirect_user_input_source
-            contains: false
+          !$<!>$<_>
 languages:
   - javascript
 severity: medium
