@@ -1,0 +1,19 @@
+type: shared
+languages:
+  - ruby
+imports:
+  - ruby_shared_aws_lambda_user_input
+  - ruby_shared_rails_user_input
+patterns:
+  - pattern: $<RUBY_SHARED_COMMON_USER_INPUT>
+    filters:
+      - either:
+          - variable: RUBY_SHARED_COMMON_USER_INPUT
+            detection: ruby_shared_aws_lambda_user_input
+            contains: false
+          - variable: RUBY_SHARED_COMMON_USER_INPUT
+            detection: ruby_shared_rails_user_input
+            contains: false
+metadata:
+  description: "Ruby user input."
+  id: ruby_shared_common_user_input

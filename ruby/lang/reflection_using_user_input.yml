@@ -1,5 +1,7 @@
 languages:
   - ruby
+imports:
+  - ruby_shared_common_user_input
 patterns:
   - pattern: |
       $<_>.$<METHOD>($<USER_INPUT>$<...>)
@@ -13,7 +15,7 @@ patterns:
           - class_variable_set
           - remove_class_variable
       - variable: USER_INPUT
-        detection: ruby_lang_reflection_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<_>.$<METHOD>($<USER_INPUT>$<...>)$<...>
     filters:
@@ -33,7 +35,7 @@ patterns:
           - send
           - public_send
       - variable: USER_INPUT
-        detection: ruby_lang_reflection_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<METHOD>($<USER_INPUT>$<...>)$<...>
     filters:
@@ -53,40 +55,31 @@ patterns:
           - send
           - public_send
       - variable: USER_INPUT
-        detection: ruby_lang_reflection_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<USER_INPUT>.to_proc
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_reflection_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<_>(&$<USER_INPUT>)
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_reflection_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<_>.$<_>(&$<USER_INPUT>)
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_reflection_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<USER_INPUT>.$<METHOD>
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_reflection_using_user_input_user_input
+        detection: ruby_shared_common_user_input
       - variable: METHOD
         values:
           - constantize
           - safe_constantize
-auxiliary:
-  - id: ruby_lang_reflection_using_user_input_user_input
-    patterns:
-      - params
-      - request.$<_>
-      - cookies
-      - | # AWS lambda
-        def $<_>($<!>event:, context:)
-        end
 severity: high
 metadata:
   description: "Use of reflection influenced by user input detected."

@@ -1,3 +1,5 @@
+imports:
+  - ruby_shared_common_user_input
 patterns:
   - pattern: |
       $<INJECTION>
@@ -70,12 +72,11 @@ auxiliary:
   - id: ruby_rails_sql_injection_user_input
     sanitizer: ruby_rails_sql_injection_sanitized
     patterns:
-      - params
-      - request.$<_>
-      - cookies
-      - | # AWS lambda
-        def $<_>($<!>event:, context:)
-        end
+      - pattern: $<COMMON_USER_INPUT>
+        filters:
+          - variable: COMMON_USER_INPUT
+            detection: ruby_shared_common_user_input
+            contains: false
   - id: ruby_rails_sql_injection_safe_special_arg
     patterns:
       - pattern: | # where(["attr = ?", params[:oops]])

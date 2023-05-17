@@ -1,0 +1,9 @@
+type: shared
+languages:
+  - javascript
+patterns:
+  - async function ($<!>event, $<_>) {}
+  - async ($<!>event, $<_>) => {}
+metadata:
+  description: "AWS Lambda user input."
+  id: javascript_shared_aws_lambda_user_input

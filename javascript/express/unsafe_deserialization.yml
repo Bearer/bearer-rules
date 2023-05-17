@@ -1,3 +1,5 @@
+imports:
+  - javascript_shared_common_user_input
 patterns:
   - pattern: |
       $<LIB_METHOD>($<USER_INPUT>)
@@ -8,7 +10,7 @@ patterns:
           - deserialize_error
       - either:
           - variable: USER_INPUT
-            detection: javascript_express_insecure_deserialization_request_obj
+            detection: javascript_shared_common_user_input
           - variable: USER_INPUT
             detection: javascript_express_deserialization_buffer
   - pattern: |
@@ -20,34 +22,17 @@ patterns:
           - node_serialize
       - either:
           - variable: USER_INPUT
-            detection: javascript_express_insecure_deserialization_request_obj
+            detection: javascript_shared_common_user_input
           - variable: USER_INPUT
             detection: javascript_express_deserialization_buffer
 auxiliary:
-  - id: javascript_express_insecure_deserialization_request_obj
-    patterns:
-      - pattern: $<DATA>
-        filters:
-          - variable: DATA
-            detection: javascript_express_insecure_deserialization_user_input
-      - pattern: const { $<!>$<_> } = $<DATA>
-        filters:
-          - variable: DATA
-            detection: javascript_express_insecure_deserialization_user_input
-  - id: javascript_express_insecure_deserialization_user_input
-    patterns:
-      - req.params
-      - req.query
-      - req.body
-      - req.cookies
-      - req.headers
   - id: javascript_express_deserialization_buffer
     patterns:
       - pattern: |
-          Buffer.from($<USER_INPUT>).toString()
+          Buffer.from($<BUFFER_USER_INPUT>).toString()
         filters:
-          - variable: USER_INPUT
-            detection: javascript_express_insecure_deserialization_request_obj
+          - variable: BUFFER_USER_INPUT
+            detection: javascript_shared_common_user_input
 languages:
   - javascript
 severity: high

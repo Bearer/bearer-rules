@@ -1,0 +1,30 @@
+low:
+    - rule:
+        cwe_ids:
+            - "706"
+        id: javascript_lang_external_resource
+        title: Rendering of resources resolved from external name or reference detected.
+        description: |
+            ## Description
+            Using raw unsanitized input when rendering resources is bad practice.
+
+            ## Remediations
+            ❌ Avoid passing user or request input to require().
+
+            ✅ Sanitize the input or use a safelist
+
+            Where it is unavoidable to rely on user input, sanitize the input or use a safelist to keep the rendered resources within the expected scope.
+
+            ```javascript
+            var path = req.body.path
+            if (['users', 'posts', 'pages'].includes(path)) {
+              require(`${path}.js`)
+            }
+            ```
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_external_resource
+      line_number: 10
+      filename: /tmp/scan/require_external_resource.js
+      parent_line_number: 10
+      snippet: require(req.query.user.path)
+      fingerprint: 4712bf45692b6b085d50086e17451c11_0
+

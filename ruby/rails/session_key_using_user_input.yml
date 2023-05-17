@@ -1,15 +1,11 @@
+imports:
+  - ruby_shared_common_user_input
 patterns:
   - pattern: |
       session[$<USER_INPUT>]
     filters:
       - variable: USER_INPUT
-        detection: ruby_rails_session_key_using_user_input_user_input
-auxiliary:
-  - id: ruby_rails_session_key_using_user_input_user_input
-    patterns:
-      - params
-      - request.$<_>
-      - cookies
+        detection: ruby_shared_common_user_input
 languages:
   - ruby
 severity: high

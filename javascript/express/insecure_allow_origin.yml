@@ -1,3 +1,5 @@
+imports:
+  - javascript_shared_common_user_input
 patterns:
   - pattern: |
       res.$<METHOD>($<ORIGIN>, $<USER_INPUT>)
@@ -10,7 +12,7 @@ patterns:
       - variable: ORIGIN
         regex: (?i)['"]access-control-allow-origin["']
       - variable: USER_INPUT
-        detection: javascript_express_insecure_allow_origin_req_object
+        detection: javascript_shared_common_user_input
   - pattern: |
       res.writeHead($<_>, $<INSECURE_CORS_HASH>)
     filters:
@@ -19,23 +21,6 @@ patterns:
 languages:
   - javascript
 auxiliary:
-  - id: javascript_express_insecure_allow_origin_req_object
-    patterns:
-      - pattern: $<DATA>
-        filters:
-          - variable: DATA
-            detection: javascript_express_insecure_allow_origin_user_input
-      - pattern: const { $<!>$<_> } = $<DATA>
-        filters:
-          - variable: DATA
-            detection: javascript_express_insecure_allow_origin_user_input
-  - id: javascript_express_insecure_allow_origin_user_input
-    patterns:
-      - req.params
-      - req.query
-      - req.body
-      - req.cookies
-      - req.headers
   - id: javascript_express_insecure_allow_origin_insecure_cors_hash
     patterns:
       - pattern: |
@@ -44,7 +29,7 @@ auxiliary:
           - variable: ORIGIN
             regex: (?i)['"]access-control-allow-origin["']
           - variable: USER_INPUT
-            detection: javascript_express_insecure_allow_origin_req_object
+            detection: javascript_shared_common_user_input
 metadata:
   description: "Insecure Access-Control-Allow-Origin detected."
   remediation_message: |

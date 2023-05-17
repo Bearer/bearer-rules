@@ -1,0 +1,140 @@
+high:
+    - rule:
+        cwe_ids:
+            - "78"
+        id: javascript_lang_os_command_injection
+        title: OS command injection vulnerability detected.
+        description: |
+            ## Description
+            Using external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.
+
+            ## Remediations
+
+            Think twice if user input is really needed there.
+
+            It might be possible to use dynamic hardcoded values:
+
+            ```javascript
+              let filePattern = "*.js"
+
+              if req.params.graphql {
+                filePattern = "*.gql"
+              }
+
+              cp.exec(`cp ${filePattern} foo`, (error, stdout, stderr) => {});
+            ```
+
+            ## Resources
+            - [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection
+      line_number: 4
+      filename: /tmp/scan/os_command_injection.js
+      parent_line_number: 4
+      snippet: |-
+        exec("ls "+event["user_dir"]+"| wc -l", (err, stdout, stderr) => {
+            // do something
+          })
+      fingerprint: 5a6d418020554068a7c675529cb2a36f_0
+    - rule:
+        cwe_ids:
+            - "78"
+        id: javascript_lang_os_command_injection
+        title: OS command injection vulnerability detected.
+        description: |
+            ## Description
+            Using external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.
+
+            ## Remediations
+
+            Think twice if user input is really needed there.
+
+            It might be possible to use dynamic hardcoded values:
+
+            ```javascript
+              let filePattern = "*.js"
+
+              if req.params.graphql {
+                filePattern = "*.gql"
+              }
+
+              cp.exec(`cp ${filePattern} foo`, (error, stdout, stderr) => {});
+            ```
+
+            ## Resources
+            - [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection
+      line_number: 8
+      filename: /tmp/scan/os_command_injection.js
+      parent_line_number: 8
+      snippet: |-
+        execSync("ls "+event["user"]+"| wc -l", (err, stdout, stderr) => {
+            // do something
+          })
+      fingerprint: 5a6d418020554068a7c675529cb2a36f_1
+    - rule:
+        cwe_ids:
+            - "78"
+        id: javascript_lang_os_command_injection
+        title: OS command injection vulnerability detected.
+        description: |
+            ## Description
+            Using external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.
+
+            ## Remediations
+
+            Think twice if user input is really needed there.
+
+            It might be possible to use dynamic hardcoded values:
+
+            ```javascript
+              let filePattern = "*.js"
+
+              if req.params.graphql {
+                filePattern = "*.gql"
+              }
+
+              cp.exec(`cp ${filePattern} foo`, (error, stdout, stderr) => {});
+            ```
+
+            ## Resources
+            - [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection
+      line_number: 12
+      filename: /tmp/scan/os_command_injection.js
+      parent_line_number: 12
+      snippet: spawn(event["query"])
+      fingerprint: 5a6d418020554068a7c675529cb2a36f_2
+    - rule:
+        cwe_ids:
+            - "78"
+        id: javascript_lang_os_command_injection
+        title: OS command injection vulnerability detected.
+        description: |
+            ## Description
+            Using external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.
+
+            ## Remediations
+
+            Think twice if user input is really needed there.
+
+            It might be possible to use dynamic hardcoded values:
+
+            ```javascript
+              let filePattern = "*.js"
+
+              if req.params.graphql {
+                filePattern = "*.gql"
+              }
+
+              cp.exec(`cp ${filePattern} foo`, (error, stdout, stderr) => {});
+            ```
+
+            ## Resources
+            - [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection
+      line_number: 14
+      filename: /tmp/scan/os_command_injection.js
+      parent_line_number: 14
+      snippet: spawnSync("grep " + event["tmp"])
+      fingerprint: 5a6d418020554068a7c675529cb2a36f_3
+

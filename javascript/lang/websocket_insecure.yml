@@ -1,21 +1,13 @@
 languages:
   - javascript
+imports:
+  - javascript_shared_common_insecure_url
 patterns:
   - pattern: new WebSocket($<INSECURE_URL>$<...>)
     filters:
       - variable: INSECURE_URL
-        detection: javascript_lang_websocket_insecure_url
+        detection: javascript_shared_common_insecure_url
         contains: false
-auxiliary:
-  - id: javascript_lang_websocket_insecure_url
-    patterns:
-      - pattern: $<URL>
-        filters:
-          - variable: URL
-            string_regex: '\A(ws|http):'
-          - not:
-              variable: URL
-              string_regex: '\A(ws|http)://(localhost|127\.0\.0\.1)'
 severity: low
 metadata:
   description: "Insecure websocket communication detected."

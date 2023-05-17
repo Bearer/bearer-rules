@@ -1,14 +1,16 @@
 languages:
   - javascript
+imports:
+  - javascript_shared_common_user_input
 patterns:
   - pattern: util.format($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
-        detection: javascript_lang_format_string_using_user_input_user_input
+        detection: javascript_shared_common_user_input
   - pattern: util.formatWithOptions($<_>, $<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
-        detection: javascript_lang_format_string_using_user_input_user_input
+        detection: javascript_shared_common_user_input
   - pattern: console.$<METHOD>($<USER_INPUT>$<...>)
     filters:
       - variable: METHOD
@@ -19,19 +21,7 @@ patterns:
           - warn
           - error
       - variable: USER_INPUT
-        detection: javascript_lang_format_string_using_user_input_user_input
-auxiliary:
-  - id: javascript_lang_format_string_using_user_input_user_input
-    patterns:
-      # Express
-      - req.params
-      - req.query
-      - req.body
-      - req.cookies
-      - req.headers
-      # AWS
-      - async function ($<!>event, $<_>) {}
-      - async ($<!>event, $<_>) => {}
+        detection: javascript_shared_common_user_input
 severity: low
 metadata:
   description: "User input in format string detected."

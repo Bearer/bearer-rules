@@ -1,14 +1,16 @@
+imports:
+  - javascript_shared_common_user_input
 patterns:
   - pattern: |
       fetch($<USER_INPUT>)
     filters:
       - variable: USER_INPUT
-        detection: javascript_express_ssrf_request_obj
+        detection: javascript_shared_common_user_input
   - pattern: |
       axios.get($<USER_INPUT>)
     filters:
       - variable: USER_INPUT
-        detection: javascript_express_ssrf_request_obj
+        detection: javascript_shared_common_user_input
   - pattern: |
       $<PUPPETEER_PAGE>.$<METHOD>($<USER_INPUT>)
     filters:
@@ -21,15 +23,8 @@ patterns:
           - evaluate
           - evaluateOnNewDocument
       - variable: USER_INPUT
-        detection: javascript_express_ssrf_request_obj
+        detection: javascript_shared_common_user_input
 auxiliary:
-  - id: javascript_express_ssrf_request_obj
-    patterns:
-      - req.params
-      - req.query
-      - req.body
-      - req.cookies
-      - req.headers
   - id: javascript_puppeteer_page
     patterns:
       - $<PUPPETEER_BROWSER>.newPage()

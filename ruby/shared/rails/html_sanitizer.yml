@@ -1,0 +1,13 @@
+type: shared
+languages:
+  - ruby
+patterns:
+  - pattern: $<RUBY_SHARED_RAILS_HTML_SANITIZER_METHOD>($<!>$<_>)
+    filters:
+      - variable: RUBY_SHARED_RAILS_HTML_SANITIZER_METHOD
+        values:
+          - sanitize
+          - strip_tags
+metadata:
+  description: "Rails HTML sanitizer."
+  id: ruby_shared_rails_html_sanitizer

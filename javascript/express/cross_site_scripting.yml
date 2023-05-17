@@ -1,37 +1,31 @@
+imports:
+  - javascript_shared_common_user_input
 patterns:
   - pattern: |
       res.write($<USER_INPUT>)
     filters:
       - variable: USER_INPUT
-        detection: javascript_express_cross_site_scripting_request_obj
-      - not:
-          variable: USER_INPUT
-          detection: javascript_express_cross_site_scripting_string_interpolation
+        detection: javascript_express_cross_site_scripting_user_input
   - pattern: |
       res.send($<USER_INPUT>)
     filters:
       - variable: USER_INPUT
-        detection: javascript_express_cross_site_scripting_request_obj
-      - not:
-          variable: USER_INPUT
-          detection: javascript_express_cross_site_scripting_string_interpolation
+        detection: javascript_express_cross_site_scripting_user_input
 languages:
   - javascript
 auxiliary:
-  - id: javascript_express_cross_site_scripting_request_obj
-    patterns:
-      - req.params
-      - req.query
-      - req.body
-      - req.cookies
-      - req.headers
-  - id: javascript_express_cross_site_scripting_string_interpolation
+  - id: javascript_express_cross_site_scripting_sanitizer
     patterns:
       - pattern: |
-          { $<...>$<_>: $<REQ_OBJ>$<...> }
+          { $<_>: $<!>$<_> }
+  - id: javascript_express_cross_site_scripting_user_input
+    sanitizer: javascript_express_cross_site_scripting_sanitizer
+    patterns:
+      - pattern: $<UNSANITIZED_USER_INPUT>
         filters:
-          - variable: REQ_OBJ
-            detection: javascript_express_cross_site_scripting_request_obj
+          - variable: UNSANITIZED_USER_INPUT
+            detection: javascript_shared_common_user_input
+            contains: false
 severity: high
 metadata:
   description: "Cross-site scripting (XSS) vulnerability detected."
@@ -51,5 +45,5 @@ metadata:
     - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
   cwe_id:
     - 79
-  id: "javascript_express_cross_site_scripting"
+  id: javascript_express_cross_site_scripting
   documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
