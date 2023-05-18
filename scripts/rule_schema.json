@@ -1,11 +1,15 @@
 {
-    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "$ref": "#/definitions/Rule",
     "definitions": {
         "Rule": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": ["risk", "shared"]
+                },
                 "languages": {
                     "type": "array",
                     "items": {
@@ -14,6 +18,15 @@
                 },
                 "trigger": {
                     "$ref": "#/definitions/Trigger"
+                },
+                "imports": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sanitizer": {
+                    "type": "string"
                 },
                 "patterns": {
                     "type": "array",
@@ -28,7 +41,7 @@
                     }
                 },
                 "metadata": {
-                    "$ref": "#/definitions/Metadata"
+                    "type": "object"
                 },
                 "detectors": {
                     "type": "array",
@@ -72,6 +85,23 @@
                 "metadata",
                 "patterns"
             ],
+            "if": {
+                "required": ["type"],
+                "properties": {
+                    "type": { "const": "shared" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "metadata": { "$ref": "#/definitions/SharedRuleMetadata" }
+                },
+                "not": { "required": ["severity"] }
+            },
+            "else": {
+                "properties": {
+                    "metadata": { "$ref": "#/definitions/Metadata" }
+                }
+            },
             "title": "Rule"
         },
         "Metadata": {
@@ -109,10 +139,30 @@
             ],
             "title": "Metadata"
         },
+        "SharedRuleMetadata": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "description",
+                "id"
+            ],
+            "title": "Metadata"
+        },
         "Auxiliary": {
             "type": "object",
             "properties": {
                 "id": {
+                    "type": "string"
+                },
+                "sanitizer": {
                     "type": "string"
                 },
                 "patterns": {
