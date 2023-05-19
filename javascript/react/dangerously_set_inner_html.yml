@@ -16,6 +16,7 @@ auxiliary:
             contains: false
       - sanitize($<_>)
       - sanitizeHTML($<_>)
+      - renderMarkdown($<_>)
 languages:
   - javascript
 severity: high
