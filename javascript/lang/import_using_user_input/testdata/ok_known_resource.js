@@ -5,10 +5,14 @@ var app = express()
 app.use(helmet())
 app.use(helmet.hidePoweredBy())
 
-app.get("/bad", (req, _res) => {
+app.get("/good", (_req, res) => {
+  var internalPath = "/safe-resource"
   try {
-    require(req.query.user.path)
+    require(internalPath)
   } catch (err) {
     // handle error
   }
+
+  ok(internalPath)
+  import(internalPath)
 })
