@@ -50,7 +50,13 @@ for dir in $(find $TARGET -type d -name "testdata"); do
       go run ./cmd/bearer/main.go scan $dir/$filename --only-rule=$rule_id --disable-default-rules=true --external-rule-dir=$rule_loc --format=yaml > $test_result
       cd $rule_loc
     else
-      docker run --platform linux/amd64 --rm -v $dir:/tmp/scan -v $PWD:/tmp/rules bearer/bearer:$BEARER_VERSION scan /tmp/scan/$filename --only-rule=$rule_id --disable-default-rules=true --external-rule-dir=/tmp/rules --format=yaml > $test_result
+      docker run --platform linux/amd64 --rm -v $dir:/tmp/scan -v $PWD:/tmp/rules bearer/bearer:$BEARER_VERSION scan /tmp/scan/$filename \
+        --only-rule=$rule_id \
+        --disable-default-rules=true \
+        --external-rule-dir=/tmp/rules \
+        --format=yaml \
+        --disable-version-check \
+        > $test_result
     fi
 
     if [ -n "$UPDATE_SNAPSHOTS" ] || [ ! -f $test_snapshot ]; then
