@@ -32,6 +32,7 @@ patterns:
           - to_enum
           - send
           - public_send
+          - try
       - variable: USER_INPUT
         detection: ruby_lang_reflection_using_user_input_user_input
   - pattern: |
@@ -52,6 +53,7 @@ patterns:
           - to_enum
           - send
           - public_send
+          - try
       - variable: USER_INPUT
         detection: ruby_lang_reflection_using_user_input_user_input
   - pattern: |
