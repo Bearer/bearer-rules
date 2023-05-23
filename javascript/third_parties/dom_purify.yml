@@ -5,6 +5,8 @@ patterns:
       - not:
           variable: CONFIG
           detection: javascript_dom_purify_safe_config
+  - |
+    DOMPurify.sanitize($<_>)
 auxiliary:
   - id: javascript_dom_purify_safe_config
     patterns:
