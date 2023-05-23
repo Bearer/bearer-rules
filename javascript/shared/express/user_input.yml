@@ -2,11 +2,96 @@ type: shared
 languages:
   - javascript
 patterns:
-  - req.params
-  - req.query
-  - req.body
-  - req.cookies
-  - req.headers
+  - pattern: $<REQUEST>.$<PROPERTY>
+    filters:
+      - variable: REQUEST
+        detection: javascript_shared_express_user_input_request
+        contains: false
+      - variable: PROPERTY
+        values:
+          - body
+          - cookies
+          - headers
+          - params
+          - query
+  - pattern: const { $<!>$<PROPERTY> } = $<REQUEST>
+    filters:
+      - variable: REQUEST
+        detection: javascript_shared_express_user_input_request
+        contains: false
+      - variable: PROPERTY
+        values:
+          - body
+          - cookies
+          - headers
+          - params
+          - query
+  # typescript
+  - pattern: |
+      const { $<!>$<PROPERTY> }: Request = $<_>
+    filters:
+      - variable: PROPERTY
+        values:
+          - body
+          - cookies
+          - headers
+          - params
+          - query
+  - pattern: |
+      ($<...>{ $<!>$<PROPERTY> }: Request$<...>) => {}
+    filters:
+      - variable: PROPERTY
+        values:
+          - body
+          - cookies
+          - headers
+          - params
+          - query
+  - pattern: |
+      function ($<...>{ $<!>$<PROPERTY> }: Request$<...>) {}
+    filters:
+      - variable: PROPERTY
+        values:
+          - body
+          - cookies
+          - headers
+          - params
+          - query
+  - pattern: |
+      function $<_>($<...>{ $<!>$<PROPERTY> }: Request$<...>) {}
+    filters:
+      - variable: PROPERTY
+        values:
+          - body
+          - cookies
+          - headers
+          - params
+          - query
+  - pattern: |
+      class $<_> $<...>{ $<_>($<...>{ $<!>$<PROPERTY> }: Request$<...>) {} }
+    filters:
+      - variable: PROPERTY
+        values:
+          - body
+          - cookies
+          - headers
+          - params
+          - query
+auxiliary:
+  - id: javascript_shared_express_user_input_request
+    patterns:
+      - req
+      # typescript
+      - |
+        const $<_>: Request = $<!>$<_>
+      - |
+        ($<...>$<!>$<_>: Request$<...>) => {}
+      - |
+        function ($<...>$<!>$<_>: Request$<...>) {}
+      - |
+        function $<_>($<...>$<!>$<_>: Request$<...>) {}
+      - |
+        class $<_> $<...>{ $<_>($<...>$<!>$<_>: Request$<...>) {} }
 metadata:
   description: "Express user input."
   id: javascript_shared_express_user_input

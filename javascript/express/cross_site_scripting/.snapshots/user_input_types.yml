@@ -1,0 +1,302 @@
+high:
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_express_cross_site_scripting
+        title: Cross-site scripting (XSS) vulnerability detected.
+        description: |
+            ## Description
+            Sending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.
+
+
+            ## Remediations
+            ❌ Avoid including user input directly in a response:
+
+            ```javascript
+            res.send(req.body.data)
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
+      line_number: 3
+      filename: /tmp/scan/user_input_types.ts
+      parent_line_number: 3
+      snippet: res.send(req.params.oops)
+      fingerprint: 3789048ec3cbec4977711a1eaad87381_0
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_express_cross_site_scripting
+        title: Cross-site scripting (XSS) vulnerability detected.
+        description: |
+            ## Description
+            Sending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.
+
+
+            ## Remediations
+            ❌ Avoid including user input directly in a response:
+
+            ```javascript
+            res.send(req.body.data)
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
+      line_number: 9
+      filename: /tmp/scan/user_input_types.ts
+      parent_line_number: 9
+      snippet: res.send(params.oops)
+      fingerprint: 3789048ec3cbec4977711a1eaad87381_1
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_express_cross_site_scripting
+        title: Cross-site scripting (XSS) vulnerability detected.
+        description: |
+            ## Description
+            Sending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.
+
+
+            ## Remediations
+            ❌ Avoid including user input directly in a response:
+
+            ```javascript
+            res.send(req.body.data)
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
+      line_number: 10
+      filename: /tmp/scan/user_input_types.ts
+      parent_line_number: 10
+      snippet: res.send(oops)
+      fingerprint: 3789048ec3cbec4977711a1eaad87381_2
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_express_cross_site_scripting
+        title: Cross-site scripting (XSS) vulnerability detected.
+        description: |
+            ## Description
+            Sending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.
+
+
+            ## Remediations
+            ❌ Avoid including user input directly in a response:
+
+            ```javascript
+            res.send(req.body.data)
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
+      line_number: 13
+      filename: /tmp/scan/user_input_types.ts
+      parent_line_number: 13
+      snippet: res.send(foo.params.oops)
+      fingerprint: 3789048ec3cbec4977711a1eaad87381_3
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_express_cross_site_scripting
+        title: Cross-site scripting (XSS) vulnerability detected.
+        description: |
+            ## Description
+            Sending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.
+
+
+            ## Remediations
+            ❌ Avoid including user input directly in a response:
+
+            ```javascript
+            res.send(req.body.data)
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
+      line_number: 16
+      filename: /tmp/scan/user_input_types.ts
+      parent_line_number: 16
+      snippet: res.send(foo2.params.oops)
+      fingerprint: 3789048ec3cbec4977711a1eaad87381_4
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_express_cross_site_scripting
+        title: Cross-site scripting (XSS) vulnerability detected.
+        description: |
+            ## Description
+            Sending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.
+
+
+            ## Remediations
+            ❌ Avoid including user input directly in a response:
+
+            ```javascript
+            res.send(req.body.data)
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
+      line_number: 17
+      filename: /tmp/scan/user_input_types.ts
+      parent_line_number: 17
+      snippet: res.send(params.oops)
+      fingerprint: 3789048ec3cbec4977711a1eaad87381_5
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_express_cross_site_scripting
+        title: Cross-site scripting (XSS) vulnerability detected.
+        description: |
+            ## Description
+            Sending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.
+
+
+            ## Remediations
+            ❌ Avoid including user input directly in a response:
+
+            ```javascript
+            res.send(req.body.data)
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
+      line_number: 21
+      filename: /tmp/scan/user_input_types.ts
+      parent_line_number: 21
+      snippet: res.send(foo3.params.oops)
+      fingerprint: 3789048ec3cbec4977711a1eaad87381_6
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_express_cross_site_scripting
+        title: Cross-site scripting (XSS) vulnerability detected.
+        description: |
+            ## Description
+            Sending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.
+
+
+            ## Remediations
+            ❌ Avoid including user input directly in a response:
+
+            ```javascript
+            res.send(req.body.data)
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
+      line_number: 22
+      filename: /tmp/scan/user_input_types.ts
+      parent_line_number: 22
+      snippet: res.send(params.oops)
+      fingerprint: 3789048ec3cbec4977711a1eaad87381_7
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_express_cross_site_scripting
+        title: Cross-site scripting (XSS) vulnerability detected.
+        description: |
+            ## Description
+            Sending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.
+
+
+            ## Remediations
+            ❌ Avoid including user input directly in a response:
+
+            ```javascript
+            res.send(req.body.data)
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
+      line_number: 26
+      filename: /tmp/scan/user_input_types.ts
+      parent_line_number: 26
+      snippet: res.send(foo4.params.oops)
+      fingerprint: 3789048ec3cbec4977711a1eaad87381_8
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_express_cross_site_scripting
+        title: Cross-site scripting (XSS) vulnerability detected.
+        description: |
+            ## Description
+            Sending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.
+
+
+            ## Remediations
+            ❌ Avoid including user input directly in a response:
+
+            ```javascript
+            res.send(req.body.data)
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
+      line_number: 27
+      filename: /tmp/scan/user_input_types.ts
+      parent_line_number: 27
+      snippet: res.send(params.oops)
+      fingerprint: 3789048ec3cbec4977711a1eaad87381_9
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_express_cross_site_scripting
+        title: Cross-site scripting (XSS) vulnerability detected.
+        description: |
+            ## Description
+            Sending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.
+
+
+            ## Remediations
+            ❌ Avoid including user input directly in a response:
+
+            ```javascript
+            res.send(req.body.data)
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
+      line_number: 33
+      filename: /tmp/scan/user_input_types.ts
+      parent_line_number: 33
+      snippet: res.send(foo5.params.oops)
+      fingerprint: 3789048ec3cbec4977711a1eaad87381_10
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_express_cross_site_scripting
+        title: Cross-site scripting (XSS) vulnerability detected.
+        description: |
+            ## Description
+            Sending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.
+
+
+            ## Remediations
+            ❌ Avoid including user input directly in a response:
+
+            ```javascript
+            res.send(req.body.data)
+            ```
+
+            ## Resources
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
+      line_number: 34
+      filename: /tmp/scan/user_input_types.ts
+      parent_line_number: 34
+      snippet: res.send(params.oops)
+      fingerprint: 3789048ec3cbec4977711a1eaad87381_11
+
