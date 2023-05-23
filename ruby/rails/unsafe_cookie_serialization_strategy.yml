@@ -1,0 +1,33 @@
+patterns:
+  - pattern: |
+      Rails.application.config.action_dispatch.cookies_serializer = $<VALUE>
+    filters:
+      - variable: VALUE
+        regex: \:(marshal|hybrid)
+languages:
+  - ruby
+metadata:
+  description: "Unsafe cookie serialization strategy detected."
+  remediation_message: |
+    ## Description
+    JSON is the safest serialization strategy for untrusted data, such as cookie data, to avoid malicious code injection. By default, Rails uses JSON to serialize cookie values.
+
+    ## Remediations
+    ❌ Avoid overriding the default cookie serializer
+
+    ```ruby
+    Rails.application.config.action_dispatch.cookies_serializer = :marshal
+    ```
+
+    ❌ Use the hybrid (Marshal and JSON) serializer option as a temporary solution only, for example when migrating from Marshal to JSON.
+
+    ```ruby
+    Rails.application.config.action_dispatch.cookies_serializer = :hybrid
+    ```
+
+    ## Resources
+    - [OWASP Rails Goat on Marshal and Remote Code Execution](https://github.com/OWASP/railsgoat/wiki/Extras:-Remote-Code-Execution)
+  cwe_id:
+    - 94
+  id: ruby_rails_unsafe_cookie_serialization_strategy
+  documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_unsafe_cookie_serialization_strategy
