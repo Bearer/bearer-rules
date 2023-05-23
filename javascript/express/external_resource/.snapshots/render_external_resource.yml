@@ -9,7 +9,7 @@ low:
             Using raw unsanitized input when rendering resources is bad practice.
 
             ## Remediations
-            ❌ Avoid passing user or request input to res.render() or require().
+            ❌ Avoid passing user or request input to res.render().
 
             ✅ Sanitize the input or use a safelist
 

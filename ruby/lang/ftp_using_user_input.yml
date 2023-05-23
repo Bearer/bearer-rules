@@ -1,30 +1,24 @@
+imports:
+  - ruby_shared_common_user_input
 patterns:
   - pattern: |
       Net::FTP.new($<...>$<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_ftp_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       Net::FTP.open($<...>$<USER_INPUT>$<...>)$<...>
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_ftp_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<FTP>.$<_>($<...>$<USER_INPUT>$<...>)$<...>
     filters:
       - variable: FTP
         detection: ruby_lang_ftp_using_user_input_ftp
       - variable: USER_INPUT
-        detection: ruby_lang_ftp_using_user_input_user_input
+        detection: ruby_shared_common_user_input
 auxiliary:
-  - id: ruby_lang_ftp_using_user_input_user_input
-    patterns:
-      - params
-      - request.$<_>
-      - cookies
-      - | # AWS lambda
-        def $<_>($<!>event:, context:)
-        end
   - id: ruby_lang_ftp_using_user_input_ftp
     patterns:
       - Net::FTP.new()

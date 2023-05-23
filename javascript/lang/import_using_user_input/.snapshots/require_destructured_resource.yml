@@ -1,0 +1,32 @@
+low:
+    - rule:
+        cwe_ids:
+            - "22"
+            - "95"
+        id: javascript_lang_import_using_user_input
+        title: Loading of resource resolved from external name detected.
+        description: |
+            ## Description
+
+            Loading code dynamically from a path formed from user input can allow an
+            attacker to execute arbitrary code.
+
+            ## Remediations
+
+            ❌ Avoid passing user or request input to require().
+
+            ✅ Where it is unavoidable to rely on user input, sanitize the input or use a safelist
+
+            ```javascript
+            var path = req.body.path
+            if (['users', 'posts', 'pages'].includes(path)) {
+              require(`${path}.js`)
+            }
+            ```
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_import_using_user_input
+      line_number: 7
+      filename: /tmp/scan/require_destructured_resource.js
+      parent_line_number: 7
+      snippet: require(path)
+      fingerprint: 13e8362bcc572a4e2d22fca4d98e5003_0
+

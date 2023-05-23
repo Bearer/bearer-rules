@@ -1,31 +1,18 @@
 languages:
   - ruby
+imports:
+  - ruby_shared_common_html_user_input
 patterns:
   - pattern: |
       render(inline: $<USER_INPUT>)
     filters:
       - variable: USER_INPUT
-        detection: ruby_rails_render_using_user_input_user_input
+        detection: ruby_shared_common_html_user_input
   - pattern: |
       render(html: $<USER_INPUT>)
     filters:
       - variable: USER_INPUT
-        detection: ruby_rails_render_using_user_input_user_input
-auxiliary:
-  - id: ruby_rails_render_using_user_input_user_input
-    sanitizer: ruby_rails_render_using_user_input_sanitized
-    patterns:
-      - params
-      - request.$<_>
-      - cookies
-  - id: ruby_rails_render_using_user_input_sanitized
-    patterns:
-      - pattern: $<METHOD>($<!>$<_>)
-        filters:
-          - variable: METHOD
-            values:
-              - sanitize
-              - strip_tags
+        detection: ruby_shared_common_html_user_input
 severity: high
 metadata:
   description: "Unsanitized user input detected in response."

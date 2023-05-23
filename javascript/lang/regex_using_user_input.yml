@@ -1,21 +1,11 @@
+imports:
+  - javascript_shared_common_user_input
 patterns:
   - pattern: |
       new RegExp($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
-        detection: javascript_lang_regex_using_user_input_user_input
-auxiliary:
-  - id: javascript_lang_regex_using_user_input_user_input
-    patterns:
-      # Express
-      - req.params
-      - req.query
-      - req.body
-      - req.cookies
-      - req.headers
-      # AWS
-      - async function ($<!>event, $<_>) {}
-      - async ($<!>event, $<_>) => {}
+        detection: javascript_shared_common_user_input
 languages:
   - javascript
 metadata:

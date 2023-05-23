@@ -1,5 +1,7 @@
 languages:
   - ruby
+imports:
+  - ruby_shared_common_insecure_url
 patterns:
   - pattern: Kontena::Websocket::Client.$<METHOD>($<INSECURE_URL>$<...>)$<...>
     filters:
@@ -8,43 +10,34 @@ patterns:
           - new
           - connect
       - variable: INSECURE_URL
-        detection: ruby_lang_websocket_insecure_url
+        detection: ruby_shared_common_insecure_url
         contains: false
   - pattern: WebSocket::Client::Simple.connect($<INSECURE_URL>$<...>)$<...>
     filters:
       - variable: INSECURE_URL
-        detection: ruby_lang_websocket_insecure_url
+        detection: ruby_shared_common_insecure_url
         contains: false
   - pattern: $<SIMPLE_CLIENT>.connect($<INSECURE_URL>$<...>)
     filters:
       - variable: SIMPLE_CLIENT
         detection: ruby_lang_websocket_insecure_simple_client
       - variable: INSECURE_URL
-        detection: ruby_lang_websocket_insecure_url
+        detection: ruby_shared_common_insecure_url
         contains: false
   - pattern: Faye::WebSocket::Client.new($<INSECURE_URL>$<...>)
     filters:
       - variable: INSECURE_URL
-        detection: ruby_lang_websocket_insecure_url
+        detection: ruby_shared_common_insecure_url
         contains: false
   - pattern: |
       WebSocket::Handshake::Client.new(url: $<INSECURE_URL>)
     filters:
       - variable: INSECURE_URL
-        detection: ruby_lang_websocket_insecure_url
+        detection: ruby_shared_common_insecure_url
         contains: false
   - pattern: |
       WebSocket::Handshake::Client.new(secure: false)
 auxiliary:
-  - id: ruby_lang_websocket_insecure_url
-    patterns:
-      - pattern: $<URL>
-        filters:
-          - variable: URL
-            string_regex: '\A(ws|http):'
-          - not:
-              variable: URL
-              string_regex: '\A(ws|http)://(localhost|127\.0\.0\.1)'
   - id: ruby_lang_websocket_insecure_simple_client
     patterns:
       - WebSocket::Client::Simple::Client.new

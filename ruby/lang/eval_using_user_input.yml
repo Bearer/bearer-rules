@@ -1,9 +1,11 @@
+imports:
+  - ruby_shared_common_user_input
 patterns:
   - pattern: |
       RubyVM::InstructionSequence.compile($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_eval_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<_>.$<METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -14,7 +16,7 @@ patterns:
           - class_eval
           - module_eval
       - variable: USER_INPUT
-        detection: ruby_lang_eval_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -25,16 +27,7 @@ patterns:
           - class_eval
           - module_eval
       - variable: USER_INPUT
-        detection: ruby_lang_eval_using_user_input_user_input
-auxiliary:
-  - id: ruby_lang_eval_using_user_input_user_input
-    patterns:
-      - params
-      - request.$<_>
-      - cookies
-      - | # AWS lambda
-        def $<_>($<!>event:, context:)
-        end
+        detection: ruby_shared_common_user_input
 languages:
   - ruby
 severity: high

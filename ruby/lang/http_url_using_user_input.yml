@@ -1,5 +1,7 @@
 languages:
   - ruby
+imports:
+  - ruby_shared_common_user_input
 patterns:
   - pattern: |
       Net::HTTP.$<METHOD>($<USER_INPUT>$<...>)
@@ -9,7 +11,7 @@ patterns:
           - post
           - post_form
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       Net::HTTP.$<METHOD>($<...>$<USER_INPUT>$<...>)$<...>
     filters:
@@ -22,7 +24,7 @@ patterns:
           - newobj
           - start
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       Net::HTTP::$<CLASS>.new($<USER_INPUT>$<...>)
     filters:
@@ -44,7 +46,7 @@ patterns:
           - Lock
           - Unlock
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<NET_HTTP>.$<METHOD>($<USER_INPUT>$<...>)$<...>
     filters:
@@ -73,21 +75,21 @@ patterns:
           - trace
           - unlock
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<NET_HTTP>.send_request($<_>, $<USER_INPUT>$<...>)
     filters:
       - variable: NET_HTTP
         detection: ruby_lang_http_url_using_user_input_net_http
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<NET_HTTP>.ipaddr = $<USER_INPUT>
     filters:
       - variable: NET_HTTP
         detection: ruby_lang_http_url_using_user_input_net_http
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: $<URI>.open$<...>
     filters:
       - variable: URI
@@ -104,7 +106,7 @@ patterns:
       Curl.http($<_>, $<USER_INPUT>$<...>)$<...>
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       Curl.$<METHOD>($<USER_INPUT>$<...>)$<...>
     filters:
@@ -118,7 +120,7 @@ patterns:
           - head
           - options
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       Curl::Easy.$<METHOD>($<USER_INPUT>$<...>)$<...>
     filters:
@@ -133,14 +135,14 @@ patterns:
           - http_head
           - http_get
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<CURB>.url = $<USER_INPUT>
     filters:
       - variable: CURB
         detection: ruby_lang_http_url_using_user_input_curb
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       Curl::Multi.$<METHOD>($<USER_INPUT>$<...>)$<...>
     filters:
@@ -149,7 +151,7 @@ patterns:
           - get
           - download
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       Curl::Multi.$<METHOD>($<USER_INPUT_URL_HASH>$<...>)$<...>
     filters:
@@ -164,7 +166,7 @@ patterns:
       Excon::Connection.new($<...>$<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       Excon.$<METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -181,7 +183,7 @@ patterns:
           - put
           - trace
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       Excon.$<METHOD>(path: $<USER_INPUT>)
     filters:
@@ -198,7 +200,7 @@ patterns:
           - put
           - trace
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<EXCON>.$<METHOD>(path: $<USER_INPUT>)
     filters:
@@ -217,7 +219,7 @@ patterns:
       - variable: EXCON
         detection: ruby_lang_http_url_using_user_input_excon
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<EXCON>.requests($<USER_INPUT_PATH_HASH>)
     filters:
@@ -237,7 +239,7 @@ patterns:
           - RestClient
           - Typhoeus
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<CLIENT>.post($<USER_INPUT>$<...>)$<...>
     filters:
@@ -250,7 +252,7 @@ patterns:
           - RestClient
           - Typhoeus
       - variable: USER_INPUT
-        detection: ruby_lang_http_url_using_user_input_user_input
+        detection: ruby_shared_common_user_input
 auxiliary:
   - id: ruby_lang_http_url_using_user_input_net_http_new
     patterns:
@@ -269,7 +271,7 @@ auxiliary:
       - pattern: URI($<USER_INPUT>)
         filters:
           - variable: USER_INPUT
-            detection: ruby_lang_http_url_using_user_input_user_input
+            detection: ruby_shared_common_user_input
   - id: ruby_lang_http_url_using_user_input_net_http
     patterns:
       - pattern: |
@@ -303,22 +305,14 @@ auxiliary:
           { url: $<USER_INPUT> }
         filters:
           - variable: USER_INPUT
-            detection: ruby_lang_http_url_using_user_input_user_input
+            detection: ruby_shared_common_user_input
   - id: ruby_lang_http_url_using_user_input_path_hash
     patterns:
       - pattern: |
           { path: $<USER_INPUT> }
         filters:
           - variable: USER_INPUT
-            detection: ruby_lang_http_url_using_user_input_user_input
-  - id: ruby_lang_http_url_using_user_input_user_input
-    patterns:
-      - params
-      - request.$<_>
-      - cookies
-      - | # AWS lambda
-        def $<_>($<!>event:, context:)
-        end
+            detection: ruby_shared_common_user_input
 severity: high
 metadata:
   description: "HTTP communication with user-controlled destination detected."

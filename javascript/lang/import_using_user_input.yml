@@ -1,0 +1,40 @@
+imports:
+  - javascript_shared_common_user_input
+patterns:
+  - pattern: |
+      require($<USER_INPUT>)
+    filters:
+      - variable: USER_INPUT
+        detection: javascript_shared_common_user_input
+  - pattern: |
+      import($<USER_INPUT>)
+    filters:
+      - variable: USER_INPUT
+        detection: javascript_shared_common_user_input
+languages:
+  - javascript
+metadata:
+  description: "Loading of resource resolved from external name detected."
+  remediation_message: |
+    ## Description
+
+    Loading code dynamically from a path formed from user input can allow an
+    attacker to execute arbitrary code.
+
+    ## Remediations
+
+    ❌ Avoid passing user or request input to require().
+
+    ✅ Where it is unavoidable to rely on user input, sanitize the input or use a safelist
+
+    ```javascript
+    var path = req.body.path
+    if (['users', 'posts', 'pages'].includes(path)) {
+      require(`${path}.js`)
+    }
+    ```
+  cwe_id:
+    - 22
+    - 95
+  id: "javascript_lang_import_using_user_input"
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_import_using_user_input

@@ -1,0 +1,16 @@
+type: shared
+languages:
+  - javascript
+imports:
+  - javascript_shared_common_user_input
+  - javascript_shared_third_parties_sanitize_html_sanitizer
+sanitizer: javascript_shared_third_parties_sanitize_html_sanitizer
+patterns:
+  - pattern: $<JAVASCRIPT_SHARED_COMMON_HTML_USER_INPUT>
+    filters:
+      - variable: JAVASCRIPT_SHARED_COMMON_HTML_USER_INPUT
+        detection: javascript_shared_common_user_input
+        contains: false
+metadata:
+  description: "Kavascript user input not HTML sanitized."
+  id: javascript_shared_common_html_user_input

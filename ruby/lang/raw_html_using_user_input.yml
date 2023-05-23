@@ -1,42 +1,26 @@
 languages:
   - ruby
+imports:
+  - ruby_shared_common_html_user_input
 patterns:
   - pattern: $<STRING>
     filters:
       - variable: STRING
         string_regex: <\w+(\s[^>]*)?>
       - variable: STRING
-        detection: ruby_lang_raw_html_using_user_input_user_input
+        detection: ruby_shared_common_html_user_input
   - pattern: $<STRING>.html_safe
     filters:
       - variable: STRING
-        detection: ruby_lang_raw_html_using_user_input_user_input
+        detection: ruby_shared_common_html_user_input
   - pattern: raw($<STRING>)
     filters:
       - variable: STRING
-        detection: ruby_lang_raw_html_using_user_input_user_input
+        detection: ruby_shared_common_html_user_input
   - pattern: ERB.new($<STRING>$<...>)
     filters:
       - variable: STRING
-        detection: ruby_lang_raw_html_using_user_input_user_input
-auxiliary:
-  - id: ruby_lang_raw_html_using_user_input_user_input
-    sanitizer: ruby_lang_raw_html_using_user_input_sanitized
-    patterns:
-      - params
-      - request.$<_>
-      - cookies
-      - | # AWS lambda
-        def $<_>($<!>event:, context:)
-        end
-  - id: ruby_lang_raw_html_using_user_input_sanitized
-    patterns:
-      - pattern: $<METHOD>($<!>$<_>)
-        filters:
-          - variable: METHOD
-            values:
-              - sanitize
-              - strip_tags
+        detection: ruby_shared_common_html_user_input
 severity: high
 metadata:
   description: "Unsanitized user input detected in raw HTML string."

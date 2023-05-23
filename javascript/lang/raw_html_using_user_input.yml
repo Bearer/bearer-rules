@@ -1,12 +1,14 @@
 languages:
   - javascript
+imports:
+  - javascript_shared_common_html_user_input
 patterns:
   - pattern: $<STRING>
     filters:
       - variable: STRING
         string_regex: <\w+(\s[^>]*)?>
       - variable: STRING
-        detection: javascript_lang_raw_html_using_user_input_user_input
+        detection: javascript_shared_common_html_user_input
   - pattern: $<LIB>.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: LIB
@@ -16,7 +18,7 @@ patterns:
           - compile
           - template
       - variable: STRING
-        detection: javascript_lang_raw_html_using_user_input_user_input
+        detection: javascript_shared_common_html_user_input
   - pattern: ejs.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -24,7 +26,7 @@ patterns:
           - compile
           - render
       - variable: STRING
-        detection: javascript_lang_raw_html_using_user_input_user_input
+        detection: javascript_shared_common_html_user_input
   - pattern: Handlebars.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -32,7 +34,7 @@ patterns:
           - compile
           - precompile
       - variable: STRING
-        detection: javascript_lang_raw_html_using_user_input_user_input
+        detection: javascript_shared_common_html_user_input
   - pattern: Hogan.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -40,7 +42,7 @@ patterns:
           - compile
           - parse
       - variable: STRING
-        detection: javascript_lang_raw_html_using_user_input_user_input
+        detection: javascript_shared_common_html_user_input
   - pattern: $<OBJECT>.templates($<STRING>$<...>)
     filters:
       - variable: OBJECT
@@ -48,12 +50,12 @@ patterns:
           - $
           - jsrender
       - variable: STRING
-        detection: javascript_lang_raw_html_using_user_input_user_input
+        detection: javascript_shared_common_html_user_input
   # lodash
   - pattern: template($<STRING>$<...>)
     filters:
       - variable: STRING
-        detection: javascript_lang_raw_html_using_user_input_user_input
+        detection: javascript_shared_common_html_user_input
   # lodash or underscore
   - pattern: $<LIB>.template($<STRING>$<...>)
     filters:
@@ -63,7 +65,7 @@ patterns:
           - lodash
           - underscore
       - variable: STRING
-        detection: javascript_lang_raw_html_using_user_input_user_input
+        detection: javascript_shared_common_html_user_input
   # marko
   - pattern: compiler.$<METHOD>($<STRING>$<...>)
     filters:
@@ -72,7 +74,7 @@ patterns:
           - compile
           - compileSync
       - variable: STRING
-        detection: javascript_lang_raw_html_using_user_input_user_input
+        detection: javascript_shared_common_html_user_input
   - pattern: Mustache.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -80,7 +82,7 @@ patterns:
           - parse
           - render
       - variable: STRING
-        detection: javascript_lang_raw_html_using_user_input_user_input
+        detection: javascript_shared_common_html_user_input
   - pattern: nunjucks.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -88,7 +90,7 @@ patterns:
           - renderString
           - compile
       - variable: STRING
-        detection: javascript_lang_raw_html_using_user_input_user_input
+        detection: javascript_shared_common_html_user_input
   - pattern: pug.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -96,7 +98,7 @@ patterns:
           - render
           - compile
       - variable: STRING
-        detection: javascript_lang_raw_html_using_user_input_user_input
+        detection: javascript_shared_common_html_user_input
   - pattern: Sqrl.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -105,38 +107,56 @@ patterns:
           - compile
           - parse
       - variable: STRING
-        detection: javascript_lang_raw_html_using_user_input_user_input
+        detection: javascript_shared_common_html_user_input
   - pattern: Template7.compile($<STRING>$<...>)
     filters:
       - variable: STRING
-        detection: javascript_lang_raw_html_using_user_input_user_input
+        detection: javascript_shared_common_html_user_input
   - pattern: webix.ui($<TEMPLATE>)
     filters:
       - variable: TEMPLATE
         detection: javascript_lang_raw_html_using_user_input_webix_template
+  - pattern: $<LIB>.$<METHOD>($<STRING>$<...>)
+    filters:
+      - variable: LIB
+        regex: \A(?i)eta\z
+      - variable: METHOD
+        values:
+          - render
+          - compile
+      - variable: STRING
+        detection: javascript_shared_common_html_user_input
+  - pattern: whiskers.$<METHOD>($<STRING>$<...>)
+    filters:
+      - variable: METHOD
+        values:
+          - render
+          - compile
+      - variable: STRING
+        detection: javascript_shared_common_html_user_input
+  - pattern: |
+      $<LIQUID_INIT>.$<METHOD>($<STRING>$<...>)
+    filters:
+      - variable: LIQUID_INIT
+        detection: javascript_lang_raw_html_using_user_input_liquid_init
+      - variable: METHOD
+        values:
+          - parse
+          - parseAndRender
+          - parseAndRenderSync
+      - variable: STRING
+        detection: javascript_shared_common_html_user_input
 auxiliary:
-  - id: javascript_lang_raw_html_using_user_input_user_input
-    sanitizer: javascript_lang_raw_html_using_user_input_sanitized
-    patterns:
-      # Express
-      - req.params
-      - req.query
-      - req.body
-      - req.cookies
-      - req.headers
-      # AWS
-      - async function ($<!>event, $<_>) {}
-      - async ($<!>event, $<_>) => {}
-  - id: javascript_lang_raw_html_using_user_input_sanitized
-    patterns:
-      - pattern: sanitizeHtml($<!>$<_>$<...>)
   - id: javascript_lang_raw_html_using_user_input_webix_template
     patterns:
       - pattern: |
           { template: $<STRING> }
         filters:
           - variable: STRING
-            detection: javascript_lang_raw_html_using_user_input_user_input
+            detection: javascript_shared_common_html_user_input
+  - id: javascript_lang_raw_html_using_user_input_liquid_init
+    patterns:
+      - new Liquid()
 severity: high
 metadata:
   description: "Unsanitized user input detected in raw HTML string."

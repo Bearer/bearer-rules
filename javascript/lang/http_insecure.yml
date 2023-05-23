@@ -1,9 +1,11 @@
+imports:
+  - javascript_shared_common_insecure_url
 patterns:
   - pattern: |
       $<LIBRARY>.$<METHOD>($<INSECURE_URL>$<...>)
     filters:
       - variable: INSECURE_URL
-        detection: insecure_url
+        detection: javascript_shared_common_insecure_url
       - variable: LIBRARY
         values:
           - axios
@@ -23,19 +25,19 @@ patterns:
       fetch($<INSECURE_URL>$<...>)
     filters:
       - variable: INSECURE_URL
-        detection: insecure_url
+        detection: javascript_shared_common_insecure_url
   - pattern: |
       $<XML_HTTP>.open($<_>, $<INSECURE_URL>$<...>)
     filters:
       - variable: XML_HTTP
         detection: javascript_lang_http_insecure_xmlhttp
       - variable: INSECURE_URL
-        detection: insecure_url
+        detection: javascript_shared_common_insecure_url
   - pattern: |
       request($<INSECURE_URL>$<...>)
     filters:
       - variable: INSECURE_URL
-        detection: insecure_url
+        detection: javascript_shared_common_insecure_url
   - pattern: |
       request.$<METHOD>($<INSECURE_URL>$<...>)
     filters:
@@ -49,7 +51,7 @@ patterns:
           - patch
           - del
       - variable: INSECURE_URL
-        detection: insecure_url
+        detection: javascript_shared_common_insecure_url
 auxiliary:
   - id: javascript_lang_http_insecure_axios_object
     patterns:
@@ -57,7 +59,7 @@ auxiliary:
           { url: $<INSECURE_URL> }
         filters:
           - variable: INSECURE_URL
-            detection: insecure_url
+            detection: javascript_shared_common_insecure_url
   - id: javascript_lang_http_insecure_xmlhttp
     patterns:
       - new XMLHttpRequest()

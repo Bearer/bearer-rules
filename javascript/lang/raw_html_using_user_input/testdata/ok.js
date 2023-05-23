@@ -32,3 +32,26 @@ webix.ui({
     { template: sanitizeHtml(req.params.ok) }
   ]
 })
+
+const express = require("express");
+var app = express()
+
+
+import * as Eta from "eta";
+app.get("/bad", (_req, _res) => {
+  Eta.render(sanitizeHtml(req.params.ok), { name: "insecure" })
+})
+
+
+var whiskers = require("whiskers");
+app.get("/bad", (req, _res) => {
+  var context = {}
+  whiskers.render(sanitizeHtml(req.params.ok), context)
+})
+
+
+import { Liquid } from 'liquidjs'
+const engine = new Liquid()
+app.get("/bad", (req, _res) => {
+  engine.parse(sanitizeHtml(req.params.ok), { hello: "world" })
+})

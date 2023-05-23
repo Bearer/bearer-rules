@@ -1,3 +1,5 @@
+imports:
+  - javascript_shared_common_user_input
 patterns:
   - pattern: |
       path.$<METHOD>($<...>$<USER_INPUT>$<...>)
@@ -7,28 +9,17 @@ patterns:
           - join
           - resolve
       - variable: USER_INPUT
-        detection: javascript_express_path_traversal_request_obj
+        detection: javascript_express_path_traversal_user_input
 auxiliary:
-  - id: javascript_express_path_traversal_request_obj
-    sanitizer: javascript_express_path_traversal_sanitized_user_input
-    patterns:
-      - pattern: $<DATA>
-        filters:
-          - variable: DATA
-            detection: javascript_express_path_traversal_user_input
-            contains: false
-      - pattern: const { $<!>$<_> } = $<DATA>
-        filters:
-          - variable: DATA
-            detection: javascript_express_path_traversal_user_input
   - id: javascript_express_path_traversal_user_input
+    sanitizer: javascript_express_path_traversal_sanitizer
     patterns:
-      - req.params
-      - req.query
-      - req.body
-      - req.cookies
-      - req.headers
-  - id: javascript_express_path_traversal_sanitized_user_input
+      - pattern: $<UNSANITIZED_USER_INPUT>
+        filters:
+          - variable: UNSANITIZED_USER_INPUT
+            detection: javascript_shared_common_user_input
+            contains: false
+  - id: javascript_express_path_traversal_sanitizer
     patterns:
       - $<_>.replace($<_>, "")
       - $<_>.replace($<_>, '')

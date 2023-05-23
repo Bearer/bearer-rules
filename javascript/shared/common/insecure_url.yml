@@ -1,0 +1,14 @@
+type: shared
+languages:
+  - javascript
+patterns:
+  - pattern: $<JAVASCRIPT_SHARED_COMMON_INSECURE_URL>
+    filters:
+      - variable: JAVASCRIPT_SHARED_COMMON_INSECURE_URL
+        string_regex: '\A(ws|http):'
+      - not:
+          variable: JAVASCRIPT_SHARED_COMMON_INSECURE_URL
+          string_regex: '\A(ws|http)://(localhost|127\.0\.0\.1)'
+metadata:
+  description: "Javascript insecure URL."
+  id: javascript_shared_common_insecure_url

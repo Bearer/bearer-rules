@@ -1,9 +1,11 @@
+imports:
+  - ruby_shared_common_user_input
 patterns:
   - pattern: |
       Dir[$<...>$<USER_INPUT>$<...>]
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<MODULE>.$<_>($<...>$<USER_INPUT>$<...>)$<...>
     filters:
@@ -12,7 +14,7 @@ patterns:
           - Dir
           - Pathname
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: File.$<METHOD>($<...>$<USER_INPUT>$<...>)$<...>
     filters:
       - not:
@@ -23,7 +25,7 @@ patterns:
             - fnmatch
             - fnmatch?
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       IO.$<METHOD>($<...>$<USER_INPUT>$<...>)
     filters:
@@ -37,7 +39,7 @@ patterns:
           - sysopen
           - write
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       Kernel.open($<OPEN_USER_INPUT>$<...>)$<...>
     filters:
@@ -52,7 +54,7 @@ patterns:
       PStore.new($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       Gem::Util.$<METHOD>($<...>$<USER_INPUT>$<...>)$<...>
     filters:
@@ -62,43 +64,43 @@ patterns:
           - glob_files_in_dir
           - traverse_parents
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<PATHNAME>.$<_>($<...>$<USER_INPUT>$<...>)
     filters:
       - variable: PATHNAME
         detection: ruby_lang_path_using_user_input_pathname
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<PATHNAME> + $<USER_INPUT>
     filters:
       - variable: PATHNAME
         detection: ruby_lang_path_using_user_input_pathname
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<PATHNAME> / $<USER_INPUT>
     filters:
       - variable: PATHNAME
         detection: ruby_lang_path_using_user_input_pathname
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       Shell.cd($<USER_INPUT>)
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       Shell.new($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       Shell.default_system_path = $<USER_INPUT>
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<SHELL>.$<METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -110,7 +112,7 @@ patterns:
           - expand_path
           - pushdir
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<PROCESSOR>.$<METHOD>($<...>$<USER_INPUT>$<...>)$<...>
     filters:
@@ -130,14 +132,14 @@ patterns:
           - test
           - unlink
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<PROCESSOR>[$<_>, $<...>$<USER_INPUT>$<...>]
     filters:
       - variable: PROCESSOR
         detection: ruby_lang_path_using_user_input_shell_cmd_proc
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       $<PROCESSOR>.transact do
         $<!>$<PROCESSOR_TRANSACT_USER_INPUT>
@@ -161,11 +163,11 @@ patterns:
           - partial
           - template
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: render($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
       - not:
           variable: USER_INPUT
           detection: ruby_lang_path_using_user_input_render_first_arg_pair
@@ -184,28 +186,20 @@ patterns:
           - partial
           - template
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: |
       send_file($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_path_using_user_input_user_input
+        detection: ruby_shared_common_user_input
 auxiliary:
-  - id: ruby_lang_path_using_user_input_user_input
-    patterns:
-      - params
-      - request.$<_>
-      - cookies
-      - | # AWS lambda
-        def $<_>($<!>event:, context:)
-        end
   - id: ruby_lang_path_using_user_input_open_user_input
     sanitizer: ruby_lang_path_using_user_input_open_sanitized
     patterns:
       - pattern: $<USER_INPUT>
         filters:
           - variable: USER_INPUT
-            detection: ruby_lang_path_using_user_input_user_input
+            detection: ruby_shared_common_user_input
             contains: false
   - id: ruby_lang_path_using_user_input_open_sanitized
     patterns:
@@ -244,7 +238,7 @@ auxiliary:
               - test
               - unlink
           - variable: USER_INPUT
-            detection: ruby_lang_path_using_user_input_user_input
+            detection: ruby_shared_common_user_input
   - id: ruby_lang_path_using_user_input_render_first_arg_pair
     patterns:
       - pattern: |

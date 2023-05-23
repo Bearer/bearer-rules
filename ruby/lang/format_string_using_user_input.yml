@@ -1,5 +1,7 @@
 languages:
   - ruby
+imports:
+  - ruby_shared_common_user_input
 patterns:
   - pattern: $<METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -9,7 +11,7 @@ patterns:
           - sprintf
           - printf
       - variable: USER_INPUT
-        detection: ruby_lang_format_string_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: Kernel.$<METHOD>($<USER_INPUT>$<...>)
     filters:
       - variable: METHOD
@@ -18,23 +20,14 @@ patterns:
           - sprintf
           - printf
       - variable: USER_INPUT
-        detection: ruby_lang_format_string_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   - pattern: $<USER_INPUT> % []
     filters:
       - variable: USER_INPUT
-        detection: ruby_lang_format_string_using_user_input_user_input
+        detection: ruby_shared_common_user_input
   # Unsupported:
   #   printf(io, format, ...) - can't distinguish arg types
   #   user_input % single_value - could confuse with number mod
-auxiliary:
-  - id: ruby_lang_format_string_using_user_input_user_input
-    patterns:
-      - params
-      - request.$<_>
-      - cookies
-      - | # AWS lambda
-        def $<_>($<!>event:, context:)
-        end
 severity: low
 metadata:
   description: "User input in format string detected."

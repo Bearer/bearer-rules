@@ -1,0 +1,16 @@
+type: shared
+languages:
+  - ruby
+imports:
+  - ruby_shared_common_user_input
+  - ruby_shared_rails_html_sanitizer
+sanitizer: ruby_shared_rails_html_sanitizer
+patterns:
+  - pattern: $<RUBY_SHARED_COMMON_HTML_USER_INPUT>
+    filters:
+      - variable: RUBY_SHARED_COMMON_HTML_USER_INPUT
+        detection: ruby_shared_common_user_input
+        contains: false
+metadata:
+  description: "Ruby user input not HTML sanitized."
+  id: ruby_shared_common_html_user_input
