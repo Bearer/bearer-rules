@@ -34,6 +34,7 @@ patterns:
           - to_enum
           - send
           - public_send
+          - try
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
   - pattern: |
@@ -54,6 +55,7 @@ patterns:
           - to_enum
           - send
           - public_send
+          - try
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
   - pattern: |

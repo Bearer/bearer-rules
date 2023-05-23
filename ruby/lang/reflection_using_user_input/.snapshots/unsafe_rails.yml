@@ -39,4 +39,44 @@ high:
       parent_line_number: 1
       snippet: params[:class].constantize
       fingerprint: 19d0863421c5f8efa748c585f083255e_0
+    - rule:
+        cwe_ids:
+            - "94"
+        id: ruby_lang_reflection_using_user_input
+        title: Use of reflection influenced by user input detected.
+        description: |
+            ## Description
+
+            Applications should not look up or manipulate code using user-supplied data.
+
+            ## Remediations
+
+            ❌ Avoid using user input when using reflection:
+
+            ```ruby
+            method(params[:method])
+            ```
+
+            ✅ Use user input indirectly when using reflection:
+
+            ```ruby
+            method_name =
+              case params[:action]
+              when "option1"
+                "method1"
+              when "option2"
+                "method2"
+              end
+
+            method(method_name)
+            ```
+
+            ## Resources
+            - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input
+      line_number: 3
+      filename: /tmp/scan/unsafe_rails.rb
+      parent_line_number: 3
+      snippet: current_user.try(params[:profession])
+      fingerprint: 19d0863421c5f8efa748c585f083255e_1
 
