@@ -1,57 +1,34 @@
 patterns:
-  - pattern: |
-      $<_>.$<METHOD>($<UNSAFE_PARAMS>)
+  - pattern: $<PARAMS>.permit!($<...>$<VALUE>$<...>)
     filters:
-      - variable: METHOD
-        values:
-          - new
-          - attributes=
-          - update_attributes
-          - update_attributes!
-          - create
-          - create!
-          - update
-          - update!
-          - build
-          - first_or_create
-          - first_or_create!
-          - first_or_initialize!
-          - assign_attributes
-      - variable: UNSAFE_PARAMS
-        detection: ruby_rails_unsafe_mass_assignment_permit_params
+      - variable: PARAMS
+        regex: \Aparams(?:\(.*\))?
+      - variable: VALUE
+        regex: (\:|"|')(role|admin|banned|account_id)["|']?
 languages:
   - ruby
-auxiliary:
-  - id: ruby_rails_unsafe_mass_assignment_permit_params
-    patterns:
-      - pattern: $<PARAMS>.permit!($<...>$<VALUE>$<...>)
-        filters:
-          - variable: PARAMS
-            regex: \Aparams(?:\(.*\))?
-          - variable: VALUE
-            regex: (\:|"|')(role|admin|banned|account_id)["|']?
 metadata:
-  description: "Risky key in mass assignment detected."
+  description: "Possibly dangerous permitted parameter key detected."
   remediation_message: |
     ## Description
-    In Rails, mass assignment is when we use a hash to assign attributes all at once rather than individually. For example,
+    Safe-listing high-risk param keys makes Rails applications open to mass assignment vulnerability.
+
+    In Rails, mass assignment is when we use a hash to assign attributes all at once rather than individually. For example:
 
     ```
     user_attributes = { name: "Mish", email: "mish@bearer.com" }
     User.new(user_attributes)
     ```
 
-    If we use an untrusted hash (for example, the `params` hash in a controller), mass assignment is open to attack because any attribute on the record that corresponds to a key in the hash will be automatically assigned the value in the hash.
-    An attacker could exploit this vulnerability to change their role and permissions or to assign themselves as an admin.
+    When used with an untrusted hash (for example, the `params` hash in a controller), mass assignment is open to attack because any attribute on the record that corresponds to a key in the hash will be automatically assigned the value in the hash. An attacker could exploit this vulnerability to change their role and permissions or to assign themselves as an admin.
 
     By default, Rails' strong parameters protect against mass assignment vulnerability; however, we must take care when safe-listing high-risk param keys.
 
     ## Remediations
-    ❌ Where possible, avoid mass assignment with safe-listed high-risk param keys such as :admin or :role
+    ❌ Where possible, avoid safe-listed high-risk param keys such as :admin or :role
 
     ```ruby
-    user_params = params(:user).permit!(:name, :email, :admin, :role)
-    User.create!(user_params)
+    user_params = params(:user).permit!(:name, :email, :admin)
     ```
 
     ## Resources
