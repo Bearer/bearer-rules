@@ -1,8 +1,6 @@
 patterns:
-  - pattern: $<PARAMS>.permit!($<...>$<VALUE>$<...>)
+  - pattern: $<_>.permit($<...>$<VALUE>$<...>)
     filters:
-      - variable: PARAMS
-        regex: \Aparams(?:\(.*\))?
       - variable: VALUE
         regex: (\:|"|')(role|admin|banned|account_id)["|']?
 languages:

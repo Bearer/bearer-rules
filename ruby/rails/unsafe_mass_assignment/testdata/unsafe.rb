@@ -2,6 +2,6 @@
 
 class UsersController
   def user_params
-    params(:user).permit!(:name, :email, :admin)
+    params(:user).permit(:name, :email, :admin)
   end
 end
