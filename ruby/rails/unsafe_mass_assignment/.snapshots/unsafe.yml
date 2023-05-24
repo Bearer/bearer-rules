@@ -1,0 +1,38 @@
+low:
+    - rule:
+        cwe_ids:
+            - "915"
+        id: ruby_rails_unsafe_mass_assignment
+        title: Possibly dangerous permitted parameter key detected.
+        description: |
+            ## Description
+            Safe-listing high-risk param keys makes Rails applications open to mass assignment vulnerability.
+
+            In Rails, mass assignment is when we use a hash to assign attributes all at once rather than individually. For example:
+
+            ```
+            user_attributes = { name: "Mish", email: "mish@bearer.com" }
+            User.new(user_attributes)
+            ```
+
+            When used with an untrusted hash (for example, the `params` hash in a controller), mass assignment is open to attack because any attribute on the record that corresponds to a key in the hash will be automatically assigned the value in the hash. An attacker could exploit this vulnerability to change their role and permissions or to assign themselves as an admin.
+
+            By default, Rails' strong parameters protect against mass assignment vulnerability; however, we must take care when safe-listing high-risk param keys.
+
+            ## Remediations
+            ❌ Where possible, avoid safe-listed high-risk param keys such as :admin or :role
+
+            ```ruby
+            user_params = params(:user).permit!(:name, :email, :admin)
+            ```
+
+            ## Resources
+            - [OWASP Mass Assignment Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Mass_Assignment_Cheat_Sheet.html)
+            - [Ruby on Rails security guide on mass assignment](https://guides.rubyonrails.org/v3.2.9/security.html#mass-assignment)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_unsafe_mass_assignment
+      line_number: 5
+      filename: /tmp/scan/unsafe.rb
+      parent_line_number: 5
+      snippet: params(:user).permit(:name, :email, :admin)
+      fingerprint: d1e6a48242b335d9ab14450f71cfbd75_0
+
