@@ -82,6 +82,8 @@ patterns:
         values:
           - constantize
           - safe_constantize
+          - classify.constantize
+          - classify.safe_constantize
 severity: high
 metadata:
   description: "Use of reflection influenced by user input detected."
