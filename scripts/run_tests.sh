@@ -42,12 +42,15 @@ for dir in $(find $TARGET -type d -name "testdata"); do
     test_snapshot="${file//testdata/.snapshots}"
     test_snapshot=${test_snapshot%.*}.yml
     filename=$(basename $file)
+    test_filename=/tmp/scan/$filename
 
     echo "TEST: $test_snapshot"
     if [ -n "$BEARER_WORKSPACE" ]; then
       rule_loc=$PWD
+      mkdir -p /tmp/scan
+      cp $dir/$filename $test_filename
       cd $BEARER_WORKSPACE
-      go run ./cmd/bearer/main.go scan $dir/$filename --only-rule=$rule_id --disable-default-rules=true --external-rule-dir=$rule_loc --format=yaml > $test_result
+      go run ./cmd/bearer/main.go scan $test_filename --only-rule=$rule_id --disable-default-rules=true --external-rule-dir=$rule_loc --format=yaml > $test_result
       cd $rule_loc
     else
       docker run --platform linux/amd64 --rm -v $dir:/tmp/scan -v $PWD:/tmp/rules bearer/bearer:$BEARER_VERSION scan /tmp/scan/$filename \
