@@ -216,6 +216,14 @@
                 "detection": {
                     "type": "string"
                 },
+                "scope": {
+                    "type": "string",
+                    "enum": [
+                        "cursor",
+                        "nested",
+                        "result"
+                    ]
+                },
                 "values": {
                     "type": "array",
                     "items": {
