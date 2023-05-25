@@ -13,8 +13,13 @@ auxiliary:
     patterns:
       - pattern: $<...>$<METHOD>($<...>$<!>$<_>$<...>)
         filters:
-          - variable: METHOD
-            regex: _(path|url)\z
+          - either:
+            - variable: METHOD
+              regex: _(path|url)\z
+            - variable: METHOD
+              values:
+                - find
+                - find_by
   - id: ruby_rails_open_redirect_user_input
     sanitizer: ruby_rails_open_redirect_sanitized
     patterns:

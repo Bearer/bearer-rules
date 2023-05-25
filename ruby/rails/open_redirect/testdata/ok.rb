@@ -6,4 +6,8 @@ class OrdersController < ApplicationController
   def orders
     redirect_to Rails.application.routes.url_helpers.orders_path(shop_id: params[:shop_id])
   end
+
+  def order
+    redirect_to @current_user.orders.find(params[:id])
+  end
 end
