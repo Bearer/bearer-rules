@@ -17,10 +17,31 @@ high:
             - [Segment JavaScript docs](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_segment
       line_number: 8
-      filename: /tmp/scan/datatype_in_group.js
+      full_filename: /tmp/scan/datatype_in_group.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 6
+            end: 10
+            column:
+                start: 1
+                end: 3
+        content: |-
+            analytics.group({
+              userId: user.id,
+              groupId: user.job_title,
+              traits: {},
+            })
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 12
+                end: 26
       parent_line_number: 6
       snippet: |-
         analytics.group({
@@ -28,5 +49,6 @@ high:
           groupId: user.job_title,
           traits: {},
         })
-      fingerprint: 0b1450cb37e46841b6971c111c53a598_0
+      fingerprint: df462286e9e34d817b61a361c26e8720_0
+      old_fingerprint: 0b1450cb37e46841b6971c111c53a598_0
 

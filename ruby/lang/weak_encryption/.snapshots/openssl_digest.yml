@@ -34,10 +34,27 @@ low:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 1
-      filename: /tmp/scan/openssl_digest.rb
+      full_filename: /tmp/scan/openssl_digest.rb
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 46
+        content: OpenSSL::Digest.digest("sha1", "hello world")
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 46
       parent_line_number: 1
       snippet: OpenSSL::Digest.digest("sha1", "hello world")
-      fingerprint: b212364a4efa4fbed598819198e2c994_0
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
+      old_fingerprint: b212364a4efa4fbed598819198e2c994_0
     - rule:
         cwe_ids:
             - "331"
@@ -73,10 +90,27 @@ low:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 2
-      filename: /tmp/scan/openssl_digest.rb
+      full_filename: /tmp/scan/openssl_digest.rb
+      filename: .
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 43
+        content: OpenSSL::Digest::MD5.digest("hello world")
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 43
       parent_line_number: 2
       snippet: OpenSSL::Digest::MD5.digest("hello world")
-      fingerprint: b212364a4efa4fbed598819198e2c994_1
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1
+      old_fingerprint: b212364a4efa4fbed598819198e2c994_1
     - rule:
         cwe_ids:
             - "331"
@@ -112,10 +146,27 @@ low:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 5
-      filename: /tmp/scan/openssl_digest.rb
+      full_filename: /tmp/scan/openssl_digest.rb
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 24
+        content: x.digest("hello world")
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 24
       parent_line_number: 5
       snippet: x.digest("hello world")
-      fingerprint: b212364a4efa4fbed598819198e2c994_2
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_2
+      old_fingerprint: b212364a4efa4fbed598819198e2c994_2
     - rule:
         cwe_ids:
             - "331"
@@ -151,8 +202,25 @@ low:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 8
-      filename: /tmp/scan/openssl_digest.rb
+      full_filename: /tmp/scan/openssl_digest.rb
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 24
+        content: y.digest("hello world")
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 24
       parent_line_number: 8
       snippet: y.digest("hello world")
-      fingerprint: b212364a4efa4fbed598819198e2c994_3
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_3
+      old_fingerprint: b212364a4efa4fbed598819198e2c994_3
 

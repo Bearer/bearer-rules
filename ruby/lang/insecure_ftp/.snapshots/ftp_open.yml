@@ -24,7 +24,29 @@ low:
             - [net-sftp](https://github.com/net-ssh/net-sftp)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_insecure_ftp
       line_number: 3
-      filename: /tmp/scan/ftp_open.rb
+      full_filename: /tmp/scan/ftp_open.rb
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 8
+            column:
+                start: 1
+                end: 4
+        content: |-
+            Net::FTP.open("example.com") do |ftp|
+              ftp.login
+              files = ftp.chdir('pub/lang/ruby/contrib')
+              files = ftp.list('n*')
+              ftp.getbinaryfile('nif.rb-0.91.gz', 'nif.gz', 1024)
+            end
+      sink:
+        location:
+            start: 3
+            end: 8
+            column:
+                start: 1
+                end: 4
       parent_line_number: 3
       snippet: |-
         Net::FTP.open("example.com") do |ftp|
@@ -33,5 +55,6 @@ low:
           files = ftp.list('n*')
           ftp.getbinaryfile('nif.rb-0.91.gz', 'nif.gz', 1024)
         end
-      fingerprint: 3a93bc4fdb7f7f9df83eccfbde4df543_0
+      fingerprint: b48187bc987e84ed94e63b90448fda84_0
+      old_fingerprint: 3a93bc4fdb7f7f9df83eccfbde4df543_0
 

@@ -17,11 +17,28 @@ high:
             - [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_new_relic
       line_number: 3
-      filename: /tmp/scan/datatype_in_set_page_view_name.js
+      full_filename: /tmp/scan/datatype_in_set_page_view_name.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 64
+        content: newrelic.setPageViewName(customer.bank_account_number, "$host")
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 26
+                end: 54
       parent_line_number: 3
       snippet: newrelic.setPageViewName(customer.bank_account_number, "$host")
-      fingerprint: 4a6e29a8e05e4ebc304f71c8c97ef57b_0
+      fingerprint: 63161101404765527f0dada7fd00b64e_0
+      old_fingerprint: 4a6e29a8e05e4ebc304f71c8c97ef57b_0
 

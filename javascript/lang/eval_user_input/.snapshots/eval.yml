@@ -48,10 +48,27 @@ high:
             - [MDN JavaScript strict mode reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_eval_user_input
       line_number: 11
-      filename: /tmp/scan/eval.js
+      full_filename: /tmp/scan/eval.js
+      filename: .
+      source:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 10
+                end: 23
+        content: eval(command)
+      sink:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 10
+                end: 23
       parent_line_number: 11
       snippet: eval(command)
-      fingerprint: 1454289ea71cd0d9787074d9afe2eff9_0
+      fingerprint: 845c467daab5771a9b5844e411f5576c_0
+      old_fingerprint: 1454289ea71cd0d9787074d9afe2eff9_0
     - rule:
         cwe_ids:
             - "94"
@@ -101,8 +118,25 @@ high:
             - [MDN JavaScript strict mode reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_eval_user_input
       line_number: 18
-      filename: /tmp/scan/eval.js
+      full_filename: /tmp/scan/eval.js
+      filename: .
+      source:
+        location:
+            start: 18
+            end: 18
+            column:
+                start: 3
+                end: 16
+        content: eval(context)
+      sink:
+        location:
+            start: 18
+            end: 18
+            column:
+                start: 3
+                end: 16
       parent_line_number: 18
       snippet: eval(context)
-      fingerprint: 1454289ea71cd0d9787074d9afe2eff9_1
+      fingerprint: 845c467daab5771a9b5844e411f5576c_1
+      old_fingerprint: 1454289ea71cd0d9787074d9afe2eff9_1
 

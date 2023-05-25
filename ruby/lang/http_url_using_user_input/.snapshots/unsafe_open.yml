@@ -33,10 +33,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 3
-      filename: /tmp/scan/unsafe_open.rb
+      full_filename: /tmp/scan/unsafe_open.rb
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 15
+        content: open(uri, "r")
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 15
       parent_line_number: 3
       snippet: open(uri, "r")
-      fingerprint: ba5be050d651983409e1dbac19278ee1_0
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_0
+      old_fingerprint: ba5be050d651983409e1dbac19278ee1_0
     - rule:
         cwe_ids:
             - "918"
@@ -71,10 +88,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 5
-      filename: /tmp/scan/unsafe_open.rb
+      full_filename: /tmp/scan/unsafe_open.rb
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 20
+        content: Kernel.open(uri) {}
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 20
       parent_line_number: 5
       snippet: Kernel.open(uri) {}
-      fingerprint: ba5be050d651983409e1dbac19278ee1_1
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_1
+      old_fingerprint: ba5be050d651983409e1dbac19278ee1_1
     - rule:
         cwe_ids:
             - "918"
@@ -109,8 +143,25 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 7
-      filename: /tmp/scan/unsafe_open.rb
+      full_filename: /tmp/scan/unsafe_open.rb
+      filename: .
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 9
+        content: uri.open
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 9
       parent_line_number: 7
       snippet: uri.open
-      fingerprint: ba5be050d651983409e1dbac19278ee1_2
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_2
+      old_fingerprint: ba5be050d651983409e1dbac19278ee1_2
 

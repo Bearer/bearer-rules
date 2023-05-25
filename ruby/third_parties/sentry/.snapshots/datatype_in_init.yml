@@ -16,11 +16,28 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_sentry
       line_number: 3
-      filename: /tmp/scan/datatype_in_init.rb
+      full_filename: /tmp/scan/datatype_in_init.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 5
+                end: 68
+        content: 'breadcrumb.message = "Authenticated user #{current_user.email}"'
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 48
+                end: 66
       parent_line_number: 3
       snippet: 'breadcrumb.message = "Authenticated user #{current_user.email}"'
-      fingerprint: 0216c2112d1bd0ed0ca9c494409cce8f_0
+      fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_0
+      old_fingerprint: 0216c2112d1bd0ed0ca9c494409cce8f_0
 

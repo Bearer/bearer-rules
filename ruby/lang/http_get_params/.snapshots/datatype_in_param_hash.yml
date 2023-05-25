@@ -48,11 +48,28 @@ high:
             - [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_get_params
       line_number: 1
-      filename: /tmp/scan/datatype_in_param_hash.rb
+      full_filename: /tmp/scan/datatype_in_param_hash.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 95
+        content: 'HTTP.get("https://my.api.com/users/search", params: { user: { first_name: user.first_name } })'
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 63
+                end: 90
       parent_line_number: 1
       snippet: 'HTTP.get("https://my.api.com/users/search", params: { user: { first_name: user.first_name } })'
-      fingerprint: 9e1fa895c6a306f4f26d481ded11a41e_0
+      fingerprint: 8894dae3b2e5b5fbbe850e0eb0759f58_0
+      old_fingerprint: 9e1fa895c6a306f4f26d481ded11a41e_0
 

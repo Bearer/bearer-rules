@@ -16,13 +16,30 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_sentry
       line_number: 1
-      filename: /tmp/scan/datatype_in_capture_message.rb
+      full_filename: /tmp/scan/datatype_in_capture_message.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 46
+        content: 'Sentry.capture_message("test: #{user.email}")'
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 33
+                end: 43
       parent_line_number: 1
       snippet: 'Sentry.capture_message("test: #{user.email}")'
-      fingerprint: 527730be8292f64780201efffc7455d7_0
+      fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_0
+      old_fingerprint: 527730be8292f64780201efffc7455d7_0
     - rule:
         cwe_ids:
             - "201"
@@ -40,13 +57,30 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_sentry
       line_number: 2
-      filename: /tmp/scan/datatype_in_capture_message.rb
+      full_filename: /tmp/scan/datatype_in_capture_message.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 61
+        content: 'Sentry.capture_message("test", extra: { email: user.email })'
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 41
+                end: 58
       parent_line_number: 2
       snippet: 'Sentry.capture_message("test", extra: { email: user.email })'
-      fingerprint: 527730be8292f64780201efffc7455d7_1
+      fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_1
+      old_fingerprint: 527730be8292f64780201efffc7455d7_1
     - rule:
         cwe_ids:
             - "201"
@@ -64,13 +98,30 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_sentry
       line_number: 3
-      filename: /tmp/scan/datatype_in_capture_message.rb
+      full_filename: /tmp/scan/datatype_in_capture_message.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 60
+        content: 'Sentry.capture_message("test", tags: { email: user.email })'
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 40
+                end: 57
       parent_line_number: 3
       snippet: 'Sentry.capture_message("test", tags: { email: user.email })'
-      fingerprint: 527730be8292f64780201efffc7455d7_2
+      fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_2
+      old_fingerprint: 527730be8292f64780201efffc7455d7_2
     - rule:
         cwe_ids:
             - "201"
@@ -88,11 +139,28 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_sentry
       line_number: 4
-      filename: /tmp/scan/datatype_in_capture_message.rb
+      full_filename: /tmp/scan/datatype_in_capture_message.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 60
+        content: 'Sentry.capture_message("test", user: { email: user.email })'
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 40
+                end: 57
       parent_line_number: 4
       snippet: 'Sentry.capture_message("test", user: { email: user.email })'
-      fingerprint: 527730be8292f64780201efffc7455d7_3
+      fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_3
+      old_fingerprint: 527730be8292f64780201efffc7455d7_3
 

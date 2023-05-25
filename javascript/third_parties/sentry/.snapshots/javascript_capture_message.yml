@@ -16,11 +16,28 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_sentry
       line_number: 1
-      filename: /tmp/scan/javascript_capture_message.js
+      full_filename: /tmp/scan/javascript_capture_message.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 79
+        content: Sentry.captureMessage("User has successfully signed in " + current_user.email)
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 60
+                end: 78
       parent_line_number: 1
       snippet: Sentry.captureMessage("User has successfully signed in " + current_user.email)
-      fingerprint: 84e2427fdc5103f47a17903f4b141d5b_0
+      fingerprint: af49328f7c7aa692f05a50dc6ccda334_0
+      old_fingerprint: 84e2427fdc5103f47a17903f4b141d5b_0
 

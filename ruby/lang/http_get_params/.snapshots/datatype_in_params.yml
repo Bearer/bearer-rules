@@ -48,14 +48,31 @@ critical:
             - [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_get_params
       line_number: 1
-      filename: /tmp/scan/datatype_in_params.rb
+      full_filename: /tmp/scan/datatype_in_params.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
         - Personal Data (Sensitive)
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 7
+                end: 81
+        content: URI("https://my.api.com/users/search?ethnic_origin=#{user.ethnic_origin}")
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 60
+                end: 78
       parent_line_number: 1
       snippet: URI("https://my.api.com/users/search?ethnic_origin=#{user.ethnic_origin}")
-      fingerprint: 5d3eb183e864df53294e1a6c48bf6b9a_1
+      fingerprint: 8894dae3b2e5b5fbbe850e0eb0759f58_1
+      old_fingerprint: 5d3eb183e864df53294e1a6c48bf6b9a_1
 high:
     - rule:
         cwe_ids:
@@ -106,11 +123,28 @@ high:
             - [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_get_params
       line_number: 3
-      filename: /tmp/scan/datatype_in_params.rb
+      full_filename: /tmp/scan/datatype_in_params.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 80
+        content: RestClient.get("https://my.api.com/users/search?first_name=#{user.first_name}")
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 62
+                end: 77
       parent_line_number: 3
       snippet: RestClient.get("https://my.api.com/users/search?first_name=#{user.first_name}")
-      fingerprint: 5d3eb183e864df53294e1a6c48bf6b9a_0
+      fingerprint: 8894dae3b2e5b5fbbe850e0eb0759f58_0
+      old_fingerprint: 5d3eb183e864df53294e1a6c48bf6b9a_0
 

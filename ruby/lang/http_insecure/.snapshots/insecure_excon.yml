@@ -27,10 +27,27 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_insecure
       line_number: 1
-      filename: /tmp/scan/insecure_excon.rb
+      full_filename: /tmp/scan/insecure_excon.rb
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 14
+                end: 64
+        content: 'Excon.new("http://my.api.com/insecure", foo: true)'
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 14
+                end: 64
       parent_line_number: 1
       snippet: 'Excon.new("http://my.api.com/insecure", foo: true)'
-      fingerprint: 31091309e687ef7690258d5e194a5520_0
+      fingerprint: e9e2ed12574caf1a717fbe12e9ece4c1_0
+      old_fingerprint: 31091309e687ef7690258d5e194a5520_0
     - rule:
         cwe_ids:
             - "319"
@@ -59,8 +76,25 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_insecure
       line_number: 3
-      filename: /tmp/scan/insecure_excon.rb
+      full_filename: /tmp/scan/insecure_excon.rb
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 51
+        content: 'Excon.get("http://my.api.com/insecure", foo: true)'
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 51
       parent_line_number: 3
       snippet: 'Excon.get("http://my.api.com/insecure", foo: true)'
-      fingerprint: 31091309e687ef7690258d5e194a5520_1
+      fingerprint: e9e2ed12574caf1a717fbe12e9ece4c1_1
+      old_fingerprint: 31091309e687ef7690258d5e194a5520_1
 

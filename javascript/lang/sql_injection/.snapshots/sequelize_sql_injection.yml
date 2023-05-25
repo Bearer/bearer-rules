@@ -45,8 +45,25 @@ high:
             - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_sql_injection
       line_number: 7
-      filename: /tmp/scan/sequelize_sql_injection.js
+      full_filename: /tmp/scan/sequelize_sql_injection.js
+      filename: .
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 2
+                end: 29
+        content: sqlite.query(customerQuery)
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 2
+                end: 29
       parent_line_number: 7
       snippet: sqlite.query(customerQuery)
-      fingerprint: bec785064a1c36170b6fe06a522c1f70_0
+      fingerprint: e729d82176c9ebea695fa6b6a606960b_0
+      old_fingerprint: bec785064a1c36170b6fe06a522c1f70_0
 

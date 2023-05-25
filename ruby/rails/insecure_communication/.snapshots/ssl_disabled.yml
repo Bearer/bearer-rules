@@ -23,11 +23,28 @@ high:
             - [Configuring Rails Applications - Ruby on Rails Guides](https://guides.rubyonrails.org/configuring.html#config-force-ssl)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_insecure_communication
       line_number: 7
-      filename: /tmp/scan/ssl_disabled.rb
+      full_filename: /tmp/scan/ssl_disabled.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 3
+                end: 27
+        content: config.force_ssl = false
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 3
+                end: 27
       parent_line_number: 7
       snippet: config.force_ssl = false
-      fingerprint: 17908b0b128a8d19090d73c11a872448_0
+      fingerprint: e07395ca5fb10df0be4836e21bcb4b95_0
+      old_fingerprint: 17908b0b128a8d19090d73c11a872448_0
 

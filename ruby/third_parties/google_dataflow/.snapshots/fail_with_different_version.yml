@@ -16,11 +16,28 @@ high:
             - [Google Dataflow Docs](https://cloud.google.com/ruby/docs/reference/google-cloud-dataflow/latest)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_google_dataflow
       line_number: 5
-      filename: /tmp/scan/fail_with_different_version.rb
+      full_filename: /tmp/scan/fail_with_different_version.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 123
+        content: 'templates_client.create_job_from_template(project_id: "123", job_name: "my-job", parameters: { current_user: user.email })'
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 110
+                end: 120
       parent_line_number: 5
       snippet: 'templates_client.create_job_from_template(project_id: "123", job_name: "my-job", parameters: { current_user: user.email })'
-      fingerprint: fd32f1c70cd7429ca90e759179472635_0
+      fingerprint: 413255d6456534b1be7ccdeddaeeb019_0
+      old_fingerprint: fd32f1c70cd7429ca90e759179472635_0
 

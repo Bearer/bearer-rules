@@ -27,13 +27,30 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_logger
       line_number: 1
-      filename: /tmp/scan/console.js
+      full_filename: /tmp/scan/console.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 23
+        content: console.log(user.name)
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 13
+                end: 22
       parent_line_number: 1
       snippet: console.log(user.name)
-      fingerprint: 9def6db148a02091111aa26923b006e0_1
+      fingerprint: 327449cd47ed82672cc47bf9cfccdb4a_1
+      old_fingerprint: 9def6db148a02091111aa26923b006e0_1
     - rule:
         cwe_ids:
             - "1295"
@@ -62,11 +79,28 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_logger
       line_number: 2
-      filename: /tmp/scan/console.js
+      full_filename: /tmp/scan/console.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 41
+        content: console.log("user email is", user.email)
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 30
+                end: 40
       parent_line_number: 2
       snippet: console.log("user email is", user.email)
-      fingerprint: 9def6db148a02091111aa26923b006e0_0
+      fingerprint: 327449cd47ed82672cc47bf9cfccdb4a_0
+      old_fingerprint: 9def6db148a02091111aa26923b006e0_0
 

@@ -31,8 +31,25 @@ low:
             - [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/java_lang_path_traversal
       line_number: 17
-      filename: /tmp/scan/cookie_file_traversal.java
+      full_filename: /tmp/scan/cookie_file_traversal.java
+      filename: .
+      source:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 21
+                end: 59
+        content: new File("user/profile/", userProfile)
+      sink:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 21
+                end: 59
       parent_line_number: 17
       snippet: new File("user/profile/", userProfile)
-      fingerprint: 60ed2fb252f8c8d8f94fccad157396e1_0
+      fingerprint: 0ddbea485a733931cca743266783dadc_0
+      old_fingerprint: 60ed2fb252f8c8d8f94fccad157396e1_0
 

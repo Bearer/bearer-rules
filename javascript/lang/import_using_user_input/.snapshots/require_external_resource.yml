@@ -25,10 +25,27 @@ low:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_import_using_user_input
       line_number: 10
-      filename: /tmp/scan/require_external_resource.js
+      full_filename: /tmp/scan/require_external_resource.js
+      filename: .
+      source:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 5
+                end: 33
+        content: require(req.query.user.path)
+      sink:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 5
+                end: 33
       parent_line_number: 10
       snippet: require(req.query.user.path)
-      fingerprint: 99974723933c1f994018cd18a7743cc7_0
+      fingerprint: ce8a5417c71d4166a93f05ca32da7883_0
+      old_fingerprint: 99974723933c1f994018cd18a7743cc7_0
     - rule:
         cwe_ids:
             - "22"
@@ -55,8 +72,25 @@ low:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_import_using_user_input
       line_number: 15
-      filename: /tmp/scan/require_external_resource.js
+      full_filename: /tmp/scan/require_external_resource.js
+      filename: .
+      source:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 3
+                end: 30
+        content: import(req.query.user.path)
+      sink:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 3
+                end: 30
       parent_line_number: 15
       snippet: import(req.query.user.path)
-      fingerprint: 99974723933c1f994018cd18a7743cc7_1
+      fingerprint: ce8a5417c71d4166a93f05ca32da7883_1
+      old_fingerprint: 99974723933c1f994018cd18a7743cc7_1
 

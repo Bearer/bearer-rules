@@ -17,13 +17,30 @@ high:
             - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_datadog
       line_number: 2
-      filename: /tmp/scan/datatype_in_tags.rb
+      full_filename: /tmp/scan/datatype_in_tags.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 3
+                end: 16
+        content: c.tags = user
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 12
+                end: 40
       parent_line_number: 3
       snippet: c.tags = user
-      fingerprint: 2c62579630cb712ef706004829b9e6dd_0
+      fingerprint: 2eba6887e2962e1904b9ac5c8be1515a_0
+      old_fingerprint: 2c62579630cb712ef706004829b9e6dd_0
     - rule:
         cwe_ids:
             - "201"
@@ -42,13 +59,30 @@ high:
             - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_datadog
       line_number: 7
-      filename: /tmp/scan/datatype_in_tags.rb
+      full_filename: /tmp/scan/datatype_in_tags.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 39
+        content: span.set_tag('user.email', user.email)
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 28
+                end: 38
       parent_line_number: 7
       snippet: span.set_tag('user.email', user.email)
-      fingerprint: 2c62579630cb712ef706004829b9e6dd_1
+      fingerprint: 2eba6887e2962e1904b9ac5c8be1515a_1
+      old_fingerprint: 2c62579630cb712ef706004829b9e6dd_1
     - rule:
         cwe_ids:
             - "201"
@@ -67,13 +101,30 @@ high:
             - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_datadog
       line_number: 9
-      filename: /tmp/scan/datatype_in_tags.rb
+      full_filename: /tmp/scan/datatype_in_tags.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 65
+        content: Datadog::Tracing.active_span&.set_tag('customer.id', user.email)
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 54
+                end: 64
       parent_line_number: 9
       snippet: Datadog::Tracing.active_span&.set_tag('customer.id', user.email)
-      fingerprint: 2c62579630cb712ef706004829b9e6dd_2
+      fingerprint: 2eba6887e2962e1904b9ac5c8be1515a_2
+      old_fingerprint: 2c62579630cb712ef706004829b9e6dd_2
     - rule:
         cwe_ids:
             - "201"
@@ -92,13 +143,30 @@ high:
             - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_datadog
       line_number: 10
-      filename: /tmp/scan/datatype_in_tags.rb
+      full_filename: /tmp/scan/datatype_in_tags.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 1
+                end: 64
+        content: Datadog::Tracing.active_span.set_tag('customer.id', user.email)
+      sink:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 53
+                end: 63
       parent_line_number: 10
       snippet: Datadog::Tracing.active_span.set_tag('customer.id', user.email)
-      fingerprint: 2c62579630cb712ef706004829b9e6dd_3
+      fingerprint: 2eba6887e2962e1904b9ac5c8be1515a_3
+      old_fingerprint: 2c62579630cb712ef706004829b9e6dd_3
     - rule:
         cwe_ids:
             - "201"
@@ -117,16 +185,36 @@ high:
             - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_datadog
       line_number: 12
-      filename: /tmp/scan/datatype_in_tags.rb
+      full_filename: /tmp/scan/datatype_in_tags.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 12
+            end: 14
+            column:
+                start: 1
+                end: 4
+        content: |-
+            Datadog::Tracing.trace("web.request", tags: { email: user.email }) do |span, trace|
+              call
+            end
+      sink:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 47
+                end: 64
       parent_line_number: 12
       snippet: |-
         Datadog::Tracing.trace("web.request", tags: { email: user.email }) do |span, trace|
           call
         end
-      fingerprint: 2c62579630cb712ef706004829b9e6dd_4
+      fingerprint: 2eba6887e2962e1904b9ac5c8be1515a_4
+      old_fingerprint: 2c62579630cb712ef706004829b9e6dd_4
     - rule:
         cwe_ids:
             - "201"
@@ -145,11 +233,28 @@ high:
             - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_datadog
       line_number: 17
-      filename: /tmp/scan/datatype_in_tags.rb
+      full_filename: /tmp/scan/datatype_in_tags.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 3
+                end: 41
+        content: span.set_tag('user.email', user.email)
+      sink:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 30
+                end: 40
       parent_line_number: 17
       snippet: span.set_tag('user.email', user.email)
-      fingerprint: 2c62579630cb712ef706004829b9e6dd_5
+      fingerprint: 2eba6887e2962e1904b9ac5c8be1515a_5
+      old_fingerprint: 2c62579630cb712ef706004829b9e6dd_5
 

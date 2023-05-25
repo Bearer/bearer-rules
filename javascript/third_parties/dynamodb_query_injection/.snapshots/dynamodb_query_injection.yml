@@ -33,10 +33,27 @@ high:
             - [OWASP nosql injection explained](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_dynamodb_query_injection
       line_number: 10
-      filename: /tmp/scan/dynamodb_query_injection.js
+      full_filename: /tmp/scan/dynamodb_query_injection.js
+      filename: .
+      source:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 37
+                end: 61
+        content: new QueryCommand(params)
+      sink:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 37
+                end: 61
       parent_line_number: 10
       snippet: new QueryCommand(params)
-      fingerprint: 843ada685944ddd8250f044e04fabf87_0
+      fingerprint: d3d9829e398dc3fa0b84684d1f8da7ef_0
+      old_fingerprint: 843ada685944ddd8250f044e04fabf87_0
     - rule:
         cwe_ids:
             - "89"
@@ -71,10 +88,27 @@ high:
             - [OWASP nosql injection explained](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_dynamodb_query_injection
       line_number: 18
-      filename: /tmp/scan/dynamodb_query_injection.js
+      full_filename: /tmp/scan/dynamodb_query_injection.js
+      filename: .
+      source:
+        location:
+            start: 18
+            end: 18
+            column:
+                start: 3
+                end: 68
+        content: docClient.query(event["query"]["params"], function(err, data) {})
+      sink:
+        location:
+            start: 18
+            end: 18
+            column:
+                start: 3
+                end: 68
       parent_line_number: 18
       snippet: docClient.query(event["query"]["params"], function(err, data) {})
-      fingerprint: 843ada685944ddd8250f044e04fabf87_1
+      fingerprint: d3d9829e398dc3fa0b84684d1f8da7ef_1
+      old_fingerprint: 843ada685944ddd8250f044e04fabf87_1
     - rule:
         cwe_ids:
             - "89"
@@ -109,8 +143,25 @@ high:
             - [OWASP nosql injection explained](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_dynamodb_query_injection
       line_number: 32
-      filename: /tmp/scan/dynamodb_query_injection.js
+      full_filename: /tmp/scan/dynamodb_query_injection.js
+      filename: .
+      source:
+        location:
+            start: 32
+            end: 32
+            column:
+                start: 37
+                end: 61
+        content: new QueryCommand(params)
+      sink:
+        location:
+            start: 32
+            end: 32
+            column:
+                start: 37
+                end: 61
       parent_line_number: 32
       snippet: new QueryCommand(params)
-      fingerprint: 843ada685944ddd8250f044e04fabf87_2
+      fingerprint: d3d9829e398dc3fa0b84684d1f8da7ef_2
+      old_fingerprint: 843ada685944ddd8250f044e04fabf87_2
 

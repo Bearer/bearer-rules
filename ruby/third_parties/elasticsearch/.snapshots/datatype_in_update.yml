@@ -15,14 +15,34 @@ high:
             - [Elasticsearch docs](https://www.elastic.co/guide/en/elasticsearch/client/ruby-api/current/index.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_elasticsearch
       line_number: 1
-      filename: /tmp/scan/datatype_in_update.rb
+      full_filename: /tmp/scan/datatype_in_update.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 5
+            column:
+                start: 1
+                end: 46
+        content: |-
+            Elasticsearch::Client
+              .new
+              .update(index: 'books', id: 42, body: user)
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 10
+                end: 38
       parent_line_number: 3
       snippet: |-
         Elasticsearch::Client
           .new
           .update(index: 'books', id: 42, body: user)
-      fingerprint: 43aaad615bf78c07a155a129dfbed1db_0
+      fingerprint: 93988d54e68509de8c6ec9eca5c9ee30_0
+      old_fingerprint: 43aaad615bf78c07a155a129dfbed1db_0
 

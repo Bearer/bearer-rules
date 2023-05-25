@@ -26,10 +26,27 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_bugsnag
       line_number: 5
-      filename: /tmp/scan/datatype_in_notify.js
+      full_filename: /tmp/scan/datatype_in_notify.js
+      filename: .
       category_groups:
         - Personal Data
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 5
+                end: 48
+        content: 'Bugsnag.notify(user.ip_address + " : " + e)'
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 20
+                end: 35
       parent_line_number: 5
       snippet: 'Bugsnag.notify(user.ip_address + " : " + e)'
-      fingerprint: ed6b6b39492ed182cfc7015673e3c867_0
+      fingerprint: 4ed64b524e1062cd19e85082c56d7357_0
+      old_fingerprint: ed6b6b39492ed182cfc7015673e3c867_0
 

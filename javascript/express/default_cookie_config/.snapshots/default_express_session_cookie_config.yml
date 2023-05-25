@@ -18,10 +18,27 @@ medium:
             - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_default_cookie_config
       line_number: 11
-      filename: /tmp/scan/default_express_session_cookie_config.js
+      full_filename: /tmp/scan/default_express_session_cookie_config.js
+      filename: .
+      source:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 13
+                end: 15
+        content: '{}'
+      sink:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 13
+                end: 15
       parent_line_number: 11
       snippet: '{}'
-      fingerprint: 5e309d73fe6acded38143ab3e848d4ed_0
+      fingerprint: 71183b4d479dfbbd68cb2cfa62a497b4_0
+      old_fingerprint: 5e309d73fe6acded38143ab3e848d4ed_0
     - rule:
         cwe_ids:
             - "523"
@@ -41,7 +58,30 @@ medium:
             - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_default_cookie_config
       line_number: 17
-      filename: /tmp/scan/default_express_session_cookie_config.js
+      full_filename: /tmp/scan/default_express_session_cookie_config.js
+      filename: .
+      source:
+        location:
+            start: 17
+            end: 23
+            column:
+                start: 13
+                end: 6
+        content: |-
+            {
+                  domain: "example.com",
+                  secure: true,
+                  httpOnly: false,
+                  maxAge: 24 * 60 * 60 * 1000,
+                  path: "/some-path",
+                }
+      sink:
+        location:
+            start: 17
+            end: 23
+            column:
+                start: 13
+                end: 6
       parent_line_number: 17
       snippet: |-
         {
@@ -51,7 +91,8 @@ medium:
               maxAge: 24 * 60 * 60 * 1000,
               path: "/some-path",
             }
-      fingerprint: 5e309d73fe6acded38143ab3e848d4ed_1
+      fingerprint: 71183b4d479dfbbd68cb2cfa62a497b4_1
+      old_fingerprint: 5e309d73fe6acded38143ab3e848d4ed_1
     - rule:
         cwe_ids:
             - "523"
@@ -71,7 +112,29 @@ medium:
             - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_default_cookie_config
       line_number: 29
-      filename: /tmp/scan/default_express_session_cookie_config.js
+      full_filename: /tmp/scan/default_express_session_cookie_config.js
+      filename: .
+      source:
+        location:
+            start: 29
+            end: 34
+            column:
+                start: 13
+                end: 6
+        content: |-
+            {
+                  domain: "example.com",
+                  secure: true,
+                  httpOnly: false,
+                  name: "my-custom-cookie-name",
+                }
+      sink:
+        location:
+            start: 29
+            end: 34
+            column:
+                start: 13
+                end: 6
       parent_line_number: 29
       snippet: |-
         {
@@ -80,5 +143,6 @@ medium:
               httpOnly: false,
               name: "my-custom-cookie-name",
             }
-      fingerprint: 5e309d73fe6acded38143ab3e848d4ed_2
+      fingerprint: 71183b4d479dfbbd68cb2cfa62a497b4_2
+      old_fingerprint: 5e309d73fe6acded38143ab3e848d4ed_2
 

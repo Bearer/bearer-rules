@@ -28,10 +28,27 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 3
-      filename: /tmp/scan/unsafe_shell.rb
+      full_filename: /tmp/scan/unsafe_shell.rb
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 24
+        content: Shell.cd(params[:oops])
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 24
       parent_line_number: 3
       snippet: Shell.cd(params[:oops])
-      fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_0
+      fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_0
+      old_fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_0
     - rule:
         cwe_ids:
             - "22"
@@ -61,10 +78,27 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 5
-      filename: /tmp/scan/unsafe_shell.rb
+      full_filename: /tmp/scan/unsafe_shell.rb
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 42
+        content: Shell.default_system_path = params[:oops]
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 42
       parent_line_number: 5
       snippet: Shell.default_system_path = params[:oops]
-      fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_1
+      fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_1
+      old_fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_1
     - rule:
         cwe_ids:
             - "22"
@@ -94,10 +128,27 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 7
-      filename: /tmp/scan/unsafe_shell.rb
+      full_filename: /tmp/scan/unsafe_shell.rb
+      filename: .
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 9
+                end: 40
+        content: Shell.new(params[:oops], umask)
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 9
+                end: 40
       parent_line_number: 7
       snippet: Shell.new(params[:oops], umask)
-      fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_2
+      fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_2
+      old_fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_2
     - rule:
         cwe_ids:
             - "22"
@@ -127,10 +178,27 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 9
-      filename: /tmp/scan/unsafe_shell.rb
+      full_filename: /tmp/scan/unsafe_shell.rb
+      filename: .
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 35
+        content: shell.pushdir(params[:oops], true)
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 35
       parent_line_number: 9
       snippet: shell.pushdir(params[:oops], true)
-      fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_3
+      fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_3
+      old_fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_3
     - rule:
         cwe_ids:
             - "22"
@@ -160,10 +228,27 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 12
-      filename: /tmp/scan/unsafe_shell.rb
+      full_filename: /tmp/scan/unsafe_shell.rb
+      filename: .
+      source:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 1
+                end: 41
+        content: processor1.foreach(params[:oops], rs) {}
+      sink:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 1
+                end: 41
       parent_line_number: 12
       snippet: processor1.foreach(params[:oops], rs) {}
-      fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_4
+      fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_4
+      old_fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_4
     - rule:
         cwe_ids:
             - "22"
@@ -193,10 +278,27 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 15
-      filename: /tmp/scan/unsafe_shell.rb
+      full_filename: /tmp/scan/unsafe_shell.rb
+      filename: .
+      source:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 1
+                end: 44
+        content: processor2.test(:exists?, x, params[:oops])
+      sink:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 1
+                end: 44
       parent_line_number: 15
       snippet: processor2.test(:exists?, x, params[:oops])
-      fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_5
+      fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_5
+      old_fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_5
     - rule:
         cwe_ids:
             - "22"
@@ -226,10 +328,27 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 17
-      filename: /tmp/scan/unsafe_shell.rb
+      full_filename: /tmp/scan/unsafe_shell.rb
+      filename: .
+      source:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 1
+                end: 42
+        content: processor2[:exists?, x, params[:oops], y]
+      sink:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 1
+                end: 42
       parent_line_number: 17
       snippet: processor2[:exists?, x, params[:oops], y]
-      fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_6
+      fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_6
+      old_fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_6
     - rule:
         cwe_ids:
             - "22"
@@ -259,10 +378,27 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 20
-      filename: /tmp/scan/unsafe_shell.rb
+      full_filename: /tmp/scan/unsafe_shell.rb
+      filename: .
+      source:
+        location:
+            start: 20
+            end: 20
+            column:
+                start: 3
+                end: 32
+        content: test(:exists?, params[:oops])
+      sink:
+        location:
+            start: 20
+            end: 20
+            column:
+                start: 3
+                end: 32
       parent_line_number: 20
       snippet: test(:exists?, params[:oops])
-      fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_7
+      fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_7
+      old_fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_7
     - rule:
         cwe_ids:
             - "22"
@@ -292,8 +428,25 @@ high:
             - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input
       line_number: 24
-      filename: /tmp/scan/unsafe_shell.rb
+      full_filename: /tmp/scan/unsafe_shell.rb
+      filename: .
+      source:
+        location:
+            start: 24
+            end: 24
+            column:
+                start: 9
+                end: 33
+        content: Shell.new(params[:oops])
+      sink:
+        location:
+            start: 24
+            end: 24
+            column:
+                start: 9
+                end: 33
       parent_line_number: 24
       snippet: Shell.new(params[:oops])
-      fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_8
+      fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_8
+      old_fingerprint: 74d29af70dfb24f5e8ec7a6ff9a8afad_8
 

@@ -16,11 +16,28 @@ high:
             - [Google Analytics docs](https://developers.google.com/analytics/devguides/reporting/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_google_analytics
       line_number: 1
-      filename: /tmp/scan/datatype_in_cohort.rb
+      full_filename: /tmp/scan/datatype_in_cohort.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 68
+        content: 'Google::Apis::AnalyticsreportingV4::Cohort.new(name: user.zip_code)'
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 54
+                end: 67
       parent_line_number: 1
       snippet: 'Google::Apis::AnalyticsreportingV4::Cohort.new(name: user.zip_code)'
-      fingerprint: 9131e3f4b4c7493c9b2b92c6f7758f61_0
+      fingerprint: 9668b35f31e900a0f216e97a20bbf3cd_0
+      old_fingerprint: 9131e3f4b4c7493c9b2b92c6f7758f61_0
 

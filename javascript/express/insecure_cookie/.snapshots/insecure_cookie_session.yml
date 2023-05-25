@@ -18,7 +18,31 @@ low:
             - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_insecure_cookie
       line_number: 11
-      filename: /tmp/scan/insecure_cookie_session.js
+      full_filename: /tmp/scan/insecure_cookie_session.js
+      filename: .
+      source:
+        location:
+            start: 11
+            end: 18
+            column:
+                start: 3
+                end: 5
+        content: |-
+            cookieSession({
+                domain: "example.com",
+                httpOnly: false,
+                secure: false,
+                name: "my-custom-cookie-name",
+                maxAge: 24 * 60 * 60 * 1000,
+                path: "/some-path",
+              })
+      sink:
+        location:
+            start: 11
+            end: 18
+            column:
+                start: 3
+                end: 5
       parent_line_number: 11
       snippet: |-
         cookieSession({
@@ -29,5 +53,6 @@ low:
             maxAge: 24 * 60 * 60 * 1000,
             path: "/some-path",
           })
-      fingerprint: 70d06d27360cdfd19d381aded969ac8b_0
+      fingerprint: 0b87579d3cc308770141504e6ed4a2a5_0
+      old_fingerprint: 70d06d27360cdfd19d381aded969ac8b_0
 

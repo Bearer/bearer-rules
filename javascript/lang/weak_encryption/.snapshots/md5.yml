@@ -26,13 +26,30 @@ high:
             - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_encryption
       line_number: 4
-      filename: /tmp/scan/md5.js
+      full_filename: /tmp/scan/md5.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 17
+                end: 65
+        content: crypto.createHmac("md5", key).update(user.email)
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 54
+                end: 64
       parent_line_number: 4
       snippet: crypto.createHmac("md5", key).update(user.email)
-      fingerprint: d4248b06db327b71c67cf7754e63f985_0
+      fingerprint: 05decf30fc70859705b7ca59c5dbe388_0
+      old_fingerprint: d4248b06db327b71c67cf7754e63f985_0
     - rule:
         cwe_ids:
             - "327"
@@ -60,13 +77,30 @@ high:
             - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_encryption
       line_number: 5
-      filename: /tmp/scan/md5.js
+      full_filename: /tmp/scan/md5.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 15
+                end: 58
+        content: crypto.createHash("md5").update(user.email)
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 47
+                end: 57
       parent_line_number: 5
       snippet: crypto.createHash("md5").update(user.email)
-      fingerprint: d4248b06db327b71c67cf7754e63f985_1
+      fingerprint: 05decf30fc70859705b7ca59c5dbe388_1
+      old_fingerprint: d4248b06db327b71c67cf7754e63f985_1
     - rule:
         cwe_ids:
             - "327"
@@ -94,11 +128,28 @@ high:
             - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_encryption
       line_number: 9
-      filename: /tmp/scan/md5.js
+      full_filename: /tmp/scan/md5.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 12
+                end: 36
+        content: CryptoJS.MD5(user.email)
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 25
+                end: 35
       parent_line_number: 9
       snippet: CryptoJS.MD5(user.email)
-      fingerprint: d4248b06db327b71c67cf7754e63f985_2
+      fingerprint: 05decf30fc70859705b7ca59c5dbe388_2
+      old_fingerprint: d4248b06db327b71c67cf7754e63f985_2
 

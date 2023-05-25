@@ -16,13 +16,30 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_sentry
       line_number: 3
-      filename: /tmp/scan/datatype_in_set_user.rb
+      full_filename: /tmp/scan/datatype_in_set_user.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 35
+        content: 'Sentry.set_user(email: user.email)'
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 24
+                end: 34
       parent_line_number: 3
       snippet: 'Sentry.set_user(email: user.email)'
-      fingerprint: a8a238735f50cffe39ab753162bba0cc_0
+      fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_0
+      old_fingerprint: a8a238735f50cffe39ab753162bba0cc_0
     - rule:
         cwe_ids:
             - "201"
@@ -40,13 +57,30 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_sentry
       line_number: 6
-      filename: /tmp/scan/datatype_in_set_user.rb
+      full_filename: /tmp/scan/datatype_in_set_user.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 3
+                end: 36
+        content: 'scope.set_user(email: user.email)'
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 25
+                end: 35
       parent_line_number: 6
       snippet: 'scope.set_user(email: user.email)'
-      fingerprint: a8a238735f50cffe39ab753162bba0cc_1
+      fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_1
+      old_fingerprint: a8a238735f50cffe39ab753162bba0cc_1
     - rule:
         cwe_ids:
             - "201"
@@ -64,11 +98,28 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_sentry
       line_number: 10
-      filename: /tmp/scan/datatype_in_set_user.rb
+      full_filename: /tmp/scan/datatype_in_set_user.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 3
+                end: 36
+        content: 'scope.set_user(email: user.email)'
+      sink:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 25
+                end: 35
       parent_line_number: 10
       snippet: 'scope.set_user(email: user.email)'
-      fingerprint: a8a238735f50cffe39ab753162bba0cc_2
+      fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_2
+      old_fingerprint: a8a238735f50cffe39ab753162bba0cc_2
 

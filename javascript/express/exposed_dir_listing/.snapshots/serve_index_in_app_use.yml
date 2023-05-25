@@ -15,8 +15,25 @@ low:
             - [Express Serve index middleware](https://expressjs.com/en/resources/middleware/serve-index.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_exposed_dir_listing
       line_number: 9
-      filename: /tmp/scan/serve_index_in_app_use.js
+      full_filename: /tmp/scan/serve_index_in_app_use.js
+      filename: .
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 52
+        content: app.use("/public", serveIndex(__dirname + "files"))
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 52
       parent_line_number: 9
       snippet: app.use("/public", serveIndex(__dirname + "files"))
-      fingerprint: 590ba04214c508170c4357bd4148c4c7_0
+      fingerprint: e5160a3a6c8ab399600f1eef9413fa8d_0
+      old_fingerprint: 590ba04214c508170c4357bd4148c4c7_0
 

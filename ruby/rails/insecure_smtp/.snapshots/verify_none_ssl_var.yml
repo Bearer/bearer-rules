@@ -24,8 +24,25 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_insecure_smtp
       line_number: 3
-      filename: /tmp/scan/verify_none_ssl_var.rb
+      full_filename: /tmp/scan/verify_none_ssl_var.rb
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 5
+                end: 54
+        content: :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 5
+                end: 54
       parent_line_number: 3
       snippet: :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE
-      fingerprint: 5c4c90d7e0bffdcbef0d55464a6d963a_0
+      fingerprint: 15848ae0fa89ae0c3ff07ff572214b1f_0
+      old_fingerprint: 5c4c90d7e0bffdcbef0d55464a6d963a_0
 

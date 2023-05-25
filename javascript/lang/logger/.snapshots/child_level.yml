@@ -27,13 +27,30 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_logger
       line_number: 3
-      filename: /tmp/scan/child_level.js
+      full_filename: /tmp/scan/child_level.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 18
+        content: logger.child(ctx)
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 3
+                end: 27
       parent_line_number: 7
       snippet: logger.child(ctx)
-      fingerprint: d52d41f1012a9836cdae4c4bafb4d754_0
+      fingerprint: 327449cd47ed82672cc47bf9cfccdb4a_0
+      old_fingerprint: d52d41f1012a9836cdae4c4bafb4d754_0
     - rule:
         cwe_ids:
             - "1295"
@@ -62,11 +79,28 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_logger
       line_number: 7
-      filename: /tmp/scan/child_level.js
+      full_filename: /tmp/scan/child_level.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 34
+        content: logger.child(ctx).info(user.name)
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 24
+                end: 33
       parent_line_number: 7
       snippet: logger.child(ctx).info(user.name)
-      fingerprint: d52d41f1012a9836cdae4c4bafb4d754_1
+      fingerprint: 327449cd47ed82672cc47bf9cfccdb4a_1
+      old_fingerprint: d52d41f1012a9836cdae4c4bafb4d754_1
 

@@ -24,8 +24,25 @@ low:
             - [Express Security Best Practices: use TLS](https://expressjs.com/en/advanced/best-practice-security.html#use-tls)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_https_protocol_missing
       line_number: 1
-      filename: /tmp/scan/unsecure.js
+      full_filename: /tmp/scan/unsecure.js
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 23
+        content: http.createServer(app)
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 23
       parent_line_number: 1
       snippet: http.createServer(app)
-      fingerprint: 858866c4cb18bf793379c45f5cf142d6_0
+      fingerprint: d3c9698c21c130aa1d04a0c9d85abe8f_0
+      old_fingerprint: 858866c4cb18bf793379c45f5cf142d6_0
 

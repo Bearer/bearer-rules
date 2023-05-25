@@ -19,10 +19,31 @@ high:
             -->
         documentation_url: https://docs.bearer.com/reference/rules/javascript_react_google_analytics
       line_number: 5
-      filename: /tmp/scan/insecure.js
+      full_filename: /tmp/scan/insecure.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 2
+            end: 6
+            column:
+                start: 1
+                end: 3
+        content: |-
+            ReactGA.event({
+            	category: "user",
+            	action: "logged_in",
+            	value: user.email,
+            })
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 9
+                end: 19
       parent_line_number: 2
       snippet: |-
         ReactGA.event({
@@ -30,5 +51,6 @@ high:
         	action: "logged_in",
         	value: user.email,
         })
-      fingerprint: 20c01c9a9b44b271d46d5cb2675c3ef8_0
+      fingerprint: 16009a30042a079495df4d1ac0b9b830_0
+      old_fingerprint: 20c01c9a9b44b271d46d5cb2675c3ef8_0
 

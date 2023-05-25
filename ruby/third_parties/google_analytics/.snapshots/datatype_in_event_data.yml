@@ -16,13 +16,33 @@ high:
             - [Google Analytics docs](https://developers.google.com/analytics/devguides/reporting/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_google_analytics
       line_number: 2
-      filename: /tmp/scan/datatype_in_event_data.rb
+      full_filename: /tmp/scan/datatype_in_event_data.rb
+      filename: .
       category_groups:
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 3
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Google::Apis::AnalyticsreportingV4::EventData.new(
+              event_label: "Sign in #{customer.ip_address}"
+            )
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 27
+                end: 46
       parent_line_number: 1
       snippet: |-
         Google::Apis::AnalyticsreportingV4::EventData.new(
           event_label: "Sign in #{customer.ip_address}"
         )
-      fingerprint: 202952f78880d9e660ff27bbdf28da45_0
+      fingerprint: 9668b35f31e900a0f216e97a20bbf3cd_0
+      old_fingerprint: 202952f78880d9e660ff27bbdf28da45_0
 

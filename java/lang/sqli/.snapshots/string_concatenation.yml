@@ -7,8 +7,25 @@ low:
         description: "## Description\n\nIncluding unsanitized data, such as user input or request data, in raw SQL\nqueries makes your application vulnerable to SQL injection attacks.\n\n## Remediations\n\n❌ Avoid raw queries, especially those that contain unsanitized user input:\n\n```java\n  Statement stmt = conn.createStatement();\n  ResultSet rs = stmt.executeQuery(\"select name from users where id='\"+ uri.getQueryParameter(\"user_id\") \"'\")) {\n```\n\n\n✅ Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead\n\n```java\nmyStmt = myCon.prepareStatement(\"select * from students where age > ? and name = ?\");\nmyStmt.setInt(1, uri.getQueryParameter(\"age\"));     \nmyStmt.setString(2, uri.getQueryParameter(\"name\"));  \n```\n\n## Resources\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\n"
         documentation_url: https://docs.bearer.com/reference/rules/java_lang_sqli
       line_number: 16
-      filename: /tmp/scan/string_concatenation.java
+      full_filename: /tmp/scan/string_concatenation.java
+      filename: .
+      source:
+        location:
+            start: 16
+            end: 16
+            column:
+                start: 25
+                end: 52
+        content: stmt.executeQuery(sqlQuery)
+      sink:
+        location:
+            start: 16
+            end: 16
+            column:
+                start: 25
+                end: 52
       parent_line_number: 16
       snippet: stmt.executeQuery(sqlQuery)
-      fingerprint: 8561d23bebc1cce1822c6a6f141f54cc_0
+      fingerprint: 79d5d495c5c408c582b32582f1ae9171_0
+      old_fingerprint: 8561d23bebc1cce1822c6a6f141f54cc_0
 

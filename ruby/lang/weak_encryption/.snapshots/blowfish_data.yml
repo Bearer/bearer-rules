@@ -34,16 +34,36 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 2
-      filename: /tmp/scan/blowfish_data.rb
+      full_filename: /tmp/scan/blowfish_data.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 3
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Crypt::Blowfish.new("insecure").encrypt_block { |user|
+              user.password
+            }
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 3
+                end: 16
       parent_line_number: 1
       snippet: |-
         Crypt::Blowfish.new("insecure").encrypt_block { |user|
           user.password
         }
-      fingerprint: d295079ed4cea5b2d180387675b7e082_1
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1
+      old_fingerprint: d295079ed4cea5b2d180387675b7e082_1
     - rule:
         cwe_ids:
             - "331"
@@ -79,16 +99,36 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 6
-      filename: /tmp/scan/blowfish_data.rb
+      full_filename: /tmp/scan/blowfish_data.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 5
+            end: 7
+            column:
+                start: 1
+                end: 4
+        content: |-
+            Crypt::Blowfish.new("insecure").encrypt_block do |user|
+              user.password
+            end
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 3
+                end: 16
       parent_line_number: 5
       snippet: |-
         Crypt::Blowfish.new("insecure").encrypt_block do |user|
           user.password
         end
-      fingerprint: d295079ed4cea5b2d180387675b7e082_2
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_2
+      old_fingerprint: d295079ed4cea5b2d180387675b7e082_2
     - rule:
         cwe_ids:
             - "331"
@@ -124,11 +164,28 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 9
-      filename: /tmp/scan/blowfish_data.rb
+      full_filename: /tmp/scan/blowfish_data.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 59
+        content: Crypt::Blowfish.new("your-key").encrypt_string(user.email)
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 59
       parent_line_number: 9
       snippet: Crypt::Blowfish.new("your-key").encrypt_string(user.email)
-      fingerprint: d295079ed4cea5b2d180387675b7e082_0
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
+      old_fingerprint: d295079ed4cea5b2d180387675b7e082_0
 

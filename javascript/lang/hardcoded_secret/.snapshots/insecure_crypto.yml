@@ -30,10 +30,27 @@ high:
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
       line_number: 1
-      filename: /tmp/scan/insecure_crypto.js
+      full_filename: /tmp/scan/insecure_crypto.js
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 76
+        content: 'crypto.createHmac(''sha256'', ''secretHardcodedString'', { encoding: "utf-8" })'
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 76
       parent_line_number: 1
       snippet: 'crypto.createHmac(''sha256'', ''secretHardcodedString'', { encoding: "utf-8" })'
-      fingerprint: b552fdae91842beef21617bdcfa7c484_0
+      fingerprint: 68ec549b0c4baac7ca684eb14e42834e_0
+      old_fingerprint: b552fdae91842beef21617bdcfa7c484_0
     - rule:
         cwe_ids:
             - "798"
@@ -65,10 +82,27 @@ high:
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
       line_number: 3
-      filename: /tmp/scan/insecure_crypto.js
+      full_filename: /tmp/scan/insecure_crypto.js
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 57
+        content: crypto.createSecretKey('secretHardcodedString', "utf-8")
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 57
       parent_line_number: 3
       snippet: crypto.createSecretKey('secretHardcodedString', "utf-8")
-      fingerprint: b552fdae91842beef21617bdcfa7c484_1
+      fingerprint: 68ec549b0c4baac7ca684eb14e42834e_1
+      old_fingerprint: b552fdae91842beef21617bdcfa7c484_1
     - rule:
         cwe_ids:
             - "798"
@@ -100,10 +134,27 @@ high:
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
       line_number: 5
-      filename: /tmp/scan/insecure_crypto.js
+      full_filename: /tmp/scan/insecure_crypto.js
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 49
+        content: crypto.createPrivateKey('secretHardcodedString')
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 49
       parent_line_number: 5
       snippet: crypto.createPrivateKey('secretHardcodedString')
-      fingerprint: b552fdae91842beef21617bdcfa7c484_2
+      fingerprint: 68ec549b0c4baac7ca684eb14e42834e_2
+      old_fingerprint: b552fdae91842beef21617bdcfa7c484_2
     - rule:
         cwe_ids:
             - "798"
@@ -135,10 +186,27 @@ high:
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
       line_number: 7
-      filename: /tmp/scan/insecure_crypto.js
+      full_filename: /tmp/scan/insecure_crypto.js
+      filename: .
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 64
+        content: 'crypto.privateDecrypt({ key: ''secretHardcodedString'' }, buffer)'
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 64
       parent_line_number: 7
       snippet: 'crypto.privateDecrypt({ key: ''secretHardcodedString'' }, buffer)'
-      fingerprint: b552fdae91842beef21617bdcfa7c484_3
+      fingerprint: 68ec549b0c4baac7ca684eb14e42834e_3
+      old_fingerprint: b552fdae91842beef21617bdcfa7c484_3
     - rule:
         cwe_ids:
             - "798"
@@ -170,10 +238,27 @@ high:
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
       line_number: 9
-      filename: /tmp/scan/insecure_crypto.js
+      full_filename: /tmp/scan/insecure_crypto.js
+      filename: .
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 71
+        content: 'crypto.privateEncrypt({ passphrase: ''secretHardcodedString'' }, buffer)'
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 71
       parent_line_number: 9
       snippet: 'crypto.privateEncrypt({ passphrase: ''secretHardcodedString'' }, buffer)'
-      fingerprint: b552fdae91842beef21617bdcfa7c484_4
+      fingerprint: 68ec549b0c4baac7ca684eb14e42834e_4
+      old_fingerprint: b552fdae91842beef21617bdcfa7c484_4
     - rule:
         cwe_ids:
             - "798"
@@ -205,8 +290,25 @@ high:
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
       line_number: 12
-      filename: /tmp/scan/insecure_crypto.js
+      full_filename: /tmp/scan/insecure_crypto.js
+      filename: .
+      source:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 1
+                end: 41
+        content: s.sign('secretHardcodedString', "utf-8")
+      sink:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 1
+                end: 41
       parent_line_number: 12
       snippet: s.sign('secretHardcodedString', "utf-8")
-      fingerprint: b552fdae91842beef21617bdcfa7c484_5
+      fingerprint: 68ec549b0c4baac7ca684eb14e42834e_5
+      old_fingerprint: b552fdae91842beef21617bdcfa7c484_5
 

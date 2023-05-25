@@ -23,8 +23,25 @@ high:
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_jwt_hardcoded_secret
       line_number: 3
-      filename: /tmp/scan/unsecure.js
+      full_filename: /tmp/scan/unsecure.js
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 13
+                end: 51
+        content: 'jwt.sign({ foo: "bar" }, "someSecret")'
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 13
+                end: 51
       parent_line_number: 3
       snippet: 'jwt.sign({ foo: "bar" }, "someSecret")'
-      fingerprint: c6a3bc21b0de9e1ee2ca6f728add6a14_0
+      fingerprint: d0029fa61eca40823af6b8a00901cfaf_0
+      old_fingerprint: c6a3bc21b0de9e1ee2ca6f728add6a14_0
 

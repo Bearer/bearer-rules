@@ -23,8 +23,25 @@ high:
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_jwt_hardcoded_secret
       line_number: 6
-      filename: /tmp/scan/insecure_jwt.js
+      full_filename: /tmp/scan/insecure_jwt.js
+      filename: .
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 3
+                end: 81
+        content: 'myJWT.sign(user, privateKey, { expiresInMinutes: 60 * 5, algorithm: "RS256" })'
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 3
+                end: 81
       parent_line_number: 6
       snippet: 'myJWT.sign(user, privateKey, { expiresInMinutes: 60 * 5, algorithm: "RS256" })'
-      fingerprint: 43270446e8bae6dff72d28d82ca29955_0
+      fingerprint: d0029fa61eca40823af6b8a00901cfaf_0
+      old_fingerprint: 43270446e8bae6dff72d28d82ca29955_0
 

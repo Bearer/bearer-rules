@@ -34,13 +34,30 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 1
-      filename: /tmp/scan/digest_md5_data.rb
+      full_filename: /tmp/scan/digest_md5_data.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 36
+        content: Digest::MD5.hexdigest(user.address)
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 36
       parent_line_number: 1
       snippet: Digest::MD5.hexdigest(user.address)
-      fingerprint: da75130b1fd2dd01aae3e535fae396db_0
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
+      old_fingerprint: da75130b1fd2dd01aae3e535fae396db_0
     - rule:
         cwe_ids:
             - "331"
@@ -76,11 +93,28 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 3
-      filename: /tmp/scan/digest_md5_data.rb
+      full_filename: /tmp/scan/digest_md5_data.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 32
+        content: Digest::MD5.new << user.address
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 32
       parent_line_number: 3
       snippet: Digest::MD5.new << user.address
-      fingerprint: da75130b1fd2dd01aae3e535fae396db_1
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1
+      old_fingerprint: da75130b1fd2dd01aae3e535fae396db_1
 

@@ -33,10 +33,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 1
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 43
+        content: '`<h1 class="test">${req.params.oops}</h1>`'
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 43
       parent_line_number: 1
       snippet: '`<h1 class="test">${req.params.oops}</h1>`'
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_0
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_0
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_0
     - rule:
         cwe_ids:
             - "79"
@@ -71,10 +88,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 2
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 30
+        content: '`<h1>${req.params.oops}</h1>`'
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 30
       parent_line_number: 2
       snippet: '`<h1>${req.params.oops}</h1>`'
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_1
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_1
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_1
     - rule:
         cwe_ids:
             - "79"
@@ -109,10 +143,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 4
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 33
+        content: doT.compile(req.params.oops, {})
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 33
       parent_line_number: 4
       snippet: doT.compile(req.params.oops, {})
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_2
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_2
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_2
     - rule:
         cwe_ids:
             - "79"
@@ -147,10 +198,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 6
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 33
+        content: ejs.compile(req.params.oops, {})
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 33
       parent_line_number: 6
       snippet: ejs.compile(req.params.oops, {})
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_3
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_3
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_3
     - rule:
         cwe_ids:
             - "79"
@@ -185,10 +253,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 8
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 40
+        content: Handlebars.compile(req.params.oops, {})
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 40
       parent_line_number: 8
       snippet: Handlebars.compile(req.params.oops, {})
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_4
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_4
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_4
     - rule:
         cwe_ids:
             - "79"
@@ -223,10 +308,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 10
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 1
+                end: 47
+        content: Hogan.parse(Hogan.scan(req.params.oops), null)
+      sink:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 1
+                end: 47
       parent_line_number: 10
       snippet: Hogan.parse(Hogan.scan(req.params.oops), null)
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_5
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_5
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_5
     - rule:
         cwe_ids:
             - "79"
@@ -261,10 +363,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 12
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 1
+                end: 29
+        content: $.templates(req.params.oops)
+      sink:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 1
+                end: 29
       parent_line_number: 12
       snippet: $.templates(req.params.oops)
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_6
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_6
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_6
     - rule:
         cwe_ids:
             - "79"
@@ -299,10 +418,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 14
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 1
+                end: 30
+        content: template(req.params.oops, {})
+      sink:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 1
+                end: 30
       parent_line_number: 14
       snippet: template(req.params.oops, {})
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_7
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_7
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_7
     - rule:
         cwe_ids:
             - "79"
@@ -337,10 +473,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 15
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 1
+                end: 32
+        content: _.template(req.params.oops, {})
+      sink:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 1
+                end: 32
       parent_line_number: 15
       snippet: _.template(req.params.oops, {})
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_8
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_8
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_8
     - rule:
         cwe_ids:
             - "79"
@@ -375,10 +528,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 17
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 1
+                end: 49
+        content: compiler.compileSync(req.params.oops, "test.js")
+      sink:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 1
+                end: 49
       parent_line_number: 17
       snippet: compiler.compileSync(req.params.oops, "test.js")
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_9
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_9
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_9
     - rule:
         cwe_ids:
             - "79"
@@ -413,10 +583,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 19
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 19
+            end: 19
+            column:
+                start: 1
+                end: 37
+        content: Mustache.render(req.params.oops, {})
+      sink:
+        location:
+            start: 19
+            end: 19
+            column:
+                start: 1
+                end: 37
       parent_line_number: 19
       snippet: Mustache.render(req.params.oops, {})
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_10
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_10
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_10
     - rule:
         cwe_ids:
             - "79"
@@ -451,10 +638,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 21
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 21
+            end: 21
+            column:
+                start: 1
+                end: 43
+        content: nunjucks.renderString(req.params.oops, {})
+      sink:
+        location:
+            start: 21
+            end: 21
+            column:
+                start: 1
+                end: 43
       parent_line_number: 21
       snippet: nunjucks.renderString(req.params.oops, {})
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_11
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_11
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_11
     - rule:
         cwe_ids:
             - "79"
@@ -489,10 +693,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 23
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 23
+            end: 23
+            column:
+                start: 1
+                end: 32
+        content: pug.render(req.params.oops, {})
+      sink:
+        location:
+            start: 23
+            end: 23
+            column:
+                start: 1
+                end: 32
       parent_line_number: 23
       snippet: pug.render(req.params.oops, {})
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_12
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_12
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_12
     - rule:
         cwe_ids:
             - "79"
@@ -527,10 +748,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 25
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 25
+            end: 25
+            column:
+                start: 1
+                end: 33
+        content: Sqrl.render(req.params.oops, {})
+      sink:
+        location:
+            start: 25
+            end: 25
+            column:
+                start: 1
+                end: 33
       parent_line_number: 25
       snippet: Sqrl.render(req.params.oops, {})
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_13
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_13
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_13
     - rule:
         cwe_ids:
             - "79"
@@ -565,10 +803,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 27
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 27
+            end: 27
+            column:
+                start: 1
+                end: 39
+        content: Template7.compile(req.params.oops, {})
+      sink:
+        location:
+            start: 27
+            end: 27
+            column:
+                start: 1
+                end: 39
       parent_line_number: 27
       snippet: Template7.compile(req.params.oops, {})
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_14
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_14
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_14
     - rule:
         cwe_ids:
             - "79"
@@ -603,7 +858,30 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 29
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 29
+            end: 35
+            column:
+                start: 1
+                end: 3
+        content: |-
+            webix.ui({
+              id: "mylayout",
+              rows: [
+                { view: "toolbar", id: "mybar" },
+                { template: req.params.oops }
+              ]
+            })
+      sink:
+        location:
+            start: 29
+            end: 35
+            column:
+                start: 1
+                end: 3
       parent_line_number: 29
       snippet: |-
         webix.ui({
@@ -613,7 +891,8 @@ high:
             { template: req.params.oops }
           ]
         })
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_15
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_15
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_15
     - rule:
         cwe_ids:
             - "79"
@@ -648,10 +927,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 44
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 44
+            end: 44
+            column:
+                start: 3
+                end: 47
+        content: 'Eta.render(req.params, { name: "insecure" })'
+      sink:
+        location:
+            start: 44
+            end: 44
+            column:
+                start: 3
+                end: 47
       parent_line_number: 44
       snippet: 'Eta.render(req.params, { name: "insecure" })'
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_16
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_16
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_16
     - rule:
         cwe_ids:
             - "79"
@@ -686,10 +982,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 51
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 51
+            end: 51
+            column:
+                start: 3
+                end: 44
+        content: whiskers.render(req.params.text, context)
+      sink:
+        location:
+            start: 51
+            end: 51
+            column:
+                start: 3
+                end: 44
       parent_line_number: 51
       snippet: whiskers.render(req.params.text, context)
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_17
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_17
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_17
     - rule:
         cwe_ids:
             - "79"
@@ -724,8 +1037,25 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_raw_html_using_user_input
       line_number: 58
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 58
+            end: 58
+            column:
+                start: 3
+                end: 52
+        content: 'engine.parse(req.params.text, { hello: "world" })'
+      sink:
+        location:
+            start: 58
+            end: 58
+            column:
+                start: 3
+                end: 52
       parent_line_number: 58
       snippet: 'engine.parse(req.params.text, { hello: "world" })'
-      fingerprint: a0a2333cacbf9549cd4f61e405954319_18
+      fingerprint: 56d9a2a17ab908c88aee2b81bceff767_18
+      old_fingerprint: a0a2333cacbf9549cd4f61e405954319_18
 

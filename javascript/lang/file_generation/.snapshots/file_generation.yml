@@ -19,17 +19,38 @@ high:
             -->
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_file_generation
       line_number: 9
-      filename: /tmp/scan/file_generation.js
+      full_filename: /tmp/scan/file_generation.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 15
+            end: 18
+            column:
+                start: 1
+                end: 3
+        content: |-
+            fs.writeFile("data.csv", JSON.stringify(users), "utf-8", (err) => {
+              if (err) console.log(err)
+              else console.log("Data saved")
+            })
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 10
+                end: 20
       parent_line_number: 15
       snippet: |-
         fs.writeFile("data.csv", JSON.stringify(users), "utf-8", (err) => {
           if (err) console.log(err)
           else console.log("Data saved")
         })
-      fingerprint: b24a58b69e90bc70354ffa7c98bd4a25_0
+      fingerprint: 7162a96ee591e4689c1fa24bfcc02fd5_0
+      old_fingerprint: b24a58b69e90bc70354ffa7c98bd4a25_0
     - rule:
         cwe_ids:
             - "313"
@@ -50,15 +71,36 @@ high:
             -->
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_file_generation
       line_number: 10
-      filename: /tmp/scan/file_generation.js
+      full_filename: /tmp/scan/file_generation.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 15
+            end: 18
+            column:
+                start: 1
+                end: 3
+        content: |-
+            fs.writeFile("data.csv", JSON.stringify(users), "utf-8", (err) => {
+              if (err) console.log(err)
+              else console.log("Data saved")
+            })
+      sink:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 15
+                end: 29
       parent_line_number: 15
       snippet: |-
         fs.writeFile("data.csv", JSON.stringify(users), "utf-8", (err) => {
           if (err) console.log(err)
           else console.log("Data saved")
         })
-      fingerprint: b24a58b69e90bc70354ffa7c98bd4a25_1
+      fingerprint: 7162a96ee591e4689c1fa24bfcc02fd5_1
+      old_fingerprint: b24a58b69e90bc70354ffa7c98bd4a25_1
 

@@ -16,10 +16,27 @@ high:
             - [Google Dataflow Docs](https://cloud.google.com/ruby/docs/reference/google-cloud-dataflow/latest)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_google_dataflow
       line_number: 2
-      filename: /tmp/scan/datatype_in_params_entry.rb
+      full_filename: /tmp/scan/datatype_in_params_entry.rb
+      filename: .
       category_groups:
         - Personal Data
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 43
+        content: 'param.value = "ip: #{customer.ip_address}"'
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 22
+                end: 41
       parent_line_number: 2
       snippet: 'param.value = "ip: #{customer.ip_address}"'
-      fingerprint: 0d5a3b5c622a97b010d43b5faccfe025_0
+      fingerprint: 413255d6456534b1be7ccdeddaeeb019_0
+      old_fingerprint: 0d5a3b5c622a97b010d43b5faccfe025_0
 

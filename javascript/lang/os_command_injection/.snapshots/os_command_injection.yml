@@ -28,13 +28,33 @@ high:
             - [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection
       line_number: 4
-      filename: /tmp/scan/os_command_injection.js
+      full_filename: /tmp/scan/os_command_injection.js
+      filename: .
+      source:
+        location:
+            start: 4
+            end: 6
+            column:
+                start: 3
+                end: 5
+        content: |-
+            exec("ls "+event["user_dir"]+"| wc -l", (err, stdout, stderr) => {
+                // do something
+              })
+      sink:
+        location:
+            start: 4
+            end: 6
+            column:
+                start: 3
+                end: 5
       parent_line_number: 4
       snippet: |-
         exec("ls "+event["user_dir"]+"| wc -l", (err, stdout, stderr) => {
             // do something
           })
-      fingerprint: 5a6d418020554068a7c675529cb2a36f_0
+      fingerprint: b13e40973c5519829a310b6c100f0710_0
+      old_fingerprint: 5a6d418020554068a7c675529cb2a36f_0
     - rule:
         cwe_ids:
             - "78"
@@ -64,13 +84,33 @@ high:
             - [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection
       line_number: 8
-      filename: /tmp/scan/os_command_injection.js
+      full_filename: /tmp/scan/os_command_injection.js
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 10
+            column:
+                start: 3
+                end: 5
+        content: |-
+            execSync("ls "+event["user"]+"| wc -l", (err, stdout, stderr) => {
+                // do something
+              })
+      sink:
+        location:
+            start: 8
+            end: 10
+            column:
+                start: 3
+                end: 5
       parent_line_number: 8
       snippet: |-
         execSync("ls "+event["user"]+"| wc -l", (err, stdout, stderr) => {
             // do something
           })
-      fingerprint: 5a6d418020554068a7c675529cb2a36f_1
+      fingerprint: b13e40973c5519829a310b6c100f0710_1
+      old_fingerprint: 5a6d418020554068a7c675529cb2a36f_1
     - rule:
         cwe_ids:
             - "78"
@@ -100,10 +140,27 @@ high:
             - [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection
       line_number: 12
-      filename: /tmp/scan/os_command_injection.js
+      full_filename: /tmp/scan/os_command_injection.js
+      filename: .
+      source:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 3
+                end: 24
+        content: spawn(event["query"])
+      sink:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 3
+                end: 24
       parent_line_number: 12
       snippet: spawn(event["query"])
-      fingerprint: 5a6d418020554068a7c675529cb2a36f_2
+      fingerprint: b13e40973c5519829a310b6c100f0710_2
+      old_fingerprint: 5a6d418020554068a7c675529cb2a36f_2
     - rule:
         cwe_ids:
             - "78"
@@ -133,8 +190,25 @@ high:
             - [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection
       line_number: 14
-      filename: /tmp/scan/os_command_injection.js
+      full_filename: /tmp/scan/os_command_injection.js
+      filename: .
+      source:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 3
+                end: 36
+        content: spawnSync("grep " + event["tmp"])
+      sink:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 3
+                end: 36
       parent_line_number: 14
       snippet: spawnSync("grep " + event["tmp"])
-      fingerprint: 5a6d418020554068a7c675529cb2a36f_3
+      fingerprint: b13e40973c5519829a310b6c100f0710_3
+      old_fingerprint: 5a6d418020554068a7c675529cb2a36f_3
 

@@ -15,11 +15,28 @@ high:
             - [BigQuery docs](https://cloud.google.com/ruby/docs)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_bigquery
       line_number: 5
-      filename: /tmp/scan/datatype_in_table_insert.rb
+      full_filename: /tmp/scan/datatype_in_table_insert.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 19
+        content: table.insert(rows)
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 10
+                end: 35
       parent_line_number: 8
       snippet: table.insert(rows)
-      fingerprint: 3e5e55706ea1c3352b17bce6a36c3a9c_0
+      fingerprint: fa66126708eadfd7a10516ce3578a767_0
+      old_fingerprint: 3e5e55706ea1c3352b17bce6a36c3a9c_0
 

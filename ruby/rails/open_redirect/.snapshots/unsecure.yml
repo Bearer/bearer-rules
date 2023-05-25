@@ -9,8 +9,25 @@ medium:
             A web application accepts a user-controlled input that specifies a link to an external site, and uses that link in a Redirect. This simplifies phishing attacks.
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_open_redirect
       line_number: 3
-      filename: /tmp/scan/unsecure.rb
+      full_filename: /tmp/scan/unsecure.rb
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 5
+                end: 44
+        content: 'redirect_to params[:id], status: :found'
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 5
+                end: 44
       parent_line_number: 3
       snippet: 'redirect_to params[:id], status: :found'
-      fingerprint: fdabf776dc4a54cdf78559feba91e138_0
+      fingerprint: 4d813584d428633571450f7832ab6139_0
+      old_fingerprint: fdabf776dc4a54cdf78559feba91e138_0
 

@@ -30,10 +30,27 @@ high:
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
       line_number: 2
-      filename: /tmp/scan/unsecure_assigment.js
+      full_filename: /tmp/scan/unsecure_assigment.js
+      filename: .
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 46
+        content: config.clientSecret = "secretHardcodedString"
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 46
       parent_line_number: 2
       snippet: config.clientSecret = "secretHardcodedString"
-      fingerprint: 33f4ae54bd29e69c4afb8971fe2b4c1c_0
+      fingerprint: 68ec549b0c4baac7ca684eb14e42834e_0
+      old_fingerprint: 33f4ae54bd29e69c4afb8971fe2b4c1c_0
     - rule:
         cwe_ids:
             - "798"
@@ -65,8 +82,25 @@ high:
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
       line_number: 4
-      filename: /tmp/scan/unsecure_assigment.js
+      full_filename: /tmp/scan/unsecure_assigment.js
+      filename: .
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 22
+        content: const apiKey = "oops"
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 22
       parent_line_number: 4
       snippet: const apiKey = "oops"
-      fingerprint: 33f4ae54bd29e69c4afb8971fe2b4c1c_1
+      fingerprint: 68ec549b0c4baac7ca684eb14e42834e_1
+      old_fingerprint: 33f4ae54bd29e69c4afb8971fe2b4c1c_1
 

@@ -17,10 +17,33 @@ high:
             - [Segment JavaScript docs](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_segment
       line_number: 10
-      filename: /tmp/scan/datatype_in_page.js
+      full_filename: /tmp/scan/datatype_in_page.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 6
+            end: 12
+            column:
+                start: 1
+                end: 3
+        content: |-
+            analytics.page({
+              userId: customer.id,
+              category: "Shopping Cart",
+              properties: {
+                path: "/cart/"+customer.bank_account_number
+              },
+            })
+      sink:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 20
+                end: 48
       parent_line_number: 6
       snippet: |-
         analytics.page({
@@ -30,5 +53,6 @@ high:
             path: "/cart/"+customer.bank_account_number
           },
         })
-      fingerprint: d536b6d1dce062b7adc153109ce2751f_0
+      fingerprint: df462286e9e34d817b61a361c26e8720_0
+      old_fingerprint: d536b6d1dce062b7adc153109ce2751f_0
 

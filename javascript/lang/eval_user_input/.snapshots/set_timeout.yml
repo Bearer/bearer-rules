@@ -48,8 +48,25 @@ high:
             - [MDN JavaScript strict mode reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_eval_user_input
       line_number: 11
-      filename: /tmp/scan/set_timeout.js
+      full_filename: /tmp/scan/set_timeout.js
+      filename: .
+      source:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 3
+                end: 22
+        content: setTimeout(command)
+      sink:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 3
+                end: 22
       parent_line_number: 11
       snippet: setTimeout(command)
-      fingerprint: 8108aff1239a0cbe9fbb5465db207107_0
+      fingerprint: 845c467daab5771a9b5844e411f5576c_0
+      old_fingerprint: 8108aff1239a0cbe9fbb5465db207107_0
 

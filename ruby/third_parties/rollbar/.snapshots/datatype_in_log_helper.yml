@@ -17,13 +17,30 @@ high:
             - [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar
       line_number: 1
-      filename: /tmp/scan/datatype_in_log_helper.rb
+      full_filename: /tmp/scan/datatype_in_log_helper.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 39
+        content: 'Rollbar.critical("oops #{user.email}")'
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 26
+                end: 36
       parent_line_number: 1
       snippet: 'Rollbar.critical("oops #{user.email}")'
-      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_0
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_0
+      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_0
     - rule:
         cwe_ids:
             - "201"
@@ -42,13 +59,30 @@ high:
             - [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar
       line_number: 2
-      filename: /tmp/scan/datatype_in_log_helper.rb
+      full_filename: /tmp/scan/datatype_in_log_helper.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 42
+        content: 'Rollbar.critical(e, "oops #{user.email}")'
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 29
+                end: 39
       parent_line_number: 2
       snippet: 'Rollbar.critical(e, "oops #{user.email}")'
-      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_1
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_1
+      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_1
     - rule:
         cwe_ids:
             - "201"
@@ -67,13 +101,30 @@ high:
             - [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar
       line_number: 3
-      filename: /tmp/scan/datatype_in_log_helper.rb
+      full_filename: /tmp/scan/datatype_in_log_helper.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 60
+        content: 'Rollbar.critical(e, user: { email: "someone@example.com" })'
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 29
+                end: 57
       parent_line_number: 3
       snippet: 'Rollbar.critical(e, user: { email: "someone@example.com" })'
-      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_2
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_2
+      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_2
     - rule:
         cwe_ids:
             - "201"
@@ -92,13 +143,30 @@ high:
             - [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar
       line_number: 4
-      filename: /tmp/scan/datatype_in_log_helper.rb
+      full_filename: /tmp/scan/datatype_in_log_helper.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 57
+        content: 'Rollbar.critical(e, { user: { first_name: "someone" } })'
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 31
+                end: 52
       parent_line_number: 4
       snippet: 'Rollbar.critical(e, { user: { first_name: "someone" } })'
-      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_7
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_7
+      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_7
     - rule:
         cwe_ids:
             - "201"
@@ -117,13 +185,30 @@ high:
             - [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar
       line_number: 6
-      filename: /tmp/scan/datatype_in_log_helper.rb
+      full_filename: /tmp/scan/datatype_in_log_helper.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 36
+        content: 'Rollbar.error("oops #{user.email}")'
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 23
+                end: 33
       parent_line_number: 6
       snippet: 'Rollbar.error("oops #{user.email}")'
-      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_3
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_3
+      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_3
     - rule:
         cwe_ids:
             - "201"
@@ -142,13 +227,30 @@ high:
             - [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar
       line_number: 8
-      filename: /tmp/scan/datatype_in_log_helper.rb
+      full_filename: /tmp/scan/datatype_in_log_helper.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 36
+        content: 'Rollbar.debug("oops #{user.email}")'
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 23
+                end: 33
       parent_line_number: 8
       snippet: 'Rollbar.debug("oops #{user.email}")'
-      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_4
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_4
+      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_4
     - rule:
         cwe_ids:
             - "201"
@@ -167,13 +269,30 @@ high:
             - [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar
       line_number: 10
-      filename: /tmp/scan/datatype_in_log_helper.rb
+      full_filename: /tmp/scan/datatype_in_log_helper.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 1
+                end: 35
+        content: 'Rollbar.info("oops #{user.email}")'
+      sink:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 22
+                end: 32
       parent_line_number: 10
       snippet: 'Rollbar.info("oops #{user.email}")'
-      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_5
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_5
+      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_5
     - rule:
         cwe_ids:
             - "201"
@@ -192,11 +311,28 @@ high:
             - [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar
       line_number: 12
-      filename: /tmp/scan/datatype_in_log_helper.rb
+      full_filename: /tmp/scan/datatype_in_log_helper.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 1
+                end: 38
+        content: 'Rollbar.warning("oops #{user.email}")'
+      sink:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 25
+                end: 35
       parent_line_number: 12
       snippet: 'Rollbar.warning("oops #{user.email}")'
-      fingerprint: 8b983b01f51c0f662eb142a47b8ced83_6
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_6
+      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_6
 

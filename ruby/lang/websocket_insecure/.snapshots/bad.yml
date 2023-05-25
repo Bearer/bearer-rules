@@ -28,10 +28,27 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_websocket_insecure
       line_number: 1
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 77
+        content: 'Kontena::Websocket::Client.connect("ws://insecure.com", open_timeout: 10) {}'
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 77
       parent_line_number: 1
       snippet: 'Kontena::Websocket::Client.connect("ws://insecure.com", open_timeout: 10) {}'
-      fingerprint: e565fd801fa463b5da999403fd9c7f4c_0
+      fingerprint: bcc573d3a83db4a60b21daaa844429ed_0
+      old_fingerprint: e565fd801fa463b5da999403fd9c7f4c_0
     - rule:
         cwe_ids:
             - "319"
@@ -61,10 +78,27 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_websocket_insecure
       line_number: 3
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 62
+        content: WebSocket::Client::Simple.connect("ws://insecure.com", {}) {}
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 62
       parent_line_number: 3
       snippet: WebSocket::Client::Simple.connect("ws://insecure.com", {}) {}
-      fingerprint: e565fd801fa463b5da999403fd9c7f4c_1
+      fingerprint: bcc573d3a83db4a60b21daaa844429ed_1
+      old_fingerprint: e565fd801fa463b5da999403fd9c7f4c_1
     - rule:
         cwe_ids:
             - "319"
@@ -94,10 +128,27 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_websocket_insecure
       line_number: 4
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 71
+        content: WebSocket::Client::Simple::Client.new.connect("ws://insecure.com", {})
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 71
       parent_line_number: 4
       snippet: WebSocket::Client::Simple::Client.new.connect("ws://insecure.com", {})
-      fingerprint: e565fd801fa463b5da999403fd9c7f4c_2
+      fingerprint: bcc573d3a83db4a60b21daaa844429ed_2
+      old_fingerprint: e565fd801fa463b5da999403fd9c7f4c_2
     - rule:
         cwe_ids:
             - "319"
@@ -127,10 +178,27 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_websocket_insecure
       line_number: 6
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 54
+        content: Faye::WebSocket::Client.new("ws://insecure.com", nil)
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 54
       parent_line_number: 6
       snippet: Faye::WebSocket::Client.new("ws://insecure.com", nil)
-      fingerprint: e565fd801fa463b5da999403fd9c7f4c_3
+      fingerprint: bcc573d3a83db4a60b21daaa844429ed_3
+      old_fingerprint: e565fd801fa463b5da999403fd9c7f4c_3
     - rule:
         cwe_ids:
             - "319"
@@ -160,10 +228,27 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_websocket_insecure
       line_number: 8
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 59
+        content: 'WebSocket::Handshake::Client.new(url: "ws://insecure.com")'
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 59
       parent_line_number: 8
       snippet: 'WebSocket::Handshake::Client.new(url: "ws://insecure.com")'
-      fingerprint: e565fd801fa463b5da999403fd9c7f4c_4
+      fingerprint: bcc573d3a83db4a60b21daaa844429ed_4
+      old_fingerprint: e565fd801fa463b5da999403fd9c7f4c_4
     - rule:
         cwe_ids:
             - "319"
@@ -193,8 +278,25 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_websocket_insecure
       line_number: 9
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 70
+        content: 'WebSocket::Handshake::Client.new(secure: false, host: "insecure.com")'
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 70
       parent_line_number: 9
       snippet: 'WebSocket::Handshake::Client.new(secure: false, host: "insecure.com")'
-      fingerprint: e565fd801fa463b5da999403fd9c7f4c_5
+      fingerprint: bcc573d3a83db4a60b21daaa844429ed_5
+      old_fingerprint: e565fd801fa463b5da999403fd9c7f4c_5
 

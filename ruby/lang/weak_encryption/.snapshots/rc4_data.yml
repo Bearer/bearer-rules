@@ -34,13 +34,30 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 1
-      filename: /tmp/scan/rc4_data.rb
+      full_filename: /tmp/scan/rc4_data.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 43
+        content: RC4.new("insecure").encrypt(user.password)
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 43
       parent_line_number: 1
       snippet: RC4.new("insecure").encrypt(user.password)
-      fingerprint: 12b3554a45c3aac03ecc5d7b067abf97_0
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
+      old_fingerprint: 12b3554a45c3aac03ecc5d7b067abf97_0
     - rule:
         cwe_ids:
             - "331"
@@ -76,11 +93,28 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 4
-      filename: /tmp/scan/rc4_data.rb
+      full_filename: /tmp/scan/rc4_data.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 36
+        content: rc4_encrypt.encrypt!(user.password)
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 36
       parent_line_number: 4
       snippet: rc4_encrypt.encrypt!(user.password)
-      fingerprint: 12b3554a45c3aac03ecc5d7b067abf97_1
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1
+      old_fingerprint: 12b3554a45c3aac03ecc5d7b067abf97_1
 

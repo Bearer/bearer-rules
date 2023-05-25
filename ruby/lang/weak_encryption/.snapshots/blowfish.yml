@@ -34,11 +34,31 @@ low:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 2
-      filename: /tmp/scan/blowfish.rb
+      full_filename: /tmp/scan/blowfish.rb
+      filename: .
+      source:
+        location:
+            start: 2
+            end: 4
+            column:
+                start: 1
+                end: 4
+        content: |-
+            blowfish.encrypt_block do
+              "hello world"
+            end
+      sink:
+        location:
+            start: 2
+            end: 4
+            column:
+                start: 1
+                end: 4
       parent_line_number: 2
       snippet: |-
         blowfish.encrypt_block do
           "hello world"
         end
-      fingerprint: 658a94c502a63bcb0e732b925ecd0d77_0
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
+      old_fingerprint: 658a94c502a63bcb0e732b925ecd0d77_0
 

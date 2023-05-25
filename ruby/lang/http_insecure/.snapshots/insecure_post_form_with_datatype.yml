@@ -27,11 +27,28 @@ high:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_insecure
       line_number: 1
-      filename: /tmp/scan/insecure_post_form_with_datatype.rb
+      full_filename: /tmp/scan/insecure_post_form_with_datatype.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 12
+                end: 84
+        content: 'Net::HTTP.post_form("http://my.api.com/users/search", email: user.email)'
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 12
+                end: 84
       parent_line_number: 1
       snippet: 'Net::HTTP.post_form("http://my.api.com/users/search", email: user.email)'
-      fingerprint: 961f80fcac576015632e6c357c871b6e_0
+      fingerprint: e9e2ed12574caf1a717fbe12e9ece4c1_0
+      old_fingerprint: 961f80fcac576015632e6c357c871b6e_0
 

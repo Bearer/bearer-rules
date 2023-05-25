@@ -17,13 +17,30 @@ high:
             - [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_new_relic
       line_number: 1
-      filename: /tmp/scan/datatype_in_add_custom_attributes.rb
+      full_filename: /tmp/scan/datatype_in_add_custom_attributes.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 44
+        content: NewRelic::Agent.add_custom_attributes(user)
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 10
+                end: 35
       parent_line_number: 2
       snippet: NewRelic::Agent.add_custom_attributes(user)
-      fingerprint: 16b478c906a983a88932d63167f58f22_0
+      fingerprint: e91414b566cbe37b71f0714e38013f90_0
+      old_fingerprint: 16b478c906a983a88932d63167f58f22_0
     - rule:
         cwe_ids:
             - "201"
@@ -42,11 +59,28 @@ high:
             - [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_new_relic
       line_number: 3
-      filename: /tmp/scan/datatype_in_add_custom_attributes.rb
+      full_filename: /tmp/scan/datatype_in_add_custom_attributes.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 97
+        content: 'NewRelic::Agent.add_custom_attributes(a: "test", user: { email: "user@example.com" }, other: 42)'
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 58
+                end: 83
       parent_line_number: 3
       snippet: 'NewRelic::Agent.add_custom_attributes(a: "test", user: { email: "user@example.com" }, other: 42)'
-      fingerprint: 16b478c906a983a88932d63167f58f22_1
+      fingerprint: e91414b566cbe37b71f0714e38013f90_1
+      old_fingerprint: 16b478c906a983a88932d63167f58f22_1
 

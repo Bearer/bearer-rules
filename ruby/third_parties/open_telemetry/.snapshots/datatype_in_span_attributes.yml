@@ -16,17 +16,38 @@ high:
             - [Open Telemetry Docs](https://opentelemetry.io/docs/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_open_telemetry
       line_number: 7
-      filename: /tmp/scan/datatype_in_span_attributes.rb
+      full_filename: /tmp/scan/datatype_in_span_attributes.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 5
+            end: 8
+            column:
+                start: 3
+                end: 5
+        content: |-
+            current_span.add_attributes({
+                "user.id" => user.id,
+                "user.first_name" => user.first_name
+              })
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 26
+                end: 41
       parent_line_number: 5
       snippet: |-
         current_span.add_attributes({
             "user.id" => user.id,
             "user.first_name" => user.first_name
           })
-      fingerprint: f93b2a9000a3ae500833a7cdabfa2d02_1
+      fingerprint: 949ba3eb3d0c9c539480c41846520b5b_1
+      old_fingerprint: f93b2a9000a3ae500833a7cdabfa2d02_1
     - rule:
         cwe_ids:
             - "201"
@@ -44,11 +65,28 @@ high:
             - [Open Telemetry Docs](https://opentelemetry.io/docs/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_open_telemetry
       line_number: 13
-      filename: /tmp/scan/datatype_in_span_attributes.rb
+      full_filename: /tmp/scan/datatype_in_span_attributes.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 1
+                end: 51
+        content: current_span.set_attribute("current_users", users)
+      sink:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 10
+                end: 20
       parent_line_number: 14
       snippet: current_span.set_attribute("current_users", users)
-      fingerprint: f93b2a9000a3ae500833a7cdabfa2d02_0
+      fingerprint: 949ba3eb3d0c9c539480c41846520b5b_0
+      old_fingerprint: f93b2a9000a3ae500833a7cdabfa2d02_0
 

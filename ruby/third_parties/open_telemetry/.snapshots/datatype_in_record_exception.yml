@@ -16,13 +16,30 @@ high:
             - [Open Telemetry Docs](https://opentelemetry.io/docs/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_open_telemetry
       line_number: 7
-      filename: /tmp/scan/datatype_in_record_exception.rb
+      full_filename: /tmp/scan/datatype_in_record_exception.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 3
+                end: 99
+        content: 'current_span.status = OpenTelemetry::Trace::Status.error("error for user #{current_user.email}")'
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 78
+                end: 96
       parent_line_number: 7
       snippet: 'current_span.status = OpenTelemetry::Trace::Status.error("error for user #{current_user.email}")'
-      fingerprint: c8c91235a65a581e05caf92182ed0668_0
+      fingerprint: 949ba3eb3d0c9c539480c41846520b5b_0
+      old_fingerprint: c8c91235a65a581e05caf92182ed0668_0
     - rule:
         cwe_ids:
             - "201"
@@ -40,10 +57,27 @@ high:
             - [Open Telemetry Docs](https://opentelemetry.io/docs/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_open_telemetry
       line_number: 17
-      filename: /tmp/scan/datatype_in_record_exception.rb
+      full_filename: /tmp/scan/datatype_in_record_exception.rb
+      filename: .
       category_groups:
         - Personal Data
+      source:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 3
+                end: 82
+        content: 'current_span.record_exception(ex, attributes: { "user.ip" => user.ip_address })'
+      sink:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 64
+                end: 79
       parent_line_number: 17
       snippet: 'current_span.record_exception(ex, attributes: { "user.ip" => user.ip_address })'
-      fingerprint: c8c91235a65a581e05caf92182ed0668_1
+      fingerprint: 949ba3eb3d0c9c539480c41846520b5b_1
+      old_fingerprint: c8c91235a65a581e05caf92182ed0668_1
 

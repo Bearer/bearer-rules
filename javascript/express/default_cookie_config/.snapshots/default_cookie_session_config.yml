@@ -18,7 +18,29 @@ medium:
             - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_default_cookie_config
       line_number: 11
-      filename: /tmp/scan/default_cookie_session_config.js
+      full_filename: /tmp/scan/default_cookie_session_config.js
+      filename: .
+      source:
+        location:
+            start: 11
+            end: 16
+            column:
+                start: 17
+                end: 4
+        content: |-
+            {
+                domain: "example.com",
+                httpOnly: false,
+                secure: true,
+                maxAge: 24 * 60 * 60 * 1000,
+              }
+      sink:
+        location:
+            start: 11
+            end: 16
+            column:
+                start: 17
+                end: 4
       parent_line_number: 11
       snippet: |-
         {
@@ -27,5 +49,6 @@ medium:
             secure: true,
             maxAge: 24 * 60 * 60 * 1000,
           }
-      fingerprint: aec8d7681eb89e1a65569d4489683c66_0
+      fingerprint: 71183b4d479dfbbd68cb2cfa62a497b4_0
+      old_fingerprint: aec8d7681eb89e1a65569d4489683c66_0
 

@@ -15,13 +15,30 @@ high:
             - [Algolia docs](https://www.algolia.com/doc/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_algolia
       line_number: 4
-      filename: /tmp/scan/datatype_in_save_object.rb
+      full_filename: /tmp/scan/datatype_in_save_object.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 89
+        content: 'index.save_object({ email: user.email }, { auto_generate_object_id_if_not_exist: true })'
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 28
+                end: 38
       parent_line_number: 4
       snippet: 'index.save_object({ email: user.email }, { auto_generate_object_id_if_not_exist: true })'
-      fingerprint: a8b99fd317187ad86db889b5ccad0ded_0
+      fingerprint: 831b70f679c5e1d92b8f4d4f973f7dc4_0
+      old_fingerprint: a8b99fd317187ad86db889b5ccad0ded_0
     - rule:
         cwe_ids:
             - "201"
@@ -38,11 +55,28 @@ high:
             - [Algolia docs](https://www.algolia.com/doc/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_algolia
       line_number: 6
-      filename: /tmp/scan/datatype_in_save_object.rb
+      full_filename: /tmp/scan/datatype_in_save_object.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 92
+        content: 'index.save_objects([{ email: user.email }], { auto_generate_object_id_if_not_exist: true })'
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 30
+                end: 40
       parent_line_number: 6
       snippet: 'index.save_objects([{ email: user.email }], { auto_generate_object_id_if_not_exist: true })'
-      fingerprint: a8b99fd317187ad86db889b5ccad0ded_1
+      fingerprint: 831b70f679c5e1d92b8f4d4f973f7dc4_1
+      old_fingerprint: a8b99fd317187ad86db889b5ccad0ded_1
 

@@ -32,10 +32,27 @@ high:
             - [OWASP - Server-Side Request Forgery (SSRF) prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_server_side_request_forgery
       line_number: 15
-      filename: /tmp/scan/puppeteer_ssrf_injection.js
+      full_filename: /tmp/scan/puppeteer_ssrf_injection.js
+      filename: .
+      source:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 9
+                end: 33
+        content: page.setContent(content)
+      sink:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 9
+                end: 33
       parent_line_number: 15
       snippet: page.setContent(content)
-      fingerprint: a0099bce0a5a02966b8f4af83dadd902_0
+      fingerprint: 2cac44cfde0c19367f3aa0fde6167679_0
+      old_fingerprint: a0099bce0a5a02966b8f4af83dadd902_0
     - rule:
         cwe_ids:
             - "918"
@@ -69,8 +86,25 @@ high:
             - [OWASP - Server-Side Request Forgery (SSRF) prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_server_side_request_forgery
       line_number: 16
-      filename: /tmp/scan/puppeteer_ssrf_injection.js
+      full_filename: /tmp/scan/puppeteer_ssrf_injection.js
+      filename: .
+      source:
+        location:
+            start: 16
+            end: 16
+            column:
+                start: 9
+                end: 47
+        content: page.goto("https://" + req.query.path)
+      sink:
+        location:
+            start: 16
+            end: 16
+            column:
+                start: 9
+                end: 47
       parent_line_number: 16
       snippet: page.goto("https://" + req.query.path)
-      fingerprint: a0099bce0a5a02966b8f4af83dadd902_1
+      fingerprint: 2cac44cfde0c19367f3aa0fde6167679_1
+      old_fingerprint: a0099bce0a5a02966b8f4af83dadd902_1
 

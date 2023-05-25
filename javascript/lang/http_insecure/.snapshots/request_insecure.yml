@@ -25,8 +25,25 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_http_insecure
       line_number: 3
-      filename: /tmp/scan/request_insecure.js
+      full_filename: /tmp/scan/request_insecure.js
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 38
+        content: request(insecure_url, function () {})
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 38
       parent_line_number: 3
       snippet: request(insecure_url, function () {})
-      fingerprint: a9d59ed0b87cae1efe4bb346201499c9_0
+      fingerprint: 152209b1605ebd60ec2a741fa69edfbe_0
+      old_fingerprint: a9d59ed0b87cae1efe4bb346201499c9_0
 

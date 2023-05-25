@@ -24,10 +24,27 @@ low:
             - [Express sendFile API reference](http://expressjs.com/en/5x/api.html#res.sendFile)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_external_file_upload
       line_number: 12
-      filename: /tmp/scan/send_file_with_external_input.js
+      full_filename: /tmp/scan/send_file_with_external_input.js
+      filename: .
+      source:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 3
+                end: 21
+        content: res.sendFile(file)
+      sink:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 3
+                end: 21
       parent_line_number: 12
       snippet: res.sendFile(file)
-      fingerprint: 4634e93fc3864b375759f06d6f62df93_0
+      fingerprint: f39779a929c915fb55fa930e548d6d6f_0
+      old_fingerprint: 4634e93fc3864b375759f06d6f62df93_0
     - rule:
         cwe_ids:
             - "73"
@@ -53,10 +70,27 @@ low:
             - [Express sendFile API reference](http://expressjs.com/en/5x/api.html#res.sendFile)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_external_file_upload
       line_number: 13
-      filename: /tmp/scan/send_file_with_external_input.js
+      full_filename: /tmp/scan/send_file_with_external_input.js
+      filename: .
+      source:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 3
+                end: 35
+        content: res.sendFile(path.resolve(file))
+      sink:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 3
+                end: 35
       parent_line_number: 13
       snippet: res.sendFile(path.resolve(file))
-      fingerprint: 4634e93fc3864b375759f06d6f62df93_1
+      fingerprint: f39779a929c915fb55fa930e548d6d6f_1
+      old_fingerprint: 4634e93fc3864b375759f06d6f62df93_1
     - rule:
         cwe_ids:
             - "73"
@@ -82,10 +116,27 @@ low:
             - [Express sendFile API reference](http://expressjs.com/en/5x/api.html#res.sendFile)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_external_file_upload
       line_number: 14
-      filename: /tmp/scan/send_file_with_external_input.js
+      full_filename: /tmp/scan/send_file_with_external_input.js
+      filename: .
+      source:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 3
+                end: 46
+        content: res.sendFile(req.params.file, {}, () => {})
+      sink:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 3
+                end: 46
       parent_line_number: 14
       snippet: res.sendFile(req.params.file, {}, () => {})
-      fingerprint: 4634e93fc3864b375759f06d6f62df93_2
+      fingerprint: f39779a929c915fb55fa930e548d6d6f_2
+      old_fingerprint: 4634e93fc3864b375759f06d6f62df93_2
     - rule:
         cwe_ids:
             - "73"
@@ -111,8 +162,25 @@ low:
             - [Express sendFile API reference](http://expressjs.com/en/5x/api.html#res.sendFile)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_external_file_upload
       line_number: 15
-      filename: /tmp/scan/send_file_with_external_input.js
+      full_filename: /tmp/scan/send_file_with_external_input.js
+      filename: .
+      source:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 3
+                end: 76
+        content: 'res.sendFile("file.txt", { root: path.join(__dirname, req.params.root) })'
+      sink:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 3
+                end: 76
       parent_line_number: 15
       snippet: 'res.sendFile("file.txt", { root: path.join(__dirname, req.params.root) })'
-      fingerprint: 4634e93fc3864b375759f06d6f62df93_3
+      fingerprint: f39779a929c915fb55fa930e548d6d6f_3
+      old_fingerprint: 4634e93fc3864b375759f06d6f62df93_3
 

@@ -27,10 +27,31 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_google_analytics
       line_number: 3
-      filename: /tmp/scan/unsecure.js
+      full_filename: /tmp/scan/unsecure.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 5
+            column:
+                start: 1
+                end: 3
+        content: |-
+            gtag("event", "screen_view", {
+            	user: {
+            		email: "jhon@gmail.com",
+            	},
+            })
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 3
+                end: 26
       parent_line_number: 1
       snippet: |-
         gtag("event", "screen_view", {
@@ -38,5 +59,6 @@ high:
         		email: "jhon@gmail.com",
         	},
         })
-      fingerprint: 6021ce3d6d7ac1b2281463cdd3a190fb_0
+      fingerprint: 50f052af0f997dae6751e3aa349aecf6_0
+      old_fingerprint: 6021ce3d6d7ac1b2281463cdd3a190fb_0
 

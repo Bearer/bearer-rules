@@ -28,11 +28,28 @@ high:
             -->
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_exception
       line_number: 5
-      filename: /tmp/scan/throw_string.js
+      full_filename: /tmp/scan/throw_string.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 5
+                end: 26
+        content: throw `${user.email}`
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 14
+                end: 24
       parent_line_number: 5
       snippet: throw `${user.email}`
-      fingerprint: 8ddc669bb404000c3f59c9383571f8d5_0
+      fingerprint: bba6dc65c9d6db47ce50e7ab7f50f853_0
+      old_fingerprint: 8ddc669bb404000c3f59c9383571f8d5_0
 
