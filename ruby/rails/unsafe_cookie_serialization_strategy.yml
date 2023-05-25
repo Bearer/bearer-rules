@@ -1,7 +1,9 @@
 patterns:
   - pattern: |
-      Rails.application.config.action_dispatch.cookies_serializer = $<VALUE>
+      $<CONFIG>.action_dispatch.cookies_serializer = $<VALUE>
     filters:
+      - variable: CONFIG
+        regex: (.*)?config
       - variable: VALUE
         regex: \:(marshal|hybrid)
 languages:
