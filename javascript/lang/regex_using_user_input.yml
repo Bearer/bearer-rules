@@ -6,6 +6,7 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
 languages:
   - javascript
 metadata:

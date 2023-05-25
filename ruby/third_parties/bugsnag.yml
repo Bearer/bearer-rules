@@ -10,20 +10,27 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Bugsnag.leave_breadcrumb($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Bugsnag.notify($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Bugsnag.notify($<_>) do |$<EVENT:identifier>|
         $<EVENT>.add_metadata($<...>$<DATA_TYPE>$<...>)
       end
+    filters:
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
 languages:
   - ruby
 skip_data_types:

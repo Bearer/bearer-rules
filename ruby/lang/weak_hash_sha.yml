@@ -9,9 +9,11 @@ patterns:
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
+            scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
               detection: datatype
+              scope: result
   - pattern: OpenSSL::Digest.digest($<ALGORITHM>, $<OPTIONAL_DATA_TYPE>)
     filters:
       - variable: ALGORITHM
@@ -19,9 +21,11 @@ patterns:
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
+            scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
               detection: datatype
+              scope: result
   - pattern: OpenSSL::Digest::$<ALGORITHM>.digest($<OPTIONAL_DATA_TYPE>)
     filters:
       - variable: ALGORITHM
@@ -29,9 +33,11 @@ patterns:
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
+            scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
               detection: datatype
+              scope: result
   - pattern: |
       $<DIGEST>.update($<OPTIONAL_DATA_TYPE>)
     filters:
@@ -40,9 +46,11 @@ patterns:
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
+            scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
               detection: datatype
+              scope: result
   - pattern: |
       $<DIGEST> << $<OPTIONAL_DATA_TYPE>
     filters:
@@ -51,9 +59,11 @@ patterns:
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
+            scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
               detection: datatype
+              scope: result
   - pattern: $<DIGEST>.$<METHOD>($<OPTIONAL_DATA_TYPE>)
     filters:
       - variable: DIGEST
@@ -66,9 +76,11 @@ patterns:
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
+            scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
               detection: datatype
+              scope: result
 languages:
   - ruby
 auxiliary:

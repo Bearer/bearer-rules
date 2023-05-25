@@ -6,6 +6,7 @@ patterns:
         detection: create_hash
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       $<VAR>.update()
     filters:
@@ -20,11 +21,13 @@ patterns:
           - MD5
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       CryptoJS.HmacSHA1($<DATA_TYPE>, $<_>)
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       CryptoJS.$<MODULE>.encrypt($<DATA_TYPE>, $<_>)
     filters:
@@ -34,6 +37,7 @@ patterns:
           - DES
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
 languages:
   - javascript
 auxiliary:

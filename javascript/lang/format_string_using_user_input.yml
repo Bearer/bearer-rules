@@ -7,10 +7,12 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
   - pattern: util.formatWithOptions($<_>, $<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
   - pattern: console.$<METHOD>($<USER_INPUT>$<...>)
     filters:
       - variable: METHOD
@@ -22,6 +24,7 @@ patterns:
           - error
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
 severity: low
 metadata:
   description: "User input in format string detected."

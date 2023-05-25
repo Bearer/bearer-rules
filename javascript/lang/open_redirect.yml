@@ -4,11 +4,13 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: javascript_lang_open_redirect_url
+        scope: result
   - pattern: |
       window.location.href = $<USER_INPUT>
     filters:
       - variable: USER_INPUT
         detection: javascript_lang_open_redirect_url
+        scope: result
 languages:
   - javascript
 auxiliary:
@@ -22,6 +24,7 @@ auxiliary:
               - URLSearchParams
           - variable: URL_USER_INPUT
             detection: javascript_lang_open_redirect_user_input
+            scope: result
   - id: javascript_lang_open_redirect_user_input
     patterns:
       - window.location

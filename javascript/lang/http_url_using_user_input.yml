@@ -8,6 +8,7 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
       - variable: LIBRARY
         values:
           - axios
@@ -28,6 +29,7 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
   - pattern: |
       $<XML_HTTP>.open($<_>, $<USER_INPUT>$<...>)
     filters:
@@ -35,11 +37,13 @@ patterns:
         detection: javascript_lang_http_url_using_user_input_xmlhttp
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
   - pattern: |
       request($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
   - pattern: |
       request.$<METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -54,6 +58,7 @@ patterns:
           - del
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
 auxiliary:
   - id: javascript_lang_http_url_using_user_input_axios_object
     patterns:
@@ -62,6 +67,7 @@ auxiliary:
         filters:
           - variable: USER_INPUT
             detection: javascript_shared_common_user_input
+            scope: result
   - id: javascript_lang_http_url_using_user_input_xmlhttp
     patterns:
       - new XMLHttpRequest()

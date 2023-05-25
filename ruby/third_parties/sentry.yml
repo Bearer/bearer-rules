@@ -4,11 +4,13 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.capture_message($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.init do |$<CONFIG:identifier>|
         $<CONFIG>.before_breadcrumb = lambda do |$<BREADCRUMB:identifier>, $<_:identifier>|
@@ -18,11 +20,13 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.set_context($<_>, $<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.configure_scope do |$<SCOPE:identifier>|
         $<!>$<SCOPE>.set_context($<_>, $<...>$<DATA_TYPE>$<...>)
@@ -30,6 +34,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.with_scope do |$<SCOPE:identifier>|
         $<!>$<SCOPE>.set_context($<_>, $<...>$<DATA_TYPE>$<...>)
@@ -37,6 +42,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.configure_scope do |$<SCOPE:identifier>|
         $<!>$<SCOPE>.set_extra($<_>, $<DATA_TYPE>)
@@ -44,6 +50,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.with_scope do |$<SCOPE:identifier>|
         $<!>$<SCOPE>.set_extra($<_>, $<DATA_TYPE>)
@@ -51,11 +58,13 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.set_extras($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.configure_scope do |$<SCOPE:identifier>|
         $<!>$<SCOPE>.set_extras($<...>$<DATA_TYPE>$<...>)
@@ -63,6 +72,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.with_scope do |$<SCOPE:identifier>|
         $<!>$<SCOPE>.set_extras($<...>$<DATA_TYPE>$<...>)
@@ -70,6 +80,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.configure_scope do |$<SCOPE:identifier>|
         $<!>$<SCOPE>.set_tag($<_>, $<DATA_TYPE>)
@@ -77,6 +88,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.with_scope do |$<SCOPE:identifier>|
         $<!>$<SCOPE>.set_tag($<_>, $<DATA_TYPE>)
@@ -84,11 +96,13 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.set_tags($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.configure_scope do |$<SCOPE:identifier>|
         $<!>$<SCOPE>.set_tags($<...>$<DATA_TYPE>$<...>)
@@ -96,6 +110,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.with_scope do |$<SCOPE:identifier>|
         $<!>$<SCOPE>.set_tags($<...>$<DATA_TYPE>$<...>)
@@ -103,11 +118,13 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.set_user($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.configure_scope do |$<SCOPE:identifier>|
         $<!>$<SCOPE>.set_user($<...>$<DATA_TYPE>$<...>)
@@ -115,6 +132,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Sentry.with_scope do |$<SCOPE:identifier>|
         $<!>$<SCOPE>.set_user($<...>$<DATA_TYPE>$<...>)
@@ -122,6 +140,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
 languages:
   - ruby
 skip_data_types:

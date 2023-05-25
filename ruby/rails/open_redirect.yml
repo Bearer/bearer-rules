@@ -6,6 +6,7 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: ruby_rails_open_redirect_user_input
+        scope: result
 languages:
   - ruby
 auxiliary:

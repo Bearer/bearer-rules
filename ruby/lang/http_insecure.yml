@@ -12,6 +12,7 @@ patterns:
           - post_form
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
+        scope: result
   - pattern: |
       Net::HTTP.$<METHOD>($<...>$<INSECURE_URL>$<...>)$<...>
     filters:
@@ -25,6 +26,7 @@ patterns:
           - start
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
+        scope: result
   - pattern: |
       Net::HTTP::$<CLASS>.new($<INSECURE_URL>$<...>)
     filters:
@@ -47,16 +49,19 @@ patterns:
           - Unlock
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
+        scope: result
   - pattern: |
       URI($<INSECURE_URL>)
     filters:
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
+        scope: result
   - pattern: |
       Curl.http($<_>, $<INSECURE_URL>$<...>)$<...>
     filters:
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
+        scope: result
   - pattern: |
       Curl.$<METHOD>($<INSECURE_URL>$<...>)$<...>
     filters:
@@ -71,6 +76,7 @@ patterns:
           - options
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
+        scope: result
   - pattern: |
       Curl::Easy.$<METHOD>($<INSECURE_URL>$<...>)$<...>
     filters:
@@ -86,6 +92,7 @@ patterns:
           - http_get
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
+        scope: result
   - pattern: |
       $<CURB>.url = $<INSECURE_URL>
     filters:
@@ -93,6 +100,7 @@ patterns:
         detection: ruby_lang_http_insecure_curb
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
+        scope: result
   - pattern: |
       Curl::Multi.$<METHOD>($<INSECURE_URL>$<...>)$<...>
     filters:
@@ -102,6 +110,7 @@ patterns:
           - download
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
+        scope: result
   - pattern: |
       Curl::Multi.$<METHOD>($<INSECURE_URL_HASH>$<...>)$<...>
     filters:
@@ -112,6 +121,7 @@ patterns:
           - put
       - variable: INSECURE_URL_HASH
         detection: ruby_lang_http_insecure_url_hash
+        scope: result
   - pattern: |
       Excon.$<METHOD>($<INSECURE_URL>$<...>)
     filters:
@@ -129,6 +139,7 @@ patterns:
           - trace
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
+        scope: result
   - pattern: |
       $<CLIENT>.get($<INSECURE_URL>$<...>)$<...>
     filters:
@@ -142,6 +153,7 @@ patterns:
           - Typhoeus
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
+        scope: result
   - pattern: |
       $<CLIENT>.post($<INSECURE_URL>$<...>)$<...>
     filters:
@@ -155,13 +167,16 @@ patterns:
           - Typhoeus
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
+        scope: result
   - pattern: |
       Net::HTTP.post_form($<INSECURE_URL>, $<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
+        scope: result
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       $<CLIENT>.post($<INSECURE_URL>, $<...>$<DATA_TYPE>$<...>)
     filters:
@@ -177,8 +192,10 @@ patterns:
           - Typhoeus
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
+        scope: result
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
 auxiliary:
   - id: ruby_lang_http_insecure_curb
     patterns:

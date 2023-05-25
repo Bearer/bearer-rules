@@ -4,11 +4,13 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       $<REJECT>($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
       - variable: REJECT
         detection: javascript_lang_new_promise_init
   - pattern: |
@@ -16,6 +18,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
 auxiliary:
   - id: javascript_lang_new_promise_init
     patterns:

@@ -32,4 +32,5 @@ export const handler = async (event, context) => {
 
 exports.handler = async function (event, context) {
   axios.get(url)
+  axios.get(event["url"] ? ok : ok)
 }

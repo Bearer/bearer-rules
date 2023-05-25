@@ -4,11 +4,13 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       ScoutApm::Context.add($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
 languages:
   - ruby
 skip_data_types:

@@ -10,6 +10,7 @@ patterns:
           - save_objects
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
 languages:
   - ruby
 auxiliary:

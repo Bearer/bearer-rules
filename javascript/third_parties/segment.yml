@@ -6,6 +6,7 @@ patterns:
         detection: javascript_third_parties_segment_instance
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
       - variable: METHOD
         values:
           - alias

@@ -13,6 +13,7 @@ patterns:
           - system
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<METHOD>($<...>$<USER_INPUT>$<...>)
     filters:
@@ -23,11 +24,13 @@ patterns:
           - system
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       IO.popen($<...>$<USER_INPUT>$<...>)$<...>
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Process.$<METHOD>($<...>$<USER_INPUT>$<...>)
     filters:
@@ -37,11 +40,13 @@ patterns:
           - spawn
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Open3.$<_>($<...>$<USER_INPUT>$<...>)$<...>
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Gem::Util.$<METHOD>($<...>$<USER_INPUT>$<...>)
     filters:
@@ -51,21 +56,25 @@ patterns:
           - silent_system
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       PTY.spawn($<...>$<USER_INPUT>$<...>)$<...>
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       %x{$<...>$<USER_INPUT>$<...>}
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       `$<...>$<USER_INPUT>$<...>`
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Shell.$<METHOD>($<...>$<USER_INPUT>$<...>)$<...>
     filters:
@@ -75,6 +84,7 @@ patterns:
           - def_system_command
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Shell::CommandProcessor.$<METHOD>($<...>$<USER_INPUT>$<...>)$<...>
     filters:
@@ -84,6 +94,7 @@ patterns:
           - def_system_command
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<PROCESSOR>.system($<...>$<USER_INPUT>$<...>)
     filters:
@@ -91,6 +102,7 @@ patterns:
         detection: ruby_lang_exec_using_user_input_shell_cmd_proc
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
 auxiliary:
   - id: ruby_lang_exec_using_user_input_shell
     patterns:

@@ -16,5 +16,6 @@ public class Cls extends HttpServlet
     {
         String image = request.getParameter("user_profile_picture");
         File file = new File("user/profile/", image);
+        File okFile = new File("user/profile/", image ? ok : ok);
     }
 }

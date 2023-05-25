@@ -6,6 +6,7 @@ patterns:
         detection: ruby_third_parties_clickhouse_insert_rows
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
 languages:
   - ruby
 auxiliary:

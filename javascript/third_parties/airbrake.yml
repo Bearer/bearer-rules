@@ -8,6 +8,7 @@ patterns:
         detection: javascript_airbrake_init
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
 auxiliary:
   - id: javascript_airbrake_init
     patterns:

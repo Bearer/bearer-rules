@@ -11,9 +11,11 @@ patterns:
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
+            scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
               detection: datatype
+              scope: result
   - pattern: |
       $<VAR>.$<METHOD>($<_>, $<OPTIONAL_DATA_TYPE>)
     filters:
@@ -26,9 +28,11 @@ patterns:
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
+            scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
               detection: datatype
+              scope: result
   - pattern: |
       $<VAR>.$<METHOD> do
         $<OPTIONAL_DATA_TYPE>
@@ -43,9 +47,11 @@ patterns:
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
+            scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
               detection: datatype
+              scope: result
 languages:
   - ruby
 auxiliary:

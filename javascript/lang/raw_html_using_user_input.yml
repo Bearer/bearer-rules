@@ -9,6 +9,7 @@ patterns:
         string_regex: <\w+(\s[^>]*)?>
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   - pattern: $<LIB>.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: LIB
@@ -19,6 +20,7 @@ patterns:
           - template
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   - pattern: ejs.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -27,6 +29,7 @@ patterns:
           - render
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   - pattern: Handlebars.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -35,6 +38,7 @@ patterns:
           - precompile
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   - pattern: Hogan.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -43,6 +47,7 @@ patterns:
           - parse
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   - pattern: $<OBJECT>.templates($<STRING>$<...>)
     filters:
       - variable: OBJECT
@@ -51,11 +56,13 @@ patterns:
           - jsrender
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   # lodash
   - pattern: template($<STRING>$<...>)
     filters:
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   # lodash or underscore
   - pattern: $<LIB>.template($<STRING>$<...>)
     filters:
@@ -66,6 +73,7 @@ patterns:
           - underscore
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   # marko
   - pattern: compiler.$<METHOD>($<STRING>$<...>)
     filters:
@@ -75,6 +83,7 @@ patterns:
           - compileSync
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   - pattern: Mustache.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -83,6 +92,7 @@ patterns:
           - render
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   - pattern: nunjucks.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -91,6 +101,7 @@ patterns:
           - compile
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   - pattern: pug.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -99,6 +110,7 @@ patterns:
           - compile
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   - pattern: Sqrl.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -108,14 +120,17 @@ patterns:
           - parse
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   - pattern: Template7.compile($<STRING>$<...>)
     filters:
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   - pattern: webix.ui($<TEMPLATE>)
     filters:
       - variable: TEMPLATE
         detection: javascript_lang_raw_html_using_user_input_webix_template
+        scope: result
   - pattern: $<LIB>.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: LIB
@@ -126,6 +141,7 @@ patterns:
           - compile
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   - pattern: whiskers.$<METHOD>($<STRING>$<...>)
     filters:
       - variable: METHOD
@@ -134,6 +150,7 @@ patterns:
           - compile
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
   - pattern: |
       $<LIQUID_INIT>.$<METHOD>($<STRING>$<...>)
     filters:
@@ -146,6 +163,7 @@ patterns:
           - parseAndRenderSync
       - variable: STRING
         detection: javascript_shared_common_html_user_input
+        scope: result
 auxiliary:
   - id: javascript_lang_raw_html_using_user_input_webix_template
     patterns:

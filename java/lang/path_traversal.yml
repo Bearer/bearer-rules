@@ -4,16 +4,19 @@ patterns:
     filters:
       - variable: FILE_USER_INPUT
         detection: java_lang_path_traversal_user_input
+        scope: result
   - pattern: |
       new FileOutputStream($<...>$<FILE_OUTPUT_USER_INPUT>$<...>)
     filters:
       - variable: FILE_OUTPUT_USER_INPUT
         detection: java_lang_path_traversal_user_input
+        scope: result
   - pattern: |
       new FileInputStream($<...>$<FILE_INPUT_USER_INPUT>$<...>)
     filters:
       - variable: FILE_INPUT_USER_INPUT
         detection: java_lang_path_traversal_user_input
+        scope: result
 auxiliary:
   - id: java_lang_path_traversal_user_input
     sanitizer: java_lang_path_traversal_sanitized_input

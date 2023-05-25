@@ -6,6 +6,7 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
 languages:
   - ruby
 severity: high

@@ -12,6 +12,7 @@ patterns:
           - printf
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: Kernel.$<METHOD>($<USER_INPUT>$<...>)
     filters:
       - variable: METHOD
@@ -21,10 +22,12 @@ patterns:
           - printf
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: $<USER_INPUT> % []
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   # Unsupported:
   #   printf(io, format, ...) - can't distinguish arg types
   #   user_input % single_value - could confuse with number mod

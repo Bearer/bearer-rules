@@ -6,6 +6,7 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<MODULE>.$<_>($<...>$<USER_INPUT>$<...>)$<...>
     filters:
@@ -15,6 +16,7 @@ patterns:
           - Pathname
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: File.$<METHOD>($<...>$<USER_INPUT>$<...>)$<...>
     filters:
       - not:
@@ -26,6 +28,7 @@ patterns:
             - fnmatch?
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       IO.$<METHOD>($<...>$<USER_INPUT>$<...>)
     filters:
@@ -40,21 +43,25 @@ patterns:
           - write
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Kernel.open($<OPEN_USER_INPUT>$<...>)$<...>
     filters:
       - variable: OPEN_USER_INPUT
         detection: ruby_lang_path_using_user_input_open_user_input
+        scope: result
   - pattern: |
       open($<OPEN_USER_INPUT>$<...>)$<...>
     filters:
       - variable: OPEN_USER_INPUT
         detection: ruby_lang_path_using_user_input_open_user_input
+        scope: result
   - pattern: |
       PStore.new($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Gem::Util.$<METHOD>($<...>$<USER_INPUT>$<...>)$<...>
     filters:
@@ -65,6 +72,7 @@ patterns:
           - traverse_parents
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<PATHNAME>.$<_>($<...>$<USER_INPUT>$<...>)
     filters:
@@ -72,6 +80,7 @@ patterns:
         detection: ruby_lang_path_using_user_input_pathname
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<PATHNAME> + $<USER_INPUT>
     filters:
@@ -79,6 +88,7 @@ patterns:
         detection: ruby_lang_path_using_user_input_pathname
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<PATHNAME> / $<USER_INPUT>
     filters:
@@ -86,21 +96,25 @@ patterns:
         detection: ruby_lang_path_using_user_input_pathname
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Shell.cd($<USER_INPUT>)
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Shell.new($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Shell.default_system_path = $<USER_INPUT>
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<SHELL>.$<METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -113,6 +127,7 @@ patterns:
           - pushdir
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<PROCESSOR>.$<METHOD>($<...>$<USER_INPUT>$<...>)$<...>
     filters:
@@ -133,6 +148,7 @@ patterns:
           - unlink
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<PROCESSOR>[$<_>, $<...>$<USER_INPUT>$<...>]
     filters:
@@ -140,6 +156,7 @@ patterns:
         detection: ruby_lang_path_using_user_input_shell_cmd_proc
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<PROCESSOR>.transact do
         $<!>$<PROCESSOR_TRANSACT_USER_INPUT>
@@ -164,10 +181,12 @@ patterns:
           - template
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: render($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
       - not:
           variable: USER_INPUT
           detection: ruby_lang_path_using_user_input_render_first_arg_pair
@@ -187,11 +206,13 @@ patterns:
           - template
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       send_file($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
 auxiliary:
   - id: ruby_lang_path_using_user_input_open_user_input
     sanitizer: ruby_lang_path_using_user_input_open_sanitized
@@ -239,6 +260,7 @@ auxiliary:
               - unlink
           - variable: USER_INPUT
             detection: ruby_shared_common_user_input
+            scope: result
   - id: ruby_lang_path_using_user_input_render_first_arg_pair
     patterns:
       - pattern: |

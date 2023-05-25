@@ -16,6 +16,7 @@ patterns:
           - remove_class_variable
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<_>.$<METHOD>($<USER_INPUT>$<...>)$<...>
     filters:
@@ -37,6 +38,7 @@ patterns:
           - try
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<METHOD>($<USER_INPUT>$<...>)$<...>
     filters:
@@ -58,26 +60,31 @@ patterns:
           - try
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<USER_INPUT>.to_proc
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<_>(&$<USER_INPUT>)
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<_>.$<_>(&$<USER_INPUT>)
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<USER_INPUT>.$<METHOD>
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
       - variable: METHOD
         values:
           - constantize

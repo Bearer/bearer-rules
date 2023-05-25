@@ -9,4 +9,7 @@ app.post("/:id", (req, res) => {
   userInput = req.params.id
   var command = "new Function('" + userInput + "')"
   setTimeout(command)
+
+  var command2 = "new Function('" + (userInput ? ok : ok) + "')"
+  setTimeout(command2)
 })

@@ -9,9 +9,9 @@ patterns:
             detection: ruby_third_parties_bigquery_insert_async
           - variable: INSERTER
             detection: ruby_third_parties_bigquery_table
-      - either:
-          - variable: DATA_TYPE
-            detection: datatype
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
 languages:
   - ruby
 auxiliary:

@@ -6,11 +6,13 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       %r{$<...>#{$<USER_INPUT>}$<...>}
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Regexp.$<METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -20,6 +22,7 @@ patterns:
           - compile
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
 languages:
   - ruby
 metadata:
