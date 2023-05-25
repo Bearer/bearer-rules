@@ -11,7 +11,7 @@ languages:
 auxiliary:
   - id: ruby_rails_open_redirect_sanitized
     patterns:
-      - pattern: $<METHOD>($<...>$<!>$<_>$<...>)
+      - pattern: $<...>$<METHOD>($<...>$<!>$<_>$<...>)
         filters:
           - variable: METHOD
             regex: _(path|url)\z
