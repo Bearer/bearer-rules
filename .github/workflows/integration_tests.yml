@@ -22,7 +22,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     strategy:
+      fail-fast: false
       matrix:
+        version: ["latest", "canary-amd64"]
         group:
           [
             "javascript/aws_lambda",
@@ -38,5 +40,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Test ${{ matrix.group }}
-        run: ./scripts/run_tests.sh  ${{ matrix.group }}
+        run: BEARER_VERSION=${{matrix.version}} ./scripts/run_tests.sh ${{ matrix.group }}
         shell: bash
