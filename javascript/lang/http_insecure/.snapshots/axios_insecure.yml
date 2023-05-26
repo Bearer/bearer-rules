@@ -34,7 +34,6 @@ low:
             column:
                 start: 1
                 end: 24
-        content: axios.get(insecure_url)
       sink:
         location:
             start: 2
@@ -42,6 +41,7 @@ low:
             column:
                 start: 1
                 end: 24
+        content: axios.get(insecure_url)
       parent_line_number: 2
       snippet: axios.get(insecure_url)
       fingerprint: 152209b1605ebd60ec2a741fa69edfbe_0

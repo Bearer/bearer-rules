@@ -32,7 +32,6 @@ high:
             column:
                 start: 13
                 end: 51
-        content: 'jwt.sign({ foo: "bar" }, "someSecret")'
       sink:
         location:
             start: 3
@@ -40,6 +39,7 @@ high:
             column:
                 start: 13
                 end: 51
+        content: 'jwt.sign({ foo: "bar" }, "someSecret")'
       parent_line_number: 3
       snippet: 'jwt.sign({ foo: "bar" }, "someSecret")'
       fingerprint: d0029fa61eca40823af6b8a00901cfaf_0

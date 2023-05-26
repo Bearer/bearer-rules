@@ -36,16 +36,16 @@ high:
             start: 4
             end: 4
             column:
-                start: 1
-                end: 30
-        content: bugSession.notify(user.email)
+                start: 19
+                end: 29
       sink:
         location:
             start: 4
             end: 4
             column:
-                start: 19
-                end: 29
+                start: 1
+                end: 30
+        content: bugSession.notify(user.email)
       parent_line_number: 4
       snippet: bugSession.notify(user.email)
       fingerprint: 4ed64b524e1062cd19e85082c56d7357_0

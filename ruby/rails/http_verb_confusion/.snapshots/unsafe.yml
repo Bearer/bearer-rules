@@ -32,11 +32,6 @@ medium:
             column:
                 start: 1
                 end: 4
-        content: |-
-            if request.get?
-            else
-              change_state
-            end
       sink:
         location:
             start: 1
@@ -44,6 +39,11 @@ medium:
             column:
                 start: 1
                 end: 4
+        content: |-
+            if request.get?
+            else
+              change_state
+            end
       parent_line_number: 1
       snippet: |-
         if request.get?
@@ -85,7 +85,6 @@ medium:
             column:
                 start: 1
                 end: 33
-        content: change_state unless request.get?
       sink:
         location:
             start: 6
@@ -93,6 +92,7 @@ medium:
             column:
                 start: 1
                 end: 33
+        content: change_state unless request.get?
       parent_line_number: 6
       snippet: change_state unless request.get?
       fingerprint: 478a6bee5ed0d66cc8930155f8bb9fd8_1
@@ -130,10 +130,6 @@ medium:
             column:
                 start: 1
                 end: 4
-        content: |-
-            unless request.get?
-              change_state
-            end
       sink:
         location:
             start: 8
@@ -141,6 +137,10 @@ medium:
             column:
                 start: 1
                 end: 4
+        content: |-
+            unless request.get?
+              change_state
+            end
       parent_line_number: 8
       snippet: |-
         unless request.get?

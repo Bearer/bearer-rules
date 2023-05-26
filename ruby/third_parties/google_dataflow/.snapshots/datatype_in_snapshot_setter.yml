@@ -26,16 +26,16 @@ high:
             start: 9
             end: 9
             column:
-                start: 1
-                end: 61
-        content: 'snapshot.description = "Current user: #{user.email_address}"'
+                start: 41
+                end: 59
       sink:
         location:
             start: 9
             end: 9
             column:
-                start: 41
-                end: 59
+                start: 1
+                end: 61
+        content: 'snapshot.description = "Current user: #{user.email_address}"'
       parent_line_number: 9
       snippet: 'snapshot.description = "Current user: #{user.email_address}"'
       fingerprint: 413255d6456534b1be7ccdeddaeeb019_0

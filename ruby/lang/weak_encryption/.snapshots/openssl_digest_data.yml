@@ -46,7 +46,6 @@ high:
             column:
                 start: 1
                 end: 48
-        content: OpenSSL::Digest.digest("sha1", user.first_name)
       sink:
         location:
             start: 1
@@ -54,6 +53,7 @@ high:
             column:
                 start: 1
                 end: 48
+        content: OpenSSL::Digest.digest("sha1", user.first_name)
       parent_line_number: 1
       snippet: OpenSSL::Digest.digest("sha1", user.first_name)
       fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
@@ -105,7 +105,6 @@ high:
             column:
                 start: 1
                 end: 45
-        content: OpenSSL::Digest::MD5.digest(user.first_name)
       sink:
         location:
             start: 2
@@ -113,6 +112,7 @@ high:
             column:
                 start: 1
                 end: 45
+        content: OpenSSL::Digest::MD5.digest(user.first_name)
       parent_line_number: 2
       snippet: OpenSSL::Digest::MD5.digest(user.first_name)
       fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1
@@ -164,7 +164,6 @@ high:
             column:
                 start: 1
                 end: 26
-        content: x.digest(user.first_name)
       sink:
         location:
             start: 5
@@ -172,6 +171,7 @@ high:
             column:
                 start: 1
                 end: 26
+        content: x.digest(user.first_name)
       parent_line_number: 5
       snippet: x.digest(user.first_name)
       fingerprint: fef109862dd2c9654945fcd2f1fedf8c_2
@@ -223,7 +223,6 @@ high:
             column:
                 start: 1
                 end: 26
-        content: y.digest(user.first_name)
       sink:
         location:
             start: 8
@@ -231,6 +230,7 @@ high:
             column:
                 start: 1
                 end: 26
+        content: y.digest(user.first_name)
       parent_line_number: 8
       snippet: y.digest(user.first_name)
       fingerprint: fef109862dd2c9654945fcd2f1fedf8c_3

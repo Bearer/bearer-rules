@@ -23,6 +23,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 3
+            end: 3
+            column:
+                start: 34
+                end: 44
+      sink:
+        location:
             start: 1
             end: 5
             column:
@@ -34,13 +41,6 @@ high:
               message: "Authenticated user #{user.email}",
               level: "info"
             )
-      sink:
-        location:
-            start: 3
-            end: 3
-            column:
-                start: 34
-                end: 44
       parent_line_number: 1
       snippet: |-
         Sentry::Breadcrumb.new(

@@ -36,7 +36,6 @@ low:
             column:
                 start: 1
                 end: 40
-        content: Faraday.post("http://api.insecure.com")
       sink:
         location:
             start: 1
@@ -44,6 +43,7 @@ low:
             column:
                 start: 1
                 end: 40
+        content: Faraday.post("http://api.insecure.com")
       parent_line_number: 1
       snippet: Faraday.post("http://api.insecure.com")
       fingerprint: e9e2ed12574caf1a717fbe12e9ece4c1_0

@@ -30,19 +30,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 1
+            end: 1
+            column:
+                start: 16
+                end: 28
+      sink:
+        location:
             start: 3
             end: 3
             column:
                 start: 1
                 end: 68
         content: Rollbar.critical("Connection error from remote Payments API", user)
-      sink:
-        location:
-            start: 1
-            end: 1
-            column:
-                start: 16
-                end: 28
       parent_line_number: 3
       snippet: Rollbar.critical("Connection error from remote Payments API", user)
       fingerprint: 550f52afa2d5c58ba3d7c0686d5fb696_0

@@ -27,16 +27,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 1
-                end: 58
-        content: 'Rollbar.scope!({ user: { email: "someone@example.com" }})'
+                start: 26
+                end: 54
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 26
-                end: 54
+                start: 1
+                end: 58
+        content: 'Rollbar.scope!({ user: { email: "someone@example.com" }})'
       parent_line_number: 1
       snippet: 'Rollbar.scope!({ user: { email: "someone@example.com" }})'
       fingerprint: 0976992b89aa3cb2fa891be53248a418_0
@@ -66,19 +66,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 3
+            end: 3
+            column:
+                start: 10
+                end: 38
+      sink:
+        location:
             start: 5
             end: 5
             column:
                 start: 12
                 end: 31
         content: Rollbar.scope(user)
-      sink:
-        location:
-            start: 3
-            end: 3
-            column:
-                start: 10
-                end: 38
       parent_line_number: 5
       snippet: Rollbar.scope(user)
       fingerprint: 0976992b89aa3cb2fa891be53248a418_1
@@ -111,16 +111,16 @@ high:
             start: 7
             end: 7
             column:
-                start: 1
-                end: 48
-        content: 'notifier.scope(user: { first_name: "someone" })'
+                start: 24
+                end: 45
       sink:
         location:
             start: 7
             end: 7
             column:
-                start: 24
-                end: 45
+                start: 1
+                end: 48
+        content: 'notifier.scope(user: { first_name: "someone" })'
       parent_line_number: 7
       snippet: 'notifier.scope(user: { first_name: "someone" })'
       fingerprint: 0976992b89aa3cb2fa891be53248a418_2

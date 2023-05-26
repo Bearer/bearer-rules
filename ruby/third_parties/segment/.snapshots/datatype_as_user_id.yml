@@ -26,16 +26,16 @@ high:
             start: 2
             end: 2
             column:
-                start: 1
-                end: 61
-        content: 'analytics.alias(user_id: user.email, previous_id: "some id")'
+                start: 26
+                end: 36
       sink:
         location:
             start: 2
             end: 2
             column:
-                start: 26
-                end: 36
+                start: 1
+                end: 61
+        content: 'analytics.alias(user_id: user.email, previous_id: "some id")'
       parent_line_number: 2
       snippet: 'analytics.alias(user_id: user.email, previous_id: "some id")'
       fingerprint: 1a443dec6ce049efa8df29bca4a1ec80_0

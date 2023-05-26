@@ -40,15 +40,15 @@ low:
             end: 1
             column:
                 start: 28
-                end: 62
-        content: user.Input.replaceAll('<', '&lt;')
+                end: 86
       sink:
         location:
             start: 1
             end: 1
             column:
                 start: 28
-                end: 86
+                end: 62
+        content: user.Input.replaceAll('<', '&lt;')
       parent_line_number: 1
       snippet: user.Input.replaceAll('<', '&lt;')
       fingerprint: 883581e9effcc89f50531cd2677ebf31_0

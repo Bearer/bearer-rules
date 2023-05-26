@@ -23,6 +23,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 2
+            end: 2
+            column:
+                start: 21
+                end: 39
+      sink:
+        location:
             start: 1
             end: 3
             column:
@@ -32,13 +39,6 @@ high:
             Sentry.captureException(
               new Error(`user ${current_user.email} couldn't log in!`)
             )
-      sink:
-        location:
-            start: 2
-            end: 2
-            column:
-                start: 21
-                end: 39
       parent_line_number: 1
       snippet: |-
         Sentry.captureException(

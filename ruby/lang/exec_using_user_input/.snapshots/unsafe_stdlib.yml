@@ -46,7 +46,6 @@ high:
             column:
                 start: 1
                 end: 27
-        content: Kernel.exec(params[:oops])
       sink:
         location:
             start: 3
@@ -54,6 +53,7 @@ high:
             column:
                 start: 1
                 end: 27
+        content: Kernel.exec(params[:oops])
       parent_line_number: 3
       snippet: Kernel.exec(params[:oops])
       fingerprint: 1c074b69a64b914d2a6310c63c4eed91_0
@@ -105,7 +105,6 @@ high:
             column:
                 start: 1
                 end: 21
-        content: spawn(params[:oops])
       sink:
         location:
             start: 5
@@ -113,6 +112,7 @@ high:
             column:
                 start: 1
                 end: 21
+        content: spawn(params[:oops])
       parent_line_number: 5
       snippet: spawn(params[:oops])
       fingerprint: 1c074b69a64b914d2a6310c63c4eed91_1
@@ -164,7 +164,6 @@ high:
             column:
                 start: 1
                 end: 27
-        content: IO.popen(params[:oops]) {}
       sink:
         location:
             start: 7
@@ -172,6 +171,7 @@ high:
             column:
                 start: 1
                 end: 27
+        content: IO.popen(params[:oops]) {}
       parent_line_number: 7
       snippet: IO.popen(params[:oops]) {}
       fingerprint: 1c074b69a64b914d2a6310c63c4eed91_2
@@ -223,7 +223,6 @@ high:
             column:
                 start: 1
                 end: 28
-        content: Process.exec(params[:oops])
       sink:
         location:
             start: 9
@@ -231,6 +230,7 @@ high:
             column:
                 start: 1
                 end: 28
+        content: Process.exec(params[:oops])
       parent_line_number: 9
       snippet: Process.exec(params[:oops])
       fingerprint: 1c074b69a64b914d2a6310c63c4eed91_3
@@ -282,7 +282,6 @@ high:
             column:
                 start: 1
                 end: 47
-        content: Open3.popen3(["cmd", params[:oops]], "abc") {}
       sink:
         location:
             start: 11
@@ -290,6 +289,7 @@ high:
             column:
                 start: 1
                 end: 47
+        content: Open3.popen3(["cmd", params[:oops]], "abc") {}
       parent_line_number: 11
       snippet: Open3.popen3(["cmd", params[:oops]], "abc") {}
       fingerprint: 1c074b69a64b914d2a6310c63c4eed91_4
@@ -341,7 +341,6 @@ high:
             column:
                 start: 1
                 end: 42
-        content: Gem::Util.silent_system(x, params[:oops])
       sink:
         location:
             start: 13
@@ -349,6 +348,7 @@ high:
             column:
                 start: 1
                 end: 42
+        content: Gem::Util.silent_system(x, params[:oops])
       parent_line_number: 13
       snippet: Gem::Util.silent_system(x, params[:oops])
       fingerprint: 1c074b69a64b914d2a6310c63c4eed91_5
@@ -400,7 +400,6 @@ high:
             column:
                 start: 1
                 end: 38
-        content: PTY.spawn("/bin/#{params[:oops]}") {}
       sink:
         location:
             start: 15
@@ -408,6 +407,7 @@ high:
             column:
                 start: 1
                 end: 38
+        content: PTY.spawn("/bin/#{params[:oops]}") {}
       parent_line_number: 15
       snippet: PTY.spawn("/bin/#{params[:oops]}") {}
       fingerprint: 1c074b69a64b914d2a6310c63c4eed91_6
@@ -459,7 +459,6 @@ high:
             column:
                 start: 1
                 end: 26
-        content: '%x{/bin/#{params[:oops]}}'
       sink:
         location:
             start: 17
@@ -467,6 +466,7 @@ high:
             column:
                 start: 1
                 end: 26
+        content: '%x{/bin/#{params[:oops]}}'
       parent_line_number: 17
       snippet: '%x{/bin/#{params[:oops]}}'
       fingerprint: 1c074b69a64b914d2a6310c63c4eed91_7
@@ -518,7 +518,6 @@ high:
             column:
                 start: 1
                 end: 24
-        content: '`/bin/#{params[:oops]}`'
       sink:
         location:
             start: 19
@@ -526,6 +525,7 @@ high:
             column:
                 start: 1
                 end: 24
+        content: '`/bin/#{params[:oops]}`'
       parent_line_number: 19
       snippet: '`/bin/#{params[:oops]}`'
       fingerprint: 1c074b69a64b914d2a6310c63c4eed91_8

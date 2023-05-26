@@ -26,16 +26,16 @@ high:
             start: 2
             end: 2
             column:
-                start: 3
-                end: 36
-        content: scope.set_tag(:email, user.email)
+                start: 25
+                end: 35
       sink:
         location:
             start: 2
             end: 2
             column:
-                start: 25
-                end: 35
+                start: 3
+                end: 36
+        content: scope.set_tag(:email, user.email)
       parent_line_number: 2
       snippet: scope.set_tag(:email, user.email)
       fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_0
@@ -67,16 +67,16 @@ high:
             start: 6
             end: 6
             column:
-                start: 3
-                end: 36
-        content: scope.set_tag(:email, user.email)
+                start: 25
+                end: 35
       sink:
         location:
             start: 6
             end: 6
             column:
-                start: 25
-                end: 35
+                start: 3
+                end: 36
+        content: scope.set_tag(:email, user.email)
       parent_line_number: 6
       snippet: scope.set_tag(:email, user.email)
       fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_1

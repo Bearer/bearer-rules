@@ -36,16 +36,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 1
-                end: 37
-        content: JWT.encode user.address, nil, "none"
+                start: 12
+                end: 24
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 12
-                end: 24
+                start: 1
+                end: 37
+        content: JWT.encode user.address, nil, "none"
       parent_line_number: 1
       snippet: JWT.encode user.address, nil, "none"
       fingerprint: ea186f391e78c5aef2a6a0e01d435e54_0

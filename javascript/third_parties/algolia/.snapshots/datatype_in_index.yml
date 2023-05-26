@@ -32,16 +32,16 @@ high:
             start: 4
             end: 4
             column:
-                start: 15
-                end: 63
-        content: myAlgolia.initIndex(company.bank_account_number)
+                start: 35
+                end: 62
       sink:
         location:
             start: 4
             end: 4
             column:
-                start: 35
-                end: 62
+                start: 15
+                end: 63
+        content: myAlgolia.initIndex(company.bank_account_number)
       parent_line_number: 4
       snippet: myAlgolia.initIndex(company.bank_account_number)
       fingerprint: 3b8a9db66a5d96671524cd36226b34d5_0

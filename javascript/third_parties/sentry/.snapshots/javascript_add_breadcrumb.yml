@@ -23,6 +23,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 2
+            end: 2
+            column:
+                start: 30
+                end: 40
+      sink:
+        location:
             start: 1
             end: 4
             column:
@@ -33,13 +40,6 @@ high:
               message: `my message for ${user.email}`,
               // ...
             })
-      sink:
-        location:
-            start: 2
-            end: 2
-            column:
-                start: 30
-                end: 40
       parent_line_number: 1
       snippet: |-
         Sentry.addBreadcrumb({

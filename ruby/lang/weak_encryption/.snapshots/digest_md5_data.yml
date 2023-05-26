@@ -46,7 +46,6 @@ high:
             column:
                 start: 1
                 end: 36
-        content: Digest::MD5.hexdigest(user.address)
       sink:
         location:
             start: 1
@@ -54,6 +53,7 @@ high:
             column:
                 start: 1
                 end: 36
+        content: Digest::MD5.hexdigest(user.address)
       parent_line_number: 1
       snippet: Digest::MD5.hexdigest(user.address)
       fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
@@ -105,7 +105,6 @@ high:
             column:
                 start: 1
                 end: 32
-        content: Digest::MD5.new << user.address
       sink:
         location:
             start: 3
@@ -113,6 +112,7 @@ high:
             column:
                 start: 1
                 end: 32
+        content: Digest::MD5.new << user.address
       parent_line_number: 3
       snippet: Digest::MD5.new << user.address
       fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1

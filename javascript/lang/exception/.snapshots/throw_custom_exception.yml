@@ -38,16 +38,16 @@ high:
             start: 5
             end: 5
             column:
-                start: 5
-                end: 67
-        content: throw new PermissionDenied(`Error with ${current_user.email}`)
+                start: 46
+                end: 64
       sink:
         location:
             start: 5
             end: 5
             column:
-                start: 46
-                end: 64
+                start: 5
+                end: 67
+        content: throw new PermissionDenied(`Error with ${current_user.email}`)
       parent_line_number: 5
       snippet: throw new PermissionDenied(`Error with ${current_user.email}`)
       fingerprint: bba6dc65c9d6db47ce50e7ab7f50f853_0

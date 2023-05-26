@@ -33,6 +33,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 5
+            end: 5
+            column:
+                start: 4
+                end: 14
+      sink:
+        location:
             start: 4
             end: 8
             column:
@@ -44,13 +51,6 @@ high:
             			user.first_name,
             			user.last_name
             		]
-      sink:
-        location:
-            start: 5
-            end: 5
-            column:
-                start: 4
-                end: 14
       parent_line_number: 4
       snippet: |-
         csv << [
@@ -94,6 +94,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 6
+            end: 6
+            column:
+                start: 4
+                end: 19
+      sink:
+        location:
             start: 4
             end: 8
             column:
@@ -105,13 +112,6 @@ high:
             			user.first_name,
             			user.last_name
             		]
-      sink:
-        location:
-            start: 6
-            end: 6
-            column:
-                start: 4
-                end: 19
       parent_line_number: 4
       snippet: |-
         csv << [
@@ -155,6 +155,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 7
+            end: 7
+            column:
+                start: 4
+                end: 18
+      sink:
+        location:
             start: 4
             end: 8
             column:
@@ -166,13 +173,6 @@ high:
             			user.first_name,
             			user.last_name
             		]
-      sink:
-        location:
-            start: 7
-            end: 7
-            column:
-                start: 4
-                end: 18
       parent_line_number: 4
       snippet: |-
         csv << [

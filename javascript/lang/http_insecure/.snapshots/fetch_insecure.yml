@@ -34,7 +34,6 @@ low:
             column:
                 start: 1
                 end: 20
-        content: fetch(insecure_url)
       sink:
         location:
             start: 3
@@ -42,6 +41,7 @@ low:
             column:
                 start: 1
                 end: 20
+        content: fetch(insecure_url)
       parent_line_number: 3
       snippet: fetch(insecure_url)
       fingerprint: 152209b1605ebd60ec2a741fa69edfbe_0

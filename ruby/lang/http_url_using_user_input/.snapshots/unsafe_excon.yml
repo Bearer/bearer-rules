@@ -42,7 +42,6 @@ high:
             column:
                 start: 14
                 end: 49
-        content: 'Excon.new(params[:oops], foo: true)'
       sink:
         location:
             start: 1
@@ -50,6 +49,7 @@ high:
             column:
                 start: 14
                 end: 49
+        content: 'Excon.new(params[:oops], foo: true)'
       parent_line_number: 1
       snippet: 'Excon.new(params[:oops], foo: true)'
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_0
@@ -97,7 +97,6 @@ high:
             column:
                 start: 15
                 end: 67
-        content: 'Excon.new("http://example.com", path: params[:oops])'
       sink:
         location:
             start: 2
@@ -105,6 +104,7 @@ high:
             column:
                 start: 15
                 end: 67
+        content: 'Excon.new("http://example.com", path: params[:oops])'
       parent_line_number: 2
       snippet: 'Excon.new("http://example.com", path: params[:oops])'
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_1
@@ -152,7 +152,6 @@ high:
             column:
                 start: 15
                 end: 57
-        content: 'Excon::Connection.new(host: params[:oops])'
       sink:
         location:
             start: 4
@@ -160,6 +159,7 @@ high:
             column:
                 start: 15
                 end: 57
+        content: 'Excon::Connection.new(host: params[:oops])'
       parent_line_number: 4
       snippet: 'Excon::Connection.new(host: params[:oops])'
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_2
@@ -207,7 +207,6 @@ high:
             column:
                 start: 15
                 end: 61
-        content: 'Excon::Connection.new(hostname: params[:oops])'
       sink:
         location:
             start: 5
@@ -215,6 +214,7 @@ high:
             column:
                 start: 15
                 end: 61
+        content: 'Excon::Connection.new(hostname: params[:oops])'
       parent_line_number: 5
       snippet: 'Excon::Connection.new(hostname: params[:oops])'
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_3
@@ -262,7 +262,6 @@ high:
             column:
                 start: 15
                 end: 57
-        content: 'Excon::Connection.new(path: params[:oops])'
       sink:
         location:
             start: 6
@@ -270,6 +269,7 @@ high:
             column:
                 start: 15
                 end: 57
+        content: 'Excon::Connection.new(path: params[:oops])'
       parent_line_number: 6
       snippet: 'Excon::Connection.new(path: params[:oops])'
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_4
@@ -317,7 +317,6 @@ high:
             column:
                 start: 15
                 end: 57
-        content: 'Excon::Connection.new(port: params[:oops])'
       sink:
         location:
             start: 7
@@ -325,6 +324,7 @@ high:
             column:
                 start: 15
                 end: 57
+        content: 'Excon::Connection.new(port: params[:oops])'
       parent_line_number: 7
       snippet: 'Excon::Connection.new(port: params[:oops])'
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_5
@@ -372,7 +372,6 @@ high:
             column:
                 start: 1
                 end: 37
-        content: 'connection.post(path: params[:oops])'
       sink:
         location:
             start: 9
@@ -380,6 +379,7 @@ high:
             column:
                 start: 1
                 end: 37
+        content: 'connection.post(path: params[:oops])'
       parent_line_number: 9
       snippet: 'connection.post(path: params[:oops])'
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_6
@@ -427,7 +427,6 @@ high:
             column:
                 start: 1
                 end: 41
-        content: 'connection2.request(path: params[:oops])'
       sink:
         location:
             start: 11
@@ -435,6 +434,7 @@ high:
             column:
                 start: 1
                 end: 41
+        content: 'connection2.request(path: params[:oops])'
       parent_line_number: 11
       snippet: 'connection2.request(path: params[:oops])'
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_7
@@ -482,7 +482,6 @@ high:
             column:
                 start: 1
                 end: 65
-        content: 'connection3.requests([{ :method => :get, path: params[:oops] }])'
       sink:
         location:
             start: 13
@@ -490,6 +489,7 @@ high:
             column:
                 start: 1
                 end: 65
+        content: 'connection3.requests([{ :method => :get, path: params[:oops] }])'
       parent_line_number: 13
       snippet: 'connection3.requests([{ :method => :get, path: params[:oops] }])'
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_8
@@ -537,7 +537,6 @@ high:
             column:
                 start: 1
                 end: 25
-        content: Excon.get(params[:oops])
       sink:
         location:
             start: 15
@@ -545,6 +544,7 @@ high:
             column:
                 start: 1
                 end: 25
+        content: Excon.get(params[:oops])
       parent_line_number: 15
       snippet: Excon.get(params[:oops])
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_9
@@ -592,7 +592,6 @@ high:
             column:
                 start: 1
                 end: 54
-        content: 'Excon.post("http://example.com", path: params[:oops])'
       sink:
         location:
             start: 16
@@ -600,6 +599,7 @@ high:
             column:
                 start: 1
                 end: 54
+        content: 'Excon.post("http://example.com", path: params[:oops])'
       parent_line_number: 16
       snippet: 'Excon.post("http://example.com", path: params[:oops])'
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_10

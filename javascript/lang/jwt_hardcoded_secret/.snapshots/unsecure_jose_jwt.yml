@@ -32,11 +32,6 @@ high:
             column:
                 start: 19
                 end: 16
-        content: |-
-            new jose.SignJWT({ 'urn:example:claim': true })
-              .setIssuedAt()
-              .setExpirationTime('2h')
-              .sign(secret)
       sink:
         location:
             start: 5
@@ -44,6 +39,11 @@ high:
             column:
                 start: 19
                 end: 16
+        content: |-
+            new jose.SignJWT({ 'urn:example:claim': true })
+              .setIssuedAt()
+              .setExpirationTime('2h')
+              .sign(secret)
       parent_line_number: 5
       snippet: |-
         new jose.SignJWT({ 'urn:example:claim': true })
@@ -85,7 +85,6 @@ high:
             column:
                 start: 20
                 end: 53
-        content: (new jose.SignJWT()).sign(secret)
       sink:
         location:
             start: 10
@@ -93,6 +92,7 @@ high:
             column:
                 start: 20
                 end: 53
+        content: (new jose.SignJWT()).sign(secret)
       parent_line_number: 10
       snippet: (new jose.SignJWT()).sign(secret)
       fingerprint: d0029fa61eca40823af6b8a00901cfaf_1

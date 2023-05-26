@@ -26,16 +26,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 1
-                end: 105
-        content: 'Honeybadger.add_breadcrumb("Email Sent", metadata: { user_email: current_user.email, message: message })'
+                start: 54
+                end: 84
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 54
-                end: 84
+                start: 1
+                end: 105
+        content: 'Honeybadger.add_breadcrumb("Email Sent", metadata: { user_email: current_user.email, message: message })'
       parent_line_number: 1
       snippet: 'Honeybadger.add_breadcrumb("Email Sent", metadata: { user_email: current_user.email, message: message })'
       fingerprint: 4ac2a71f9343f5925f464b72beb3339b_0

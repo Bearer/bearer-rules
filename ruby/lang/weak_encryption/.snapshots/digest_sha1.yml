@@ -43,7 +43,6 @@ low:
             column:
                 start: 1
                 end: 38
-        content: Digest::SHA1.hexdigest("hello world")
       sink:
         location:
             start: 1
@@ -51,6 +50,7 @@ low:
             column:
                 start: 1
                 end: 38
+        content: Digest::SHA1.hexdigest("hello world")
       parent_line_number: 1
       snippet: Digest::SHA1.hexdigest("hello world")
       fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
@@ -99,7 +99,6 @@ low:
             column:
                 start: 1
                 end: 39
-        content: Digest::SHA1.new.update("hello world")
       sink:
         location:
             start: 3
@@ -107,6 +106,7 @@ low:
             column:
                 start: 1
                 end: 39
+        content: Digest::SHA1.new.update("hello world")
       parent_line_number: 3
       snippet: Digest::SHA1.new.update("hello world")
       fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1

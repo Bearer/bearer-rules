@@ -39,7 +39,6 @@ high:
             column:
                 start: 1
                 end: 28
-        content: Net::FTP.new(params[:oops])
       sink:
         location:
             start: 1
@@ -47,6 +46,7 @@ high:
             column:
                 start: 1
                 end: 28
+        content: Net::FTP.new(params[:oops])
       parent_line_number: 1
       snippet: Net::FTP.new(params[:oops])
       fingerprint: f44de33c1fcd881c7cadc1c450652253_0
@@ -91,10 +91,6 @@ high:
             column:
                 start: 1
                 end: 4
-        content: |-
-            Net::FTP.open("example.com", username: params[:user]) do
-
-            end
       sink:
         location:
             start: 3
@@ -102,6 +98,10 @@ high:
             column:
                 start: 1
                 end: 4
+        content: |-
+            Net::FTP.open("example.com", username: params[:user]) do
+
+            end
       parent_line_number: 3
       snippet: |-
         Net::FTP.open("example.com", username: params[:user]) do
@@ -149,7 +149,6 @@ high:
             column:
                 start: 3
                 end: 50
-        content: ftp.puttextfile("local.txt", event["filename"])
       sink:
         location:
             start: 9
@@ -157,6 +156,7 @@ high:
             column:
                 start: 3
                 end: 50
+        content: ftp.puttextfile("local.txt", event["filename"])
       parent_line_number: 9
       snippet: ftp.puttextfile("local.txt", event["filename"])
       fingerprint: f44de33c1fcd881c7cadc1c450652253_2

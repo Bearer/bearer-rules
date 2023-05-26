@@ -42,7 +42,6 @@ high:
             column:
                 start: 12
                 end: 71
-        content: Net::HTTP.post_form("http://#{params[:oops]}/users/search")
       sink:
         location:
             start: 3
@@ -50,6 +49,7 @@ high:
             column:
                 start: 12
                 end: 71
+        content: Net::HTTP.post_form("http://#{params[:oops]}/users/search")
       parent_line_number: 3
       snippet: Net::HTTP.post_form("http://#{params[:oops]}/users/search")
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_0
@@ -97,10 +97,6 @@ high:
             column:
                 start: 1
                 end: 4
-        content: |-
-            Net::HTTP.start(params[:host]) do |instance1|
-              instance1.head(params[:path])
-            end
       sink:
         location:
             start: 5
@@ -108,6 +104,10 @@ high:
             column:
                 start: 1
                 end: 4
+        content: |-
+            Net::HTTP.start(params[:host]) do |instance1|
+              instance1.head(params[:path])
+            end
       parent_line_number: 5
       snippet: |-
         Net::HTTP.start(params[:host]) do |instance1|
@@ -158,7 +158,6 @@ high:
             column:
                 start: 3
                 end: 32
-        content: instance1.head(params[:path])
       sink:
         location:
             start: 6
@@ -166,6 +165,7 @@ high:
             column:
                 start: 3
                 end: 32
+        content: instance1.head(params[:path])
       parent_line_number: 6
       snippet: instance1.head(params[:path])
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_2
@@ -213,7 +213,6 @@ high:
             column:
                 start: 1
                 end: 52
-        content: 'Net::HTTP::Get.new(params[:oops], { "X-Test": 42 })'
       sink:
         location:
             start: 9
@@ -221,6 +220,7 @@ high:
             column:
                 start: 1
                 end: 52
+        content: 'Net::HTTP::Get.new(params[:oops], { "X-Test": 42 })'
       parent_line_number: 9
       snippet: 'Net::HTTP::Get.new(params[:oops], { "X-Test": 42 })'
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_3
@@ -268,7 +268,6 @@ high:
             column:
                 start: 13
                 end: 43
-        content: Net::HTTP.start(params[:oops])
       sink:
         location:
             start: 11
@@ -276,6 +275,7 @@ high:
             column:
                 start: 13
                 end: 43
+        content: Net::HTTP.start(params[:oops])
       parent_line_number: 11
       snippet: Net::HTTP.start(params[:oops])
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_4
@@ -323,7 +323,6 @@ high:
             column:
                 start: 1
                 end: 38
-        content: instance2.ipaddr = request.env[:oops]
       sink:
         location:
             start: 12
@@ -331,6 +330,7 @@ high:
             column:
                 start: 1
                 end: 38
+        content: instance2.ipaddr = request.env[:oops]
       parent_line_number: 12
       snippet: instance2.ipaddr = request.env[:oops]
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_5
@@ -378,7 +378,6 @@ high:
             column:
                 start: 1
                 end: 50
-        content: instance2.send_request("GET", params[:oops], nil)
       sink:
         location:
             start: 13
@@ -386,6 +385,7 @@ high:
             column:
                 start: 1
                 end: 50
+        content: instance2.send_request("GET", params[:oops], nil)
       parent_line_number: 13
       snippet: instance2.send_request("GET", params[:oops], nil)
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_6
@@ -433,7 +433,6 @@ high:
             column:
                 start: 13
                 end: 41
-        content: Net::HTTP.new(params[:oops])
       sink:
         location:
             start: 15
@@ -441,6 +440,7 @@ high:
             column:
                 start: 13
                 end: 41
+        content: Net::HTTP.new(params[:oops])
       parent_line_number: 15
       snippet: Net::HTTP.new(params[:oops])
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_7
@@ -488,7 +488,6 @@ high:
             column:
                 start: 1
                 end: 31
-        content: instance3.patch(params[:path])
       sink:
         location:
             start: 16
@@ -496,6 +495,7 @@ high:
             column:
                 start: 1
                 end: 31
+        content: instance3.patch(params[:path])
       parent_line_number: 16
       snippet: instance3.patch(params[:path])
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_8
@@ -543,7 +543,6 @@ high:
             column:
                 start: 3
                 end: 37
-        content: instance4.post(request.env[:oops])
       sink:
         location:
             start: 18
@@ -551,6 +550,7 @@ high:
             column:
                 start: 3
                 end: 37
+        content: instance4.post(request.env[:oops])
       parent_line_number: 18
       snippet: instance4.post(request.env[:oops])
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_9

@@ -23,19 +23,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 1
+            end: 1
+            column:
+                start: 10
+                end: 38
+      sink:
+        location:
             start: 2
             end: 2
             column:
                 start: 1
                 end: 33
         content: ScoutApm::Context.add_user(user)
-      sink:
-        location:
-            start: 1
-            end: 1
-            column:
-                start: 10
-                end: 38
       parent_line_number: 2
       snippet: ScoutApm::Context.add_user(user)
       fingerprint: 2e6ed4d28852ce79a75741641fa8b1a3_0

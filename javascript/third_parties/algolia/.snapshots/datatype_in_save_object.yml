@@ -28,6 +28,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 7
+            end: 7
+            column:
+                start: 19
+                end: 43
+      sink:
+        location:
             start: 8
             end: 9
             column:
@@ -36,13 +43,6 @@ high:
         content: |-
             index
               .saveObject(userObj, { autoGenerateObjectIDIfNotExist: true })
-      sink:
-        location:
-            start: 7
-            end: 7
-            column:
-                start: 19
-                end: 43
       parent_line_number: 8
       snippet: |-
         index
@@ -82,16 +82,16 @@ high:
             start: 12
             end: 12
             column:
-                start: 1
-                end: 43
-        content: 'index.saveObjects([{ email: user.email }])'
+                start: 29
+                end: 39
       sink:
         location:
             start: 12
             end: 12
             column:
-                start: 29
-                end: 39
+                start: 1
+                end: 43
+        content: 'index.saveObjects([{ email: user.email }])'
       parent_line_number: 12
       snippet: 'index.saveObjects([{ email: user.email }])'
       fingerprint: 3b8a9db66a5d96671524cd36226b34d5_0

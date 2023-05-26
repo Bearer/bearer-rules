@@ -54,11 +54,6 @@ high:
             column:
                 start: 20
                 end: 45
-        content: |-
-            knex
-            		.select("user.cart_details")
-            		.from("users")
-            		.whereRaw("name = " + req.query.user.name)
       sink:
         location:
             start: 6
@@ -66,6 +61,11 @@ high:
             column:
                 start: 20
                 end: 45
+        content: |-
+            knex
+            		.select("user.cart_details")
+            		.from("users")
+            		.whereRaw("name = " + req.query.user.name)
       parent_line_number: 6
       snippet: |-
         knex
@@ -129,10 +129,6 @@ high:
             column:
                 start: 20
                 end: 41
-        content: |-
-            knex.select('user.cart_details')
-            		.from('users')
-            		.whereRaw('name = ' + event.user.name)
       sink:
         location:
             start: 15
@@ -140,6 +136,10 @@ high:
             column:
                 start: 20
                 end: 41
+        content: |-
+            knex.select('user.cart_details')
+            		.from('users')
+            		.whereRaw('name = ' + event.user.name)
       parent_line_number: 15
       snippet: |-
         knex.select('user.cart_details')

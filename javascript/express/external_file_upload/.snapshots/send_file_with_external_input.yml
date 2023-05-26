@@ -33,7 +33,6 @@ low:
             column:
                 start: 3
                 end: 21
-        content: res.sendFile(file)
       sink:
         location:
             start: 12
@@ -41,6 +40,7 @@ low:
             column:
                 start: 3
                 end: 21
+        content: res.sendFile(file)
       parent_line_number: 12
       snippet: res.sendFile(file)
       fingerprint: f39779a929c915fb55fa930e548d6d6f_0
@@ -79,7 +79,6 @@ low:
             column:
                 start: 3
                 end: 35
-        content: res.sendFile(path.resolve(file))
       sink:
         location:
             start: 13
@@ -87,6 +86,7 @@ low:
             column:
                 start: 3
                 end: 35
+        content: res.sendFile(path.resolve(file))
       parent_line_number: 13
       snippet: res.sendFile(path.resolve(file))
       fingerprint: f39779a929c915fb55fa930e548d6d6f_1
@@ -125,7 +125,6 @@ low:
             column:
                 start: 3
                 end: 46
-        content: res.sendFile(req.params.file, {}, () => {})
       sink:
         location:
             start: 14
@@ -133,6 +132,7 @@ low:
             column:
                 start: 3
                 end: 46
+        content: res.sendFile(req.params.file, {}, () => {})
       parent_line_number: 14
       snippet: res.sendFile(req.params.file, {}, () => {})
       fingerprint: f39779a929c915fb55fa930e548d6d6f_2
@@ -171,7 +171,6 @@ low:
             column:
                 start: 3
                 end: 76
-        content: 'res.sendFile("file.txt", { root: path.join(__dirname, req.params.root) })'
       sink:
         location:
             start: 15
@@ -179,6 +178,7 @@ low:
             column:
                 start: 3
                 end: 76
+        content: 'res.sendFile("file.txt", { root: path.join(__dirname, req.params.root) })'
       parent_line_number: 15
       snippet: 'res.sendFile("file.txt", { root: path.join(__dirname, req.params.root) })'
       fingerprint: f39779a929c915fb55fa930e548d6d6f_3

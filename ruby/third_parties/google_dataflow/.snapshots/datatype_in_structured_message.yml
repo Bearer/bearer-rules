@@ -25,16 +25,16 @@ high:
             start: 4
             end: 4
             column:
-                start: 1
-                end: 58
-        content: 'str_msg.message_text = "Current user: #{user.ip_address}"'
+                start: 41
+                end: 56
       sink:
         location:
             start: 4
             end: 4
             column:
-                start: 41
-                end: 56
+                start: 1
+                end: 58
+        content: 'str_msg.message_text = "Current user: #{user.ip_address}"'
       parent_line_number: 4
       snippet: 'str_msg.message_text = "Current user: #{user.ip_address}"'
       fingerprint: 413255d6456534b1be7ccdeddaeeb019_0

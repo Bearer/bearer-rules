@@ -33,6 +33,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 3
+            end: 3
+            column:
+                start: 24
+                end: 34
+      sink:
+        location:
             start: 1
             end: 11
             column:
@@ -50,13 +57,6 @@ high:
                 session.setUser(user.email)
               }
             })
-      sink:
-        location:
-            start: 3
-            end: 3
-            column:
-                start: 24
-                end: 34
       parent_line_number: 1
       snippet: |-
         Bugsnag.start({
@@ -106,6 +106,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 5
+            end: 5
+            column:
+                start: 16
+                end: 33
+      sink:
+        location:
             start: 1
             end: 11
             column:
@@ -123,13 +130,6 @@ high:
                 session.setUser(user.email)
               }
             })
-      sink:
-        location:
-            start: 5
-            end: 5
-            column:
-                start: 16
-                end: 33
       parent_line_number: 1
       snippet: |-
         Bugsnag.start({
@@ -179,6 +179,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 9
+            end: 9
+            column:
+                start: 21
+                end: 31
+      sink:
+        location:
             start: 1
             end: 11
             column:
@@ -196,13 +203,6 @@ high:
                 session.setUser(user.email)
               }
             })
-      sink:
-        location:
-            start: 9
-            end: 9
-            column:
-                start: 21
-                end: 31
       parent_line_number: 1
       snippet: |-
         Bugsnag.start({

@@ -37,7 +37,6 @@ high:
             column:
                 start: 1
                 end: 31
-        content: Rails.root.join(params[:oops])
       sink:
         location:
             start: 1
@@ -45,6 +44,7 @@ high:
             column:
                 start: 1
                 end: 31
+        content: Rails.root.join(params[:oops])
       parent_line_number: 1
       snippet: Rails.root.join(params[:oops])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_0
@@ -87,7 +87,6 @@ high:
             column:
                 start: 1
                 end: 31
-        content: 'render(partial: params[:oops])'
       sink:
         location:
             start: 3
@@ -95,6 +94,7 @@ high:
             column:
                 start: 1
                 end: 31
+        content: 'render(partial: params[:oops])'
       parent_line_number: 3
       snippet: 'render(partial: params[:oops])'
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_1
@@ -137,7 +137,6 @@ high:
             column:
                 start: 1
                 end: 37
-        content: render("something/#{params[:oops]}")
       sink:
         location:
             start: 4
@@ -145,6 +144,7 @@ high:
             column:
                 start: 1
                 end: 37
+        content: render("something/#{params[:oops]}")
       parent_line_number: 4
       snippet: render("something/#{params[:oops]}")
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_2
@@ -187,7 +187,6 @@ high:
             column:
                 start: 1
                 end: 58
-        content: 'render_to_string({ file: "/templates/#{params[:oops]}" })'
       sink:
         location:
             start: 5
@@ -195,6 +194,7 @@ high:
             column:
                 start: 1
                 end: 58
+        content: 'render_to_string({ file: "/templates/#{params[:oops]}" })'
       parent_line_number: 5
       snippet: 'render_to_string({ file: "/templates/#{params[:oops]}" })'
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_3
@@ -237,7 +237,6 @@ high:
             column:
                 start: 1
                 end: 43
-        content: 'send_file params[:oops], type: "text/html"'
       sink:
         location:
             start: 7
@@ -245,6 +244,7 @@ high:
             column:
                 start: 1
                 end: 43
+        content: 'send_file params[:oops], type: "text/html"'
       parent_line_number: 7
       snippet: 'send_file params[:oops], type: "text/html"'
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_4

@@ -34,7 +34,6 @@ low:
             column:
                 start: 1
                 end: 14
-        content: axios(config)
       sink:
         location:
             start: 7
@@ -42,6 +41,7 @@ low:
             column:
                 start: 1
                 end: 14
+        content: axios(config)
       parent_line_number: 7
       snippet: axios(config)
       fingerprint: 152209b1605ebd60ec2a741fa69edfbe_0

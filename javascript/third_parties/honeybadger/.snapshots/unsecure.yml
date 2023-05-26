@@ -34,19 +34,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 3
+            end: 3
+            column:
+                start: 25
+                end: 48
+      sink:
+        location:
             start: 5
             end: 5
             column:
                 start: 1
                 end: 32
         content: Honeybadger.setContext(context)
-      sink:
-        location:
-            start: 3
-            end: 3
-            column:
-                start: 25
-                end: 48
       parent_line_number: 5
       snippet: Honeybadger.setContext(context)
       fingerprint: b951d3bbde6630fbf6e50c52b01dc701_0

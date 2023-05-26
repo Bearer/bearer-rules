@@ -38,16 +38,16 @@ high:
             start: 5
             end: 5
             column:
-                start: 5
-                end: 62
-        content: Promise.reject(new PermissionDenied("fail" + user.email))
+                start: 50
+                end: 60
       sink:
         location:
             start: 5
             end: 5
             column:
-                start: 50
-                end: 60
+                start: 5
+                end: 62
+        content: Promise.reject(new PermissionDenied("fail" + user.email))
       parent_line_number: 5
       snippet: Promise.reject(new PermissionDenied("fail" + user.email))
       fingerprint: bba6dc65c9d6db47ce50e7ab7f50f853_0

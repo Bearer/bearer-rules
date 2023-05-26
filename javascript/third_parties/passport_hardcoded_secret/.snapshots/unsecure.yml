@@ -31,7 +31,6 @@ high:
             column:
                 start: 1
                 end: 23
-        content: passport.use(strategy)
       sink:
         location:
             start: 5
@@ -39,6 +38,7 @@ high:
             column:
                 start: 1
                 end: 23
+        content: passport.use(strategy)
       parent_line_number: 5
       snippet: passport.use(strategy)
       fingerprint: 998181c239ce6c5a9107eb9c5902c667_0

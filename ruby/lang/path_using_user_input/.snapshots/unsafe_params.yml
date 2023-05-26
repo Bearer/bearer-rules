@@ -37,7 +37,6 @@ high:
             column:
                 start: 1
                 end: 32
-        content: 'Dir["foo", base: params[:oops]]'
       sink:
         location:
             start: 1
@@ -45,6 +44,7 @@ high:
             column:
                 start: 1
                 end: 32
+        content: 'Dir["foo", base: params[:oops]]'
       parent_line_number: 1
       snippet: 'Dir["foo", base: params[:oops]]'
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_0
@@ -87,7 +87,6 @@ high:
             column:
                 start: 1
                 end: 36
-        content: Dir.chdir("/home/#{params[:oops]}")
       sink:
         location:
             start: 3
@@ -95,6 +94,7 @@ high:
             column:
                 start: 1
                 end: 36
+        content: Dir.chdir("/home/#{params[:oops]}")
       parent_line_number: 3
       snippet: Dir.chdir("/home/#{params[:oops]}")
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_1
@@ -137,7 +137,6 @@ high:
             column:
                 start: 1
                 end: 27
-        content: File.exist?(params[:oops])
       sink:
         location:
             start: 5
@@ -145,6 +144,7 @@ high:
             column:
                 start: 1
                 end: 27
+        content: File.exist?(params[:oops])
       parent_line_number: 5
       snippet: File.exist?(params[:oops])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_2
@@ -187,7 +187,6 @@ high:
             column:
                 start: 1
                 end: 39
-        content: IO.readlines("/home/#{params[:oops]}")
       sink:
         location:
             start: 7
@@ -195,6 +194,7 @@ high:
             column:
                 start: 1
                 end: 39
+        content: IO.readlines("/home/#{params[:oops]}")
       parent_line_number: 7
       snippet: IO.readlines("/home/#{params[:oops]}")
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_3
@@ -237,9 +237,6 @@ high:
             column:
                 start: 1
                 end: 4
-        content: |-
-            Kernel.open(params[:oops], "w+") do
-            end
       sink:
         location:
             start: 9
@@ -247,6 +244,9 @@ high:
             column:
                 start: 1
                 end: 4
+        content: |-
+            Kernel.open(params[:oops], "w+") do
+            end
       parent_line_number: 9
       snippet: |-
         Kernel.open(params[:oops], "w+") do
@@ -291,7 +291,6 @@ high:
             column:
                 start: 1
                 end: 20
-        content: open(params[:oops])
       sink:
         location:
             start: 12
@@ -299,6 +298,7 @@ high:
             column:
                 start: 1
                 end: 20
+        content: open(params[:oops])
       parent_line_number: 12
       snippet: open(params[:oops])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_5
@@ -341,7 +341,6 @@ high:
             column:
                 start: 1
                 end: 26
-        content: PStore.new(params[:oops])
       sink:
         location:
             start: 14
@@ -349,6 +348,7 @@ high:
             column:
                 start: 1
                 end: 26
+        content: PStore.new(params[:oops])
       parent_line_number: 14
       snippet: PStore.new(params[:oops])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_6
@@ -391,7 +391,6 @@ high:
             column:
                 start: 8
                 end: 35
-        content: Pathname.new(params[:oops])
       sink:
         location:
             start: 16
@@ -399,6 +398,7 @@ high:
             column:
                 start: 8
                 end: 35
+        content: Pathname.new(params[:oops])
       parent_line_number: 16
       snippet: Pathname.new(params[:oops])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_7
@@ -441,7 +441,6 @@ high:
             column:
                 start: 1
                 end: 20
-        content: path + params[:two]
       sink:
         location:
             start: 17
@@ -449,6 +448,7 @@ high:
             column:
                 start: 1
                 end: 20
+        content: path + params[:two]
       parent_line_number: 17
       snippet: path + params[:two]
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_8
@@ -491,7 +491,6 @@ high:
             column:
                 start: 1
                 end: 22
-        content: path / params[:three]
       sink:
         location:
             start: 18
@@ -499,6 +498,7 @@ high:
             column:
                 start: 1
                 end: 22
+        content: path / params[:three]
       parent_line_number: 18
       snippet: path / params[:three]
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_9
@@ -541,7 +541,6 @@ high:
             column:
                 start: 1
                 end: 30
-        content: path.join("a", params[:four])
       sink:
         location:
             start: 19
@@ -549,6 +548,7 @@ high:
             column:
                 start: 1
                 end: 30
+        content: path.join("a", params[:four])
       parent_line_number: 19
       snippet: path.join("a", params[:four])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_10
@@ -591,7 +591,6 @@ high:
             column:
                 start: 1
                 end: 31
-        content: Rails.root.join(params[:oops])
       sink:
         location:
             start: 21
@@ -599,6 +598,7 @@ high:
             column:
                 start: 1
                 end: 31
+        content: Rails.root.join(params[:oops])
       parent_line_number: 21
       snippet: Rails.root.join(params[:oops])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_11
@@ -641,7 +641,6 @@ high:
             column:
                 start: 1
                 end: 45
-        content: Gem::Util.traverse_parents(params[:oops]) {}
       sink:
         location:
             start: 23
@@ -649,6 +648,7 @@ high:
             column:
                 start: 1
                 end: 45
+        content: Gem::Util.traverse_parents(params[:oops]) {}
       parent_line_number: 23
       snippet: Gem::Util.traverse_parents(params[:oops]) {}
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_12

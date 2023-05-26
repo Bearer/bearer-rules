@@ -26,16 +26,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 1
-                end: 46
-        content: 'Sentry.capture_message("test: #{user.email}")'
+                start: 33
+                end: 43
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 33
-                end: 43
+                start: 1
+                end: 46
+        content: 'Sentry.capture_message("test: #{user.email}")'
       parent_line_number: 1
       snippet: 'Sentry.capture_message("test: #{user.email}")'
       fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_0
@@ -67,16 +67,16 @@ high:
             start: 2
             end: 2
             column:
-                start: 1
-                end: 61
-        content: 'Sentry.capture_message("test", extra: { email: user.email })'
+                start: 41
+                end: 58
       sink:
         location:
             start: 2
             end: 2
             column:
-                start: 41
-                end: 58
+                start: 1
+                end: 61
+        content: 'Sentry.capture_message("test", extra: { email: user.email })'
       parent_line_number: 2
       snippet: 'Sentry.capture_message("test", extra: { email: user.email })'
       fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_1
@@ -108,16 +108,16 @@ high:
             start: 3
             end: 3
             column:
-                start: 1
-                end: 60
-        content: 'Sentry.capture_message("test", tags: { email: user.email })'
+                start: 40
+                end: 57
       sink:
         location:
             start: 3
             end: 3
             column:
-                start: 40
-                end: 57
+                start: 1
+                end: 60
+        content: 'Sentry.capture_message("test", tags: { email: user.email })'
       parent_line_number: 3
       snippet: 'Sentry.capture_message("test", tags: { email: user.email })'
       fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_2
@@ -149,16 +149,16 @@ high:
             start: 4
             end: 4
             column:
-                start: 1
-                end: 60
-        content: 'Sentry.capture_message("test", user: { email: user.email })'
+                start: 40
+                end: 57
       sink:
         location:
             start: 4
             end: 4
             column:
-                start: 40
-                end: 57
+                start: 1
+                end: 60
+        content: 'Sentry.capture_message("test", user: { email: user.email })'
       parent_line_number: 4
       snippet: 'Sentry.capture_message("test", user: { email: user.email })'
       fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_3

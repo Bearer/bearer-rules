@@ -54,7 +54,6 @@ high:
             column:
                 start: 2
                 end: 29
-        content: sqlite.query(customerQuery)
       sink:
         location:
             start: 7
@@ -62,6 +61,7 @@ high:
             column:
                 start: 2
                 end: 29
+        content: sqlite.query(customerQuery)
       parent_line_number: 7
       snippet: sqlite.query(customerQuery)
       fingerprint: e729d82176c9ebea695fa6b6a606960b_0

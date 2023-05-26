@@ -26,16 +26,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 1
-                end: 79
-        content: Sentry.captureMessage("User has successfully signed in " + current_user.email)
+                start: 60
+                end: 78
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 60
-                end: 78
+                start: 1
+                end: 79
+        content: Sentry.captureMessage("User has successfully signed in " + current_user.email)
       parent_line_number: 1
       snippet: Sentry.captureMessage("User has successfully signed in " + current_user.email)
       fingerprint: af49328f7c7aa692f05a50dc6ccda334_0

@@ -34,7 +34,6 @@ low:
             column:
                 start: 3
                 end: 16
-        content: require(path)
       sink:
         location:
             start: 7
@@ -42,6 +41,7 @@ low:
             column:
                 start: 3
                 end: 16
+        content: require(path)
       parent_line_number: 7
       snippet: require(path)
       fingerprint: ce8a5417c71d4166a93f05ca32da7883_0

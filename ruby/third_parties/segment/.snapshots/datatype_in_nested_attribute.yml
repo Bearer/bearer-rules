@@ -25,16 +25,16 @@ high:
             start: 2
             end: 2
             column:
-                start: 1
-                end: 94
-        content: 'analytics.track(user_id: user.id, event: "account sign in", context: { ip: user.ip_address })'
+                start: 76
+                end: 91
       sink:
         location:
             start: 2
             end: 2
             column:
-                start: 76
-                end: 91
+                start: 1
+                end: 94
+        content: 'analytics.track(user_id: user.id, event: "account sign in", context: { ip: user.ip_address })'
       parent_line_number: 2
       snippet: 'analytics.track(user_id: user.id, event: "account sign in", context: { ip: user.ip_address })'
       fingerprint: 1a443dec6ce049efa8df29bca4a1ec80_0

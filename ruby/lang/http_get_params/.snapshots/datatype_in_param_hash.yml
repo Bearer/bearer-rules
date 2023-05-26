@@ -58,16 +58,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 1
-                end: 95
-        content: 'HTTP.get("https://my.api.com/users/search", params: { user: { first_name: user.first_name } })'
+                start: 63
+                end: 90
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 63
-                end: 90
+                start: 1
+                end: 95
+        content: 'HTTP.get("https://my.api.com/users/search", params: { user: { first_name: user.first_name } })'
       parent_line_number: 1
       snippet: 'HTTP.get("https://my.api.com/users/search", params: { user: { first_name: user.first_name } })'
       fingerprint: 8894dae3b2e5b5fbbe850e0eb0759f58_0

@@ -37,7 +37,6 @@ high:
             column:
                 start: 3
                 end: 34
-        content: 'Dir["foo", base: event["oops"]]'
       sink:
         location:
             start: 2
@@ -45,6 +44,7 @@ high:
             column:
                 start: 3
                 end: 34
+        content: 'Dir["foo", base: event["oops"]]'
       parent_line_number: 2
       snippet: 'Dir["foo", base: event["oops"]]'
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_0
@@ -87,7 +87,6 @@ high:
             column:
                 start: 3
                 end: 38
-        content: Dir.chdir("/home/#{event["oops"]}")
       sink:
         location:
             start: 4
@@ -95,6 +94,7 @@ high:
             column:
                 start: 3
                 end: 38
+        content: Dir.chdir("/home/#{event["oops"]}")
       parent_line_number: 4
       snippet: Dir.chdir("/home/#{event["oops"]}")
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_1
@@ -137,7 +137,6 @@ high:
             column:
                 start: 3
                 end: 29
-        content: File.exist?(event["oops"])
       sink:
         location:
             start: 6
@@ -145,6 +144,7 @@ high:
             column:
                 start: 3
                 end: 29
+        content: File.exist?(event["oops"])
       parent_line_number: 6
       snippet: File.exist?(event["oops"])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_2
@@ -187,7 +187,6 @@ high:
             column:
                 start: 3
                 end: 41
-        content: IO.readlines("/home/#{event["oops"]}")
       sink:
         location:
             start: 8
@@ -195,6 +194,7 @@ high:
             column:
                 start: 3
                 end: 41
+        content: IO.readlines("/home/#{event["oops"]}")
       parent_line_number: 8
       snippet: IO.readlines("/home/#{event["oops"]}")
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_3
@@ -237,9 +237,6 @@ high:
             column:
                 start: 3
                 end: 6
-        content: |-
-            Kernel.open(event["oops"], "w+") do
-              end
       sink:
         location:
             start: 10
@@ -247,6 +244,9 @@ high:
             column:
                 start: 3
                 end: 6
+        content: |-
+            Kernel.open(event["oops"], "w+") do
+              end
       parent_line_number: 10
       snippet: |-
         Kernel.open(event["oops"], "w+") do
@@ -291,7 +291,6 @@ high:
             column:
                 start: 3
                 end: 22
-        content: open(event["oops"])
       sink:
         location:
             start: 13
@@ -299,6 +298,7 @@ high:
             column:
                 start: 3
                 end: 22
+        content: open(event["oops"])
       parent_line_number: 13
       snippet: open(event["oops"])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_5
@@ -341,7 +341,6 @@ high:
             column:
                 start: 3
                 end: 28
-        content: PStore.new(event["oops"])
       sink:
         location:
             start: 15
@@ -349,6 +348,7 @@ high:
             column:
                 start: 3
                 end: 28
+        content: PStore.new(event["oops"])
       parent_line_number: 15
       snippet: PStore.new(event["oops"])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_6
@@ -391,7 +391,6 @@ high:
             column:
                 start: 10
                 end: 37
-        content: Pathname.new(event["oops"])
       sink:
         location:
             start: 17
@@ -399,6 +398,7 @@ high:
             column:
                 start: 10
                 end: 37
+        content: Pathname.new(event["oops"])
       parent_line_number: 17
       snippet: Pathname.new(event["oops"])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_7
@@ -441,7 +441,6 @@ high:
             column:
                 start: 3
                 end: 22
-        content: path + event["two"]
       sink:
         location:
             start: 18
@@ -449,6 +448,7 @@ high:
             column:
                 start: 3
                 end: 22
+        content: path + event["two"]
       parent_line_number: 18
       snippet: path + event["two"]
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_8
@@ -491,7 +491,6 @@ high:
             column:
                 start: 3
                 end: 22
-        content: path / event["two"]
       sink:
         location:
             start: 19
@@ -499,6 +498,7 @@ high:
             column:
                 start: 3
                 end: 22
+        content: path / event["two"]
       parent_line_number: 19
       snippet: path / event["two"]
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_9
@@ -541,7 +541,6 @@ high:
             column:
                 start: 3
                 end: 33
-        content: path.join("a", event["three"])
       sink:
         location:
             start: 20
@@ -549,6 +548,7 @@ high:
             column:
                 start: 3
                 end: 33
+        content: path.join("a", event["three"])
       parent_line_number: 20
       snippet: path.join("a", event["three"])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_10

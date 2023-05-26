@@ -38,19 +38,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 3
+            end: 3
+            column:
+                start: 16
+                end: 28
+      sink:
+        location:
             start: 11
             end: 11
             column:
                 start: 1
                 end: 44
         content: client.event("user", "logged_in", {}, user)
-      sink:
-        location:
-            start: 3
-            end: 3
-            column:
-                start: 16
-                end: 28
       parent_line_number: 11
       snippet: client.event("user", "logged_in", {}, user)
       fingerprint: 30198f8417f3252a9fc8b70f9affed31_0

@@ -27,6 +27,13 @@ low:
             column:
                 start: 11
                 end: 4
+      sink:
+        location:
+            start: 10
+            end: 19
+            column:
+                start: 11
+                end: 4
         content: |-
             {
                 cookie: {
@@ -38,13 +45,6 @@ low:
                   path: "/some-path",
                 },
               }
-      sink:
-        location:
-            start: 10
-            end: 19
-            column:
-                start: 11
-                end: 4
       parent_line_number: 10
       snippet: |-
         {

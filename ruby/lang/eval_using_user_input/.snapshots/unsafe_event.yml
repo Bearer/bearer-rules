@@ -37,7 +37,6 @@ high:
             column:
                 start: 3
                 end: 53
-        content: RubyVM::InstructionSequence.compile(event["oops"])
       sink:
         location:
             start: 2
@@ -45,6 +44,7 @@ high:
             column:
                 start: 3
                 end: 53
+        content: RubyVM::InstructionSequence.compile(event["oops"])
       parent_line_number: 2
       snippet: RubyVM::InstructionSequence.compile(event["oops"])
       fingerprint: c6c863e06a572d469f9d34897bd78ca4_0
@@ -87,7 +87,6 @@ high:
             column:
                 start: 3
                 end: 32
-        content: a.eval(event["oops"], "test")
       sink:
         location:
             start: 4
@@ -95,6 +94,7 @@ high:
             column:
                 start: 3
                 end: 32
+        content: a.eval(event["oops"], "test")
       parent_line_number: 4
       snippet: a.eval(event["oops"], "test")
       fingerprint: c6c863e06a572d469f9d34897bd78ca4_1
@@ -137,7 +137,6 @@ high:
             column:
                 start: 3
                 end: 33
-        content: a.instance_eval(event["oops"])
       sink:
         location:
             start: 6
@@ -145,6 +144,7 @@ high:
             column:
                 start: 3
                 end: 33
+        content: a.instance_eval(event["oops"])
       parent_line_number: 6
       snippet: a.instance_eval(event["oops"])
       fingerprint: c6c863e06a572d469f9d34897bd78ca4_2
@@ -187,7 +187,6 @@ high:
             column:
                 start: 3
                 end: 30
-        content: a.class_eval(event["oops"])
       sink:
         location:
             start: 8
@@ -195,6 +194,7 @@ high:
             column:
                 start: 3
                 end: 30
+        content: a.class_eval(event["oops"])
       parent_line_number: 8
       snippet: a.class_eval(event["oops"])
       fingerprint: c6c863e06a572d469f9d34897bd78ca4_3
@@ -237,7 +237,6 @@ high:
             column:
                 start: 3
                 end: 31
-        content: a.module_eval(event["oops"])
       sink:
         location:
             start: 10
@@ -245,6 +244,7 @@ high:
             column:
                 start: 3
                 end: 31
+        content: a.module_eval(event["oops"])
       parent_line_number: 10
       snippet: a.module_eval(event["oops"])
       fingerprint: c6c863e06a572d469f9d34897bd78ca4_4
@@ -287,7 +287,6 @@ high:
             column:
                 start: 3
                 end: 22
-        content: eval(event["oops"])
       sink:
         location:
             start: 12
@@ -295,6 +294,7 @@ high:
             column:
                 start: 3
                 end: 22
+        content: eval(event["oops"])
       parent_line_number: 12
       snippet: eval(event["oops"])
       fingerprint: c6c863e06a572d469f9d34897bd78ca4_5
@@ -337,7 +337,6 @@ high:
             column:
                 start: 3
                 end: 39
-        content: instance_eval(event["oops"], "test")
       sink:
         location:
             start: 14
@@ -345,6 +344,7 @@ high:
             column:
                 start: 3
                 end: 39
+        content: instance_eval(event["oops"], "test")
       parent_line_number: 14
       snippet: instance_eval(event["oops"], "test")
       fingerprint: c6c863e06a572d469f9d34897bd78ca4_6
@@ -387,7 +387,6 @@ high:
             column:
                 start: 3
                 end: 28
-        content: class_eval(event["oops"])
       sink:
         location:
             start: 16
@@ -395,6 +394,7 @@ high:
             column:
                 start: 3
                 end: 28
+        content: class_eval(event["oops"])
       parent_line_number: 16
       snippet: class_eval(event["oops"])
       fingerprint: c6c863e06a572d469f9d34897bd78ca4_7
@@ -437,7 +437,6 @@ high:
             column:
                 start: 3
                 end: 29
-        content: module_eval(event["oops"])
       sink:
         location:
             start: 18
@@ -445,6 +444,7 @@ high:
             column:
                 start: 3
                 end: 29
+        content: module_eval(event["oops"])
       parent_line_number: 18
       snippet: module_eval(event["oops"])
       fingerprint: c6c863e06a572d469f9d34897bd78ca4_8

@@ -35,19 +35,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 5
+            end: 5
+            column:
+                start: 9
+                end: 34
+      sink:
+        location:
             start: 7
             end: 7
             column:
                 start: 7
                 end: 40
         content: reject("Error with user " + user)
-      sink:
-        location:
-            start: 5
-            end: 5
-            column:
-                start: 9
-                end: 34
       parent_line_number: 7
       snippet: reject("Error with user " + user)
       fingerprint: bba6dc65c9d6db47ce50e7ab7f50f853_0
@@ -88,19 +88,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 14
+            end: 14
+            column:
+                start: 9
+                end: 34
+      sink:
+        location:
             start: 16
             end: 16
             column:
                 start: 7
                 end: 40
         content: reject("Error with user " + user)
-      sink:
-        location:
-            start: 14
-            end: 14
-            column:
-                start: 9
-                end: 34
       parent_line_number: 16
       snippet: reject("Error with user " + user)
       fingerprint: bba6dc65c9d6db47ce50e7ab7f50f853_1

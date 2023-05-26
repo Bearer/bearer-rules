@@ -40,16 +40,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 1
+                start: 25
                 end: 35
-        content: cookies.signed[:info] = user.email
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 25
+                start: 1
                 end: 35
+        content: cookies.signed[:info] = user.email
       parent_line_number: 1
       snippet: cookies.signed[:info] = user.email
       fingerprint: f9dc481eed8af7b00deadc6b2dc07984_0
@@ -95,16 +95,16 @@ high:
             start: 2
             end: 2
             column:
-                start: 1
+                start: 37
                 end: 52
-        content: cookies.permanent.signed[:secret] = user.first_name
       sink:
         location:
             start: 2
             end: 2
             column:
-                start: 37
+                start: 1
                 end: 52
+        content: cookies.permanent.signed[:secret] = user.first_name
       parent_line_number: 2
       snippet: cookies.permanent.signed[:secret] = user.first_name
       fingerprint: f9dc481eed8af7b00deadc6b2dc07984_1

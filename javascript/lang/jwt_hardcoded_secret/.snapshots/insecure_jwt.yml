@@ -32,7 +32,6 @@ high:
             column:
                 start: 3
                 end: 81
-        content: 'myJWT.sign(user, privateKey, { expiresInMinutes: 60 * 5, algorithm: "RS256" })'
       sink:
         location:
             start: 6
@@ -40,6 +39,7 @@ high:
             column:
                 start: 3
                 end: 81
+        content: 'myJWT.sign(user, privateKey, { expiresInMinutes: 60 * 5, algorithm: "RS256" })'
       parent_line_number: 6
       snippet: 'myJWT.sign(user, privateKey, { expiresInMinutes: 60 * 5, algorithm: "RS256" })'
       fingerprint: d0029fa61eca40823af6b8a00901cfaf_0

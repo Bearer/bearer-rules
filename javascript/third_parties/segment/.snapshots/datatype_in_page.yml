@@ -24,6 +24,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 10
+            end: 10
+            column:
+                start: 20
+                end: 48
+      sink:
+        location:
             start: 6
             end: 12
             column:
@@ -37,13 +44,6 @@ high:
                 path: "/cart/"+customer.bank_account_number
               },
             })
-      sink:
-        location:
-            start: 10
-            end: 10
-            column:
-                start: 20
-                end: 48
       parent_line_number: 6
       snippet: |-
         analytics.page({

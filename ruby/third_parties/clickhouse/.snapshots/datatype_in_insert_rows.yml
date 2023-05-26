@@ -23,6 +23,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 6
+            end: 6
+            column:
+                start: 7
+                end: 21
+      sink:
+        location:
             start: 3
             end: 8
             column:
@@ -35,13 +42,6 @@ high:
                   customer.email,
                   customer.address
                 ]
-      sink:
-        location:
-            start: 6
-            end: 6
-            column:
-                start: 7
-                end: 21
       parent_line_number: 3
       snippet: |-
         rows << [
@@ -76,6 +76,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 7
+            end: 7
+            column:
+                start: 7
+                end: 23
+      sink:
+        location:
             start: 3
             end: 8
             column:
@@ -88,13 +95,6 @@ high:
                   customer.email,
                   customer.address
                 ]
-      sink:
-        location:
-            start: 7
-            end: 7
-            column:
-                start: 7
-                end: 23
       parent_line_number: 3
       snippet: |-
         rows << [

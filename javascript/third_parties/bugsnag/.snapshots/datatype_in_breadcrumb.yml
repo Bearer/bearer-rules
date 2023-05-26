@@ -36,16 +36,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 1
-                end: 36
-        content: Bugsnag.leaveBreadcrumb(user.email)
+                start: 25
+                end: 35
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 25
-                end: 35
+                start: 1
+                end: 36
+        content: Bugsnag.leaveBreadcrumb(user.email)
       parent_line_number: 1
       snippet: Bugsnag.leaveBreadcrumb(user.email)
       fingerprint: 4ed64b524e1062cd19e85082c56d7357_0

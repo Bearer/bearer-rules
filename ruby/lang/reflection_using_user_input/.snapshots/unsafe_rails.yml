@@ -44,7 +44,6 @@ high:
             column:
                 start: 1
                 end: 27
-        content: params[:class].constantize
       sink:
         location:
             start: 1
@@ -52,6 +51,7 @@ high:
             column:
                 start: 1
                 end: 27
+        content: params[:class].constantize
       parent_line_number: 1
       snippet: params[:class].constantize
       fingerprint: 23f90aa15d412fbb5e8bd9ead1b2472a_0
@@ -101,7 +101,6 @@ high:
             column:
                 start: 10
                 end: 47
-        content: current_user.try(params[:profession])
       sink:
         location:
             start: 3
@@ -109,6 +108,7 @@ high:
             column:
                 start: 10
                 end: 47
+        content: current_user.try(params[:profession])
       parent_line_number: 3
       snippet: current_user.try(params[:profession])
       fingerprint: 23f90aa15d412fbb5e8bd9ead1b2472a_1

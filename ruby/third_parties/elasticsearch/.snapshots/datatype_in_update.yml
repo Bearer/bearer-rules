@@ -22,6 +22,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 1
+            end: 1
+            column:
+                start: 10
+                end: 38
+      sink:
+        location:
             start: 3
             end: 5
             column:
@@ -31,13 +38,6 @@ high:
             Elasticsearch::Client
               .new
               .update(index: 'books', id: 42, body: user)
-      sink:
-        location:
-            start: 1
-            end: 1
-            column:
-                start: 10
-                end: 38
       parent_line_number: 3
       snippet: |-
         Elasticsearch::Client

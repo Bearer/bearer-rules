@@ -36,7 +36,6 @@ medium:
             column:
                 start: 5
                 end: 32
-        content: 'openssl_verify_mode: "none"'
       sink:
         location:
             start: 8
@@ -44,6 +43,7 @@ medium:
             column:
                 start: 5
                 end: 32
+        content: 'openssl_verify_mode: "none"'
       parent_line_number: 8
       snippet: 'openssl_verify_mode: "none"'
       fingerprint: 15848ae0fa89ae0c3ff07ff572214b1f_0

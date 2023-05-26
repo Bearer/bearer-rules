@@ -24,19 +24,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 1
+            end: 1
+            column:
+                start: 16
+                end: 28
+      sink:
+        location:
             start: 2
             end: 2
             column:
                 start: 1
                 end: 26
         content: elasticsearch.index(user)
-      sink:
-        location:
-            start: 1
-            end: 1
-            column:
-                start: 16
-                end: 28
       parent_line_number: 2
       snippet: elasticsearch.index(user)
       fingerprint: 91c58f293b37db22fa297face0c007b3_0

@@ -22,19 +22,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 3
+            end: 3
+            column:
+                start: 10
+                end: 38
+      sink:
+        location:
             start: 4
             end: 4
             column:
                 start: 1
                 end: 45
         content: 'client.index({ index: ''users'', body: user })'
-      sink:
-        location:
-            start: 3
-            end: 3
-            column:
-                start: 10
-                end: 38
       parent_line_number: 4
       snippet: 'client.index({ index: ''users'', body: user })'
       fingerprint: 93988d54e68509de8c6ec9eca5c9ee30_0

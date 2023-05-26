@@ -36,16 +36,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 1
-                end: 30
-        content: Rails.logger.info(user.email)
+                start: 19
+                end: 29
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 19
-                end: 29
+                start: 1
+                end: 30
+        content: Rails.logger.info(user.email)
       parent_line_number: 1
       snippet: Rails.logger.info(user.email)
       fingerprint: 4126be7d46bfa3cff42c7715a0b01c1a_0

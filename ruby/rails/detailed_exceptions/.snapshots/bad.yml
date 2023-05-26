@@ -38,10 +38,6 @@ low:
             column:
                 start: 3
                 end: 6
-        content: |-
-            def show_detailed_exceptions?
-                foo
-              end
       sink:
         location:
             start: 2
@@ -49,6 +45,10 @@ low:
             column:
                 start: 3
                 end: 6
+        content: |-
+            def show_detailed_exceptions?
+                foo
+              end
       parent_line_number: 2
       snippet: |-
         def show_detailed_exceptions?
@@ -95,7 +95,6 @@ low:
             column:
                 start: 1
                 end: 42
-        content: config.consider_all_requests_local = true
       sink:
         location:
             start: 7
@@ -103,6 +102,7 @@ low:
             column:
                 start: 1
                 end: 42
+        content: config.consider_all_requests_local = true
       parent_line_number: 7
       snippet: config.consider_all_requests_local = true
       fingerprint: 7059a2ab8162be1224ad1d584c3607a6_1

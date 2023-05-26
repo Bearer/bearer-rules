@@ -26,16 +26,16 @@ high:
             start: 7
             end: 7
             column:
-                start: 5
-                end: 51
-        content: newrelic.noticeError(err, customer.ip_address)
+                start: 31
+                end: 50
       sink:
         location:
             start: 7
             end: 7
             column:
-                start: 31
-                end: 50
+                start: 5
+                end: 51
+        content: newrelic.noticeError(err, customer.ip_address)
       parent_line_number: 7
       snippet: newrelic.noticeError(err, customer.ip_address)
       fingerprint: 63161101404765527f0dada7fd00b64e_0

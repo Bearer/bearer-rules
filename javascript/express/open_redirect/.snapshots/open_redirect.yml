@@ -35,7 +35,6 @@ medium:
             column:
                 start: 3
                 end: 31
-        content: res.redirect(req.params.url)
       sink:
         location:
             start: 2
@@ -43,6 +42,7 @@ medium:
             column:
                 start: 3
                 end: 31
+        content: res.redirect(req.params.url)
       parent_line_number: 2
       snippet: res.redirect(req.params.url)
       fingerprint: 39fed10ce763bb1caf6ca1ea51314f28_0
@@ -83,7 +83,6 @@ medium:
             column:
                 start: 3
                 end: 39
-        content: res.redirect(req.query.url + "/bar")
       sink:
         location:
             start: 3
@@ -91,6 +90,7 @@ medium:
             column:
                 start: 3
                 end: 39
+        content: res.redirect(req.query.url + "/bar")
       parent_line_number: 3
       snippet: res.redirect(req.query.url + "/bar")
       fingerprint: 39fed10ce763bb1caf6ca1ea51314f28_1
@@ -131,7 +131,6 @@ medium:
             column:
                 start: 3
                 end: 53
-        content: res.redirect("https://" + req.params.url + "/bar")
       sink:
         location:
             start: 4
@@ -139,6 +138,7 @@ medium:
             column:
                 start: 3
                 end: 53
+        content: res.redirect("https://" + req.params.url + "/bar")
       parent_line_number: 4
       snippet: res.redirect("https://" + req.params.url + "/bar")
       fingerprint: 39fed10ce763bb1caf6ca1ea51314f28_2
@@ -179,7 +179,6 @@ medium:
             column:
                 start: 3
                 end: 53
-        content: res.redirect("http://" + req.params.path + "/bar")
       sink:
         location:
             start: 5
@@ -187,6 +186,7 @@ medium:
             column:
                 start: 3
                 end: 53
+        content: res.redirect("http://" + req.params.path + "/bar")
       parent_line_number: 5
       snippet: res.redirect("http://" + req.params.path + "/bar")
       fingerprint: 39fed10ce763bb1caf6ca1ea51314f28_3

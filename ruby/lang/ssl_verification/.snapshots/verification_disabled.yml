@@ -42,7 +42,6 @@ medium:
             column:
                 start: 1
                 end: 45
-        content: http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       sink:
         location:
             start: 1
@@ -50,6 +49,7 @@ medium:
             column:
                 start: 1
                 end: 45
+        content: http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       parent_line_number: 1
       snippet: http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       fingerprint: a5365845bf89898b802308907f944ba0_0
@@ -97,10 +97,6 @@ medium:
             column:
                 start: 1
                 end: 4
-        content: |-
-            Net::HTTP.start(uri.host, uri.port, :use_ssl => true, :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
-              Net::HTTP::Get.new uri
-            end
       sink:
         location:
             start: 4
@@ -108,6 +104,10 @@ medium:
             column:
                 start: 1
                 end: 4
+        content: |-
+            Net::HTTP.start(uri.host, uri.port, :use_ssl => true, :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
+              Net::HTTP::Get.new uri
+            end
       parent_line_number: 4
       snippet: |-
         Net::HTTP.start(uri.host, uri.port, :use_ssl => true, :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|

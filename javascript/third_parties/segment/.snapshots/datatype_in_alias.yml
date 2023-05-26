@@ -24,6 +24,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 8
+            end: 8
+            column:
+                start: 15
+                end: 25
+      sink:
+        location:
             start: 7
             end: 10
             column:
@@ -34,13 +41,6 @@ high:
               previousId: user.email,
               userId: user.id,
             })
-      sink:
-        location:
-            start: 8
-            end: 8
-            column:
-                start: 15
-                end: 25
       parent_line_number: 7
       snippet: |-
         appAnalytics.alias({

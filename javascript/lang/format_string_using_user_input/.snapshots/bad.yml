@@ -35,7 +35,6 @@ low:
             column:
                 start: 1
                 end: 47
-        content: 'console.error(`Value: ${req.params.value}`, e)'
       sink:
         location:
             start: 1
@@ -43,6 +42,7 @@ low:
             column:
                 start: 1
                 end: 47
+        content: 'console.error(`Value: ${req.params.value}`, e)'
       parent_line_number: 1
       snippet: 'console.error(`Value: ${req.params.value}`, e)'
       fingerprint: 16cab48ad098a8cc47c366d7cec8f691_0
@@ -83,7 +83,6 @@ low:
             column:
                 start: 1
                 end: 42
-        content: 'util.format(`Value: ${req.params.value}`)'
       sink:
         location:
             start: 3
@@ -91,6 +90,7 @@ low:
             column:
                 start: 1
                 end: 42
+        content: 'util.format(`Value: ${req.params.value}`)'
       parent_line_number: 3
       snippet: 'util.format(`Value: ${req.params.value}`)'
       fingerprint: 16cab48ad098a8cc47c366d7cec8f691_1
@@ -131,7 +131,6 @@ low:
             column:
                 start: 1
                 end: 63
-        content: 'util.formatWithOptions({}, `Value: ${req.params.value} %s`, x)'
       sink:
         location:
             start: 5
@@ -139,6 +138,7 @@ low:
             column:
                 start: 1
                 end: 63
+        content: 'util.formatWithOptions({}, `Value: ${req.params.value} %s`, x)'
       parent_line_number: 5
       snippet: 'util.formatWithOptions({}, `Value: ${req.params.value} %s`, x)'
       fingerprint: 16cab48ad098a8cc47c366d7cec8f691_2

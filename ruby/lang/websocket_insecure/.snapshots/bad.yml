@@ -37,7 +37,6 @@ low:
             column:
                 start: 1
                 end: 77
-        content: 'Kontena::Websocket::Client.connect("ws://insecure.com", open_timeout: 10) {}'
       sink:
         location:
             start: 1
@@ -45,6 +44,7 @@ low:
             column:
                 start: 1
                 end: 77
+        content: 'Kontena::Websocket::Client.connect("ws://insecure.com", open_timeout: 10) {}'
       parent_line_number: 1
       snippet: 'Kontena::Websocket::Client.connect("ws://insecure.com", open_timeout: 10) {}'
       fingerprint: bcc573d3a83db4a60b21daaa844429ed_0
@@ -87,7 +87,6 @@ low:
             column:
                 start: 1
                 end: 62
-        content: WebSocket::Client::Simple.connect("ws://insecure.com", {}) {}
       sink:
         location:
             start: 3
@@ -95,6 +94,7 @@ low:
             column:
                 start: 1
                 end: 62
+        content: WebSocket::Client::Simple.connect("ws://insecure.com", {}) {}
       parent_line_number: 3
       snippet: WebSocket::Client::Simple.connect("ws://insecure.com", {}) {}
       fingerprint: bcc573d3a83db4a60b21daaa844429ed_1
@@ -137,7 +137,6 @@ low:
             column:
                 start: 1
                 end: 71
-        content: WebSocket::Client::Simple::Client.new.connect("ws://insecure.com", {})
       sink:
         location:
             start: 4
@@ -145,6 +144,7 @@ low:
             column:
                 start: 1
                 end: 71
+        content: WebSocket::Client::Simple::Client.new.connect("ws://insecure.com", {})
       parent_line_number: 4
       snippet: WebSocket::Client::Simple::Client.new.connect("ws://insecure.com", {})
       fingerprint: bcc573d3a83db4a60b21daaa844429ed_2
@@ -187,7 +187,6 @@ low:
             column:
                 start: 1
                 end: 54
-        content: Faye::WebSocket::Client.new("ws://insecure.com", nil)
       sink:
         location:
             start: 6
@@ -195,6 +194,7 @@ low:
             column:
                 start: 1
                 end: 54
+        content: Faye::WebSocket::Client.new("ws://insecure.com", nil)
       parent_line_number: 6
       snippet: Faye::WebSocket::Client.new("ws://insecure.com", nil)
       fingerprint: bcc573d3a83db4a60b21daaa844429ed_3
@@ -237,7 +237,6 @@ low:
             column:
                 start: 1
                 end: 59
-        content: 'WebSocket::Handshake::Client.new(url: "ws://insecure.com")'
       sink:
         location:
             start: 8
@@ -245,6 +244,7 @@ low:
             column:
                 start: 1
                 end: 59
+        content: 'WebSocket::Handshake::Client.new(url: "ws://insecure.com")'
       parent_line_number: 8
       snippet: 'WebSocket::Handshake::Client.new(url: "ws://insecure.com")'
       fingerprint: bcc573d3a83db4a60b21daaa844429ed_4
@@ -287,7 +287,6 @@ low:
             column:
                 start: 1
                 end: 70
-        content: 'WebSocket::Handshake::Client.new(secure: false, host: "insecure.com")'
       sink:
         location:
             start: 9
@@ -295,6 +294,7 @@ low:
             column:
                 start: 1
                 end: 70
+        content: 'WebSocket::Handshake::Client.new(secure: false, host: "insecure.com")'
       parent_line_number: 9
       snippet: 'WebSocket::Handshake::Client.new(secure: false, host: "insecure.com")'
       fingerprint: bcc573d3a83db4a60b21daaa844429ed_5

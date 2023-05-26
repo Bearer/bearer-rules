@@ -37,7 +37,6 @@ high:
             column:
                 start: 1
                 end: 37
-        content: 'Dir["foo", base: request.env[:oops]]'
       sink:
         location:
             start: 1
@@ -45,6 +44,7 @@ high:
             column:
                 start: 1
                 end: 37
+        content: 'Dir["foo", base: request.env[:oops]]'
       parent_line_number: 1
       snippet: 'Dir["foo", base: request.env[:oops]]'
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_0
@@ -87,7 +87,6 @@ high:
             column:
                 start: 1
                 end: 41
-        content: Dir.chdir("/home/#{request.env[:oops]}")
       sink:
         location:
             start: 3
@@ -95,6 +94,7 @@ high:
             column:
                 start: 1
                 end: 41
+        content: Dir.chdir("/home/#{request.env[:oops]}")
       parent_line_number: 3
       snippet: Dir.chdir("/home/#{request.env[:oops]}")
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_1
@@ -137,7 +137,6 @@ high:
             column:
                 start: 1
                 end: 32
-        content: File.exist?(request.env[:oops])
       sink:
         location:
             start: 5
@@ -145,6 +144,7 @@ high:
             column:
                 start: 1
                 end: 32
+        content: File.exist?(request.env[:oops])
       parent_line_number: 5
       snippet: File.exist?(request.env[:oops])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_2
@@ -187,7 +187,6 @@ high:
             column:
                 start: 1
                 end: 44
-        content: IO.readlines("/home/#{request.env[:oops]}")
       sink:
         location:
             start: 7
@@ -195,6 +194,7 @@ high:
             column:
                 start: 1
                 end: 44
+        content: IO.readlines("/home/#{request.env[:oops]}")
       parent_line_number: 7
       snippet: IO.readlines("/home/#{request.env[:oops]}")
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_3
@@ -237,9 +237,6 @@ high:
             column:
                 start: 1
                 end: 4
-        content: |-
-            Kernel.open(request.env[:oops], "w+") do
-            end
       sink:
         location:
             start: 9
@@ -247,6 +244,9 @@ high:
             column:
                 start: 1
                 end: 4
+        content: |-
+            Kernel.open(request.env[:oops], "w+") do
+            end
       parent_line_number: 9
       snippet: |-
         Kernel.open(request.env[:oops], "w+") do
@@ -291,7 +291,6 @@ high:
             column:
                 start: 1
                 end: 25
-        content: open(request.env[:oops])
       sink:
         location:
             start: 12
@@ -299,6 +298,7 @@ high:
             column:
                 start: 1
                 end: 25
+        content: open(request.env[:oops])
       parent_line_number: 12
       snippet: open(request.env[:oops])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_5
@@ -341,7 +341,6 @@ high:
             column:
                 start: 1
                 end: 31
-        content: PStore.new(request.env[:oops])
       sink:
         location:
             start: 14
@@ -349,6 +348,7 @@ high:
             column:
                 start: 1
                 end: 31
+        content: PStore.new(request.env[:oops])
       parent_line_number: 14
       snippet: PStore.new(request.env[:oops])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_6
@@ -391,7 +391,6 @@ high:
             column:
                 start: 8
                 end: 40
-        content: Pathname.new(request.env[:oops])
       sink:
         location:
             start: 16
@@ -399,6 +398,7 @@ high:
             column:
                 start: 8
                 end: 40
+        content: Pathname.new(request.env[:oops])
       parent_line_number: 16
       snippet: Pathname.new(request.env[:oops])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_7
@@ -441,7 +441,6 @@ high:
             column:
                 start: 1
                 end: 30
-        content: path + request.headers[:oops]
       sink:
         location:
             start: 17
@@ -449,6 +448,7 @@ high:
             column:
                 start: 1
                 end: 30
+        content: path + request.headers[:oops]
       parent_line_number: 17
       snippet: path + request.headers[:oops]
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_8
@@ -491,7 +491,6 @@ high:
             column:
                 start: 1
                 end: 39
-        content: path / request.query_parameters[:oops]
       sink:
         location:
             start: 18
@@ -499,6 +498,7 @@ high:
             column:
                 start: 1
                 end: 39
+        content: path / request.query_parameters[:oops]
       parent_line_number: 18
       snippet: path / request.query_parameters[:oops]
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_9
@@ -541,7 +541,6 @@ high:
             column:
                 start: 1
                 end: 29
-        content: path.join("a", request.body)
       sink:
         location:
             start: 19
@@ -549,6 +548,7 @@ high:
             column:
                 start: 1
                 end: 29
+        content: path.join("a", request.body)
       parent_line_number: 19
       snippet: path.join("a", request.body)
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_10

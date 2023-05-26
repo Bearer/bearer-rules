@@ -24,19 +24,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 1
+            end: 1
+            column:
+                start: 10
+                end: 35
+      sink:
+        location:
             start: 2
             end: 2
             column:
                 start: 1
                 end: 44
         content: NewRelic::Agent.add_custom_attributes(user)
-      sink:
-        location:
-            start: 1
-            end: 1
-            column:
-                start: 10
-                end: 35
       parent_line_number: 2
       snippet: NewRelic::Agent.add_custom_attributes(user)
       fingerprint: e91414b566cbe37b71f0714e38013f90_0
@@ -69,16 +69,16 @@ high:
             start: 3
             end: 3
             column:
-                start: 1
-                end: 97
-        content: 'NewRelic::Agent.add_custom_attributes(a: "test", user: { email: "user@example.com" }, other: 42)'
+                start: 58
+                end: 83
       sink:
         location:
             start: 3
             end: 3
             column:
-                start: 58
-                end: 83
+                start: 1
+                end: 97
+        content: 'NewRelic::Agent.add_custom_attributes(a: "test", user: { email: "user@example.com" }, other: 42)'
       parent_line_number: 3
       snippet: 'NewRelic::Agent.add_custom_attributes(a: "test", user: { email: "user@example.com" }, other: 42)'
       fingerprint: e91414b566cbe37b71f0714e38013f90_1

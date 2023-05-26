@@ -41,7 +41,6 @@ high:
             column:
                 start: 3
                 end: 28
-        content: axios.get(req.query.path)
       sink:
         location:
             start: 10
@@ -49,6 +48,7 @@ high:
             column:
                 start: 3
                 end: 28
+        content: axios.get(req.query.path)
       parent_line_number: 10
       snippet: axios.get(req.query.path)
       fingerprint: 2cac44cfde0c19367f3aa0fde6167679_0

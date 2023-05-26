@@ -37,16 +37,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 1
-                end: 20
-        content: log.info(user.name)
+                start: 10
+                end: 19
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 10
-                end: 19
+                start: 1
+                end: 20
+        content: log.info(user.name)
       parent_line_number: 1
       snippet: log.info(user.name)
       fingerprint: 327449cd47ed82672cc47bf9cfccdb4a_0

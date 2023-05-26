@@ -37,7 +37,6 @@ high:
             column:
                 start: 1
                 end: 24
-        content: Shell.cd(params[:oops])
       sink:
         location:
             start: 3
@@ -45,6 +44,7 @@ high:
             column:
                 start: 1
                 end: 24
+        content: Shell.cd(params[:oops])
       parent_line_number: 3
       snippet: Shell.cd(params[:oops])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_0
@@ -87,7 +87,6 @@ high:
             column:
                 start: 1
                 end: 42
-        content: Shell.default_system_path = params[:oops]
       sink:
         location:
             start: 5
@@ -95,6 +94,7 @@ high:
             column:
                 start: 1
                 end: 42
+        content: Shell.default_system_path = params[:oops]
       parent_line_number: 5
       snippet: Shell.default_system_path = params[:oops]
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_1
@@ -137,7 +137,6 @@ high:
             column:
                 start: 9
                 end: 40
-        content: Shell.new(params[:oops], umask)
       sink:
         location:
             start: 7
@@ -145,6 +144,7 @@ high:
             column:
                 start: 9
                 end: 40
+        content: Shell.new(params[:oops], umask)
       parent_line_number: 7
       snippet: Shell.new(params[:oops], umask)
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_2
@@ -187,7 +187,6 @@ high:
             column:
                 start: 1
                 end: 35
-        content: shell.pushdir(params[:oops], true)
       sink:
         location:
             start: 9
@@ -195,6 +194,7 @@ high:
             column:
                 start: 1
                 end: 35
+        content: shell.pushdir(params[:oops], true)
       parent_line_number: 9
       snippet: shell.pushdir(params[:oops], true)
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_3
@@ -237,7 +237,6 @@ high:
             column:
                 start: 1
                 end: 41
-        content: processor1.foreach(params[:oops], rs) {}
       sink:
         location:
             start: 12
@@ -245,6 +244,7 @@ high:
             column:
                 start: 1
                 end: 41
+        content: processor1.foreach(params[:oops], rs) {}
       parent_line_number: 12
       snippet: processor1.foreach(params[:oops], rs) {}
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_4
@@ -287,7 +287,6 @@ high:
             column:
                 start: 1
                 end: 44
-        content: processor2.test(:exists?, x, params[:oops])
       sink:
         location:
             start: 15
@@ -295,6 +294,7 @@ high:
             column:
                 start: 1
                 end: 44
+        content: processor2.test(:exists?, x, params[:oops])
       parent_line_number: 15
       snippet: processor2.test(:exists?, x, params[:oops])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_5
@@ -337,7 +337,6 @@ high:
             column:
                 start: 1
                 end: 42
-        content: processor2[:exists?, x, params[:oops], y]
       sink:
         location:
             start: 17
@@ -345,6 +344,7 @@ high:
             column:
                 start: 1
                 end: 42
+        content: processor2[:exists?, x, params[:oops], y]
       parent_line_number: 17
       snippet: processor2[:exists?, x, params[:oops], y]
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_6
@@ -387,7 +387,6 @@ high:
             column:
                 start: 3
                 end: 32
-        content: test(:exists?, params[:oops])
       sink:
         location:
             start: 20
@@ -395,6 +394,7 @@ high:
             column:
                 start: 3
                 end: 32
+        content: test(:exists?, params[:oops])
       parent_line_number: 20
       snippet: test(:exists?, params[:oops])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_7
@@ -437,7 +437,6 @@ high:
             column:
                 start: 9
                 end: 33
-        content: Shell.new(params[:oops])
       sink:
         location:
             start: 24
@@ -445,6 +444,7 @@ high:
             column:
                 start: 9
                 end: 33
+        content: Shell.new(params[:oops])
       parent_line_number: 24
       snippet: Shell.new(params[:oops])
       fingerprint: d8ab0f4720e4b75e105ae709050ef6ed_8

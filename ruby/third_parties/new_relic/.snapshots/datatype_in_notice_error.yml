@@ -24,19 +24,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 1
+            end: 1
+            column:
+                start: 10
+                end: 27
+      sink:
+        location:
             start: 2
             end: 2
             column:
                 start: 1
                 end: 65
         content: 'NewRelic::Agent.notice_error(exception, { custom_params: user })'
-      sink:
-        location:
-            start: 1
-            end: 1
-            column:
-                start: 10
-                end: 27
       parent_line_number: 2
       snippet: 'NewRelic::Agent.notice_error(exception, { custom_params: user })'
       fingerprint: e91414b566cbe37b71f0714e38013f90_0
@@ -69,16 +69,16 @@ high:
             start: 3
             end: 3
             column:
-                start: 1
-                end: 109
-        content: 'NewRelic::Agent.notice_error(exception, expected: true, custom_params: { last_name: "foo" }, metric: "test")'
+                start: 74
+                end: 90
       sink:
         location:
             start: 3
             end: 3
             column:
-                start: 74
-                end: 90
+                start: 1
+                end: 109
+        content: 'NewRelic::Agent.notice_error(exception, expected: true, custom_params: { last_name: "foo" }, metric: "test")'
       parent_line_number: 3
       snippet: 'NewRelic::Agent.notice_error(exception, expected: true, custom_params: { last_name: "foo" }, metric: "test")'
       fingerprint: e91414b566cbe37b71f0714e38013f90_1

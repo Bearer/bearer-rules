@@ -36,7 +36,6 @@ medium:
             column:
                 start: 7
                 end: 40
-        content: Net::FTP.new("ftp.ruby-lang.org")
       sink:
         location:
             start: 8
@@ -44,6 +43,7 @@ medium:
             column:
                 start: 7
                 end: 40
+        content: Net::FTP.new("ftp.ruby-lang.org")
       parent_line_number: 8
       snippet: Net::FTP.new("ftp.ruby-lang.org")
       fingerprint: b48187bc987e84ed94e63b90448fda84_0

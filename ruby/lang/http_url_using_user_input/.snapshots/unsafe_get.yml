@@ -42,7 +42,6 @@ high:
             column:
                 start: 1
                 end: 27
-        content: Faraday.get(params[:oops])
       sink:
         location:
             start: 1
@@ -50,6 +49,7 @@ high:
             column:
                 start: 1
                 end: 27
+        content: Faraday.get(params[:oops])
       parent_line_number: 1
       snippet: Faraday.get(params[:oops])
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_0

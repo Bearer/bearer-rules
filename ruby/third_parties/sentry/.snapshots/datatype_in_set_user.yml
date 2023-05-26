@@ -26,16 +26,16 @@ high:
             start: 3
             end: 3
             column:
-                start: 1
-                end: 35
-        content: 'Sentry.set_user(email: user.email)'
+                start: 24
+                end: 34
       sink:
         location:
             start: 3
             end: 3
             column:
-                start: 24
-                end: 34
+                start: 1
+                end: 35
+        content: 'Sentry.set_user(email: user.email)'
       parent_line_number: 3
       snippet: 'Sentry.set_user(email: user.email)'
       fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_0
@@ -67,16 +67,16 @@ high:
             start: 6
             end: 6
             column:
-                start: 3
-                end: 36
-        content: 'scope.set_user(email: user.email)'
+                start: 25
+                end: 35
       sink:
         location:
             start: 6
             end: 6
             column:
-                start: 25
-                end: 35
+                start: 3
+                end: 36
+        content: 'scope.set_user(email: user.email)'
       parent_line_number: 6
       snippet: 'scope.set_user(email: user.email)'
       fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_1
@@ -108,16 +108,16 @@ high:
             start: 10
             end: 10
             column:
-                start: 3
-                end: 36
-        content: 'scope.set_user(email: user.email)'
+                start: 25
+                end: 35
       sink:
         location:
             start: 10
             end: 10
             column:
-                start: 25
-                end: 35
+                start: 3
+                end: 36
+        content: 'scope.set_user(email: user.email)'
       parent_line_number: 10
       snippet: 'scope.set_user(email: user.email)'
       fingerprint: 5d8b2ba735b43a85c387bc0d7f2d4226_2

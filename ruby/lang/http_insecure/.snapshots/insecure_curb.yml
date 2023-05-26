@@ -36,9 +36,6 @@ low:
             column:
                 start: 1
                 end: 4
-        content: |-
-            Curl.http("GET", "http://my.api.com/users/search", nil) do
-            end
       sink:
         location:
             start: 3
@@ -46,6 +43,9 @@ low:
             column:
                 start: 1
                 end: 4
+        content: |-
+            Curl.http("GET", "http://my.api.com/users/search", nil) do
+            end
       parent_line_number: 3
       snippet: |-
         Curl.http("GET", "http://my.api.com/users/search", nil) do
@@ -89,7 +89,6 @@ low:
             column:
                 start: 1
                 end: 46
-        content: Curl.get("http://my.api.com/users/search") {}
       sink:
         location:
             start: 6
@@ -97,6 +96,7 @@ low:
             column:
                 start: 1
                 end: 46
+        content: Curl.get("http://my.api.com/users/search") {}
       parent_line_number: 6
       snippet: Curl.get("http://my.api.com/users/search") {}
       fingerprint: e9e2ed12574caf1a717fbe12e9ece4c1_1
@@ -138,7 +138,6 @@ low:
             column:
                 start: 1
                 end: 56
-        content: Curl::Easy.perform("http://my.api.com/users/search") {}
       sink:
         location:
             start: 8
@@ -146,6 +145,7 @@ low:
             column:
                 start: 1
                 end: 56
+        content: Curl::Easy.perform("http://my.api.com/users/search") {}
       parent_line_number: 8
       snippet: Curl::Easy.perform("http://my.api.com/users/search") {}
       fingerprint: e9e2ed12574caf1a717fbe12e9ece4c1_2
@@ -187,7 +187,6 @@ low:
             column:
                 start: 8
                 end: 59
-        content: Curl::Easy.new("http://my.api.com/users/search") {}
       sink:
         location:
             start: 10
@@ -195,6 +194,7 @@ low:
             column:
                 start: 8
                 end: 59
+        content: Curl::Easy.new("http://my.api.com/users/search") {}
       parent_line_number: 10
       snippet: Curl::Easy.new("http://my.api.com/users/search") {}
       fingerprint: e9e2ed12574caf1a717fbe12e9ece4c1_3
@@ -236,7 +236,6 @@ low:
             column:
                 start: 1
                 end: 41
-        content: easy.url = "http://my.api.com/customers"
       sink:
         location:
             start: 11
@@ -244,6 +243,7 @@ low:
             column:
                 start: 1
                 end: 41
+        content: easy.url = "http://my.api.com/customers"
       parent_line_number: 11
       snippet: easy.url = "http://my.api.com/customers"
       fingerprint: e9e2ed12574caf1a717fbe12e9ece4c1_4
@@ -285,7 +285,6 @@ low:
             column:
                 start: 1
                 end: 45
-        content: easy2.url = "http://my.api.com/users/search"
       sink:
         location:
             start: 14
@@ -293,6 +292,7 @@ low:
             column:
                 start: 1
                 end: 45
+        content: easy2.url = "http://my.api.com/users/search"
       parent_line_number: 14
       snippet: easy2.url = "http://my.api.com/users/search"
       fingerprint: e9e2ed12574caf1a717fbe12e9ece4c1_5
@@ -334,7 +334,6 @@ low:
             column:
                 start: 1
                 end: 88
-        content: Curl::Multi.get(["https://my.api.com/secure", "http://my.api.com/users/search"], {}) {}
       sink:
         location:
             start: 16
@@ -342,6 +341,7 @@ low:
             column:
                 start: 1
                 end: 88
+        content: Curl::Multi.get(["https://my.api.com/secure", "http://my.api.com/users/search"], {}) {}
       parent_line_number: 16
       snippet: Curl::Multi.get(["https://my.api.com/secure", "http://my.api.com/users/search"], {}) {}
       fingerprint: e9e2ed12574caf1a717fbe12e9ece4c1_6
@@ -383,7 +383,6 @@ low:
             column:
                 start: 1
                 end: 80
-        content: 'Curl::Multi.http([{ url: "http://my.api.com/users/search", method: :post }]) {}'
       sink:
         location:
             start: 18
@@ -391,6 +390,7 @@ low:
             column:
                 start: 1
                 end: 80
+        content: 'Curl::Multi.http([{ url: "http://my.api.com/users/search", method: :post }]) {}'
       parent_line_number: 18
       snippet: 'Curl::Multi.http([{ url: "http://my.api.com/users/search", method: :post }]) {}'
       fingerprint: e9e2ed12574caf1a717fbe12e9ece4c1_7

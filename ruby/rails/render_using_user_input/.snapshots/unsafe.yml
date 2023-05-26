@@ -37,7 +37,6 @@ high:
             column:
                 start: 1
                 end: 27
-        content: 'render html: params[:oops]'
       sink:
         location:
             start: 1
@@ -45,6 +44,7 @@ high:
             column:
                 start: 1
                 end: 27
+        content: 'render html: params[:oops]'
       parent_line_number: 1
       snippet: 'render html: params[:oops]'
       fingerprint: dc07dbdb5ca1d80d0e141eb46186a1b3_0
@@ -87,7 +87,6 @@ high:
             column:
                 start: 1
                 end: 43
-        content: 'render inline: "<h1>#{params[:oops]}</h1>"'
       sink:
         location:
             start: 2
@@ -95,6 +94,7 @@ high:
             column:
                 start: 1
                 end: 43
+        content: 'render inline: "<h1>#{params[:oops]}</h1>"'
       parent_line_number: 2
       snippet: 'render inline: "<h1>#{params[:oops]}</h1>"'
       fingerprint: dc07dbdb5ca1d80d0e141eb46186a1b3_1

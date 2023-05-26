@@ -42,7 +42,6 @@ high:
             column:
                 start: 1
                 end: 43
-        content: '`<h1 class="test">${req.params.oops}</h1>`'
       sink:
         location:
             start: 1
@@ -50,6 +49,7 @@ high:
             column:
                 start: 1
                 end: 43
+        content: '`<h1 class="test">${req.params.oops}</h1>`'
       parent_line_number: 1
       snippet: '`<h1 class="test">${req.params.oops}</h1>`'
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_0
@@ -97,7 +97,6 @@ high:
             column:
                 start: 1
                 end: 30
-        content: '`<h1>${req.params.oops}</h1>`'
       sink:
         location:
             start: 2
@@ -105,6 +104,7 @@ high:
             column:
                 start: 1
                 end: 30
+        content: '`<h1>${req.params.oops}</h1>`'
       parent_line_number: 2
       snippet: '`<h1>${req.params.oops}</h1>`'
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_1
@@ -152,7 +152,6 @@ high:
             column:
                 start: 1
                 end: 33
-        content: doT.compile(req.params.oops, {})
       sink:
         location:
             start: 4
@@ -160,6 +159,7 @@ high:
             column:
                 start: 1
                 end: 33
+        content: doT.compile(req.params.oops, {})
       parent_line_number: 4
       snippet: doT.compile(req.params.oops, {})
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_2
@@ -207,7 +207,6 @@ high:
             column:
                 start: 1
                 end: 33
-        content: ejs.compile(req.params.oops, {})
       sink:
         location:
             start: 6
@@ -215,6 +214,7 @@ high:
             column:
                 start: 1
                 end: 33
+        content: ejs.compile(req.params.oops, {})
       parent_line_number: 6
       snippet: ejs.compile(req.params.oops, {})
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_3
@@ -262,7 +262,6 @@ high:
             column:
                 start: 1
                 end: 40
-        content: Handlebars.compile(req.params.oops, {})
       sink:
         location:
             start: 8
@@ -270,6 +269,7 @@ high:
             column:
                 start: 1
                 end: 40
+        content: Handlebars.compile(req.params.oops, {})
       parent_line_number: 8
       snippet: Handlebars.compile(req.params.oops, {})
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_4
@@ -317,7 +317,6 @@ high:
             column:
                 start: 1
                 end: 47
-        content: Hogan.parse(Hogan.scan(req.params.oops), null)
       sink:
         location:
             start: 10
@@ -325,6 +324,7 @@ high:
             column:
                 start: 1
                 end: 47
+        content: Hogan.parse(Hogan.scan(req.params.oops), null)
       parent_line_number: 10
       snippet: Hogan.parse(Hogan.scan(req.params.oops), null)
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_5
@@ -372,7 +372,6 @@ high:
             column:
                 start: 1
                 end: 29
-        content: $.templates(req.params.oops)
       sink:
         location:
             start: 12
@@ -380,6 +379,7 @@ high:
             column:
                 start: 1
                 end: 29
+        content: $.templates(req.params.oops)
       parent_line_number: 12
       snippet: $.templates(req.params.oops)
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_6
@@ -427,7 +427,6 @@ high:
             column:
                 start: 1
                 end: 30
-        content: template(req.params.oops, {})
       sink:
         location:
             start: 14
@@ -435,6 +434,7 @@ high:
             column:
                 start: 1
                 end: 30
+        content: template(req.params.oops, {})
       parent_line_number: 14
       snippet: template(req.params.oops, {})
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_7
@@ -482,7 +482,6 @@ high:
             column:
                 start: 1
                 end: 32
-        content: _.template(req.params.oops, {})
       sink:
         location:
             start: 15
@@ -490,6 +489,7 @@ high:
             column:
                 start: 1
                 end: 32
+        content: _.template(req.params.oops, {})
       parent_line_number: 15
       snippet: _.template(req.params.oops, {})
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_8
@@ -537,7 +537,6 @@ high:
             column:
                 start: 1
                 end: 49
-        content: compiler.compileSync(req.params.oops, "test.js")
       sink:
         location:
             start: 17
@@ -545,6 +544,7 @@ high:
             column:
                 start: 1
                 end: 49
+        content: compiler.compileSync(req.params.oops, "test.js")
       parent_line_number: 17
       snippet: compiler.compileSync(req.params.oops, "test.js")
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_9
@@ -592,7 +592,6 @@ high:
             column:
                 start: 1
                 end: 37
-        content: Mustache.render(req.params.oops, {})
       sink:
         location:
             start: 19
@@ -600,6 +599,7 @@ high:
             column:
                 start: 1
                 end: 37
+        content: Mustache.render(req.params.oops, {})
       parent_line_number: 19
       snippet: Mustache.render(req.params.oops, {})
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_10
@@ -647,7 +647,6 @@ high:
             column:
                 start: 1
                 end: 43
-        content: nunjucks.renderString(req.params.oops, {})
       sink:
         location:
             start: 21
@@ -655,6 +654,7 @@ high:
             column:
                 start: 1
                 end: 43
+        content: nunjucks.renderString(req.params.oops, {})
       parent_line_number: 21
       snippet: nunjucks.renderString(req.params.oops, {})
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_11
@@ -702,7 +702,6 @@ high:
             column:
                 start: 1
                 end: 32
-        content: pug.render(req.params.oops, {})
       sink:
         location:
             start: 23
@@ -710,6 +709,7 @@ high:
             column:
                 start: 1
                 end: 32
+        content: pug.render(req.params.oops, {})
       parent_line_number: 23
       snippet: pug.render(req.params.oops, {})
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_12
@@ -757,7 +757,6 @@ high:
             column:
                 start: 1
                 end: 33
-        content: Sqrl.render(req.params.oops, {})
       sink:
         location:
             start: 25
@@ -765,6 +764,7 @@ high:
             column:
                 start: 1
                 end: 33
+        content: Sqrl.render(req.params.oops, {})
       parent_line_number: 25
       snippet: Sqrl.render(req.params.oops, {})
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_13
@@ -812,7 +812,6 @@ high:
             column:
                 start: 1
                 end: 39
-        content: Template7.compile(req.params.oops, {})
       sink:
         location:
             start: 27
@@ -820,6 +819,7 @@ high:
             column:
                 start: 1
                 end: 39
+        content: Template7.compile(req.params.oops, {})
       parent_line_number: 27
       snippet: Template7.compile(req.params.oops, {})
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_14
@@ -867,6 +867,13 @@ high:
             column:
                 start: 1
                 end: 3
+      sink:
+        location:
+            start: 29
+            end: 35
+            column:
+                start: 1
+                end: 3
         content: |-
             webix.ui({
               id: "mylayout",
@@ -875,13 +882,6 @@ high:
                 { template: req.params.oops }
               ]
             })
-      sink:
-        location:
-            start: 29
-            end: 35
-            column:
-                start: 1
-                end: 3
       parent_line_number: 29
       snippet: |-
         webix.ui({
@@ -936,7 +936,6 @@ high:
             column:
                 start: 3
                 end: 47
-        content: 'Eta.render(req.params, { name: "insecure" })'
       sink:
         location:
             start: 44
@@ -944,6 +943,7 @@ high:
             column:
                 start: 3
                 end: 47
+        content: 'Eta.render(req.params, { name: "insecure" })'
       parent_line_number: 44
       snippet: 'Eta.render(req.params, { name: "insecure" })'
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_16
@@ -991,7 +991,6 @@ high:
             column:
                 start: 3
                 end: 44
-        content: whiskers.render(req.params.text, context)
       sink:
         location:
             start: 51
@@ -999,6 +998,7 @@ high:
             column:
                 start: 3
                 end: 44
+        content: whiskers.render(req.params.text, context)
       parent_line_number: 51
       snippet: whiskers.render(req.params.text, context)
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_17
@@ -1046,7 +1046,6 @@ high:
             column:
                 start: 3
                 end: 52
-        content: 'engine.parse(req.params.text, { hello: "world" })'
       sink:
         location:
             start: 58
@@ -1054,6 +1053,7 @@ high:
             column:
                 start: 3
                 end: 52
+        content: 'engine.parse(req.params.text, { hello: "world" })'
       parent_line_number: 58
       snippet: 'engine.parse(req.params.text, { hello: "world" })'
       fingerprint: 56d9a2a17ab908c88aee2b81bceff767_18

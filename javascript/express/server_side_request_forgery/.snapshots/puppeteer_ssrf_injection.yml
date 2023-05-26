@@ -41,7 +41,6 @@ high:
             column:
                 start: 9
                 end: 33
-        content: page.setContent(content)
       sink:
         location:
             start: 15
@@ -49,6 +48,7 @@ high:
             column:
                 start: 9
                 end: 33
+        content: page.setContent(content)
       parent_line_number: 15
       snippet: page.setContent(content)
       fingerprint: 2cac44cfde0c19367f3aa0fde6167679_0
@@ -95,7 +95,6 @@ high:
             column:
                 start: 9
                 end: 47
-        content: page.goto("https://" + req.query.path)
       sink:
         location:
             start: 16
@@ -103,6 +102,7 @@ high:
             column:
                 start: 9
                 end: 47
+        content: page.goto("https://" + req.query.path)
       parent_line_number: 16
       snippet: page.goto("https://" + req.query.path)
       fingerprint: 2cac44cfde0c19367f3aa0fde6167679_1

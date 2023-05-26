@@ -36,6 +36,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 3
+            end: 3
+            column:
+                start: 12
+                end: 35
+      sink:
+        location:
             start: 2
             end: 5
             column:
@@ -46,13 +53,6 @@ high:
             	{ user: { email: "jhon@gmail.com" } },
             	process.env.JWT_SECRET
             )
-      sink:
-        location:
-            start: 3
-            end: 3
-            column:
-                start: 12
-                end: 35
       parent_line_number: 2
       snippet: |-
         jwt.sign(

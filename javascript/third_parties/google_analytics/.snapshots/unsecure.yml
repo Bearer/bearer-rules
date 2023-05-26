@@ -34,6 +34,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 3
+            end: 3
+            column:
+                start: 3
+                end: 26
+      sink:
+        location:
             start: 1
             end: 5
             column:
@@ -45,13 +52,6 @@ high:
             		email: "jhon@gmail.com",
             	},
             })
-      sink:
-        location:
-            start: 3
-            end: 3
-            column:
-                start: 3
-                end: 26
       parent_line_number: 1
       snippet: |-
         gtag("event", "screen_view", {

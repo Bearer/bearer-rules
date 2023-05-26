@@ -59,16 +59,16 @@ critical:
             start: 1
             end: 1
             column:
-                start: 7
-                end: 81
-        content: URI("https://my.api.com/users/search?ethnic_origin=#{user.ethnic_origin}")
+                start: 60
+                end: 78
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 60
-                end: 78
+                start: 7
+                end: 81
+        content: URI("https://my.api.com/users/search?ethnic_origin=#{user.ethnic_origin}")
       parent_line_number: 1
       snippet: URI("https://my.api.com/users/search?ethnic_origin=#{user.ethnic_origin}")
       fingerprint: 8894dae3b2e5b5fbbe850e0eb0759f58_1
@@ -133,16 +133,16 @@ high:
             start: 3
             end: 3
             column:
-                start: 1
-                end: 80
-        content: RestClient.get("https://my.api.com/users/search?first_name=#{user.first_name}")
+                start: 62
+                end: 77
       sink:
         location:
             start: 3
             end: 3
             column:
-                start: 62
-                end: 77
+                start: 1
+                end: 80
+        content: RestClient.get("https://my.api.com/users/search?first_name=#{user.first_name}")
       parent_line_number: 3
       snippet: RestClient.get("https://my.api.com/users/search?first_name=#{user.first_name}")
       fingerprint: 8894dae3b2e5b5fbbe850e0eb0759f58_0

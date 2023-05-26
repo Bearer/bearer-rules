@@ -33,7 +33,6 @@ low:
             column:
                 start: 1
                 end: 23
-        content: http.createServer(app)
       sink:
         location:
             start: 1
@@ -41,6 +40,7 @@ low:
             column:
                 start: 1
                 end: 23
+        content: http.createServer(app)
       parent_line_number: 1
       snippet: http.createServer(app)
       fingerprint: d3c9698c21c130aa1d04a0c9d85abe8f_0

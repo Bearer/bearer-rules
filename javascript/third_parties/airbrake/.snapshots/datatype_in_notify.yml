@@ -36,16 +36,16 @@ high:
             start: 9
             end: 9
             column:
-                start: 15
-                end: 68
-        content: airbrake.notify("user " + currentUser().emailAddress)
+                start: 41
+                end: 67
       sink:
         location:
             start: 9
             end: 9
             column:
-                start: 41
-                end: 67
+                start: 15
+                end: 68
+        content: airbrake.notify("user " + currentUser().emailAddress)
       parent_line_number: 9
       snippet: airbrake.notify("user " + currentUser().emailAddress)
       fingerprint: b062988f903356f85f1052011a6c72d0_0
@@ -83,6 +83,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 18
+            end: 18
+            column:
+                start: 23
+                end: 37
+      sink:
+        location:
             start: 16
             end: 19
             column:
@@ -93,13 +100,6 @@ high:
                   error: err,
                   params: { user: user.ipAddress },
                 })
-      sink:
-        location:
-            start: 18
-            end: 18
-            column:
-                start: 23
-                end: 37
       parent_line_number: 16
       snippet: |-
         airbrake.notify({

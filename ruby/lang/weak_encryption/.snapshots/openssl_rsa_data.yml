@@ -46,7 +46,6 @@ high:
             column:
                 start: 1
                 end: 42
-        content: rsa_encrypt.export(cipher, user.password)
       sink:
         location:
             start: 5
@@ -54,6 +53,7 @@ high:
             column:
                 start: 1
                 end: 42
+        content: rsa_encrypt.export(cipher, user.password)
       parent_line_number: 5
       snippet: rsa_encrypt.export(cipher, user.password)
       fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1
@@ -105,7 +105,6 @@ high:
             column:
                 start: 1
                 end: 61
-        content: OpenSSL::PKey::RSA.new(1024).to_pem(cipher, user.first_name)
       sink:
         location:
             start: 7
@@ -113,6 +112,7 @@ high:
             column:
                 start: 1
                 end: 61
+        content: OpenSSL::PKey::RSA.new(1024).to_pem(cipher, user.first_name)
       parent_line_number: 7
       snippet: OpenSSL::PKey::RSA.new(1024).to_pem(cipher, user.first_name)
       fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0

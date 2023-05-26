@@ -16,7 +16,6 @@ low:
             column:
                 start: 25
                 end: 52
-        content: stmt.executeQuery(sqlQuery)
       sink:
         location:
             start: 16
@@ -24,6 +23,7 @@ low:
             column:
                 start: 25
                 end: 52
+        content: stmt.executeQuery(sqlQuery)
       parent_line_number: 16
       snippet: stmt.executeQuery(sqlQuery)
       fingerprint: 79d5d495c5c408c582b32582f1ae9171_0

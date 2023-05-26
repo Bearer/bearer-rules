@@ -39,7 +39,6 @@ high:
             column:
                 start: 1
                 end: 76
-        content: 'crypto.createHmac(''sha256'', ''secretHardcodedString'', { encoding: "utf-8" })'
       sink:
         location:
             start: 1
@@ -47,6 +46,7 @@ high:
             column:
                 start: 1
                 end: 76
+        content: 'crypto.createHmac(''sha256'', ''secretHardcodedString'', { encoding: "utf-8" })'
       parent_line_number: 1
       snippet: 'crypto.createHmac(''sha256'', ''secretHardcodedString'', { encoding: "utf-8" })'
       fingerprint: 68ec549b0c4baac7ca684eb14e42834e_0
@@ -91,7 +91,6 @@ high:
             column:
                 start: 1
                 end: 57
-        content: crypto.createSecretKey('secretHardcodedString', "utf-8")
       sink:
         location:
             start: 3
@@ -99,6 +98,7 @@ high:
             column:
                 start: 1
                 end: 57
+        content: crypto.createSecretKey('secretHardcodedString', "utf-8")
       parent_line_number: 3
       snippet: crypto.createSecretKey('secretHardcodedString', "utf-8")
       fingerprint: 68ec549b0c4baac7ca684eb14e42834e_1
@@ -143,7 +143,6 @@ high:
             column:
                 start: 1
                 end: 49
-        content: crypto.createPrivateKey('secretHardcodedString')
       sink:
         location:
             start: 5
@@ -151,6 +150,7 @@ high:
             column:
                 start: 1
                 end: 49
+        content: crypto.createPrivateKey('secretHardcodedString')
       parent_line_number: 5
       snippet: crypto.createPrivateKey('secretHardcodedString')
       fingerprint: 68ec549b0c4baac7ca684eb14e42834e_2
@@ -195,7 +195,6 @@ high:
             column:
                 start: 1
                 end: 64
-        content: 'crypto.privateDecrypt({ key: ''secretHardcodedString'' }, buffer)'
       sink:
         location:
             start: 7
@@ -203,6 +202,7 @@ high:
             column:
                 start: 1
                 end: 64
+        content: 'crypto.privateDecrypt({ key: ''secretHardcodedString'' }, buffer)'
       parent_line_number: 7
       snippet: 'crypto.privateDecrypt({ key: ''secretHardcodedString'' }, buffer)'
       fingerprint: 68ec549b0c4baac7ca684eb14e42834e_3
@@ -247,7 +247,6 @@ high:
             column:
                 start: 1
                 end: 71
-        content: 'crypto.privateEncrypt({ passphrase: ''secretHardcodedString'' }, buffer)'
       sink:
         location:
             start: 9
@@ -255,6 +254,7 @@ high:
             column:
                 start: 1
                 end: 71
+        content: 'crypto.privateEncrypt({ passphrase: ''secretHardcodedString'' }, buffer)'
       parent_line_number: 9
       snippet: 'crypto.privateEncrypt({ passphrase: ''secretHardcodedString'' }, buffer)'
       fingerprint: 68ec549b0c4baac7ca684eb14e42834e_4
@@ -299,7 +299,6 @@ high:
             column:
                 start: 1
                 end: 41
-        content: s.sign('secretHardcodedString', "utf-8")
       sink:
         location:
             start: 12
@@ -307,6 +306,7 @@ high:
             column:
                 start: 1
                 end: 41
+        content: s.sign('secretHardcodedString', "utf-8")
       parent_line_number: 12
       snippet: s.sign('secretHardcodedString', "utf-8")
       fingerprint: 68ec549b0c4baac7ca684eb14e42834e_5

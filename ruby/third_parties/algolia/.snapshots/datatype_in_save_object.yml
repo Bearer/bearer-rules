@@ -25,16 +25,16 @@ high:
             start: 4
             end: 4
             column:
-                start: 1
-                end: 89
-        content: 'index.save_object({ email: user.email }, { auto_generate_object_id_if_not_exist: true })'
+                start: 28
+                end: 38
       sink:
         location:
             start: 4
             end: 4
             column:
-                start: 28
-                end: 38
+                start: 1
+                end: 89
+        content: 'index.save_object({ email: user.email }, { auto_generate_object_id_if_not_exist: true })'
       parent_line_number: 4
       snippet: 'index.save_object({ email: user.email }, { auto_generate_object_id_if_not_exist: true })'
       fingerprint: 831b70f679c5e1d92b8f4d4f973f7dc4_0
@@ -65,16 +65,16 @@ high:
             start: 6
             end: 6
             column:
-                start: 1
-                end: 92
-        content: 'index.save_objects([{ email: user.email }], { auto_generate_object_id_if_not_exist: true })'
+                start: 30
+                end: 40
       sink:
         location:
             start: 6
             end: 6
             column:
-                start: 30
-                end: 40
+                start: 1
+                end: 92
+        content: 'index.save_objects([{ email: user.email }], { auto_generate_object_id_if_not_exist: true })'
       parent_line_number: 6
       snippet: 'index.save_objects([{ email: user.email }], { auto_generate_object_id_if_not_exist: true })'
       fingerprint: 831b70f679c5e1d92b8f4d4f973f7dc4_1

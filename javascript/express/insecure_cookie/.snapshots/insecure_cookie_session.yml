@@ -27,6 +27,13 @@ low:
             column:
                 start: 3
                 end: 5
+      sink:
+        location:
+            start: 11
+            end: 18
+            column:
+                start: 3
+                end: 5
         content: |-
             cookieSession({
                 domain: "example.com",
@@ -36,13 +43,6 @@ low:
                 maxAge: 24 * 60 * 60 * 1000,
                 path: "/some-path",
               })
-      sink:
-        location:
-            start: 11
-            end: 18
-            column:
-                start: 3
-                end: 5
       parent_line_number: 11
       snippet: |-
         cookieSession({

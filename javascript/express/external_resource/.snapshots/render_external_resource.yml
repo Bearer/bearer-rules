@@ -32,7 +32,6 @@ low:
             column:
                 start: 10
                 end: 62
-        content: 'res.render(req.query.path + "/results", { page: 1 })'
       sink:
         location:
             start: 9
@@ -40,6 +39,7 @@ low:
             column:
                 start: 10
                 end: 62
+        content: 'res.render(req.query.path + "/results", { page: 1 })'
       parent_line_number: 9
       snippet: 'res.render(req.query.path + "/results", { page: 1 })'
       fingerprint: b370881b6e854d7e31487a8465e91ae0_0

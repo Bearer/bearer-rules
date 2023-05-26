@@ -29,7 +29,6 @@ high:
             column:
                 start: 3
                 end: 56
-        content: res.write("<h3> Greetings " + customerName + "</h3>")
       sink:
         location:
             start: 10
@@ -37,6 +36,7 @@ high:
             column:
                 start: 3
                 end: 56
+        content: res.write("<h3> Greetings " + customerName + "</h3>")
       parent_line_number: 10
       snippet: res.write("<h3> Greetings " + customerName + "</h3>")
       fingerprint: df7c00dff42ea03e2153d41a4dc2fc8e_0

@@ -25,16 +25,16 @@ high:
             start: 2
             end: 2
             column:
-                start: 1
-                end: 43
-        content: 'param.value = "ip: #{customer.ip_address}"'
+                start: 22
+                end: 41
       sink:
         location:
             start: 2
             end: 2
             column:
-                start: 22
-                end: 41
+                start: 1
+                end: 43
+        content: 'param.value = "ip: #{customer.ip_address}"'
       parent_line_number: 2
       snippet: 'param.value = "ip: #{customer.ip_address}"'
       fingerprint: 413255d6456534b1be7ccdeddaeeb019_0

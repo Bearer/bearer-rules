@@ -27,16 +27,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 1
-                end: 39
-        content: 'Rollbar.critical("oops #{user.email}")'
+                start: 26
+                end: 36
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 26
-                end: 36
+                start: 1
+                end: 39
+        content: 'Rollbar.critical("oops #{user.email}")'
       parent_line_number: 1
       snippet: 'Rollbar.critical("oops #{user.email}")'
       fingerprint: 0976992b89aa3cb2fa891be53248a418_0
@@ -69,16 +69,16 @@ high:
             start: 2
             end: 2
             column:
-                start: 1
-                end: 42
-        content: 'Rollbar.critical(e, "oops #{user.email}")'
+                start: 29
+                end: 39
       sink:
         location:
             start: 2
             end: 2
             column:
-                start: 29
-                end: 39
+                start: 1
+                end: 42
+        content: 'Rollbar.critical(e, "oops #{user.email}")'
       parent_line_number: 2
       snippet: 'Rollbar.critical(e, "oops #{user.email}")'
       fingerprint: 0976992b89aa3cb2fa891be53248a418_1
@@ -111,16 +111,16 @@ high:
             start: 3
             end: 3
             column:
-                start: 1
-                end: 60
-        content: 'Rollbar.critical(e, user: { email: "someone@example.com" })'
+                start: 29
+                end: 57
       sink:
         location:
             start: 3
             end: 3
             column:
-                start: 29
-                end: 57
+                start: 1
+                end: 60
+        content: 'Rollbar.critical(e, user: { email: "someone@example.com" })'
       parent_line_number: 3
       snippet: 'Rollbar.critical(e, user: { email: "someone@example.com" })'
       fingerprint: 0976992b89aa3cb2fa891be53248a418_2
@@ -153,16 +153,16 @@ high:
             start: 4
             end: 4
             column:
-                start: 1
-                end: 57
-        content: 'Rollbar.critical(e, { user: { first_name: "someone" } })'
+                start: 31
+                end: 52
       sink:
         location:
             start: 4
             end: 4
             column:
-                start: 31
-                end: 52
+                start: 1
+                end: 57
+        content: 'Rollbar.critical(e, { user: { first_name: "someone" } })'
       parent_line_number: 4
       snippet: 'Rollbar.critical(e, { user: { first_name: "someone" } })'
       fingerprint: 0976992b89aa3cb2fa891be53248a418_7
@@ -195,16 +195,16 @@ high:
             start: 6
             end: 6
             column:
-                start: 1
-                end: 36
-        content: 'Rollbar.error("oops #{user.email}")'
+                start: 23
+                end: 33
       sink:
         location:
             start: 6
             end: 6
             column:
-                start: 23
-                end: 33
+                start: 1
+                end: 36
+        content: 'Rollbar.error("oops #{user.email}")'
       parent_line_number: 6
       snippet: 'Rollbar.error("oops #{user.email}")'
       fingerprint: 0976992b89aa3cb2fa891be53248a418_3
@@ -237,16 +237,16 @@ high:
             start: 8
             end: 8
             column:
-                start: 1
-                end: 36
-        content: 'Rollbar.debug("oops #{user.email}")'
+                start: 23
+                end: 33
       sink:
         location:
             start: 8
             end: 8
             column:
-                start: 23
-                end: 33
+                start: 1
+                end: 36
+        content: 'Rollbar.debug("oops #{user.email}")'
       parent_line_number: 8
       snippet: 'Rollbar.debug("oops #{user.email}")'
       fingerprint: 0976992b89aa3cb2fa891be53248a418_4
@@ -279,16 +279,16 @@ high:
             start: 10
             end: 10
             column:
-                start: 1
-                end: 35
-        content: 'Rollbar.info("oops #{user.email}")'
+                start: 22
+                end: 32
       sink:
         location:
             start: 10
             end: 10
             column:
-                start: 22
-                end: 32
+                start: 1
+                end: 35
+        content: 'Rollbar.info("oops #{user.email}")'
       parent_line_number: 10
       snippet: 'Rollbar.info("oops #{user.email}")'
       fingerprint: 0976992b89aa3cb2fa891be53248a418_5
@@ -321,16 +321,16 @@ high:
             start: 12
             end: 12
             column:
-                start: 1
-                end: 38
-        content: 'Rollbar.warning("oops #{user.email}")'
+                start: 25
+                end: 35
       sink:
         location:
             start: 12
             end: 12
             column:
-                start: 25
-                end: 35
+                start: 1
+                end: 38
+        content: 'Rollbar.warning("oops #{user.email}")'
       parent_line_number: 12
       snippet: 'Rollbar.warning("oops #{user.email}")'
       fingerprint: 0976992b89aa3cb2fa891be53248a418_6

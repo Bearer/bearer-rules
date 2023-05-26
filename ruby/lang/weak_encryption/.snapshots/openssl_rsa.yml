@@ -43,7 +43,6 @@ low:
             column:
                 start: 1
                 end: 58
-        content: OpenSSL::PKey::RSA.new(512).to_pem(cipher, "hello world")
       sink:
         location:
             start: 8
@@ -51,6 +50,7 @@ low:
             column:
                 start: 1
                 end: 58
+        content: OpenSSL::PKey::RSA.new(512).to_pem(cipher, "hello world")
       parent_line_number: 8
       snippet: OpenSSL::PKey::RSA.new(512).to_pem(cipher, "hello world")
       fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0

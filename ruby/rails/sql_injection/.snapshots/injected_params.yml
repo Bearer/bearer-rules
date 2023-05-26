@@ -51,7 +51,6 @@ high:
             column:
                 start: 1
                 end: 28
-        content: User.find_by(params[:oops])
       sink:
         location:
             start: 1
@@ -59,6 +58,7 @@ high:
             column:
                 start: 1
                 end: 28
+        content: User.find_by(params[:oops])
       parent_line_number: 1
       snippet: User.find_by(params[:oops])
       fingerprint: 4375e8a33c7009e3ee375e18f3a797b1_0
@@ -115,7 +115,6 @@ high:
             column:
                 start: 1
                 end: 34
-        content: 'find_by!("oops #{params[:oops]}")'
       sink:
         location:
             start: 2
@@ -123,6 +122,7 @@ high:
             column:
                 start: 1
                 end: 34
+        content: 'find_by!("oops #{params[:oops]}")'
       parent_line_number: 2
       snippet: 'find_by!("oops #{params[:oops]}")'
       fingerprint: 4375e8a33c7009e3ee375e18f3a797b1_1
@@ -179,7 +179,6 @@ high:
             column:
                 start: 1
                 end: 42
-        content: 'User.joins("INNER JOIN #{params[:oops]}")'
       sink:
         location:
             start: 3
@@ -187,6 +186,7 @@ high:
             column:
                 start: 1
                 end: 42
+        content: 'User.joins("INNER JOIN #{params[:oops]}")'
       parent_line_number: 3
       snippet: 'User.joins("INNER JOIN #{params[:oops]}")'
       fingerprint: 4375e8a33c7009e3ee375e18f3a797b1_2
@@ -243,7 +243,6 @@ high:
             column:
                 start: 1
                 end: 35
-        content: select("#{params[:oops]} AS oops")
       sink:
         location:
             start: 4
@@ -251,6 +250,7 @@ high:
             column:
                 start: 1
                 end: 35
+        content: select("#{params[:oops]} AS oops")
       parent_line_number: 4
       snippet: select("#{params[:oops]} AS oops")
       fingerprint: 4375e8a33c7009e3ee375e18f3a797b1_3
@@ -307,10 +307,6 @@ high:
             column:
                 start: 1
                 end: 28
-        content: |-
-            User
-              .where("oops #{params[:one]}")
-              .count("#{params[:two]}")
       sink:
         location:
             start: 7
@@ -318,6 +314,10 @@ high:
             column:
                 start: 1
                 end: 28
+        content: |-
+            User
+              .where("oops #{params[:one]}")
+              .count("#{params[:two]}")
       parent_line_number: 7
       snippet: |-
         User
@@ -377,7 +377,6 @@ high:
             column:
                 start: 1
                 end: 68
-        content: 'ActiveRecord::Base.connection.exec_query("SELECT #{params[:oops]}")'
       sink:
         location:
             start: 11
@@ -385,6 +384,7 @@ high:
             column:
                 start: 1
                 end: 68
+        content: 'ActiveRecord::Base.connection.exec_query("SELECT #{params[:oops]}")'
       parent_line_number: 11
       snippet: 'ActiveRecord::Base.connection.exec_query("SELECT #{params[:oops]}")'
       fingerprint: 4375e8a33c7009e3ee375e18f3a797b1_6
@@ -441,7 +441,6 @@ high:
             column:
                 start: 1
                 end: 49
-        content: 'connection.select_all("SELECT #{params[:oops]}")'
       sink:
         location:
             start: 13
@@ -449,6 +448,7 @@ high:
             column:
                 start: 1
                 end: 49
+        content: 'connection.select_all("SELECT #{params[:oops]}")'
       parent_line_number: 13
       snippet: 'connection.select_all("SELECT #{params[:oops]}")'
       fingerprint: 4375e8a33c7009e3ee375e18f3a797b1_7

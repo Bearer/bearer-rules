@@ -43,10 +43,6 @@ low:
             column:
                 start: 1
                 end: 4
-        content: |-
-            blowfish.encrypt_block do
-              "hello world"
-            end
       sink:
         location:
             start: 2
@@ -54,6 +50,10 @@ low:
             column:
                 start: 1
                 end: 4
+        content: |-
+            blowfish.encrypt_block do
+              "hello world"
+            end
       parent_line_number: 2
       snippet: |-
         blowfish.encrypt_block do

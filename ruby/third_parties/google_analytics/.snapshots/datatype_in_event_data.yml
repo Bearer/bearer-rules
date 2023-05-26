@@ -22,6 +22,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 2
+            end: 2
+            column:
+                start: 27
+                end: 46
+      sink:
+        location:
             start: 1
             end: 3
             column:
@@ -31,13 +38,6 @@ high:
             Google::Apis::AnalyticsreportingV4::EventData.new(
               event_label: "Sign in #{customer.ip_address}"
             )
-      sink:
-        location:
-            start: 2
-            end: 2
-            column:
-                start: 27
-                end: 46
       parent_line_number: 1
       snippet: |-
         Google::Apis::AnalyticsreportingV4::EventData.new(

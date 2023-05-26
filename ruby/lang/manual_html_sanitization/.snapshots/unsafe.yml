@@ -35,6 +35,13 @@ low:
       source:
         location:
             start: 1
+            end: 3
+            column:
+                start: 24
+                end: 21
+      sink:
+        location:
+            start: 1
             end: 2
             column:
                 start: 24
@@ -42,13 +49,6 @@ low:
         content: |-
             user.Input
               .gsub('<', '&lt;')
-      sink:
-        location:
-            start: 1
-            end: 3
-            column:
-                start: 24
-                end: 21
       parent_line_number: 1
       snippet: |-
         user.Input

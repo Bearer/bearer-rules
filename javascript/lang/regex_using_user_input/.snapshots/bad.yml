@@ -29,7 +29,6 @@ low:
             column:
                 start: 1
                 end: 41
-        content: new RegExp(`abc${req.params.oops}`, 'i')
       sink:
         location:
             start: 1
@@ -37,6 +36,7 @@ low:
             column:
                 start: 1
                 end: 41
+        content: new RegExp(`abc${req.params.oops}`, 'i')
       parent_line_number: 1
       snippet: new RegExp(`abc${req.params.oops}`, 'i')
       fingerprint: 042322614661c2cfbb59c697536202e3_0

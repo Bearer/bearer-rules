@@ -36,16 +36,16 @@ high:
             start: 3
             end: 3
             column:
-                start: 3
-                end: 37
-        content: 'a.puts "Hello, #{user.full_name}!"'
+                start: 20
+                end: 34
       sink:
         location:
             start: 3
             end: 3
             column:
-                start: 20
-                end: 34
+                start: 3
+                end: 37
+        content: 'a.puts "Hello, #{user.full_name}!"'
       parent_line_number: 3
       snippet: 'a.puts "Hello, #{user.full_name}!"'
       fingerprint: fce21edf0734b5bb814a9395c2b09559_0

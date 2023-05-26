@@ -36,19 +36,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 1
+            end: 1
+            column:
+                start: 16
+                end: 28
+      sink:
+        location:
             start: 3
             end: 3
             column:
                 start: 1
                 end: 35
         content: localStorage.setItem("user", user)
-      sink:
-        location:
-            start: 1
-            end: 1
-            column:
-                start: 16
-                end: 28
       parent_line_number: 3
       snippet: localStorage.setItem("user", user)
       fingerprint: 6c0cc3faaa947ecc7d7219e846383aa3_0

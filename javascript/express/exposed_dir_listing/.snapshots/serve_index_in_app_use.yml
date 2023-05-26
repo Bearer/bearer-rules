@@ -24,7 +24,6 @@ low:
             column:
                 start: 1
                 end: 52
-        content: app.use("/public", serveIndex(__dirname + "files"))
       sink:
         location:
             start: 9
@@ -32,6 +31,7 @@ low:
             column:
                 start: 1
                 end: 52
+        content: app.use("/public", serveIndex(__dirname + "files"))
       parent_line_number: 9
       snippet: app.use("/public", serveIndex(__dirname + "files"))
       fingerprint: e5160a3a6c8ab399600f1eef9413fa8d_0

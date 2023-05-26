@@ -26,16 +26,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 20
-                end: 129
-        content: 'Google::Apis::AnalyticsreportingV4::TransactionData.update!(transaction_id: "user_"+user.bank_account_number)'
+                start: 104
+                end: 128
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 104
-                end: 128
+                start: 20
+                end: 129
+        content: 'Google::Apis::AnalyticsreportingV4::TransactionData.update!(transaction_id: "user_"+user.bank_account_number)'
       parent_line_number: 1
       snippet: 'Google::Apis::AnalyticsreportingV4::TransactionData.update!(transaction_id: "user_"+user.bank_account_number)'
       fingerprint: 9668b35f31e900a0f216e97a20bbf3cd_0

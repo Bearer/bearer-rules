@@ -32,7 +32,6 @@ low:
             column:
                 start: 1
                 end: 47
-        content: app.use(express.static(__dirname + "/public"))
       sink:
         location:
             start: 3
@@ -40,6 +39,7 @@ low:
             column:
                 start: 1
                 end: 47
+        content: app.use(express.static(__dirname + "/public"))
       parent_line_number: 3
       snippet: app.use(express.static(__dirname + "/public"))
       fingerprint: 602559f0bc1d3e94565f9bd2eeed56ca_0

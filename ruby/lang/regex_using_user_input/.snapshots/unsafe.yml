@@ -34,7 +34,6 @@ low:
             column:
                 start: 1
                 end: 21
-        content: /#{params[:oops]}.*/
       sink:
         location:
             start: 1
@@ -42,6 +41,7 @@ low:
             column:
                 start: 1
                 end: 21
+        content: /#{params[:oops]}.*/
       parent_line_number: 1
       snippet: /#{params[:oops]}.*/
       fingerprint: 96c8bf129cd985608c41f865f39cbdab_0
@@ -81,7 +81,6 @@ low:
             column:
                 start: 1
                 end: 27
-        content: '%r{abc#{params[:oops]}def}'
       sink:
         location:
             start: 3
@@ -89,6 +88,7 @@ low:
             column:
                 start: 1
                 end: 27
+        content: '%r{abc#{params[:oops]}def}'
       parent_line_number: 3
       snippet: '%r{abc#{params[:oops]}def}'
       fingerprint: 96c8bf129cd985608c41f865f39cbdab_1
@@ -128,7 +128,6 @@ low:
             column:
                 start: 1
                 end: 26
-        content: Regexp.new(params[:oops])
       sink:
         location:
             start: 5
@@ -136,6 +135,7 @@ low:
             column:
                 start: 1
                 end: 26
+        content: Regexp.new(params[:oops])
       parent_line_number: 5
       snippet: Regexp.new(params[:oops])
       fingerprint: 96c8bf129cd985608c41f865f39cbdab_2

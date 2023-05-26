@@ -33,19 +33,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 3
+            end: 3
+            column:
+                start: 3
+                end: 20
+      sink:
+        location:
             start: 6
             end: 6
             column:
                 start: 1
                 end: 45
         content: JWT.encode(payload, ENV.fetch("SECRET_KEY"))
-      sink:
-        location:
-            start: 3
-            end: 3
-            column:
-                start: 3
-                end: 20
       parent_line_number: 6
       snippet: JWT.encode(payload, ENV.fetch("SECRET_KEY"))
       fingerprint: ea186f391e78c5aef2a6a0e01d435e54_0

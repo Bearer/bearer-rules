@@ -27,16 +27,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 1
-                end: 71
-        content: 'exception.rollbar_context = { user: { email: "someone@example.com" } }'
+                start: 39
+                end: 67
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 39
-                end: 67
+                start: 1
+                end: 71
+        content: 'exception.rollbar_context = { user: { email: "someone@example.com" } }'
       parent_line_number: 1
       snippet: 'exception.rollbar_context = { user: { email: "someone@example.com" } }'
       fingerprint: 0976992b89aa3cb2fa891be53248a418_0

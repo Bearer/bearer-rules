@@ -26,7 +26,6 @@ low:
             column:
                 start: 3
                 end: 55
-        content: res.setHeader("Access-Control-Allow-Origin", origin)
       sink:
         location:
             start: 10
@@ -34,6 +33,7 @@ low:
             column:
                 start: 3
                 end: 55
+        content: res.setHeader("Access-Control-Allow-Origin", origin)
       parent_line_number: 10
       snippet: res.setHeader("Access-Control-Allow-Origin", origin)
       fingerprint: 2c55192ac05fbc2a0358431b12920a25_0

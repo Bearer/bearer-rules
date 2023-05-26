@@ -27,13 +27,6 @@ medium:
             column:
                 start: 17
                 end: 4
-        content: |-
-            {
-                domain: "example.com",
-                httpOnly: false,
-                secure: true,
-                maxAge: 24 * 60 * 60 * 1000,
-              }
       sink:
         location:
             start: 11
@@ -41,6 +34,13 @@ medium:
             column:
                 start: 17
                 end: 4
+        content: |-
+            {
+                domain: "example.com",
+                httpOnly: false,
+                secure: true,
+                maxAge: 24 * 60 * 60 * 1000,
+              }
       parent_line_number: 11
       snippet: |-
         {

@@ -46,7 +46,6 @@ high:
             column:
                 start: 1
                 end: 45
-        content: Shell.alias_command("foo", params[:oops]) {}
       sink:
         location:
             start: 3
@@ -54,6 +53,7 @@ high:
             column:
                 start: 1
                 end: 45
+        content: Shell.alias_command("foo", params[:oops]) {}
       parent_line_number: 3
       snippet: Shell.alias_command("foo", params[:oops]) {}
       fingerprint: 1c074b69a64b914d2a6310c63c4eed91_0
@@ -105,7 +105,6 @@ high:
             column:
                 start: 1
                 end: 69
-        content: Shell::CommandProcessor.alias_command(x, "/bin/#{params[:oops]}") {}
       sink:
         location:
             start: 4
@@ -113,6 +112,7 @@ high:
             column:
                 start: 1
                 end: 69
+        content: Shell::CommandProcessor.alias_command(x, "/bin/#{params[:oops]}") {}
       parent_line_number: 4
       snippet: Shell::CommandProcessor.alias_command(x, "/bin/#{params[:oops]}") {}
       fingerprint: 1c074b69a64b914d2a6310c63c4eed91_1
@@ -164,7 +164,6 @@ high:
             column:
                 start: 1
                 end: 57
-        content: Shell.def_system_command("foo", "bar", params[:oops]) {}
       sink:
         location:
             start: 6
@@ -172,6 +171,7 @@ high:
             column:
                 start: 1
                 end: 57
+        content: Shell.def_system_command("foo", "bar", params[:oops]) {}
       parent_line_number: 6
       snippet: Shell.def_system_command("foo", "bar", params[:oops]) {}
       fingerprint: 1c074b69a64b914d2a6310c63c4eed91_2
@@ -223,7 +223,6 @@ high:
             column:
                 start: 1
                 end: 68
-        content: Shell::CommandProcessor.def_system_command("foo", params[:oops]) {}
       sink:
         location:
             start: 7
@@ -231,6 +230,7 @@ high:
             column:
                 start: 1
                 end: 68
+        content: Shell::CommandProcessor.def_system_command("foo", params[:oops]) {}
       parent_line_number: 7
       snippet: Shell::CommandProcessor.def_system_command("foo", params[:oops]) {}
       fingerprint: 1c074b69a64b914d2a6310c63c4eed91_3
@@ -282,7 +282,6 @@ high:
             column:
                 start: 1
                 end: 33
-        content: processor1.system(params[:oops])
       sink:
         location:
             start: 12
@@ -290,6 +289,7 @@ high:
             column:
                 start: 1
                 end: 33
+        content: processor1.system(params[:oops])
       parent_line_number: 12
       snippet: processor1.system(params[:oops])
       fingerprint: 1c074b69a64b914d2a6310c63c4eed91_4
@@ -341,7 +341,6 @@ high:
             column:
                 start: 1
                 end: 36
-        content: processor2.system(x, params[:oops])
       sink:
         location:
             start: 15
@@ -349,6 +348,7 @@ high:
             column:
                 start: 1
                 end: 36
+        content: processor2.system(x, params[:oops])
       parent_line_number: 15
       snippet: processor2.system(x, params[:oops])
       fingerprint: 1c074b69a64b914d2a6310c63c4eed91_5

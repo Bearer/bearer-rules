@@ -32,7 +32,6 @@ low:
             column:
                 start: 26
                 end: 58
-        content: MessageDigest.getInstance("MD5")
       sink:
         location:
             start: 29
@@ -40,6 +39,7 @@ low:
             column:
                 start: 26
                 end: 58
+        content: MessageDigest.getInstance("MD5")
       parent_line_number: 29
       snippet: MessageDigest.getInstance("MD5")
       fingerprint: af589e78882ead12977f3207ee04eec0_0

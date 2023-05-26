@@ -37,10 +37,6 @@ high:
             column:
                 start: 3
                 end: 5
-        content: |-
-            exec("ls "+event["user_dir"]+"| wc -l", (err, stdout, stderr) => {
-                // do something
-              })
       sink:
         location:
             start: 4
@@ -48,6 +44,10 @@ high:
             column:
                 start: 3
                 end: 5
+        content: |-
+            exec("ls "+event["user_dir"]+"| wc -l", (err, stdout, stderr) => {
+                // do something
+              })
       parent_line_number: 4
       snippet: |-
         exec("ls "+event["user_dir"]+"| wc -l", (err, stdout, stderr) => {
@@ -93,10 +93,6 @@ high:
             column:
                 start: 3
                 end: 5
-        content: |-
-            execSync("ls "+event["user"]+"| wc -l", (err, stdout, stderr) => {
-                // do something
-              })
       sink:
         location:
             start: 8
@@ -104,6 +100,10 @@ high:
             column:
                 start: 3
                 end: 5
+        content: |-
+            execSync("ls "+event["user"]+"| wc -l", (err, stdout, stderr) => {
+                // do something
+              })
       parent_line_number: 8
       snippet: |-
         execSync("ls "+event["user"]+"| wc -l", (err, stdout, stderr) => {
@@ -149,7 +149,6 @@ high:
             column:
                 start: 3
                 end: 24
-        content: spawn(event["query"])
       sink:
         location:
             start: 12
@@ -157,6 +156,7 @@ high:
             column:
                 start: 3
                 end: 24
+        content: spawn(event["query"])
       parent_line_number: 12
       snippet: spawn(event["query"])
       fingerprint: b13e40973c5519829a310b6c100f0710_2
@@ -199,7 +199,6 @@ high:
             column:
                 start: 3
                 end: 36
-        content: spawnSync("grep " + event["tmp"])
       sink:
         location:
             start: 14
@@ -207,6 +206,7 @@ high:
             column:
                 start: 3
                 end: 36
+        content: spawnSync("grep " + event["tmp"])
       parent_line_number: 14
       snippet: spawnSync("grep " + event["tmp"])
       fingerprint: b13e40973c5519829a310b6c100f0710_3

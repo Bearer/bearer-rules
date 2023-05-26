@@ -24,6 +24,13 @@ high:
       source:
         location:
             start: 2
+            end: 2
+            column:
+                start: 64
+                end: 74
+      sink:
+        location:
+            start: 2
             end: 4
             column:
                 start: 1
@@ -32,13 +39,6 @@ high:
             Tracer.in_span("data leaking", attributes: { "current_user" => user.email, "date" => DateTime.now }) do |span|
               puts "in the span block"
             end
-      sink:
-        location:
-            start: 2
-            end: 2
-            column:
-                start: 64
-                end: 74
       parent_line_number: 2
       snippet: |-
         Tracer.in_span("data leaking", attributes: { "current_user" => user.email, "date" => DateTime.now }) do |span|
@@ -71,6 +71,13 @@ high:
       source:
         location:
             start: 6
+            end: 6
+            column:
+                start: 73
+                end: 83
+      sink:
+        location:
+            start: 6
             end: 8
             column:
                 start: 1
@@ -79,13 +86,6 @@ high:
             SomeOtherTracer.in_span("data leaking", attributes: { "current_user" => user.email, "date" => DateTime.now }) do |span|
               span.add_attributes(user.email)
             end
-      sink:
-        location:
-            start: 6
-            end: 6
-            column:
-                start: 73
-                end: 83
       parent_line_number: 6
       snippet: |-
         SomeOtherTracer.in_span("data leaking", attributes: { "current_user" => user.email, "date" => DateTime.now }) do |span|
@@ -120,16 +120,16 @@ high:
             start: 7
             end: 7
             column:
-                start: 3
-                end: 34
-        content: span.add_attributes(user.email)
+                start: 23
+                end: 33
       sink:
         location:
             start: 7
             end: 7
             column:
-                start: 23
-                end: 33
+                start: 3
+                end: 34
+        content: span.add_attributes(user.email)
       parent_line_number: 7
       snippet: span.add_attributes(user.email)
       fingerprint: 949ba3eb3d0c9c539480c41846520b5b_2
@@ -161,16 +161,16 @@ high:
             start: 11
             end: 11
             column:
-                start: 3
-                end: 51
-        content: 'span.add_event("leaking data for #{user.email}")'
+                start: 38
+                end: 48
       sink:
         location:
             start: 11
             end: 11
             column:
-                start: 38
-                end: 48
+                start: 3
+                end: 51
+        content: 'span.add_event("leaking data for #{user.email}")'
       parent_line_number: 11
       snippet: 'span.add_event("leaking data for #{user.email}")'
       fingerprint: 949ba3eb3d0c9c539480c41846520b5b_3

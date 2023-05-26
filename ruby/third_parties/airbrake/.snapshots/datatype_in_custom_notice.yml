@@ -23,6 +23,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 5
+            end: 5
+            column:
+                start: 23
+                end: 41
+      sink:
+        location:
             start: 4
             end: 6
             column:
@@ -32,13 +39,6 @@ high:
             def to_airbrake
                 { params: { user: current_user.email } }
               end
-      sink:
-        location:
-            start: 5
-            end: 5
-            column:
-                start: 23
-                end: 41
       parent_line_number: 4
       snippet: |-
         def to_airbrake

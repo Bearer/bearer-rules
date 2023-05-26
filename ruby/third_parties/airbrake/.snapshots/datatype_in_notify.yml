@@ -26,16 +26,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 1
-                end: 33
-        content: Airbrake.notify(user.first_name)
+                start: 17
+                end: 32
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 17
-                end: 32
+                start: 1
+                end: 33
+        content: Airbrake.notify(user.first_name)
       parent_line_number: 1
       snippet: Airbrake.notify(user.first_name)
       fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_2
@@ -64,6 +64,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 4
+            end: 4
+            column:
+                start: 17
+                end: 27
+      sink:
+        location:
             start: 3
             end: 5
             column:
@@ -73,13 +80,6 @@ high:
             Airbrake.notify('App crashed!', {
               current_user: user.email
             })
-      sink:
-        location:
-            start: 4
-            end: 4
-            column:
-                start: 17
-                end: 27
       parent_line_number: 3
       snippet: |-
         Airbrake.notify('App crashed!', {
@@ -111,6 +111,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 8
+            end: 8
+            column:
+                start: 29
+                end: 43
+      sink:
+        location:
             start: 7
             end: 9
             column:
@@ -120,13 +127,6 @@ high:
             Airbrake.notify('App crashed') do |notice|
               notice[:params][:email] = customer.email
             end
-      sink:
-        location:
-            start: 8
-            end: 8
-            column:
-                start: 29
-                end: 43
       parent_line_number: 7
       snippet: |-
         Airbrake.notify('App crashed') do |notice|

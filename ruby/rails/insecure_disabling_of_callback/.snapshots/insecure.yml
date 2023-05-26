@@ -27,7 +27,6 @@ low:
             column:
                 start: 3
                 end: 54
-        content: 'skip_before_action :access_control, except: :secure'
       sink:
         location:
             start: 2
@@ -35,6 +34,7 @@ low:
             column:
                 start: 3
                 end: 54
+        content: 'skip_before_action :access_control, except: :secure'
       parent_line_number: 2
       snippet: 'skip_before_action :access_control, except: :secure'
       fingerprint: f031370b5f804210ae8bb2d5e6e2a318_0

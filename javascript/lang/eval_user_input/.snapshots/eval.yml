@@ -57,7 +57,6 @@ high:
             column:
                 start: 10
                 end: 23
-        content: eval(command)
       sink:
         location:
             start: 11
@@ -65,6 +64,7 @@ high:
             column:
                 start: 10
                 end: 23
+        content: eval(command)
       parent_line_number: 11
       snippet: eval(command)
       fingerprint: 845c467daab5771a9b5844e411f5576c_0
@@ -127,7 +127,6 @@ high:
             column:
                 start: 3
                 end: 16
-        content: eval(context)
       sink:
         location:
             start: 18
@@ -135,6 +134,7 @@ high:
             column:
                 start: 3
                 end: 16
+        content: eval(context)
       parent_line_number: 18
       snippet: eval(context)
       fingerprint: 845c467daab5771a9b5844e411f5576c_1

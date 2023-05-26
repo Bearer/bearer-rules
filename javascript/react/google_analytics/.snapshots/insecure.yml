@@ -26,6 +26,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 5
+            end: 5
+            column:
+                start: 9
+                end: 19
+      sink:
+        location:
             start: 2
             end: 6
             column:
@@ -37,13 +44,6 @@ high:
             	action: "logged_in",
             	value: user.email,
             })
-      sink:
-        location:
-            start: 5
-            end: 5
-            column:
-                start: 9
-                end: 19
       parent_line_number: 2
       snippet: |-
         ReactGA.event({

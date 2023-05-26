@@ -46,7 +46,6 @@ high:
             column:
                 start: 1
                 end: 43
-        content: RC4.new("insecure").encrypt(user.password)
       sink:
         location:
             start: 1
@@ -54,6 +53,7 @@ high:
             column:
                 start: 1
                 end: 43
+        content: RC4.new("insecure").encrypt(user.password)
       parent_line_number: 1
       snippet: RC4.new("insecure").encrypt(user.password)
       fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
@@ -105,7 +105,6 @@ high:
             column:
                 start: 1
                 end: 36
-        content: rc4_encrypt.encrypt!(user.password)
       sink:
         location:
             start: 4
@@ -113,6 +112,7 @@ high:
             column:
                 start: 1
                 end: 36
+        content: rc4_encrypt.encrypt!(user.password)
       parent_line_number: 4
       snippet: rc4_encrypt.encrypt!(user.password)
       fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1

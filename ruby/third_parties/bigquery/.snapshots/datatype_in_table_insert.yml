@@ -22,19 +22,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 5
+            end: 5
+            column:
+                start: 10
+                end: 35
+      sink:
+        location:
             start: 8
             end: 8
             column:
                 start: 1
                 end: 19
         content: table.insert(rows)
-      sink:
-        location:
-            start: 5
-            end: 5
-            column:
-                start: 10
-                end: 35
       parent_line_number: 8
       snippet: table.insert(rows)
       fingerprint: fa66126708eadfd7a10516ce3578a767_0

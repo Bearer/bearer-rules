@@ -40,7 +40,6 @@ warning:
             column:
                 start: 5
                 end: 48
-        content: params(:user).permit(:name, :email, :admin)
       sink:
         location:
             start: 5
@@ -48,6 +47,7 @@ warning:
             column:
                 start: 5
                 end: 48
+        content: params(:user).permit(:name, :email, :admin)
       parent_line_number: 5
       snippet: params(:user).permit(:name, :email, :admin)
       fingerprint: 896362db4e1fcb4072dce49bd52969e7_0

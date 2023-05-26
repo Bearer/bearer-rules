@@ -34,7 +34,6 @@ low:
             column:
                 start: 1
                 end: 71
-        content: Rails.application.config.action_dispatch.cookies_serializer = :marshal
       sink:
         location:
             start: 1
@@ -42,6 +41,7 @@ low:
             column:
                 start: 1
                 end: 71
+        content: Rails.application.config.action_dispatch.cookies_serializer = :marshal
       parent_line_number: 1
       snippet: Rails.application.config.action_dispatch.cookies_serializer = :marshal
       fingerprint: b92aa334ac9337d9b31e8f54da5f32b2_0

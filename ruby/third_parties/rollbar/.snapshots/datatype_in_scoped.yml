@@ -24,6 +24,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 1
+            end: 1
+            column:
+                start: 21
+                end: 49
+      sink:
+        location:
             start: 3
             end: 5
             column:
@@ -33,13 +40,6 @@ high:
             Rollbar.scoped(scope) do
               call
             end
-      sink:
-        location:
-            start: 1
-            end: 1
-            column:
-                start: 21
-                end: 49
       parent_line_number: 3
       snippet: |-
         Rollbar.scoped(scope) do

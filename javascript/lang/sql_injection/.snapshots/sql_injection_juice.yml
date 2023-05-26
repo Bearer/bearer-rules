@@ -54,6 +54,13 @@ high:
             column:
                 start: 7
                 end: 10
+      sink:
+        location:
+            start: 4
+            end: 12
+            column:
+                start: 7
+                end: 10
         content: |-
             models.sequelize
                     .query(
@@ -64,13 +71,6 @@ high:
                       )}' AND deletedAt IS NULL`,
                       { model: UserModel, plain: true }
                     )
-      sink:
-        location:
-            start: 4
-            end: 12
-            column:
-                start: 7
-                end: 10
       parent_line_number: 4
       snippet: |-
         models.sequelize

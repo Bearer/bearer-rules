@@ -27,16 +27,16 @@ high:
             start: 3
             end: 3
             column:
-                start: 1
-                end: 55
-        content: newrelic.setCustomAttribute("user-id", customer.email)
+                start: 40
+                end: 54
       sink:
         location:
             start: 3
             end: 3
             column:
-                start: 40
-                end: 54
+                start: 1
+                end: 55
+        content: newrelic.setCustomAttribute("user-id", customer.email)
       parent_line_number: 3
       snippet: newrelic.setCustomAttribute("user-id", customer.email)
       fingerprint: 63161101404765527f0dada7fd00b64e_0

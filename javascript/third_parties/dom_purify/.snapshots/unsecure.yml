@@ -34,7 +34,6 @@ high:
             column:
                 start: 14
                 end: 47
-        content: DOMPurify.sanitize(dirty, config)
       sink:
         location:
             start: 2
@@ -42,6 +41,7 @@ high:
             column:
                 start: 14
                 end: 47
+        content: DOMPurify.sanitize(dirty, config)
       parent_line_number: 2
       snippet: DOMPurify.sanitize(dirty, config)
       fingerprint: 077829f7bbb80256ddeaf41abfb55793_0
@@ -81,7 +81,6 @@ high:
             column:
                 start: 14
                 end: 39
-        content: DOMPurify.sanitize(dirty)
       sink:
         location:
             start: 5
@@ -89,6 +88,7 @@ high:
             column:
                 start: 14
                 end: 39
+        content: DOMPurify.sanitize(dirty)
       parent_line_number: 5
       snippet: DOMPurify.sanitize(dirty)
       fingerprint: 077829f7bbb80256ddeaf41abfb55793_1

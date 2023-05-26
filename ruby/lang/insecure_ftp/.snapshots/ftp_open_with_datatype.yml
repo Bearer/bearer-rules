@@ -31,6 +31,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 6
+            end: 6
+            column:
+                start: 14
+                end: 24
+      sink:
+        location:
             start: 3
             end: 13
             column:
@@ -48,13 +55,6 @@ high:
                 file.close!
               end
             end
-      sink:
-        location:
-            start: 6
-            end: 6
-            column:
-                start: 14
-                end: 24
       parent_line_number: 3
       snippet: |-
         Net::FTP.open("ftp.site.com") do |ftp|

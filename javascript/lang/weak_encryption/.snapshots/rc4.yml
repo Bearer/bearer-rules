@@ -36,16 +36,16 @@ high:
             start: 3
             end: 3
             column:
-                start: 12
-                end: 58
-        content: CryptoJS.RC4.encrypt(user.email, "secret key")
+                start: 33
+                end: 43
       sink:
         location:
             start: 3
             end: 3
             column:
-                start: 33
-                end: 43
+                start: 12
+                end: 58
+        content: CryptoJS.RC4.encrypt(user.email, "secret key")
       parent_line_number: 3
       snippet: CryptoJS.RC4.encrypt(user.email, "secret key")
       fingerprint: 05decf30fc70859705b7ca59c5dbe388_0

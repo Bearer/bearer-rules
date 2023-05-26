@@ -33,11 +33,6 @@ high:
             column:
                 start: 3
                 end: 5
-        content: |-
-            deserializeError({
-                name: "MyCustomError",
-                message: req.params.error
-              })
       sink:
         location:
             start: 4
@@ -45,6 +40,11 @@ high:
             column:
                 start: 3
                 end: 5
+        content: |-
+            deserializeError({
+                name: "MyCustomError",
+                message: req.params.error
+              })
       parent_line_number: 4
       snippet: |-
         deserializeError({

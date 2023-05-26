@@ -36,7 +36,6 @@ low:
             column:
                 start: 12
                 end: 65
-        content: Net::HTTP.post_form("http://my.api.com/users/search")
       sink:
         location:
             start: 3
@@ -44,6 +43,7 @@ low:
             column:
                 start: 12
                 end: 65
+        content: Net::HTTP.post_form("http://my.api.com/users/search")
       parent_line_number: 3
       snippet: Net::HTTP.post_form("http://my.api.com/users/search")
       fingerprint: e9e2ed12574caf1a717fbe12e9ece4c1_0
@@ -85,9 +85,6 @@ low:
             column:
                 start: 1
                 end: 4
-        content: |-
-            Net::HTTP.start("http://my.api.com/users/search") do
-            end
       sink:
         location:
             start: 5
@@ -95,6 +92,9 @@ low:
             column:
                 start: 1
                 end: 4
+        content: |-
+            Net::HTTP.start("http://my.api.com/users/search") do
+            end
       parent_line_number: 5
       snippet: |-
         Net::HTTP.start("http://my.api.com/users/search") do
@@ -138,7 +138,6 @@ low:
             column:
                 start: 1
                 end: 71
-        content: 'Net::HTTP::Get.new("http://my.api.com/users/search", { "X-Test": 42 })'
       sink:
         location:
             start: 8
@@ -146,6 +145,7 @@ low:
             column:
                 start: 1
                 end: 71
+        content: 'Net::HTTP::Get.new("http://my.api.com/users/search", { "X-Test": 42 })'
       parent_line_number: 8
       snippet: 'Net::HTTP::Get.new("http://my.api.com/users/search", { "X-Test": 42 })'
       fingerprint: e9e2ed12574caf1a717fbe12e9ece4c1_2

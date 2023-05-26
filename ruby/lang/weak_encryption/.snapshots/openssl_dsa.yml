@@ -43,7 +43,6 @@ low:
             column:
                 start: 1
                 end: 42
-        content: dsa_encrypt.export(cipher, "hello world")
       sink:
         location:
             start: 3
@@ -51,6 +50,7 @@ low:
             column:
                 start: 1
                 end: 42
+        content: dsa_encrypt.export(cipher, "hello world")
       parent_line_number: 3
       snippet: dsa_encrypt.export(cipher, "hello world")
       fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
@@ -99,7 +99,6 @@ low:
             column:
                 start: 1
                 end: 59
-        content: OpenSSL::PKey::DSA.new(2048).to_pem(cipher, "hello world")
       sink:
         location:
             start: 5
@@ -107,6 +106,7 @@ low:
             column:
                 start: 1
                 end: 59
+        content: OpenSSL::PKey::DSA.new(2048).to_pem(cipher, "hello world")
       parent_line_number: 5
       snippet: OpenSSL::PKey::DSA.new(2048).to_pem(cipher, "hello world")
       fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1

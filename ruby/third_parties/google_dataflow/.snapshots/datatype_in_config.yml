@@ -26,16 +26,16 @@ high:
             start: 8
             end: 8
             column:
-                start: 3
-                end: 60
-        content: 'config.metadata = { current_user_id: current_user.email }'
+                start: 40
+                end: 58
       sink:
         location:
             start: 8
             end: 8
             column:
-                start: 40
-                end: 58
+                start: 3
+                end: 60
+        content: 'config.metadata = { current_user_id: current_user.email }'
       parent_line_number: 8
       snippet: 'config.metadata = { current_user_id: current_user.email }'
       fingerprint: 413255d6456534b1be7ccdeddaeeb019_0
@@ -67,16 +67,16 @@ high:
             start: 14
             end: 14
             column:
-                start: 1
-                end: 65
-        content: 'client_config.metadata = { current_user_id: current_user.email }'
+                start: 45
+                end: 63
       sink:
         location:
             start: 14
             end: 14
             column:
-                start: 45
-                end: 63
+                start: 1
+                end: 65
+        content: 'client_config.metadata = { current_user_id: current_user.email }'
       parent_line_number: 14
       snippet: 'client_config.metadata = { current_user_id: current_user.email }'
       fingerprint: 413255d6456534b1be7ccdeddaeeb019_1

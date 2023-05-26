@@ -35,6 +35,13 @@ high:
       source:
         location:
             start: 4
+            end: 4
+            column:
+                start: 34
+                end: 54
+      sink:
+        location:
+            start: 4
             end: 8
             column:
                 start: 22
@@ -45,13 +52,6 @@ high:
                 memoryCost: 2 ** 16,
                 hashLength: 50,
               })
-      sink:
-        location:
-            start: 4
-            end: 4
-            column:
-                start: 34
-                end: 54
       parent_line_number: 4
       snippet: |-
         argon2.hash(currentUser.password, {

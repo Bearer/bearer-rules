@@ -42,7 +42,6 @@ high:
             column:
                 start: 1
                 end: 15
-        content: open(uri, "r")
       sink:
         location:
             start: 3
@@ -50,6 +49,7 @@ high:
             column:
                 start: 1
                 end: 15
+        content: open(uri, "r")
       parent_line_number: 3
       snippet: open(uri, "r")
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_0
@@ -97,7 +97,6 @@ high:
             column:
                 start: 1
                 end: 20
-        content: Kernel.open(uri) {}
       sink:
         location:
             start: 5
@@ -105,6 +104,7 @@ high:
             column:
                 start: 1
                 end: 20
+        content: Kernel.open(uri) {}
       parent_line_number: 5
       snippet: Kernel.open(uri) {}
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_1
@@ -152,7 +152,6 @@ high:
             column:
                 start: 1
                 end: 9
-        content: uri.open
       sink:
         location:
             start: 7
@@ -160,6 +159,7 @@ high:
             column:
                 start: 1
                 end: 9
+        content: uri.open
       parent_line_number: 7
       snippet: uri.open
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_2

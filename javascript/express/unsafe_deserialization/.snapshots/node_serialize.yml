@@ -33,7 +33,6 @@ high:
             column:
                 start: 3
                 end: 37
-        content: nodeSerialize.unserialize(userStr)
       sink:
         location:
             start: 5
@@ -41,6 +40,7 @@ high:
             column:
                 start: 3
                 end: 37
+        content: nodeSerialize.unserialize(userStr)
       parent_line_number: 5
       snippet: nodeSerialize.unserialize(userStr)
       fingerprint: 8344d2cb0faaa6ea9f5e63d59dac105b_0

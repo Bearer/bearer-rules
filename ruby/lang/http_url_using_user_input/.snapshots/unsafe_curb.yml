@@ -42,9 +42,6 @@ high:
             column:
                 start: 1
                 end: 4
-        content: |-
-            Curl.http("GET", params[:oops], nil) do
-            end
       sink:
         location:
             start: 3
@@ -52,6 +49,9 @@ high:
             column:
                 start: 1
                 end: 4
+        content: |-
+            Curl.http("GET", params[:oops], nil) do
+            end
       parent_line_number: 3
       snippet: |-
         Curl.http("GET", params[:oops], nil) do
@@ -101,7 +101,6 @@ high:
             column:
                 start: 1
                 end: 27
-        content: Curl.get(params[:oops]) {}
       sink:
         location:
             start: 6
@@ -109,6 +108,7 @@ high:
             column:
                 start: 1
                 end: 27
+        content: Curl.get(params[:oops]) {}
       parent_line_number: 6
       snippet: Curl.get(params[:oops]) {}
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_1
@@ -156,7 +156,6 @@ high:
             column:
                 start: 1
                 end: 37
-        content: Curl::Easy.perform(params[:oops]) {}
       sink:
         location:
             start: 8
@@ -164,6 +163,7 @@ high:
             column:
                 start: 1
                 end: 37
+        content: Curl::Easy.perform(params[:oops]) {}
       parent_line_number: 8
       snippet: Curl::Easy.perform(params[:oops]) {}
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_2
@@ -211,7 +211,6 @@ high:
             column:
                 start: 8
                 end: 40
-        content: Curl::Easy.new(params[:oops]) {}
       sink:
         location:
             start: 10
@@ -219,6 +218,7 @@ high:
             column:
                 start: 8
                 end: 40
+        content: Curl::Easy.new(params[:oops]) {}
       parent_line_number: 10
       snippet: Curl::Easy.new(params[:oops]) {}
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_3
@@ -266,7 +266,6 @@ high:
             column:
                 start: 1
                 end: 26
-        content: easy.url = params[:oops2]
       sink:
         location:
             start: 11
@@ -274,6 +273,7 @@ high:
             column:
                 start: 1
                 end: 26
+        content: easy.url = params[:oops2]
       parent_line_number: 11
       snippet: easy.url = params[:oops2]
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_4
@@ -321,7 +321,6 @@ high:
             column:
                 start: 1
                 end: 26
-        content: easy2.url = params[:oops]
       sink:
         location:
             start: 14
@@ -329,6 +328,7 @@ high:
             column:
                 start: 1
                 end: 26
+        content: easy2.url = params[:oops]
       parent_line_number: 14
       snippet: easy2.url = params[:oops]
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_5
@@ -376,7 +376,6 @@ high:
             column:
                 start: 1
                 end: 69
-        content: Curl::Multi.get(["https://my.api.com/secure", params[:oops]], {}) {}
       sink:
         location:
             start: 16
@@ -384,6 +383,7 @@ high:
             column:
                 start: 1
                 end: 69
+        content: Curl::Multi.get(["https://my.api.com/secure", params[:oops]], {}) {}
       parent_line_number: 16
       snippet: Curl::Multi.get(["https://my.api.com/secure", params[:oops]], {}) {}
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_6
@@ -431,7 +431,6 @@ high:
             column:
                 start: 1
                 end: 61
-        content: 'Curl::Multi.http([{ url: params[:oops], method: :post }]) {}'
       sink:
         location:
             start: 18
@@ -439,6 +438,7 @@ high:
             column:
                 start: 1
                 end: 61
+        content: 'Curl::Multi.http([{ url: params[:oops], method: :post }]) {}'
       parent_line_number: 18
       snippet: 'Curl::Multi.http([{ url: params[:oops], method: :post }]) {}'
       fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_7

@@ -35,7 +35,6 @@ medium:
             column:
                 start: 3
                 end: 49
-        content: 'encrypts :email, :billing_number, key: "short"'
       sink:
         location:
             start: 2
@@ -43,6 +42,7 @@ medium:
             column:
                 start: 3
                 end: 49
+        content: 'encrypts :email, :billing_number, key: "short"'
       parent_line_number: 2
       snippet: 'encrypts :email, :billing_number, key: "short"'
       fingerprint: af1f8e3a42d21cb661f76c37c8df8c10_0

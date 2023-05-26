@@ -23,6 +23,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 8
+            end: 8
+            column:
+                start: 15
+                end: 30
+      sink:
+        location:
             start: 5
             end: 9
             column:
@@ -34,13 +41,6 @@ high:
               userId: user.id,
               userIpAddr: user.ip_address,
             })
-      sink:
-        location:
-            start: 8
-            end: 8
-            column:
-                start: 15
-                end: 30
       parent_line_number: 5
       snippet: |-
         client.track({
@@ -78,16 +78,16 @@ high:
             start: 17
             end: 17
             column:
-                start: 3
-                end: 28
-        content: browser.track(user.email)
+                start: 17
+                end: 27
       sink:
         location:
             start: 17
             end: 17
             column:
-                start: 17
-                end: 27
+                start: 3
+                end: 28
+        content: browser.track(user.email)
       parent_line_number: 17
       snippet: browser.track(user.email)
       fingerprint: df462286e9e34d817b61a361c26e8720_0

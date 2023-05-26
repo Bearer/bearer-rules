@@ -28,6 +28,13 @@ medium:
             column:
                 start: 1
                 end: 4
+      sink:
+        location:
+            start: 7
+            end: 16
+            column:
+                start: 1
+                end: 4
         content: |-
             Bugsnag.notify(exception) do |event|
               # Adjust the severity of this error
@@ -39,13 +46,6 @@ medium:
                 paying_customer: true
               })
             end
-      sink:
-        location:
-            start: 7
-            end: 16
-            column:
-                start: 1
-                end: 4
       parent_line_number: 7
       snippet: |-
         Bugsnag.notify(exception) do |event|

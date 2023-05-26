@@ -18,7 +18,6 @@ medium:
             column:
                 start: 5
                 end: 44
-        content: 'redirect_to params[:id], status: :found'
       sink:
         location:
             start: 3
@@ -26,6 +25,7 @@ medium:
             column:
                 start: 5
                 end: 44
+        content: 'redirect_to params[:id], status: :found'
       parent_line_number: 3
       snippet: 'redirect_to params[:id], status: :found'
       fingerprint: 4d813584d428633571450f7832ab6139_0

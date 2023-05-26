@@ -32,10 +32,6 @@ low:
             column:
                 start: 13
                 end: 3
-        content: |-
-            jwt.sign({ foo: "bar" }, process.env.JWT_SECRET, {
-            	algorithm: "none",
-            })
       sink:
         location:
             start: 3
@@ -43,6 +39,10 @@ low:
             column:
                 start: 13
                 end: 3
+        content: |-
+            jwt.sign({ foo: "bar" }, process.env.JWT_SECRET, {
+            	algorithm: "none",
+            })
       parent_line_number: 3
       snippet: |-
         jwt.sign({ foo: "bar" }, process.env.JWT_SECRET, {

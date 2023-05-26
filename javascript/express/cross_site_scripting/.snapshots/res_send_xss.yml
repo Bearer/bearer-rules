@@ -29,7 +29,6 @@ high:
             column:
                 start: 3
                 end: 52
-        content: res.send("<p>" + req.body.customer.name + "</p>")
       sink:
         location:
             start: 9
@@ -37,6 +36,7 @@ high:
             column:
                 start: 3
                 end: 52
+        content: res.send("<p>" + req.body.customer.name + "</p>")
       parent_line_number: 9
       snippet: res.send("<p>" + req.body.customer.name + "</p>")
       fingerprint: df7c00dff42ea03e2153d41a4dc2fc8e_0
@@ -71,7 +71,6 @@ high:
             column:
                 start: 3
                 end: 49
-        content: res.send("<p>" + req.body["user_id"] + "</p>")
       sink:
         location:
             start: 13
@@ -79,6 +78,7 @@ high:
             column:
                 start: 3
                 end: 49
+        content: res.send("<p>" + req.body["user_id"] + "</p>")
       parent_line_number: 13
       snippet: res.send("<p>" + req.body["user_id"] + "</p>")
       fingerprint: df7c00dff42ea03e2153d41a4dc2fc8e_1

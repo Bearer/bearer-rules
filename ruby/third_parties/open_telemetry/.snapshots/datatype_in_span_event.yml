@@ -26,16 +26,16 @@ high:
             start: 2
             end: 2
             column:
-                start: 1
-                end: 63
-        content: 'span.add_event("Schedule job for user: #{current_user.email}")'
+                start: 42
+                end: 60
       sink:
         location:
             start: 2
             end: 2
             column:
-                start: 42
-                end: 60
+                start: 1
+                end: 63
+        content: 'span.add_event("Schedule job for user: #{current_user.email}")'
       parent_line_number: 2
       snippet: 'span.add_event("Schedule job for user: #{current_user.email}")'
       fingerprint: 949ba3eb3d0c9c539480c41846520b5b_0
@@ -64,6 +64,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 4
+            end: 4
+            column:
+                start: 21
+                end: 39
+      sink:
+        location:
             start: 3
             end: 5
             column:
@@ -73,13 +80,6 @@ high:
             span.add_event("Cancel job for user", attributes: {
               "current_user" => current_user.email
             })
-      sink:
-        location:
-            start: 4
-            end: 4
-            column:
-                start: 21
-                end: 39
       parent_line_number: 3
       snippet: |-
         span.add_event("Cancel job for user", attributes: {

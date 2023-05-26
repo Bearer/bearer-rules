@@ -23,6 +23,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 9
+            end: 9
+            column:
+                start: 40
+                end: 64
+      sink:
+        location:
             start: 7
             end: 10
             column:
@@ -33,13 +40,6 @@ high:
                   code: opentelemetry.SpanStatusCode.ERROR,
                   message: "Bad connection for " + currentUser.emailAddress
                 })
-      sink:
-        location:
-            start: 9
-            end: 9
-            column:
-                start: 40
-                end: 64
       parent_line_number: 7
       snippet: |-
         span.setStatus({

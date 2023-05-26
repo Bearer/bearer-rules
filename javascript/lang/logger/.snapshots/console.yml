@@ -37,16 +37,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 1
-                end: 23
-        content: console.log(user.name)
+                start: 13
+                end: 22
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 13
-                end: 22
+                start: 1
+                end: 23
+        content: console.log(user.name)
       parent_line_number: 1
       snippet: console.log(user.name)
       fingerprint: 327449cd47ed82672cc47bf9cfccdb4a_1
@@ -89,16 +89,16 @@ high:
             start: 2
             end: 2
             column:
-                start: 1
-                end: 41
-        content: console.log("user email is", user.email)
+                start: 30
+                end: 40
       sink:
         location:
             start: 2
             end: 2
             column:
-                start: 30
-                end: 40
+                start: 1
+                end: 41
+        content: console.log("user email is", user.email)
       parent_line_number: 2
       snippet: console.log("user email is", user.email)
       fingerprint: 327449cd47ed82672cc47bf9cfccdb4a_0

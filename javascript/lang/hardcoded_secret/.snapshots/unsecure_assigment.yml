@@ -39,7 +39,6 @@ high:
             column:
                 start: 1
                 end: 46
-        content: config.clientSecret = "secretHardcodedString"
       sink:
         location:
             start: 2
@@ -47,6 +46,7 @@ high:
             column:
                 start: 1
                 end: 46
+        content: config.clientSecret = "secretHardcodedString"
       parent_line_number: 2
       snippet: config.clientSecret = "secretHardcodedString"
       fingerprint: 68ec549b0c4baac7ca684eb14e42834e_0
@@ -91,7 +91,6 @@ high:
             column:
                 start: 1
                 end: 22
-        content: const apiKey = "oops"
       sink:
         location:
             start: 4
@@ -99,6 +98,7 @@ high:
             column:
                 start: 1
                 end: 22
+        content: const apiKey = "oops"
       parent_line_number: 4
       snippet: const apiKey = "oops"
       fingerprint: 68ec549b0c4baac7ca684eb14e42834e_1

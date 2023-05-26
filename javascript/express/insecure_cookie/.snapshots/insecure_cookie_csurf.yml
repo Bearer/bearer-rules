@@ -27,11 +27,6 @@ low:
             column:
                 start: 28
                 end: 4
-        content: |-
-            {
-                cookie: { ...csrfOptions, httpOnly: true },
-                // cookie: { secure: false, httpOnly: true },
-              }
       sink:
         location:
             start: 10
@@ -39,6 +34,11 @@ low:
             column:
                 start: 28
                 end: 4
+        content: |-
+            {
+                cookie: { ...csrfOptions, httpOnly: true },
+                // cookie: { secure: false, httpOnly: true },
+              }
       parent_line_number: 10
       snippet: |-
         {

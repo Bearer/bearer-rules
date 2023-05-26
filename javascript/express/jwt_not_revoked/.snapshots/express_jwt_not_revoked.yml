@@ -32,7 +32,6 @@ low:
             column:
                 start: 3
                 end: 63
-        content: 'expressjwt({ secret: config.secret, algorithms: ["HS256"] })'
       sink:
         location:
             start: 11
@@ -40,6 +39,7 @@ low:
             column:
                 start: 3
                 end: 63
+        content: 'expressjwt({ secret: config.secret, algorithms: ["HS256"] })'
       parent_line_number: 11
       snippet: 'expressjwt({ secret: config.secret, algorithms: ["HS256"] })'
       fingerprint: eaae2a30ff6ed4568ddf01dd63a61387_0
@@ -77,7 +77,6 @@ low:
             column:
                 start: 3
                 end: 63
-        content: 'expressJwt({ secret: config.secret, algorithms: ["HS256"] })'
       sink:
         location:
             start: 12
@@ -85,6 +84,7 @@ low:
             column:
                 start: 3
                 end: 63
+        content: 'expressJwt({ secret: config.secret, algorithms: ["HS256"] })'
       parent_line_number: 12
       snippet: 'expressJwt({ secret: config.secret, algorithms: ["HS256"] })'
       fingerprint: eaae2a30ff6ed4568ddf01dd63a61387_1
@@ -122,7 +122,6 @@ low:
             column:
                 start: 3
                 end: 63
-        content: 'ExpressJWT({ secret: config.secret, algorithms: ["HS256"] })'
       sink:
         location:
             start: 13
@@ -130,6 +129,7 @@ low:
             column:
                 start: 3
                 end: 63
+        content: 'ExpressJWT({ secret: config.secret, algorithms: ["HS256"] })'
       parent_line_number: 13
       snippet: 'ExpressJWT({ secret: config.secret, algorithms: ["HS256"] })'
       fingerprint: eaae2a30ff6ed4568ddf01dd63a61387_2

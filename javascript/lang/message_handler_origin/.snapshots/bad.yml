@@ -45,10 +45,6 @@ medium:
             column:
                 start: 1
                 end: 3
-        content: |-
-            window.addEventListener('message', (event) => {
-              actOnMessage(event.data)
-            })
       sink:
         location:
             start: 1
@@ -56,6 +52,10 @@ medium:
             column:
                 start: 1
                 end: 3
+        content: |-
+            window.addEventListener('message', (event) => {
+              actOnMessage(event.data)
+            })
       parent_line_number: 1
       snippet: |-
         window.addEventListener('message', (event) => {
@@ -109,10 +109,6 @@ medium:
             column:
                 start: 1
                 end: 3
-        content: |-
-            addEventListener('message', function (event) {
-              actOnMessage(event.data)
-            })
       sink:
         location:
             start: 5
@@ -120,6 +116,10 @@ medium:
             column:
                 start: 1
                 end: 3
+        content: |-
+            addEventListener('message', function (event) {
+              actOnMessage(event.data)
+            })
       parent_line_number: 5
       snippet: |-
         addEventListener('message', function (event) {
@@ -173,10 +173,6 @@ medium:
             column:
                 start: 1
                 end: 3
-        content: |-
-            addEventListener('message', function f(event) {
-              actOnMessage(event.data)
-            })
       sink:
         location:
             start: 9
@@ -184,6 +180,10 @@ medium:
             column:
                 start: 1
                 end: 3
+        content: |-
+            addEventListener('message', function f(event) {
+              actOnMessage(event.data)
+            })
       parent_line_number: 9
       snippet: |-
         addEventListener('message', function f(event) {

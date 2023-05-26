@@ -44,7 +44,6 @@ high:
             column:
                 start: 1
                 end: 33
-        content: Object.const_get(params[:class])
       sink:
         location:
             start: 1
@@ -52,6 +51,7 @@ high:
             column:
                 start: 1
                 end: 33
+        content: Object.const_get(params[:class])
       parent_line_number: 1
       snippet: Object.const_get(params[:class])
       fingerprint: 23f90aa15d412fbb5e8bd9ead1b2472a_0
@@ -101,7 +101,6 @@ high:
             column:
                 start: 1
                 end: 37
-        content: Object.const_set(params[:class], 42)
       sink:
         location:
             start: 2
@@ -109,6 +108,7 @@ high:
             column:
                 start: 1
                 end: 37
+        content: Object.const_set(params[:class], 42)
       parent_line_number: 2
       snippet: Object.const_set(params[:class], 42)
       fingerprint: 23f90aa15d412fbb5e8bd9ead1b2472a_1
@@ -158,7 +158,6 @@ high:
             column:
                 start: 1
                 end: 36
-        content: Object.remove_const(params[:class])
       sink:
         location:
             start: 3
@@ -166,6 +165,7 @@ high:
             column:
                 start: 1
                 end: 36
+        content: Object.remove_const(params[:class])
       parent_line_number: 3
       snippet: Object.remove_const(params[:class])
       fingerprint: 23f90aa15d412fbb5e8bd9ead1b2472a_2
@@ -215,7 +215,6 @@ high:
             column:
                 start: 1
                 end: 24
-        content: method(params[:method])
       sink:
         location:
             start: 5
@@ -223,6 +222,7 @@ high:
             column:
                 start: 1
                 end: 24
+        content: method(params[:method])
       parent_line_number: 5
       snippet: method(params[:method])
       fingerprint: 23f90aa15d412fbb5e8bd9ead1b2472a_3
@@ -272,7 +272,6 @@ high:
             column:
                 start: 1
                 end: 36
-        content: x.define_method(params[:method]) {}
       sink:
         location:
             start: 7
@@ -280,6 +279,7 @@ high:
             column:
                 start: 1
                 end: 36
+        content: x.define_method(params[:method]) {}
       parent_line_number: 7
       snippet: x.define_method(params[:method]) {}
       fingerprint: 23f90aa15d412fbb5e8bd9ead1b2472a_4
@@ -329,7 +329,6 @@ high:
             column:
                 start: 1
                 end: 31
-        content: params[:method].to_sym.to_proc
       sink:
         location:
             start: 9
@@ -337,6 +336,7 @@ high:
             column:
                 start: 1
                 end: 31
+        content: params[:method].to_sym.to_proc
       parent_line_number: 9
       snippet: params[:method].to_sym.to_proc
       fingerprint: 23f90aa15d412fbb5e8bd9ead1b2472a_5
@@ -386,7 +386,6 @@ high:
             column:
                 start: 1
                 end: 36
-        content: bad_things(&params[:method].to_sym)
       sink:
         location:
             start: 11
@@ -394,6 +393,7 @@ high:
             column:
                 start: 1
                 end: 36
+        content: bad_things(&params[:method].to_sym)
       parent_line_number: 11
       snippet: bad_things(&params[:method].to_sym)
       fingerprint: 23f90aa15d412fbb5e8bd9ead1b2472a_6
@@ -443,7 +443,6 @@ high:
             column:
                 start: 1
                 end: 38
-        content: x.bad_things(&params[:method].to_sym)
       sink:
         location:
             start: 12
@@ -451,6 +450,7 @@ high:
             column:
                 start: 1
                 end: 38
+        content: x.bad_things(&params[:method].to_sym)
       parent_line_number: 12
       snippet: x.bad_things(&params[:method].to_sym)
       fingerprint: 23f90aa15d412fbb5e8bd9ead1b2472a_7

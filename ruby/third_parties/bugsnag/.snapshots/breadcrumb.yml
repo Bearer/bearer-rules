@@ -23,19 +23,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 2
+            end: 2
+            column:
+                start: 3
+                end: 28
+      sink:
+        location:
             start: 7
             end: 7
             column:
                 start: 1
                 end: 84
         content: Bugsnag.leave_breadcrumb('User logged in', metadata, Bugsnag::BreadcrumbType::USER)
-      sink:
-        location:
-            start: 2
-            end: 2
-            column:
-                start: 3
-                end: 28
       parent_line_number: 7
       snippet: Bugsnag.leave_breadcrumb('User logged in', metadata, Bugsnag::BreadcrumbType::USER)
       fingerprint: 524e26b29dda01375b05516947e0c2a5_0

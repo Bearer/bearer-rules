@@ -23,6 +23,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 7
+            end: 7
+            column:
+                start: 26
+                end: 41
+      sink:
+        location:
             start: 5
             end: 8
             column:
@@ -33,13 +40,6 @@ high:
                 "user.id" => user.id,
                 "user.first_name" => user.first_name
               })
-      sink:
-        location:
-            start: 7
-            end: 7
-            column:
-                start: 26
-                end: 41
       parent_line_number: 5
       snippet: |-
         current_span.add_attributes({
@@ -72,19 +72,19 @@ high:
         - Personal Data
       source:
         location:
+            start: 13
+            end: 13
+            column:
+                start: 10
+                end: 20
+      sink:
+        location:
             start: 14
             end: 14
             column:
                 start: 1
                 end: 51
         content: current_span.set_attribute("current_users", users)
-      sink:
-        location:
-            start: 13
-            end: 13
-            column:
-                start: 10
-                end: 20
       parent_line_number: 14
       snippet: current_span.set_attribute("current_users", users)
       fingerprint: 949ba3eb3d0c9c539480c41846520b5b_0

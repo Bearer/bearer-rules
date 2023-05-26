@@ -23,6 +23,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 3
+            end: 3
+            column:
+                start: 23
+                end: 35
+      sink:
+        location:
             start: 2
             end: 4
             column:
@@ -32,13 +39,6 @@ high:
             def to_honeybadger_context
                 { user: { id: id, email: email } }
               end
-      sink:
-        location:
-            start: 3
-            end: 3
-            column:
-                start: 23
-                end: 35
       parent_line_number: 2
       snippet: |-
         def to_honeybadger_context

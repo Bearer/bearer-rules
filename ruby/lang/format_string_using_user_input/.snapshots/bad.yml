@@ -35,7 +35,6 @@ low:
             column:
                 start: 1
                 end: 42
-        content: 'sprintf("Value: #{params[:value]} %d", x)'
       sink:
         location:
             start: 1
@@ -43,6 +42,7 @@ low:
             column:
                 start: 1
                 end: 42
+        content: 'sprintf("Value: #{params[:value]} %d", x)'
       parent_line_number: 1
       snippet: 'sprintf("Value: #{params[:value]} %d", x)'
       fingerprint: b6dd045c211476b3e020225065dbdb96_0
@@ -83,7 +83,6 @@ low:
             column:
                 start: 1
                 end: 48
-        content: 'Kernel.printf("Value: #{params[:value]} %d", x)'
       sink:
         location:
             start: 3
@@ -91,6 +90,7 @@ low:
             column:
                 start: 1
                 end: 48
+        content: 'Kernel.printf("Value: #{params[:value]} %d", x)'
       parent_line_number: 3
       snippet: 'Kernel.printf("Value: #{params[:value]} %d", x)'
       fingerprint: b6dd045c211476b3e020225065dbdb96_1
@@ -131,7 +131,6 @@ low:
             column:
                 start: 1
                 end: 36
-        content: '"Value: #{params[:value]} %s" % [x]'
       sink:
         location:
             start: 5
@@ -139,6 +138,7 @@ low:
             column:
                 start: 1
                 end: 36
+        content: '"Value: #{params[:value]} %s" % [x]'
       parent_line_number: 5
       snippet: '"Value: #{params[:value]} %s" % [x]'
       fingerprint: b6dd045c211476b3e020225065dbdb96_2

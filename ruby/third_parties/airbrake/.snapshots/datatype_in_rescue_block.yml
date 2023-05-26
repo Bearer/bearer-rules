@@ -26,16 +26,16 @@ high:
             start: 4
             end: 4
             column:
-                start: 14
-                end: 59
-        content: Airbrake.notify_sync(current_user.first_name)
+                start: 35
+                end: 58
       sink:
         location:
             start: 4
             end: 4
             column:
-                start: 35
-                end: 58
+                start: 14
+                end: 59
+        content: Airbrake.notify_sync(current_user.first_name)
       parent_line_number: 4
       snippet: Airbrake.notify_sync(current_user.first_name)
       fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_0

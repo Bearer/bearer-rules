@@ -23,6 +23,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 3
+            end: 3
+            column:
+                start: 20
+                end: 35
+      sink:
+        location:
             start: 1
             end: 6
             column:
@@ -35,13 +42,6 @@ high:
               status_code: 200,
               timing: 123.45 # ms
             )
-      sink:
-        location:
-            start: 3
-            end: 3
-            column:
-                start: 20
-                end: 35
       parent_line_number: 1
       snippet: |-
         Airbrake.notify_request_sync(
@@ -76,6 +76,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 9
+            end: 9
+            column:
+                start: 20
+                end: 35
+      sink:
+        location:
             start: 7
             end: 12
             column:
@@ -88,13 +95,6 @@ high:
               status_code: 200,
               timing: 123.45 # ms
             )
-      sink:
-        location:
-            start: 9
-            end: 9
-            column:
-                start: 20
-                end: 35
       parent_line_number: 7
       snippet: |-
         Airbrake.notify_request(
@@ -129,6 +129,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 17
+            end: 17
+            column:
+                start: 19
+                end: 37
+      sink:
+        location:
             start: 15
             end: 20
             column:
@@ -141,13 +148,6 @@ high:
               },
               request_id: 123
             )
-      sink:
-        location:
-            start: 17
-            end: 17
-            column:
-                start: 19
-                end: 37
       parent_line_number: 15
       snippet: |-
         Airbrake.notify_request_sync(
@@ -182,6 +182,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 23
+            end: 23
+            column:
+                start: 19
+                end: 37
+      sink:
+        location:
             start: 21
             end: 26
             column:
@@ -194,13 +201,6 @@ high:
               },
               request_id: 123
             )
-      sink:
-        location:
-            start: 23
-            end: 23
-            column:
-                start: 19
-                end: 37
       parent_line_number: 21
       snippet: |-
         Airbrake.notify_request(
@@ -235,6 +235,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 31
+            end: 31
+            column:
+                start: 20
+                end: 35
+      sink:
+        location:
             start: 29
             end: 33
             column:
@@ -246,13 +253,6 @@ high:
               route: "/users/#{user.first_name}",
               query: 'SELECT * FROM foos'
             )
-      sink:
-        location:
-            start: 31
-            end: 31
-            column:
-                start: 20
-                end: 35
       parent_line_number: 29
       snippet: |-
         Airbrake.notify_query_sync(
@@ -286,6 +286,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 36
+            end: 36
+            column:
+                start: 20
+                end: 35
+      sink:
+        location:
             start: 34
             end: 38
             column:
@@ -297,13 +304,6 @@ high:
               route: "/users/#{user.first_name}",
               query: 'SELECT * FROM foos'
             )
-      sink:
-        location:
-            start: 36
-            end: 36
-            column:
-                start: 20
-                end: 35
       parent_line_number: 34
       snippet: |-
         Airbrake.notify_query(
@@ -337,6 +337,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 43
+            end: 43
+            column:
+                start: 11
+                end: 21
+      sink:
+        location:
             start: 41
             end: 46
             column:
@@ -349,13 +356,6 @@ high:
               },
               request_id: 123
             )
-      sink:
-        location:
-            start: 43
-            end: 43
-            column:
-                start: 11
-                end: 21
       parent_line_number: 41
       snippet: |-
         Airbrake.notify_query_sync(
@@ -390,6 +390,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 49
+            end: 49
+            column:
+                start: 11
+                end: 21
+      sink:
+        location:
             start: 47
             end: 52
             column:
@@ -402,13 +409,6 @@ high:
               },
               request_id: 123
             )
-      sink:
-        location:
-            start: 49
-            end: 49
-            column:
-                start: 11
-                end: 21
       parent_line_number: 47
       snippet: |-
         Airbrake.notify_query(
@@ -443,6 +443,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 57
+            end: 57
+            column:
+                start: 20
+                end: 35
+      sink:
+        location:
             start: 55
             end: 61
             column:
@@ -456,13 +463,6 @@ high:
               groups: { db: 24.0, view: 0.4 }, # ms
               timing: 123.45 # ms
             )
-      sink:
-        location:
-            start: 57
-            end: 57
-            column:
-                start: 20
-                end: 35
       parent_line_number: 55
       snippet: |-
         Airbrake.notify_performance_breakdown_sync(
@@ -498,6 +498,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 64
+            end: 64
+            column:
+                start: 20
+                end: 35
+      sink:
+        location:
             start: 62
             end: 68
             column:
@@ -511,13 +518,6 @@ high:
               groups: { db: 24.0, view: 0.4 }, # ms
               timing: 123.45 # ms
             )
-      sink:
-        location:
-            start: 64
-            end: 64
-            column:
-                start: 20
-                end: 35
       parent_line_number: 62
       snippet: |-
         Airbrake.notify_performance_breakdown(
@@ -553,6 +553,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 73
+            end: 73
+            column:
+                start: 11
+                end: 21
+      sink:
+        location:
             start: 71
             end: 76
             column:
@@ -565,13 +572,6 @@ high:
               },
               request_id: 123
             )
-      sink:
-        location:
-            start: 73
-            end: 73
-            column:
-                start: 11
-                end: 21
       parent_line_number: 71
       snippet: |-
         Airbrake.notify_performance_breakdown_sync(
@@ -606,6 +606,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 79
+            end: 79
+            column:
+                start: 11
+                end: 21
+      sink:
+        location:
             start: 77
             end: 82
             column:
@@ -618,13 +625,6 @@ high:
               },
               request_id: 123
             )
-      sink:
-        location:
-            start: 79
-            end: 79
-            column:
-                start: 11
-                end: 21
       parent_line_number: 77
       snippet: |-
         Airbrake.notify_performance_breakdown(
@@ -659,6 +659,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 101
+            end: 101
+            column:
+                start: 11
+                end: 21
+      sink:
+        location:
             start: 99
             end: 104
             column:
@@ -671,13 +678,6 @@ high:
               },
               job_id: 123
             )
-      sink:
-        location:
-            start: 101
-            end: 101
-            column:
-                start: 11
-                end: 21
       parent_line_number: 99
       snippet: |-
         Airbrake.notify_queue_sync(
@@ -712,6 +712,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 107
+            end: 107
+            column:
+                start: 11
+                end: 21
+      sink:
+        location:
             start: 105
             end: 110
             column:
@@ -724,13 +731,6 @@ high:
               },
               job_id: 123
             )
-      sink:
-        location:
-            start: 107
-            end: 107
-            column:
-                start: 11
-                end: 21
       parent_line_number: 105
       snippet: |-
         Airbrake.notify_queue(

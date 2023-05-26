@@ -33,13 +33,6 @@ low:
             column:
                 start: 1
                 end: 4
-        content: |-
-            Net::FTP.open("example.com") do |ftp|
-              ftp.login
-              files = ftp.chdir('pub/lang/ruby/contrib')
-              files = ftp.list('n*')
-              ftp.getbinaryfile('nif.rb-0.91.gz', 'nif.gz', 1024)
-            end
       sink:
         location:
             start: 3
@@ -47,6 +40,13 @@ low:
             column:
                 start: 1
                 end: 4
+        content: |-
+            Net::FTP.open("example.com") do |ftp|
+              ftp.login
+              files = ftp.chdir('pub/lang/ruby/contrib')
+              files = ftp.list('n*')
+              ftp.getbinaryfile('nif.rb-0.91.gz', 'nif.gz', 1024)
+            end
       parent_line_number: 3
       snippet: |-
         Net::FTP.open("example.com") do |ftp|

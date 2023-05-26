@@ -24,6 +24,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 6
+            end: 6
+            column:
+                start: 31
+                end: 46
+      sink:
+        location:
             start: 5
             end: 6
             column:
@@ -32,13 +39,6 @@ high:
         content: |-
             newrelic.interaction()
                 .setAttribute("username", user.first_name)
-      sink:
-        location:
-            start: 6
-            end: 6
-            column:
-                start: 31
-                end: 46
       parent_line_number: 5
       snippet: |-
         newrelic.interaction()
@@ -70,6 +70,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 7
+            end: 7
+            column:
+                start: 34
+                end: 48
+      sink:
+        location:
             start: 5
             end: 7
             column:
@@ -79,13 +86,6 @@ high:
             newrelic.interaction()
                 .setAttribute("username", user.first_name)
                 .setAttribute("postal-code", user.post_code)
-      sink:
-        location:
-            start: 7
-            end: 7
-            column:
-                start: 34
-                end: 48
       parent_line_number: 5
       snippet: |-
         newrelic.interaction()
@@ -121,16 +121,16 @@ high:
             start: 13
             end: 13
             column:
-                start: 1
-                end: 54
-        content: interaction.setAttribute("email", user.email_address)
+                start: 35
+                end: 53
       sink:
         location:
             start: 13
             end: 13
             column:
-                start: 35
-                end: 53
+                start: 1
+                end: 54
+        content: interaction.setAttribute("email", user.email_address)
       parent_line_number: 13
       snippet: interaction.setAttribute("email", user.email_address)
       fingerprint: 63161101404765527f0dada7fd00b64e_0

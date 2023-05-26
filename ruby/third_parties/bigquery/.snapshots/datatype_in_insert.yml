@@ -22,6 +22,13 @@ high:
         - Personal Data
       source:
         location:
+            start: 4
+            end: 4
+            column:
+                start: 10
+                end: 35
+      sink:
+        location:
             start: 7
             end: 9
             column:
@@ -31,13 +38,6 @@ high:
             dataset.insert("my_table", rows) do |result|
               call
             end
-      sink:
-        location:
-            start: 4
-            end: 4
-            column:
-                start: 10
-                end: 35
       parent_line_number: 7
       snippet: |-
         dataset.insert("my_table", rows) do |result|

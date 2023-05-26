@@ -34,16 +34,16 @@ high:
             start: 1
             end: 1
             column:
-                start: 1
-                end: 38
-        content: raise CustomException.new(user.email)
+                start: 27
+                end: 37
       sink:
         location:
             start: 1
             end: 1
             column:
-                start: 27
-                end: 37
+                start: 1
+                end: 38
+        content: raise CustomException.new(user.email)
       parent_line_number: 1
       snippet: raise CustomException.new(user.email)
       fingerprint: 41890a2ed9c1a59b53c2e1effaad0b60_0
@@ -83,16 +83,16 @@ high:
             start: 2
             end: 2
             column:
-                start: 1
-                end: 41
-        content: 'raise "User doesn''t exist #{user.email}"'
+                start: 29
+                end: 39
       sink:
         location:
             start: 2
             end: 2
             column:
-                start: 29
-                end: 39
+                start: 1
+                end: 41
+        content: 'raise "User doesn''t exist #{user.email}"'
       parent_line_number: 2
       snippet: 'raise "User doesn''t exist #{user.email}"'
       fingerprint: 41890a2ed9c1a59b53c2e1effaad0b60_1

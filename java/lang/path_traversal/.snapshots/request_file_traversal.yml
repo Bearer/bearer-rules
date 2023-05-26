@@ -40,7 +40,6 @@ low:
             column:
                 start: 21
                 end: 53
-        content: new File("user/profile/", image)
       sink:
         location:
             start: 18
@@ -48,6 +47,7 @@ low:
             column:
                 start: 21
                 end: 53
+        content: new File("user/profile/", image)
       parent_line_number: 18
       snippet: new File("user/profile/", image)
       fingerprint: 0ddbea485a733931cca743266783dadc_0
