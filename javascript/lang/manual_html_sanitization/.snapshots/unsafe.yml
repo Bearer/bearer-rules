@@ -47,10 +47,10 @@ low:
             end: 1
             column:
                 start: 28
-                end: 62
-        content: user.Input.replaceAll('<', '&lt;')
+                end: 86
+        content: user.Input.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
       parent_line_number: 1
-      snippet: user.Input.replaceAll('<', '&lt;')
+      snippet: user.Input.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
       fingerprint: 883581e9effcc89f50531cd2677ebf31_0
       old_fingerprint: c0518627978b47860a26bc3654430cc1_0
 

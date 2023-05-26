@@ -18,6 +18,60 @@ high:
             Coming soon.
             -->
         documentation_url: https://docs.bearer.com/reference/rules/javascript_react_google_analytics
+      line_number: 1
+      full_filename: /tmp/scan/insecure.js
+      filename: .
+      category_groups:
+        - PII
+        - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 16
+                end: 40
+      sink:
+        location:
+            start: 2
+            end: 6
+            column:
+                start: 1
+                end: 3
+        content: |-
+            ReactGA.event({
+            	category: "user",
+            	action: "logged_in",
+            	value: user.email,
+            })
+      parent_line_number: 2
+      snippet: |-
+        ReactGA.event({
+        	category: "user",
+        	action: "logged_in",
+        	value: user.email,
+        })
+      fingerprint: 16009a30042a079495df4d1ac0b9b830_0
+      old_fingerprint: 20c01c9a9b44b271d46d5cb2675c3ef8_0
+    - rule:
+        cwe_ids:
+            - "201"
+        id: javascript_react_google_analytics
+        title: Sensitive data sent to Google Analytics detected.
+        description: |
+            ## Description
+
+            Leaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Google Analytics.
+
+            ## Remediations
+
+            When sending data to analytics libraries, ensure all sensitive data is removed.
+
+            <!--
+            ## Resources
+            Coming soon.
+            -->
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_react_google_analytics
       line_number: 5
       full_filename: /tmp/scan/insecure.js
       filename: .
@@ -51,6 +105,6 @@ high:
         	action: "logged_in",
         	value: user.email,
         })
-      fingerprint: 16009a30042a079495df4d1ac0b9b830_0
-      old_fingerprint: 20c01c9a9b44b271d46d5cb2675c3ef8_0
+      fingerprint: 16009a30042a079495df4d1ac0b9b830_1
+      old_fingerprint: 20c01c9a9b44b271d46d5cb2675c3ef8_1
 

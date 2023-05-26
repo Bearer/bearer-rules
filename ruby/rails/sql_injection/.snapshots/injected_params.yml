@@ -387,8 +387,8 @@ high:
         content: 'ActiveRecord::Base.connection.exec_query("SELECT #{params[:oops]}")'
       parent_line_number: 11
       snippet: 'ActiveRecord::Base.connection.exec_query("SELECT #{params[:oops]}")'
-      fingerprint: 4375e8a33c7009e3ee375e18f3a797b1_6
-      old_fingerprint: 8896752ba26cde38f85b0a614f701feb_6
+      fingerprint: 4375e8a33c7009e3ee375e18f3a797b1_5
+      old_fingerprint: 8896752ba26cde38f85b0a614f701feb_5
     - rule:
         cwe_ids:
             - "89"
@@ -451,6 +451,6 @@ high:
         content: 'connection.select_all("SELECT #{params[:oops]}")'
       parent_line_number: 13
       snippet: 'connection.select_all("SELECT #{params[:oops]}")'
-      fingerprint: 4375e8a33c7009e3ee375e18f3a797b1_7
-      old_fingerprint: 8896752ba26cde38f85b0a614f701feb_7
+      fingerprint: 4375e8a33c7009e3ee375e18f3a797b1_6
+      old_fingerprint: 8896752ba26cde38f85b0a614f701feb_6
 

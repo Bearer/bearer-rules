@@ -200,11 +200,11 @@ high:
             start: 5
             end: 5
             column:
-                start: 5
-                end: 32
-        content: '"<h1>#{params[:oops]}</h1>"'
+                start: 1
+                end: 33
+        content: raw("<h1>#{params[:oops]}</h1>")
       parent_line_number: 5
-      snippet: '"<h1>#{params[:oops]}</h1>"'
+      snippet: raw("<h1>#{params[:oops]}</h1>")
       fingerprint: bbce316340479255472a6bc49330c542_3
       old_fingerprint: e656ad1fa2ca8c10a0a51f19d4d6a852_3
     - rule:
@@ -257,8 +257,8 @@ high:
         content: '"Hello: #{params[:oops]}".html_safe'
       parent_line_number: 7
       snippet: '"Hello: #{params[:oops]}".html_safe'
-      fingerprint: bbce316340479255472a6bc49330c542_5
-      old_fingerprint: e656ad1fa2ca8c10a0a51f19d4d6a852_5
+      fingerprint: bbce316340479255472a6bc49330c542_4
+      old_fingerprint: e656ad1fa2ca8c10a0a51f19d4d6a852_4
     - rule:
         cwe_ids:
             - "79"
@@ -309,6 +309,6 @@ high:
         content: 'ERB.new("Test: " + params[:oops])'
       parent_line_number: 9
       snippet: 'ERB.new("Test: " + params[:oops])'
-      fingerprint: bbce316340479255472a6bc49330c542_6
-      old_fingerprint: e656ad1fa2ca8c10a0a51f19d4d6a852_6
+      fingerprint: bbce316340479255472a6bc49330c542_5
+      old_fingerprint: e656ad1fa2ca8c10a0a51f19d4d6a852_5
 

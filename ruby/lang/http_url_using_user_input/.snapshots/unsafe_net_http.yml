@@ -148,61 +148,6 @@ high:
             Faraday.get("https://#{host}')
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
-      line_number: 6
-      full_filename: /tmp/scan/unsafe_net_http.rb
-      filename: .
-      source:
-        location:
-            start: 6
-            end: 6
-            column:
-                start: 3
-                end: 32
-      sink:
-        location:
-            start: 6
-            end: 6
-            column:
-                start: 3
-                end: 32
-        content: instance1.head(params[:path])
-      parent_line_number: 6
-      snippet: instance1.head(params[:path])
-      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_2
-      old_fingerprint: fa7acece587f08a4750ef1009d677b71_2
-    - rule:
-        cwe_ids:
-            - "918"
-        id: ruby_lang_http_url_using_user_input
-        title: HTTP communication with user-controlled destination detected.
-        description: |
-            ## Description
-
-            Applications should not connect to locations formed from user input.
-            This rule checks for URLs containing user-supplied data.
-
-            ## Remediations
-
-            ❌ Avoid using user input in HTTP URLs:
-
-            ```ruby
-            Faraday.get("https://#{params[:host]}')
-            ```
-
-            ✅ Use user input indirectly to form a URL:
-
-            ```ruby
-            host =
-              case params[:host]
-              when "option1"
-                "api1.com"
-              when "option2"
-                "api2.com"
-              end
-
-            Faraday.get("https://#{host}')
-            ```
-        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 9
       full_filename: /tmp/scan/unsafe_net_http.rb
       filename: .
@@ -223,8 +168,8 @@ high:
         content: 'Net::HTTP::Get.new(params[:oops], { "X-Test": 42 })'
       parent_line_number: 9
       snippet: 'Net::HTTP::Get.new(params[:oops], { "X-Test": 42 })'
-      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_3
-      old_fingerprint: fa7acece587f08a4750ef1009d677b71_3
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_2
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_2
     - rule:
         cwe_ids:
             - "918"
@@ -278,8 +223,8 @@ high:
         content: Net::HTTP.start(params[:oops])
       parent_line_number: 11
       snippet: Net::HTTP.start(params[:oops])
-      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_4
-      old_fingerprint: fa7acece587f08a4750ef1009d677b71_4
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_3
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_3
     - rule:
         cwe_ids:
             - "918"
@@ -333,8 +278,8 @@ high:
         content: instance2.ipaddr = request.env[:oops]
       parent_line_number: 12
       snippet: instance2.ipaddr = request.env[:oops]
-      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_5
-      old_fingerprint: fa7acece587f08a4750ef1009d677b71_5
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_4
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_4
     - rule:
         cwe_ids:
             - "918"
@@ -388,8 +333,8 @@ high:
         content: instance2.send_request("GET", params[:oops], nil)
       parent_line_number: 13
       snippet: instance2.send_request("GET", params[:oops], nil)
-      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_6
-      old_fingerprint: fa7acece587f08a4750ef1009d677b71_6
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_5
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_5
     - rule:
         cwe_ids:
             - "918"
@@ -443,8 +388,8 @@ high:
         content: Net::HTTP.new(params[:oops])
       parent_line_number: 15
       snippet: Net::HTTP.new(params[:oops])
-      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_7
-      old_fingerprint: fa7acece587f08a4750ef1009d677b71_7
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_6
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_6
     - rule:
         cwe_ids:
             - "918"
@@ -498,8 +443,8 @@ high:
         content: instance3.patch(params[:path])
       parent_line_number: 16
       snippet: instance3.patch(params[:path])
-      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_8
-      old_fingerprint: fa7acece587f08a4750ef1009d677b71_8
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_7
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_7
     - rule:
         cwe_ids:
             - "918"
@@ -553,6 +498,6 @@ high:
         content: instance4.post(request.env[:oops])
       parent_line_number: 18
       snippet: instance4.post(request.env[:oops])
-      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_9
-      old_fingerprint: fa7acece587f08a4750ef1009d677b71_9
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_8
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_8
 
