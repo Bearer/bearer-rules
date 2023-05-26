@@ -16,52 +16,6 @@ high:
             - [New Relic Docs](https://docs.newrelic.com/)
             - [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_new_relic
-      line_number: 6
-      full_filename: /tmp/scan/datatype_in_interaction_set_attribute.js
-      filename: .
-      category_groups:
-        - PII
-        - Personal Data
-      source:
-        location:
-            start: 6
-            end: 6
-            column:
-                start: 31
-                end: 46
-      sink:
-        location:
-            start: 5
-            end: 6
-            column:
-                start: 3
-                end: 47
-        content: |-
-            newrelic.interaction()
-                .setAttribute("username", user.first_name)
-      parent_line_number: 5
-      snippet: |-
-        newrelic.interaction()
-            .setAttribute("username", user.first_name)
-      fingerprint: 63161101404765527f0dada7fd00b64e_1
-      old_fingerprint: 5fee12b083d8eec938a34de5eda742a3_1
-    - rule:
-        cwe_ids:
-            - "201"
-        id: javascript_third_parties_new_relic
-        title: Sensitive data sent to New Relic detected.
-        description: |
-            ## Description
-            Leaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to New Relic.
-
-            ## Remediations
-
-            When logging errors or events, ensure all sensitive data is removed.
-
-            ## Resources
-            - [New Relic Docs](https://docs.newrelic.com/)
-            - [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)
-        documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_new_relic
       line_number: 7
       full_filename: /tmp/scan/datatype_in_interaction_set_attribute.js
       filename: .
@@ -91,8 +45,8 @@ high:
         newrelic.interaction()
             .setAttribute("username", user.first_name)
             .setAttribute("postal-code", user.post_code)
-      fingerprint: 63161101404765527f0dada7fd00b64e_2
-      old_fingerprint: 5fee12b083d8eec938a34de5eda742a3_2
+      fingerprint: 63161101404765527f0dada7fd00b64e_1
+      old_fingerprint: 5fee12b083d8eec938a34de5eda742a3_1
     - rule:
         cwe_ids:
             - "201"
