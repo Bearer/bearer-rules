@@ -80,21 +80,42 @@ auxiliary:
   - id: ruby_rails_sql_injection_safe_special_arg
     patterns:
       - pattern: | # where(["attr = ?", params[:oops]])
-          $<_>([$<_>, $<...>$<!>$<_>$<...>]$<...>)
+          $<_>($<OBJECT_ARG>$<...>)
+        filters:
+          - variable: OBJECT_ARG
+            detection: ruby_rails_sql_injection_safe_special_object_arg
+            contains: false
       - pattern: | # User.where(["attr = ?", params[:oops]])
-          $<_>.$<_>([$<_>, $<...>$<!>$<_>$<...>]$<...>)
+          $<_>.$<_>($<OBJECT_ARG>$<...>)
+        filters:
+          - variable: OBJECT_ARG
+            detection: ruby_rails_sql_injection_safe_special_object_arg
+            contains: false
       - pattern: | # where("attr = ?", params[:oops])
           $<_>($<_>, $<...>$<!>$<_>$<...>)
       - pattern: | # User.where("attr = ?", params[:oops])
           $<_>.$<_>($<_>, $<...>$<!>$<_>$<...>)
       - pattern: | # where({ attr: params[:oops] })
-          $<_>({ $<_>: $<!>$<_> }$<...>)
+          $<_>($<OBJECT_ARG>$<...>)
+        filters:
+          - variable: OBJECT_ARG
+            detection: ruby_rails_sql_injection_safe_special_object_arg
+            contains: false
       - pattern: | # User.where({ attr: params[:oops] })
-          $<_>.$<_>({ $<_>: $<!>$<_> }$<...>)
+          $<_>.$<_>($<OBJECT_ARG>$<...>)
+        filters:
+          - variable: OBJECT_ARG
+            detection: ruby_rails_sql_injection_safe_special_object_arg
       - pattern: | # where(attr: params[:oops])
           $<_>($<_>: $<!>$<_>)
       - pattern: | # User.where(attr: params[:oops])
           $<_>.$<_>($<_>: $<!>$<_>)
+  - id: ruby_rails_sql_injection_safe_special_object_arg
+    patterns:
+      - |
+        [$<_>, $<...>$<!>$<_>$<...>]
+      - |
+        { $<_>: $<!>$<_> }
   - id: ruby_rails_sql_injection_sanitized
     patterns:
       - pattern: ActiveRecord::Base.connection.quote($<!>$<_>)
