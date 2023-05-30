@@ -10,6 +10,16 @@ auxiliary:
   - id: javascript_express_helmet_express_init
     patterns:
       - express()
+      - |
+        const $<_>: Express = $<!>$<_>
+      - |
+        ($<...>$<!>$<_>: Express$<...>) => {}
+      - |
+        function ($<...>$<!>$<_>: Express$<...>) {}
+      - |
+        function $<_>($<...>$<!>$<_>: Express$<...>) {}
+      - |
+        class $<_> $<...>{ $<_>($<...>$<!>$<_>: Express$<...>) {} }
   - id: javascript_express_helmet_configuration
     patterns:
       - helmet()
