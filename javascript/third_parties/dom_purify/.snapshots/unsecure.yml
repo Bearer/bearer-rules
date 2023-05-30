@@ -25,10 +25,27 @@ high:
             - [Vulnerability explained](https://research.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_dom_purify
       line_number: 2
-      filename: /tmp/scan/unsecure.js
+      full_filename: /tmp/scan/unsecure.js
+      filename: .
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 14
+                end: 47
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 14
+                end: 47
+        content: DOMPurify.sanitize(dirty, config)
       parent_line_number: 2
       snippet: DOMPurify.sanitize(dirty, config)
-      fingerprint: a247541d444b7e9242c4bb23a87bd55a_0
+      fingerprint: 077829f7bbb80256ddeaf41abfb55793_0
+      old_fingerprint: a247541d444b7e9242c4bb23a87bd55a_0
     - rule:
         cwe_ids:
             - "79"
@@ -55,8 +72,25 @@ high:
             - [Vulnerability explained](https://research.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_dom_purify
       line_number: 5
-      filename: /tmp/scan/unsecure.js
+      full_filename: /tmp/scan/unsecure.js
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 14
+                end: 39
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 14
+                end: 39
+        content: DOMPurify.sanitize(dirty)
       parent_line_number: 5
       snippet: DOMPurify.sanitize(dirty)
-      fingerprint: a247541d444b7e9242c4bb23a87bd55a_1
+      fingerprint: 077829f7bbb80256ddeaf41abfb55793_1
+      old_fingerprint: a247541d444b7e9242c4bb23a87bd55a_1
 

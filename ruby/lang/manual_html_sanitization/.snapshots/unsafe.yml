@@ -30,10 +30,31 @@ low:
             - [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_manual_html_sanitization
       line_number: 1
-      filename: /tmp/scan/unsafe.rb
+      full_filename: /tmp/scan/unsafe.rb
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 3
+            column:
+                start: 24
+                end: 21
+      sink:
+        location:
+            start: 1
+            end: 3
+            column:
+                start: 24
+                end: 21
+        content: |-
+            user.Input
+              .gsub('<', '&lt;')
+              .gsub('>', '&gt;')
       parent_line_number: 1
       snippet: |-
         user.Input
           .gsub('<', '&lt;')
-      fingerprint: 5a603bf8a07b0273502f8e86e7b25c92_0
+          .gsub('>', '&gt;')
+      fingerprint: 2a5444c188b207201b5ce8c74ed321fe_0
+      old_fingerprint: 5a603bf8a07b0273502f8e86e7b25c92_0
 

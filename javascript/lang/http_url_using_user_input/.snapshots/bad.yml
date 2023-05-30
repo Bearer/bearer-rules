@@ -31,10 +31,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input
       line_number: 6
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 20
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 20
+        content: 'axios({ url: url })'
       parent_line_number: 6
       snippet: 'axios({ url: url })'
-      fingerprint: 62309be37a26b5016cdbcb3c143da49f_0
+      fingerprint: d03323e4c199405710e778b32492501f_0
+      old_fingerprint: 62309be37a26b5016cdbcb3c143da49f_0
     - rule:
         cwe_ids:
             - "918"
@@ -67,10 +84,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input
       line_number: 8
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 15
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 15
+        content: axios.get(url)
       parent_line_number: 8
       snippet: axios.get(url)
-      fingerprint: 62309be37a26b5016cdbcb3c143da49f_1
+      fingerprint: d03323e4c199405710e778b32492501f_1
+      old_fingerprint: 62309be37a26b5016cdbcb3c143da49f_1
     - rule:
         cwe_ids:
             - "918"
@@ -103,10 +137,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input
       line_number: 13
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 1
+                end: 11
+      sink:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 1
+                end: 11
+        content: fetch(url)
       parent_line_number: 13
       snippet: fetch(url)
-      fingerprint: 62309be37a26b5016cdbcb3c143da49f_2
+      fingerprint: d03323e4c199405710e778b32492501f_2
+      old_fingerprint: 62309be37a26b5016cdbcb3c143da49f_2
     - rule:
         cwe_ids:
             - "918"
@@ -139,10 +190,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input
       line_number: 19
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 19
+            end: 19
+            column:
+                start: 1
+                end: 23
+      sink:
+        location:
+            start: 19
+            end: 19
+            column:
+                start: 1
+                end: 23
+        content: xhttp.open('GET', url)
       parent_line_number: 19
       snippet: xhttp.open('GET', url)
-      fingerprint: 62309be37a26b5016cdbcb3c143da49f_3
+      fingerprint: d03323e4c199405710e778b32492501f_3
+      old_fingerprint: 62309be37a26b5016cdbcb3c143da49f_3
     - rule:
         cwe_ids:
             - "918"
@@ -175,10 +243,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input
       line_number: 25
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 25
+            end: 25
+            column:
+                start: 22
+                end: 38
+      sink:
+        location:
+            start: 25
+            end: 25
+            column:
+                start: 22
+                end: 38
+        content: request.get(url)
       parent_line_number: 25
       snippet: request.get(url)
-      fingerprint: 62309be37a26b5016cdbcb3c143da49f_4
+      fingerprint: d03323e4c199405710e778b32492501f_4
+      old_fingerprint: 62309be37a26b5016cdbcb3c143da49f_4
     - rule:
         cwe_ids:
             - "918"
@@ -211,10 +296,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input
       line_number: 27
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 27
+            end: 27
+            column:
+                start: 1
+                end: 29
+      sink:
+        location:
+            start: 27
+            end: 27
+            column:
+                start: 1
+                end: 29
+        content: request(url, function () {})
       parent_line_number: 27
       snippet: request(url, function () {})
-      fingerprint: 62309be37a26b5016cdbcb3c143da49f_5
+      fingerprint: d03323e4c199405710e778b32492501f_5
+      old_fingerprint: 62309be37a26b5016cdbcb3c143da49f_5
     - rule:
         cwe_ids:
             - "918"
@@ -247,10 +349,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input
       line_number: 31
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 31
+            end: 31
+            column:
+                start: 3
+                end: 23
+      sink:
+        location:
+            start: 31
+            end: 31
+            column:
+                start: 3
+                end: 23
+        content: axios.get(event.url)
       parent_line_number: 31
       snippet: axios.get(event.url)
-      fingerprint: 62309be37a26b5016cdbcb3c143da49f_6
+      fingerprint: d03323e4c199405710e778b32492501f_6
+      old_fingerprint: 62309be37a26b5016cdbcb3c143da49f_6
     - rule:
         cwe_ids:
             - "918"
@@ -283,8 +402,25 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input
       line_number: 35
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 35
+            end: 35
+            column:
+                start: 3
+                end: 26
+      sink:
+        location:
+            start: 35
+            end: 35
+            column:
+                start: 3
+                end: 26
+        content: axios.get(event["url"])
       parent_line_number: 35
       snippet: axios.get(event["url"])
-      fingerprint: 62309be37a26b5016cdbcb3c143da49f_7
+      fingerprint: d03323e4c199405710e778b32492501f_7
+      old_fingerprint: 62309be37a26b5016cdbcb3c143da49f_7
 

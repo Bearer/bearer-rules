@@ -33,10 +33,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 3
-      filename: /tmp/scan/unsafe_net_http.rb
+      full_filename: /tmp/scan/unsafe_net_http.rb
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 12
+                end: 71
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 12
+                end: 71
+        content: Net::HTTP.post_form("http://#{params[:oops]}/users/search")
       parent_line_number: 3
       snippet: Net::HTTP.post_form("http://#{params[:oops]}/users/search")
-      fingerprint: fa7acece587f08a4750ef1009d677b71_0
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_0
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_0
     - rule:
         cwe_ids:
             - "918"
@@ -71,51 +88,33 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 5
-      filename: /tmp/scan/unsafe_net_http.rb
+      full_filename: /tmp/scan/unsafe_net_http.rb
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 7
+            column:
+                start: 1
+                end: 4
+      sink:
+        location:
+            start: 5
+            end: 7
+            column:
+                start: 1
+                end: 4
+        content: |-
+            Net::HTTP.start(params[:host]) do |instance1|
+              instance1.head(params[:path])
+            end
       parent_line_number: 5
       snippet: |-
         Net::HTTP.start(params[:host]) do |instance1|
           instance1.head(params[:path])
         end
-      fingerprint: fa7acece587f08a4750ef1009d677b71_1
-    - rule:
-        cwe_ids:
-            - "918"
-        id: ruby_lang_http_url_using_user_input
-        title: HTTP communication with user-controlled destination detected.
-        description: |
-            ## Description
-
-            Applications should not connect to locations formed from user input.
-            This rule checks for URLs containing user-supplied data.
-
-            ## Remediations
-
-            ❌ Avoid using user input in HTTP URLs:
-
-            ```ruby
-            Faraday.get("https://#{params[:host]}')
-            ```
-
-            ✅ Use user input indirectly to form a URL:
-
-            ```ruby
-            host =
-              case params[:host]
-              when "option1"
-                "api1.com"
-              when "option2"
-                "api2.com"
-              end
-
-            Faraday.get("https://#{host}')
-            ```
-        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
-      line_number: 6
-      filename: /tmp/scan/unsafe_net_http.rb
-      parent_line_number: 6
-      snippet: instance1.head(params[:path])
-      fingerprint: fa7acece587f08a4750ef1009d677b71_2
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_1
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_1
     - rule:
         cwe_ids:
             - "918"
@@ -150,10 +149,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 9
-      filename: /tmp/scan/unsafe_net_http.rb
+      full_filename: /tmp/scan/unsafe_net_http.rb
+      filename: .
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 52
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 52
+        content: 'Net::HTTP::Get.new(params[:oops], { "X-Test": 42 })'
       parent_line_number: 9
       snippet: 'Net::HTTP::Get.new(params[:oops], { "X-Test": 42 })'
-      fingerprint: fa7acece587f08a4750ef1009d677b71_3
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_2
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_2
     - rule:
         cwe_ids:
             - "918"
@@ -188,10 +204,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 11
-      filename: /tmp/scan/unsafe_net_http.rb
+      full_filename: /tmp/scan/unsafe_net_http.rb
+      filename: .
+      source:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 13
+                end: 43
+      sink:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 13
+                end: 43
+        content: Net::HTTP.start(params[:oops])
       parent_line_number: 11
       snippet: Net::HTTP.start(params[:oops])
-      fingerprint: fa7acece587f08a4750ef1009d677b71_4
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_3
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_3
     - rule:
         cwe_ids:
             - "918"
@@ -226,10 +259,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 12
-      filename: /tmp/scan/unsafe_net_http.rb
+      full_filename: /tmp/scan/unsafe_net_http.rb
+      filename: .
+      source:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 1
+                end: 38
+      sink:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 1
+                end: 38
+        content: instance2.ipaddr = request.env[:oops]
       parent_line_number: 12
       snippet: instance2.ipaddr = request.env[:oops]
-      fingerprint: fa7acece587f08a4750ef1009d677b71_5
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_4
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_4
     - rule:
         cwe_ids:
             - "918"
@@ -264,10 +314,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 13
-      filename: /tmp/scan/unsafe_net_http.rb
+      full_filename: /tmp/scan/unsafe_net_http.rb
+      filename: .
+      source:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 1
+                end: 50
+      sink:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 1
+                end: 50
+        content: instance2.send_request("GET", params[:oops], nil)
       parent_line_number: 13
       snippet: instance2.send_request("GET", params[:oops], nil)
-      fingerprint: fa7acece587f08a4750ef1009d677b71_6
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_5
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_5
     - rule:
         cwe_ids:
             - "918"
@@ -302,10 +369,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 15
-      filename: /tmp/scan/unsafe_net_http.rb
+      full_filename: /tmp/scan/unsafe_net_http.rb
+      filename: .
+      source:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 13
+                end: 41
+      sink:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 13
+                end: 41
+        content: Net::HTTP.new(params[:oops])
       parent_line_number: 15
       snippet: Net::HTTP.new(params[:oops])
-      fingerprint: fa7acece587f08a4750ef1009d677b71_7
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_6
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_6
     - rule:
         cwe_ids:
             - "918"
@@ -340,10 +424,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 16
-      filename: /tmp/scan/unsafe_net_http.rb
+      full_filename: /tmp/scan/unsafe_net_http.rb
+      filename: .
+      source:
+        location:
+            start: 16
+            end: 16
+            column:
+                start: 1
+                end: 31
+      sink:
+        location:
+            start: 16
+            end: 16
+            column:
+                start: 1
+                end: 31
+        content: instance3.patch(params[:path])
       parent_line_number: 16
       snippet: instance3.patch(params[:path])
-      fingerprint: fa7acece587f08a4750ef1009d677b71_8
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_7
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_7
     - rule:
         cwe_ids:
             - "918"
@@ -378,8 +479,25 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 18
-      filename: /tmp/scan/unsafe_net_http.rb
+      full_filename: /tmp/scan/unsafe_net_http.rb
+      filename: .
+      source:
+        location:
+            start: 18
+            end: 18
+            column:
+                start: 3
+                end: 37
+      sink:
+        location:
+            start: 18
+            end: 18
+            column:
+                start: 3
+                end: 37
+        content: instance4.post(request.env[:oops])
       parent_line_number: 18
       snippet: instance4.post(request.env[:oops])
-      fingerprint: fa7acece587f08a4750ef1009d677b71_9
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_8
+      old_fingerprint: fa7acece587f08a4750ef1009d677b71_8
 

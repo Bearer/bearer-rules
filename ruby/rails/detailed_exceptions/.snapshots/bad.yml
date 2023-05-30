@@ -29,13 +29,33 @@ low:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_detailed_exceptions
       line_number: 2
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 2
+            end: 4
+            column:
+                start: 3
+                end: 6
+      sink:
+        location:
+            start: 2
+            end: 4
+            column:
+                start: 3
+                end: 6
+        content: |-
+            def show_detailed_exceptions?
+                foo
+              end
       parent_line_number: 2
       snippet: |-
         def show_detailed_exceptions?
             foo
           end
-      fingerprint: b45c0dfd18b39fa46005c703eef96ee5_0
+      fingerprint: 7059a2ab8162be1224ad1d584c3607a6_0
+      old_fingerprint: b45c0dfd18b39fa46005c703eef96ee5_0
     - rule:
         cwe_ids:
             - "209"
@@ -66,8 +86,25 @@ low:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_detailed_exceptions
       line_number: 7
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 42
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 42
+        content: config.consider_all_requests_local = true
       parent_line_number: 7
       snippet: config.consider_all_requests_local = true
-      fingerprint: b45c0dfd18b39fa46005c703eef96ee5_1
+      fingerprint: 7059a2ab8162be1224ad1d584c3607a6_1
+      old_fingerprint: b45c0dfd18b39fa46005c703eef96ee5_1
 

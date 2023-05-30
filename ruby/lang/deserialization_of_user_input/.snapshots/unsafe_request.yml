@@ -27,10 +27,27 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 1
-      filename: /tmp/scan/unsafe_request.rb
+      full_filename: /tmp/scan/unsafe_request.rb
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 30
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 30
+        content: YAML.load(request.env[:oops])
       parent_line_number: 1
       snippet: YAML.load(request.env[:oops])
-      fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_0
+      fingerprint: 73baed8cdf6590c9f10d9841a0709fd9_0
+      old_fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_0
     - rule:
         cwe_ids:
             - "502"
@@ -59,10 +76,27 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 3
-      filename: /tmp/scan/unsafe_request.rb
+      full_filename: /tmp/scan/unsafe_request.rb
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 31
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 31
+        content: Psych.load(request.env[:oops])
       parent_line_number: 3
       snippet: Psych.load(request.env[:oops])
-      fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_1
+      fingerprint: 73baed8cdf6590c9f10d9841a0709fd9_1
+      old_fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_1
     - rule:
         cwe_ids:
             - "502"
@@ -91,10 +125,27 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 5
-      filename: /tmp/scan/unsafe_request.rb
+      full_filename: /tmp/scan/unsafe_request.rb
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 30
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 30
+        content: Syck.load(request.env[:oops])
       parent_line_number: 5
       snippet: Syck.load(request.env[:oops])
-      fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_2
+      fingerprint: 73baed8cdf6590c9f10d9841a0709fd9_2
+      old_fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_2
     - rule:
         cwe_ids:
             - "502"
@@ -123,10 +174,27 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 7
-      filename: /tmp/scan/unsafe_request.rb
+      full_filename: /tmp/scan/unsafe_request.rb
+      filename: .
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 30
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 30
+        content: JSON.load(request.env[:oops])
       parent_line_number: 7
       snippet: JSON.load(request.env[:oops])
-      fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_3
+      fingerprint: 73baed8cdf6590c9f10d9841a0709fd9_3
+      old_fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_3
     - rule:
         cwe_ids:
             - "502"
@@ -155,10 +223,27 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 9
-      filename: /tmp/scan/unsafe_request.rb
+      full_filename: /tmp/scan/unsafe_request.rb
+      filename: .
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 28
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 28
+        content: Oj.load(request.env[:oops])
       parent_line_number: 9
       snippet: Oj.load(request.env[:oops])
-      fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_4
+      fingerprint: 73baed8cdf6590c9f10d9841a0709fd9_4
+      old_fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_4
     - rule:
         cwe_ids:
             - "502"
@@ -187,12 +272,31 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 10
-      filename: /tmp/scan/unsafe_request.rb
+      full_filename: /tmp/scan/unsafe_request.rb
+      filename: .
+      source:
+        location:
+            start: 10
+            end: 11
+            column:
+                start: 1
+                end: 4
+      sink:
+        location:
+            start: 10
+            end: 11
+            column:
+                start: 1
+                end: 4
+        content: |-
+            Oj.object_load(request.env[:oops]) do |json|
+            end
       parent_line_number: 10
       snippet: |-
         Oj.object_load(request.env[:oops]) do |json|
         end
-      fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_5
+      fingerprint: 73baed8cdf6590c9f10d9841a0709fd9_5
+      old_fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_5
     - rule:
         cwe_ids:
             - "502"
@@ -221,10 +325,27 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 13
-      filename: /tmp/scan/unsafe_request.rb
+      full_filename: /tmp/scan/unsafe_request.rb
+      filename: .
+      source:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 1
+                end: 33
+      sink:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 1
+                end: 33
+        content: Marshal.load(request.env[:oops])
       parent_line_number: 13
       snippet: Marshal.load(request.env[:oops])
-      fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_6
+      fingerprint: 73baed8cdf6590c9f10d9841a0709fd9_6
+      old_fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_6
     - rule:
         cwe_ids:
             - "502"
@@ -253,8 +374,25 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_deserialization_of_user_input
       line_number: 14
-      filename: /tmp/scan/unsafe_request.rb
+      full_filename: /tmp/scan/unsafe_request.rb
+      filename: .
+      source:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 1
+                end: 36
+      sink:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 1
+                end: 36
+        content: Marshal.restore(request.env[:oops])
       parent_line_number: 14
       snippet: Marshal.restore(request.env[:oops])
-      fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_7
+      fingerprint: 73baed8cdf6590c9f10d9841a0709fd9_7
+      old_fingerprint: 891770e4bd7b8c7e7165588f0a1cb79e_7
 

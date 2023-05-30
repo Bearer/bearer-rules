@@ -26,13 +26,30 @@ high:
             - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_encryption
       line_number: 5
-      filename: /tmp/scan/sha1.js
+      full_filename: /tmp/scan/sha1.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 55
+                end: 65
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 17
+                end: 66
+        content: crypto.createHmac("sha1", key).update(user.email)
       parent_line_number: 5
       snippet: crypto.createHmac("sha1", key).update(user.email)
-      fingerprint: f94e14db7fe2103eac84f3304d8ce40d_0
+      fingerprint: 05decf30fc70859705b7ca59c5dbe388_0
+      old_fingerprint: f94e14db7fe2103eac84f3304d8ce40d_0
     - rule:
         cwe_ids:
             - "327"
@@ -60,13 +77,30 @@ high:
             - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_encryption
       line_number: 6
-      filename: /tmp/scan/sha1.js
+      full_filename: /tmp/scan/sha1.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 48
+                end: 58
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 15
+                end: 59
+        content: crypto.createHash("sha1").update(user.email)
       parent_line_number: 6
       snippet: crypto.createHash("sha1").update(user.email)
-      fingerprint: f94e14db7fe2103eac84f3304d8ce40d_1
+      fingerprint: 05decf30fc70859705b7ca59c5dbe388_1
+      old_fingerprint: f94e14db7fe2103eac84f3304d8ce40d_1
     - rule:
         cwe_ids:
             - "327"
@@ -94,13 +128,30 @@ high:
             - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_encryption
       line_number: 8
-      filename: /tmp/scan/sha1.js
+      full_filename: /tmp/scan/sha1.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 19
+                end: 29
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 37
+        content: CryptoJS.HmacSHA1(user.email, "Key")
       parent_line_number: 8
       snippet: CryptoJS.HmacSHA1(user.email, "Key")
-      fingerprint: f94e14db7fe2103eac84f3304d8ce40d_2
+      fingerprint: 05decf30fc70859705b7ca59c5dbe388_2
+      old_fingerprint: f94e14db7fe2103eac84f3304d8ce40d_2
     - rule:
         cwe_ids:
             - "327"
@@ -128,11 +179,28 @@ high:
             - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_encryption
       line_number: 9
-      filename: /tmp/scan/sha1.js
+      full_filename: /tmp/scan/sha1.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 15
+                end: 25
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 26
+        content: CryptoJS.SHA1(user.email)
       parent_line_number: 9
       snippet: CryptoJS.SHA1(user.email)
-      fingerprint: f94e14db7fe2103eac84f3304d8ce40d_3
+      fingerprint: 05decf30fc70859705b7ca59c5dbe388_3
+      old_fingerprint: f94e14db7fe2103eac84f3304d8ce40d_3
 

@@ -28,10 +28,27 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input
       line_number: 2
-      filename: /tmp/scan/unsafe_event.rb
+      full_filename: /tmp/scan/unsafe_event.rb
+      filename: .
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 3
+                end: 53
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 3
+                end: 53
+        content: RubyVM::InstructionSequence.compile(event["oops"])
       parent_line_number: 2
       snippet: RubyVM::InstructionSequence.compile(event["oops"])
-      fingerprint: d25367301be8d41c048ee13899318d54_0
+      fingerprint: c6c863e06a572d469f9d34897bd78ca4_0
+      old_fingerprint: d25367301be8d41c048ee13899318d54_0
     - rule:
         cwe_ids:
             - "94"
@@ -61,10 +78,27 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input
       line_number: 4
-      filename: /tmp/scan/unsafe_event.rb
+      full_filename: /tmp/scan/unsafe_event.rb
+      filename: .
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 3
+                end: 32
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 3
+                end: 32
+        content: a.eval(event["oops"], "test")
       parent_line_number: 4
       snippet: a.eval(event["oops"], "test")
-      fingerprint: d25367301be8d41c048ee13899318d54_1
+      fingerprint: c6c863e06a572d469f9d34897bd78ca4_1
+      old_fingerprint: d25367301be8d41c048ee13899318d54_1
     - rule:
         cwe_ids:
             - "94"
@@ -94,10 +128,27 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input
       line_number: 6
-      filename: /tmp/scan/unsafe_event.rb
+      full_filename: /tmp/scan/unsafe_event.rb
+      filename: .
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 3
+                end: 33
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 3
+                end: 33
+        content: a.instance_eval(event["oops"])
       parent_line_number: 6
       snippet: a.instance_eval(event["oops"])
-      fingerprint: d25367301be8d41c048ee13899318d54_2
+      fingerprint: c6c863e06a572d469f9d34897bd78ca4_2
+      old_fingerprint: d25367301be8d41c048ee13899318d54_2
     - rule:
         cwe_ids:
             - "94"
@@ -127,10 +178,27 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input
       line_number: 8
-      filename: /tmp/scan/unsafe_event.rb
+      full_filename: /tmp/scan/unsafe_event.rb
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 3
+                end: 30
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 3
+                end: 30
+        content: a.class_eval(event["oops"])
       parent_line_number: 8
       snippet: a.class_eval(event["oops"])
-      fingerprint: d25367301be8d41c048ee13899318d54_3
+      fingerprint: c6c863e06a572d469f9d34897bd78ca4_3
+      old_fingerprint: d25367301be8d41c048ee13899318d54_3
     - rule:
         cwe_ids:
             - "94"
@@ -160,10 +228,27 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input
       line_number: 10
-      filename: /tmp/scan/unsafe_event.rb
+      full_filename: /tmp/scan/unsafe_event.rb
+      filename: .
+      source:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 3
+                end: 31
+      sink:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 3
+                end: 31
+        content: a.module_eval(event["oops"])
       parent_line_number: 10
       snippet: a.module_eval(event["oops"])
-      fingerprint: d25367301be8d41c048ee13899318d54_4
+      fingerprint: c6c863e06a572d469f9d34897bd78ca4_4
+      old_fingerprint: d25367301be8d41c048ee13899318d54_4
     - rule:
         cwe_ids:
             - "94"
@@ -193,10 +278,27 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input
       line_number: 12
-      filename: /tmp/scan/unsafe_event.rb
+      full_filename: /tmp/scan/unsafe_event.rb
+      filename: .
+      source:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 3
+                end: 22
+      sink:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 3
+                end: 22
+        content: eval(event["oops"])
       parent_line_number: 12
       snippet: eval(event["oops"])
-      fingerprint: d25367301be8d41c048ee13899318d54_5
+      fingerprint: c6c863e06a572d469f9d34897bd78ca4_5
+      old_fingerprint: d25367301be8d41c048ee13899318d54_5
     - rule:
         cwe_ids:
             - "94"
@@ -226,10 +328,27 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input
       line_number: 14
-      filename: /tmp/scan/unsafe_event.rb
+      full_filename: /tmp/scan/unsafe_event.rb
+      filename: .
+      source:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 3
+                end: 39
+      sink:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 3
+                end: 39
+        content: instance_eval(event["oops"], "test")
       parent_line_number: 14
       snippet: instance_eval(event["oops"], "test")
-      fingerprint: d25367301be8d41c048ee13899318d54_6
+      fingerprint: c6c863e06a572d469f9d34897bd78ca4_6
+      old_fingerprint: d25367301be8d41c048ee13899318d54_6
     - rule:
         cwe_ids:
             - "94"
@@ -259,10 +378,27 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input
       line_number: 16
-      filename: /tmp/scan/unsafe_event.rb
+      full_filename: /tmp/scan/unsafe_event.rb
+      filename: .
+      source:
+        location:
+            start: 16
+            end: 16
+            column:
+                start: 3
+                end: 28
+      sink:
+        location:
+            start: 16
+            end: 16
+            column:
+                start: 3
+                end: 28
+        content: class_eval(event["oops"])
       parent_line_number: 16
       snippet: class_eval(event["oops"])
-      fingerprint: d25367301be8d41c048ee13899318d54_7
+      fingerprint: c6c863e06a572d469f9d34897bd78ca4_7
+      old_fingerprint: d25367301be8d41c048ee13899318d54_7
     - rule:
         cwe_ids:
             - "94"
@@ -292,8 +428,25 @@ high:
             - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input
       line_number: 18
-      filename: /tmp/scan/unsafe_event.rb
+      full_filename: /tmp/scan/unsafe_event.rb
+      filename: .
+      source:
+        location:
+            start: 18
+            end: 18
+            column:
+                start: 3
+                end: 29
+      sink:
+        location:
+            start: 18
+            end: 18
+            column:
+                start: 3
+                end: 29
+        content: module_eval(event["oops"])
       parent_line_number: 18
       snippet: module_eval(event["oops"])
-      fingerprint: d25367301be8d41c048ee13899318d54_8
+      fingerprint: c6c863e06a572d469f9d34897bd78ca4_8
+      old_fingerprint: d25367301be8d41c048ee13899318d54_8
 

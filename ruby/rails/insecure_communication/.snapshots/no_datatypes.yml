@@ -23,8 +23,25 @@ high:
             - [Configuring Rails Applications - Ruby on Rails Guides](https://guides.rubyonrails.org/configuring.html#config-force-ssl)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_insecure_communication
       line_number: 2
-      filename: /tmp/scan/no_datatypes.rb
+      full_filename: /tmp/scan/no_datatypes.rb
+      filename: .
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 3
+                end: 27
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 3
+                end: 27
+        content: config.force_ssl = false
       parent_line_number: 2
       snippet: config.force_ssl = false
-      fingerprint: 1d6d1431f4893e4d7060dc4e2d977707_0
+      fingerprint: e07395ca5fb10df0be4836e21bcb4b95_0
+      old_fingerprint: 1d6d1431f4893e4d7060dc4e2d977707_0
 

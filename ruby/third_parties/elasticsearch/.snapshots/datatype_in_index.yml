@@ -15,11 +15,28 @@ high:
             - [Elasticsearch docs](https://www.elastic.co/guide/en/elasticsearch/client/ruby-api/current/index.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_elasticsearch
       line_number: 3
-      filename: /tmp/scan/datatype_in_index.rb
+      full_filename: /tmp/scan/datatype_in_index.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 10
+                end: 38
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 45
+        content: 'client.index({ index: ''users'', body: user })'
       parent_line_number: 4
       snippet: 'client.index({ index: ''users'', body: user })'
-      fingerprint: d567c818361aacb3bc857ffb763b50ca_0
+      fingerprint: 93988d54e68509de8c6ec9eca5c9ee30_0
+      old_fingerprint: d567c818361aacb3bc857ffb763b50ca_0
 

@@ -33,10 +33,27 @@ medium:
             - [Ruby OpenSSL module](https://ruby.github.io/openssl/OpenSSL.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_ssl_verification
       line_number: 1
-      filename: /tmp/scan/verification_disabled.rb
+      full_filename: /tmp/scan/verification_disabled.rb
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 45
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 45
+        content: http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       parent_line_number: 1
       snippet: http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-      fingerprint: 4adc628ab6e305724a6b3f5ef87cc6f3_0
+      fingerprint: a5365845bf89898b802308907f944ba0_0
+      old_fingerprint: 4adc628ab6e305724a6b3f5ef87cc6f3_0
     - rule:
         cwe_ids:
             - "295"
@@ -71,11 +88,31 @@ medium:
             - [Ruby OpenSSL module](https://ruby.github.io/openssl/OpenSSL.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_ssl_verification
       line_number: 4
-      filename: /tmp/scan/verification_disabled.rb
+      full_filename: /tmp/scan/verification_disabled.rb
+      filename: .
+      source:
+        location:
+            start: 4
+            end: 6
+            column:
+                start: 1
+                end: 4
+      sink:
+        location:
+            start: 4
+            end: 6
+            column:
+                start: 1
+                end: 4
+        content: |-
+            Net::HTTP.start(uri.host, uri.port, :use_ssl => true, :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
+              Net::HTTP::Get.new uri
+            end
       parent_line_number: 4
       snippet: |-
         Net::HTTP.start(uri.host, uri.port, :use_ssl => true, :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
           Net::HTTP::Get.new uri
         end
-      fingerprint: 4adc628ab6e305724a6b3f5ef87cc6f3_1
+      fingerprint: a5365845bf89898b802308907f944ba0_1
+      old_fingerprint: 4adc628ab6e305724a6b3f5ef87cc6f3_1
 

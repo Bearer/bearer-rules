@@ -16,10 +16,32 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_sentry
       line_number: 2
-      filename: /tmp/scan/javascript_capture_event.js
+      full_filename: /tmp/scan/javascript_capture_event.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 45
+                end: 63
+      sink:
+        location:
+            start: 1
+            end: 6
+            column:
+                start: 1
+                end: 3
+        content: |-
+            Sentry.captureEvent({
+              message: "user successfully logged in " + current_user.email,
+              stacktrace: [
+                // ...
+              ],
+            })
       parent_line_number: 1
       snippet: |-
         Sentry.captureEvent({
@@ -28,5 +50,6 @@ high:
             // ...
           ],
         })
-      fingerprint: 491917b02edcd6459df749cf79332b4e_0
+      fingerprint: af49328f7c7aa692f05a50dc6ccda334_0
+      old_fingerprint: 491917b02edcd6459df749cf79332b4e_0
 

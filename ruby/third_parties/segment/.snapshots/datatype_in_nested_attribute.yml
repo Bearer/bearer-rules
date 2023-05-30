@@ -16,10 +16,27 @@ high:
             - [Segment docs](https://segment.com/docs/connections/sources/catalog/libraries/server/ruby/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_segment
       line_number: 2
-      filename: /tmp/scan/datatype_in_nested_attribute.rb
+      full_filename: /tmp/scan/datatype_in_nested_attribute.rb
+      filename: .
       category_groups:
         - Personal Data
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 76
+                end: 91
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 94
+        content: 'analytics.track(user_id: user.id, event: "account sign in", context: { ip: user.ip_address })'
       parent_line_number: 2
       snippet: 'analytics.track(user_id: user.id, event: "account sign in", context: { ip: user.ip_address })'
-      fingerprint: a6e0fa0edc214102162b3b1d8b7169f9_0
+      fingerprint: 1a443dec6ce049efa8df29bca4a1ec80_0
+      old_fingerprint: a6e0fa0edc214102162b3b1d8b7169f9_0
 

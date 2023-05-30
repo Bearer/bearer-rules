@@ -25,10 +25,27 @@ medium:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_post_message_origin
       line_number: 1
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 26
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 26
+        content: postMessage(message, '*')
       parent_line_number: 1
       snippet: postMessage(message, '*')
-      fingerprint: 3dc7d592d91b529220e9504b33d15c7d_0
+      fingerprint: 0e58e60389aa7b1dc2a5f244692f4333_0
+      old_fingerprint: 3dc7d592d91b529220e9504b33d15c7d_0
     - rule:
         cwe_ids:
             - "923"
@@ -55,8 +72,25 @@ medium:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_post_message_origin
       line_number: 3
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 33
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 33
+        content: window.postMessage(message, "*")
       parent_line_number: 3
       snippet: window.postMessage(message, "*")
-      fingerprint: 3dc7d592d91b529220e9504b33d15c7d_1
+      fingerprint: 0e58e60389aa7b1dc2a5f244692f4333_1
+      old_fingerprint: 3dc7d592d91b529220e9504b33d15c7d_1
 

@@ -17,15 +17,36 @@ high:
             - [Segment JavaScript docs](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_segment
       line_number: 8
-      filename: /tmp/scan/datatype_in_alias.js
+      full_filename: /tmp/scan/datatype_in_alias.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 15
+                end: 25
+      sink:
+        location:
+            start: 7
+            end: 10
+            column:
+                start: 1
+                end: 3
+        content: |-
+            appAnalytics.alias({
+              previousId: user.email,
+              userId: user.id,
+            })
       parent_line_number: 7
       snippet: |-
         appAnalytics.alias({
           previousId: user.email,
           userId: user.id,
         })
-      fingerprint: b4097303795a4d0f5bf35cc193f7b02d_0
+      fingerprint: df462286e9e34d817b61a361c26e8720_0
+      old_fingerprint: b4097303795a4d0f5bf35cc193f7b02d_0
 

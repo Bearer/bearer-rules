@@ -17,8 +17,25 @@ low:
             - [Scrubbing data](https://docs.datadoghq.com/real_user_monitoring/browser/modifying_data_and_context/?tab=npm)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_datadog_browser
       line_number: 2
-      filename: /tmp/scan/unsecure.js
+      full_filename: /tmp/scan/unsecure.js
+      filename: .
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 2
+                end: 29
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 2
+                end: 29
+        content: 'trackUserInteractions: true'
       parent_line_number: 2
       snippet: 'trackUserInteractions: true'
-      fingerprint: 506bc0736efdb1960c3adb5b329e4b74_0
+      fingerprint: b626a271a3e7a2abcbd7299cc0ca4fca_0
+      old_fingerprint: 506bc0736efdb1960c3adb5b329e4b74_0
 

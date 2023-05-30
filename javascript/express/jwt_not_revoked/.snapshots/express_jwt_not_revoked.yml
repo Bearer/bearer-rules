@@ -23,10 +23,27 @@ low:
             - [ExpressJWT documentation on revoking tokens](https://github.com/auth0/express-jwt#revoked-tokens)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_jwt_not_revoked
       line_number: 11
-      filename: /tmp/scan/express_jwt_not_revoked.js
+      full_filename: /tmp/scan/express_jwt_not_revoked.js
+      filename: .
+      source:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 3
+                end: 63
+      sink:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 3
+                end: 63
+        content: 'expressjwt({ secret: config.secret, algorithms: ["HS256"] })'
       parent_line_number: 11
       snippet: 'expressjwt({ secret: config.secret, algorithms: ["HS256"] })'
-      fingerprint: a40f7810484e914bb4ae52d4f4b71100_0
+      fingerprint: eaae2a30ff6ed4568ddf01dd63a61387_0
+      old_fingerprint: a40f7810484e914bb4ae52d4f4b71100_0
     - rule:
         cwe_ids:
             - "525"
@@ -51,10 +68,27 @@ low:
             - [ExpressJWT documentation on revoking tokens](https://github.com/auth0/express-jwt#revoked-tokens)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_jwt_not_revoked
       line_number: 12
-      filename: /tmp/scan/express_jwt_not_revoked.js
+      full_filename: /tmp/scan/express_jwt_not_revoked.js
+      filename: .
+      source:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 3
+                end: 63
+      sink:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 3
+                end: 63
+        content: 'expressJwt({ secret: config.secret, algorithms: ["HS256"] })'
       parent_line_number: 12
       snippet: 'expressJwt({ secret: config.secret, algorithms: ["HS256"] })'
-      fingerprint: a40f7810484e914bb4ae52d4f4b71100_1
+      fingerprint: eaae2a30ff6ed4568ddf01dd63a61387_1
+      old_fingerprint: a40f7810484e914bb4ae52d4f4b71100_1
     - rule:
         cwe_ids:
             - "525"
@@ -79,8 +113,25 @@ low:
             - [ExpressJWT documentation on revoking tokens](https://github.com/auth0/express-jwt#revoked-tokens)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_jwt_not_revoked
       line_number: 13
-      filename: /tmp/scan/express_jwt_not_revoked.js
+      full_filename: /tmp/scan/express_jwt_not_revoked.js
+      filename: .
+      source:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 3
+                end: 63
+      sink:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 3
+                end: 63
+        content: 'ExpressJWT({ secret: config.secret, algorithms: ["HS256"] })'
       parent_line_number: 13
       snippet: 'ExpressJWT({ secret: config.secret, algorithms: ["HS256"] })'
-      fingerprint: a40f7810484e914bb4ae52d4f4b71100_2
+      fingerprint: eaae2a30ff6ed4568ddf01dd63a61387_2
+      old_fingerprint: a40f7810484e914bb4ae52d4f4b71100_2
 

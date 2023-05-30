@@ -23,14 +23,35 @@ medium:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_http_verb_confusion
       line_number: 1
-      filename: /tmp/scan/unsafe.rb
+      full_filename: /tmp/scan/unsafe.rb
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 4
+            column:
+                start: 1
+                end: 4
+      sink:
+        location:
+            start: 1
+            end: 4
+            column:
+                start: 1
+                end: 4
+        content: |-
+            if request.get?
+            else
+              change_state
+            end
       parent_line_number: 1
       snippet: |-
         if request.get?
         else
           change_state
         end
-      fingerprint: ac3a3caaf7de89ce8a51f3ba2ae0a2bb_0
+      fingerprint: 478a6bee5ed0d66cc8930155f8bb9fd8_0
+      old_fingerprint: ac3a3caaf7de89ce8a51f3ba2ae0a2bb_0
     - rule:
         cwe_ids:
             - "650"
@@ -55,10 +76,27 @@ medium:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_http_verb_confusion
       line_number: 6
-      filename: /tmp/scan/unsafe.rb
+      full_filename: /tmp/scan/unsafe.rb
+      filename: .
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 33
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 33
+        content: change_state unless request.get?
       parent_line_number: 6
       snippet: change_state unless request.get?
-      fingerprint: ac3a3caaf7de89ce8a51f3ba2ae0a2bb_1
+      fingerprint: 478a6bee5ed0d66cc8930155f8bb9fd8_1
+      old_fingerprint: ac3a3caaf7de89ce8a51f3ba2ae0a2bb_1
     - rule:
         cwe_ids:
             - "650"
@@ -83,11 +121,31 @@ medium:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_http_verb_confusion
       line_number: 8
-      filename: /tmp/scan/unsafe.rb
+      full_filename: /tmp/scan/unsafe.rb
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 10
+            column:
+                start: 1
+                end: 4
+      sink:
+        location:
+            start: 8
+            end: 10
+            column:
+                start: 1
+                end: 4
+        content: |-
+            unless request.get?
+              change_state
+            end
       parent_line_number: 8
       snippet: |-
         unless request.get?
           change_state
         end
-      fingerprint: ac3a3caaf7de89ce8a51f3ba2ae0a2bb_2
+      fingerprint: 478a6bee5ed0d66cc8930155f8bb9fd8_2
+      old_fingerprint: ac3a3caaf7de89ce8a51f3ba2ae0a2bb_2
 

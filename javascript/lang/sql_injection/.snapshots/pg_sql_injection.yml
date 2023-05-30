@@ -45,11 +45,31 @@ high:
             - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_sql_injection
       line_number: 8
-      filename: /tmp/scan/pg_sql_injection.js
+      full_filename: /tmp/scan/pg_sql_injection.js
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 10
+            column:
+                start: 13
+                end: 3
+      sink:
+        location:
+            start: 8
+            end: 10
+            column:
+                start: 13
+                end: 3
+        content: |-
+            client.query(
+            		"SELECT * FROM users WHERE user.name = " + req.params.user.name
+            	)
       parent_line_number: 8
       snippet: |-
         client.query(
         		"SELECT * FROM users WHERE user.name = " + req.params.user.name
         	)
-      fingerprint: b710b993aeb426115870ae34ce9103b7_0
+      fingerprint: e729d82176c9ebea695fa6b6a606960b_0
+      old_fingerprint: b710b993aeb426115870ae34ce9103b7_0
 

@@ -26,11 +26,28 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_logger
       line_number: 1
-      filename: /tmp/scan/datatype_leak.rb
+      full_filename: /tmp/scan/datatype_leak.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 19
+                end: 29
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 30
+        content: Rails.logger.info(user.email)
       parent_line_number: 1
       snippet: Rails.logger.info(user.email)
-      fingerprint: 0b5ca412ee836f86e8a03b8b37ede781_0
+      fingerprint: 4126be7d46bfa3cff42c7715a0b01c1a_0
+      old_fingerprint: 0b5ca412ee836f86e8a03b8b37ede781_0
 

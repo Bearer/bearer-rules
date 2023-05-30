@@ -23,14 +23,35 @@ high:
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_jwt_hardcoded_secret
       line_number: 5
-      filename: /tmp/scan/unsecure_jose_jwt.js
+      full_filename: /tmp/scan/unsecure_jose_jwt.js
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 8
+            column:
+                start: 19
+                end: 16
+      sink:
+        location:
+            start: 5
+            end: 8
+            column:
+                start: 19
+                end: 16
+        content: |-
+            new jose.SignJWT({ 'urn:example:claim': true })
+              .setIssuedAt()
+              .setExpirationTime('2h')
+              .sign(secret)
       parent_line_number: 5
       snippet: |-
         new jose.SignJWT({ 'urn:example:claim': true })
           .setIssuedAt()
           .setExpirationTime('2h')
           .sign(secret)
-      fingerprint: 64e0c9a50fa93c2e14540fa7355c0478_0
+      fingerprint: d0029fa61eca40823af6b8a00901cfaf_0
+      old_fingerprint: 64e0c9a50fa93c2e14540fa7355c0478_0
     - rule:
         cwe_ids:
             - "798"
@@ -55,8 +76,25 @@ high:
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_jwt_hardcoded_secret
       line_number: 10
-      filename: /tmp/scan/unsecure_jose_jwt.js
+      full_filename: /tmp/scan/unsecure_jose_jwt.js
+      filename: .
+      source:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 20
+                end: 53
+      sink:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 20
+                end: 53
+        content: (new jose.SignJWT()).sign(secret)
       parent_line_number: 10
       snippet: (new jose.SignJWT()).sign(secret)
-      fingerprint: 64e0c9a50fa93c2e14540fa7355c0478_1
+      fingerprint: d0029fa61eca40823af6b8a00901cfaf_1
+      old_fingerprint: 64e0c9a50fa93c2e14540fa7355c0478_1
 

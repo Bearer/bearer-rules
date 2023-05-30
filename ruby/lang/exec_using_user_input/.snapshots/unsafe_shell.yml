@@ -37,10 +37,27 @@ high:
             - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input
       line_number: 3
-      filename: /tmp/scan/unsafe_shell.rb
+      full_filename: /tmp/scan/unsafe_shell.rb
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 45
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 45
+        content: Shell.alias_command("foo", params[:oops]) {}
       parent_line_number: 3
       snippet: Shell.alias_command("foo", params[:oops]) {}
-      fingerprint: 32c4da2f35e584c6772677843d02862c_0
+      fingerprint: 1c074b69a64b914d2a6310c63c4eed91_0
+      old_fingerprint: 32c4da2f35e584c6772677843d02862c_0
     - rule:
         cwe_ids:
             - "78"
@@ -79,10 +96,27 @@ high:
             - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input
       line_number: 4
-      filename: /tmp/scan/unsafe_shell.rb
+      full_filename: /tmp/scan/unsafe_shell.rb
+      filename: .
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 69
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 69
+        content: Shell::CommandProcessor.alias_command(x, "/bin/#{params[:oops]}") {}
       parent_line_number: 4
       snippet: Shell::CommandProcessor.alias_command(x, "/bin/#{params[:oops]}") {}
-      fingerprint: 32c4da2f35e584c6772677843d02862c_1
+      fingerprint: 1c074b69a64b914d2a6310c63c4eed91_1
+      old_fingerprint: 32c4da2f35e584c6772677843d02862c_1
     - rule:
         cwe_ids:
             - "78"
@@ -121,10 +155,27 @@ high:
             - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input
       line_number: 6
-      filename: /tmp/scan/unsafe_shell.rb
+      full_filename: /tmp/scan/unsafe_shell.rb
+      filename: .
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 57
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 57
+        content: Shell.def_system_command("foo", "bar", params[:oops]) {}
       parent_line_number: 6
       snippet: Shell.def_system_command("foo", "bar", params[:oops]) {}
-      fingerprint: 32c4da2f35e584c6772677843d02862c_2
+      fingerprint: 1c074b69a64b914d2a6310c63c4eed91_2
+      old_fingerprint: 32c4da2f35e584c6772677843d02862c_2
     - rule:
         cwe_ids:
             - "78"
@@ -163,10 +214,27 @@ high:
             - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input
       line_number: 7
-      filename: /tmp/scan/unsafe_shell.rb
+      full_filename: /tmp/scan/unsafe_shell.rb
+      filename: .
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 68
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 68
+        content: Shell::CommandProcessor.def_system_command("foo", params[:oops]) {}
       parent_line_number: 7
       snippet: Shell::CommandProcessor.def_system_command("foo", params[:oops]) {}
-      fingerprint: 32c4da2f35e584c6772677843d02862c_3
+      fingerprint: 1c074b69a64b914d2a6310c63c4eed91_3
+      old_fingerprint: 32c4da2f35e584c6772677843d02862c_3
     - rule:
         cwe_ids:
             - "78"
@@ -205,10 +273,27 @@ high:
             - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input
       line_number: 12
-      filename: /tmp/scan/unsafe_shell.rb
+      full_filename: /tmp/scan/unsafe_shell.rb
+      filename: .
+      source:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 1
+                end: 33
+      sink:
+        location:
+            start: 12
+            end: 12
+            column:
+                start: 1
+                end: 33
+        content: processor1.system(params[:oops])
       parent_line_number: 12
       snippet: processor1.system(params[:oops])
-      fingerprint: 32c4da2f35e584c6772677843d02862c_4
+      fingerprint: 1c074b69a64b914d2a6310c63c4eed91_4
+      old_fingerprint: 32c4da2f35e584c6772677843d02862c_4
     - rule:
         cwe_ids:
             - "78"
@@ -247,8 +332,25 @@ high:
             - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input
       line_number: 15
-      filename: /tmp/scan/unsafe_shell.rb
+      full_filename: /tmp/scan/unsafe_shell.rb
+      filename: .
+      source:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 1
+                end: 36
+      sink:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 1
+                end: 36
+        content: processor2.system(x, params[:oops])
       parent_line_number: 15
       snippet: processor2.system(x, params[:oops])
-      fingerprint: 32c4da2f35e584c6772677843d02862c_5
+      fingerprint: 1c074b69a64b914d2a6310c63c4eed91_5
+      old_fingerprint: 32c4da2f35e584c6772677843d02862c_5
 

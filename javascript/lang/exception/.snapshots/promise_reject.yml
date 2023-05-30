@@ -28,11 +28,28 @@ high:
             -->
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_exception
       line_number: 5
-      filename: /tmp/scan/promise_reject.js
+      full_filename: /tmp/scan/promise_reject.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 50
+                end: 60
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 5
+                end: 62
+        content: Promise.reject(new PermissionDenied("fail" + user.email))
       parent_line_number: 5
       snippet: Promise.reject(new PermissionDenied("fail" + user.email))
-      fingerprint: 30a05a0f3bd30ede0f9d33ac53cc7747_0
+      fingerprint: bba6dc65c9d6db47ce50e7ab7f50f853_0
+      old_fingerprint: 30a05a0f3bd30ede0f9d33ac53cc7747_0
 

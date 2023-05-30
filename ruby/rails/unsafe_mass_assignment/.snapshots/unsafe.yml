@@ -31,8 +31,25 @@ warning:
             - [Ruby on Rails security guide on mass assignment](https://guides.rubyonrails.org/v3.2.9/security.html#mass-assignment)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_unsafe_mass_assignment
       line_number: 5
-      filename: /tmp/scan/unsafe.rb
+      full_filename: /tmp/scan/unsafe.rb
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 5
+                end: 48
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 5
+                end: 48
+        content: params(:user).permit(:name, :email, :admin)
       parent_line_number: 5
       snippet: params(:user).permit(:name, :email, :admin)
-      fingerprint: d1e6a48242b335d9ab14450f71cfbd75_0
+      fingerprint: 896362db4e1fcb4072dce49bd52969e7_0
+      old_fingerprint: d1e6a48242b335d9ab14450f71cfbd75_0
 

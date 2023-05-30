@@ -20,8 +20,25 @@ low:
             - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_reduce_fingerprint
       line_number: 4
-      filename: /tmp/scan/unsecure.js
+      full_filename: /tmp/scan/unsecure.js
+      filename: .
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 13
+                end: 22
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 13
+                end: 22
+        content: express()
       parent_line_number: 4
       snippet: express()
-      fingerprint: 65174070c52a64ecc8bafc792cdb43f5_0
+      fingerprint: 63781f2b12ffd9394ad7c9cc37302b37_0
+      old_fingerprint: 65174070c52a64ecc8bafc792cdb43f5_0
 

@@ -16,11 +16,28 @@ high:
             - [Scout APM docs](https://scoutapm.com/docs/ruby)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_scout_apm
       line_number: 1
-      filename: /tmp/scan/datatype_in_add_user.rb
+      full_filename: /tmp/scan/datatype_in_add_user.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 10
+                end: 38
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 33
+        content: ScoutApm::Context.add_user(user)
       parent_line_number: 2
       snippet: ScoutApm::Context.add_user(user)
-      fingerprint: ec2efbd07aba23437b7ad5a2c9c0ec65_0
+      fingerprint: 2e6ed4d28852ce79a75741641fa8b1a3_0
+      old_fingerprint: ec2efbd07aba23437b7ad5a2c9c0ec65_0
 

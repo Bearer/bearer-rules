@@ -28,8 +28,25 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_websocket_insecure
       line_number: 1
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 39
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 39
+        content: new WebSocket("ws://insecure.com", {})
       parent_line_number: 1
       snippet: new WebSocket("ws://insecure.com", {})
-      fingerprint: 5030e8af750b035df07204ef3ae95efe_0
+      fingerprint: 7d7297b3ec21011189ac2e8ca42c0c5c_0
+      old_fingerprint: 5030e8af750b035df07204ef3ae95efe_0
 

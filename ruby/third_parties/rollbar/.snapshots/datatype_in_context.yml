@@ -17,11 +17,28 @@ high:
             - [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar
       line_number: 1
-      filename: /tmp/scan/datatype_in_context.rb
+      full_filename: /tmp/scan/datatype_in_context.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 39
+                end: 67
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 71
+        content: 'exception.rollbar_context = { user: { email: "someone@example.com" } }'
       parent_line_number: 1
       snippet: 'exception.rollbar_context = { user: { email: "someone@example.com" } }'
-      fingerprint: a49313af556cfb5c4526bba8b16f9130_0
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_0
+      old_fingerprint: a49313af556cfb5c4526bba8b16f9130_0
 

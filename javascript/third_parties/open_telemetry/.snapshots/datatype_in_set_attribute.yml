@@ -16,13 +16,30 @@ high:
             - [Open Telemetry Docs](https://opentelemetry.io/docs/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_open_telemetry
       line_number: 6
-      filename: /tmp/scan/datatype_in_set_attribute.js
+      full_filename: /tmp/scan/datatype_in_set_attribute.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 37
+                end: 61
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 3
+                end: 62
+        content: span.setAttribute("current-user", currentUser.emailAddress)
       parent_line_number: 6
       snippet: span.setAttribute("current-user", currentUser.emailAddress)
-      fingerprint: acff79d0c5fd36461ebf2a24d5843705_0
+      fingerprint: cd48423a5a7a06612fb15c8b7045814c_0
+      old_fingerprint: acff79d0c5fd36461ebf2a24d5843705_0
     - rule:
         cwe_ids:
             - "201"
@@ -40,11 +57,28 @@ high:
             - [Open Telemetry Docs](https://opentelemetry.io/docs/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_open_telemetry
       line_number: 11
-      filename: /tmp/scan/datatype_in_set_attribute.js
+      full_filename: /tmp/scan/datatype_in_set_attribute.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 35
+                end: 45
+      sink:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 1
+                end: 46
+        content: span.setAttribute("current-user", user.email)
       parent_line_number: 11
       snippet: span.setAttribute("current-user", user.email)
-      fingerprint: acff79d0c5fd36461ebf2a24d5843705_1
+      fingerprint: cd48423a5a7a06612fb15c8b7045814c_1
+      old_fingerprint: acff79d0c5fd36461ebf2a24d5843705_1
 

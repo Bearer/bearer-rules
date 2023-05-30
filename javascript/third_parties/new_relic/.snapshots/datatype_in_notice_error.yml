@@ -17,10 +17,27 @@ high:
             - [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_new_relic
       line_number: 7
-      filename: /tmp/scan/datatype_in_notice_error.js
+      full_filename: /tmp/scan/datatype_in_notice_error.js
+      filename: .
       category_groups:
         - Personal Data
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 31
+                end: 50
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 5
+                end: 51
+        content: newrelic.noticeError(err, customer.ip_address)
       parent_line_number: 7
       snippet: newrelic.noticeError(err, customer.ip_address)
-      fingerprint: 2331641882fbf49c8a574fc560885622_0
+      fingerprint: 63161101404765527f0dada7fd00b64e_0
+      old_fingerprint: 2331641882fbf49c8a574fc560885622_0
 

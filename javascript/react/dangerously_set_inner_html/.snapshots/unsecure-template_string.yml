@@ -21,8 +21,25 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_react_dangerously_set_inner_html
       line_number: 4
-      filename: /tmp/scan/unsecure-template_string.js
+      full_filename: /tmp/scan/unsecure-template_string.js
+      filename: .
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 28
+                end: 72
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 28
+                end: 72
+        content: '{ __html: `<a href=${input}>home page</a>` }'
       parent_line_number: 4
       snippet: '{ __html: `<a href=${input}>home page</a>` }'
-      fingerprint: a1460f80aca363a636bd8dc6ca8c9e74_0
+      fingerprint: d22d7ec8e5e9695e2f1909d8059d96df_0
+      old_fingerprint: a1460f80aca363a636bd8dc6ca8c9e74_0
 

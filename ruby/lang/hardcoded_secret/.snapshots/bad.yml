@@ -19,10 +19,27 @@ high:
             - [OWASP secrets management cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html#21-high-availability)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_hardcoded_secret
       line_number: 2
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 14
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 14
+        content: PASSWORD = pw
       parent_line_number: 2
       snippet: PASSWORD = pw
-      fingerprint: 8345c2017cea5bdc8d072979ff9121a2_0
+      fingerprint: 09d1f2784824ed137c7c0e9630818ed5_0
+      old_fingerprint: 8345c2017cea5bdc8d072979ff9121a2_0
     - rule:
         cwe_ids:
             - "798"
@@ -43,10 +60,27 @@ high:
             - [OWASP secrets management cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html#21-high-availability)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_hardcoded_secret
       line_number: 4
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 6
+                end: 21
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 6
+                end: 21
+        content: 'api_key: "oops"'
       parent_line_number: 4
       snippet: 'api_key: "oops"'
-      fingerprint: 8345c2017cea5bdc8d072979ff9121a2_1
+      fingerprint: 09d1f2784824ed137c7c0e9630818ed5_1
+      old_fingerprint: 8345c2017cea5bdc8d072979ff9121a2_1
     - rule:
         cwe_ids:
             - "798"
@@ -67,10 +101,27 @@ high:
             - [OWASP secrets management cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html#21-high-availability)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_hardcoded_secret
       line_number: 6
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 6
+                end: 24
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 6
+                end: 24
+        content: '"secret" => "oops"'
       parent_line_number: 6
       snippet: '"secret" => "oops"'
-      fingerprint: 8345c2017cea5bdc8d072979ff9121a2_2
+      fingerprint: 09d1f2784824ed137c7c0e9630818ed5_2
+      old_fingerprint: 8345c2017cea5bdc8d072979ff9121a2_2
     - rule:
         cwe_ids:
             - "798"
@@ -91,10 +142,27 @@ high:
             - [OWASP secrets management cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html#21-high-availability)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_hardcoded_secret
       line_number: 8
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 3
+                end: 18
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 3
+                end: 18
+        content: 'API_KEY: "oops"'
       parent_line_number: 8
       snippet: 'API_KEY: "oops"'
-      fingerprint: 8345c2017cea5bdc8d072979ff9121a2_3
+      fingerprint: 09d1f2784824ed137c7c0e9630818ed5_3
+      old_fingerprint: 8345c2017cea5bdc8d072979ff9121a2_3
     - rule:
         cwe_ids:
             - "798"
@@ -115,8 +183,25 @@ high:
             - [OWASP secrets management cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html#21-high-availability)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_hardcoded_secret
       line_number: 10
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 3
+                end: 21
+      sink:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 3
+                end: 21
+        content: '"secret" => "oops"'
       parent_line_number: 10
       snippet: '"secret" => "oops"'
-      fingerprint: 8345c2017cea5bdc8d072979ff9121a2_4
+      fingerprint: 09d1f2784824ed137c7c0e9630818ed5_4
+      old_fingerprint: 8345c2017cea5bdc8d072979ff9121a2_4
 

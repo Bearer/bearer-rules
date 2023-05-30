@@ -33,8 +33,25 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 1
-      filename: /tmp/scan/unsafe_post.rb
+      full_filename: /tmp/scan/unsafe_post.rb
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 28
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 28
+        content: Faraday.post(params[:oops])
       parent_line_number: 1
       snippet: Faraday.post(params[:oops])
-      fingerprint: 2f6727c1e6cfd57b0cd28e8a9389294a_0
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_0
+      old_fingerprint: 2f6727c1e6cfd57b0cd28e8a9389294a_0
 

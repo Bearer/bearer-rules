@@ -16,11 +16,28 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 4
-      filename: /tmp/scan/datatype_in_rescue_block.rb
+      full_filename: /tmp/scan/datatype_in_rescue_block.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 35
+                end: 58
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 14
+                end: 59
+        content: Airbrake.notify_sync(current_user.first_name)
       parent_line_number: 4
       snippet: Airbrake.notify_sync(current_user.first_name)
-      fingerprint: b55208edae3100e2b556f2b9853b0dc3_0
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_0
+      old_fingerprint: b55208edae3100e2b556f2b9853b0dc3_0
 

@@ -37,10 +37,27 @@ high:
             - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input
       line_number: 3
-      filename: /tmp/scan/unsafe_stdlib.rb
+      full_filename: /tmp/scan/unsafe_stdlib.rb
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 27
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 27
+        content: Kernel.exec(params[:oops])
       parent_line_number: 3
       snippet: Kernel.exec(params[:oops])
-      fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_0
+      fingerprint: 1c074b69a64b914d2a6310c63c4eed91_0
+      old_fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_0
     - rule:
         cwe_ids:
             - "78"
@@ -79,10 +96,27 @@ high:
             - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input
       line_number: 5
-      filename: /tmp/scan/unsafe_stdlib.rb
+      full_filename: /tmp/scan/unsafe_stdlib.rb
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 21
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 21
+        content: spawn(params[:oops])
       parent_line_number: 5
       snippet: spawn(params[:oops])
-      fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_1
+      fingerprint: 1c074b69a64b914d2a6310c63c4eed91_1
+      old_fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_1
     - rule:
         cwe_ids:
             - "78"
@@ -121,10 +155,27 @@ high:
             - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input
       line_number: 7
-      filename: /tmp/scan/unsafe_stdlib.rb
+      full_filename: /tmp/scan/unsafe_stdlib.rb
+      filename: .
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 27
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 27
+        content: IO.popen(params[:oops]) {}
       parent_line_number: 7
       snippet: IO.popen(params[:oops]) {}
-      fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_2
+      fingerprint: 1c074b69a64b914d2a6310c63c4eed91_2
+      old_fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_2
     - rule:
         cwe_ids:
             - "78"
@@ -163,10 +214,27 @@ high:
             - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input
       line_number: 9
-      filename: /tmp/scan/unsafe_stdlib.rb
+      full_filename: /tmp/scan/unsafe_stdlib.rb
+      filename: .
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 28
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 28
+        content: Process.exec(params[:oops])
       parent_line_number: 9
       snippet: Process.exec(params[:oops])
-      fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_3
+      fingerprint: 1c074b69a64b914d2a6310c63c4eed91_3
+      old_fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_3
     - rule:
         cwe_ids:
             - "78"
@@ -205,10 +273,27 @@ high:
             - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input
       line_number: 11
-      filename: /tmp/scan/unsafe_stdlib.rb
+      full_filename: /tmp/scan/unsafe_stdlib.rb
+      filename: .
+      source:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 1
+                end: 47
+      sink:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 1
+                end: 47
+        content: Open3.popen3(["cmd", params[:oops]], "abc") {}
       parent_line_number: 11
       snippet: Open3.popen3(["cmd", params[:oops]], "abc") {}
-      fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_4
+      fingerprint: 1c074b69a64b914d2a6310c63c4eed91_4
+      old_fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_4
     - rule:
         cwe_ids:
             - "78"
@@ -247,10 +332,27 @@ high:
             - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input
       line_number: 13
-      filename: /tmp/scan/unsafe_stdlib.rb
+      full_filename: /tmp/scan/unsafe_stdlib.rb
+      filename: .
+      source:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 1
+                end: 42
+      sink:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 1
+                end: 42
+        content: Gem::Util.silent_system(x, params[:oops])
       parent_line_number: 13
       snippet: Gem::Util.silent_system(x, params[:oops])
-      fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_5
+      fingerprint: 1c074b69a64b914d2a6310c63c4eed91_5
+      old_fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_5
     - rule:
         cwe_ids:
             - "78"
@@ -289,10 +391,27 @@ high:
             - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input
       line_number: 15
-      filename: /tmp/scan/unsafe_stdlib.rb
+      full_filename: /tmp/scan/unsafe_stdlib.rb
+      filename: .
+      source:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 1
+                end: 38
+      sink:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 1
+                end: 38
+        content: PTY.spawn("/bin/#{params[:oops]}") {}
       parent_line_number: 15
       snippet: PTY.spawn("/bin/#{params[:oops]}") {}
-      fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_6
+      fingerprint: 1c074b69a64b914d2a6310c63c4eed91_6
+      old_fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_6
     - rule:
         cwe_ids:
             - "78"
@@ -331,10 +450,27 @@ high:
             - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input
       line_number: 17
-      filename: /tmp/scan/unsafe_stdlib.rb
+      full_filename: /tmp/scan/unsafe_stdlib.rb
+      filename: .
+      source:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 1
+                end: 26
+      sink:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 1
+                end: 26
+        content: '%x{/bin/#{params[:oops]}}'
       parent_line_number: 17
       snippet: '%x{/bin/#{params[:oops]}}'
-      fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_7
+      fingerprint: 1c074b69a64b914d2a6310c63c4eed91_7
+      old_fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_7
     - rule:
         cwe_ids:
             - "78"
@@ -373,8 +509,25 @@ high:
             - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input
       line_number: 19
-      filename: /tmp/scan/unsafe_stdlib.rb
+      full_filename: /tmp/scan/unsafe_stdlib.rb
+      filename: .
+      source:
+        location:
+            start: 19
+            end: 19
+            column:
+                start: 1
+                end: 24
+      sink:
+        location:
+            start: 19
+            end: 19
+            column:
+                start: 1
+                end: 24
+        content: '`/bin/#{params[:oops]}`'
       parent_line_number: 19
       snippet: '`/bin/#{params[:oops]}`'
-      fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_8
+      fingerprint: 1c074b69a64b914d2a6310c63c4eed91_8
+      old_fingerprint: e01c1959e2489aa93a4fcac7a8d8a48d_8
 

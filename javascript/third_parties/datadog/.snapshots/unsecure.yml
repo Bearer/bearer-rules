@@ -31,11 +31,28 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_datadog
       line_number: 3
-      filename: /tmp/scan/unsecure.js
+      full_filename: /tmp/scan/unsecure.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 16
+                end: 28
+      sink:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 1
+                end: 44
+        content: client.event("user", "logged_in", {}, user)
       parent_line_number: 11
       snippet: client.event("user", "logged_in", {}, user)
-      fingerprint: aa6c1059da0df87a6361a6147650c71f_0
+      fingerprint: 30198f8417f3252a9fc8b70f9affed31_0
+      old_fingerprint: aa6c1059da0df87a6361a6147650c71f_0
 

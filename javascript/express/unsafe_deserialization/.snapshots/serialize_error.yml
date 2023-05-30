@@ -24,12 +24,33 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_unsafe_deserialization
       line_number: 4
-      filename: /tmp/scan/serialize_error.js
+      full_filename: /tmp/scan/serialize_error.js
+      filename: .
+      source:
+        location:
+            start: 4
+            end: 7
+            column:
+                start: 3
+                end: 5
+      sink:
+        location:
+            start: 4
+            end: 7
+            column:
+                start: 3
+                end: 5
+        content: |-
+            deserializeError({
+                name: "MyCustomError",
+                message: req.params.error
+              })
       parent_line_number: 4
       snippet: |-
         deserializeError({
             name: "MyCustomError",
             message: req.params.error
           })
-      fingerprint: b9b81bde9fa37ac3b854c3edc1c3b52f_0
+      fingerprint: 8344d2cb0faaa6ea9f5e63d59dac105b_0
+      old_fingerprint: b9b81bde9fa37ac3b854c3edc1c3b52f_0
 

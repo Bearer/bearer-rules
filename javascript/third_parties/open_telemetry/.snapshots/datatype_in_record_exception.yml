@@ -16,10 +16,27 @@ high:
             - [Open Telemetry Docs](https://opentelemetry.io/docs/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_open_telemetry
       line_number: 9
-      filename: /tmp/scan/datatype_in_record_exception.js
+      full_filename: /tmp/scan/datatype_in_record_exception.js
+      filename: .
       category_groups:
         - Personal Data
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 24
+                end: 45
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 3
+                end: 46
+        content: span.recordException(currentUser.ipAddress)
       parent_line_number: 9
       snippet: span.recordException(currentUser.ipAddress)
-      fingerprint: 5461bdd63fbbe0b05abc00b16d9a684c_0
+      fingerprint: cd48423a5a7a06612fb15c8b7045814c_0
+      old_fingerprint: 5461bdd63fbbe0b05abc00b16d9a684c_0
 

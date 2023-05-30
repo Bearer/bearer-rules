@@ -16,10 +16,32 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 3
-      filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      full_filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 20
+                end: 35
+      sink:
+        location:
+            start: 1
+            end: 6
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Airbrake.notify_request_sync(
+              method: 'GET',
+              route: "/users/#{user.first_name}",
+              status_code: 200,
+              timing: 123.45 # ms
+            )
       parent_line_number: 1
       snippet: |-
         Airbrake.notify_request_sync(
@@ -28,7 +50,8 @@ high:
           status_code: 200,
           timing: 123.45 # ms
         )
-      fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_8
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_8
+      old_fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_8
     - rule:
         cwe_ids:
             - "201"
@@ -46,10 +69,32 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 9
-      filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      full_filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 20
+                end: 35
+      sink:
+        location:
+            start: 7
+            end: 12
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Airbrake.notify_request(
+              method: 'GET',
+              route: "/users/#{user.first_name}",
+              status_code: 200,
+              timing: 123.45 # ms
+            )
       parent_line_number: 7
       snippet: |-
         Airbrake.notify_request(
@@ -58,7 +103,8 @@ high:
           status_code: 200,
           timing: 123.45 # ms
         )
-      fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_9
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_9
+      old_fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_9
     - rule:
         cwe_ids:
             - "201"
@@ -76,10 +122,32 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 17
-      filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      full_filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 19
+                end: 37
+      sink:
+        location:
+            start: 15
+            end: 20
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Airbrake.notify_request_sync(
+              {
+                current_user: current_user.email
+              },
+              request_id: 123
+            )
       parent_line_number: 15
       snippet: |-
         Airbrake.notify_request_sync(
@@ -88,7 +156,8 @@ high:
           },
           request_id: 123
         )
-      fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_0
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_0
+      old_fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_0
     - rule:
         cwe_ids:
             - "201"
@@ -106,10 +175,32 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 23
-      filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      full_filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 23
+            end: 23
+            column:
+                start: 19
+                end: 37
+      sink:
+        location:
+            start: 21
+            end: 26
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Airbrake.notify_request(
+              {
+                current_user: current_user.email
+              },
+              request_id: 123
+            )
       parent_line_number: 21
       snippet: |-
         Airbrake.notify_request(
@@ -118,7 +209,8 @@ high:
           },
           request_id: 123
         )
-      fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_1
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_1
+      old_fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_1
     - rule:
         cwe_ids:
             - "201"
@@ -136,10 +228,31 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 31
-      filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      full_filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 31
+            end: 31
+            column:
+                start: 20
+                end: 35
+      sink:
+        location:
+            start: 29
+            end: 33
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Airbrake.notify_query_sync(
+              method: 'GET',
+              route: "/users/#{user.first_name}",
+              query: 'SELECT * FROM foos'
+            )
       parent_line_number: 29
       snippet: |-
         Airbrake.notify_query_sync(
@@ -147,7 +260,8 @@ high:
           route: "/users/#{user.first_name}",
           query: 'SELECT * FROM foos'
         )
-      fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_10
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_10
+      old_fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_10
     - rule:
         cwe_ids:
             - "201"
@@ -165,10 +279,31 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 36
-      filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      full_filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 36
+            end: 36
+            column:
+                start: 20
+                end: 35
+      sink:
+        location:
+            start: 34
+            end: 38
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Airbrake.notify_query(
+              method: 'GET',
+              route: "/users/#{user.first_name}",
+              query: 'SELECT * FROM foos'
+            )
       parent_line_number: 34
       snippet: |-
         Airbrake.notify_query(
@@ -176,7 +311,8 @@ high:
           route: "/users/#{user.first_name}",
           query: 'SELECT * FROM foos'
         )
-      fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_11
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_11
+      old_fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_11
     - rule:
         cwe_ids:
             - "201"
@@ -194,10 +330,32 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 43
-      filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      full_filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 43
+            end: 43
+            column:
+                start: 11
+                end: 21
+      sink:
+        location:
+            start: 41
+            end: 46
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Airbrake.notify_query_sync(
+              {
+                user: user.email
+              },
+              request_id: 123
+            )
       parent_line_number: 41
       snippet: |-
         Airbrake.notify_query_sync(
@@ -206,7 +364,8 @@ high:
           },
           request_id: 123
         )
-      fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_2
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_2
+      old_fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_2
     - rule:
         cwe_ids:
             - "201"
@@ -224,10 +383,32 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 49
-      filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      full_filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 49
+            end: 49
+            column:
+                start: 11
+                end: 21
+      sink:
+        location:
+            start: 47
+            end: 52
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Airbrake.notify_query(
+              {
+                user: user.email
+              },
+              request_id: 123
+            )
       parent_line_number: 47
       snippet: |-
         Airbrake.notify_query(
@@ -236,7 +417,8 @@ high:
           },
           request_id: 123
         )
-      fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_3
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_3
+      old_fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_3
     - rule:
         cwe_ids:
             - "201"
@@ -254,10 +436,33 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 57
-      filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      full_filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 57
+            end: 57
+            column:
+                start: 20
+                end: 35
+      sink:
+        location:
+            start: 55
+            end: 61
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Airbrake.notify_performance_breakdown_sync(
+              method: 'GET',
+              route: "/users/#{user.first_name}",
+              response_type: 'json',
+              groups: { db: 24.0, view: 0.4 }, # ms
+              timing: 123.45 # ms
+            )
       parent_line_number: 55
       snippet: |-
         Airbrake.notify_performance_breakdown_sync(
@@ -267,7 +472,8 @@ high:
           groups: { db: 24.0, view: 0.4 }, # ms
           timing: 123.45 # ms
         )
-      fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_12
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_12
+      old_fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_12
     - rule:
         cwe_ids:
             - "201"
@@ -285,10 +491,33 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 64
-      filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      full_filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 64
+            end: 64
+            column:
+                start: 20
+                end: 35
+      sink:
+        location:
+            start: 62
+            end: 68
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Airbrake.notify_performance_breakdown(
+              method: 'GET',
+              route: "/users/#{user.first_name}",
+              response_type: 'json',
+              groups: { db: 24.0, view: 0.4 }, # ms
+              timing: 123.45 # ms
+            )
       parent_line_number: 62
       snippet: |-
         Airbrake.notify_performance_breakdown(
@@ -298,7 +527,8 @@ high:
           groups: { db: 24.0, view: 0.4 }, # ms
           timing: 123.45 # ms
         )
-      fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_13
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_13
+      old_fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_13
     - rule:
         cwe_ids:
             - "201"
@@ -316,10 +546,32 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 73
-      filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      full_filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 73
+            end: 73
+            column:
+                start: 11
+                end: 21
+      sink:
+        location:
+            start: 71
+            end: 76
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Airbrake.notify_performance_breakdown_sync(
+              {
+                user: user.email
+              },
+              request_id: 123
+            )
       parent_line_number: 71
       snippet: |-
         Airbrake.notify_performance_breakdown_sync(
@@ -328,7 +580,8 @@ high:
           },
           request_id: 123
         )
-      fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_4
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_4
+      old_fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_4
     - rule:
         cwe_ids:
             - "201"
@@ -346,10 +599,32 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 79
-      filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      full_filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 79
+            end: 79
+            column:
+                start: 11
+                end: 21
+      sink:
+        location:
+            start: 77
+            end: 82
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Airbrake.notify_performance_breakdown(
+              {
+                user: user.email
+              },
+              request_id: 123
+            )
       parent_line_number: 77
       snippet: |-
         Airbrake.notify_performance_breakdown(
@@ -358,7 +633,8 @@ high:
           },
           request_id: 123
         )
-      fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_5
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_5
+      old_fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_5
     - rule:
         cwe_ids:
             - "201"
@@ -376,10 +652,32 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 101
-      filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      full_filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 101
+            end: 101
+            column:
+                start: 11
+                end: 21
+      sink:
+        location:
+            start: 99
+            end: 104
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Airbrake.notify_queue_sync(
+              {
+                user: user.email
+              },
+              job_id: 123
+            )
       parent_line_number: 99
       snippet: |-
         Airbrake.notify_queue_sync(
@@ -388,7 +686,8 @@ high:
           },
           job_id: 123
         )
-      fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_6
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_6
+      old_fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_6
     - rule:
         cwe_ids:
             - "201"
@@ -406,10 +705,32 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 107
-      filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      full_filename: /tmp/scan/datatype_in_extended_notify_methods.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 107
+            end: 107
+            column:
+                start: 11
+                end: 21
+      sink:
+        location:
+            start: 105
+            end: 110
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Airbrake.notify_queue(
+              {
+                user: user.email
+              },
+              job_id: 123
+            )
       parent_line_number: 105
       snippet: |-
         Airbrake.notify_queue(
@@ -418,5 +739,6 @@ high:
           },
           job_id: 123
         )
-      fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_7
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_7
+      old_fingerprint: 94a74de95d7b7584a6e8a3171c8b312b_7
 

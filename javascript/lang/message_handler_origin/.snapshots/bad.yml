@@ -36,13 +36,33 @@ medium:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_message_handler_origin
       line_number: 1
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 3
+            column:
+                start: 1
+                end: 3
+      sink:
+        location:
+            start: 1
+            end: 3
+            column:
+                start: 1
+                end: 3
+        content: |-
+            window.addEventListener('message', (event) => {
+              actOnMessage(event.data)
+            })
       parent_line_number: 1
       snippet: |-
         window.addEventListener('message', (event) => {
           actOnMessage(event.data)
         })
-      fingerprint: 9fa846ace15ba6f15a9b0406d50a9755_0
+      fingerprint: 4ac5e012a055ff87b9c6ec59be0139aa_0
+      old_fingerprint: 9fa846ace15ba6f15a9b0406d50a9755_0
     - rule:
         cwe_ids:
             - "346"
@@ -80,13 +100,33 @@ medium:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_message_handler_origin
       line_number: 5
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 7
+            column:
+                start: 1
+                end: 3
+      sink:
+        location:
+            start: 5
+            end: 7
+            column:
+                start: 1
+                end: 3
+        content: |-
+            addEventListener('message', function (event) {
+              actOnMessage(event.data)
+            })
       parent_line_number: 5
       snippet: |-
         addEventListener('message', function (event) {
           actOnMessage(event.data)
         })
-      fingerprint: 9fa846ace15ba6f15a9b0406d50a9755_1
+      fingerprint: 4ac5e012a055ff87b9c6ec59be0139aa_1
+      old_fingerprint: 9fa846ace15ba6f15a9b0406d50a9755_1
     - rule:
         cwe_ids:
             - "346"
@@ -124,11 +164,31 @@ medium:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_message_handler_origin
       line_number: 9
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 9
+            end: 11
+            column:
+                start: 1
+                end: 3
+      sink:
+        location:
+            start: 9
+            end: 11
+            column:
+                start: 1
+                end: 3
+        content: |-
+            addEventListener('message', function f(event) {
+              actOnMessage(event.data)
+            })
       parent_line_number: 9
       snippet: |-
         addEventListener('message', function f(event) {
           actOnMessage(event.data)
         })
-      fingerprint: 9fa846ace15ba6f15a9b0406d50a9755_2
+      fingerprint: 4ac5e012a055ff87b9c6ec59be0139aa_2
+      old_fingerprint: 9fa846ace15ba6f15a9b0406d50a9755_2
 

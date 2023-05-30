@@ -36,10 +36,27 @@ low:
             -->
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_permissive_regex_validation
       line_number: 1
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 44
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 44
+        content: 'validates :attr, format: { with: /^oops$/ }'
       parent_line_number: 1
       snippet: 'validates :attr, format: { with: /^oops$/ }'
-      fingerprint: b3da9876f38e5b28bdd462a287153906_0
+      fingerprint: 2413542e48eb6c729510ed1ba924b4cb_0
+      old_fingerprint: b3da9876f38e5b28bdd462a287153906_0
     - rule:
         cwe_ids:
             - "625"
@@ -77,10 +94,27 @@ low:
             -->
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_permissive_regex_validation
       line_number: 2
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 44
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 44
+        content: 'validates :attr, format: { with: %r[oops] }'
       parent_line_number: 2
       snippet: 'validates :attr, format: { with: %r[oops] }'
-      fingerprint: b3da9876f38e5b28bdd462a287153906_1
+      fingerprint: 2413542e48eb6c729510ed1ba924b4cb_1
+      old_fingerprint: b3da9876f38e5b28bdd462a287153906_1
     - rule:
         cwe_ids:
             - "625"
@@ -118,10 +152,27 @@ low:
             -->
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_permissive_regex_validation
       line_number: 3
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 44
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 44
+        content: 'validates :attr, format: { with: "\Aoops" }'
       parent_line_number: 3
       snippet: 'validates :attr, format: { with: "\Aoops" }'
-      fingerprint: b3da9876f38e5b28bdd462a287153906_2
+      fingerprint: 2413542e48eb6c729510ed1ba924b4cb_2
+      old_fingerprint: b3da9876f38e5b28bdd462a287153906_2
     - rule:
         cwe_ids:
             - "625"
@@ -159,10 +210,27 @@ low:
             -->
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_permissive_regex_validation
       line_number: 4
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 44
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 44
+        content: 'validates :attr, format: { with: /oops\z/ }'
       parent_line_number: 4
       snippet: 'validates :attr, format: { with: /oops\z/ }'
-      fingerprint: b3da9876f38e5b28bdd462a287153906_3
+      fingerprint: 2413542e48eb6c729510ed1ba924b4cb_3
+      old_fingerprint: b3da9876f38e5b28bdd462a287153906_3
     - rule:
         cwe_ids:
             - "625"
@@ -200,8 +268,25 @@ low:
             -->
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_permissive_regex_validation
       line_number: 6
-      filename: /tmp/scan/bad.rb
+      full_filename: /tmp/scan/bad.rb
+      filename: .
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 42
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 42
+        content: 'validates_format_of :attr, with: ''^oops$'''
       parent_line_number: 6
       snippet: 'validates_format_of :attr, with: ''^oops$'''
-      fingerprint: b3da9876f38e5b28bdd462a287153906_4
+      fingerprint: 2413542e48eb6c729510ed1ba924b4cb_4
+      old_fingerprint: b3da9876f38e5b28bdd462a287153906_4
 

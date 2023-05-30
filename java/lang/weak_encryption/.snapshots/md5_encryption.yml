@@ -23,8 +23,25 @@ low:
             - [Java MessageDigest class](https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html)
         documentation_url: https://docs.bearer.com/reference/rules/java_lang_weak_encryption
       line_number: 29
-      filename: /tmp/scan/md5_encryption.java
+      full_filename: /tmp/scan/md5_encryption.java
+      filename: .
+      source:
+        location:
+            start: 29
+            end: 29
+            column:
+                start: 26
+                end: 58
+      sink:
+        location:
+            start: 29
+            end: 29
+            column:
+                start: 26
+                end: 58
+        content: MessageDigest.getInstance("MD5")
       parent_line_number: 29
       snippet: MessageDigest.getInstance("MD5")
-      fingerprint: 653d771970df0dd82ced5610e71a0193_0
+      fingerprint: af589e78882ead12977f3207ee04eec0_0
+      old_fingerprint: 653d771970df0dd82ced5610e71a0193_0
 

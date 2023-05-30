@@ -16,15 +16,36 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_sentry
       line_number: 2
-      filename: /tmp/scan/javascript_add_breadcrumb.js
+      full_filename: /tmp/scan/javascript_add_breadcrumb.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 30
+                end: 40
+      sink:
+        location:
+            start: 1
+            end: 4
+            column:
+                start: 1
+                end: 3
+        content: |-
+            Sentry.addBreadcrumb({
+              message: `my message for ${user.email}`,
+              // ...
+            })
       parent_line_number: 1
       snippet: |-
         Sentry.addBreadcrumb({
           message: `my message for ${user.email}`,
           // ...
         })
-      fingerprint: 195e9eeb9d723dba96e5f01412e2a27f_0
+      fingerprint: af49328f7c7aa692f05a50dc6ccda334_0
+      old_fingerprint: 195e9eeb9d723dba96e5f01412e2a27f_0
 

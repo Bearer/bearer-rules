@@ -34,10 +34,27 @@ low:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 3
-      filename: /tmp/scan/openssl_dsa.rb
+      full_filename: /tmp/scan/openssl_dsa.rb
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 42
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 42
+        content: dsa_encrypt.export(cipher, "hello world")
       parent_line_number: 3
       snippet: dsa_encrypt.export(cipher, "hello world")
-      fingerprint: e7ec1070f0a9fc804b62dfc4d9dd4899_0
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
+      old_fingerprint: e7ec1070f0a9fc804b62dfc4d9dd4899_0
     - rule:
         cwe_ids:
             - "331"
@@ -73,8 +90,25 @@ low:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 5
-      filename: /tmp/scan/openssl_dsa.rb
+      full_filename: /tmp/scan/openssl_dsa.rb
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 59
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 59
+        content: OpenSSL::PKey::DSA.new(2048).to_pem(cipher, "hello world")
       parent_line_number: 5
       snippet: OpenSSL::PKey::DSA.new(2048).to_pem(cipher, "hello world")
-      fingerprint: e7ec1070f0a9fc804b62dfc4d9dd4899_1
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1
+      old_fingerprint: e7ec1070f0a9fc804b62dfc4d9dd4899_1
 

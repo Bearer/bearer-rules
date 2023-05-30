@@ -34,13 +34,30 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 1
-      filename: /tmp/scan/digest_sha1_data.rb
+      full_filename: /tmp/scan/digest_sha1_data.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 40
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 40
+        content: Digest::SHA1.hexdigest(user.first_name)
       parent_line_number: 1
       snippet: Digest::SHA1.hexdigest(user.first_name)
-      fingerprint: 599fb059d167953203ba421a34873e03_0
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
+      old_fingerprint: 599fb059d167953203ba421a34873e03_0
     - rule:
         cwe_ids:
             - "331"
@@ -76,11 +93,28 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 3
-      filename: /tmp/scan/digest_sha1_data.rb
+      full_filename: /tmp/scan/digest_sha1_data.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 41
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 41
+        content: Digest::SHA1.new.update(user.first_name)
       parent_line_number: 3
       snippet: Digest::SHA1.new.update(user.first_name)
-      fingerprint: 599fb059d167953203ba421a34873e03_1
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1
+      old_fingerprint: 599fb059d167953203ba421a34873e03_1
 

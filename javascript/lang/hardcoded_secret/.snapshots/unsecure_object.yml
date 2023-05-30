@@ -30,11 +30,28 @@ high:
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
       line_number: 3
-      filename: /tmp/scan/unsecure_object.js
+      full_filename: /tmp/scan/unsecure_object.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 2
+                end: 39
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 2
+                end: 39
+        content: 'clientSecret: "secretHardcodedString"'
       parent_line_number: 3
       snippet: 'clientSecret: "secretHardcodedString"'
-      fingerprint: 08b891215f23b5f7082f674966366927_0
+      fingerprint: 68ec549b0c4baac7ca684eb14e42834e_0
+      old_fingerprint: 08b891215f23b5f7082f674966366927_0
 

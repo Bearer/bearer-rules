@@ -34,13 +34,30 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 1
-      filename: /tmp/scan/openssl_digest_data.rb
+      full_filename: /tmp/scan/openssl_digest_data.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 48
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 48
+        content: OpenSSL::Digest.digest("sha1", user.first_name)
       parent_line_number: 1
       snippet: OpenSSL::Digest.digest("sha1", user.first_name)
-      fingerprint: 37f68a81b1586644aa85075cf1c29bae_0
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
+      old_fingerprint: 37f68a81b1586644aa85075cf1c29bae_0
     - rule:
         cwe_ids:
             - "331"
@@ -76,13 +93,30 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 2
-      filename: /tmp/scan/openssl_digest_data.rb
+      full_filename: /tmp/scan/openssl_digest_data.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 45
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 45
+        content: OpenSSL::Digest::MD5.digest(user.first_name)
       parent_line_number: 2
       snippet: OpenSSL::Digest::MD5.digest(user.first_name)
-      fingerprint: 37f68a81b1586644aa85075cf1c29bae_1
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1
+      old_fingerprint: 37f68a81b1586644aa85075cf1c29bae_1
     - rule:
         cwe_ids:
             - "331"
@@ -118,13 +152,30 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 5
-      filename: /tmp/scan/openssl_digest_data.rb
+      full_filename: /tmp/scan/openssl_digest_data.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 26
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 26
+        content: x.digest(user.first_name)
       parent_line_number: 5
       snippet: x.digest(user.first_name)
-      fingerprint: 37f68a81b1586644aa85075cf1c29bae_2
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_2
+      old_fingerprint: 37f68a81b1586644aa85075cf1c29bae_2
     - rule:
         cwe_ids:
             - "331"
@@ -160,11 +211,28 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 8
-      filename: /tmp/scan/openssl_digest_data.rb
+      full_filename: /tmp/scan/openssl_digest_data.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 26
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 26
+        content: y.digest(user.first_name)
       parent_line_number: 8
       snippet: y.digest(user.first_name)
-      fingerprint: 37f68a81b1586644aa85075cf1c29bae_3
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_3
+      old_fingerprint: 37f68a81b1586644aa85075cf1c29bae_3
 

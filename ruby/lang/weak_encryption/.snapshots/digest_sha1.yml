@@ -34,10 +34,27 @@ low:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 1
-      filename: /tmp/scan/digest_sha1.rb
+      full_filename: /tmp/scan/digest_sha1.rb
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 38
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 38
+        content: Digest::SHA1.hexdigest("hello world")
       parent_line_number: 1
       snippet: Digest::SHA1.hexdigest("hello world")
-      fingerprint: d4d5f4279e108052085665e6fbc064cd_0
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
+      old_fingerprint: d4d5f4279e108052085665e6fbc064cd_0
     - rule:
         cwe_ids:
             - "331"
@@ -73,8 +90,25 @@ low:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 3
-      filename: /tmp/scan/digest_sha1.rb
+      full_filename: /tmp/scan/digest_sha1.rb
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 39
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 39
+        content: Digest::SHA1.new.update("hello world")
       parent_line_number: 3
       snippet: Digest::SHA1.new.update("hello world")
-      fingerprint: d4d5f4279e108052085665e6fbc064cd_1
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1
+      old_fingerprint: d4d5f4279e108052085665e6fbc064cd_1
 

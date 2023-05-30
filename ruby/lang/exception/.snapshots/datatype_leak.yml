@@ -24,13 +24,30 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exception
       line_number: 1
-      filename: /tmp/scan/datatype_leak.rb
+      full_filename: /tmp/scan/datatype_leak.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 27
+                end: 37
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 38
+        content: raise CustomException.new(user.email)
       parent_line_number: 1
       snippet: raise CustomException.new(user.email)
-      fingerprint: bdb5fa36fb9ad27c03343392a79911d1_0
+      fingerprint: 41890a2ed9c1a59b53c2e1effaad0b60_0
+      old_fingerprint: bdb5fa36fb9ad27c03343392a79911d1_0
     - rule:
         cwe_ids:
             - "210"
@@ -56,11 +73,28 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_exception
       line_number: 2
-      filename: /tmp/scan/datatype_leak.rb
+      full_filename: /tmp/scan/datatype_leak.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 29
+                end: 39
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 41
+        content: 'raise "User doesn''t exist #{user.email}"'
       parent_line_number: 2
       snippet: 'raise "User doesn''t exist #{user.email}"'
-      fingerprint: bdb5fa36fb9ad27c03343392a79911d1_1
+      fingerprint: 41890a2ed9c1a59b53c2e1effaad0b60_1
+      old_fingerprint: bdb5fa36fb9ad27c03343392a79911d1_1
 

@@ -23,8 +23,25 @@ low:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_static_asset_with_session
       line_number: 3
-      filename: /tmp/scan/unsafe.js
+      full_filename: /tmp/scan/unsafe.js
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 47
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 47
+        content: app.use(express.static(__dirname + "/public"))
       parent_line_number: 3
       snippet: app.use(express.static(__dirname + "/public"))
-      fingerprint: 5d64ab634640ebb607345d19979a88dc_0
+      fingerprint: 602559f0bc1d3e94565f9bd2eeed56ca_0
+      old_fingerprint: 5d64ab634640ebb607345d19979a88dc_0
 

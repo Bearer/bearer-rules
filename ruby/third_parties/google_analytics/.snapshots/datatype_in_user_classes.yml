@@ -16,13 +16,30 @@ high:
             - [Google Analytics docs](https://developers.google.com/analytics/devguides/reporting/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_google_analytics
       line_number: 1
-      filename: /tmp/scan/datatype_in_user_classes.rb
+      full_filename: /tmp/scan/datatype_in_user_classes.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 55
+                end: 65
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 66
+        content: 'Google::Apis::AnalyticsreportingV4::User.new(user_id: user.email)'
       parent_line_number: 1
       snippet: 'Google::Apis::AnalyticsreportingV4::User.new(user_id: user.email)'
-      fingerprint: 7fef3704f79b9c5db298cd4022990acd_0
+      fingerprint: 9668b35f31e900a0f216e97a20bbf3cd_0
+      old_fingerprint: 7fef3704f79b9c5db298cd4022990acd_0
     - rule:
         cwe_ids:
             - "201"
@@ -40,13 +57,33 @@ high:
             - [Google Analytics docs](https://developers.google.com/analytics/devguides/reporting/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_google_analytics
       line_number: 4
-      filename: /tmp/scan/datatype_in_user_classes.rb
+      full_filename: /tmp/scan/datatype_in_user_classes.rb
+      filename: .
       category_groups:
         - Personal Data
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 30
+                end: 45
+      sink:
+        location:
+            start: 3
+            end: 5
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Google::Apis::AnalyticsreportingV4::UserActivitySession.update!(
+              session_id: DateTime.now + user.ip_address
+            )
       parent_line_number: 3
       snippet: |-
         Google::Apis::AnalyticsreportingV4::UserActivitySession.update!(
           session_id: DateTime.now + user.ip_address
         )
-      fingerprint: 7fef3704f79b9c5db298cd4022990acd_1
+      fingerprint: 9668b35f31e900a0f216e97a20bbf3cd_1
+      old_fingerprint: 7fef3704f79b9c5db298cd4022990acd_1
 

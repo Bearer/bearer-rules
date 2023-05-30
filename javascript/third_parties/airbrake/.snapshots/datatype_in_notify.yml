@@ -26,13 +26,30 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_airbrake
       line_number: 9
-      filename: /tmp/scan/datatype_in_notify.js
+      full_filename: /tmp/scan/datatype_in_notify.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 41
+                end: 67
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 15
+                end: 68
+        content: airbrake.notify("user " + currentUser().emailAddress)
       parent_line_number: 9
       snippet: airbrake.notify("user " + currentUser().emailAddress)
-      fingerprint: 957254c6b5784a0bbd79874ed1e6499b_0
+      fingerprint: b062988f903356f85f1052011a6c72d0_0
+      old_fingerprint: 957254c6b5784a0bbd79874ed1e6499b_0
     - rule:
         cwe_ids:
             - "201"
@@ -60,14 +77,35 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_airbrake
       line_number: 18
-      filename: /tmp/scan/datatype_in_notify.js
+      full_filename: /tmp/scan/datatype_in_notify.js
+      filename: .
       category_groups:
         - Personal Data
+      source:
+        location:
+            start: 18
+            end: 18
+            column:
+                start: 23
+                end: 37
+      sink:
+        location:
+            start: 16
+            end: 19
+            column:
+                start: 5
+                end: 7
+        content: |-
+            airbrake.notify({
+                  error: err,
+                  params: { user: user.ipAddress },
+                })
       parent_line_number: 16
       snippet: |-
         airbrake.notify({
               error: err,
               params: { user: user.ipAddress },
             })
-      fingerprint: 957254c6b5784a0bbd79874ed1e6499b_1
+      fingerprint: b062988f903356f85f1052011a6c72d0_1
+      old_fingerprint: 957254c6b5784a0bbd79874ed1e6499b_1
 

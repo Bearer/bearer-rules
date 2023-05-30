@@ -25,8 +25,25 @@ low:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_import_using_user_input
       line_number: 7
-      filename: /tmp/scan/require_destructured_resource.js
+      full_filename: /tmp/scan/require_destructured_resource.js
+      filename: .
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 3
+                end: 16
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 3
+                end: 16
+        content: require(path)
       parent_line_number: 7
       snippet: require(path)
-      fingerprint: 13e8362bcc572a4e2d22fca4d98e5003_0
+      fingerprint: ce8a5417c71d4166a93f05ca32da7883_0
+      old_fingerprint: 13e8362bcc572a4e2d22fca4d98e5003_0
 

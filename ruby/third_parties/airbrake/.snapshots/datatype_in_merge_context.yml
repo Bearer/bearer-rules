@@ -16,11 +16,28 @@ high:
             - [Airbrake Docs](https://docs.airbrake.io/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake
       line_number: 1
-      filename: /tmp/scan/datatype_in_merge_context.rb
+      full_filename: /tmp/scan/datatype_in_merge_context.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 10
+                end: 28
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 37
+        content: 'Airbrake.merge_context(users: users)'
       parent_line_number: 2
       snippet: 'Airbrake.merge_context(users: users)'
-      fingerprint: 9a80b7e47397191e44419c6961758a4d_0
+      fingerprint: 606b8ab8c67de6fc836e00fdc8a039de_0
+      old_fingerprint: 9a80b7e47397191e44419c6961758a4d_0
 

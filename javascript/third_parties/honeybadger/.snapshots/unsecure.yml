@@ -27,11 +27,28 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_honeybadger
       line_number: 3
-      filename: /tmp/scan/unsecure.js
+      full_filename: /tmp/scan/unsecure.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 25
+                end: 48
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 32
+        content: Honeybadger.setContext(context)
       parent_line_number: 5
       snippet: Honeybadger.setContext(context)
-      fingerprint: f5ff216ec31d42ab7a3ebaa74290fbe0_0
+      fingerprint: b951d3bbde6630fbf6e50c52b01dc701_0
+      old_fingerprint: f5ff216ec31d42ab7a3ebaa74290fbe0_0
 

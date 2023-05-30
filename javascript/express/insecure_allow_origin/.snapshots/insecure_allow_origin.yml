@@ -17,10 +17,27 @@ low:
             - [OWASP Origin & Access-Control-Allow-Origin](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/07-Testing_Cross_Origin_Resource_Sharing)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_insecure_allow_origin
       line_number: 10
-      filename: /tmp/scan/insecure_allow_origin.js
+      full_filename: /tmp/scan/insecure_allow_origin.js
+      filename: .
+      source:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 3
+                end: 75
+      sink:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 3
+                end: 75
+        content: 'res.writeHead(200, { "Access-Control-Allow-Origin": req.params.origin })'
       parent_line_number: 10
       snippet: 'res.writeHead(200, { "Access-Control-Allow-Origin": req.params.origin })'
-      fingerprint: 93ea1d55cdb7f9d1b5cd99ae732e4f40_0
+      fingerprint: 2c55192ac05fbc2a0358431b12920a25_0
+      old_fingerprint: 93ea1d55cdb7f9d1b5cd99ae732e4f40_0
     - rule:
         cwe_ids:
             - "346"
@@ -39,8 +56,25 @@ low:
             - [OWASP Origin & Access-Control-Allow-Origin](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/07-Testing_Cross_Origin_Resource_Sharing)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_insecure_allow_origin
       line_number: 11
-      filename: /tmp/scan/insecure_allow_origin.js
+      full_filename: /tmp/scan/insecure_allow_origin.js
+      filename: .
+      source:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 3
+                end: 49
+      sink:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 3
+                end: 49
+        content: res.set("access-control-allow-origin", origin)
       parent_line_number: 11
       snippet: res.set("access-control-allow-origin", origin)
-      fingerprint: 93ea1d55cdb7f9d1b5cd99ae732e4f40_1
+      fingerprint: 2c55192ac05fbc2a0358431b12920a25_1
+      old_fingerprint: 93ea1d55cdb7f9d1b5cd99ae732e4f40_1
 

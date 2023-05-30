@@ -16,11 +16,28 @@ high:
             - [Google Dataflow Docs](https://cloud.google.com/ruby/docs/reference/google-cloud-dataflow/latest)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_google_dataflow
       line_number: 9
-      filename: /tmp/scan/datatype_in_snapshot_setter.rb
+      full_filename: /tmp/scan/datatype_in_snapshot_setter.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 41
+                end: 59
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 61
+        content: 'snapshot.description = "Current user: #{user.email_address}"'
       parent_line_number: 9
       snippet: 'snapshot.description = "Current user: #{user.email_address}"'
-      fingerprint: 9a931942466d27abd84ff6ba142e2b05_0
+      fingerprint: 413255d6456534b1be7ccdeddaeeb019_0
+      old_fingerprint: 9a931942466d27abd84ff6ba142e2b05_0
 

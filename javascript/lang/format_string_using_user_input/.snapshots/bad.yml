@@ -26,10 +26,27 @@ low:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_format_string_using_user_input
       line_number: 1
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 47
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 47
+        content: 'console.error(`Value: ${req.params.value}`, e)'
       parent_line_number: 1
       snippet: 'console.error(`Value: ${req.params.value}`, e)'
-      fingerprint: 6f76b089b4cff1123588cf15c64cd6d1_0
+      fingerprint: 16cab48ad098a8cc47c366d7cec8f691_0
+      old_fingerprint: 6f76b089b4cff1123588cf15c64cd6d1_0
     - rule:
         cwe_ids:
             - "134"
@@ -57,10 +74,27 @@ low:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_format_string_using_user_input
       line_number: 3
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 42
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 42
+        content: 'util.format(`Value: ${req.params.value}`)'
       parent_line_number: 3
       snippet: 'util.format(`Value: ${req.params.value}`)'
-      fingerprint: 6f76b089b4cff1123588cf15c64cd6d1_1
+      fingerprint: 16cab48ad098a8cc47c366d7cec8f691_1
+      old_fingerprint: 6f76b089b4cff1123588cf15c64cd6d1_1
     - rule:
         cwe_ids:
             - "134"
@@ -88,8 +122,25 @@ low:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_format_string_using_user_input
       line_number: 5
-      filename: /tmp/scan/bad.js
+      full_filename: /tmp/scan/bad.js
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 63
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 63
+        content: 'util.formatWithOptions({}, `Value: ${req.params.value} %s`, x)'
       parent_line_number: 5
       snippet: 'util.formatWithOptions({}, `Value: ${req.params.value} %s`, x)'
-      fingerprint: 6f76b089b4cff1123588cf15c64cd6d1_2
+      fingerprint: 16cab48ad098a8cc47c366d7cec8f691_2
+      old_fingerprint: 6f76b089b4cff1123588cf15c64cd6d1_2
 

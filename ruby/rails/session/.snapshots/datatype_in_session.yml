@@ -22,11 +22,28 @@ high:
             - [Rails guide on configuring Rails applications](https://guides.rubyonrails.org/configuring.html)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_session
       line_number: 1
-      filename: /tmp/scan/datatype_in_session.rb
+      full_filename: /tmp/scan/datatype_in_session.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 26
+                end: 36
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 36
+        content: session[:current_user] = user.email
       parent_line_number: 1
       snippet: session[:current_user] = user.email
-      fingerprint: 989d617337abad390f36ee832ecbe3d2_0
+      fingerprint: 29053fd98a4ae0f93613d90beecfa3e5_0
+      old_fingerprint: 989d617337abad390f36ee832ecbe3d2_0
 

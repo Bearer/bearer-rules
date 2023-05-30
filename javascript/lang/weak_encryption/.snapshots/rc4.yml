@@ -26,11 +26,28 @@ high:
             - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_encryption
       line_number: 3
-      filename: /tmp/scan/rc4.js
+      full_filename: /tmp/scan/rc4.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 33
+                end: 43
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 12
+                end: 58
+        content: CryptoJS.RC4.encrypt(user.email, "secret key")
       parent_line_number: 3
       snippet: CryptoJS.RC4.encrypt(user.email, "secret key")
-      fingerprint: d0a15749b5e84ac7d68eba7178cb7925_0
+      fingerprint: 05decf30fc70859705b7ca59c5dbe388_0
+      old_fingerprint: d0a15749b5e84ac7d68eba7178cb7925_0
 

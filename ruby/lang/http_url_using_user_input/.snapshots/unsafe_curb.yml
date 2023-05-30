@@ -33,12 +33,31 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 3
-      filename: /tmp/scan/unsafe_curb.rb
+      full_filename: /tmp/scan/unsafe_curb.rb
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 4
+            column:
+                start: 1
+                end: 4
+      sink:
+        location:
+            start: 3
+            end: 4
+            column:
+                start: 1
+                end: 4
+        content: |-
+            Curl.http("GET", params[:oops], nil) do
+            end
       parent_line_number: 3
       snippet: |-
         Curl.http("GET", params[:oops], nil) do
         end
-      fingerprint: 3492e9def720f3ca78a824fe576b38a1_0
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_0
+      old_fingerprint: 3492e9def720f3ca78a824fe576b38a1_0
     - rule:
         cwe_ids:
             - "918"
@@ -73,10 +92,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 6
-      filename: /tmp/scan/unsafe_curb.rb
+      full_filename: /tmp/scan/unsafe_curb.rb
+      filename: .
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 27
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 1
+                end: 27
+        content: Curl.get(params[:oops]) {}
       parent_line_number: 6
       snippet: Curl.get(params[:oops]) {}
-      fingerprint: 3492e9def720f3ca78a824fe576b38a1_1
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_1
+      old_fingerprint: 3492e9def720f3ca78a824fe576b38a1_1
     - rule:
         cwe_ids:
             - "918"
@@ -111,10 +147,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 8
-      filename: /tmp/scan/unsafe_curb.rb
+      full_filename: /tmp/scan/unsafe_curb.rb
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 37
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 37
+        content: Curl::Easy.perform(params[:oops]) {}
       parent_line_number: 8
       snippet: Curl::Easy.perform(params[:oops]) {}
-      fingerprint: 3492e9def720f3ca78a824fe576b38a1_2
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_2
+      old_fingerprint: 3492e9def720f3ca78a824fe576b38a1_2
     - rule:
         cwe_ids:
             - "918"
@@ -149,10 +202,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 10
-      filename: /tmp/scan/unsafe_curb.rb
+      full_filename: /tmp/scan/unsafe_curb.rb
+      filename: .
+      source:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 8
+                end: 40
+      sink:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 8
+                end: 40
+        content: Curl::Easy.new(params[:oops]) {}
       parent_line_number: 10
       snippet: Curl::Easy.new(params[:oops]) {}
-      fingerprint: 3492e9def720f3ca78a824fe576b38a1_3
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_3
+      old_fingerprint: 3492e9def720f3ca78a824fe576b38a1_3
     - rule:
         cwe_ids:
             - "918"
@@ -187,10 +257,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 11
-      filename: /tmp/scan/unsafe_curb.rb
+      full_filename: /tmp/scan/unsafe_curb.rb
+      filename: .
+      source:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 1
+                end: 26
+      sink:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 1
+                end: 26
+        content: easy.url = params[:oops2]
       parent_line_number: 11
       snippet: easy.url = params[:oops2]
-      fingerprint: 3492e9def720f3ca78a824fe576b38a1_4
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_4
+      old_fingerprint: 3492e9def720f3ca78a824fe576b38a1_4
     - rule:
         cwe_ids:
             - "918"
@@ -225,10 +312,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 14
-      filename: /tmp/scan/unsafe_curb.rb
+      full_filename: /tmp/scan/unsafe_curb.rb
+      filename: .
+      source:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 1
+                end: 26
+      sink:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 1
+                end: 26
+        content: easy2.url = params[:oops]
       parent_line_number: 14
       snippet: easy2.url = params[:oops]
-      fingerprint: 3492e9def720f3ca78a824fe576b38a1_5
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_5
+      old_fingerprint: 3492e9def720f3ca78a824fe576b38a1_5
     - rule:
         cwe_ids:
             - "918"
@@ -263,10 +367,27 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 16
-      filename: /tmp/scan/unsafe_curb.rb
+      full_filename: /tmp/scan/unsafe_curb.rb
+      filename: .
+      source:
+        location:
+            start: 16
+            end: 16
+            column:
+                start: 1
+                end: 69
+      sink:
+        location:
+            start: 16
+            end: 16
+            column:
+                start: 1
+                end: 69
+        content: Curl::Multi.get(["https://my.api.com/secure", params[:oops]], {}) {}
       parent_line_number: 16
       snippet: Curl::Multi.get(["https://my.api.com/secure", params[:oops]], {}) {}
-      fingerprint: 3492e9def720f3ca78a824fe576b38a1_6
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_6
+      old_fingerprint: 3492e9def720f3ca78a824fe576b38a1_6
     - rule:
         cwe_ids:
             - "918"
@@ -301,8 +422,25 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input
       line_number: 18
-      filename: /tmp/scan/unsafe_curb.rb
+      full_filename: /tmp/scan/unsafe_curb.rb
+      filename: .
+      source:
+        location:
+            start: 18
+            end: 18
+            column:
+                start: 1
+                end: 61
+      sink:
+        location:
+            start: 18
+            end: 18
+            column:
+                start: 1
+                end: 61
+        content: 'Curl::Multi.http([{ url: params[:oops], method: :post }]) {}'
       parent_line_number: 18
       snippet: 'Curl::Multi.http([{ url: params[:oops], method: :post }]) {}'
-      fingerprint: 3492e9def720f3ca78a824fe576b38a1_7
+      fingerprint: f8b7e1c48c1bb6e71f6a8996b228371b_7
+      old_fingerprint: 3492e9def720f3ca78a824fe576b38a1_7
 

@@ -22,11 +22,28 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_algolia
       line_number: 4
-      filename: /tmp/scan/datatype_in_index.js
+      full_filename: /tmp/scan/datatype_in_index.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 35
+                end: 62
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 15
+                end: 63
+        content: myAlgolia.initIndex(company.bank_account_number)
       parent_line_number: 4
       snippet: myAlgolia.initIndex(company.bank_account_number)
-      fingerprint: ed16c7d227891685bb13afc9a2af6f9c_0
+      fingerprint: 3b8a9db66a5d96671524cd36226b34d5_0
+      old_fingerprint: ed16c7d227891685bb13afc9a2af6f9c_0
 

@@ -20,8 +20,25 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
       line_number: 10
-      filename: /tmp/scan/res_write_xss.js
+      full_filename: /tmp/scan/res_write_xss.js
+      filename: .
+      source:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 3
+                end: 56
+      sink:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 3
+                end: 56
+        content: res.write("<h3> Greetings " + customerName + "</h3>")
       parent_line_number: 10
       snippet: res.write("<h3> Greetings " + customerName + "</h3>")
-      fingerprint: 1d181a23672072a7178a113e378dec2f_0
+      fingerprint: df7c00dff42ea03e2153d41a4dc2fc8e_0
+      old_fingerprint: 1d181a23672072a7178a113e378dec2f_0
 

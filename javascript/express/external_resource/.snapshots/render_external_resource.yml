@@ -23,8 +23,25 @@ low:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_external_resource
       line_number: 9
-      filename: /tmp/scan/render_external_resource.js
+      full_filename: /tmp/scan/render_external_resource.js
+      filename: .
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 10
+                end: 62
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 10
+                end: 62
+        content: 'res.render(req.query.path + "/results", { page: 1 })'
       parent_line_number: 9
       snippet: 'res.render(req.query.path + "/results", { page: 1 })'
-      fingerprint: 0ea6e12bd1f0f70860df90162241b7df_0
+      fingerprint: b370881b6e854d7e31487a8465e91ae0_0
+      old_fingerprint: 0ea6e12bd1f0f70860df90162241b7df_0
 

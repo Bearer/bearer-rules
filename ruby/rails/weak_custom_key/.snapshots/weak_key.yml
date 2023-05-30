@@ -23,11 +23,28 @@ medium:
             - [Rails encryption - model-specific keys](https://guides.rubyonrails.org/active_record_encryption.html#model-specific-keys)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_weak_custom_key
       line_number: 2
-      filename: /tmp/scan/weak_key.rb
+      full_filename: /tmp/scan/weak_key.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 3
+                end: 49
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 3
+                end: 49
+        content: 'encrypts :email, :billing_number, key: "short"'
       parent_line_number: 2
       snippet: 'encrypts :email, :billing_number, key: "short"'
-      fingerprint: 88fa0958ec50b6f3b3bddb3f37f69ff8_0
+      fingerprint: af1f8e3a42d21cb661f76c37c8df8c10_0
+      old_fingerprint: 88fa0958ec50b6f3b3bddb3f37f69ff8_0
 

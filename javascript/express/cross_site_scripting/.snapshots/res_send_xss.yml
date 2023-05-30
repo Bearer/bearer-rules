@@ -20,10 +20,27 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
       line_number: 9
-      filename: /tmp/scan/res_send_xss.js
+      full_filename: /tmp/scan/res_send_xss.js
+      filename: .
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 3
+                end: 52
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 3
+                end: 52
+        content: res.send("<p>" + req.body.customer.name + "</p>")
       parent_line_number: 9
       snippet: res.send("<p>" + req.body.customer.name + "</p>")
-      fingerprint: 3f70d22190df9024d0948feacc1a08de_0
+      fingerprint: df7c00dff42ea03e2153d41a4dc2fc8e_0
+      old_fingerprint: 3f70d22190df9024d0948feacc1a08de_0
     - rule:
         cwe_ids:
             - "79"
@@ -45,8 +62,25 @@ high:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting
       line_number: 13
-      filename: /tmp/scan/res_send_xss.js
+      full_filename: /tmp/scan/res_send_xss.js
+      filename: .
+      source:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 3
+                end: 49
+      sink:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 3
+                end: 49
+        content: res.send("<p>" + req.body["user_id"] + "</p>")
       parent_line_number: 13
       snippet: res.send("<p>" + req.body["user_id"] + "</p>")
-      fingerprint: 3f70d22190df9024d0948feacc1a08de_1
+      fingerprint: df7c00dff42ea03e2153d41a4dc2fc8e_1
+      old_fingerprint: 3f70d22190df9024d0948feacc1a08de_1
 

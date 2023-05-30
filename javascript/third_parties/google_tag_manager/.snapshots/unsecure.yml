@@ -32,15 +32,99 @@ high:
             ## Resources
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_google_tag_manager
-      line_number: 4
-      filename: /tmp/scan/unsecure.js
+      line_number: 1
+      full_filename: /tmp/scan/unsecure.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 16
+                end: 39
+      sink:
+        location:
+            start: 3
+            end: 5
+            column:
+                start: 1
+                end: 3
+        content: |-
+            window.dataLayer.push({
+            	email: user.email,
+            })
       parent_line_number: 3
       snippet: |-
         window.dataLayer.push({
         	email: user.email,
         })
-      fingerprint: fe4547d3281761aa5aaadc4b605ef58f_0
+      fingerprint: da9f822205740bd5ee47f56b7ebccf6e_0
+      old_fingerprint: fe4547d3281761aa5aaadc4b605ef58f_0
+    - rule:
+        cwe_ids:
+            - "201"
+        id: javascript_third_parties_google_tag_manager
+        title: Sensitive data sent to Google Tag Manager detected.
+        description: |
+            ## Description
+
+            Leaking sensitive data to third parties is a common cause of data leaks and can lead to data breaches. This rule looks for instances of leaking sensitive data to third parties using google tag manager.
+
+            ❌ Avoid sending sensitive data to third parties:
+
+            ```javascript
+            datalayer.push({
+              user: {
+                email: user.email
+              }
+            })
+            ```
+
+            ✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:
+
+            ```javascript
+            datalayer.push({
+              user: {
+                uuid: user.uuid
+              }
+            })
+            ```
+
+            ## Resources
+            - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_google_tag_manager
+      line_number: 4
+      full_filename: /tmp/scan/unsecure.js
+      filename: .
+      category_groups:
+        - PII
+        - Personal Data
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 9
+                end: 19
+      sink:
+        location:
+            start: 3
+            end: 5
+            column:
+                start: 1
+                end: 3
+        content: |-
+            window.dataLayer.push({
+            	email: user.email,
+            })
+      parent_line_number: 3
+      snippet: |-
+        window.dataLayer.push({
+        	email: user.email,
+        })
+      fingerprint: da9f822205740bd5ee47f56b7ebccf6e_1
+      old_fingerprint: fe4547d3281761aa5aaadc4b605ef58f_1
 

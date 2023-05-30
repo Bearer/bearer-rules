@@ -25,8 +25,25 @@ low:
             - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_http_insecure
       line_number: 2
-      filename: /tmp/scan/axios_insecure.js
+      full_filename: /tmp/scan/axios_insecure.js
+      filename: .
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 24
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 24
+        content: axios.get(insecure_url)
       parent_line_number: 2
       snippet: axios.get(insecure_url)
-      fingerprint: a63d62615cad95d0256011c4e02c679c_0
+      fingerprint: 152209b1605ebd60ec2a741fa69edfbe_0
+      old_fingerprint: a63d62615cad95d0256011c4e02c679c_0
 

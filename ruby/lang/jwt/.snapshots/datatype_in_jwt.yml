@@ -26,11 +26,28 @@ high:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_jwt
       line_number: 1
-      filename: /tmp/scan/datatype_in_jwt.rb
+      full_filename: /tmp/scan/datatype_in_jwt.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 12
+                end: 24
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 37
+        content: JWT.encode user.address, nil, "none"
       parent_line_number: 1
       snippet: JWT.encode user.address, nil, "none"
-      fingerprint: 068894fc94039d230472fcdf612ecb37_0
+      fingerprint: ea186f391e78c5aef2a6a0e01d435e54_0
+      old_fingerprint: 068894fc94039d230472fcdf612ecb37_0
 

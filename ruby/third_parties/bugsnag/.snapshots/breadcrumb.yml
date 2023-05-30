@@ -16,11 +16,28 @@ high:
             - [Bugsnag Docs](https://docs.bugsnag.com/platforms/ruby/rails/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_bugsnag
       line_number: 2
-      filename: /tmp/scan/breadcrumb.rb
+      full_filename: /tmp/scan/breadcrumb.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 3
+                end: 28
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 84
+        content: Bugsnag.leave_breadcrumb('User logged in', metadata, Bugsnag::BreadcrumbType::USER)
       parent_line_number: 7
       snippet: Bugsnag.leave_breadcrumb('User logged in', metadata, Bugsnag::BreadcrumbType::USER)
-      fingerprint: 2cd21b3a75ad9a5099dff4b3c7c785f8_0
+      fingerprint: 524e26b29dda01375b05516947e0c2a5_0
+      old_fingerprint: 2cd21b3a75ad9a5099dff4b3c7c785f8_0
 

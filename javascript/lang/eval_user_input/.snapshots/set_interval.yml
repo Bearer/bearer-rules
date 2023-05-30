@@ -48,8 +48,25 @@ high:
             - [MDN JavaScript strict mode reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_eval_user_input
       line_number: 11
-      filename: /tmp/scan/set_interval.js
+      full_filename: /tmp/scan/set_interval.js
+      filename: .
+      source:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 3
+                end: 23
+      sink:
+        location:
+            start: 11
+            end: 11
+            column:
+                start: 3
+                end: 23
+        content: setInterval(command)
       parent_line_number: 11
       snippet: setInterval(command)
-      fingerprint: a75cd29cea00cdc5206af021c7b54d32_0
+      fingerprint: 845c467daab5771a9b5844e411f5576c_0
+      old_fingerprint: a75cd29cea00cdc5206af021c7b54d32_0
 

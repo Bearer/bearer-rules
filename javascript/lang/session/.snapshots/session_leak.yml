@@ -29,11 +29,28 @@ high:
               - [OWASP sensitive data exposure](https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_session
       line_number: 1
-      filename: /tmp/scan/session_leak.js
+      full_filename: /tmp/scan/session_leak.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 16
+                end: 28
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 1
+                end: 35
+        content: localStorage.setItem("user", user)
       parent_line_number: 3
       snippet: localStorage.setItem("user", user)
-      fingerprint: 885f362f243a45caed8c42c5d8e15460_0
+      fingerprint: 6c0cc3faaa947ecc7d7219e846383aa3_0
+      old_fingerprint: 885f362f243a45caed8c42c5d8e15460_0
 

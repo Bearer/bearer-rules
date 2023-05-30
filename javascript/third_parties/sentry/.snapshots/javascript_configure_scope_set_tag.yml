@@ -16,11 +16,28 @@ high:
             - [Sentry Docs](https://docs.sentry.io/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_sentry
       line_number: 2
-      filename: /tmp/scan/javascript_configure_scope_set_tag.js
+      full_filename: /tmp/scan/javascript_configure_scope_set_tag.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 30
+                end: 40
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 3
+                end: 41
+        content: scope.setTag("user_email", user.email)
       parent_line_number: 2
       snippet: scope.setTag("user_email", user.email)
-      fingerprint: baa2aad5d37ea6031b2255fd63fdba6c_0
+      fingerprint: af49328f7c7aa692f05a50dc6ccda334_0
+      old_fingerprint: baa2aad5d37ea6031b2255fd63fdba6c_0
 

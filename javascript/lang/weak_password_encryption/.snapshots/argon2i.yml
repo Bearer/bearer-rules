@@ -27,10 +27,31 @@ high:
             - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html#cryptocreatehmacalgorithm-key-options)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_password_encryption
       line_number: 4
-      filename: /tmp/scan/argon2i.js
+      full_filename: /tmp/scan/argon2i.js
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 34
+                end: 54
+      sink:
+        location:
+            start: 4
+            end: 8
+            column:
+                start: 22
+                end: 5
+        content: |-
+            argon2.hash(currentUser.password, {
+                type: argon2.argon2i,
+                memoryCost: 2 ** 16,
+                hashLength: 50,
+              })
       parent_line_number: 4
       snippet: |-
         argon2.hash(currentUser.password, {
@@ -38,5 +59,6 @@ high:
             memoryCost: 2 ** 16,
             hashLength: 50,
           })
-      fingerprint: 0f2a18f9c2d16025d11dfda506ac2868_0
+      fingerprint: acda44fe7460e65bdf4544fa632de986_0
+      old_fingerprint: 0f2a18f9c2d16025d11dfda506ac2868_0
 

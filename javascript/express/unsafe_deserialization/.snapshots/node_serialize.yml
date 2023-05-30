@@ -24,8 +24,25 @@ high:
             - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_express_unsafe_deserialization
       line_number: 5
-      filename: /tmp/scan/node_serialize.js
+      full_filename: /tmp/scan/node_serialize.js
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 3
+                end: 37
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 3
+                end: 37
+        content: nodeSerialize.unserialize(userStr)
       parent_line_number: 5
       snippet: nodeSerialize.unserialize(userStr)
-      fingerprint: 46af139cfed38e19bbd26a008a1a9332_0
+      fingerprint: 8344d2cb0faaa6ea9f5e63d59dac105b_0
+      old_fingerprint: 46af139cfed38e19bbd26a008a1a9332_0
 

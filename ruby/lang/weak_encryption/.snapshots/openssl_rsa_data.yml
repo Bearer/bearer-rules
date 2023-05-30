@@ -34,13 +34,30 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 5
-      filename: /tmp/scan/openssl_rsa_data.rb
+      full_filename: /tmp/scan/openssl_rsa_data.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 42
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 42
+        content: rsa_encrypt.export(cipher, user.password)
       parent_line_number: 5
       snippet: rsa_encrypt.export(cipher, user.password)
-      fingerprint: 50c53016b42972af5401228ccb82fc01_1
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1
+      old_fingerprint: 50c53016b42972af5401228ccb82fc01_1
     - rule:
         cwe_ids:
             - "331"
@@ -76,11 +93,28 @@ high:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 7
-      filename: /tmp/scan/openssl_rsa_data.rb
+      full_filename: /tmp/scan/openssl_rsa_data.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 61
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 61
+        content: OpenSSL::PKey::RSA.new(1024).to_pem(cipher, user.first_name)
       parent_line_number: 7
       snippet: OpenSSL::PKey::RSA.new(1024).to_pem(cipher, user.first_name)
-      fingerprint: 50c53016b42972af5401228ccb82fc01_0
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
+      old_fingerprint: 50c53016b42972af5401228ccb82fc01_0
 

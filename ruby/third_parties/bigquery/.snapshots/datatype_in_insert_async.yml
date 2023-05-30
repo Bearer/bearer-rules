@@ -15,11 +15,28 @@ high:
             - [BigQuery docs](https://cloud.google.com/ruby/docs)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_bigquery
       line_number: 8
-      filename: /tmp/scan/datatype_in_insert_async.rb
+      full_filename: /tmp/scan/datatype_in_insert_async.rb
+      filename: .
       category_groups:
         - PII
         - Personal Data
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 32
+                end: 47
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 51
+        content: 'inserter.insert([{ first_name: user.first_name }])'
       parent_line_number: 8
       snippet: 'inserter.insert([{ first_name: user.first_name }])'
-      fingerprint: a28f96e6c9e70ba89fcfb221715216a6_0
+      fingerprint: fa66126708eadfd7a10516ce3578a767_0
+      old_fingerprint: a28f96e6c9e70ba89fcfb221715216a6_0
 

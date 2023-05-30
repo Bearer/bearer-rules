@@ -34,10 +34,27 @@ low:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 1
-      filename: /tmp/scan/rc4_encrypt.rb
+      full_filename: /tmp/scan/rc4_encrypt.rb
+      filename: .
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 43
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 43
+        content: RC4.new("insecure").encrypt("hello world")
       parent_line_number: 1
       snippet: RC4.new("insecure").encrypt("hello world")
-      fingerprint: 4c26875773dd9c6fcbeef06c787efa5a_0
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_0
+      old_fingerprint: 4c26875773dd9c6fcbeef06c787efa5a_0
     - rule:
         cwe_ids:
             - "331"
@@ -73,8 +90,25 @@ low:
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption
       line_number: 4
-      filename: /tmp/scan/rc4_encrypt.rb
+      full_filename: /tmp/scan/rc4_encrypt.rb
+      filename: .
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 36
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 36
+        content: rc4_encrypt.encrypt!("hello world")
       parent_line_number: 4
       snippet: rc4_encrypt.encrypt!("hello world")
-      fingerprint: 4c26875773dd9c6fcbeef06c787efa5a_1
+      fingerprint: fef109862dd2c9654945fcd2f1fedf8c_1
+      old_fingerprint: 4c26875773dd9c6fcbeef06c787efa5a_1
 
