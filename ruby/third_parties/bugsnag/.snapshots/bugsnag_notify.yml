@@ -1,4 +1,4 @@
-medium:
+high:
     - rule:
         cwe_ids:
             - "201"
@@ -15,7 +15,7 @@ medium:
             ## Resources
             - [Bugsnag Docs](https://docs.bugsnag.com/platforms/ruby/rails/)
         documentation_url: https://docs.bearer.com/reference/rules/ruby_third_parties_bugsnag
-      line_number: 7
+      line_number: 13
       full_filename: /tmp/scan/bugsnag_notify.rb
       filename: .
       category_groups:
@@ -23,41 +23,29 @@ medium:
         - Personal Data
       source:
         location:
-            start: 7
-            end: 16
+            start: 13
+            end: 13
             column:
-                start: 1
-                end: 4
+                start: 16
+                end: 33
       sink:
         location:
-            start: 7
-            end: 16
+            start: 12
+            end: 15
             column:
-                start: 1
-                end: 4
+                start: 3
+                end: 5
         content: |-
-            Bugsnag.notify(exception) do |event|
-              # Adjust the severity of this error
-              event.severity = "warning"
-
-              # Add customer information to this event
-              event.add_metadata(:account, {
+            event.add_metadata(:account, {
                 user_name: current_user.name,
                 paying_customer: true
               })
-            end
-      parent_line_number: 7
+      parent_line_number: 12
       snippet: |-
-        Bugsnag.notify(exception) do |event|
-          # Adjust the severity of this error
-          event.severity = "warning"
-
-          # Add customer information to this event
-          event.add_metadata(:account, {
+        event.add_metadata(:account, {
             user_name: current_user.name,
             paying_customer: true
           })
-        end
       fingerprint: 524e26b29dda01375b05516947e0c2a5_0
       old_fingerprint: 204ec2ed916d95c7b49164b2cc4696fd_0
 
