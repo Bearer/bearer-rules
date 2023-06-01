@@ -1,0 +1,115 @@
+patterns:
+  - pattern: Digest::SHA1.$<METHOD>($<OPTIONAL_DATA_TYPE>)
+    filters:
+      - variable: METHOD
+        values:
+          - digest
+          - hexdigest
+          - base64digest
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: datatype
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: datatype
+  - pattern: OpenSSL::Digest.digest($<ALGORITHM>, $<OPTIONAL_DATA_TYPE>)
+    filters:
+      - variable: ALGORITHM
+        regex: (?i)['"]SHA1?['"]
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: datatype
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: datatype
+  - pattern: OpenSSL::Digest::$<ALGORITHM>.digest($<OPTIONAL_DATA_TYPE>)
+    filters:
+      - variable: ALGORITHM
+        regex: \ASHA1?\z
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: datatype
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: datatype
+  - pattern: |
+      $<DIGEST>.update($<OPTIONAL_DATA_TYPE>)
+    filters:
+      - variable: DIGEST
+        detection: ruby_lang_weak_hash_sha_digest
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: datatype
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: datatype
+  - pattern: |
+      $<DIGEST> << $<OPTIONAL_DATA_TYPE>
+    filters:
+      - variable: DIGEST
+        detection: ruby_lang_weak_hash_sha_digest
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: datatype
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: datatype
+  - pattern: $<DIGEST>.$<METHOD>($<OPTIONAL_DATA_TYPE>)
+    filters:
+      - variable: DIGEST
+        detection: ruby_lang_weak_hash_sha_digest
+      - variable: METHOD
+        values:
+          - digest
+          - hexdigest
+          - base64digest
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: datatype
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: datatype
+languages:
+  - ruby
+auxiliary:
+  - id: ruby_lang_weak_hash_sha_digest
+    patterns:
+      - Digest::SHA1.new
+      - pattern: OpenSSL::Digest::$<ALGORITHM>.new
+        filters:
+          - variable: ALGORITHM
+            regex: \ASHA1?\z
+      - pattern: OpenSSL::Digest.new($<ALGORITHM>)
+        filters:
+          - variable: ALGORITHM
+            regex: (?i)\A['"]SHA1?['"]\z
+metadata:
+  description: "Weak hashing library (SHA) detected."
+  remediation_message: |
+    ## Description
+
+    A weak hashing library can lead to data breaches and greater security risk.
+
+    ## Remediations
+    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA and SHA1 are considered weak hash algorithms and therefore shouldn't be used.
+
+    ❌ Avoid libraries and algorithms with known weaknesses:
+
+    ```ruby
+    Digest::SHA.hexdigest 'weak hash'
+    Digest::SHA1.hexdigest 'weak hash'
+    ```
+
+    ✅ Instead, we recommend using bcrypt:
+
+    ```ruby
+    BCrypt::Password.create('iLOVEdogs123')
+    ```
+
+    ## Resources
+    - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
+  cwe_id:
+    - 331
+    - 328
+  id: ruby_lang_weak_hash_sha
+  documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_hash_sha

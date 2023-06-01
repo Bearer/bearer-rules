@@ -1,0 +1,1 @@
+OpenSSL::Digest::MD5.digest("hello world")

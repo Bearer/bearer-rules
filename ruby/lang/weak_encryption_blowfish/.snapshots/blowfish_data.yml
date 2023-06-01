@@ -1,0 +1,176 @@
+high:
+    - rule:
+        cwe_ids:
+            - "331"
+            - "326"
+        id: ruby_lang_weak_encryption_blowfish
+        title: Weak encryption library (Blowfish) detected.
+        description: |
+            ## Description
+
+            A weak encryption library can lead to data breaches and greater security risk.
+
+            ## Remediations
+            According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), Blowfish is considered a weak encryption algorithm and therefore shouldn't be used.
+
+            ❌ Avoid libraries and algorithms with known weaknesses:
+
+            ```ruby
+            Crypt::Blowfish.new("weak password encryption")
+            ```
+
+            ✅ Instead, we recommend using bcrypt:
+
+            ```ruby
+            BCrypt::Password.create('iLOVEdogs123')
+            ```
+
+            ## Resources
+            - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_blowfish
+      line_number: 2
+      full_filename: /tmp/scan/blowfish_data.rb
+      filename: .
+      category_groups:
+        - PII
+        - Personal Data
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 3
+                end: 16
+      sink:
+        location:
+            start: 1
+            end: 3
+            column:
+                start: 1
+                end: 2
+        content: |-
+            Crypt::Blowfish.new("insecure").encrypt_block { |user|
+              user.password
+            }
+      parent_line_number: 1
+      snippet: |-
+        Crypt::Blowfish.new("insecure").encrypt_block { |user|
+          user.password
+        }
+      fingerprint: bd49baf006f18f3010498485ae3f5dfa_1
+      old_fingerprint: 71112306b331949a83939bbd36d0e159_1
+    - rule:
+        cwe_ids:
+            - "331"
+            - "326"
+        id: ruby_lang_weak_encryption_blowfish
+        title: Weak encryption library (Blowfish) detected.
+        description: |
+            ## Description
+
+            A weak encryption library can lead to data breaches and greater security risk.
+
+            ## Remediations
+            According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), Blowfish is considered a weak encryption algorithm and therefore shouldn't be used.
+
+            ❌ Avoid libraries and algorithms with known weaknesses:
+
+            ```ruby
+            Crypt::Blowfish.new("weak password encryption")
+            ```
+
+            ✅ Instead, we recommend using bcrypt:
+
+            ```ruby
+            BCrypt::Password.create('iLOVEdogs123')
+            ```
+
+            ## Resources
+            - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_blowfish
+      line_number: 6
+      full_filename: /tmp/scan/blowfish_data.rb
+      filename: .
+      category_groups:
+        - PII
+        - Personal Data
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 3
+                end: 16
+      sink:
+        location:
+            start: 5
+            end: 7
+            column:
+                start: 1
+                end: 4
+        content: |-
+            Crypt::Blowfish.new("insecure").encrypt_block do |user|
+              user.password
+            end
+      parent_line_number: 5
+      snippet: |-
+        Crypt::Blowfish.new("insecure").encrypt_block do |user|
+          user.password
+        end
+      fingerprint: bd49baf006f18f3010498485ae3f5dfa_2
+      old_fingerprint: 71112306b331949a83939bbd36d0e159_2
+    - rule:
+        cwe_ids:
+            - "331"
+            - "326"
+        id: ruby_lang_weak_encryption_blowfish
+        title: Weak encryption library (Blowfish) detected.
+        description: |
+            ## Description
+
+            A weak encryption library can lead to data breaches and greater security risk.
+
+            ## Remediations
+            According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), Blowfish is considered a weak encryption algorithm and therefore shouldn't be used.
+
+            ❌ Avoid libraries and algorithms with known weaknesses:
+
+            ```ruby
+            Crypt::Blowfish.new("weak password encryption")
+            ```
+
+            ✅ Instead, we recommend using bcrypt:
+
+            ```ruby
+            BCrypt::Password.create('iLOVEdogs123')
+            ```
+
+            ## Resources
+            - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_blowfish
+      line_number: 9
+      full_filename: /tmp/scan/blowfish_data.rb
+      filename: .
+      category_groups:
+        - PII
+        - Personal Data
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 48
+                end: 58
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 59
+        content: Crypt::Blowfish.new("your-key").encrypt_string(user.email)
+      parent_line_number: 9
+      snippet: Crypt::Blowfish.new("your-key").encrypt_string(user.email)
+      fingerprint: bd49baf006f18f3010498485ae3f5dfa_0
+      old_fingerprint: 71112306b331949a83939bbd36d0e159_0
+
