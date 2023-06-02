@@ -6,6 +6,7 @@ patterns:
         detection: open_telemetry_current_span
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
       - variable: METHOD
         values:
           - add_event
@@ -17,6 +18,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       $<VAR>.status = OpenTelemetry::Trace::Status.error($<...>$<DATA_TYPE>$<...>)
     filters:
@@ -24,6 +26,7 @@ patterns:
         detection: open_telemetry_current_span
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
 languages:
   - ruby
 auxiliary:

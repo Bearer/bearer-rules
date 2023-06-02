@@ -4,6 +4,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
       - variable: METHOD
         values:
           - warn
@@ -20,6 +21,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
       - variable: METHOD
         values:
           - warn
@@ -32,6 +34,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
       - variable: LOG
         values:
           - log
@@ -41,6 +44,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
       - variable: VAR
         detection: child_logger
       - variable: METHOD

@@ -6,11 +6,13 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Net::FTP.open($<...>$<USER_INPUT>$<...>)$<...>
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<FTP>.$<_>($<...>$<USER_INPUT>$<...>)$<...>
     filters:
@@ -18,6 +20,7 @@ patterns:
         detection: ruby_lang_ftp_using_user_input_ftp
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
 auxiliary:
   - id: ruby_lang_ftp_using_user_input_ftp
     patterns:

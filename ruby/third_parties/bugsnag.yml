@@ -1,29 +1,36 @@
 patterns:
   - pattern: |
-      class $<_>
-        before_bugsnag_notify($<METHOD_NAME:simple_symbol>)
-
-        def $<METHOD_NAME>($<EVENT:identifier>)
-          $<EVENT>.add_metadata($<...>$<DATA_TYPE>$<...>)
-        end
-      end
-    filters:
-      - variable: DATA_TYPE
-        detection: datatype
-  - pattern: |
       Bugsnag.leave_breadcrumb($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Bugsnag.notify($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
         detection: datatype
-  - pattern: |
-      Bugsnag.notify($<_>) do |$<EVENT:identifier>|
-        $<EVENT>.add_metadata($<...>$<DATA_TYPE>$<...>)
-      end
+        scope: result
+  - pattern: $<EVENT>.add_metadata($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: EVENT
+        detection: ruby_third_parties_bugsnag_event
+        contains: false
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
+auxiliary:
+  - id: ruby_third_parties_bugsnag_event
+    patterns:
+      - |
+        Bugsnag.notify($<_>) { |$<!>$<_:identifier>| }
+      - |
+        class $<_>
+          before_bugsnag_notify($<METHOD_NAME:simple_symbol>)
+
+          def $<METHOD_NAME>($<!>$<_:identifier>)
+          end
+        end
 languages:
   - ruby
 skip_data_types:

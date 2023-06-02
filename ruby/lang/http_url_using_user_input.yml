@@ -12,6 +12,7 @@ patterns:
           - post_form
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Net::HTTP.$<METHOD>($<...>$<USER_INPUT>$<...>)$<...>
     filters:
@@ -25,6 +26,7 @@ patterns:
           - start
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Net::HTTP::$<CLASS>.new($<USER_INPUT>$<...>)
     filters:
@@ -47,6 +49,7 @@ patterns:
           - Unlock
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<NET_HTTP>.$<METHOD>($<USER_INPUT>$<...>)$<...>
     filters:
@@ -76,6 +79,7 @@ patterns:
           - unlock
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<NET_HTTP>.send_request($<_>, $<USER_INPUT>$<...>)
     filters:
@@ -83,6 +87,7 @@ patterns:
         detection: ruby_lang_http_url_using_user_input_net_http
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<NET_HTTP>.ipaddr = $<USER_INPUT>
     filters:
@@ -90,6 +95,7 @@ patterns:
         detection: ruby_lang_http_url_using_user_input_net_http
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: $<URI>.open$<...>
     filters:
       - variable: URI
@@ -107,6 +113,7 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Curl.$<METHOD>($<USER_INPUT>$<...>)$<...>
     filters:
@@ -121,6 +128,7 @@ patterns:
           - options
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Curl::Easy.$<METHOD>($<USER_INPUT>$<...>)$<...>
     filters:
@@ -136,6 +144,7 @@ patterns:
           - http_get
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<CURB>.url = $<USER_INPUT>
     filters:
@@ -143,6 +152,7 @@ patterns:
         detection: ruby_lang_http_url_using_user_input_curb
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Curl::Multi.$<METHOD>($<USER_INPUT>$<...>)$<...>
     filters:
@@ -152,6 +162,7 @@ patterns:
           - download
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Curl::Multi.$<METHOD>($<USER_INPUT_URL_HASH>$<...>)$<...>
     filters:
@@ -162,11 +173,13 @@ patterns:
           - put
       - variable: USER_INPUT_URL_HASH
         detection: ruby_lang_http_url_using_user_input_url_hash
+        scope: result
   - pattern: |
       Excon::Connection.new($<...>$<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Excon.$<METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -184,6 +197,7 @@ patterns:
           - trace
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       Excon.$<METHOD>(path: $<USER_INPUT>)
     filters:
@@ -201,6 +215,7 @@ patterns:
           - trace
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<EXCON>.$<METHOD>(path: $<USER_INPUT>)
     filters:
@@ -220,6 +235,7 @@ patterns:
         detection: ruby_lang_http_url_using_user_input_excon
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<EXCON>.requests($<USER_INPUT_PATH_HASH>)
     filters:
@@ -227,6 +243,7 @@ patterns:
         detection: ruby_lang_http_url_using_user_input_excon
       - variable: USER_INPUT_PATH_HASH
         detection: ruby_lang_http_url_using_user_input_path_hash
+        scope: result
   - pattern: |
       $<CLIENT>.get($<USER_INPUT>$<...>)$<...>
     filters:
@@ -240,6 +257,7 @@ patterns:
           - Typhoeus
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
   - pattern: |
       $<CLIENT>.post($<USER_INPUT>$<...>)$<...>
     filters:
@@ -253,6 +271,7 @@ patterns:
           - Typhoeus
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
+        scope: result
 auxiliary:
   - id: ruby_lang_http_url_using_user_input_net_http_new
     patterns:

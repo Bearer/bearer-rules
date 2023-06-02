@@ -10,6 +10,7 @@ patterns:
           - saveObjects
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       $<CLIENT>.initIndex($<DATA_TYPE>)
     filters:
@@ -17,6 +18,7 @@ patterns:
         detection: javascript_third_parties_algolia_client
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
 languages:
   - javascript
 auxiliary:

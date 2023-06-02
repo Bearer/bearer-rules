@@ -6,10 +6,15 @@ imports:
   - javascript_shared_express_user_input
 sanitizer: javascript_shared_common_user_input_sanitized
 patterns:
-  - pattern: const { $<!>$<_> } = $<JAVASCRIPT_SHARED_COMMON_USER_INPUT_DESTRUCTURED>
+  - pattern: const { $<!>$<_> } = $<JAVASCRIPT_SHARED_COMMON_USER_INPUT>
     filters:
-      - variable: JAVASCRIPT_SHARED_COMMON_USER_INPUT_DESTRUCTURED
-        detection: javascript_shared_common_user_input
+      - either:
+          - variable: JAVASCRIPT_SHARED_COMMON_USER_INPUT
+            detection: javascript_shared_aws_lambda_user_input
+            scope: result
+          - variable: JAVASCRIPT_SHARED_COMMON_USER_INPUT
+            detection: javascript_shared_express_user_input
+            scope: result
   - pattern: $<JAVASCRIPT_SHARED_COMMON_USER_INPUT>
     filters:
       - either:

@@ -6,6 +6,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
       - variable: METHOD
         values:
           - notify
@@ -25,6 +26,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
       - variable: METHOD
         values:
           - notify
@@ -42,6 +44,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       def to_airbrake
         $<DATA_TYPE>
@@ -49,6 +52,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
 skip_data_types:
   - "Unique Identifier"
 metadata:

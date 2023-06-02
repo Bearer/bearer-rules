@@ -6,6 +6,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       $<SPAN>.set_tag($<_>, $<DATA_TYPE>)
     filters:
@@ -13,11 +14,13 @@ patterns:
         detection: ruby_third_parties_datadog_span
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       Datadog::Tracing.trace($<_>, $<...>$<DATA_TYPE>$<...>)$<...>
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
 languages:
   - ruby
 auxiliary:

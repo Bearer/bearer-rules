@@ -6,6 +6,7 @@ patterns:
         detection: javascript_third_parties_open_telemetry_span
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
       - variable: METHOD
         values:
           - addEvent

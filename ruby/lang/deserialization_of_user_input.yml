@@ -14,16 +14,19 @@ patterns:
           - Marshal
       - variable: USER_INPUT
         detection: ruby_lang_deserialization_of_user_input_user_input
+        scope: result
   - pattern: |
       Marshal.restore($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: ruby_lang_deserialization_of_user_input_user_input
+        scope: result
   - pattern: |
       Oj.object_load($<USER_INPUT>$<...>)$<...>
     filters:
       - variable: USER_INPUT
         detection: ruby_lang_deserialization_of_user_input_user_input
+        scope: result
 auxiliary:
   - id: ruby_lang_deserialization_of_user_input_sanitized
     patterns:

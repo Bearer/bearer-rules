@@ -9,18 +9,22 @@ patterns:
         string_regex: <\w+(\s[^>]*)?>
       - variable: STRING
         detection: ruby_shared_common_html_user_input
+        scope: result
   - pattern: $<STRING>.html_safe
     filters:
       - variable: STRING
         detection: ruby_shared_common_html_user_input
+        scope: result
   - pattern: raw($<STRING>)
     filters:
       - variable: STRING
         detection: ruby_shared_common_html_user_input
+        scope: result
   - pattern: ERB.new($<STRING>$<...>)
     filters:
       - variable: STRING
         detection: ruby_shared_common_html_user_input
+        scope: result
 severity: high
 metadata:
   description: "Unsanitized user input detected in raw HTML string."

@@ -6,6 +6,7 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: javascript_lang_sql_injection_user_input
+        scope: result
       - variable: KNEX_CLIENT
         detection: javascript_lang_sql_injection_knex_client
       - variable: METHOD
@@ -20,16 +21,19 @@ patterns:
         detection: javascript_lang_sql_injection_pg_client
       - variable: USER_INPUT
         detection: javascript_lang_sql_injection_user_input
+        scope: result
   - pattern: |
       $<_>.sequelize.query($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: javascript_lang_sql_injection_user_input
+        scope: result
   - pattern: |
       $<SEQUELIZE>.query($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: javascript_lang_sql_injection_user_input
+        scope: result
       - variable: SEQUELIZE
         detection: javascript_lang_sql_injection_sequelize_init
   - pattern: |
@@ -39,6 +43,7 @@ patterns:
         detection: javascript_lang_sql_injection_mysql_conn
       - variable: USER_INPUT
         detection: javascript_lang_sql_injection_user_input
+        scope: result
       - variable: METHOD
         values:
           - query
@@ -50,6 +55,7 @@ patterns:
         detection: javascript_lang_sql_injection_mysql_pool
       - variable: USER_INPUT
         detection: javascript_lang_sql_injection_user_input
+        scope: result
   - pattern: |
       $<CONN>.query($<USER_INPUT>, $<_>)
     filters:
@@ -57,6 +63,7 @@ patterns:
         detection: javascript_lang_sql_injection_pool_conn
       - variable: USER_INPUT
         detection: javascript_lang_sql_injection_user_input
+        scope: result
 auxiliary:
   - id: javascript_lang_sql_injection_user_input
     sanitizer: javascript_lang_sql_injection_sanitizer

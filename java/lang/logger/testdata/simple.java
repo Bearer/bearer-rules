@@ -14,5 +14,6 @@ public class Cls extends HttpServlet
     {
             User user;
             logger.error(user.name);
+            logger.error(user.name ? "ok": "ok");
     }
 }

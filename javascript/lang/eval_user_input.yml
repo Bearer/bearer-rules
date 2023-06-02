@@ -6,21 +6,25 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
   - pattern: |
       new Function($<USER_INPUT>)
     filters:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
   - pattern: |
       setTimeout($<USER_INPUT>)
     filters:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
   - pattern: |
       setInterval($<USER_INPUT>)
     filters:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
   - pattern: |
       vm.$<METHOD>($<...>$<USER_INPUT>$<...>)
     filters:
@@ -33,11 +37,13 @@ patterns:
           - compileFunction
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
   - pattern: |
       new vm.Script($<...>$<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
 languages:
   - javascript
 severity: high

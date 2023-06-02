@@ -13,6 +13,7 @@ patterns:
           - track
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
 auxiliary:
   - id: segment_init
     patterns:

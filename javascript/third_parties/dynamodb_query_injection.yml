@@ -6,11 +6,13 @@ patterns:
     filters:
       - variable: QUERY
         detection: javascript_third_parties_dynamodb_query_injection_raw_user_input
+        scope: result
   - pattern: | # AWS SDK V2 DynamoDB
       $<DYNAMODB_INIT>.query($<QUERY>, $<_>)
     filters:
       - variable: QUERY
         detection: javascript_third_parties_dynamodb_query_injection_raw_user_input
+        scope: result
       - variable: DYNAMODB_INIT
         detection: javascript_third_parties_dynamodb_query_injection_dynamodb_v2_init
 auxiliary:

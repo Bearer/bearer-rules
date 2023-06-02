@@ -128,6 +128,7 @@ auxiliary:
             contains: false
           - variable: USER_INPUT
             detection: ruby_rails_sql_injection_user_input
+            scope: result
       - pattern: $<METHOD>($<USER_INPUT>$<...>)
         filters:
           - variable: METHOD
@@ -135,6 +136,7 @@ auxiliary:
             contains: false
           - variable: USER_INPUT
             detection: ruby_rails_sql_injection_user_input
+            scope: result
       - pattern: ActiveRecord::Base.connection.$<CONN_METHOD>($<USER_INPUT>$<...>)
         filters:
           - variable: CONN_METHOD
@@ -142,6 +144,7 @@ auxiliary:
             contains: false
           - variable: USER_INPUT
             detection: ruby_rails_sql_injection_user_input
+            scope: result
       - pattern: connection.$<CONN_METHOD>($<USER_INPUT>$<...>)
         filters:
           - variable: CONN_METHOD
@@ -149,6 +152,7 @@ auxiliary:
             contains: false
           - variable: USER_INPUT
             detection: ruby_rails_sql_injection_user_input
+            scope: result
   - id: ruby_rails_sql_injection_special_arg_injection
     patterns:
       - pattern: $<_>.$<SPECIAL_METHOD>($<USER_INPUT>$<...>)
@@ -158,6 +162,7 @@ auxiliary:
             contains: false
           - variable: USER_INPUT
             detection: ruby_rails_sql_injection_user_input
+            scope: result
           - not:
               variable: USER_INPUT
               detection: ruby_rails_sql_injection_safe_special_arg
@@ -168,6 +173,7 @@ auxiliary:
             contains: false
           - variable: USER_INPUT
             detection: ruby_rails_sql_injection_user_input
+            scope: result
           - not:
               variable: USER_INPUT
               detection: ruby_rails_sql_injection_safe_special_arg

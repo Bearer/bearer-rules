@@ -15,4 +15,5 @@ app.get("/good", (_req, res) => {
 
   ok(internalPath)
   import(internalPath)
+  import(req.query.user.path ? internalPath : internalPath)
 })

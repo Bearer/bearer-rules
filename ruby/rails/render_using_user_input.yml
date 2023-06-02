@@ -8,11 +8,13 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_html_user_input
+        scope: result
   - pattern: |
       render(html: $<USER_INPUT>)
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_html_user_input
+        scope: result
 severity: high
 metadata:
   description: "Unsanitized user input detected in response."

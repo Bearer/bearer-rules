@@ -4,6 +4,7 @@ patterns:
     filters:
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
       - variable: METHOD
         values:
           - addBreadcrumb
@@ -17,6 +18,7 @@ patterns:
         detection: javascript_third_parties_sentry_scope
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
       - variable: METHOD
         values:
           - setUser

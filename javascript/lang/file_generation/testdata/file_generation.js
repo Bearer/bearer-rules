@@ -16,3 +16,4 @@ fs.writeFile("data.csv", JSON.stringify(users), "utf-8", (err) => {
   if (err) console.log(err)
   else console.log("Data saved")
 })
+fs.writeFile("data.csv", JSON.stringify(user.email ? ok : ok), callback)
