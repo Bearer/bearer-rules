@@ -3,8 +3,8 @@ low:
         cwe_ids:
             - "331"
             - "326"
-        id: ruby_lang_weak_encryption_openssl_dsa
-        title: Weak encryption algorithm (OpenSSL DSA) detected.
+        id: ruby_lang_weak_encryption_dsa
+        title: Weak encryption algorithm (DSA) detected.
         description: |
             ## Description
 
@@ -27,7 +27,7 @@ low:
 
             ## Resources
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
-        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_openssl_dsa
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_dsa
       line_number: 3
       full_filename: /tmp/scan/openssl_dsa.rb
       filename: .
@@ -48,14 +48,14 @@ low:
         content: dsa_encrypt.export(cipher, "hello world")
       parent_line_number: 3
       snippet: dsa_encrypt.export(cipher, "hello world")
-      fingerprint: 9f898a40bcfe60283cf914d892b42fa8_0
-      old_fingerprint: a5fa42794e9bb9e26d66e17bcc6a6d65_0
+      fingerprint: ceb3d421b9b94edfb4f69dce57a00c20_0
+      old_fingerprint: 6f831ee5a1f620f0afff62b5de1b6920_0
     - rule:
         cwe_ids:
             - "331"
             - "326"
-        id: ruby_lang_weak_encryption_openssl_dsa
-        title: Weak encryption algorithm (OpenSSL DSA) detected.
+        id: ruby_lang_weak_encryption_dsa
+        title: Weak encryption algorithm (DSA) detected.
         description: |
             ## Description
 
@@ -78,7 +78,7 @@ low:
 
             ## Resources
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
-        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_openssl_dsa
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_dsa
       line_number: 5
       full_filename: /tmp/scan/openssl_dsa.rb
       filename: .
@@ -99,6 +99,6 @@ low:
         content: OpenSSL::PKey::DSA.new(1024).to_pem(cipher, "hello world")
       parent_line_number: 5
       snippet: OpenSSL::PKey::DSA.new(1024).to_pem(cipher, "hello world")
-      fingerprint: 9f898a40bcfe60283cf914d892b42fa8_1
-      old_fingerprint: a5fa42794e9bb9e26d66e17bcc6a6d65_1
+      fingerprint: ceb3d421b9b94edfb4f69dce57a00c20_1
+      old_fingerprint: 6f831ee5a1f620f0afff62b5de1b6920_1
 

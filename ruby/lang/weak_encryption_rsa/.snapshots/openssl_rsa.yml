@@ -3,8 +3,8 @@ low:
         cwe_ids:
             - "331"
             - "326"
-        id: ruby_lang_weak_encryption_openssl_rsa
-        title: Weak encryption algorithm (OpenSSL RSA) detected.
+        id: ruby_lang_weak_encryption_rsa
+        title: Weak encryption algorithm (RSA) detected.
         description: |
             ## Description
 
@@ -27,7 +27,7 @@ low:
 
             ## Resources
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
-        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_openssl_rsa
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_rsa
       line_number: 3
       full_filename: /tmp/scan/openssl_rsa.rb
       filename: .
@@ -48,6 +48,6 @@ low:
         content: OpenSSL::PKey::RSA.new(512).to_pem(cipher, "hello world")
       parent_line_number: 3
       snippet: OpenSSL::PKey::RSA.new(512).to_pem(cipher, "hello world")
-      fingerprint: 7e1fc37fc72b8eae4d5a944565607e33_0
-      old_fingerprint: fb6042760b8439ff3de57a5576d3b66c_0
+      fingerprint: 0cb94b27eb6c4b2d4cf40690fd9ce947_0
+      old_fingerprint: 49fcee35c2e88e0f67424f5782b5b7b4_0
 

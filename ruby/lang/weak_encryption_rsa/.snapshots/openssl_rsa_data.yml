@@ -3,8 +3,8 @@ high:
         cwe_ids:
             - "331"
             - "326"
-        id: ruby_lang_weak_encryption_openssl_rsa
-        title: Weak encryption algorithm (OpenSSL RSA) detected.
+        id: ruby_lang_weak_encryption_rsa
+        title: Weak encryption algorithm (RSA) detected.
         description: |
             ## Description
 
@@ -27,7 +27,7 @@ high:
 
             ## Resources
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
-        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_openssl_rsa
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_rsa
       line_number: 5
       full_filename: /tmp/scan/openssl_rsa_data.rb
       filename: .
@@ -51,14 +51,14 @@ high:
         content: rsa_encrypt.export(cipher, user.password)
       parent_line_number: 5
       snippet: rsa_encrypt.export(cipher, user.password)
-      fingerprint: 7e1fc37fc72b8eae4d5a944565607e33_1
-      old_fingerprint: a8388ef6af387d2b4504be1d7f8651aa_1
+      fingerprint: 0cb94b27eb6c4b2d4cf40690fd9ce947_1
+      old_fingerprint: 3b2a3133304215bfc1159ec5b6b2ae16_1
     - rule:
         cwe_ids:
             - "331"
             - "326"
-        id: ruby_lang_weak_encryption_openssl_rsa
-        title: Weak encryption algorithm (OpenSSL RSA) detected.
+        id: ruby_lang_weak_encryption_rsa
+        title: Weak encryption algorithm (RSA) detected.
         description: |
             ## Description
 
@@ -81,7 +81,7 @@ high:
 
             ## Resources
             - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
-        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_openssl_rsa
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_rsa
       line_number: 7
       full_filename: /tmp/scan/openssl_rsa_data.rb
       filename: .
@@ -105,6 +105,6 @@ high:
         content: OpenSSL::PKey::RSA.new(1024).to_pem(cipher, user.first_name)
       parent_line_number: 7
       snippet: OpenSSL::PKey::RSA.new(1024).to_pem(cipher, user.first_name)
-      fingerprint: 7e1fc37fc72b8eae4d5a944565607e33_0
-      old_fingerprint: a8388ef6af387d2b4504be1d7f8651aa_0
+      fingerprint: 0cb94b27eb6c4b2d4cf40690fd9ce947_0
+      old_fingerprint: 3b2a3133304215bfc1159ec5b6b2ae16_0
 

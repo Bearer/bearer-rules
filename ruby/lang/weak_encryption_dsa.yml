@@ -3,7 +3,7 @@ patterns:
       $<VAR>.$<METHOD>($<_>, $<OPTIONAL_DATA_TYPE>)
     filters:
       - variable: VAR
-        detection: ruby_lang_weak_encryption_openssl_rsa_init
+        detection: ruby_lang_weak_encryption_openssl_dsa_init
       - variable: METHOD
         values:
           - export
@@ -18,27 +18,27 @@ patterns:
 languages:
   - ruby
 auxiliary:
-  - id: ruby_lang_weak_encryption_openssl_rsa_init
+  - id: ruby_lang_weak_encryption_openssl_dsa_init
     patterns:
       - pattern: |
-          OpenSSL::PKey::RSA.new($<LENGTH>)
+          OpenSSL::PKey::DSA.new($<LENGTH>)
         filters:
           - variable: LENGTH
             less_than: 2048
 metadata:
-  description: "Weak encryption algorithm (OpenSSL RSA) detected."
+  description: "Weak encryption algorithm (DSA) detected."
   remediation_message: |
     ## Description
 
     A weak encryption library can lead to data breaches and greater security risk.
 
     ## Remediations
-    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), 1024-bit RSA (Rivest-Shamir-Adleman) is considered a weak encryption algorithm and therefore shouldn't be used.
+    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), 1024-bit DSA (Digital Signature Algorithm) is considered a weak encryption algorithm and therefore shouldn't be used.
 
     ❌ Avoid libraries and algorithms with known weaknesses:
 
     ```ruby
-    OpenSSL::PKey::RSA.new 1024
+    OpenSSL::PKey::DSA.new 1024
     ```
 
     ✅ Instead, we recommend using bcrypt:
@@ -52,5 +52,5 @@ metadata:
   cwe_id:
     - 331
     - 326
-  id: ruby_lang_weak_encryption_openssl_rsa
-  documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_openssl_rsa
+  id: ruby_lang_weak_encryption_dsa
+  documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_dsa
