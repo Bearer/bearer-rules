@@ -1,0 +1,106 @@
+high:
+    - rule:
+        cwe_ids:
+            - "327"
+            - "328"
+        id: javascript_lang_weak_hash_sha1
+        title: Weak hashing library (SHA1) detected.
+        description: |
+            ## Description
+
+            A weak hashing library can lead to data breaches and greater security risk.
+
+            ## Remediations
+
+            According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hash algorithm and therefore shouldn't be used.
+
+            ✅ Use stronger hashing algorithms when storing data.
+
+            ```javascript
+            const crypto = require("crypto");
+
+            const key = "secret key";
+            const hash = crypto.createHmac("es-256-cbc", key).update(user.password);
+            ```
+
+            ## Resources
+            - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_hash_sha1
+      line_number: 8
+      full_filename: /tmp/scan/sha1.js
+      filename: .
+      category_groups:
+        - PII
+        - Personal Data
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 21
+                end: 31
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 39
+        content: MyCryptoJS.HmacSHA1(user.email, "Key")
+      parent_line_number: 8
+      snippet: MyCryptoJS.HmacSHA1(user.email, "Key")
+      fingerprint: 68b0e05340dc0b05a89f0a0753374255_0
+      old_fingerprint: eb2a9a8be9a3f6d03203fb69d6cd4267_0
+    - rule:
+        cwe_ids:
+            - "327"
+            - "328"
+        id: javascript_lang_weak_hash_sha1
+        title: Weak hashing library (SHA1) detected.
+        description: |
+            ## Description
+
+            A weak hashing library can lead to data breaches and greater security risk.
+
+            ## Remediations
+
+            According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hash algorithm and therefore shouldn't be used.
+
+            ✅ Use stronger hashing algorithms when storing data.
+
+            ```javascript
+            const crypto = require("crypto");
+
+            const key = "secret key";
+            const hash = crypto.createHmac("es-256-cbc", key).update(user.password);
+            ```
+
+            ## Resources
+            - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_hash_sha1
+      line_number: 9
+      full_filename: /tmp/scan/sha1.js
+      filename: .
+      category_groups:
+        - PII
+        - Personal Data
+      source:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 17
+                end: 27
+      sink:
+        location:
+            start: 9
+            end: 9
+            column:
+                start: 1
+                end: 28
+        content: MyCryptoJS.SHA1(user.email)
+      parent_line_number: 9
+      snippet: MyCryptoJS.SHA1(user.email)
+      fingerprint: 68b0e05340dc0b05a89f0a0753374255_1
+      old_fingerprint: eb2a9a8be9a3f6d03203fb69d6cd4267_1
+

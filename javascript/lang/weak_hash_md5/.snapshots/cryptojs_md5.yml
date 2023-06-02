@@ -1,0 +1,54 @@
+high:
+    - rule:
+        cwe_ids:
+            - "327"
+            - "328"
+        id: javascript_lang_weak_hash_md5
+        title: Weak hashing library (MD5) detected.
+        description: |
+            ## Description
+
+            A weak hashing library can lead to data breaches and greater security risk.
+
+            ## Remediations
+
+            According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hash algorithm and therefore shouldn't be used.
+
+            ✅ Use stronger hashing algorithms when storing data.
+
+            ```javascript
+            const crypto = require("crypto");
+
+            const key = "secret key";
+            const hash = crypto.createHmac("es-256-cbc", key).update(user.password);
+            ```
+
+            ## Resources
+            - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_hash_md5
+      line_number: 2
+      full_filename: /tmp/scan/cryptojs_md5.js
+      filename: .
+      category_groups:
+        - PII
+        - Personal Data
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 27
+                end: 37
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 12
+                end: 38
+        content: MyCryptoJS.MD5(user.email)
+      parent_line_number: 2
+      snippet: MyCryptoJS.MD5(user.email)
+      fingerprint: c4f165d7f589bd4f3415165e96c2b249_0
+      old_fingerprint: 641f21428a7a8fabb9905cc7a08948a1_0
+

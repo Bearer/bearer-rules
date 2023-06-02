@@ -1,0 +1,22 @@
+type: shared
+languages:
+  - javascript
+patterns:
+  - import $<!>$<_>$<...> from "crypto-js"
+  - import * as $<!>$<_>$<...> from "crypto-js"
+  - import $<...>{ $<!>$<_> } from "crypto-js"
+  - import $<...>{ $<_> as $<!>$<_> } from "crypto-js"
+  - pattern: |
+      $<METHOD>($<NAME>)
+    filters:
+      - variable: METHOD
+        values:
+          - require
+          - import
+      - variable: NAME
+        string_regex: \Acrypto-js\z
+  # fallback
+  - CryptoJS
+metadata:
+  description: "CryptoJS initialization"
+  id: javascript_shared_third_parties_cryptojs_init
