@@ -1,15 +1,23 @@
 patterns:
   - pattern: |
-      $<EXPRESS>.use($<FUNCTION_CALL>)
+      $<EXPRESS>.use($<MIDDLEWARE>)
     filters:
-      - variable: EXPRESS
-        detection: javascript_express_helmet_express_init
-      - variable: FUNCTION_CALL
-        detection: javascript_express_helmet_configuration
+      - either:
+          - variable: EXPRESS
+            detection: javascript_express_helmet_missing_express_init
+          - variable: EXPRESS
+            values:
+              - app
+      - variable: MIDDLEWARE
+        detection: javascript_express_helmet_missing_middleware
 auxiliary:
-  - id: javascript_express_helmet_express_init
+  - id: javascript_express_helmet_missing_express_init
     patterns:
-      - express()
+      - pattern: $<EXPRESS>()
+        filters:
+          - variable: EXPRESS
+            detection: javascript_express_helmet_missing_express
+            contains: false
       - |
         const $<_>: Express = $<!>$<_>
       - |
@@ -20,15 +28,63 @@ auxiliary:
         function $<_>($<...>$<!>$<_>: Express$<...>) {}
       - |
         class $<_> $<...>{ $<_>($<...>$<!>$<_>: Express$<...>) {} }
-  - id: javascript_express_helmet_configuration
+  - id: javascript_express_helmet_missing_express
     patterns:
-      - helmet()
-      - helmet.$<_>()
+      - pattern: $<METHOD>($<NAME>)
+        filters:
+          - variable: METHOD
+            values:
+              - require
+              - import
+          - variable: NAME
+            string_regex: \Aexpress\z
+      - import $<!>$<_> from "express"
+      # Fallback
+      - express
+  - id: javascript_express_helmet_missing_middleware
+    patterns:
+      - pattern: $<HELMET>()
+        filters:
+          - variable: HELMET
+            detection: javascript_express_helmet_missing_helmet
+            contains: false
+      - pattern: $<HELMET_PART>()
+        filters:
+          - variable: HELMET_PART
+            detection: javascript_express_helmet_missing_helmet_part
+            contains: false
+  - id: javascript_express_helmet_missing_helmet
+    patterns:
+      - pattern: $<METHOD>($<NAME>)
+        filters:
+          - variable: METHOD
+            values:
+              - require
+              - import
+          - variable: NAME
+            string_regex: \Ahelmet\z
+      - import $<!>$<_>$<...> from "helmet"
+      # Fallback
+      - helmet
+  - id: javascript_express_helmet_missing_helmet_part
+    patterns:
+      - pattern: $<HELMET>.$<_>
+        filters:
+          - variable: HELMET
+            detection: javascript_express_helmet_missing_helmet
+            contains: false
+      - pattern: const { $<!>$<_> } = $<HELMET>
+        filters:
+          - variable: HELMET
+            detection: javascript_express_helmet_missing_helmet
+            contains: false
+      - import $<...>{ $<!>$<_> } from "helmet"
+      - import $<...>{ $<_> as $<!>$<_> } from "helmet"
 languages:
   - javascript
 trigger:
   match_on: absence
-  required_detection: javascript_express_helmet_express_init
+  required_detection: javascript_express_helmet_missing_express_init
 metadata:
   description: "Security misconfiguration detected."
   remediation_message: |
