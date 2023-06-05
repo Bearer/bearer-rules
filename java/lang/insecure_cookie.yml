@@ -1,0 +1,36 @@
+patterns:
+  - pattern: $<COOKIE>.setSecure($<FALSE>)
+    filters:
+      - variable: COOKIE
+        detection: java_lang_insecure_cookie_init
+      - variable: "FALSE"
+        detection: java_lang_insecure_cookie_false
+        scope: cursor
+auxiliary:
+  - id: java_lang_insecure_cookie_init
+    patterns:
+      - new Cookie()
+      - new javax.servlet.http.Cookie()
+  - id: java_lang_insecure_cookie_false
+    patterns:
+      - "false;"
+languages:
+  - java
+metadata:
+  description: "Missing secure options for cookie detected."
+  remediation_message: |
+    ## Description
+
+    To make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.
+
+    ## Remediations
+
+    ✅ Set `secure` to `true` to force cookies to only be sent over HTTPS:
+
+    ```java
+    cookie.setSecure(true);
+    ```
+  cwe_id:
+    - 614
+  id: java_lang_insecure_cookie
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_insecure_cookie
