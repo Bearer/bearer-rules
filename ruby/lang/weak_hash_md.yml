@@ -1,3 +1,5 @@
+imports:
+  - ruby_shared_lang_openssl_digest_md_init
 patterns:
   - pattern: Digest::MD5.$<METHOD>($<OPTIONAL_DATA_TYPE>)
     filters:
@@ -42,7 +44,7 @@ patterns:
       $<DIGEST>.update($<OPTIONAL_DATA_TYPE>)
     filters:
       - variable: DIGEST
-        detection: ruby_lang_weak_hash_md_digest
+        detection: ruby_shared_lang_openssl_digest_md_init
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
@@ -55,7 +57,7 @@ patterns:
       $<DIGEST> << $<OPTIONAL_DATA_TYPE>
     filters:
       - variable: DIGEST
-        detection: ruby_lang_weak_hash_md_digest
+        detection: ruby_shared_lang_openssl_digest_md_init
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
@@ -67,7 +69,7 @@ patterns:
   - pattern: $<DIGEST>.$<METHOD>($<OPTIONAL_DATA_TYPE>)
     filters:
       - variable: DIGEST
-        detection: ruby_lang_weak_hash_md_digest
+        detection: ruby_shared_lang_openssl_digest_md_init
       - variable: METHOD
         values:
           - digest
@@ -83,18 +85,9 @@ patterns:
               scope: result
 languages:
   - ruby
-auxiliary:
-  - id: ruby_lang_weak_hash_md_digest
-    patterns:
-      - Digest::MD5.new
-      - pattern: OpenSSL::Digest::$<ALGORITHM>.new
-        filters:
-          - variable: ALGORITHM
-            regex: \AMD\d\z
-      - pattern: OpenSSL::Digest.new($<ALGORITHM>)
-        filters:
-          - variable: ALGORITHM
-            regex: (?i)\A['"]MD\d['"]\z
+skip_data_types:
+  - "Unique Identifier"
+  - "Passwords" # see ruby_lang_weak_password_hash_md
 metadata:
   description: "Weak hashing library (MD5) detected."
   remediation_message: |

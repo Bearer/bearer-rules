@@ -1,3 +1,5 @@
+imports:
+  - ruby_shared_lang_openssl_digest_sha_init
 patterns:
   - pattern: Digest::SHA1.$<METHOD>($<OPTIONAL_DATA_TYPE>)
     filters:
@@ -42,7 +44,7 @@ patterns:
       $<DIGEST>.update($<OPTIONAL_DATA_TYPE>)
     filters:
       - variable: DIGEST
-        detection: ruby_lang_weak_hash_sha_digest
+        detection: ruby_shared_lang_openssl_digest_sha_init
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
@@ -55,7 +57,7 @@ patterns:
       $<DIGEST> << $<OPTIONAL_DATA_TYPE>
     filters:
       - variable: DIGEST
-        detection: ruby_lang_weak_hash_sha_digest
+        detection: ruby_shared_lang_openssl_digest_sha_init
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
@@ -67,7 +69,7 @@ patterns:
   - pattern: $<DIGEST>.$<METHOD>($<OPTIONAL_DATA_TYPE>)
     filters:
       - variable: DIGEST
-        detection: ruby_lang_weak_hash_sha_digest
+        detection: ruby_shared_lang_openssl_digest_sha_init
       - variable: METHOD
         values:
           - digest
@@ -83,18 +85,9 @@ patterns:
               scope: result
 languages:
   - ruby
-auxiliary:
-  - id: ruby_lang_weak_hash_sha_digest
-    patterns:
-      - Digest::SHA1.new
-      - pattern: OpenSSL::Digest::$<ALGORITHM>.new
-        filters:
-          - variable: ALGORITHM
-            regex: \ASHA1?\z
-      - pattern: OpenSSL::Digest.new($<ALGORITHM>)
-        filters:
-          - variable: ALGORITHM
-            regex: (?i)\A['"]SHA1?['"]\z
+skip_data_types:
+  - "Unique Identifier"
+  - "Passwords" # see ruby_lang_weak_password_hash_sha
 metadata:
   description: "Weak hashing library (SHA) detected."
   remediation_message: |
