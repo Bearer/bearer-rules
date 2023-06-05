@@ -12,6 +12,8 @@ languages:
 auxiliary:
   - id: ruby_rails_open_redirect_sanitized
     patterns:
+      - $<_>.to_i
+      - $<_>.to_f
       - pattern: $<...>$<METHOD>($<...>$<!>$<_>$<...>)
         filters:
           - variable: METHOD
