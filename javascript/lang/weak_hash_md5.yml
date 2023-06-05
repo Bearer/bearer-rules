@@ -1,6 +1,6 @@
 imports:
   - javascript_shared_third_parties_cryptojs_init
-  - javascript_shared_third_parties_crypto_init
+  - javascript_shared_lang_crypto_init
 patterns:
   - pattern: $<MD5>($<OPTIONAL_DATA_TYPE>)
     filters:
@@ -47,7 +47,7 @@ patterns:
       $<CRYPTOJS_INIT>.HmacMD5($<OPTIONAL_DATA_TYPE>, $<_>)
     filters:
       - variable: CRYPTOJS_INIT
-        detection: javascript_shared_third_parties_cryptojs_init
+        detection: javascript_shared_lang_crypto_init
         scope: cursor
       - either:
           - variable: OPTIONAL_DATA_TYPE
@@ -66,7 +66,7 @@ auxiliary:
           $<CRYPTO_INIT>.$<METHOD>($<ALGORITHM>$<...>)
         filters:
           - variable: CRYPTO_INIT
-            detection: javascript_shared_third_parties_crypto_init
+            detection: javascript_shared_lang_crypto_init
             scope: cursor
           - variable: METHOD
             values:

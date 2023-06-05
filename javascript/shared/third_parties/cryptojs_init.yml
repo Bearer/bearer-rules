@@ -7,13 +7,13 @@ patterns:
   - import $<...>{ $<!>$<_> } from "crypto-js"
   - import $<...>{ $<_> as $<!>$<_> } from "crypto-js"
   - pattern: |
-      $<METHOD>($<NAME>)
+      $<JAVASCRIPT_SHARED_THIRD_PARTIES_CRYPTOJS_INIT_METHOD>($<JAVASCRIPT_SHARED_THIRD_PARTIES_CRYPTOJS_INIT_NAME>)
     filters:
-      - variable: METHOD
+      - variable: JAVASCRIPT_SHARED_THIRD_PARTIES_CRYPTOJS_INIT_METHOD
         values:
           - require
           - import
-      - variable: NAME
+      - variable: JAVASCRIPT_SHARED_THIRD_PARTIES_CRYPTOJS_INIT_NAME
         string_regex: \Acrypto-js\z
   # fallback
   - CryptoJS

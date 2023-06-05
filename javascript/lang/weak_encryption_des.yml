@@ -5,7 +5,7 @@ patterns:
       $<CRYPTOJS_INIT>.DES.encrypt($<OPTIONAL_DATA_TYPE>, $<_>)
     filters:
       - variable: CRYPTOJS_INIT
-        detection: crypto_js_init
+        detection: javascript_shared_third_parties_cryptojs_init
         scope: cursor
       - either:
           - variable: OPTIONAL_DATA_TYPE
