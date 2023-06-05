@@ -12,7 +12,7 @@ public class Log extends HttpServlet
 
     public void logInjection(HttpServletRequest request, HttpServletResponse response)
     {
-            log = Logger.getLogger(Cls.class);
+            log = Logger.getLogger(Log.class);
             String username = request.getParameter("username");
             log.info("Username is" + request.getParameter("username"));
             log.warn("Username is" + username);
