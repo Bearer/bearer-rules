@@ -1,9 +1,11 @@
+imports:
+  - ruby_shared_lang_rc4_init
 patterns:
   - pattern: |
       $<VAR>.$<METHOD>($<OPTIONAL_DATA_TYPE>)
     filters:
       - variable: VAR
-        detection: ruby_lang_weak_encryption_rc4_init
+        detection: ruby_shared_lang_rc4_init
       - variable: METHOD
         values:
           - encrypt
@@ -19,10 +21,9 @@ patterns:
               scope: result
 languages:
   - ruby
-auxiliary:
-  - id: ruby_lang_weak_encryption_rc4_init
-    patterns:
-      - RC4.new()
+skip_data_types:
+  - "Unique Identifier"
+  - Passwords # see ruby_lang_weak_password_encryption_rc4
 metadata:
   description: "Weak encryption algorithm (RC4) detected."
   remediation_message: |

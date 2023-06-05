@@ -43,7 +43,7 @@ high:
             end: 2
             column:
                 start: 3
-                end: 16
+                end: 17
       sink:
         location:
             start: 1
@@ -53,12 +53,12 @@ high:
                 end: 2
         content: |-
             Crypt::Blowfish.new("insecure").encrypt_block { |user|
-              user.password
+              user.full_name
             }
       parent_line_number: 1
       snippet: |-
         Crypt::Blowfish.new("insecure").encrypt_block { |user|
-          user.password
+          user.full_name
         }
       fingerprint: bd49baf006f18f3010498485ae3f5dfa_1
       old_fingerprint: 71112306b331949a83939bbd36d0e159_1
@@ -106,7 +106,7 @@ high:
             end: 6
             column:
                 start: 3
-                end: 16
+                end: 17
       sink:
         location:
             start: 5
@@ -116,12 +116,12 @@ high:
                 end: 4
         content: |-
             Crypt::Blowfish.new("insecure").encrypt_block do |user|
-              user.password
+              user.full_name
             end
       parent_line_number: 5
       snippet: |-
         Crypt::Blowfish.new("insecure").encrypt_block do |user|
-          user.password
+          user.full_name
         end
       fingerprint: bd49baf006f18f3010498485ae3f5dfa_2
       old_fingerprint: 71112306b331949a83939bbd36d0e159_2
