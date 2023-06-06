@@ -1,0 +1,144 @@
+high:
+    - rule:
+        cwe_ids:
+            - "326"
+            - "327"
+        id: java_lang_weak_encryption_des
+        title: Weak encryption algorithm (DES) detected.
+        description: |
+            ## Description
+
+            A weak encryption library can lead to data breaches and greater security risk.
+
+            ## Remediations
+            According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), DES (Data Encryption Standard) is considered a weak encryption algorithm and therefore shouldn't be used.
+
+            ✅ Use stronger encryption algorithms when storing data.
+
+            ```java
+              Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            ```
+
+            ## Resources
+            - [Java Cipher class](https://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_weak_encryption_des
+      line_number: 15
+      full_filename: /tmp/scan/des.java
+      filename: .
+      category_groups:
+        - PII
+        - Personal Data
+      source:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 12
+                end: 26
+      sink:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 3
+                end: 27
+        content: c.update(user.firstname)
+      parent_line_number: 15
+      snippet: c.update(user.firstname)
+      fingerprint: 60af5e5a37dd787a36691cc2e2f2b9e9_1
+      old_fingerprint: 56a229e7c86dc2de7a56261522d0605f_1
+    - rule:
+        cwe_ids:
+            - "326"
+            - "327"
+        id: java_lang_weak_encryption_des
+        title: Weak encryption algorithm (DES) detected.
+        description: |
+            ## Description
+
+            A weak encryption library can lead to data breaches and greater security risk.
+
+            ## Remediations
+            According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), DES (Data Encryption Standard) is considered a weak encryption algorithm and therefore shouldn't be used.
+
+            ✅ Use stronger encryption algorithms when storing data.
+
+            ```java
+              Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            ```
+
+            ## Resources
+            - [Java Cipher class](https://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_weak_encryption_des
+      line_number: 16
+      full_filename: /tmp/scan/des.java
+      filename: .
+      category_groups:
+        - PII
+        - Personal Data
+      source:
+        location:
+            start: 16
+            end: 16
+            column:
+                start: 20
+                end: 33
+      sink:
+        location:
+            start: 16
+            end: 16
+            column:
+                start: 10
+                end: 34
+        content: c.doFinal(user.lastname)
+      parent_line_number: 16
+      snippet: c.doFinal(user.lastname)
+      fingerprint: 60af5e5a37dd787a36691cc2e2f2b9e9_2
+      old_fingerprint: 56a229e7c86dc2de7a56261522d0605f_2
+low:
+    - rule:
+        cwe_ids:
+            - "326"
+            - "327"
+        id: java_lang_weak_encryption_des
+        title: Weak encryption algorithm (DES) detected.
+        description: |
+            ## Description
+
+            A weak encryption library can lead to data breaches and greater security risk.
+
+            ## Remediations
+            According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), DES (Data Encryption Standard) is considered a weak encryption algorithm and therefore shouldn't be used.
+
+            ✅ Use stronger encryption algorithms when storing data.
+
+            ```java
+              Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            ```
+
+            ## Resources
+            - [Java Cipher class](https://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_weak_encryption_des
+      line_number: 7
+      full_filename: /tmp/scan/des.java
+      filename: .
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 10
+                end: 28
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 10
+                end: 28
+        content: c.doFinal(payload)
+      parent_line_number: 7
+      snippet: c.doFinal(payload)
+      fingerprint: 60af5e5a37dd787a36691cc2e2f2b9e9_0
+      old_fingerprint: 56a229e7c86dc2de7a56261522d0605f_0
+

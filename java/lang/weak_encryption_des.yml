@@ -1,0 +1,53 @@
+imports:
+  - java_shared_lang_cipher_des_init
+patterns:
+  - pattern: |
+      $<CIPHER_DES>.$<METHOD>($<DATA_TYPE>)
+    filters:
+      - variable: CIPHER_DES
+        detection: java_shared_lang_cipher_des_init
+      - variable: METHOD
+        values:
+          - update
+          - updateAAD
+          - doFinal
+      - variable: DATA_TYPE
+        detection: datatype
+  - pattern: |
+      $<CIPHER_DES>.$<METHOD>()
+    filters:
+      - variable: CIPHER_DES
+        detection: java_shared_lang_cipher_des_init
+      - variable: METHOD
+        values:
+          - update
+          - updateAAD
+          - doFinal
+languages:
+  - java
+skip_data_types:
+  - "Unique Identifier"
+  - Passwords # see java_lang_weak_password_encryption_des
+metadata:
+  description: "Weak encryption algorithm (DES) detected."
+  remediation_message: |
+    ## Description
+
+    A weak encryption library can lead to data breaches and greater security risk.
+
+    ## Remediations
+    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), DES (Data Encryption Standard) is considered a weak encryption algorithm and therefore shouldn't be used.
+
+    ✅ Use stronger encryption algorithms when storing data.
+
+    ```java
+      Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
+    ```
+
+    ## Resources
+    - [Java Cipher class](https://docs.oracle.com/javase/8/docs/api/javax/crypto/Cipher.html)
+  cwe_id:
+    - 326
+    - 327
+  id: java_lang_weak_encryption_des
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_weak_encryption_des
