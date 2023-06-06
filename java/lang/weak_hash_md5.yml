@@ -1,0 +1,50 @@
+imports:
+  - java_shared_lang_message_digest_md5_init
+patterns:
+  - pattern: |
+      $<MESSAGE_DIGEST_MD5_INIT>.update($<DATA_TYPE>)
+    filters:
+      - variable: MESSAGE_DIGEST_MD5_INIT
+        detection: java_shared_lang_message_digest_md5_init
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
+  - pattern: |
+      $<MESSAGE_DIGEST_MD5_INIT>.update()
+    filters:
+      - variable: MESSAGE_DIGEST_MD5_INIT
+        detection: java_shared_lang_message_digest_md5_init
+languages:
+  - java
+skip_data_types:
+  - "Unique Identifier"
+  - Passwords # see java_lang_weak_password_hash_md5
+metadata:
+  description: "Weak hashing library (MD5) detected"
+  remediation_message: |
+    ## Description
+
+    A weak hashing library can lead to data breaches and greater security risk.
+
+    ## Remediations
+
+    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.
+
+    ❌ Avoid libraries and algorithms with known weaknesses:
+
+    ```java
+      MessageDigest md = MessageDigest.getInstance("MD5");
+    ```
+
+    ✅ Use stronger encryption algorithms when storing data.
+
+    ```java
+      MessageDigest md = MessageDigest.getInstance("SHA-256");
+    ```
+
+    ## Resources
+    - [Java MessageDigest class](https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html)
+  cwe_id:
+    - 327
+  id: java_lang_weak_hash_md5
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_weak_hash_md5
