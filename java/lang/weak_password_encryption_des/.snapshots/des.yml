@@ -1,0 +1,57 @@
+high:
+    - rule:
+        cwe_ids:
+            - "326"
+            - "327"
+            - "916"
+        id: java_lang_weak_password_encryption_des
+        title: Weak encryption algorithm (DES) used for password detected.
+        description: |
+            ## Description
+
+            According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), DES (Data Encryption Standard) is considered a weak encryption algorithm and therefore shouldn't be used.
+
+            Moreover, since encryption is reversible, it is possible to retrieve the plaintext value. This makes encryption a bad choice for passwords. Instead, passwords should be hashed.
+
+            ## Remediations
+
+            ❌ Do not use encryption for passwords, wherever possible.
+
+            ✅ Use a recommended hashing library such as AES-256-CBC for passwords
+
+            ```java
+              Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            ```
+
+            ## Resources
+            - [Java Cipher class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/javax/crypto/Cipher.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_weak_password_encryption_des
+      line_number: 7
+      full_filename: /tmp/scan/des.java
+      filename: .
+      data_type:
+        category_uuid: dd88aee5-9d40-4ad2-8983-0c791ddec47c
+        name: Passwords
+      category_groups:
+        - PII
+        - Personal Data
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 20
+                end: 33
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 10
+                end: 34
+        content: c.doFinal(user.password)
+      parent_line_number: 7
+      snippet: c.doFinal(user.password)
+      fingerprint: 1730b5fe0dba08b62626073a6246c378_0
+      old_fingerprint: 2909991a4f828a171c2a818cd34f2e0b_0
+

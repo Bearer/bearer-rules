@@ -1,0 +1,13 @@
+type: shared
+languages:
+  - java
+patterns:
+  - pattern: $<CIPHER>.getInstance($<DES_ALGORITHM>)
+    filters:
+      - variable: CIPHER
+        regex: ^(javax.)?(crypto.)?Cipher
+      - variable: DES_ALGORITHM
+        string_regex: DES(/.*)?
+metadata:
+  description: "Java Crypto Cipher DES initializer"
+  id: java_shared_lang_cipher_des_init
