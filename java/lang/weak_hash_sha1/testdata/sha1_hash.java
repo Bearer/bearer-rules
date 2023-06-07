@@ -1,7 +1,5 @@
 package bearer.tes_files.weak_encryption;
 
-
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
@@ -19,19 +17,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class HashingAssignment extends AssignmentEndpoint {
 
-  public String getMd5(HttpServletRequest request) {
+  public String getSha1(HttpServletRequest request) {
 
-    String md5Hash = (String) request.getSession().getAttribute("md5Hash");
-    if (md5Hash == null) {
+    String sha1Hash = (String) request.getSession().getAttribute("sha1Hash");
+    if (sha1Hash == null) {
 
       String secret = SECRETS[new Random().nextInt(SECRETS.length)];
 
-      MessageDigest md = MessageDigest.getInstance("MD5");
+      MessageDigest md = MessageDigest.getInstance("SHA-1");
       md.update(secret.getBytes());
       byte[] digest = md.digest();
-      md5Hash = DatatypeConverter.printHexBinary(digest).toUpperCase();
-      request.getSession().setAttribute("md5Hash", md5Hash);
+      sha1Hash = DatatypeConverter.printHexBinary(digest).toUpperCase();
+      request.getSession().setAttribute("sha1Hash", sha1Hash);
     }
-    return md5Hash;
+    return sha1Hash;
   }
 }
