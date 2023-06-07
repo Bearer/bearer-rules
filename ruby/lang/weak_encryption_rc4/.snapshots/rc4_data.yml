@@ -32,8 +32,8 @@ high:
       full_filename: /tmp/scan/rc4_data.rb
       filename: .
       data_type:
-        category_uuid: dd88aee5-9d40-4ad2-8983-0c791ddec47c
-        name: Passwords
+        category_uuid: cef587dd-76db-430b-9e18-7b031e1a193b
+        name: Email Address
       category_groups:
         - PII
         - Personal Data
@@ -54,8 +54,8 @@ high:
         content: RC4.new("insecure").encrypt(user.email)
       parent_line_number: 1
       snippet: RC4.new("insecure").encrypt(user.email)
-      fingerprint: 7128690f8ca061c785b752b9862b1d22_0
-      old_fingerprint: 28311bf013248298a93e0f764c1e3a52_0
+      fingerprint: 7128690f8ca061c785b752b9862b1d22_1
+      old_fingerprint: 28311bf013248298a93e0f764c1e3a52_1
     - rule:
         cwe_ids:
             - "331"
@@ -89,8 +89,8 @@ high:
       full_filename: /tmp/scan/rc4_data.rb
       filename: .
       data_type:
-        category_uuid: dd88aee5-9d40-4ad2-8983-0c791ddec47c
-        name: Passwords
+        category_uuid: 14124881-6b92-4fc5-8005-ea7c1c09592e
+        name: Fullname
       category_groups:
         - PII
         - Personal Data
@@ -111,6 +111,6 @@ high:
         content: rc4_encrypt.encrypt!(user.fullname)
       parent_line_number: 4
       snippet: rc4_encrypt.encrypt!(user.fullname)
-      fingerprint: 7128690f8ca061c785b752b9862b1d22_1
-      old_fingerprint: 28311bf013248298a93e0f764c1e3a52_1
+      fingerprint: 7128690f8ca061c785b752b9862b1d22_0
+      old_fingerprint: 28311bf013248298a93e0f764c1e3a52_0
 

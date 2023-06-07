@@ -32,8 +32,8 @@ high:
       full_filename: /tmp/scan/blowfish_data.rb
       filename: .
       data_type:
-        category_uuid: dd88aee5-9d40-4ad2-8983-0c791ddec47c
-        name: Passwords
+        category_uuid: 14124881-6b92-4fc5-8005-ea7c1c09592e
+        name: Fullname
       category_groups:
         - PII
         - Personal Data
@@ -60,8 +60,8 @@ high:
         Crypt::Blowfish.new("insecure").encrypt_block { |user|
           user.full_name
         }
-      fingerprint: bd49baf006f18f3010498485ae3f5dfa_1
-      old_fingerprint: 71112306b331949a83939bbd36d0e159_1
+      fingerprint: bd49baf006f18f3010498485ae3f5dfa_0
+      old_fingerprint: 71112306b331949a83939bbd36d0e159_0
     - rule:
         cwe_ids:
             - "331"
@@ -95,8 +95,8 @@ high:
       full_filename: /tmp/scan/blowfish_data.rb
       filename: .
       data_type:
-        category_uuid: dd88aee5-9d40-4ad2-8983-0c791ddec47c
-        name: Passwords
+        category_uuid: 14124881-6b92-4fc5-8005-ea7c1c09592e
+        name: Fullname
       category_groups:
         - PII
         - Personal Data
@@ -123,8 +123,8 @@ high:
         Crypt::Blowfish.new("insecure").encrypt_block do |user|
           user.full_name
         end
-      fingerprint: bd49baf006f18f3010498485ae3f5dfa_2
-      old_fingerprint: 71112306b331949a83939bbd36d0e159_2
+      fingerprint: bd49baf006f18f3010498485ae3f5dfa_1
+      old_fingerprint: 71112306b331949a83939bbd36d0e159_1
     - rule:
         cwe_ids:
             - "331"
@@ -180,6 +180,6 @@ high:
         content: Crypt::Blowfish.new("your-key").encrypt_string(user.email)
       parent_line_number: 9
       snippet: Crypt::Blowfish.new("your-key").encrypt_string(user.email)
-      fingerprint: bd49baf006f18f3010498485ae3f5dfa_0
-      old_fingerprint: 71112306b331949a83939bbd36d0e159_0
+      fingerprint: bd49baf006f18f3010498485ae3f5dfa_2
+      old_fingerprint: 71112306b331949a83939bbd36d0e159_2
 
