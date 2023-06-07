@@ -1,14 +1,7 @@
-name: Integration Tests
+name: Canary Integration Tests
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -24,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: ["latest"]
+        version: ["canary-amd64"]
         group:
           [
             "javascript/aws_lambda",
