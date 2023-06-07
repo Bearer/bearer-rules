@@ -29,7 +29,7 @@ high:
             ## Resources
             - [Java MessageDigest class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/MessageDigest.html)
         documentation_url: https://docs.bearer.com/reference/rules/java_lang_weak_password_hash_md5
-      line_number: 7
+      line_number: 5
       full_filename: /tmp/scan/md5_hash.java
       filename: .
       data_type:
@@ -40,20 +40,20 @@ high:
         - Personal Data
       source:
         location:
-            start: 7
-            end: 7
+            start: 5
+            end: 5
             column:
                 start: 17
                 end: 33
       sink:
         location:
-            start: 7
-            end: 7
+            start: 5
+            end: 5
             column:
                 start: 7
                 end: 45
         content: md.update(user.newPassword.getBytes())
-      parent_line_number: 7
+      parent_line_number: 5
       snippet: md.update(user.newPassword.getBytes())
       fingerprint: 5bdda7c35f0837f7f2dbb73d6b20f32c_0
       old_fingerprint: 7da3fbfeea442ee14e71cb2200e00767_0

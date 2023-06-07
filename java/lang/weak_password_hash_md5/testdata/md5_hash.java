@@ -1,8 +1,6 @@
-import java.security.MessageDigest;
-
 public class HashPassword {
    public static void main(User user) {
-      MessageDigest md = MessageDigest.getInstance("MD5");
+      java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
 
       md.update(user.newPassword.getBytes());
       byte[] digest = md.digest();
