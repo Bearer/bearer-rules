@@ -31,3 +31,5 @@ var sessionConfig = {
 }
 
 app.use(session(sessionConfig))
+
+notjwt({ secret: "my-hardcoded-secret" })
