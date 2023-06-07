@@ -1,0 +1,65 @@
+high:
+    - rule:
+        cwe_ids:
+            - "327"
+            - "916"
+        id: javascript_lang_weak_password_hash_argon2
+        title: Unsecure Argon2 type used for password hashing.
+        description: |
+            ## Description
+
+            Out of the three variants of the Argon2 algorithm (Argon2i, Argon2d, Argon2id), Argon2id is the recommended choice because it offers the best protection.
+
+            ## Recommendations
+
+            ❌ Do not override the default type (Argon2id) when using the Argon2 library
+
+            ```javascript
+              const argon2 = require("argon2");
+
+              const hash = await argon2.hash(req.params.password, { type: argon2.argon2i })
+            ```
+
+            ## Resources
+            - [Argon2 type options](https://github.com/ranisalt/node-argon2/wiki/Options#type)
+            - [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_password_hash_argon2
+      line_number: 4
+      full_filename: /tmp/scan/argon2i.js
+      filename: .
+      data_type:
+        category_uuid: dd88aee5-9d40-4ad2-8983-0c791ddec47c
+        name: Passwords
+      category_groups:
+        - PII
+        - Personal Data
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 34
+                end: 54
+      sink:
+        location:
+            start: 4
+            end: 8
+            column:
+                start: 22
+                end: 5
+        content: |-
+            argon2.hash(currentUser.password, {
+                type: argon2.argon2i,
+                memoryCost: 2 ** 16,
+                hashLength: 50,
+              })
+      parent_line_number: 4
+      snippet: |-
+        argon2.hash(currentUser.password, {
+            type: argon2.argon2i,
+            memoryCost: 2 ** 16,
+            hashLength: 50,
+          })
+      fingerprint: 29037a4aa6dcbd49fb1b22d24d403754_0
+      old_fingerprint: 9369c7284865c449cc9f4b801bdca49d_0
+

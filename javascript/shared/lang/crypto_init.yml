@@ -1,0 +1,19 @@
+type: shared
+languages:
+  - javascript
+patterns:
+  - import $<!>$<_>$<...> from "crypto"
+  - pattern: |
+      $<JAVASCRIPT_SHARED_LANG_CRYPTO_INIT_METHOD>($<JAVASCRIPT_SHARED_LANG_CRYPTO_INIT_NAME>)
+    filters:
+      - variable: JAVASCRIPT_SHARED_LANG_CRYPTO_INIT_METHOD
+        values:
+          - require
+          - import
+      - variable: JAVASCRIPT_SHARED_LANG_CRYPTO_INIT_NAME
+        string_regex: \Acrypto\z
+  # fallback
+  - crypto
+metadata:
+  description: "NodeJS crypto library initialization"
+  id: javascript_shared_lang_crypto_init

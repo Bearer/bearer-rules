@@ -1,0 +1,93 @@
+imports:
+  - javascript_shared_third_parties_cryptojs_init
+  - javascript_shared_lang_crypto_init
+patterns:
+  - pattern: |
+      $<VAR>.update($<OPTIONAL_DATA_TYPE>)
+    filters:
+      - variable: VAR
+        detection: create_sha_hash
+        scope: cursor
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: datatype
+            scope: result
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: datatype
+              scope: result
+  - pattern: |
+      $<CRYPTOJS_INIT>.SHA1($<OPTIONAL_DATA_TYPE>)
+    filters:
+      - variable: CRYPTOJS_INIT
+        detection: javascript_shared_third_parties_cryptojs_init
+        scope: cursor
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: datatype
+            scope: result
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: datatype
+              scope: result
+  - pattern: |
+      $<CRYPTOJS_INIT>.HmacSHA1($<OPTIONAL_DATA_TYPE>, $<_>)
+    filters:
+      - variable: CRYPTOJS_INIT
+        detection: javascript_shared_third_parties_cryptojs_init
+        scope: cursor
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: datatype
+            scope: result
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: datatype
+              scope: result
+languages:
+  - javascript
+auxiliary:
+  - id: create_sha_hash
+    patterns:
+      - pattern: |
+          $<CRYPTO_INIT>.$<METHOD>($<ALGORITHM>$<...>)
+        filters:
+          - variable: CRYPTO_INIT
+            detection: javascript_shared_lang_crypto_init
+            scope: cursor
+          - variable: METHOD
+            values:
+              - createHmac
+              - createHash
+          - variable: ALGORITHM
+            string_regex: \Asha1\z
+skip_data_types:
+  - "Unique Identifier"
+  - "Passwords" # see javascript_weak_password_encryption
+metadata:
+  description: "Weak hashing library (SHA1) detected."
+  remediation_message: |
+    ## Description
+
+    A weak hashing library can lead to data breaches and greater security risk.
+
+    ## Remediations
+
+    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hash algorithm and therefore shouldn't be used.
+
+    ✅ Use stronger hashing algorithms when storing data.
+
+    ```javascript
+    const crypto = require("crypto");
+
+    const key = "secret key";
+    const hash = crypto.createHmac("es-256-cbc", key).update(user.password);
+    ```
+
+    ## Resources
+    - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)
+  cwe_id:
+    - 327
+    - 328
+  id: javascript_lang_weak_hash_sha1
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_hash_sha1
