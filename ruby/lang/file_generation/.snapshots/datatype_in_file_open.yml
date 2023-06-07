@@ -28,6 +28,9 @@ high:
       line_number: 1
       full_filename: /tmp/scan/datatype_in_file_open.rb
       filename: .
+      data_type:
+        category_uuid: cef587dd-76db-430b-9e18-7b031e1a193b
+        name: Email Address
       category_groups:
         - PII
         - Personal Data
@@ -48,8 +51,8 @@ high:
         content: 'f.write "#{Time.now} - User #{user.email} logged in\n"'
       parent_line_number: 1
       snippet: 'f.write "#{Time.now} - User #{user.email} logged in\n"'
-      fingerprint: fce21edf0734b5bb814a9395c2b09559_0
-      old_fingerprint: ce66487bebc7b4af1a1c509d09f2ec11_0
+      fingerprint: fce21edf0734b5bb814a9395c2b09559_2
+      old_fingerprint: ce66487bebc7b4af1a1c509d09f2ec11_2
     - rule:
         cwe_ids:
             - "532"
@@ -79,6 +82,9 @@ high:
       line_number: 5
       full_filename: /tmp/scan/datatype_in_file_open.rb
       filename: .
+      data_type:
+        category_uuid: 14124881-6b92-4fc5-8005-ea7c1c09592e
+        name: Firstname
       category_groups:
         - PII
         - Personal Data
@@ -99,6 +105,6 @@ high:
         content: f.write "#{user.email},#{user.first_name},#{user.last_name}"
       parent_line_number: 5
       snippet: f.write "#{user.email},#{user.first_name},#{user.last_name}"
-      fingerprint: fce21edf0734b5bb814a9395c2b09559_1
-      old_fingerprint: ce66487bebc7b4af1a1c509d09f2ec11_1
+      fingerprint: fce21edf0734b5bb814a9395c2b09559_0
+      old_fingerprint: ce66487bebc7b4af1a1c509d09f2ec11_0
 

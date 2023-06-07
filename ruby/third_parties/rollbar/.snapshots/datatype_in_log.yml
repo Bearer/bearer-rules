@@ -19,6 +19,9 @@ high:
       line_number: 1
       full_filename: /tmp/scan/datatype_in_log.rb
       filename: .
+      data_type:
+        category_uuid: cef587dd-76db-430b-9e18-7b031e1a193b
+        name: Email Address
       category_groups:
         - PII
         - Personal Data
@@ -39,8 +42,8 @@ high:
         content: 'Rollbar.log("error", "oops #{user.email}")'
       parent_line_number: 1
       snippet: 'Rollbar.log("error", "oops #{user.email}")'
-      fingerprint: 0976992b89aa3cb2fa891be53248a418_0
-      old_fingerprint: c70c184dd2c1f789350a9a632e30c6e1_0
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_1
+      old_fingerprint: c70c184dd2c1f789350a9a632e30c6e1_1
     - rule:
         cwe_ids:
             - "201"
@@ -61,6 +64,9 @@ high:
       line_number: 2
       full_filename: /tmp/scan/datatype_in_log.rb
       filename: .
+      data_type:
+        category_uuid: cef587dd-76db-430b-9e18-7b031e1a193b
+        name: Email Address
       category_groups:
         - PII
         - Personal Data
@@ -81,8 +87,8 @@ high:
         content: 'Rollbar.log("error", "oops", user: { email: "someone@example.com" })'
       parent_line_number: 2
       snippet: 'Rollbar.log("error", "oops", user: { email: "someone@example.com" })'
-      fingerprint: 0976992b89aa3cb2fa891be53248a418_1
-      old_fingerprint: c70c184dd2c1f789350a9a632e30c6e1_1
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_2
+      old_fingerprint: c70c184dd2c1f789350a9a632e30c6e1_2
     - rule:
         cwe_ids:
             - "201"
@@ -103,6 +109,9 @@ high:
       line_number: 3
       full_filename: /tmp/scan/datatype_in_log.rb
       filename: .
+      data_type:
+        category_uuid: 14124881-6b92-4fc5-8005-ea7c1c09592e
+        name: Firstname
       category_groups:
         - PII
         - Personal Data
@@ -123,6 +132,6 @@ high:
         content: 'Rollbar.log("error", "oops", { user: { first_name: "someone" } })'
       parent_line_number: 3
       snippet: 'Rollbar.log("error", "oops", { user: { first_name: "someone" } })'
-      fingerprint: 0976992b89aa3cb2fa891be53248a418_2
-      old_fingerprint: c70c184dd2c1f789350a9a632e30c6e1_2
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_0
+      old_fingerprint: c70c184dd2c1f789350a9a632e30c6e1_0
 

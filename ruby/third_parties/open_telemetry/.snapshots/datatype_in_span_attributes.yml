@@ -18,6 +18,9 @@ high:
       line_number: 7
       full_filename: /tmp/scan/datatype_in_span_attributes.rb
       filename: .
+      data_type:
+        category_uuid: 14124881-6b92-4fc5-8005-ea7c1c09592e
+        name: Firstname
       category_groups:
         - PII
         - Personal Data
@@ -46,8 +49,8 @@ high:
             "user.id" => user.id,
             "user.first_name" => user.first_name
           })
-      fingerprint: 949ba3eb3d0c9c539480c41846520b5b_1
-      old_fingerprint: f93b2a9000a3ae500833a7cdabfa2d02_1
+      fingerprint: 949ba3eb3d0c9c539480c41846520b5b_0
+      old_fingerprint: f93b2a9000a3ae500833a7cdabfa2d02_0
     - rule:
         cwe_ids:
             - "201"
@@ -67,6 +70,9 @@ high:
       line_number: 13
       full_filename: /tmp/scan/datatype_in_span_attributes.rb
       filename: .
+      data_type:
+        category_uuid: cef587dd-76db-430b-9e18-7b031e1a193b
+        name: Email Address
       category_groups:
         - PII
         - Personal Data
@@ -87,6 +93,6 @@ high:
         content: current_span.set_attribute("current_users", users)
       parent_line_number: 14
       snippet: current_span.set_attribute("current_users", users)
-      fingerprint: 949ba3eb3d0c9c539480c41846520b5b_0
-      old_fingerprint: f93b2a9000a3ae500833a7cdabfa2d02_0
+      fingerprint: 949ba3eb3d0c9c539480c41846520b5b_1
+      old_fingerprint: f93b2a9000a3ae500833a7cdabfa2d02_1
 
