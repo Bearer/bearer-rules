@@ -1,3 +1,5 @@
+imports:
+  - ruby_shared_lang_openssl_digest_dss_init
 patterns:
   - pattern: OpenSSL::Digest.digest($<ALGORITHM>, $<OPTIONAL_DATA_TYPE>)
     filters:
@@ -27,7 +29,7 @@ patterns:
       $<DIGEST>.update($<OPTIONAL_DATA_TYPE>)
     filters:
       - variable: DIGEST
-        detection: ruby_lang_weak_hash_dss_digest
+        detection: ruby_shared_lang_openssl_digest_dss_init
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
@@ -40,7 +42,7 @@ patterns:
       $<DIGEST> << $<OPTIONAL_DATA_TYPE>
     filters:
       - variable: DIGEST
-        detection: ruby_lang_weak_hash_dss_digest
+        detection: ruby_shared_lang_openssl_digest_dss_init
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
@@ -52,7 +54,7 @@ patterns:
   - pattern: $<DIGEST>.$<METHOD>($<OPTIONAL_DATA_TYPE>)
     filters:
       - variable: DIGEST
-        detection: ruby_lang_weak_hash_dss_digest
+        detection: ruby_shared_lang_openssl_digest_dss_init
       - variable: METHOD
         values:
           - digest
@@ -68,17 +70,9 @@ patterns:
               scope: result
 languages:
   - ruby
-auxiliary:
-  - id: ruby_lang_weak_hash_dss_digest
-    patterns:
-      - pattern: OpenSSL::Digest::$<ALGORITHM>.new
-        filters:
-          - variable: ALGORITHM
-            regex: \ADSS1?\z
-      - pattern: OpenSSL::Digest.new($<ALGORITHM>)
-        filters:
-          - variable: ALGORITHM
-            regex: (?i)\A['"]DSS1?['"]\z
+skip_data_types:
+  - "Unique Identifier"
+  - "Passwords" # see ruby_lang_weak_password_hash_dss
 metadata:
   description: "Weak hashing library (DSS) detected."
   remediation_message: |

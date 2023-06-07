@@ -1,0 +1,15 @@
+type: shared
+languages:
+  - ruby
+patterns:
+  - pattern: OpenSSL::Digest::$<ALGORITHM>.new
+    filters:
+      - variable: ALGORITHM
+        regex: \ADSS1?\z
+  - pattern: OpenSSL::Digest.new($<ALGORITHM>)
+    filters:
+      - variable: ALGORITHM
+        regex: (?i)\A['"]DSS1?['"]\z
+metadata:
+  description: "OpenSSL Digest DSS initializer."
+  id: ruby_shared_lang_openssl_digest_dss_init

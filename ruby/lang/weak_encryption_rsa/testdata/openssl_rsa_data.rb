@@ -1,7 +1,7 @@
-OpenSSL::PKey::RSA.new(File.read('rsa.pem')).private_encrypt(user.password)
+OpenSSL::PKey::RSA.new(File.read('rsa.pem')).private_encrypt(user.email)
 
 cipher = OpenSSL::Cipher.new('aes-128-cbc')
 rsa_encrypt = OpenSSL::PKey::RSA.new(1024)
-rsa_encrypt.export(cipher, user.password)
+rsa_encrypt.export(cipher, user.address)
 
 OpenSSL::PKey::RSA.new(1024).to_pem(cipher, user.first_name)

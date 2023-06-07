@@ -1,9 +1,8 @@
 Crypt::Blowfish.new("insecure").encrypt_block { |user|
-  user.full_name
+  user.password
 }
 
 Crypt::Blowfish.new("insecure").encrypt_block do |user|
-  user.full_name
+  user.password
 end
 
-Crypt::Blowfish.new("your-key").encrypt_string(user.email)

@@ -1,0 +1,16 @@
+type: shared
+languages:
+  - ruby
+patterns:
+  - Digest::SHA1.new
+  - pattern: OpenSSL::Digest::$<ALGORITHM>.new
+    filters:
+      - variable: ALGORITHM
+        regex: \ASHA1?\z
+  - pattern: OpenSSL::Digest.new($<ALGORITHM>)
+    filters:
+      - variable: ALGORITHM
+        regex: (?i)\A['"]SHA1?['"]\z
+metadata:
+  description: "OpenSSL Digest SHA initializer."
+  id: ruby_shared_lang_openssl_digest_sha_init

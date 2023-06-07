@@ -1,0 +1,61 @@
+high:
+    - rule:
+        cwe_ids:
+            - "331"
+            - "328"
+            - "916"
+        id: ruby_lang_weak_password_hash_md
+        title: Weak password hashing (MD5) detected.
+        description: |
+            ## Description
+
+            A weak hashing library can lead to data breaches and greater security risk.
+
+            ## Remediations
+            According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 and its predecessors are considered weak hash algorithms and therefore shouldn't be used.
+
+            ✅ Use a recommended hashing library such as bcrypt or Argon2id for passwords
+
+            ```ruby
+            BCrypt::Password.create("password_123")
+            ```
+
+            ```ruby
+            hasher = Argon2::Password.new()
+            hasher.create("password_123")
+            ```
+
+            ## Resources
+            - [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
+            - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
+            - [ruby-argon2](https://github.com/technion/ruby-argon2)
+        documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_password_hash_md
+      line_number: 1
+      full_filename: /tmp/scan/openssl_md5_data.rb
+      filename: .
+      data_type:
+        category_uuid: dd88aee5-9d40-4ad2-8983-0c791ddec47c
+        name: Passwords
+      category_groups:
+        - PII
+        - Personal Data
+      source:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 29
+                end: 42
+      sink:
+        location:
+            start: 1
+            end: 1
+            column:
+                start: 1
+                end: 43
+        content: OpenSSL::Digest::MD5.digest(user.password)
+      parent_line_number: 1
+      snippet: OpenSSL::Digest::MD5.digest(user.password)
+      fingerprint: b83963f29f4460fcee1ffc2479f2ba4d_0
+      old_fingerprint: d6dae853e82baaea8a5d20423bd44e11_0
+

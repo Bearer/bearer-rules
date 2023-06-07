@@ -1,0 +1,12 @@
+type: shared
+languages:
+  - ruby
+patterns:
+  - pattern: |
+      OpenSSL::PKey::DSA.new($<LENGTH>)
+    filters:
+      - variable: LENGTH
+        less_than: 2048
+metadata:
+  description: "OpenSSL Digest DSA Encryption initializer."
+  id: ruby_shared_lang_openssl_digest_dsa_init

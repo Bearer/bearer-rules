@@ -1,0 +1,16 @@
+type: shared
+languages:
+  - ruby
+patterns:
+  - Digest::MD5.new
+  - pattern: OpenSSL::Digest::$<ALGORITHM>.new
+    filters:
+      - variable: ALGORITHM
+        regex: \AMD\d\z
+  - pattern: OpenSSL::Digest.new($<ALGORITHM>)
+    filters:
+      - variable: ALGORITHM
+        regex: (?i)\A['"]MD\d['"]\z
+metadata:
+  description: "OpenSSL Digest MD initializer."
+  id: ruby_shared_lang_openssl_digest_md_init

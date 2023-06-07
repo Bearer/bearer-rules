@@ -1,9 +1,11 @@
+imports:
+  - ruby_shared_lang_blowfish_init
 patterns:
   - pattern: |
       $<VAR>.$<METHOD>($<OPTIONAL_DATA_TYPE>)
     filters:
       - variable: VAR
-        detection: ruby_lang_weak_encryption_blowfish_init
+        detection: ruby_shared_lang_blowfish_init
       - variable: METHOD
         values:
           - encrypt_string
@@ -20,7 +22,7 @@ patterns:
       $<VAR>.$<METHOD>($<_>, $<OPTIONAL_DATA_TYPE>)
     filters:
       - variable: VAR
-        detection: ruby_lang_weak_encryption_blowfish_init
+        detection: ruby_shared_lang_blowfish_init
       - variable: METHOD
         values:
           - encrypt_pair
@@ -39,7 +41,7 @@ patterns:
       end
     filters:
       - variable: VAR
-        detection: ruby_lang_weak_encryption_blowfish_init
+        detection: ruby_shared_lang_blowfish_init
       - variable: METHOD
         values:
           - encrypt_block
@@ -54,11 +56,9 @@ patterns:
               scope: result
 languages:
   - ruby
-auxiliary:
-  - id: ruby_lang_weak_encryption_blowfish_init
-    patterns:
-      - |
-        Crypt::Blowfish.new()
+skip_data_types:
+  - "Unique Identifier"
+  - Passwords # see ruby_lang_weak_password_encryption_blowfish
 metadata:
   description: "Weak encryption library (Blowfish) detected."
   remediation_message: |
