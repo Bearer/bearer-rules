@@ -2,14 +2,14 @@ patterns:
   - pattern: |
       $<CLIENT>.index($<...>$<DATA_TYPE>$<...>)
     filters:
-      - variable: DATA_TYPE
-        detection: datatype
-        scope: result
       - variable: CLIENT
         values:
           - client
           - elasticsearch
           - es
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
 languages:
   - javascript
 metadata:

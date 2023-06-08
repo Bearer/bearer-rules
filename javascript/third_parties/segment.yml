@@ -4,9 +4,6 @@ patterns:
     filters:
       - variable: INSTANCE
         detection: javascript_third_parties_segment_instance
-      - variable: DATA_TYPE
-        detection: datatype
-        scope: result
       - variable: METHOD
         values:
           - alias
@@ -14,6 +11,9 @@ patterns:
           - group
           - page
           - track
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
 auxiliary:
   - id: javascript_third_parties_segment_instance
     patterns:

@@ -1,4 +1,6 @@
-disabled: true
+# disabled: true
+imports:
+  - javascript_shared_third_parties_sanitize_html_sanitizer
 patterns:
   - pattern: |
       document.$<METHOD>($<...>$<DATA>$<...>)
@@ -7,9 +9,9 @@ patterns:
         values:
           - write
           - writeLn
-      - not:
-          variable: DATA
-          detection: javascript_dangerous_insert_html_sanitzed_input
+      - variable: DATA
+        detection: javascript_lang_dangerous_insert_html_unsanitized_input
+        scope: cursor
   - pattern: |
       $<_>.$<PROPERTY> = $<DATA>
     filters:
@@ -17,9 +19,9 @@ patterns:
         values:
           - outerHTML
           - innerHTML
-      - not:
-          variable: DATA
-          detection: javascript_dangerous_insert_html_sanitzed_input
+      - variable: DATA
+        detection: javascript_lang_dangerous_insert_html_unsanitized_input
+        scope: cursor
   - pattern: |
       $<_>.$<METHOD>($<...>$<DATA>$<...>)
     filters:
@@ -30,25 +32,31 @@ patterns:
           - createElement
           - replaceWith
           - replaceChildren
-      - not:
-          variable: DATA
-          detection: javascript_dangerous_insert_html_sanitzed_input
+      - variable: DATA
+        detection: javascript_lang_dangerous_insert_html_unsanitized_input
+        scope: cursor
 auxiliary:
-  - id: javascript_dangerous_insert_html_sanitzed_input
+  - id: javascript_lang_dangerous_insert_html_string_literal
     patterns:
       - pattern: |
           $<STRING_LITERAL>
         filters:
           - variable: STRING_LITERAL
-            detection: string_literal
-            contains: false
-      - $<_>.sanitize()
-      - $<_>.sanitizeHTML()
-      - $<_>.sanitizeHtml()
-  - id: javascript_dangerous_insert_html_unsanitzed_input
+            string_regex: .
+  - id: javascript_lang_dangerous_insert_html_unsanitized_input
+    sanitizer: javascript_shared_third_parties_sanitize_html_sanitizer
     patterns:
-      - |
-        `$<...>${$<...>$<_>$<...>}$<...>`
+      - pattern: |
+          $<STRING_LITERAL>
+        filters:
+          - not:
+              variable: STRING_LITERAL
+              detection: string_literal
+              scope: cursor
+          - not:
+              variable: STRING_LITERAL
+              detection: javascript_lang_dangerous_insert_html_string_literal
+              scope: cursor
 languages:
   - javascript
 severity: high

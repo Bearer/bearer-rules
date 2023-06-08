@@ -25,7 +25,7 @@ printexit() {
   exit 0
 }
 if [ -n "$BEARER_WORKSPACE" ]; then
-  printf "WARNING: When using localy built binary snapshot will not be consistant. Use for debug only\n"
+  printf "WARNING: using Bearer local project\n"
 else
   docker pull bearer/bearer:$BEARER_VERSION
 fi
