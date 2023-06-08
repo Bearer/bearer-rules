@@ -1,0 +1,71 @@
+patterns:
+  - pattern: |
+      $<WRITER>.$<METHOD>($<...>$<ARGUMENT>$<...>)
+    filters:
+      - variable: WRITER
+        detection: java_lang_xss_response_writer_get_writer
+      - variable: ARGUMENT
+        detection: java_lang_xss_response_writer_user_input
+      - variable: METHOD
+        values:
+          - append
+          - print
+          - printf
+          - println
+          - write
+auxiliary:
+  - id: java_lang_xss_response_writer_user_input
+    patterns:
+      - pattern: |
+          $<REQUEST>.$<REQUEST_METHOD>()
+        filters:
+          - variable: REQUEST
+            values:
+              - req
+              - request
+          - variable: REQUEST_METHOD
+            values:
+              - getCookies
+              - getHeader
+              - getQueryString
+              - getRequestURI
+              - getRequestURL
+              - getAttribute
+              - getInputStream
+              - getParameter
+              - getParameterMap
+              - getParameterNames
+              - getParameterValues
+              - getReader
+              - getHeaderNames
+              - getPart
+              - getParts
+  - id: java_lang_xss_response_writer_get_writer
+    patterns:
+      - pattern: |
+          response.getWriter()
+languages:
+  - java
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Possible cross site scripting threat detected."
+  remediation_message: |
+    ## Description
+
+    Make sure to sanitize any user input before passing it down to `response.getWriter()`
+
+    ✅ Sanitized user input
+
+    ```java
+      String userInput = req.getQueryString("user");
+      String sanitizedUserInput = sanitize(userInput);
+      response.getWriter().write(sanitizedUserInput);
+    ```
+    ## Resources
+
+    - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+  cwe_id:
+    - 79
+  id: "java_lang_xss_response_writer"
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_xss_response_writer
