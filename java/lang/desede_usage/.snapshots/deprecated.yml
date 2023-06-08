@@ -1,7 +1,7 @@
 low:
     - rule:
         cwe_ids:
-            - "89"
+            - "327"
         id: java_lang_desede_usage
         title: Use of deprecated encryption algorithm detected
         description: |
@@ -18,14 +18,27 @@ low:
                 cipher.init(Cipher.ENCRYPT_MODE, key);
                 byte[] cipherText = cipher.doFinal(plainText);
             ```
-
-            ## Resources
-            - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
-            - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/java_lang_desede_usage
       line_number: 17
-      filename: /Users/vjeranfistric/go/src/github.com/bearer/bearer-rules/java/lang/desede_usage/testdata/deprecated.java
+      full_filename: /tmp/scan/deprecated.java
+      filename: .
+      source:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 25
+                end: 70
+      sink:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 25
+                end: 70
+        content: Cipher.getInstance("DESede/ECB/PKCS5Padding")
       parent_line_number: 17
       snippet: Cipher.getInstance("DESede/ECB/PKCS5Padding")
-      fingerprint: 6f629deb3203b35ec362544eb65c6e43_0
+      fingerprint: efafef19a5e08e2bd8780608db214238_0
+      old_fingerprint: 8493f9f76d34779321025b55de0a97db_0
 

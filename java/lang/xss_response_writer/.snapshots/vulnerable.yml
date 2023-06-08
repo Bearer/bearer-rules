@@ -21,8 +21,25 @@ low:
             - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/java_lang_xss_response_writer
       line_number: 14
-      filename: /Users/vjeranfistric/go/src/github.com/bearer/bearer-rules/java/lang/xss_response_writer/testdata/vulnerable.java
+      full_filename: /tmp/scan/vulnerable.java
+      filename: .
+      source:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 7
+                end: 24
+      sink:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 7
+                end: 24
+        content: out.println(user)
       parent_line_number: 14
       snippet: out.println(user)
-      fingerprint: 4016e45d98b9276489e33ae4e9300279_0
+      fingerprint: 32b949b64f3ce7cf97466aa83aae561a_0
+      old_fingerprint: 1eb2c5dbfe2236ac95653a1b52801780_0
 

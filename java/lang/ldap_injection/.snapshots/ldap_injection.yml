@@ -35,8 +35,25 @@ low:
             - [LDAP Injection](https://owasp.org/www-community/attacks/LDAP_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/java_lang_ldap_injection
       line_number: 13
-      filename: /Users/vjeranfistric/go/src/github.com/bearer/bearer-rules/java/lang/ldap_injection/testdata/ldap_injection.java
+      full_filename: /tmp/scan/ldap_injection.java
+      filename: .
+      source:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 9
+                end: 53
+      sink:
+        location:
+            start: 13
+            end: 13
+            column:
+                start: 9
+                end: 53
+        content: dirContext.search(base, filter, filters, sc)
       parent_line_number: 13
       snippet: dirContext.search(base, filter, filters, sc)
-      fingerprint: e14dfd92794d12b3d5c92e112960164b_0
+      fingerprint: 0bad406b42c52ab03e6e7a64c501440d_0
+      old_fingerprint: 2bcbd76ec29b3df12d0f7329f70211ed_0
 
