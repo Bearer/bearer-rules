@@ -21,6 +21,94 @@ high:
             ## Resources
             - [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_dangerous_insert_html
+      line_number: 2
+      full_filename: /tmp/scan/unsecure-document_write.js
+      filename: .
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 3
+                end: 38
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 3
+                end: 38
+        content: document.write(`<li>${input}</li>`)
+      parent_line_number: 2
+      snippet: document.write(`<li>${input}</li>`)
+      fingerprint: 315770dda0d4ea464e59f5bd073bd950_0
+      old_fingerprint: 2c924d3ace8d9283823ac56ff4a241e4_0
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_dangerous_insert_html
+        title: Dangerous dynamic HTML insert detected.
+        description: |
+            ## Description
+            There are XSS vulnerabilities when dynamically inserting HTML that contains unsanitized data.
+
+            ## Remediations
+            Make sure you use HTML sanitization library before inserting html
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html';
+
+            const html = `<strong>${user.Input}</strong>`;
+            document.body.innerHTML = sanitizeHtml(html)
+            ```
+
+            ## Resources
+            - [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_dangerous_insert_html
+      line_number: 8
+      full_filename: /tmp/scan/unsecure-document_write.js
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 3
+                end: 48
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 3
+                end: 48
+        content: el.innerHTML = "<div>" + userInput + "</div>"
+      parent_line_number: 8
+      snippet: el.innerHTML = "<div>" + userInput + "</div>"
+      fingerprint: 315770dda0d4ea464e59f5bd073bd950_1
+      old_fingerprint: 2c924d3ace8d9283823ac56ff4a241e4_1
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_dangerous_insert_html
+        title: Dangerous dynamic HTML insert detected.
+        description: |
+            ## Description
+            There are XSS vulnerabilities when dynamically inserting HTML that contains unsanitized data.
+
+            ## Remediations
+            Make sure you use HTML sanitization library before inserting html
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html';
+
+            const html = `<strong>${user.Input}</strong>`;
+            document.body.innerHTML = sanitizeHtml(html)
+            ```
+
+            ## Resources
+            - [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_dangerous_insert_html
       line_number: 12
       full_filename: /tmp/scan/unsecure-document_write.js
       filename: .
@@ -41,6 +129,50 @@ high:
         content: document.body.outerHTML = userInput
       parent_line_number: 12
       snippet: document.body.outerHTML = userInput
-      fingerprint: 315770dda0d4ea464e59f5bd073bd950_0
-      old_fingerprint: 2c924d3ace8d9283823ac56ff4a241e4_0
+      fingerprint: 315770dda0d4ea464e59f5bd073bd950_2
+      old_fingerprint: 2c924d3ace8d9283823ac56ff4a241e4_2
+    - rule:
+        cwe_ids:
+            - "79"
+        id: javascript_lang_dangerous_insert_html
+        title: Dangerous dynamic HTML insert detected.
+        description: |
+            ## Description
+            There are XSS vulnerabilities when dynamically inserting HTML that contains unsanitized data.
+
+            ## Remediations
+            Make sure you use HTML sanitization library before inserting html
+
+            ```javascript
+            import sanitizeHtml from 'sanitize-html';
+
+            const html = `<strong>${user.Input}</strong>`;
+            document.body.innerHTML = sanitizeHtml(html)
+            ```
+
+            ## Resources
+            - [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)
+        documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_dangerous_insert_html
+      line_number: 17
+      full_filename: /tmp/scan/unsecure-document_write.js
+      filename: .
+      source:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 3
+                end: 23
+      sink:
+        location:
+            start: 17
+            end: 17
+            column:
+                start: 3
+                end: 23
+        content: document.write(name)
+      parent_line_number: 17
+      snippet: document.write(name)
+      fingerprint: 315770dda0d4ea464e59f5bd073bd950_3
+      old_fingerprint: 2c924d3ace8d9283823ac56ff4a241e4_3
 

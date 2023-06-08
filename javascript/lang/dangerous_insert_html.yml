@@ -11,7 +11,6 @@ patterns:
           - writeLn
       - variable: DATA
         detection: javascript_lang_dangerous_insert_html_unsanitized_input
-        scope: cursor
   - pattern: |
       $<_>.$<PROPERTY> = $<DATA>
     filters:
@@ -21,7 +20,6 @@ patterns:
           - innerHTML
       - variable: DATA
         detection: javascript_lang_dangerous_insert_html_unsanitized_input
-        scope: cursor
   - pattern: |
       $<_>.$<METHOD>($<...>$<DATA>$<...>)
     filters:
@@ -34,14 +32,13 @@ patterns:
           - replaceChildren
       - variable: DATA
         detection: javascript_lang_dangerous_insert_html_unsanitized_input
-        scope: cursor
 auxiliary:
   - id: javascript_lang_dangerous_insert_html_string_literal
     patterns:
       - pattern: |
-          $<STRING_LITERAL>
+          $<STRING_LITERAL_FOO>
         filters:
-          - variable: STRING_LITERAL
+          - variable: STRING_LITERAL_FOO
             string_regex: .
   - id: javascript_lang_dangerous_insert_html_unsanitized_input
     sanitizer: javascript_shared_third_parties_sanitize_html_sanitizer
