@@ -4,7 +4,7 @@ patterns:
       - variable: CIPHER
         regex: ^(javax.)?(crypto.)?Cipher
       - variable: RSA_NO_PADDING
-        string_regex: RSA\/.*\/NoPadding
+        string_regex: \ARSA\/.*\/NoPadding\z
 languages:
   - java
 metadata:
