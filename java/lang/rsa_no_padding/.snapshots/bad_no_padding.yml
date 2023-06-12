@@ -1,0 +1,46 @@
+low:
+    - rule:
+        cwe_ids:
+            - "327"
+            - "780"
+        id: java_lang_rsa_no_padding
+        title: RSA algorithm with no padding detected.
+        description: |
+            ## Description
+
+            The RSA encryption algorithm is weak when used without Optimal Asymmetric Encryption Padding (OAEP).
+
+            ## Remediations
+
+            ✅ Always use OAEP when using RSA encryption
+
+            ```java
+              Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithMD5AndMGF1Padding")
+            ```
+
+            ## Resources
+            - [Java MessageDigest class](https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_rsa_no_padding
+      line_number: 2
+      full_filename: /tmp/scan/bad_no_padding.java
+      filename: .
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 19
+                end: 72
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 19
+                end: 72
+        content: javax.crypto.Cipher.getInstance("RSA/NONE/NoPadding")
+      parent_line_number: 2
+      snippet: javax.crypto.Cipher.getInstance("RSA/NONE/NoPadding")
+      fingerprint: 9d916a5ca165038ee842b245601b5cf9_0
+      old_fingerprint: 980598f1e87dca4a42183254222ddf4f_0
+
