@@ -1,4 +1,3 @@
-# disabled: true
 imports:
   - javascript_shared_third_parties_sanitize_html_sanitizer
 patterns:
@@ -11,6 +10,7 @@ patterns:
           - writeLn
       - variable: DATA
         detection: javascript_lang_dangerous_insert_html_unsanitized_input
+        scope: result
   - pattern: |
       $<_>.$<PROPERTY> = $<DATA>
     filters:
@@ -20,6 +20,7 @@ patterns:
           - innerHTML
       - variable: DATA
         detection: javascript_lang_dangerous_insert_html_unsanitized_input
+        scope: result
   - pattern: |
       $<_>.$<METHOD>($<...>$<DATA>$<...>)
     filters:
@@ -32,27 +33,34 @@ patterns:
           - replaceChildren
       - variable: DATA
         detection: javascript_lang_dangerous_insert_html_unsanitized_input
+        scope: result
 auxiliary:
-  - id: javascript_lang_dangerous_insert_html_string_literal
+  - id: javascript_lang_dangerous_insert_html_string_value
     patterns:
       - pattern: |
-          $<STRING_LITERAL_FOO>
+          $<STRING_VALUE>
         filters:
-          - variable: STRING_LITERAL_FOO
+          - variable: STRING_VALUE
             string_regex: .
-  - id: javascript_lang_dangerous_insert_html_unsanitized_input
-    sanitizer: javascript_shared_third_parties_sanitize_html_sanitizer
+  - id: javascript_lang_dangerous_insert_html_sanitizer
     patterns:
-      - pattern: |
-          $<STRING_LITERAL>
+      - pattern: $<HTML_SANITIZER>
+        filters:
+          - variable: HTML_SANITIZER
+            detection: javascript_shared_third_parties_sanitize_html_sanitizer
+            scope: cursor
+      - pattern: $<RECEIVER>()
+        focus: RECEIVER
+  - id: javascript_lang_dangerous_insert_html_unsanitized_input
+    sanitizer: javascript_lang_dangerous_insert_html_sanitizer
+    patterns:
+      - pattern: $<UNSANITIZED_INPUT:identifier>
         filters:
           - not:
-              variable: STRING_LITERAL
-              detection: string_literal
-              scope: cursor
-          - not:
-              variable: STRING_LITERAL
-              detection: javascript_lang_dangerous_insert_html_string_literal
+              # to avoid ternary logic, we use a separate rule rather than
+              # using string_regex directly here
+              variable: UNSANITIZED_INPUT
+              detection: javascript_lang_dangerous_insert_html_string_value
               scope: cursor
 languages:
   - javascript
