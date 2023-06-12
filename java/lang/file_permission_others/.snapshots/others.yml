@@ -3,15 +3,15 @@ warning:
         cwe_ids:
             - "732"
         id: java_lang_file_permission_others
-        title: File permission open to other detected.
+        title: File permission open to 'other' detected.
         description: |
             ## Description
 
-            Having overly permissive file permissions, such as extending read, write, or execute privileges to OTHER, is risky and could lead to accidental exposure of sensitive information.
+            Having overly permissive file permissions, such as extending read, write, or execute privileges to 'other', is risky and could lead to accidental exposure of sensitive information.
 
             ## Remediations
 
-            ✅ Keep file permissions as restrictive as possible. With the Posix enum, for example, prefer groups to other, when extending privileges to users without owner privileges.
+            ✅ Keep file permissions as restrictive as possible. With the Posix enum, for example, prefer 'groups' to 'other', when extending privileges to users without owner privileges.
 
             ```java
               permissions.add(PosixFilePermission.GROUP_WRITE)

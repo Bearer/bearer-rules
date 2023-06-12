@@ -1,7 +1,7 @@
 patterns:
   - pattern: |
       {
-        $<!>$<PERMISSIONS:identifier>.add($<OTHER_PERMISSION>);
+        $<!>$<PERMISSIONS>.add($<OTHER_PERMISSION>);
         Files.setPosixFilePermissions($<_>, $<PERMISSIONS>);
       }
     filters:
@@ -20,15 +20,15 @@ languages:
   - java
 severity: warning
 metadata:
-  description: "File permission open to other detected."
+  description: "File permission open to 'other' detected."
   remediation_message: |
     ## Description
 
-    Having overly permissive file permissions, such as extending read, write, or execute privileges to OTHER, is risky and could lead to accidental exposure of sensitive information.
+    Having overly permissive file permissions, such as extending read, write, or execute privileges to 'other', is risky and could lead to accidental exposure of sensitive information.
 
     ## Remediations
 
-    ✅ Keep file permissions as restrictive as possible. With the Posix enum, for example, prefer groups to other, when extending privileges to users without owner privileges.
+    ✅ Keep file permissions as restrictive as possible. With the Posix enum, for example, prefer 'groups' to 'other', when extending privileges to users without owner privileges.
 
     ```java
       permissions.add(PosixFilePermission.GROUP_WRITE)
