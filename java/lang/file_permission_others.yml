@@ -1,0 +1,43 @@
+patterns:
+  - pattern: |
+      {
+        $<!>$<PERMISSIONS>.add($<OTHER_PERMISSION>);
+        Files.setPosixFilePermissions($<_>, $<PERMISSIONS>);
+      }
+    filters:
+      - variable: PERMISSIONS
+        detection: java_lang_get_posix_file_permissions
+      - variable: OTHER_PERMISSION
+        regex: ^(PosixFilePermission.)?OTHER_
+auxiliary:
+  - id: java_lang_get_posix_file_permissions
+    patterns:
+      - pattern: $<FILES>.getPosixFilePermissions();
+        filters:
+          - variable: FILES
+            regex: ^(java.)?(nio.)?(file.)?Files
+languages:
+  - java
+severity: warning
+metadata:
+  description: "File permission open to 'other' detected."
+  remediation_message: |
+    ## Description
+
+    Having overly permissive file permissions, such as extending read, write, or execute privileges to 'other', is risky and could lead to accidental exposure of sensitive information.
+
+    ## Remediations
+
+    ✅ Keep file permissions as restrictive as possible. With the Posix enum, for example, prefer 'groups' to 'other', when extending privileges to users without owner privileges.
+
+    ```java
+      permissions.add(PosixFilePermission.GROUP_WRITE)
+    ```
+
+    ## Resources
+    - [Java Files class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/nio/file/Files.html)
+    - [Java PosixFilePermission enum](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/nio/file/attribute/PosixFilePermission.html)
+  cwe_id:
+    - 732
+  id: "java_lang_file_permission_others"
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_file_permission_others
