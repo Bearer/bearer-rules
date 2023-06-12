@@ -1,0 +1,46 @@
+warning:
+    - rule:
+        cwe_ids:
+            - "732"
+        id: java_lang_file_permission_others
+        title: File permission open to other detected.
+        description: |
+            ## Description
+
+            Having overly permissive file permissions, such as extending read, write, or execute privileges to OTHER, is risky and could lead to accidental exposure of sensitive information.
+
+            ## Remediations
+
+            ✅ Keep file permissions as restrictive as possible. With the Posix enum, for example, prefer groups to other, when extending privileges to users without owner privileges.
+
+            ```java
+              permissions.add(PosixFilePermission.GROUP_WRITE)
+            ```
+
+            ## Resources
+            - [Java Files class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/nio/file/Files.html)
+            - [Java PosixFilePermission enum](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/nio/file/attribute/PosixFilePermission.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_file_permission_others
+      line_number: 3
+      full_filename: /tmp/scan/others.java
+      filename: .
+      source:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 3
+                end: 52
+      sink:
+        location:
+            start: 3
+            end: 3
+            column:
+                start: 3
+                end: 52
+        content: permissions.add(PosixFilePermission.OTHER_WRITE);
+      parent_line_number: 3
+      snippet: permissions.add(PosixFilePermission.OTHER_WRITE);
+      fingerprint: 12e9ca5557a4ca260d8f219fc77d4d18_0
+      old_fingerprint: c8f96e6f068df6d65e3655a850082e33_0
+
