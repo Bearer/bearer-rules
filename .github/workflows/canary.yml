@@ -40,7 +40,7 @@ jobs:
       - name: Archive JavaScript
         run: tar -czvf release/javascript.tar.gz ./javascript/**/*.yml ./javascript/shared/**/*.yml
       - name: Archive Java
-        run: tar -czvf release/java.tar.gz ./java/**/*.yml
+        run: tar -czvf release/java.tar.gz ./java/**/*.yml ./java/shared/**/*.yml
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
