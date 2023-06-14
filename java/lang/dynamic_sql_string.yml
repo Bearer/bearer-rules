@@ -3,29 +3,29 @@ patterns:
       String.format($<SQL_STRING>, $<_>)
     filters:
       - either:
-        - variable: SQL_STRING
-          string_regex: (?i)(select|insert|create|update|alter|delete|drop)\b
-        - not:
-            variable: SQL_STRING
-            detection: java_lang_dynamic_sql_string_final_string
+          - variable: SQL_STRING
+            string_regex: (?i)(select|insert|create|update|alter|delete|drop)\b
+          - not:
+              variable: SQL_STRING
+              detection: java_lang_dynamic_sql_string_final_string
   - pattern: |
       $<SQL_STR> + $<_>
     filters:
       - either:
-        - variable: SQL_STRING
-          string_regex: (?i)(select|insert|create|update|alter|delete|drop)\b
-        - not:
-            variable: SQL_STRING
-            detection: java_lang_dynamic_sql_string_final_string
+          - variable: SQL_STRING
+            string_regex: (?i)(select|insert|create|update|alter|delete|drop)\b
+          - not:
+              variable: SQL_STRING
+              detection: java_lang_dynamic_sql_string_final_string
   - pattern: |
       $<SQL_STR>.concat()
     filters:
       - either:
-        - variable: SQL_STRING
-          string_regex: (?i)(select|insert|create|update|alter|delete|drop)\b
-        - not:
-            variable: SQL_STRING
-            detection: java_lang_dynamic_sql_string_final_string
+          - variable: SQL_STRING
+            string_regex: (?i)(select|insert|create|update|alter|delete|drop)\b
+          - not:
+              variable: SQL_STRING
+              detection: java_lang_dynamic_sql_string_final_string
   - pattern: |
       $<STRING_BUILDER>.append()
     filters:
@@ -42,11 +42,11 @@ auxiliary:
       - pattern: new StringBuilder($<SQL_STRING>)
         filters:
           - either:
-            - variable: SQL_STRING
-              string_regex: (?i)(select|insert|create|update|alter|delete|drop)\b
-            - not:
-                variable: SQL_STRING
-                detection: java_lang_dynamic_sql_string_final_string
+              - variable: SQL_STRING
+                string_regex: (?i)(select|insert|create|update|alter|delete|drop)\b
+              - not:
+                  variable: SQL_STRING
+                  detection: java_lang_dynamic_sql_string_final_string
 severity: warning
 metadata:
   description: "Dynamic SQL string detected."
