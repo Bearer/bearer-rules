@@ -1,0 +1,57 @@
+warning:
+    - rule:
+        cwe_ids:
+            - "89"
+        id: java_lang_dynamic_sql_string
+        title: Dynamic SQL string detected.
+        description: |
+            ## Description
+
+            Using dynamically crafted strings to construct a SQL query can put our application at risk of injection attacks.
+
+            ## Remediations
+
+            ❌ Avoid dynamic SQL query strings
+
+            ```java
+            String queryStr = "SELECT name FROM users WHERE id=".concat(currentUser.id)
+            ResultSet rs = stmt.executeQuery(queryStr) //...
+            ```
+
+            ✅ Use prepared statements wherever possible
+
+            ```java
+            myStmt = conn.prepareStatement("SELECT * FROM students WHERE age >= ? AND name = ?");
+            myStmt.setInt(1, currentUser.age);
+            myStmt.setString(2, currentUser.name);
+            ```
+
+            ✅ If unavoidable, prefer static strings to dynamic strings
+
+            ## Resources
+            - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
+            - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_dynamic_sql_string
+      line_number: 5
+      full_filename: /tmp/scan/dynamic_sql_string.java
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 23
+                end: 65
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 23
+                end: 65
+        content: String.format("SELECT * FROM ", tableName)
+      parent_line_number: 5
+      snippet: String.format("SELECT * FROM ", tableName)
+      fingerprint: 5a4c30f67a3d7a16f9ec4cb8bd887f54_0
+      old_fingerprint: 2630c641a8bd4ba506485a05e0e71277_0
+

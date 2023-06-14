@@ -1,0 +1,83 @@
+patterns:
+  - pattern: |
+      String.format($<SQL_STRING>, $<_>)
+    filters:
+      - either:
+        - variable: SQL_STRING
+          string_regex: (?i)(select|insert|create|update|alter|delete|drop)\b
+        - not:
+            variable: SQL_STRING
+            detection: java_lang_dynamic_sql_string_final_string
+  - pattern: |
+      $<SQL_STR> + $<_>
+    filters:
+      - either:
+        - variable: SQL_STRING
+          string_regex: (?i)(select|insert|create|update|alter|delete|drop)\b
+        - not:
+            variable: SQL_STRING
+            detection: java_lang_dynamic_sql_string_final_string
+  - pattern: |
+      $<SQL_STR>.concat()
+    filters:
+      - either:
+        - variable: SQL_STRING
+          string_regex: (?i)(select|insert|create|update|alter|delete|drop)\b
+        - not:
+            variable: SQL_STRING
+            detection: java_lang_dynamic_sql_string_final_string
+  - pattern: |
+      $<STRING_BUILDER>.append()
+    filters:
+      - variable: STRING_BUILDER
+        detection: java_lang_dynamic_sql_string_string_builder
+languages:
+  - java
+auxiliary:
+  - id: java_lang_dynamic_sql_string_final_string
+    patterns:
+      - final String $<_> = $<!>$<_>
+  - id: java_lang_dynamic_sql_string_string_builder
+    patterns:
+      - pattern: new StringBuilder($<SQL_STRING>)
+        filters:
+          - either:
+            - variable: SQL_STRING
+              string_regex: (?i)(select|insert|create|update|alter|delete|drop)\b
+            - not:
+                variable: SQL_STRING
+                detection: java_lang_dynamic_sql_string_final_string
+severity: warning
+metadata:
+  description: "Dynamic SQL string detected."
+  remediation_message: |
+    ## Description
+
+    Using dynamically crafted strings to construct a SQL query can put our application at risk of injection attacks.
+
+    ## Remediations
+
+    ❌ Avoid dynamic SQL query strings
+
+    ```java
+    String queryStr = "SELECT name FROM users WHERE id=".concat(currentUser.id)
+    ResultSet rs = stmt.executeQuery(queryStr) //...
+    ```
+
+    ✅ Use prepared statements wherever possible
+
+    ```java
+    myStmt = conn.prepareStatement("SELECT * FROM students WHERE age >= ? AND name = ?");
+    myStmt.setInt(1, currentUser.age);
+    myStmt.setString(2, currentUser.name);
+    ```
+
+    ✅ If unavoidable, prefer static strings to dynamic strings
+
+    ## Resources
+    - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
+    - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+  cwe_id:
+    - 89
+  id: "java_lang_dynamic_sql_string"
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_dynamic_sql_string
