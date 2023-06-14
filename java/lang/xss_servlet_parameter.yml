@@ -3,9 +3,7 @@ patterns:
       $<REQUEST>.$<METHOD>();
     filters:
       - variable: REQUEST
-        values:
-          - req
-          - request
+        detection: java_lang_xss_servlet_parameter_request
       - variable: METHOD
         values:
           - getParameter
@@ -17,13 +15,34 @@ patterns:
   - pattern: $<REQUEST>.getHeader($<HEADER>)
     filters:
       - variable: REQUEST
-        values:
-          - req
-          - request
+        detection: java_lang_xss_servlet_parameter_request
       - variable: HEADER
         string_regex: \A(?i)(Host|Referer|User-Agent)\z
 languages:
   - java
+auxiliary:
+  - id: java_lang_xss_servlet_parameter_request
+    patterns:
+    # variable declaration
+    - pattern: ServletRequest $<VARIABLE> = $<_>;
+      focus: VARIABLE
+    - pattern: HttpServletRequest $<VARIABLE> = $<_>;
+      focus: VARIABLE
+    # class constructor argument
+    - pattern: |
+        class $<_>$<...> {
+          $<...>$<_>($<...>ServletRequest $<VARIABLE>$<...>) {}
+        }
+      focus: VARIABLE
+    # class method argument
+    - pattern: |
+        class $<_>$<...> {
+          $<...>$<_> $<_>($<...>ServletRequest $<VARIABLE>$<...>) {}
+        }
+      focus: VARIABLE
+    # fallback
+    - request;
+    - req;
 severity: warning
 metadata:
   description: "Servlet request parameter methods detected."
