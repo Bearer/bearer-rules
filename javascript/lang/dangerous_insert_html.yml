@@ -41,7 +41,7 @@ auxiliary:
           $<STRING_VALUE>
         filters:
           - variable: STRING_VALUE
-            string_regex: .
+            string_regex: ""
   - id: javascript_lang_dangerous_insert_html_sanitizer
     patterns:
       - pattern: $<HTML_SANITIZER>
