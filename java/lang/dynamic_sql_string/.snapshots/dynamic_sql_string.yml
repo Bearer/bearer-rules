@@ -7,26 +7,31 @@ warning:
         description: |
             ## Description
 
-            Using dynamically crafted strings to construct a SQL query can put our application at risk of injection attacks.
+            Using dynamic strings to construct a SQL query puts our application at risk of injection attacks.
 
             ## Remediations
 
             ❌ Avoid dynamic SQL query strings
 
             ```java
-            String queryStr = "SELECT name FROM users WHERE id=".concat(currentUser.id)
-            ResultSet rs = stmt.executeQuery(queryStr) //...
+            String queryStr = "SELECT * FROM users WHERE id=".concat(currentUser.id)
             ```
 
-            ✅ Use prepared statements wherever possible
+            ✅ Prefer final (immutable) strings to avoid accidentally modification of query strings
 
             ```java
-            myStmt = conn.prepareStatement("SELECT * FROM students WHERE age >= ? AND name = ?");
-            myStmt.setInt(1, currentUser.age);
-            myStmt.setString(2, currentUser.name);
+            private final String SELECT_ALL_FROM = "select * from ";
+            private final String USERS_TABLE = "users";
+
+            String queryStr = SELECT_ALL_FROM + USERS_TABLE;
             ```
 
-            ✅ If unavoidable, prefer static strings to dynamic strings
+            ✅ Ideally, use prepared statements to construct your query
+
+            ```java
+            myStmt = conn.prepareStatement("SELECT * FROM users WHERE id = ?");
+            myStmt.setInt(1, currentUser.id);
+            ```
 
             ## Resources
             - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
