@@ -15,21 +15,21 @@ patterns:
               - OutOfMemoryError
               - StackOverflowError
           - variable: ERROR
-            regex: ^(java.)?(io.)?FileNotFoundException
+            regex: \A(java\.io\.)?FileNotFoundException\z
           - variable: ERROR
-            regex: ^(java.)?(sql.)?SQLException
+            regex: \A(java\.sql\.)?SQLException\z
           - variable: ERROR
-            regex: ^(java.)?(net.)?BindException
+            regex: \A(java\.net\.)?BindException\z
           - variable: ERROR
-            regex: ^(java.)?(util.)?ConcurrentModificationException
+            regex: \A(java\.util\.)?ConcurrentModificationException\z
           - variable: ERROR
-            regex: ^(javax.)?(naming.)?InsufficientResourcesException
+            regex: \A(javax\.naming\.)?InsufficientResourcesException\z
           - variable: ERROR
-            regex: ^(java.)?(util.)?MissingResourceException
+            regex: \A(java\.util\.)?MissingResourceException\z
           - variable: ERROR
-            regex: ^(java.)?(util.)?(jar.)?JarException
+            regex: \A(java\.util\.jar\.)?JarException\z
           - variable: ERROR
-            regex: ^(java.)?(security.)?(acl.)?NotOwnerException
+            regex: \A(java\.security\.acl\.)?NotOwnerException\z
 languages:
   - java
 severity: warning
