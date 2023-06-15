@@ -1,0 +1,55 @@
+patterns:
+  - pattern: |
+      try {
+        $<...>
+      } catch($<EXCEPTION> $<EXCEPTION_VAR:identifier>) {
+        $<!>$<EXCEPTION_VAR>.printStackTrace();
+      }
+    filters:
+      - either:
+        - variable: EXCEPTION
+          values:
+            - Throwable
+            - Exception
+            - Error
+            - OutOfMemoryError
+            - StackOverflowError
+        - variable: ERROR
+          regex: ^(java.)?(io.)?FileNotFoundException
+        - variable: ERROR
+          regex: ^(java.)?(sql.)?SQLException
+        - variable: ERROR
+          regex: ^(java.)?(net.)?BindException
+        - variable: ERROR
+          regex: ^(java.)?(util.)?ConcurrentModificationException
+        - variable: ERROR
+          regex: ^(javax.)?(naming.)?InsufficientResourcesException
+        - variable: ERROR
+          regex: ^(java.)?(util.)?MissingResourceException
+        - variable: ERROR
+          regex: ^(java.)?(util.)?(jar.)?JarException
+        - variable: ERROR
+          regex: ^(java.)?(security.)?(acl.)?NotOwnerException
+languages:
+  - java
+severity: warning
+metadata:
+  description: Possible information leakage detected.
+  remediation_message: |
+    ## Description
+
+    Printing a stack trace to the default output is risky because it may contain sensitive information such as the technical details of your application or environment (which in turn could expose your application to path traversal attacks, for example), or worse, user-specific data.
+
+    ## Remediations
+
+    ❌ Avoid printing the full stack trace
+
+    ✅ Less is more! Only log the minimum required details in error messages
+
+    ## Resources
+
+    - [Web Application Security Consortium: Information Leakage](http://projects.webappsec.org/w/page/13246936/Information%20Leakage)
+  cwe_id:
+    - 209
+  id: java_lang_information_leakage
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_information_leakage
