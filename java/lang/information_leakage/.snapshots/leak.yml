@@ -1,0 +1,44 @@
+warning:
+    - rule:
+        cwe_ids:
+            - "209"
+        id: java_lang_information_leakage
+        title: Possible information leakage detected.
+        description: |
+            ## Description
+
+            Printing a stack trace to the default output is risky because it may contain sensitive information such as the technical details of your application or environment (which in turn could expose your application to path traversal attacks, for example), or worse, user-specific data.
+
+            ## Remediations
+
+            ❌ Avoid printing the full stack trace
+
+            ✅ Less is more! Only log the minimum required details in error messages
+
+            ## Resources
+
+            - [Web Application Security Consortium: Information Leakage](http://projects.webappsec.org/w/page/13246936/Information%20Leakage)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_information_leakage
+      line_number: 8
+      full_filename: /tmp/scan/leak.java
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 7
+                end: 27
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 7
+                end: 27
+        content: e.printStackTrace();
+      parent_line_number: 8
+      snippet: e.printStackTrace();
+      fingerprint: 9fff3d7f302686a23685fc6d2a7ac46c_0
+      old_fingerprint: ed4d9e002c9d28c2a3f4a53209ee125b_0
+
