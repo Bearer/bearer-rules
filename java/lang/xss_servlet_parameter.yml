@@ -1,0 +1,76 @@
+patterns:
+  - pattern: |
+      $<REQUEST>.$<METHOD>();
+    filters:
+      - variable: REQUEST
+        detection: java_lang_xss_servlet_parameter_request
+      - variable: METHOD
+        values:
+          - getParameter
+          - getParameterValues
+          - getParameterMap
+          - getParameterNames
+          - getRequestedSessionId
+          - getQueryString
+  - pattern: $<REQUEST>.getHeader($<HEADER>)
+    filters:
+      - variable: REQUEST
+        detection: java_lang_xss_servlet_parameter_request
+      - variable: HEADER
+        string_regex: \A(?i)(Host|Referer|User-Agent)\z
+languages:
+  - java
+auxiliary:
+  - id: java_lang_xss_servlet_parameter_request
+    patterns:
+      # variable declaration
+      - pattern: ServletRequest $<VARIABLE> = $<_>;
+        focus: VARIABLE
+      - pattern: HttpServletRequest $<VARIABLE> = $<_>;
+        focus: VARIABLE
+      # class constructor argument
+      - pattern: |
+          class $<_>$<...> {
+            $<...>$<_>($<...>ServletRequest $<VARIABLE>$<...>) {}
+          }
+        focus: VARIABLE
+      # class method argument
+      - pattern: |
+          class $<_>$<...> {
+            $<...>$<_> $<_>($<...>ServletRequest $<VARIABLE>$<...>) {}
+          }
+        focus: VARIABLE
+      # fallback
+      - request;
+      - req;
+severity: warning
+metadata:
+  description: "Servlet request parameter methods detected."
+  remediation_message: |
+    ## Description
+
+    We should sanitize or validate any values from Servlet request GET and POST parameters. This is to protect our application from possible cross-site scripting (XSS) attacks.
+
+    ✅ Make sure to sanitize input from Servlet and HttpServlet requests. You can use a library like OWASP AntiSamy or Enterprise Security API (ESAPI) to do this.
+
+    ```java
+    public void main(ServletRequest request, ServletResponse response) {
+      AntiSamy antiSamy = new AntiSamy();
+      Policy policy = Policy.getInstance(POLICY_FILE_LOCATION);
+
+      String username = request.getParameter("username");
+      CleanResults cr = antiSamy.scan(username, policy);
+
+      // ...
+    }
+    ```
+
+    ## Resources
+
+    - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+    - [OWASP AntiSamy](https://owasp.org/www-project-antisamy/)
+    - [OWASP ESAPI](https://owasp.org/www-project-enterprise-security-api/)
+  cwe_id:
+    - 20
+  id: "java_lang_xss_servlet_parameter"
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_xss_servlet_parameter
