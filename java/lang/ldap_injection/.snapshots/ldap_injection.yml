@@ -33,26 +33,27 @@ low:
 
             ## References
             - [LDAP Injection](https://owasp.org/www-community/attacks/LDAP_Injection)
+            - [LDAP Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/java_lang_ldap_injection
-      line_number: 13
+      line_number: 17
       full_filename: /tmp/scan/ldap_injection.java
       filename: .
       source:
         location:
-            start: 13
-            end: 13
+            start: 17
+            end: 17
             column:
                 start: 9
                 end: 53
       sink:
         location:
-            start: 13
-            end: 13
+            start: 17
+            end: 17
             column:
                 start: 9
                 end: 53
         content: dirContext.search(base, filter, filters, sc)
-      parent_line_number: 13
+      parent_line_number: 17
       snippet: dirContext.search(base, filter, filters, sc)
       fingerprint: 0bad406b42c52ab03e6e7a64c501440d_0
       old_fingerprint: 2bcbd76ec29b3df12d0f7329f70211ed_0
