@@ -6,7 +6,15 @@ patterns:
         values:
           - execute
           - executeQuery
+          - executeUpdate
+          - executeLargeUpdate
+          - addBatch
+          - prepare
+          - prepareCall
           - prepareStatement
+          - nativeSQL
+          - createNativeQuery
+          - createQuery
       - variable: DYNAMIC_INPUT_LITERAL
         detection: java_lang_sqli_dynamic_input
 auxiliary:
@@ -43,13 +51,12 @@ metadata:
       ResultSet rs = stmt.executeQuery("select name from users where id='"+ uri.getQueryParameter("user_id") "'")) {
     ```
 
-
     ✅ Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead
 
     ```java
     myStmt = myCon.prepareStatement("select * from students where age > ? and name = ?");
-    myStmt.setInt(1, uri.getQueryParameter("age"));     
-    myStmt.setString(2, uri.getQueryParameter("name"));  
+    myStmt.setInt(1, uri.getQueryParameter("age"));
+    myStmt.setString(2, uri.getQueryParameter("name"));
     ```
 
     ## Resources

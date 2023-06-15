@@ -1,0 +1,81 @@
+patterns:
+  - pattern: |
+      $<_>.$<METHOD>($<DYNAMIC_INPUT_LITERAL>)
+    filters:
+      - variable: METHOD
+        values:
+          - PreparedStatementCreatorFactory
+          - newPreparedStatementCreator
+          - update
+          - batchUpdate
+          - execute
+          - query
+          - queryForList
+          - queryForMap
+          - queryForObject
+          - queryForRowSet
+          - queryForInt
+          - queryForLong
+          - queryForStream
+      - variable: DYNAMIC_INPUT_LITERAL
+        detection: java_spring_sqli_dynamic_input
+auxiliary:
+  - id: java_spring_sqli_dynamic_input
+    patterns:
+      - pattern: |
+          $<STRING_LITERAL> + $<DYNAMIC_INPUT>
+        filters:
+          - variable: STRING_LITERAL
+            detection: string_literal
+            contains: false
+          - not:
+              variable: DYNAMIC_INPUT
+              detection: string_literal
+              contains: false
+languages:
+  - java
+trigger:
+  match_on: presence
+metadata:
+  description: "Unsanitized user input in SQL query detected."
+  remediation_message: |
+    ## Description
+
+    Including unsanitized data, such as user input or request data, in raw SQL
+    queries makes your application vulnerable to SQL injection attacks.
+
+    ## Remediations
+
+    ❌ Avoid raw queries, especially those that contain unsanitized user input:
+
+    ```java
+      String query = "update user set name='"+uri.getQueryParameter("name")+"' where id='"+uri.getQueryParameter("userId")+"'";
+      return jdbcTemplate.update(query);
+    ```
+
+    ✅ Use `PreparedStatement` creators and setters to construct SQL queries
+
+    ```java
+    new PreparedStatementCreator() {
+      public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
+        String updateString = "update user set name = ? where id = ?";
+        return conn.prepareStatement(updateString);
+      }
+    }
+
+    new PreparedStatementSetter() {
+      public void setValues(PreparedStatement preparedStatement) throws SQLException {
+        preparedStatement.setString(1, uri.getQueryParameter("name"))
+        preparedStatement.setInt(2, uri.getQueryParameter("userId"))
+      }
+    }
+    ```
+
+    ## Resources
+    - [JDBC Template class](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html)
+    - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
+    - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+  cwe_id:
+    - 89
+  id: "java_spring_sqli"
+  documentation_url: https://docs.bearer.com/reference/rules/java_spring_sqli
