@@ -21,6 +21,7 @@ auxiliary:
   - id: java_lang_ldap_injection_context
     patterns:
       - pattern: $<LIB>$<CLASS> $<VARIABLE> = $<_>;
+        focus: VARIABLE
         filters:
           - variable: LIB
             regex: ^(javax.)?(naming.)?(directory.)?
@@ -29,13 +30,13 @@ auxiliary:
               - Context
               - DirContext
               - InitialDirContext
-          - focus: VARIABLE
-      - pattern: $<LIB>LdapContext $<_>
+      - pattern: $<LIB>LdapContext $<VARIABLE>
+        focus: VARIABLE
         filters:
           - variable: LIB
             regex: ^(javax.)?(naming.)?(ldap.)?
-          - focus: VARIABLE
-      - pattern: $<LIB>$<CLASS> $<_>
+      - pattern: $<LIB>$<CLASS> $<VARIABLE>
+        focus: VARIABLE
         filters:
           - variable: LIB
             regex: ^(javax.)?(naming.)?(event.)?
@@ -43,7 +44,6 @@ auxiliary:
             values:
               - EventContext
               - EventDirContext
-          - focus: VARIABLE
       # fallback
       - context;
       - ctx;
