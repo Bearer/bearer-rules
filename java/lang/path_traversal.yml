@@ -1,20 +1,42 @@
 patterns:
   - pattern: |
-      new File($<...>$<FILE_USER_INPUT>$<...>);
+      new $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
     filters:
+      - variable: METHOD
+        regex: (java.)?(io.)?(File|FileReader|FileWriter|FileInputStream|FileOutputStream)
       - variable: FILE_USER_INPUT
         detection: java_lang_path_traversal_user_input
         scope: result
   - pattern: |
-      new FileOutputStream($<...>$<FILE_OUTPUT_USER_INPUT>$<...>)
+      new $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
     filters:
-      - variable: FILE_OUTPUT_USER_INPUT
+      - variable: METHOD
+        regex: ^(java.)?(io.)?(File.)?(createTempFile|createTempDirectory)
+      - variable: FILE_USER_INPUT
         detection: java_lang_path_traversal_user_input
         scope: result
   - pattern: |
-      new FileInputStream($<...>$<FILE_INPUT_USER_INPUT>$<...>)
+      new $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
     filters:
-      - variable: FILE_INPUT_USER_INPUT
+      - variable: METHOD
+        regex: ^(javax.)?(activation.)?FileDataSource
+      - variable: FILE_USER_INPUT
+        detection: java_lang_path_traversal_user_input
+        scope: result
+  - pattern: |
+      new $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
+    filters:
+      - variable: METHOD
+        regex: ^(java.)?(nio.)?(file.)?(Files.)?(createTempFile|createTempDirectory)
+      - variable: FILE_USER_INPUT
+        detection: java_lang_path_traversal_user_input
+        scope: result
+  - pattern: |
+      new $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
+    filters:
+      - variable: METHOD
+        regex: ^(java.)?(nio.)?(file.)?(Paths.)?get
+      - variable: FILE_USER_INPUT
         detection: java_lang_path_traversal_user_input
         scope: result
 auxiliary:
@@ -22,13 +44,13 @@ auxiliary:
     sanitizer: java_lang_path_traversal_sanitized_input
     patterns:
       - pattern: |
-          $<PARAMETER_REQUEST>.$<METHOD>()
+          $<PARAMETER_REQUEST>.$<PARAMETER_METHOD>()
         filters:
           - variable: PARAMETER_REQUEST
             values:
               - req
               - request
-          - variable: METHOD
+          - variable: PARAMETER_METHOD
             values:
               - getParameterValues
               - getParameter
