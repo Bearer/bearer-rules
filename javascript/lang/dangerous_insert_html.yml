@@ -1,4 +1,5 @@
-disabled: true
+imports:
+  - javascript_shared_third_parties_sanitize_html_sanitizer
 patterns:
   - pattern: |
       document.$<METHOD>($<...>$<DATA>$<...>)
@@ -7,9 +8,9 @@ patterns:
         values:
           - write
           - writeLn
-      - not:
-          variable: DATA
-          detection: javascript_dangerous_insert_html_sanitzed_input
+      - variable: DATA
+        detection: javascript_lang_dangerous_insert_html_unsanitized_input
+        scope: result
   - pattern: |
       $<_>.$<PROPERTY> = $<DATA>
     filters:
@@ -17,9 +18,9 @@ patterns:
         values:
           - outerHTML
           - innerHTML
-      - not:
-          variable: DATA
-          detection: javascript_dangerous_insert_html_sanitzed_input
+      - variable: DATA
+        detection: javascript_lang_dangerous_insert_html_unsanitized_input
+        scope: result
   - pattern: |
       $<_>.$<METHOD>($<...>$<DATA>$<...>)
     filters:
@@ -30,25 +31,37 @@ patterns:
           - createElement
           - replaceWith
           - replaceChildren
-      - not:
-          variable: DATA
-          detection: javascript_dangerous_insert_html_sanitzed_input
+      - variable: DATA
+        detection: javascript_lang_dangerous_insert_html_unsanitized_input
+        scope: result
 auxiliary:
-  - id: javascript_dangerous_insert_html_sanitzed_input
+  - id: javascript_lang_dangerous_insert_html_string_value
     patterns:
       - pattern: |
-          $<STRING_LITERAL>
+          $<STRING_VALUE>
         filters:
-          - variable: STRING_LITERAL
-            detection: string_literal
-            contains: false
-      - $<_>.sanitize()
-      - $<_>.sanitizeHTML()
-      - $<_>.sanitizeHtml()
-  - id: javascript_dangerous_insert_html_unsanitzed_input
+          - variable: STRING_VALUE
+            string_regex: ""
+  - id: javascript_lang_dangerous_insert_html_sanitizer
     patterns:
-      - |
-        `$<...>${$<...>$<_>$<...>}$<...>`
+      - pattern: $<HTML_SANITIZER>
+        filters:
+          - variable: HTML_SANITIZER
+            detection: javascript_shared_third_parties_sanitize_html_sanitizer
+            scope: cursor
+      - pattern: $<RECEIVER>()
+        focus: RECEIVER
+  - id: javascript_lang_dangerous_insert_html_unsanitized_input
+    sanitizer: javascript_lang_dangerous_insert_html_sanitizer
+    patterns:
+      - pattern: $<UNSANITIZED_INPUT:identifier>
+        filters:
+          - not:
+              # to avoid ternary logic, we use a separate rule rather than
+              # using string_regex directly here
+              variable: UNSANITIZED_INPUT
+              detection: javascript_lang_dangerous_insert_html_string_value
+              scope: cursor
 languages:
   - javascript
 severity: high

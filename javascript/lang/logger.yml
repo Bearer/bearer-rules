@@ -2,9 +2,6 @@ patterns:
   - pattern: |
       $<LOG>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
     filters:
-      - variable: DATA_TYPE
-        detection: datatype
-        scope: result
       - variable: METHOD
         values:
           - warn
@@ -16,12 +13,12 @@ patterns:
         values:
           - log
           - logger
-  - pattern: |
-      console.$<METHOD>($<...>$<DATA_TYPE>$<...>)
-    filters:
       - variable: DATA_TYPE
         detection: datatype
         scope: result
+  - pattern: |
+      console.$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
       - variable: METHOD
         values:
           - warn
@@ -29,22 +26,22 @@ patterns:
           - error
           - log
           - table
-  - pattern: |
-      $<LOG>.child($<...>$<DATA_TYPE>$<...>)
-    filters:
       - variable: DATA_TYPE
         detection: datatype
         scope: result
+  - pattern: |
+      $<LOG>.child($<...>$<DATA_TYPE>$<...>)
+    filters:
       - variable: LOG
         values:
           - log
           - logger
-  - pattern: |
-      $<VAR>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
-    filters:
       - variable: DATA_TYPE
         detection: datatype
         scope: result
+  - pattern: |
+      $<VAR>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
       - variable: VAR
         detection: child_logger
       - variable: METHOD
@@ -54,6 +51,9 @@ patterns:
           - error
           - fatal
           - log
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
 auxiliary:
   - id: child_logger
     patterns:

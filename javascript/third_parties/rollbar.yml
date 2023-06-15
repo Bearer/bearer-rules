@@ -2,9 +2,6 @@ patterns:
   - pattern: |
       $<ROLLBAR>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
     filters:
-      - variable: DATA_TYPE
-        detection: datatype
-        scope: result
       - variable: ROLLBAR
         values:
           - rollbar
@@ -16,6 +13,9 @@ patterns:
           - warning
           - info
           - debug
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
 languages:
   - javascript
 skip_data_types:

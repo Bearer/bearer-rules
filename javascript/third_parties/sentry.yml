@@ -2,28 +2,28 @@ patterns:
   - pattern: |
       Sentry.$<METHOD>($<...>$<DATA_TYPE>$<...>)
     filters:
-      - variable: DATA_TYPE
-        detection: datatype
-        scope: result
       - variable: METHOD
         values:
           - addBreadcrumb
           - captureMessage
           - captureEvent
           - captureException
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
   - pattern: |
       $<SCOPE>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: SCOPE
         detection: javascript_third_parties_sentry_scope
-      - variable: DATA_TYPE
-        detection: datatype
-        scope: result
       - variable: METHOD
         values:
           - setUser
           - setTag
           - setExtra
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
 auxiliary:
   - id: javascript_third_parties_sentry_scope
     patterns:

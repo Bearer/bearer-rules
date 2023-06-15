@@ -7,13 +7,13 @@ patterns:
           - newrelic
           - newRelic
           - client
-      - variable: DATA_TYPE
-        detection: datatype
-        scope: result
       - variable: METHOD
         values:
           - noticeError
           - setCustomAttribute
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
   - pattern: |
       $<CLIENT>.$<METHOD>($<DATA_TYPE>, $<_>)
     filters:
@@ -22,20 +22,20 @@ patterns:
           - newrelic
           - newRelic
           - client
-      - variable: DATA_TYPE
-        detection: datatype
-        scope: result
       - variable: METHOD
         values:
           - setPageViewName
-  - pattern: |
-      $<INTERACTION>.setAttribute($<_>, $<DATA_TYPE>)
-    filters:
       - variable: DATA_TYPE
         detection: datatype
         scope: result
+  - pattern: |
+      $<INTERACTION>.setAttribute($<_>, $<DATA_TYPE>)
+    filters:
       - variable: INTERACTION
         detection: javascript_new_relic_interaction
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
 languages:
   - javascript
 auxiliary:

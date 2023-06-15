@@ -2,11 +2,11 @@ patterns:
   - pattern: |
       $<OPENAI>.createCompletion($<...>$<DATA_TYPE>$<...>)
     filters:
+      - variable: OPENAI
+        detection: javascript_third_parties_openai_scope
       - variable: DATA_TYPE
         detection: datatype
         scope: result
-      - variable: OPENAI
-        detection: javascript_third_parties_openai_scope
 auxiliary:
   - id: javascript_third_parties_openai_scope
     patterns:
