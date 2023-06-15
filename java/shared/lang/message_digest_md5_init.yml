@@ -5,7 +5,7 @@ patterns:
   - pattern: $<MESSAGE_DIGEST>.getInstance($<JAVA_SHARED_LANG_MESSAGE_DIGEST_MD5_INIT_ALGORITHM>)
     filters:
       - variable: MESSAGE_DIGEST
-        regex: ^(java.)?(security.)?MessageDigest
+        regex: \A(java\.security\.)?MessageDigest\z
       - variable: JAVA_SHARED_LANG_MESSAGE_DIGEST_MD5_INIT_ALGORITHM
         string_regex: MD5
 metadata:

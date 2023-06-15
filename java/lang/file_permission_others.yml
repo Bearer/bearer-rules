@@ -15,7 +15,7 @@ auxiliary:
       - pattern: $<FILES>.getPosixFilePermissions();
         filters:
           - variable: FILES
-            regex: ^(java.)?(nio.)?(file.)?Files
+            regex: \A(java\.nio\.file\.)?Files\z
 languages:
   - java
 severity: warning
