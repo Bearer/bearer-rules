@@ -7,29 +7,29 @@ patterns:
       }
     filters:
       - either:
-        - variable: EXCEPTION
-          values:
-            - Throwable
-            - Exception
-            - Error
-            - OutOfMemoryError
-            - StackOverflowError
-        - variable: ERROR
-          regex: ^(java.)?(io.)?FileNotFoundException
-        - variable: ERROR
-          regex: ^(java.)?(sql.)?SQLException
-        - variable: ERROR
-          regex: ^(java.)?(net.)?BindException
-        - variable: ERROR
-          regex: ^(java.)?(util.)?ConcurrentModificationException
-        - variable: ERROR
-          regex: ^(javax.)?(naming.)?InsufficientResourcesException
-        - variable: ERROR
-          regex: ^(java.)?(util.)?MissingResourceException
-        - variable: ERROR
-          regex: ^(java.)?(util.)?(jar.)?JarException
-        - variable: ERROR
-          regex: ^(java.)?(security.)?(acl.)?NotOwnerException
+          - variable: EXCEPTION
+            values:
+              - Throwable
+              - Exception
+              - Error
+              - OutOfMemoryError
+              - StackOverflowError
+          - variable: ERROR
+            regex: ^(java.)?(io.)?FileNotFoundException
+          - variable: ERROR
+            regex: ^(java.)?(sql.)?SQLException
+          - variable: ERROR
+            regex: ^(java.)?(net.)?BindException
+          - variable: ERROR
+            regex: ^(java.)?(util.)?ConcurrentModificationException
+          - variable: ERROR
+            regex: ^(javax.)?(naming.)?InsufficientResourcesException
+          - variable: ERROR
+            regex: ^(java.)?(util.)?MissingResourceException
+          - variable: ERROR
+            regex: ^(java.)?(util.)?(jar.)?JarException
+          - variable: ERROR
+            regex: ^(java.)?(security.)?(acl.)?NotOwnerException
 languages:
   - java
 severity: warning
