@@ -1,3 +1,5 @@
+import javax.naming.directory.DirContext;
+
 public class Cls extends HttpServlet
 {
 
@@ -9,6 +11,8 @@ public class Cls extends HttpServlet
         String base = "ou=users,ou=system";
         Object[] filters = new Object[] {"First avenue"};
         javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+
+        DirContext dirContext = new InitialDirContext(env);
 
         dirContext.search(base, filter, filters, sc);
     }
