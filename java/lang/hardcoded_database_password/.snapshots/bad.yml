@@ -1,0 +1,37 @@
+warning:
+    - rule:
+        cwe_ids:
+            - "259"
+        id: java_lang_hardcoded_database_password
+        title: Hardcoded database password detected
+        description: |
+            ## Description
+
+            Hardcoded password used in database connection string detected. Code is not a safe place to store passwords like this; use environment variables or a key-management system instead.
+
+            ## Resources
+            - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_hardcoded_database_password
+      line_number: 8
+      full_filename: /tmp/scan/bad.java
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 23
+                end: 73
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 23
+                end: 73
+        content: DriverManager.getConnection(url, "admin", "admin")
+      parent_line_number: 8
+      snippet: DriverManager.getConnection(url, "admin", "admin")
+      fingerprint: 7a00c02c6f0e9c523225383da4ade342_0
+      old_fingerprint: ebcf8e1812b392e73faea0ce3fa3914e_0
+
