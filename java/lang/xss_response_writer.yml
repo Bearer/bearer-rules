@@ -15,6 +15,7 @@ patterns:
           - write
 auxiliary:
   - id: java_lang_xss_response_writer_user_input
+    sanitizer: java_lang_xss_response_writer_sanitized_input
     patterns:
       - pattern: |
           $<REQUEST>.$<REQUEST_METHOD>()
@@ -44,6 +45,9 @@ auxiliary:
     patterns:
       - pattern: |
           response.getWriter()
+  - id: java_lang_xss_response_writer_sanitized_input
+    patterns:
+      - pattern: Encode.forHtml($<!>$<_>)
 languages:
   - java
 skip_data_types:
@@ -53,18 +57,28 @@ metadata:
   remediation_message: |
     ## Description
 
-    Make sure to sanitize any user input before passing it down to `response.getWriter()`
+    Make sure to encode and sanitize any user input before passing it down to `response.getWriter()` to avoid cross-site scripting (XSS) attacks.
 
-    ✅ Sanitized user input
+    ✅ Use an encoder to minimize XSS risk
+
+    ```java
+      String userInput = req.getQueryString("user");
+      String encodedUserInput = Encode.forHtml(userInput)
+      response.getWriter().write(encodedUserInput)
+    ```
+
+    ✅ Even better, sanitize user input
 
     ```java
       String userInput = req.getQueryString("user");
       String sanitizedUserInput = sanitize(userInput);
       response.getWriter().write(sanitizedUserInput);
     ```
+
     ## Resources
 
-    - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+    - [OWASP XSS Prevention Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+    - [OWASP Java Encoder](https://owasp.org/www-project-java-encoder/)
   cwe_id:
     - 79
   id: "java_lang_xss_response_writer"
