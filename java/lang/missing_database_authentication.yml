@@ -5,7 +5,7 @@ patterns:
       - variable: SQL_DRIVER_MANAGER
         detection: java_lang_missing_database_authentication_sql_driver_manager
       - variable: EMPTY_STRING
-        regex: ('|")('|")
+        string_regex: \A\z
 languages:
   - java
 severity: warning
