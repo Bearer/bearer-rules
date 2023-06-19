@@ -3,7 +3,7 @@ patterns:
       new $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
     filters:
       - variable: METHOD
-        regex: (java.)?(io.)?(File|FileReader|FileWriter|FileInputStream|FileOutputStream)
+        regex: \A(java\.io\.)?(File|FileReader|FileWriter|FileInputStream|FileOutputStream)\z
       - variable: FILE_USER_INPUT
         detection: java_lang_path_traversal_user_input
         scope: result
@@ -11,7 +11,7 @@ patterns:
       new $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
     filters:
       - variable: METHOD
-        regex: ^(javax.)?(activation.)?FileDataSource
+        regex: \A(javax\.activation\.)?FileDataSource\z
       - variable: FILE_USER_INPUT
         detection: java_lang_path_traversal_user_input
         scope: result
@@ -19,7 +19,7 @@ patterns:
       $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
     filters:
       - variable: METHOD
-        regex: ^(java.)?(io.)?(File.)?(createTempFile|createTempDirectory)
+        regex: \A(java\.io\.File\.)?(createTempFile|createTempDirectory)\z
       - variable: FILE_USER_INPUT
         detection: java_lang_path_traversal_user_input
         scope: result
@@ -27,7 +27,7 @@ patterns:
       $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
     filters:
       - variable: METHOD
-        regex: ^(java.)?(nio.)?(file.)?(Files.)?(createTempFile|createTempDirectory)
+        regex: \A(java\.nio\.file\.Files\.)?(createTempFile|createTempDirectory)\z
       - variable: FILE_USER_INPUT
         detection: java_lang_path_traversal_user_input
         scope: result
@@ -35,7 +35,7 @@ patterns:
       $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
     filters:
       - variable: METHOD
-        regex: ^(java.)?(nio.)?(file.)?(Paths.)?get
+        regex: \A(java\.nio\.file\.Paths\.)?get\z
       - variable: FILE_USER_INPUT
         detection: java_lang_path_traversal_user_input
         scope: result

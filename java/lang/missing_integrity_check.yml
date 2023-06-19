@@ -2,7 +2,7 @@ patterns:
   - pattern: $<CIPHER>.getInstance($<ALGORITHM>)
     filters:
       - variable: CIPHER
-        regex: ^(javax.)?(crypto.)?Cipher
+        regex: \A(javax\.crypto\.)?Cipher\z
       - variable: ALGORITHM
         string_regex: \/CBC\/PKCS5Padding\z
       - not:

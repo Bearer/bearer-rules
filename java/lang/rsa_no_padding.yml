@@ -2,7 +2,7 @@ patterns:
   - pattern: $<CIPHER>.getInstance($<RSA_NO_PADDING>)
     filters:
       - variable: CIPHER
-        regex: ^(javax.)?(crypto.)?Cipher
+        regex: \A(javax\.crypto\.)?Cipher\z
       - variable: RSA_NO_PADDING
         string_regex: \ARSA\/.*\/NoPadding\z
 languages:

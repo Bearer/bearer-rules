@@ -5,7 +5,7 @@ patterns:
   - pattern: $<CIPHER>.getInstance($<DES_ALGORITHM>)
     filters:
       - variable: CIPHER
-        regex: ^(javax.)?(crypto.)?Cipher
+        regex: \A(javax\.crypto\.)?Cipher\z
       - variable: DES_ALGORITHM
         string_regex: DES(/.*)?
 metadata:
