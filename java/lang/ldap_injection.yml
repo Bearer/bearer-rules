@@ -3,14 +3,52 @@ patterns:
       $<CONTEXT>.search($<_>, $<USER_INPUT>$<...>)
     filters:
       - variable: CONTEXT
+        detection: java_lang_ldap_injection_context
+      - variable: USER_INPUT
+        detection: java_lang_ldap_injection_user_input
+  - pattern: |
+      $<CONTEXT>.$<METHOD>($<USER_INPUT>)
+    filters:
+      - variable: CONTEXT
+        detection: java_lang_ldap_injection_context
+      - variable: METHOD
         values:
-          - context
-          - ctx
-          - dirContext
-          - dirCtx
+          - list
+          - lookup
       - variable: USER_INPUT
         detection: java_lang_ldap_injection_user_input
 auxiliary:
+  - id: java_lang_ldap_injection_context
+    patterns:
+      - pattern: $<LIB>$<CLASS> $<VARIABLE> = $<_>;
+        focus: VARIABLE
+        filters:
+          - variable: LIB
+            regex: ^(javax.)?(naming.)?(directory.)?
+          - variable: CLASS
+            values:
+              - Context
+              - DirContext
+              - InitialDirContext
+      - pattern: $<LIB>LdapContext $<VARIABLE>
+        focus: VARIABLE
+        filters:
+          - variable: LIB
+            regex: ^(javax.)?(naming.)?(ldap.)?
+      - pattern: $<LIB>$<CLASS> $<VARIABLE>
+        focus: VARIABLE
+        filters:
+          - variable: LIB
+            regex: ^(javax.)?(naming.)?(event.)?
+          - variable: CLASS
+            values:
+              - EventContext
+              - EventDirContext
+      # fallback
+      - context;
+      - ctx;
+      - dirContext;
+      - dirCtx;
   - id: java_lang_ldap_injection_user_input
     patterns:
       - pattern: |
@@ -39,8 +77,6 @@ auxiliary:
               - getParts
 languages:
   - java
-trigger:
-  match_on: presence
 metadata:
   description: "LDAP injection threat detected"
   remediation_message: |
@@ -72,7 +108,8 @@ metadata:
 
     ## References
     - [LDAP Injection](https://owasp.org/www-community/attacks/LDAP_Injection)
+    - [LDAP Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html)
   cwe_id:
     - 90
-  id: "java_lang_ldap_injection"
+  id: java_lang_ldap_injection
   documentation_url: https://docs.bearer.com/reference/rules/java_lang_ldap_injection
