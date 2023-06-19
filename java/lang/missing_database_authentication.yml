@@ -1,18 +1,12 @@
 patterns:
   - pattern: |
-      $<SQL_DRIVER_MANAGER>.getConnection($<_>, $<_>, $<EMPTY_STRING>)
+      DriverManager.getConnection($<_>, $<_>, $<EMPTY_STRING>)
     filters:
-      - variable: SQL_DRIVER_MANAGER
-        detection: java_lang_missing_database_authentication_sql_driver_manager
       - variable: EMPTY_STRING
         string_regex: \A\z
 languages:
   - java
 severity: warning
-auxiliary:
-  - id: java_lang_missing_database_authentication_sql_driver_manager
-    patterns:
-      - DriverManager
 metadata:
   description: "Missing authentication for database detected"
   remediation_message: |
