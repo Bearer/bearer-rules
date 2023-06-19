@@ -1,0 +1,39 @@
+warning:
+    - rule:
+        cwe_ids:
+            - "306"
+        id: java_lang_missing_database_authentication
+        title: Missing authentication for database detected
+        description: |
+            ## Description
+
+            A database server with inadequate authentication is extremely vulnerable to security attacks.
+            Ensure that your database server has the recommended authentication configuration (password, username), and consider using a key management system for any passwords.
+
+            ## Resources
+
+            - [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_missing_database_authentication
+      line_number: 8
+      full_filename: /tmp/scan/bad.java
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 23
+                end: 67
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 23
+                end: 67
+        content: DriverManager.getConnection(url, "root", "")
+      parent_line_number: 8
+      snippet: DriverManager.getConnection(url, "root", "")
+      fingerprint: c604e41b22b8045034a2fdf34214a28c_0
+      old_fingerprint: 44864850b56549467d7956f89e420e07_0
+
