@@ -1,0 +1,222 @@
+low:
+    - rule:
+        cwe_ids:
+            - "330"
+        id: java_lang_insufficiently_random_values
+        title: Insufficiently random value detected.
+        description: |
+            ## Description
+
+            Using predictable random values makes our application vulnerable to attacks,
+            especially if these values are used for security purposes.
+
+            ## Remediations
+
+            ✅ Use a stronger library when generating random values
+
+            ```java
+            SecureRandom random = new SecureRandom();
+            ```
+
+            ## Resources
+            - [Java SecureRandom class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/SecureRandom.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_insufficiently_random_values
+      line_number: 2
+      full_filename: /tmp/scan/bad.java
+      filename: .
+      source:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 12
+      sink:
+        location:
+            start: 2
+            end: 2
+            column:
+                start: 1
+                end: 12
+        content: rand.next()
+      parent_line_number: 2
+      snippet: rand.next()
+      fingerprint: 8f51671abbce2a871cc191dc35531c9f_0
+      old_fingerprint: 3ae37c0272da644b03bdd8671d2dd5be_0
+    - rule:
+        cwe_ids:
+            - "330"
+        id: java_lang_insufficiently_random_values
+        title: Insufficiently random value detected.
+        description: |
+            ## Description
+
+            Using predictable random values makes our application vulnerable to attacks,
+            especially if these values are used for security purposes.
+
+            ## Remediations
+
+            ✅ Use a stronger library when generating random values
+
+            ```java
+            SecureRandom random = new SecureRandom();
+            ```
+
+            ## Resources
+            - [Java SecureRandom class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/SecureRandom.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_insufficiently_random_values
+      line_number: 4
+      full_filename: /tmp/scan/bad.java
+      filename: .
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 53
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 1
+                end: 53
+        content: org.apache.commons.lang.RandomStringUtils.random(10)
+      parent_line_number: 4
+      snippet: org.apache.commons.lang.RandomStringUtils.random(10)
+      fingerprint: 8f51671abbce2a871cc191dc35531c9f_1
+      old_fingerprint: 3ae37c0272da644b03bdd8671d2dd5be_1
+    - rule:
+        cwe_ids:
+            - "330"
+        id: java_lang_insufficiently_random_values
+        title: Insufficiently random value detected.
+        description: |
+            ## Description
+
+            Using predictable random values makes our application vulnerable to attacks,
+            especially if these values are used for security purposes.
+
+            ## Remediations
+
+            ✅ Use a stronger library when generating random values
+
+            ```java
+            SecureRandom random = new SecureRandom();
+            ```
+
+            ## Resources
+            - [Java SecureRandom class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/SecureRandom.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_insufficiently_random_values
+      line_number: 5
+      full_filename: /tmp/scan/bad.java
+      filename: .
+      source:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 29
+      sink:
+        location:
+            start: 5
+            end: 5
+            column:
+                start: 1
+                end: 29
+        content: RandomStringUtils.random(10)
+      parent_line_number: 5
+      snippet: RandomStringUtils.random(10)
+      fingerprint: 8f51671abbce2a871cc191dc35531c9f_2
+      old_fingerprint: 3ae37c0272da644b03bdd8671d2dd5be_2
+    - rule:
+        cwe_ids:
+            - "330"
+        id: java_lang_insufficiently_random_values
+        title: Insufficiently random value detected.
+        description: |
+            ## Description
+
+            Using predictable random values makes our application vulnerable to attacks,
+            especially if these values are used for security purposes.
+
+            ## Remediations
+
+            ✅ Use a stronger library when generating random values
+
+            ```java
+            SecureRandom random = new SecureRandom();
+            ```
+
+            ## Resources
+            - [Java SecureRandom class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/SecureRandom.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_insufficiently_random_values
+      line_number: 7
+      full_filename: /tmp/scan/bad.java
+      filename: .
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 51
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 1
+                end: 51
+        content: org.apache.commons.lang.math.RandomUtils.nextint()
+      parent_line_number: 7
+      snippet: org.apache.commons.lang.math.RandomUtils.nextint()
+      fingerprint: 8f51671abbce2a871cc191dc35531c9f_3
+      old_fingerprint: 3ae37c0272da644b03bdd8671d2dd5be_3
+    - rule:
+        cwe_ids:
+            - "330"
+        id: java_lang_insufficiently_random_values
+        title: Insufficiently random value detected.
+        description: |
+            ## Description
+
+            Using predictable random values makes our application vulnerable to attacks,
+            especially if these values are used for security purposes.
+
+            ## Remediations
+
+            ✅ Use a stronger library when generating random values
+
+            ```java
+            SecureRandom random = new SecureRandom();
+            ```
+
+            ## Resources
+            - [Java SecureRandom class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/SecureRandom.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_insufficiently_random_values
+      line_number: 8
+      full_filename: /tmp/scan/bad.java
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 22
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 1
+                end: 22
+        content: RandomUtils.nextint()
+      parent_line_number: 8
+      snippet: RandomUtils.nextint()
+      fingerprint: 8f51671abbce2a871cc191dc35531c9f_4
+      old_fingerprint: 3ae37c0272da644b03bdd8671d2dd5be_4
+

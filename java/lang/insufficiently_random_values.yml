@@ -1,0 +1,78 @@
+patterns:
+  - pattern: |
+      $<RANDOM>.$<METHOD>();
+    filters:
+      - variable: RANDOM
+        detection: java_lang_insufficiently_random_values_init
+      - not:
+          variable: METHOD
+          values:
+            - setSeed
+  - pattern: |
+      $<CLASS>.$<_>();
+    filters:
+      - either:
+          - variable: CLASS
+            regex: \A(org\.apache\.commons\.lang\.)?RandomStringUtils\z
+          - variable: CLASS
+            regex: \A(org\.apache\.commons\.lang\.math\.)?RandomUtils\z
+auxiliary:
+  - id: java_lang_insufficiently_random_values_init
+    patterns:
+      - pattern: new $<TYPE>();
+        filters:
+          - variable: TYPE
+            regex: \A(java\.util\.)?Random\z
+      # variable declaration
+      - pattern: $<TYPE> $<VARIABLE> = $<_>;
+        filters:
+          - variable: TYPE
+            regex: \A(java\.util\.)?Random\z
+        focus: VARIABLE
+      - pattern: $<TYPE> $<VARIABLE> = $<_>;
+        filters:
+          - variable: TYPE
+            regex: \A(java\.util\.)?Random\z
+        focus: VARIABLE
+      # class constructor argument
+      - pattern: |
+          class $<_>$<...> {
+            $<...>$<_>($<...>$<TYPE> $<VARIABLE>$<...>) {}
+          }
+        filters:
+          - variable: TYPE
+            regex: \A(java\.util\.)?Random\z
+        focus: VARIABLE
+      # class method argument
+      - pattern: |
+          class $<_>$<...> {
+            $<...>$<_> $<_>($<...>$<TYPE> $<VARIABLE>$<...>) {}
+          }
+        filters:
+          - variable: TYPE
+            regex: \A(java\.util\.)?Random\z
+        focus: VARIABLE
+languages:
+  - java
+metadata:
+  description: "Insufficiently random value detected."
+  remediation_message: |
+    ## Description
+
+    Using predictable random values makes our application vulnerable to attacks,
+    especially if these values are used for security purposes.
+
+    ## Remediations
+
+    ✅ Use a stronger library when generating random values
+
+    ```java
+    SecureRandom random = new SecureRandom();
+    ```
+
+    ## Resources
+    - [Java SecureRandom class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/SecureRandom.html)
+  cwe_id:
+    - 330
+  id: java_lang_insufficiently_random_values
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_insufficiently_random_values
