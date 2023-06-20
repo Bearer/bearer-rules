@@ -35,20 +35,25 @@ for dir in $(find $TARGET -type d -name "testdata"); do
   rule_id="${rule_id///testdata/}"
   rule_id="${rule_id//\//_}"
 
-  for file in $(find $dir -type f); do
+  for testdata in $(ls -d $dir/*); do
     TEST_COUNT=$((TEST_COUNT+1))
 
-    test_result=$(mktemp "${TMPDIR:-/tmp/}$(basename $file).XXXXXXXXXXXX")
-    test_snapshot="${file//testdata/.snapshots}"
-    test_snapshot=${test_snapshot%.*}.yml
-    filename=$(basename $file)
+    test_result=$(mktemp "${TMPDIR:-/tmp/}$(basename $testdata).XXXXXXXXXXXX")
+    test_snapshot="${testdata//testdata/.snapshots}"
+    if [[ -d "$testdata" ]]
+    then
+     test_snapshot=$test_snapshot.yml
+    else
+      test_snapshot=${test_snapshot%.*}.yml
+    fi
+    filename=$(basename $testdata)
     test_filename=/tmp/scan/$filename
 
     echo "TEST: $test_snapshot"
     if [ -n "$BEARER_WORKSPACE" ]; then
       rule_loc=$PWD
       mkdir -p /tmp/scan
-      cp $dir/$filename $test_filename
+      cp -R $dir/$filename $test_filename
       cd $BEARER_WORKSPACE
       go run ./cmd/bearer/main.go scan $test_filename \
         --only-rule=$rule_id \
