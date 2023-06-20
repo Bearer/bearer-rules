@@ -1,9 +1,15 @@
+imports:
+  - java_shared_lang_instance
 patterns:
   - pattern: |
       $<RANDOM>.$<METHOD>();
     filters:
       - variable: RANDOM
-        detection: java_lang_insufficiently_random_values_init
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(java\.util\.)?Random\z
       - not:
           variable: METHOD
           values:
@@ -16,42 +22,6 @@ patterns:
             regex: \A(org\.apache\.commons\.lang\.)?RandomStringUtils\z
           - variable: CLASS
             regex: \A(org\.apache\.commons\.lang\.math\.)?RandomUtils\z
-auxiliary:
-  - id: java_lang_insufficiently_random_values_init
-    patterns:
-      - pattern: new $<TYPE>();
-        filters:
-          - variable: TYPE
-            regex: \A(java\.util\.)?Random\z
-      # variable declaration
-      - pattern: $<TYPE> $<VARIABLE> = $<_>;
-        filters:
-          - variable: TYPE
-            regex: \A(java\.util\.)?Random\z
-        focus: VARIABLE
-      - pattern: $<TYPE> $<VARIABLE> = $<_>;
-        filters:
-          - variable: TYPE
-            regex: \A(java\.util\.)?Random\z
-        focus: VARIABLE
-      # class constructor argument
-      - pattern: |
-          class $<_>$<...> {
-            $<...>$<_>($<...>$<TYPE> $<VARIABLE>$<...>) {}
-          }
-        filters:
-          - variable: TYPE
-            regex: \A(java\.util\.)?Random\z
-        focus: VARIABLE
-      # class method argument
-      - pattern: |
-          class $<_>$<...> {
-            $<...>$<_> $<_>($<...>$<TYPE> $<VARIABLE>$<...>) {}
-          }
-        filters:
-          - variable: TYPE
-            regex: \A(java\.util\.)?Random\z
-        focus: VARIABLE
 languages:
   - java
 metadata:
