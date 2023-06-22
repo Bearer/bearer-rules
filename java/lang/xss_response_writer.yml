@@ -47,7 +47,8 @@ auxiliary:
           response.getWriter()
   - id: java_lang_xss_response_writer_sanitized_input
     patterns:
-      - pattern: Encode.forHtml($<!>$<_>)
+      - Encode.forHtml($<!>$<_>)
+      - $<_>.encodeForHTML($<!>$<_>)
 languages:
   - java
 skip_data_types:
