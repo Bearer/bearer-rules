@@ -31,5 +31,9 @@ public class Foo extends Servlet
     } catch (OtherException|HttpServletRequest e) {
       e.getParameter("name");
     }
+
+    try (ServletRequest resource = getReq()) {
+      resource.getParameter("name");
+    }
   }
 }
