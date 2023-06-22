@@ -23,32 +23,20 @@ patterns:
           - getHeaderNames
           - getPart
           - getParts
-  - pattern: $<SERVLET_REQUEST>.getHeader($<HEADER>)
-    filters:
-      - variable: SERVLET_REQUEST
-        detection: java_shared_lang_parameter_request
-      - variable: HEADER
-        string_regex: \A(?i)(Host|Referer|User-Agent)\z
 auxiliary:
   - id: java_shared_lang_parameter_request
     patterns:
-      # variable declaration
-      - pattern: ServletRequest $<VARIABLE> = $<_>;
-        focus: VARIABLE
-      - pattern: HttpServletRequest $<VARIABLE> = $<_>;
-        focus: VARIABLE
-      # class constructor argument
-      - pattern: |
-          class $<_>$<...> {
-            $<...>$<_>($<...>ServletRequest $<VARIABLE>$<...>) {}
-          }
-        focus: VARIABLE
-      # class method argument
-      - pattern: |
-          class $<_>$<...> {
-            $<...>$<_> $<_>($<...>ServletRequest $<VARIABLE>$<...>) {}
-          }
-        focus: VARIABLE
+      - pattern: $<INSTANCE>;
+        filters:
+          - variable: INSTANCE
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - either:
+                  - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                    regex: \A(javax\.servlet\.http\.)?HttpServletRequest\z
+                  - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                    regex: \A(javax\.servlet\.)?ServletRequest\z
       # fallback
       - req;
       - request;
