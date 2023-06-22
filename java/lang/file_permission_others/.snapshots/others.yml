@@ -30,17 +30,17 @@ warning:
             end: 3
             column:
                 start: 3
-                end: 52
+                end: 51
       sink:
         location:
             start: 3
             end: 3
             column:
                 start: 3
-                end: 52
-        content: permissions.add(PosixFilePermission.OTHER_WRITE);
+                end: 51
+        content: permissions.add(PosixFilePermission.OTHER_WRITE)
       parent_line_number: 3
-      snippet: permissions.add(PosixFilePermission.OTHER_WRITE);
+      snippet: permissions.add(PosixFilePermission.OTHER_WRITE)
       fingerprint: 12e9ca5557a4ca260d8f219fc77d4d18_0
       old_fingerprint: c8f96e6f068df6d65e3655a850082e33_0
 
