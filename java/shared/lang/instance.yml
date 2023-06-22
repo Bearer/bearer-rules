@@ -4,7 +4,7 @@ languages:
 patterns:
   - new $<JAVA_SHARED_LANG_INSTANCE_TYPE>();
   # local variable declaration
-  - pattern: $<JAVA_SHARED_LANG_INSTANCE_TYPE> $<JAVA_SHARED_LANG_INSTANCE_VARIABLE> = $<_>;
+  - pattern: $<...>$<JAVA_SHARED_LANG_INSTANCE_TYPE> $<JAVA_SHARED_LANG_INSTANCE_VARIABLE> = $<_>;
   # class field
   - pattern: |
       class $<...>$<_> $<...>{
