@@ -1,3 +1,5 @@
+imports:
+  - java_shared_lang_instance
 type: shared
 languages:
   - java
@@ -6,6 +8,7 @@ patterns:
     filters:
       - variable: REQUEST
         detection: java_shared_lang_parameter_request
+        scope: cursor
       - variable: REQUEST_METHOD
         values:
           - getCookies
