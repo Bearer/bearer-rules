@@ -25,10 +25,10 @@ patterns:
           - getParts
   - pattern: $<SERVLET_REQUEST>.getHeader($<HEADER>)
     filters:
-    - variable: SERVLET_REQUEST
-      detection: java_shared_lang_parameter_request
-    - variable: HEADER
-      string_regex: \A(?i)(Host|Referer|User-Agent)\z
+      - variable: SERVLET_REQUEST
+        detection: java_shared_lang_parameter_request
+      - variable: HEADER
+        string_regex: \A(?i)(Host|Referer|User-Agent)\z
 auxiliary:
   - id: java_shared_lang_parameter_request
     patterns:
