@@ -4,7 +4,37 @@ low:
             - "643"
         id: java_lang_xpath_injection
         title: XPATH injection threat detected
-        description: "## Description\n  Unsatized input going into XPath evaluate detected. \n  This could lead to xpath injection if variables passed into the evaluate or compile commands are not properly sanitized.\n  Xpath injection could lead to unauthorized access to sensitive information in XML documents.\n  Instead, thoroughly sanitize user input or use parameterized xpath queries if you can.\n\n## Remediations\n\n✅ Sanitize XPATH queries\n\n```java\n  public class Cls extends HttpServlet\n  {\n\n      public void handleRequest(HttpServletRequest request, HttpServletResponse response)\n      {\n          String userID = request.getParameter(\"userID\");\n          String sanitizedUserID = sanitize(userID);\n\n          javax.xml.xpath.XPathFactory xpf = javax.xml.xpath.XPathFactory.newInstance();\n          javax.xml.xpath.XPath xp = xpf.newXPath();\n\n          String expression = \"/Users/User[@userID='\" + sanitizedUserID + \"']\";\n          String result = xp.evaluate(expression, xmlDocument);\n      }\n  }\n```\n\n## References\n- [XPATH Injection](https://owasp.org/www-community/attacks/XPATH_Injection)\n"
+        description: |
+            ## Description
+              Unsanitized input going into XPath evaluate detected.
+              This could lead to xpath injection if variables passed into the evaluate or compile commands are not properly sanitized.
+              Xpath injection could lead to unauthorized access to sensitive information in XML documents.
+              Instead, thoroughly sanitize user input or use parameterized xpath queries if you can.
+
+            ## Remediations
+
+            ✅ Sanitize XPATH queries
+
+            ```java
+              public class Cls extends HttpServlet
+              {
+
+                  public void handleRequest(HttpServletRequest request, HttpServletResponse response)
+                  {
+                      String userID = request.getParameter("userID");
+                      String sanitizedUserID = sanitize(userID);
+
+                      javax.xml.xpath.XPathFactory xpf = javax.xml.xpath.XPathFactory.newInstance();
+                      javax.xml.xpath.XPath xp = xpf.newXPath();
+
+                      String expression = "/Users/User[@userID='" + sanitizedUserID + "']";
+                      String result = xp.evaluate(expression, xmlDocument);
+                  }
+              }
+            ```
+
+            ## References
+            - [XPATH Injection](https://owasp.org/www-community/attacks/XPATH_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/java_lang_xpath_injection
       line_number: 12
       full_filename: /tmp/scan/xpath_injection.java
