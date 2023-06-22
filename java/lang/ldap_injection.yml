@@ -1,3 +1,5 @@
+imports:
+  - java_shared_lang_user_input
 patterns:
   - pattern: |
       $<CONTEXT>.search($<_>, $<USER_INPUT>$<...>)
@@ -5,7 +7,7 @@ patterns:
       - variable: CONTEXT
         detection: java_lang_ldap_injection_context
       - variable: USER_INPUT
-        detection: java_lang_ldap_injection_user_input
+        detection: java_shared_lang_user_input
   - pattern: |
       $<CONTEXT>.$<METHOD>($<USER_INPUT>)
     filters:
@@ -16,7 +18,7 @@ patterns:
           - list
           - lookup
       - variable: USER_INPUT
-        detection: java_lang_ldap_injection_user_input
+        detection: java_shared_lang_user_input
 auxiliary:
   - id: java_lang_ldap_injection_context
     patterns:
@@ -49,32 +51,6 @@ auxiliary:
       - ctx;
       - dirContext;
       - dirCtx;
-  - id: java_lang_ldap_injection_user_input
-    patterns:
-      - pattern: |
-          $<REQUEST>.$<REQUEST_METHOD>()
-        filters:
-          - variable: REQUEST
-            values:
-              - req
-              - request
-          - variable: REQUEST_METHOD
-            values:
-              - getCookies
-              - getHeader
-              - getQueryString
-              - getRequestURI
-              - getRequestURL
-              - getAttribute
-              - getInputStream
-              - getParameter
-              - getParameterMap
-              - getParameterNames
-              - getParameterValues
-              - getReader
-              - getHeaderNames
-              - getPart
-              - getParts
 languages:
   - java
 metadata:

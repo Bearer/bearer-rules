@@ -1,0 +1,57 @@
+type: shared
+languages:
+  - java
+patterns:
+  - pattern: $<REQUEST>.$<REQUEST_METHOD>();
+    filters:
+      - variable: REQUEST
+        detection: java_shared_lang_parameter_request
+      - variable: REQUEST_METHOD
+        values:
+          - getCookies
+          - getHeader
+          - getRequestURI
+          - getRequestURL
+          - getAttribute
+          - getInputStream
+          - getQueryString
+          - getParameter
+          - getParameterMap
+          - getParameterNames
+          - getParameterValues
+          - getReader
+          - getHeaderNames
+          - getPart
+          - getParts
+  - pattern: $<SERVLET_REQUEST>.getHeader($<HEADER>)
+    filters:
+    - variable: SERVLET_REQUEST
+      detection: java_shared_lang_parameter_request
+    - variable: HEADER
+      string_regex: \A(?i)(Host|Referer|User-Agent)\z
+auxiliary:
+  - id: java_shared_lang_parameter_request
+    patterns:
+      # variable declaration
+      - pattern: ServletRequest $<VARIABLE> = $<_>;
+        focus: VARIABLE
+      - pattern: HttpServletRequest $<VARIABLE> = $<_>;
+        focus: VARIABLE
+      # class constructor argument
+      - pattern: |
+          class $<_>$<...> {
+            $<...>$<_>($<...>ServletRequest $<VARIABLE>$<...>) {}
+          }
+        focus: VARIABLE
+      # class method argument
+      - pattern: |
+          class $<_>$<...> {
+            $<...>$<_> $<_>($<...>ServletRequest $<VARIABLE>$<...>) {}
+          }
+        focus: VARIABLE
+      # fallback
+      - req;
+      - request;
+metadata:
+  description: "Java user input."
+  id: java_shared_lang_user_input
