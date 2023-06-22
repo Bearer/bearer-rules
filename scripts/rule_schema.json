@@ -219,6 +219,12 @@
                 "detection": {
                     "type": "string"
                 },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Filter"
+                    }
+                },
                 "scope": {
                     "type": "string",
                     "enum": [
