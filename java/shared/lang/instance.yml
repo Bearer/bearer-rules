@@ -4,7 +4,7 @@ languages:
 patterns:
   - new $<JAVA_SHARED_LANG_INSTANCE_TYPE>();
   # local variable declaration
-  - pattern: $<...>$<JAVA_SHARED_LANG_INSTANCE_TYPE> $<JAVA_SHARED_LANG_INSTANCE_VARIABLE> = $<_>;
+  - pattern: $<JAVA_SHARED_LANG_INSTANCE_TYPE> $<JAVA_SHARED_LANG_INSTANCE_VARIABLE> = $<_>;
   # class field
   - pattern: |
       class $<...>$<_> $<...>{
@@ -24,9 +24,6 @@ patterns:
     focus: JAVA_SHARED_LANG_INSTANCE_VARIABLE
   # exception handler
   - pattern: try {} catch($<JAVA_SHARED_LANG_INSTANCE_TYPE> $<JAVA_SHARED_LANG_INSTANCE_VARIABLE>) {}
-    focus: JAVA_SHARED_LANG_INSTANCE_VARIABLE
-  # resource block
-  - pattern: try ($<JAVA_SHARED_LANG_INSTANCE_TYPE> $<JAVA_SHARED_LANG_INSTANCE_VARIABLE> = $<_>) {}
     focus: JAVA_SHARED_LANG_INSTANCE_VARIABLE
 metadata:
   description: "Java type instance"

@@ -19,13 +19,8 @@ public class FirstExample {
             System.out.print(", First: " + rs.getString("first"));
             System.out.println(", Last: " + rs.getString("last"));
          }
-
-         conn.prepareStatement(QUERY, 42);
       } catch (SQLException e) {
          e.printStackTrace();
-      }
-
-      EntityManagerFactory emf = Persistence.createEntityManagerFactory("Student_details");
-      emf.createEntityManager().createQuery(QUERY);
+      } 
    }
 }
