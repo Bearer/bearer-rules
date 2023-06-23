@@ -1,0 +1,54 @@
+warning:
+    - rule:
+        cwe_ids:
+            - "20"
+        id: java_lang_xss_servlet_parameter
+        title: Servlet request parameter methods detected.
+        description: |
+            ## Description
+
+            We should sanitize or validate any values from Servlet request GET and POST parameters. This is to protect our application from possible cross-site scripting (XSS) attacks.
+
+            ✅ Make sure to sanitize input from Servlet and HttpServlet requests. You can use a library like OWASP AntiSamy or Enterprise Security API (ESAPI) to do this.
+
+            ```java
+            public void main(ServletRequest request, ServletResponse response) {
+              AntiSamy antiSamy = new AntiSamy();
+              Policy policy = Policy.getInstance(POLICY_FILE_LOCATION);
+
+              String username = request.getParameter("username");
+              CleanResults cr = antiSamy.scan(username, policy);
+
+              // ...
+            }
+            ```
+
+            ## Resources
+
+            - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+            - [OWASP AntiSamy](https://owasp.org/www-project-antisamy/)
+            - [OWASP ESAPI](https://owasp.org/www-project-enterprise-security-api/)
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_xss_servlet_parameter
+      line_number: 8
+      full_filename: /tmp/scan/servlet.java
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 19
+                end: 47
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 19
+                end: 47
+        content: request.getParameter("name")
+      parent_line_number: 8
+      snippet: request.getParameter("name")
+      fingerprint: 3607f59a3e728c29a2d55ebb50fea480_0
+      old_fingerprint: 17986d02b37af2beb61b3fe33e68be77_0
+

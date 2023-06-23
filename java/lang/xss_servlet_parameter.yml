@@ -1,12 +1,9 @@
-imports:
-  - java_shared_lang_instance
 patterns:
   - pattern: |
       $<REQUEST>.$<METHOD>();
     filters:
       - variable: REQUEST
         detection: java_lang_xss_servlet_parameter_request
-        scope: cursor
       - variable: METHOD
         values:
           - getParameter
@@ -19,7 +16,6 @@ patterns:
     filters:
       - variable: REQUEST
         detection: java_lang_xss_servlet_parameter_request
-        scope: cursor
       - variable: HEADER
         string_regex: \A(?i)(Host|Referer|User-Agent)\z
 languages:
@@ -27,17 +23,23 @@ languages:
 auxiliary:
   - id: java_lang_xss_servlet_parameter_request
     patterns:
-      - pattern: $<INSTANCE>;
-        filters:
-          - variable: INSTANCE
-            detection: java_shared_lang_instance
-            scope: cursor
-            filters:
-              - either:
-                  - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-                    regex: \A(javax\.servlet\.http\.)?HttpServletRequest\z
-                  - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-                    regex: \A(javax\.servlet\.)?ServletRequest\z
+      # variable declaration
+      - pattern: ServletRequest $<VARIABLE> = $<_>;
+        focus: VARIABLE
+      - pattern: HttpServletRequest $<VARIABLE> = $<_>;
+        focus: VARIABLE
+      # class constructor argument
+      - pattern: |
+          class $<_>$<...> {
+            $<...>$<_>($<...>ServletRequest $<VARIABLE>$<...>) {}
+          }
+        focus: VARIABLE
+      # class method argument
+      - pattern: |
+          class $<_>$<...> {
+            $<...>$<_> $<_>($<...>ServletRequest $<VARIABLE>$<...>) {}
+          }
+        focus: VARIABLE
       # fallback
       - request;
       - req;
