@@ -1,3 +1,5 @@
+imports:
+  - java_shared_lang_user_input
 patterns:
   - pattern: |
       $<XPATH>.evaluate($<USER_INPUT>$<...>)
@@ -9,34 +11,7 @@ patterns:
           - XPath
           - XPathFactory
       - variable: USER_INPUT
-        detection: java_lang_ldap_injection_user_input
-auxiliary:
-  - id: java_lang_ldap_injection_user_input
-    patterns:
-      - pattern: |
-          $<REQUEST>.$<REQUEST_METHOD>()
-        filters:
-          - variable: REQUEST
-            values:
-              - req
-              - request
-          - variable: REQUEST_METHOD
-            values:
-              - getCookies
-              - getHeader
-              - getQueryString
-              - getRequestURI
-              - getRequestURL
-              - getAttribute
-              - getInputStream
-              - getParameter
-              - getParameterMap
-              - getParameterNames
-              - getParameterValues
-              - getReader
-              - getHeaderNames
-              - getPart
-              - getParts
+        detection: java_shared_lang_user_input
 languages:
   - java
 trigger:
@@ -45,7 +20,7 @@ metadata:
   description: "XPATH injection threat detected"
   remediation_message: |
     ## Description
-      Unsatized input going into XPath evaluate detected. 
+      Unsanitized input going into XPath evaluate detected.
       This could lead to xpath injection if variables passed into the evaluate or compile commands are not properly sanitized.
       Xpath injection could lead to unauthorized access to sensitive information in XML documents.
       Instead, thoroughly sanitize user input or use parameterized xpath queries if you can.
