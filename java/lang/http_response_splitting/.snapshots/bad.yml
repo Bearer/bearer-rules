@@ -1,0 +1,146 @@
+warning:
+    - rule:
+        cwe_ids:
+            - "79"
+            - "113"
+        id: java_lang_http_response_splitting
+        title: HTTP response splitting vulnerability detected.
+        description: |
+            ## Description
+
+            Including unsanitized user input in a HTTP response allows an attacker to
+            split the response by injecting CRLF characters. An entirely
+            attacker-controlled response can then be returned, creating a cross-site
+            scripting (XSS) vulnerability.
+
+            ## Remediations
+
+            ✅ Avoid using user input in cookies or other headers
+
+            ✅ Remove CRLF sequences from user input:
+
+            ```java
+            var input = request.getParameter("data");
+            var sanitized = input.replaceAll("\r\n", "");
+            cookie.setValue(sanitized);
+            ```
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_http_response_splitting
+      line_number: 4
+      full_filename: /tmp/scan/bad.java
+      filename: .
+      source:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 5
+                end: 28
+      sink:
+        location:
+            start: 4
+            end: 4
+            column:
+                start: 5
+                end: 28
+        content: new Cookie("oops", foo)
+      parent_line_number: 4
+      snippet: new Cookie("oops", foo)
+      fingerprint: e717435722185b758fde0b9e5e989023_0
+      old_fingerprint: d0502896203c878c6e42c2d0652cede5_0
+    - rule:
+        cwe_ids:
+            - "79"
+            - "113"
+        id: java_lang_http_response_splitting
+        title: HTTP response splitting vulnerability detected.
+        description: |
+            ## Description
+
+            Including unsanitized user input in a HTTP response allows an attacker to
+            split the response by injecting CRLF characters. An entirely
+            attacker-controlled response can then be returned, creating a cross-site
+            scripting (XSS) vulnerability.
+
+            ## Remediations
+
+            ✅ Avoid using user input in cookies or other headers
+
+            ✅ Remove CRLF sequences from user input:
+
+            ```java
+            var input = request.getParameter("data");
+            var sanitized = input.replaceAll("\r\n", "");
+            cookie.setValue(sanitized);
+            ```
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_http_response_splitting
+      line_number: 8
+      full_filename: /tmp/scan/bad.java
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 5
+                end: 20
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 5
+                end: 20
+        content: c.setValue(bar)
+      parent_line_number: 8
+      snippet: c.setValue(bar)
+      fingerprint: e717435722185b758fde0b9e5e989023_1
+      old_fingerprint: d0502896203c878c6e42c2d0652cede5_1
+    - rule:
+        cwe_ids:
+            - "79"
+            - "113"
+        id: java_lang_http_response_splitting
+        title: HTTP response splitting vulnerability detected.
+        description: |
+            ## Description
+
+            Including unsanitized user input in a HTTP response allows an attacker to
+            split the response by injecting CRLF characters. An entirely
+            attacker-controlled response can then be returned, creating a cross-site
+            scripting (XSS) vulnerability.
+
+            ## Remediations
+
+            ✅ Avoid using user input in cookies or other headers
+
+            ✅ Remove CRLF sequences from user input:
+
+            ```java
+            var input = request.getParameter("data");
+            var sanitized = input.replaceAll("\r\n", "");
+            cookie.setValue(sanitized);
+            ```
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_http_response_splitting
+      line_number: 10
+      full_filename: /tmp/scan/bad.java
+      filename: .
+      source:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 5
+                end: 60
+      sink:
+        location:
+            start: 10
+            end: 10
+            column:
+                start: 5
+                end: 60
+        content: new Cookie("oops3", foo.replaceAll("\r\n", "oops\r\n"))
+      parent_line_number: 10
+      snippet: new Cookie("oops3", foo.replaceAll("\r\n", "oops\r\n"))
+      fingerprint: e717435722185b758fde0b9e5e989023_2
+      old_fingerprint: d0502896203c878c6e42c2d0652cede5_2
+
