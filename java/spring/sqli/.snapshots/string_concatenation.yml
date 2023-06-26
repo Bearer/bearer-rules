@@ -42,26 +42,221 @@ low:
             - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
             - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/java_spring_sqli
-      line_number: 6
+      line_number: 14
       full_filename: /tmp/scan/string_concatenation.java
       filename: .
       source:
         location:
-            start: 6
-            end: 6
+            start: 14
+            end: 14
+            column:
+                start: 21
+                end: 83
+      sink:
+        location:
+            start: 14
+            end: 14
+            column:
+                start: 21
+                end: 83
+        content: new PreparedStatementCreatorFactory(myQueryStr, Types.VARCHAR)
+      parent_line_number: 14
+      snippet: new PreparedStatementCreatorFactory(myQueryStr, Types.VARCHAR)
+      fingerprint: ebf8b9a53c73eabed841989514b90054_0
+      old_fingerprint: b6b432ac3b8b51ea957f2fed2a2732ae_0
+    - rule:
+        cwe_ids:
+            - "89"
+        id: java_spring_sqli
+        title: Unsanitized user input in SQL query detected.
+        description: |
+            ## Description
+
+            Including unsanitized data, such as user input or request data, in raw SQL
+            queries makes your application vulnerable to SQL injection attacks.
+
+            ## Remediations
+
+            ❌ Avoid raw queries, especially those that contain unsanitized user input:
+
+            ```java
+              String query = "update user set name='"+uri.getQueryParameter("name")+"' where id='"+uri.getQueryParameter("userId")+"'";
+              return jdbcTemplate.update(query);
+            ```
+
+            ✅ Use `PreparedStatement` creators and setters to construct SQL queries
+
+            ```java
+            new PreparedStatementCreator() {
+              public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
+                String updateString = "update user set name = ? where id = ?";
+                return conn.prepareStatement(updateString);
+              }
+            }
+
+            new PreparedStatementSetter() {
+              public void setValues(PreparedStatement preparedStatement) throws SQLException {
+                preparedStatement.setString(1, uri.getQueryParameter("name"))
+                preparedStatement.setInt(2, uri.getQueryParameter("userId"))
+              }
+            }
+            ```
+
+            ## Resources
+            - [JDBC Template class](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html)
+            - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
+            - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_spring_sqli
+      line_number: 15
+      full_filename: /tmp/scan/string_concatenation.java
+      filename: .
+      source:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 7
+                end: 58
+      sink:
+        location:
+            start: 15
+            end: 15
+            column:
+                start: 7
+                end: 58
+        content: factory.newPreparedStatementCreator(myQueryStr, [])
+      parent_line_number: 15
+      snippet: factory.newPreparedStatementCreator(myQueryStr, [])
+      fingerprint: ebf8b9a53c73eabed841989514b90054_1
+      old_fingerprint: b6b432ac3b8b51ea957f2fed2a2732ae_1
+    - rule:
+        cwe_ids:
+            - "89"
+        id: java_spring_sqli
+        title: Unsanitized user input in SQL query detected.
+        description: |
+            ## Description
+
+            Including unsanitized data, such as user input or request data, in raw SQL
+            queries makes your application vulnerable to SQL injection attacks.
+
+            ## Remediations
+
+            ❌ Avoid raw queries, especially those that contain unsanitized user input:
+
+            ```java
+              String query = "update user set name='"+uri.getQueryParameter("name")+"' where id='"+uri.getQueryParameter("userId")+"'";
+              return jdbcTemplate.update(query);
+            ```
+
+            ✅ Use `PreparedStatement` creators and setters to construct SQL queries
+
+            ```java
+            new PreparedStatementCreator() {
+              public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
+                String updateString = "update user set name = ? where id = ?";
+                return conn.prepareStatement(updateString);
+              }
+            }
+
+            new PreparedStatementSetter() {
+              public void setValues(PreparedStatement preparedStatement) throws SQLException {
+                preparedStatement.setString(1, uri.getQueryParameter("name"))
+                preparedStatement.setInt(2, uri.getQueryParameter("userId"))
+              }
+            }
+            ```
+
+            ## Resources
+            - [JDBC Template class](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html)
+            - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
+            - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_spring_sqli
+      line_number: 17
+      full_filename: /tmp/scan/string_concatenation.java
+      filename: .
+      source:
+        location:
+            start: 17
+            end: 17
             column:
                 start: 7
                 end: 38
       sink:
         location:
-            start: 6
-            end: 6
+            start: 17
+            end: 17
             column:
                 start: 7
                 end: 38
-        content: JdbcTemplate.update(myQueryStr)
-      parent_line_number: 6
-      snippet: JdbcTemplate.update(myQueryStr)
-      fingerprint: ebf8b9a53c73eabed841989514b90054_0
-      old_fingerprint: b6b432ac3b8b51ea957f2fed2a2732ae_0
+        content: t.batchUpdate("ok", myQueryStr)
+      parent_line_number: 17
+      snippet: t.batchUpdate("ok", myQueryStr)
+      fingerprint: ebf8b9a53c73eabed841989514b90054_2
+      old_fingerprint: b6b432ac3b8b51ea957f2fed2a2732ae_2
+    - rule:
+        cwe_ids:
+            - "89"
+        id: java_spring_sqli
+        title: Unsanitized user input in SQL query detected.
+        description: |
+            ## Description
+
+            Including unsanitized data, such as user input or request data, in raw SQL
+            queries makes your application vulnerable to SQL injection attacks.
+
+            ## Remediations
+
+            ❌ Avoid raw queries, especially those that contain unsanitized user input:
+
+            ```java
+              String query = "update user set name='"+uri.getQueryParameter("name")+"' where id='"+uri.getQueryParameter("userId")+"'";
+              return jdbcTemplate.update(query);
+            ```
+
+            ✅ Use `PreparedStatement` creators and setters to construct SQL queries
+
+            ```java
+            new PreparedStatementCreator() {
+              public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
+                String updateString = "update user set name = ? where id = ?";
+                return conn.prepareStatement(updateString);
+              }
+            }
+
+            new PreparedStatementSetter() {
+              public void setValues(PreparedStatement preparedStatement) throws SQLException {
+                preparedStatement.setString(1, uri.getQueryParameter("name"))
+                preparedStatement.setInt(2, uri.getQueryParameter("userId"))
+              }
+            }
+            ```
+
+            ## Resources
+            - [JDBC Template class](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html)
+            - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
+            - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+        documentation_url: https://docs.bearer.com/reference/rules/java_spring_sqli
+      line_number: 18
+      full_filename: /tmp/scan/string_concatenation.java
+      filename: .
+      source:
+        location:
+            start: 18
+            end: 18
+            column:
+                start: 7
+                end: 28
+      sink:
+        location:
+            start: 18
+            end: 18
+            column:
+                start: 7
+                end: 28
+        content: t.execute(myQueryStr)
+      parent_line_number: 18
+      snippet: t.execute(myQueryStr)
+      fingerprint: ebf8b9a53c73eabed841989514b90054_3
+      old_fingerprint: b6b432ac3b8b51ea957f2fed2a2732ae_3
 

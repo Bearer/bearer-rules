@@ -30,3 +30,12 @@ foo({ x: 42 }, secret)
 
 const { sign, y } = require("jsonwebtoken")
 sign({ x: 42 }, secret)
+
+import * as expressjwt2 from "expressjwt"
+app.get(
+  "/bad",
+  expressjwt2({ secret: "my-hardcoded-secret" }),
+  function (_req, res) {
+    res.sendStatus(200)
+  }
+)

@@ -1,0 +1,11 @@
+type: shared
+languages:
+  - javascript
+patterns:
+  - require($<JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME>)
+  - import($<JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME>)
+  - import $<!>$<_> from $<JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME>
+  - import * as $<!>$<_> from $<JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME>
+metadata:
+  description: "Import of whole library"
+  id: javascript_shared_import_library
