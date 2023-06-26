@@ -1,0 +1,87 @@
+imports:
+  - java_shared_lang_user_input
+  - java_shared_lang_instance
+patterns:
+  - pattern: |
+      $<RUNTIME_INIT>.exec($<...>$<USER_INPUT>$<...>);
+    filters:
+      - variable: RUNTIME_INIT
+        detection: java_lang_os_command_injection_runtime
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
+        scope: result
+  - pattern: |
+      new $<PROCESS_BUILDER>($<...>$<USER_INPUT>$<...>);
+    filters:
+      - variable: PROCESS_BUILDER
+        regex: \A(java\.lang\.)?ProcessBuilder\z
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
+        scope: result
+  - pattern: |
+      $<PROCESS_BUILDER_INIT>.command($<...>$<USER_INPUT>$<...>);
+    filters:
+      - variable: PROCESS_BUILDER_INIT
+        detection: java_shared_lang_instance
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(java\.lang\.)?ProcessBuilder\z
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
+        scope: result
+auxiliary:
+  - id: java_lang_os_command_injection_runtime
+    patterns:
+      - pattern: $<JAVA_LANG_RUNTIME>.getRuntime();
+        filters:
+          - variable: JAVA_LANG_RUNTIME
+            regex: \A(java\.lang\.)?Runtime\z
+      - pattern: $<JAVA_LANG_RUNTIME>;
+        filters:
+          - variable: JAVA_LANG_RUNTIME
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.lang\.)?Runtime\z
+  - id: java_lang_os_command_injection_process_builder
+    patterns:
+      - pattern: $<JAVA_LANG_PROCESS_BUILDER_INIT>;
+        filters:
+          - variable: JAVA_LANG_PROCESS_BUILDER_INIT
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.lang\.)?ProcessBuilder\z
+languages:
+  - java
+severity: high
+metadata:
+  description: "Command injection vulnerability detected."
+  remediation_message: |
+    ## Description
+
+    Using external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.
+
+    ## Remediations
+
+    ❌ Avoid using OS commands, with or without dynamic input, wherever possible. For example, look for an equivalent library or function to use instead.
+
+    ✅ For dynamic input, rely on hardcoded values wherever possible
+
+    ```java
+      String filePattern = "*.json";
+      if request.getParameter("format") == "xml" {
+        filePattern = "*.xml"
+      }
+
+      Process process = Runtime.getRuntime().exec("ls /myDir/" + extension);
+    ```
+
+    ## Resources
+    - [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)
+  cwe_id:
+    - 78
+  id: java_lang_os_command_injection
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_os_command_injection
