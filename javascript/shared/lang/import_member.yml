@@ -1,0 +1,14 @@
+type: shared
+languages:
+  - javascript
+imports:
+  - javascript_shared_import_library
+patterns:
+  - pattern: const { $<!>$<JAVASCRIPT_SHARED_IMPORT_MEMBER_NAME> } = $<JAVASCRIPT_SHARED_IMPORT_MEMBER_LIBRARY>
+    filters:
+      - variable: JAVASCRIPT_SHARED_IMPORT_MEMBER_LIBRARY
+        detection: javascript_shared_import_library
+        scope: cursor
+metadata:
+  description: "Import of member from library"
+  id: javascript_shared_import_member
