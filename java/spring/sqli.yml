@@ -1,39 +1,13 @@
-imports:
-  - java_shared_lang_instance
 patterns:
-  - pattern: new $<CLASS>($<DYNAMIC_INPUT_LITERAL>$<...>);
+  - pattern: |
+      $<_>.$<METHOD>($<DYNAMIC_INPUT_LITERAL>)
     filters:
-      - variable: CLASS
-        regex: \A(org\.springframework\.jdbc\.core\.)?PreparedStatementCreatorFactory\z
-      - variable: DYNAMIC_INPUT_LITERAL
-        detection: java_spring_sqli_dynamic_input
-        scope: result
-  - pattern: $<FACTORY>.newPreparedStatementCreator($<DYNAMIC_INPUT_LITERAL>$<...>);
-    filters:
-      - variable: FACTORY
-        detection: java_shared_lang_instance
-        scope: cursor
-        filters:
-          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-            regex: \A(org\.springframework\.jdbc\.core\.)?PreparedStatementCreatorFactory\z
-      - variable: DYNAMIC_INPUT_LITERAL
-        detection: java_spring_sqli_dynamic_input
-        scope: result
-  - pattern: $<JDBC_TEMPLATE>.batchUpdate($<...>$<DYNAMIC_INPUT_LITERAL>$<...>);
-    filters:
-      - variable: JDBC_TEMPLATE
-        detection: java_spring_sqli_jdbc_template
-        scope: cursor
-      - variable: DYNAMIC_INPUT_LITERAL
-        detection: java_spring_sqli_dynamic_input
-        scope: result
-  - pattern: $<JDBC_TEMPLATE>.$<METHOD>($<DYNAMIC_INPUT_LITERAL>$<...>);
-    filters:
-      - variable: JDBC_TEMPLATE
-        detection: java_spring_sqli_jdbc_template
-        scope: cursor
       - variable: METHOD
         values:
+          - PreparedStatementCreatorFactory
+          - newPreparedStatementCreator
+          - update
+          - batchUpdate
           - execute
           - query
           - queryForList
@@ -43,23 +17,9 @@ patterns:
           - queryForInt
           - queryForLong
           - queryForStream
-          - update
       - variable: DYNAMIC_INPUT_LITERAL
         detection: java_spring_sqli_dynamic_input
-        scope: result
 auxiliary:
-  - id: java_spring_sqli_jdbc_template
-    patterns:
-      - pattern: $<JDBC_TEMPLATE_INSTANCE>;
-        filters:
-          - variable: JDBC_TEMPLATE_INSTANCE
-            detection: java_shared_lang_instance
-            scope: cursor
-            filters:
-              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-                regex: \A(org\.springframework\.jdbc\.core\.)?JdbcTemplate\z
-      # fallback
-      - jdbcTemplate;
   - id: java_spring_sqli_dynamic_input
     patterns:
       - pattern: |
@@ -67,11 +27,11 @@ auxiliary:
         filters:
           - variable: STRING_LITERAL
             detection: string_literal
-            scope: cursor
+            contains: false
           - not:
               variable: DYNAMIC_INPUT
               detection: string_literal
-              scope: cursor
+              contains: false
 languages:
   - java
 trigger:

@@ -1,93 +1,23 @@
-imports:
-  - java_shared_lang_instance
 patterns:
   - pattern: |
-      $<CONNECTION>.$<METHOD>($<DYNAMIC_INPUT_LITERAL>$<...>);
+      $<_>.$<METHOD>($<DYNAMIC_INPUT_LITERAL>)
     filters:
-      - variable: CONNECTION
-        detection: java_lang_sqli_connection
-        scope: cursor
       - variable: METHOD
         values:
-          - nativeSQL
-          - prepareCall
-          - prepareStatement
-      - variable: DYNAMIC_INPUT_LITERAL
-        detection: java_lang_sqli_dynamic_input
-        scope: result
-  - pattern: |
-      $<STATEMENT>.$<METHOD>($<DYNAMIC_INPUT_LITERAL>$<...>);
-    filters:
-      - variable: STATEMENT
-        detection: java_lang_sqli_statement
-        scope: cursor
-      - variable: METHOD
-        values:
-          - addBatch
           - execute
-          - executeLargeUpdate
           - executeQuery
           - executeUpdate
-      - variable: DYNAMIC_INPUT_LITERAL
-        detection: java_lang_sqli_dynamic_input
-        scope: result
-  - pattern: |
-      $<ENTITY_MANAGER>.$<METHOD>($<DYNAMIC_INPUT_LITERAL>$<...>);
-    filters:
-      - variable: ENTITY_MANAGER
-        detection: java_lang_sqli_entity_manager
-        scope: cursor
-      - variable: METHOD
-        values:
+          - executeLargeUpdate
+          - addBatch
+          - prepare
+          - prepareCall
+          - prepareStatement
+          - nativeSQL
           - createNativeQuery
           - createQuery
       - variable: DYNAMIC_INPUT_LITERAL
         detection: java_lang_sqli_dynamic_input
-        scope: result
 auxiliary:
-  - id: java_lang_sqli_connection
-    patterns:
-      - pattern: $<CONNECTION_INSTANCE>;
-        filters:
-          - variable: CONNECTION_INSTANCE
-            detection: java_shared_lang_instance
-            scope: cursor
-            filters:
-              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-                regex: \A(java\.sql\.)?Connection\z
-      - $<_>.getConnection();
-      # fallback
-      - con;
-      - conn;
-      - connection;
-  - id: java_lang_sqli_statement
-    patterns:
-      - pattern: $<STATEMENT_INSTANCE>;
-        filters:
-          - variable: STATEMENT_INSTANCE
-            detection: java_shared_lang_instance
-            scope: cursor
-            filters:
-              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-                regex: \A(java\.sql\.)?Statement\z
-      - $<_>.createStatement();
-      # fallback
-      - stmt;
-      - statement;
-  - id: java_lang_sqli_entity_manager
-    patterns:
-      - pattern: $<ENTITY_INSTANCE>;
-        filters:
-          - variable: ENTITY_INSTANCE
-            detection: java_shared_lang_instance
-            scope: cursor
-            filters:
-              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-                regex: \A(javax\.persistence\.)?EntityManager\z
-      - $<_>.createEntityManager();
-      # fallback
-      - em;
-      - entityManager;
   - id: java_lang_sqli_dynamic_input
     patterns:
       - pattern: |
@@ -95,11 +25,11 @@ auxiliary:
         filters:
           - variable: STRING_LITERAL
             detection: string_literal
-            scope: cursor
+            contains: false
           - not:
               variable: DYNAMIC_INPUT
               detection: string_literal
-              scope: cursor
+              contains: false
 languages:
   - java
 trigger:
