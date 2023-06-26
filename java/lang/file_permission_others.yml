@@ -1,9 +1,5 @@
 patterns:
-  - pattern: |
-      {
-        $<!>$<PERMISSIONS>.add($<OTHER_PERMISSION>);
-        Files.setPosixFilePermissions($<_>, $<PERMISSIONS>);
-      }
+  - pattern: $<PERMISSIONS>.add($<OTHER_PERMISSION>);
     filters:
       - variable: PERMISSIONS
         detection: java_lang_get_posix_file_permissions
