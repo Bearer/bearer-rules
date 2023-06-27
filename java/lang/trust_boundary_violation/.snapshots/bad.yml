@@ -1,0 +1,76 @@
+warning:
+    - rule:
+        cwe_ids:
+            - "501"
+        id: java_lang_trust_boundary_violation
+        title: Trust boundary violation detected.
+        description: |
+            ## Description
+
+            Mixing trusted and untrusted data inside the same data structure can lead
+            to untrusted data being mistakenly treated as being trusted.
+
+            ## Remediations
+
+            ✅ Avoid adding trusted data to data structures containing untrusted data
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation
+      line_number: 7
+      full_filename: /tmp/scan/bad.java
+      filename: .
+      source:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 5
+                end: 35
+      sink:
+        location:
+            start: 7
+            end: 7
+            column:
+                start: 5
+                end: 35
+        content: request.setAttribute(KEY, foo)
+      parent_line_number: 7
+      snippet: request.setAttribute(KEY, foo)
+      fingerprint: 0011f9ce80042a297b7ed3b3edbcf26a_0
+      old_fingerprint: 2bfea37963fd4ad9955ed90333a00976_0
+    - rule:
+        cwe_ids:
+            - "501"
+        id: java_lang_trust_boundary_violation
+        title: Trust boundary violation detected.
+        description: |
+            ## Description
+
+            Mixing trusted and untrusted data inside the same data structure can lead
+            to untrusted data being mistakenly treated as being trusted.
+
+            ## Remediations
+
+            ✅ Avoid adding trusted data to data structures containing untrusted data
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation
+      line_number: 8
+      full_filename: /tmp/scan/bad.java
+      filename: .
+      source:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 5
+                end: 39
+      sink:
+        location:
+            start: 8
+            end: 8
+            column:
+                start: 5
+                end: 39
+        content: request.setAttribute(foo, "value")
+      parent_line_number: 8
+      snippet: request.setAttribute(foo, "value")
+      fingerprint: 0011f9ce80042a297b7ed3b3edbcf26a_1
+      old_fingerprint: 2bfea37963fd4ad9955ed90333a00976_1
+

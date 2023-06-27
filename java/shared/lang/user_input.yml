@@ -1,15 +1,15 @@
 imports:
-  - java_shared_lang_instance
+  - java_shared_lang_servlet_request
 type: shared
 languages:
   - java
 patterns:
-  - pattern: $<REQUEST>.$<REQUEST_METHOD>();
+  - pattern: $<JAVA_SHARED_LANG_USER_INPUT_REQUEST>.$<JAVA_SHARED_LANG_USER_INPUT_METHOD>();
     filters:
-      - variable: REQUEST
-        detection: java_shared_lang_parameter_request
+      - variable: JAVA_SHARED_LANG_USER_INPUT_REQUEST
+        detection: java_shared_lang_servlet_request
         scope: cursor
-      - variable: REQUEST_METHOD
+      - variable: JAVA_SHARED_LANG_USER_INPUT_METHOD
         values:
           - getCookies
           - getHeader
@@ -26,23 +26,6 @@ patterns:
           - getHeaderNames
           - getPart
           - getParts
-auxiliary:
-  - id: java_shared_lang_parameter_request
-    patterns:
-      - pattern: $<INSTANCE>;
-        filters:
-          - variable: INSTANCE
-            detection: java_shared_lang_instance
-            scope: cursor
-            filters:
-              - either:
-                  - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-                    regex: \A(javax\.servlet\.http\.)?HttpServletRequest\z
-                  - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-                    regex: \A(javax\.servlet\.)?ServletRequest\z
-      # fallback
-      - req;
-      - request;
 metadata:
   description: "Java user input."
   id: java_shared_lang_user_input
