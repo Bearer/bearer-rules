@@ -1,0 +1,74 @@
+imports:
+  - java_shared_lang_instance
+  - java_shared_lang_user_input
+patterns:
+  - pattern: new $<TYPE>($<_>, $<USER_INPUT>);
+    filters:
+      - variable: TYPE
+        regex: \A(javax\.servlet\.http\.)?Cookie\z
+      - variable: USER_INPUT
+        detection: java_lang_http_response_splitting_user_input
+        scope: result
+  - pattern: $<COOKIE>.setValue($<USER_INPUT>);
+    filters:
+      - variable: COOKIE
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(javax\.servlet\.http\.)?Cookie\z
+      - variable: USER_INPUT
+        detection: java_lang_http_response_splitting_user_input
+        scope: result
+auxiliary:
+  - id: java_lang_http_response_splitting_user_input
+    sanitizer: java_lang_http_response_splitting_sanitizer
+    patterns:
+      - pattern: $<UNSANITIZED_USER_INPUT>;
+        filters:
+          - variable: UNSANITIZED_USER_INPUT
+            detection: java_shared_lang_user_input
+            scope: cursor
+  - id: java_lang_http_response_splitting_sanitizer
+    patterns:
+      - pattern: $<CLASS>.unescapeJava($<!>$<_>);
+        filters:
+          - variable: CLASS
+            regex: \A(org\.apache\.commons\.text\.)?StringEscapeUtils\z
+      - pattern: $<ORIGINAL>.replaceAll($<SOURCE>, $<REPLACEMENT>);
+        focus: ORIGINAL
+        filters:
+          - variable: SOURCE
+            string_regex: "\\r\\n|\\\\r\\\\n"
+          - not:
+              variable: REPLACEMENT
+              string_regex: "\\r\\n|\\\\r\\\\n"
+languages:
+  - java
+severity: warning
+metadata:
+  description: "HTTP response splitting vulnerability detected."
+  remediation_message: |
+    ## Description
+
+    Including unsanitized user input in a HTTP response allows an attacker to
+    split the response by injecting CRLF characters. An entirely
+    attacker-controlled response can then be returned, creating a cross-site
+    scripting (XSS) vulnerability.
+
+    ## Remediations
+
+    ✅ Avoid using user input in cookies or other headers
+
+    ✅ Remove CRLF sequences from user input:
+
+    ```java
+    var input = request.getParameter("data");
+    var sanitized = input.replaceAll("\r\n", "");
+    cookie.setValue(sanitized);
+    ```
+  cwe_id:
+    - 79
+    - 113
+  id: java_lang_http_response_splitting
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_http_response_splitting

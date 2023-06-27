@@ -1,16 +1,18 @@
+imports:
+  - java_shared_lang_instance
 patterns:
   - pattern: $<COOKIE>.setSecure($<FALSE>)
     filters:
       - variable: COOKIE
-        detection: java_lang_insecure_cookie_init
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(javax\.servlet\.http\.)?Cookie\z
       - variable: "FALSE"
         detection: java_lang_insecure_cookie_false
         scope: cursor
 auxiliary:
-  - id: java_lang_insecure_cookie_init
-    patterns:
-      - new Cookie()
-      - new javax.servlet.http.Cookie()
   - id: java_lang_insecure_cookie_false
     patterns:
       - "false;"
