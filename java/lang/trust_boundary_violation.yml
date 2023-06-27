@@ -1,0 +1,35 @@
+imports:
+  - java_shared_lang_servlet_request
+patterns:
+  - pattern: $<REQUEST>.setAttribute($<NAME>, $<VALUE>);
+    filters:
+      - variable: REQUEST
+        detection: java_shared_lang_servlet_request
+        scope: cursor
+      - either:
+          - not:
+              variable: NAME
+              detection: string_literal
+              scope: cursor
+          - not:
+              variable: VALUE
+              detection: string_literal
+              scope: cursor
+languages:
+  - java
+severity: warning
+metadata:
+  description: "Trust boundary violation detected."
+  remediation_message: |
+    ## Description
+
+    Mixing trusted and untrusted data inside the same data structure can lead
+    to untrusted data being mistakenly treated as being trusted.
+
+    ## Remediations
+
+    ✅ Avoid adding trusted data to data structures containing untrusted data
+  cwe_id:
+    - 501
+  id: java_lang_trust_boundary_violation
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation
