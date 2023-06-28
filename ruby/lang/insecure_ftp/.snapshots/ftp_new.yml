@@ -11,7 +11,7 @@ medium:
 
             ## Remediations
 
-            ✅ To ensure secure FTP connections are made, [use the `Net::SFTP` library](https://github.com/net-ssh/net-sftp) instead of `Net::FTP`:
+            ✅ To ensure secure FTP connections are made, use the Net::SFTP [library](https://github.com/net-ssh/net-sftp) instead of Net::FTP:
 
             ```ruby
             require 'net/sftp'
