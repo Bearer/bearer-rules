@@ -1,6 +1,7 @@
 public byte[] signToken(byte[] payload) throws GeneralSecurityException
 {
-  Cipher c = javax.crypto.Cipher.getInstance("DES");
+  Properties p = getProperties();
+  Cipher c = javax.crypto.Cipher.getInstance(p.getProperty("algo", "DES"));
 
   c.init(Cipher.ENCRYPT_MODE, keyPair.getPrivate());
 
@@ -9,7 +10,7 @@ public byte[] signToken(byte[] payload) throws GeneralSecurityException
 
 public byte[] encryptName(User user) throws GeneralSecurityException
 {
-  Cipher c = Cipher.getInstance("DES/CBC/NoPadding");
+  Cipher c = Cipher.getInstance("DES/CBC/NoPadding", "foo");
 
   c.init(Cipher.ENCRYPT_MODE, keyPair.getPrivate());
   c.update(user.firstname)

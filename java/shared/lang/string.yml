@@ -1,0 +1,18 @@
+imports:
+  - java_shared_lang_instance
+type: shared
+languages:
+  - java
+patterns:
+  - $<JAVA_SHARED_LANG_STRING_VALUE>;
+  - pattern: $<JAVA_SHARED_LANG_STRING_PROPERTIES>.getProperty($<_>, $<JAVA_SHARED_LANG_STRING_VALUE>);
+    filters:
+      - variable: JAVA_SHARED_LANG_STRING_PROPERTIES
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(java\.util\.)?Properties\z
+metadata:
+  description: "Java string value."
+  id: java_shared_lang_string
