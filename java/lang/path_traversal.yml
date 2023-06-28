@@ -1,3 +1,5 @@
+imports:
+  - java_shared_lang_user_input
 patterns:
   - pattern: |
       new $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
@@ -43,23 +45,11 @@ auxiliary:
   - id: java_lang_path_traversal_user_input
     sanitizer: java_lang_path_traversal_sanitized_input
     patterns:
-      - pattern: |
-          $<PARAMETER_REQUEST>.$<PARAMETER_METHOD>()
+      - pattern: $<SHARED_USER_INPUT>;
         filters:
-          - variable: PARAMETER_REQUEST
-            values:
-              - req
-              - request
-          - variable: PARAMETER_METHOD
-            values:
-              - getParameterValues
-              - getParameter
-      - pattern: $<COOKIE_REQUEST>.getCookies()
-        filters:
-          - variable: COOKIE_REQUEST
-            values:
-              - req
-              - request
+          - variable: SHARED_USER_INPUT
+            detection: java_shared_lang_user_input
+            scope: cursor
   - id: java_lang_path_traversal_sanitized_input
     patterns:
       - pattern: FilenameUtils.getName($<!>$<_>)
