@@ -42,8 +42,8 @@ high:
         content: NewRelic::Agent.add_custom_parameters(user)
       parent_line_number: 2
       snippet: NewRelic::Agent.add_custom_parameters(user)
-      fingerprint: e91414b566cbe37b71f0714e38013f90_1
-      old_fingerprint: 162d1ef21cc4d908fa4cf2df0543734b_1
+      fingerprint: e91414b566cbe37b71f0714e38013f90_0
+      old_fingerprint: 162d1ef21cc4d908fa4cf2df0543734b_0
     - rule:
         cwe_ids:
             - "201"
@@ -87,6 +87,6 @@ high:
         content: 'NewRelic::Agent.add_custom_parameters(user: { email: "user@example.com" })'
       parent_line_number: 3
       snippet: 'NewRelic::Agent.add_custom_parameters(user: { email: "user@example.com" })'
-      fingerprint: e91414b566cbe37b71f0714e38013f90_0
-      old_fingerprint: 162d1ef21cc4d908fa4cf2df0543734b_0
+      fingerprint: e91414b566cbe37b71f0714e38013f90_1
+      old_fingerprint: 162d1ef21cc4d908fa4cf2df0543734b_1
 

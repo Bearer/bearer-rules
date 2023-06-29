@@ -48,8 +48,8 @@ high:
         newrelic.interaction()
             .setAttribute("username", user.first_name)
             .setAttribute("postal-code", user.post_code)
-      fingerprint: 63161101404765527f0dada7fd00b64e_1
-      old_fingerprint: 5fee12b083d8eec938a34de5eda742a3_1
+      fingerprint: 63161101404765527f0dada7fd00b64e_0
+      old_fingerprint: 5fee12b083d8eec938a34de5eda742a3_0
     - rule:
         cwe_ids:
             - "201"
@@ -93,6 +93,6 @@ high:
         content: interaction.setAttribute("email", user.email_address)
       parent_line_number: 13
       snippet: interaction.setAttribute("email", user.email_address)
-      fingerprint: 63161101404765527f0dada7fd00b64e_0
-      old_fingerprint: 5fee12b083d8eec938a34de5eda742a3_0
+      fingerprint: 63161101404765527f0dada7fd00b64e_1
+      old_fingerprint: 5fee12b083d8eec938a34de5eda742a3_1
 

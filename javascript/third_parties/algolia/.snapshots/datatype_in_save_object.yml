@@ -50,8 +50,8 @@ high:
       snippet: |-
         index
           .saveObject(userObj, { autoGenerateObjectIDIfNotExist: true })
-      fingerprint: 3b8a9db66a5d96671524cd36226b34d5_1
-      old_fingerprint: 6773515146b585c843598f8fc4a5b65b_1
+      fingerprint: 3b8a9db66a5d96671524cd36226b34d5_0
+      old_fingerprint: 6773515146b585c843598f8fc4a5b65b_0
     - rule:
         cwe_ids:
             - "201"
@@ -100,6 +100,6 @@ high:
         content: 'index.saveObjects([{ email: user.email }])'
       parent_line_number: 12
       snippet: 'index.saveObjects([{ email: user.email }])'
-      fingerprint: 3b8a9db66a5d96671524cd36226b34d5_0
-      old_fingerprint: 6773515146b585c843598f8fc4a5b65b_0
+      fingerprint: 3b8a9db66a5d96671524cd36226b34d5_1
+      old_fingerprint: 6773515146b585c843598f8fc4a5b65b_1
 

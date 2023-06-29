@@ -51,8 +51,8 @@ high:
           userId: user.id,
           userIpAddr: user.ip_address,
         })
-      fingerprint: df462286e9e34d817b61a361c26e8720_1
-      old_fingerprint: cc2ce3e312115b7dd7e8788b76bfd006_1
+      fingerprint: df462286e9e34d817b61a361c26e8720_0
+      old_fingerprint: cc2ce3e312115b7dd7e8788b76bfd006_0
     - rule:
         cwe_ids:
             - "201"
@@ -96,6 +96,6 @@ high:
         content: browser.track(user.email)
       parent_line_number: 17
       snippet: browser.track(user.email)
-      fingerprint: df462286e9e34d817b61a361c26e8720_0
-      old_fingerprint: cc2ce3e312115b7dd7e8788b76bfd006_0
+      fingerprint: df462286e9e34d817b61a361c26e8720_1
+      old_fingerprint: cc2ce3e312115b7dd7e8788b76bfd006_1
 

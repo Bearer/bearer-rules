@@ -54,8 +54,8 @@ high:
         content: dsa_encrypt.export(cipher, user.email)
       parent_line_number: 3
       snippet: dsa_encrypt.export(cipher, user.email)
-      fingerprint: ceb3d421b9b94edfb4f69dce57a00c20_1
-      old_fingerprint: cdc4b1aec18c74fc8de602513b29927d_1
+      fingerprint: ceb3d421b9b94edfb4f69dce57a00c20_0
+      old_fingerprint: cdc4b1aec18c74fc8de602513b29927d_0
     - rule:
         cwe_ids:
             - "331"
@@ -111,6 +111,6 @@ high:
         content: OpenSSL::PKey::DSA.new(1024).to_pem(cipher, user.first_name)
       parent_line_number: 5
       snippet: OpenSSL::PKey::DSA.new(1024).to_pem(cipher, user.first_name)
-      fingerprint: ceb3d421b9b94edfb4f69dce57a00c20_0
-      old_fingerprint: cdc4b1aec18c74fc8de602513b29927d_0
+      fingerprint: ceb3d421b9b94edfb4f69dce57a00c20_1
+      old_fingerprint: cdc4b1aec18c74fc8de602513b29927d_1
 

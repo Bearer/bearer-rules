@@ -42,8 +42,8 @@ high:
         content: 'Rollbar.scope!({ user: { email: "someone@example.com" }})'
       parent_line_number: 1
       snippet: 'Rollbar.scope!({ user: { email: "someone@example.com" }})'
-      fingerprint: 0976992b89aa3cb2fa891be53248a418_1
-      old_fingerprint: 04f8b90f265a320b109d188f3c757192_1
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_0
+      old_fingerprint: 04f8b90f265a320b109d188f3c757192_0
     - rule:
         cwe_ids:
             - "201"
@@ -87,8 +87,8 @@ high:
         content: Rollbar.scope(user)
       parent_line_number: 5
       snippet: Rollbar.scope(user)
-      fingerprint: 0976992b89aa3cb2fa891be53248a418_2
-      old_fingerprint: 04f8b90f265a320b109d188f3c757192_2
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_1
+      old_fingerprint: 04f8b90f265a320b109d188f3c757192_1
     - rule:
         cwe_ids:
             - "201"
@@ -132,6 +132,6 @@ high:
         content: 'notifier.scope(user: { first_name: "someone" })'
       parent_line_number: 7
       snippet: 'notifier.scope(user: { first_name: "someone" })'
-      fingerprint: 0976992b89aa3cb2fa891be53248a418_0
-      old_fingerprint: 04f8b90f265a320b109d188f3c757192_0
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_2
+      old_fingerprint: 04f8b90f265a320b109d188f3c757192_2
 

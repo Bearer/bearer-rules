@@ -74,8 +74,8 @@ critical:
         content: URI("https://my.api.com/users/search?ethnic_origin=#{user.ethnic_origin}")
       parent_line_number: 1
       snippet: URI("https://my.api.com/users/search?ethnic_origin=#{user.ethnic_origin}")
-      fingerprint: 8894dae3b2e5b5fbbe850e0eb0759f58_1
-      old_fingerprint: 5d3eb183e864df53294e1a6c48bf6b9a_1
+      fingerprint: 8894dae3b2e5b5fbbe850e0eb0759f58_0
+      old_fingerprint: 5d3eb183e864df53294e1a6c48bf6b9a_0
 high:
     - rule:
         cwe_ids:
@@ -151,6 +151,6 @@ high:
         content: RestClient.get("https://my.api.com/users/search?first_name=#{user.first_name}")
       parent_line_number: 3
       snippet: RestClient.get("https://my.api.com/users/search?first_name=#{user.first_name}")
-      fingerprint: 8894dae3b2e5b5fbbe850e0eb0759f58_0
-      old_fingerprint: 5d3eb183e864df53294e1a6c48bf6b9a_0
+      fingerprint: 8894dae3b2e5b5fbbe850e0eb0759f58_1
+      old_fingerprint: 5d3eb183e864df53294e1a6c48bf6b9a_1
 

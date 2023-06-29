@@ -54,8 +54,8 @@ high:
         content: rsa_encrypt.export(cipher, user.address)
       parent_line_number: 5
       snippet: rsa_encrypt.export(cipher, user.address)
-      fingerprint: 0cb94b27eb6c4b2d4cf40690fd9ce947_1
-      old_fingerprint: 3b2a3133304215bfc1159ec5b6b2ae16_1
+      fingerprint: 0cb94b27eb6c4b2d4cf40690fd9ce947_0
+      old_fingerprint: 3b2a3133304215bfc1159ec5b6b2ae16_0
     - rule:
         cwe_ids:
             - "331"
@@ -111,6 +111,6 @@ high:
         content: OpenSSL::PKey::RSA.new(1024).to_pem(cipher, user.first_name)
       parent_line_number: 7
       snippet: OpenSSL::PKey::RSA.new(1024).to_pem(cipher, user.first_name)
-      fingerprint: 0cb94b27eb6c4b2d4cf40690fd9ce947_0
-      old_fingerprint: 3b2a3133304215bfc1159ec5b6b2ae16_0
+      fingerprint: 0cb94b27eb6c4b2d4cf40690fd9ce947_1
+      old_fingerprint: 3b2a3133304215bfc1159ec5b6b2ae16_1
 

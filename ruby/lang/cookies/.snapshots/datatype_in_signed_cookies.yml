@@ -55,8 +55,8 @@ high:
         content: cookies.signed[:info] = user.email
       parent_line_number: 1
       snippet: cookies.signed[:info] = user.email
-      fingerprint: f9dc481eed8af7b00deadc6b2dc07984_1
-      old_fingerprint: 734f8d2d3891905dd8959264a815a369_1
+      fingerprint: f9dc481eed8af7b00deadc6b2dc07984_0
+      old_fingerprint: 734f8d2d3891905dd8959264a815a369_0
     - rule:
         cwe_ids:
             - "315"
@@ -113,6 +113,6 @@ high:
         content: cookies.permanent.signed[:secret] = user.first_name
       parent_line_number: 2
       snippet: cookies.permanent.signed[:secret] = user.first_name
-      fingerprint: f9dc481eed8af7b00deadc6b2dc07984_0
-      old_fingerprint: 734f8d2d3891905dd8959264a815a369_0
+      fingerprint: f9dc481eed8af7b00deadc6b2dc07984_1
+      old_fingerprint: 734f8d2d3891905dd8959264a815a369_1
 
