@@ -1,11 +1,17 @@
 type: shared
 languages:
   - java
+imports:
+  - java_shared_lang_string
 patterns:
-  - pattern: MessageDigest.getInstance($<JAVA_SHARED_LANG_MESSAGE_DIGEST_SHA1_INIT_ALGORITHM>)
+  - pattern: MessageDigest.getInstance($<JAVA_SHARED_LANG_MESSAGE_DIGEST_SHA1_INIT_ALGORITHM>$<...>)
     filters:
       - variable: JAVA_SHARED_LANG_MESSAGE_DIGEST_SHA1_INIT_ALGORITHM
-        string_regex: SHA-1
+        detection: java_shared_lang_string
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_STRING_VALUE
+            string_regex: SHA-1
 metadata:
   description: "Java Message Digest SHA1 initializer"
   id: java_shared_lang_message_digest_sha1_init
