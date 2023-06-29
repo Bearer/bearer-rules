@@ -59,7 +59,10 @@ auxiliary:
               - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
                 regex: \A(org\.springframework\.jdbc\.core\.)?JdbcTemplate\z
       # fallback
-      - jdbcTemplate;
+      - pattern: $<FALLBACK>;
+        filters:
+          - variable: FALLBACK
+            regex: (?i)(\A|\.)jdbctemplate\z
   - id: java_spring_sqli_dynamic_input
     patterns:
       - pattern: |
