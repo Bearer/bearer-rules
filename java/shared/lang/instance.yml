@@ -13,13 +13,13 @@ patterns:
   # class constructor argument
   - pattern: |
       class $<...>$<_> $<...>{
-        $<...>$<_>($<...>$<JAVA_SHARED_LANG_INSTANCE_TYPE> $<JAVA_SHARED_LANG_INSTANCE_VARIABLE>$<...>) {}
+        $<...>$<_>($<...>$<JAVA_SHARED_LANG_INSTANCE_TYPE> $<JAVA_SHARED_LANG_INSTANCE_VARIABLE>$<...>)$<...>{}
       }
     focus: JAVA_SHARED_LANG_INSTANCE_VARIABLE
   # class method argument
   - pattern: |
       class $<...>$<_> $<...>{
-        $<...>$<_> $<_>($<...>$<JAVA_SHARED_LANG_INSTANCE_TYPE> $<JAVA_SHARED_LANG_INSTANCE_VARIABLE>$<...>) {}
+        $<...>$<_> $<_>($<...>$<JAVA_SHARED_LANG_INSTANCE_TYPE> $<JAVA_SHARED_LANG_INSTANCE_VARIABLE>$<...>)$<...>{}
       }
     focus: JAVA_SHARED_LANG_INSTANCE_VARIABLE
   # exception handler

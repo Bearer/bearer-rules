@@ -1,5 +1,6 @@
 imports:
   - java_shared_lang_servlet_request
+  - java_shared_lang_instance
 patterns:
   - pattern: $<REQUEST>.setAttribute($<NAME>, $<VALUE>);
     filters:
@@ -15,6 +16,36 @@ patterns:
               variable: VALUE
               detection: string_literal
               scope: cursor
+  - pattern: $<SESSION>.$<METHOD>($<NAME>, $<VALUE>);
+    filters:
+      - variable: SESSION
+        detection: java_lang_trust_boundary_violation_session
+        scope: cursor
+      - variable: METHOD
+        values:
+          - setAttribute
+          - putValue
+      - either:
+          - not:
+              variable: NAME
+              detection: string_literal
+              scope: cursor
+          - not:
+              variable: VALUE
+              detection: string_literal
+              scope: cursor
+auxiliary:
+  - id: java_lang_trust_boundary_violation_session
+    patterns:
+      - $<_>.getSession();
+      - pattern: $<SESSION_INSTANCE>;
+        filters:
+          - variable: SESSION_INSTANCE
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(javax\.servlet\.http\.)?HttpSession\z
 languages:
   - java
 severity: warning

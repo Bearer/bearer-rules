@@ -6,15 +6,17 @@ public class Main {
   private final static String KEY = "foo";
   javax.servlet.ServletRequest field;
 
-  public Main(HttpServletRequest constructor, String foo) {
+  public Main(HttpServletRequest constructor, String foo) throws ServletException {
     constructor.setAttribute(KEY, getFoo());
   }
 
-  public static void main(HttpServletRequest param) {
+  public static void main(HttpServletRequest param) throws ServletException {
     var foo = getFoo();
 
     param.setAttribute(KEY, foo);
     param.setAttribute(foo, "value");
+    param.getSession().setAttribute(KEY, foo);
+    param.getSession().putValue(KEY, foo);
 
     field.setAttribute(KEY, getFoo());
 
