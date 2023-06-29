@@ -1,58 +1,46 @@
+imports:
+  - java_shared_lang_html_user_input
+  - java_shared_lang_instance
 patterns:
   - pattern: |
-      $<WRITER>.$<METHOD>($<...>$<ARGUMENT>$<...>)
+      $<WRITER>.$<METHOD>($<...>$<USER_INPUT>$<...>)
     filters:
       - variable: WRITER
-        detection: java_lang_xss_response_writer_get_writer
-      - variable: ARGUMENT
-        detection: java_lang_xss_response_writer_user_input
+        detection: java_lang_xss_response_writer_writer
+        scope: cursor
       - variable: METHOD
         values:
           - append
+          - format
           - print
           - printf
           - println
           - write
+      - variable: USER_INPUT
+        detection: java_shared_lang_html_user_input
+        scope: result
 auxiliary:
-  - id: java_lang_xss_response_writer_user_input
-    sanitizer: java_lang_xss_response_writer_sanitized_input
+  - id: java_lang_xss_response_writer_writer
     patterns:
-      - pattern: |
-          $<REQUEST>.$<REQUEST_METHOD>()
+      - pattern: $<RESPONSE>.getWriter();
         filters:
-          - variable: REQUEST
-            values:
-              - req
-              - request
-          - variable: REQUEST_METHOD
-            values:
-              - getCookies
-              - getHeader
-              - getQueryString
-              - getRequestURI
-              - getRequestURL
-              - getAttribute
-              - getInputStream
-              - getParameter
-              - getParameterMap
-              - getParameterNames
-              - getParameterValues
-              - getReader
-              - getHeaderNames
-              - getPart
-              - getParts
-  - id: java_lang_xss_response_writer_get_writer
+          - variable: RESPONSE
+            detection: java_lang_xss_response_writer_response
+            scope: cursor
+  - id: java_lang_xss_response_writer_response
     patterns:
-      - pattern: |
-          response.getWriter()
-  - id: java_lang_xss_response_writer_sanitized_input
-    patterns:
-      - Encode.forHtml($<!>$<_>)
-      - $<_>.encodeForHTML($<!>$<_>)
+      - pattern: $<RESPONSE_INSTANCE>;
+        filters:
+          - variable: RESPONSE_INSTANCE
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(javax\.servlet\.http\.)?HttpServletResponse\z
+      # fallback
+      - response;
 languages:
   - java
-skip_data_types:
-  - "Unique Identifier"
 metadata:
   description: "Possible cross site scripting threat detected."
   remediation_message: |

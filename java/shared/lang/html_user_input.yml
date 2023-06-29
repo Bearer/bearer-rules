@@ -1,0 +1,45 @@
+imports:
+  - java_shared_lang_user_input
+type: shared
+languages:
+  - java
+sanitizer: java_shared_lang_html_user_input_sanitizer
+patterns:
+  - pattern: $<JAVA_SHARED_LANG_HTML_USER_INPUT_INPUT>;
+    filters:
+      - variable: JAVA_SHARED_LANG_HTML_USER_INPUT_INPUT
+        detection: java_shared_lang_user_input
+        scope: cursor
+auxiliary:
+  - id: java_shared_lang_html_user_input_sanitizer
+    patterns:
+      - pattern: $<JAVA_SHARED_LANG_HTML_USER_INPUT_TYPE>.$<JAVA_SHARED_LANG_HTML_USER_INPUT_METHOD>($<!>$<_>);
+        filters:
+          - variable: JAVA_SHARED_LANG_HTML_USER_INPUT_TYPE
+            regex: \A(org\.owasp\.encoder\.)?Encode\z
+          - variable: JAVA_SHARED_LANG_HTML_USER_INPUT_METHOD
+            values:
+              - forHtml
+              - forHtmlAttribute
+              - forHtmlContent
+              - forHtmlUnquotedAttribute
+      - pattern: $<JAVA_SHARED_LANG_HTML_USER_INPUT_TYPE>.$<JAVA_SHARED_LANG_HTML_USER_INPUT_METHOD>($<_>, $<!>$<_>);
+        filters:
+          - variable: JAVA_SHARED_LANG_HTML_USER_INPUT_TYPE
+            regex: \A(org\.owasp\.encoder\.)?Encode\z
+          - variable: JAVA_SHARED_LANG_HTML_USER_INPUT_METHOD
+            values:
+              - forHtml
+              - forHtmlAttribute
+              - forHtmlContent
+              - forHtmlUnquotedAttribute
+      # org.owasp.esapi.Encoder
+      - pattern: $<_>.$<JAVA_SHARED_LANG_HTML_USER_INPUT_METHOD>($<!>$<_>);
+        filters:
+          - variable: JAVA_SHARED_LANG_HTML_USER_INPUT_METHOD
+            values:
+              - encodeForHTML
+              - encodeForHTMLAttribute
+metadata:
+  description: "Java HTML user input."
+  id: java_shared_lang_html_user_input
