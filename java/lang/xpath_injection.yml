@@ -3,7 +3,7 @@ imports:
   - java_shared_lang_instance
 patterns:
   - pattern: |
-      $<XPATH>.$<METHOD>($<USER_INPUT>$<...>)
+      $<XPATH>.$<METHOD>($<USER_INPUT>$<...>);
     filters:
       - variable: XPATH
         detection: java_lang_xpath_injection_instance
@@ -31,8 +31,6 @@ auxiliary:
       - xp;
 languages:
   - java
-trigger:
-  match_on: presence
 metadata:
   description: "XPATH injection threat detected"
   remediation_message: |
