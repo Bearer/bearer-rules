@@ -54,8 +54,8 @@ high:
         content: RC4.new("insecure").encrypt(user.email)
       parent_line_number: 1
       snippet: RC4.new("insecure").encrypt(user.email)
-      fingerprint: 7128690f8ca061c785b752b9862b1d22_1
-      old_fingerprint: 28311bf013248298a93e0f764c1e3a52_1
+      fingerprint: 7128690f8ca061c785b752b9862b1d22_0
+      old_fingerprint: 28311bf013248298a93e0f764c1e3a52_0
     - rule:
         cwe_ids:
             - "331"
@@ -111,6 +111,6 @@ high:
         content: rc4_encrypt.encrypt!(user.fullname)
       parent_line_number: 4
       snippet: rc4_encrypt.encrypt!(user.fullname)
-      fingerprint: 7128690f8ca061c785b752b9862b1d22_0
-      old_fingerprint: 28311bf013248298a93e0f764c1e3a52_0
+      fingerprint: 7128690f8ca061c785b752b9862b1d22_1
+      old_fingerprint: 28311bf013248298a93e0f764c1e3a52_1
 

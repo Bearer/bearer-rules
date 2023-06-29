@@ -52,8 +52,8 @@ high:
         content: myMd5(req.query.email)
       parent_line_number: 4
       snippet: myMd5(req.query.email)
-      fingerprint: c4f165d7f589bd4f3415165e96c2b249_1
-      old_fingerprint: cecbc38553532adb0e6994b5aad06cee_1
+      fingerprint: c4f165d7f589bd4f3415165e96c2b249_0
+      old_fingerprint: cecbc38553532adb0e6994b5aad06cee_0
 low:
     - rule:
         cwe_ids:
@@ -102,6 +102,6 @@ low:
         content: myMd5("hello")
       parent_line_number: 5
       snippet: myMd5("hello")
-      fingerprint: c4f165d7f589bd4f3415165e96c2b249_0
-      old_fingerprint: cecbc38553532adb0e6994b5aad06cee_0
+      fingerprint: c4f165d7f589bd4f3415165e96c2b249_1
+      old_fingerprint: cecbc38553532adb0e6994b5aad06cee_1
 

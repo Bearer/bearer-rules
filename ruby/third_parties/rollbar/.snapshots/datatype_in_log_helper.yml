@@ -42,8 +42,8 @@ high:
         content: 'Rollbar.critical("oops #{user.email}")'
       parent_line_number: 1
       snippet: 'Rollbar.critical("oops #{user.email}")'
-      fingerprint: 0976992b89aa3cb2fa891be53248a418_1
-      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_1
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_0
+      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_0
     - rule:
         cwe_ids:
             - "201"
@@ -87,8 +87,8 @@ high:
         content: 'Rollbar.critical(e, "oops #{user.email}")'
       parent_line_number: 2
       snippet: 'Rollbar.critical(e, "oops #{user.email}")'
-      fingerprint: 0976992b89aa3cb2fa891be53248a418_2
-      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_2
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_1
+      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_1
     - rule:
         cwe_ids:
             - "201"
@@ -132,8 +132,8 @@ high:
         content: 'Rollbar.critical(e, user: { email: "someone@example.com" })'
       parent_line_number: 3
       snippet: 'Rollbar.critical(e, user: { email: "someone@example.com" })'
-      fingerprint: 0976992b89aa3cb2fa891be53248a418_3
-      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_3
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_2
+      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_2
     - rule:
         cwe_ids:
             - "201"
@@ -177,8 +177,8 @@ high:
         content: 'Rollbar.critical(e, { user: { first_name: "someone" } })'
       parent_line_number: 4
       snippet: 'Rollbar.critical(e, { user: { first_name: "someone" } })'
-      fingerprint: 0976992b89aa3cb2fa891be53248a418_0
-      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_0
+      fingerprint: 0976992b89aa3cb2fa891be53248a418_3
+      old_fingerprint: 8b983b01f51c0f662eb142a47b8ced83_3
     - rule:
         cwe_ids:
             - "201"
