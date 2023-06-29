@@ -22,7 +22,7 @@ high:
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_passport_hardcoded_secret
       line_number: 5
-      full_filename: /tmp/scan/unsecure.js
+      full_filename: /tmp/scan/insecure.js
       filename: .
       source:
         location:
@@ -42,5 +42,5 @@ high:
       parent_line_number: 5
       snippet: passport.use(strategy)
       fingerprint: 998181c239ce6c5a9107eb9c5902c667_0
-      old_fingerprint: e21c227e79da153aefb29492e5449727_0
+      old_fingerprint: 7e945760374ebb33c3c941a9e6fa0f5f_0
 

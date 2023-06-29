@@ -29,7 +29,7 @@ high:
               - [OWASP sensitive data exposure](https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_jwt
       line_number: 3
-      full_filename: /tmp/scan/unsecure.js
+      full_filename: /tmp/scan/insecure.js
       filename: .
       data_type:
         category_uuid: cef587dd-76db-430b-9e18-7b031e1a193b
@@ -63,5 +63,5 @@ high:
         	process.env.JWT_SECRET
         )
       fingerprint: a07bf92978c23dd3276b9f99c6468078_0
-      old_fingerprint: 78247201b634dcfdf73ec0c2f866e033_0
+      old_fingerprint: 8a6edc3e84b45a6507516071484a2267_0
 

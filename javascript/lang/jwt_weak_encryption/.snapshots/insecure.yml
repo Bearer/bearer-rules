@@ -23,7 +23,7 @@ low:
             - [OWASP weak encryption](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_jwt_weak_encryption
       line_number: 3
-      full_filename: /tmp/scan/unsecure.js
+      full_filename: /tmp/scan/insecure.js
       filename: .
       source:
         location:
@@ -49,5 +49,5 @@ low:
         	algorithm: "none",
         })
       fingerprint: 4a605c6c148c868f59c5f8060462cf2d_0
-      old_fingerprint: 79ff742b503a954fe475b762f7f6c024_0
+      old_fingerprint: f1d78ceb23634cef840a6c5b7f09c3d6_0
 
