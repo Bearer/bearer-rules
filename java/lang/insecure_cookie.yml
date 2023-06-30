@@ -1,6 +1,17 @@
 imports:
   - java_shared_lang_instance
 patterns:
+  - pattern: $<COOKIE>.setHttpOnly($<FALSE>)
+    filters:
+      - variable: COOKIE
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(javax\.servlet\.http\.)?Cookie\z
+      - variable: "FALSE"
+        detection: java_lang_insecure_cookie_false
+        scope: cursor
   - pattern: $<COOKIE>.setSecure($<FALSE>)
     filters:
       - variable: COOKIE
@@ -27,10 +38,12 @@ metadata:
 
     ## Remediations
 
-    ✅ Set `secure` to `true` to force cookies to only be sent over HTTPS:
+    ✅ Set `Secure` to `true` to force cookies to only be sent over HTTPS
+    ✅ Set `HttpOnly` to `true` to protect the cookie value from being accessed by client side JavaScript
 
     ```java
     cookie.setSecure(true);
+    cookie.setHttpOnly(true);
     ```
   cwe_id:
     - 614
