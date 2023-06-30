@@ -22,7 +22,7 @@ high:
             - [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_dangerous_insert_html
       line_number: 2
-      full_filename: /tmp/scan/unsecure-element_ref.js
+      full_filename: /tmp/scan/insecure-element_ref.js
       filename: .
       source:
         location:
@@ -42,5 +42,5 @@ high:
       parent_line_number: 2
       snippet: this.ref.replaceChildren(`<li>${input}</li>`)
       fingerprint: 315770dda0d4ea464e59f5bd073bd950_0
-      old_fingerprint: 2d77339716ea071086970d98a95c4991_0
+      old_fingerprint: 240ad23d88153a33bea565941e590c7a_0
 

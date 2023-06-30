@@ -31,7 +31,7 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_datadog
       line_number: 3
-      full_filename: /tmp/scan/unsecure.js
+      full_filename: /tmp/scan/insecure.js
       filename: .
       data_type:
         category_uuid: 14124881-6b92-4fc5-8005-ea7c1c09592e
@@ -57,5 +57,5 @@ high:
       parent_line_number: 11
       snippet: client.event("user", "logged_in", {}, user)
       fingerprint: 30198f8417f3252a9fc8b70f9affed31_0
-      old_fingerprint: aa6c1059da0df87a6361a6147650c71f_0
+      old_fingerprint: d33e952f507ebb6c20c970c3e6c7541a_0
 

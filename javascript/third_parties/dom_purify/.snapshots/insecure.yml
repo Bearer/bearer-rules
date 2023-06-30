@@ -3,7 +3,7 @@ high:
         cwe_ids:
             - "79"
         id: javascript_third_parties_dom_purify
-        title: Unsecure use of DOMPurify detected.
+        title: Insecure use of DOMPurify detected.
         description: |
             ## Description
             There are XSS vulnerabilites when using DOMPurify's sanitize without proper configuration
@@ -25,8 +25,8 @@ high:
             - [Vulnerability explained](https://research.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_dom_purify
       line_number: 2
-      full_filename: /tmp/scan/unsecure/unsecure.js
-      filename: unsecure.js
+      full_filename: /tmp/scan/insecure/insecure.js
+      filename: insecure.js
       source:
         location:
             start: 2
@@ -44,13 +44,13 @@ high:
         content: DOMPurify.sanitize(dirty, config)
       parent_line_number: 2
       snippet: DOMPurify.sanitize(dirty, config)
-      fingerprint: c4c776fc3ad6bcdba87ecbe501e88246_0
-      old_fingerprint: 940fd932ebcebb921d26e72a70fa6fe4_0
+      fingerprint: e58733026a71734e4be7c15cc5b475ac_0
+      old_fingerprint: 88d6b7385dc1a4a405971a2fb406273e_0
     - rule:
         cwe_ids:
             - "79"
         id: javascript_third_parties_dom_purify
-        title: Unsecure use of DOMPurify detected.
+        title: Insecure use of DOMPurify detected.
         description: |
             ## Description
             There are XSS vulnerabilites when using DOMPurify's sanitize without proper configuration
@@ -72,8 +72,8 @@ high:
             - [Vulnerability explained](https://research.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_dom_purify
       line_number: 5
-      full_filename: /tmp/scan/unsecure/unsecure.js
-      filename: unsecure.js
+      full_filename: /tmp/scan/insecure/insecure.js
+      filename: insecure.js
       source:
         location:
             start: 5
@@ -91,6 +91,6 @@ high:
         content: DOMPurify.sanitize(dirty)
       parent_line_number: 5
       snippet: DOMPurify.sanitize(dirty)
-      fingerprint: c4c776fc3ad6bcdba87ecbe501e88246_1
-      old_fingerprint: 940fd932ebcebb921d26e72a70fa6fe4_1
+      fingerprint: e58733026a71734e4be7c15cc5b475ac_1
+      old_fingerprint: 88d6b7385dc1a4a405971a2fb406273e_1
 

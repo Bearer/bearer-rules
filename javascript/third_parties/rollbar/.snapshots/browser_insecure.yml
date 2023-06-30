@@ -23,7 +23,7 @@ high:
             - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_rollbar
       line_number: 1
-      full_filename: /tmp/scan/browser_unsecure.js
+      full_filename: /tmp/scan/browser_insecure.js
       filename: .
       data_type:
         category_uuid: 14124881-6b92-4fc5-8005-ea7c1c09592e
@@ -49,5 +49,5 @@ high:
       parent_line_number: 3
       snippet: Rollbar.critical("Connection error from remote Payments API", user)
       fingerprint: 550f52afa2d5c58ba3d7c0686d5fb696_0
-      old_fingerprint: 75832c7c74542c7a1338043bc0bfe397_0
+      old_fingerprint: 7092eeaf8ece56b16d23f4b56d7e0bc1_0
 

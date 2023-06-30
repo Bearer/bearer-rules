@@ -22,7 +22,7 @@ high:
             - [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_dangerous_insert_html
       line_number: 2
-      full_filename: /tmp/scan/unsecure-property_assigment.js
+      full_filename: /tmp/scan/insecure-property_assigment.js
       filename: .
       source:
         location:
@@ -42,5 +42,5 @@ high:
       parent_line_number: 2
       snippet: this.ref.innerHTML = `<li>${input}</li>`
       fingerprint: 315770dda0d4ea464e59f5bd073bd950_0
-      old_fingerprint: 7577d4a3ae452232d84a52c6615ab701_0
+      old_fingerprint: 60c9a4ea938ebc40a058fb953f567021_0
 
