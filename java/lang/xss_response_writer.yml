@@ -22,23 +22,21 @@ patterns:
 auxiliary:
   - id: java_lang_xss_response_writer_writer
     patterns:
-      - pattern: $<RESPONSE>.getWriter();
-        filters:
-          - variable: RESPONSE
-            detection: java_lang_xss_response_writer_response
-            scope: cursor
-  - id: java_lang_xss_response_writer_response
-    patterns:
-      - pattern: $<RESPONSE_INSTANCE>;
-        filters:
-          - variable: RESPONSE_INSTANCE
-            detection: java_shared_lang_instance
-            scope: cursor
-            filters:
-              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-                regex: \A(javax\.servlet\.http\.)?HttpServletResponse\z
-      # fallback
-      - response;
+      - pattern: response.getWriter();
+  # FIXME: we can't use java_shared_lang_instance twice and
+  # java_shared_lang_html_user_input uses it internally
+  # - id: java_lang_xss_response_writer_response
+  #   patterns:
+  #     - pattern: $<RESPONSE_INSTANCE>;
+  #       filters:
+  #         - variable: RESPONSE_INSTANCE
+  #           detection: java_shared_lang_instance
+  #           scope: cursor
+  #           filters:
+  #             - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+  #               regex: \A(javax\.servlet\.http\.)?HttpServletResponse\z
+  #     # fallback
+  #     - response;
 languages:
   - java
 metadata:
