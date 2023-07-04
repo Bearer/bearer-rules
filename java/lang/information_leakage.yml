@@ -1,35 +1,39 @@
+imports:
+  - java_shared_lang_instance
 patterns:
-  - pattern: |
-      try {
-        $<...>
-      } catch($<EXCEPTION> $<EXCEPTION_VAR:identifier>) {
-        $<!>$<EXCEPTION_VAR>.printStackTrace();
-      }
+  - pattern: $<EXCEPTION>.printStackTrace();
     filters:
-      - either:
-          - variable: EXCEPTION
-            values:
-              - Throwable
-              - Exception
-              - Error
-              - OutOfMemoryError
-              - StackOverflowError
-          - variable: EXCEPTION
-            regex: \A(java\.io\.)?FileNotFoundException\z
-          - variable: EXCEPTION
-            regex: \A(java\.sql\.)?SQLException\z
-          - variable: EXCEPTION
-            regex: \A(java\.net\.)?BindException\z
-          - variable: EXCEPTION
-            regex: \A(java\.util\.)?ConcurrentModificationException\z
-          - variable: EXCEPTION
-            regex: \A(javax\.naming\.)?InsufficientResourcesException\z
-          - variable: EXCEPTION
-            regex: \A(java\.util\.)?MissingResourceException\z
-          - variable: EXCEPTION
-            regex: \A(java\.util\.jar\.)?JarException\z
-          - variable: EXCEPTION
-            regex: \A(java\.security\.acl\.)?NotOwnerException\z
+      - variable: EXCEPTION
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - either:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.lang\.)?Throwable\z
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.lang\.)?Error\z
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.lang\.)?Exception\z
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.lang\.)?OutOfMemoryError\z
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.lang\.)?StackOverflowError\z
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.io\.)?FileNotFoundException\z
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.sql\.)?SQLException\z
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.net\.)?BindException\z
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.util\.)?ConcurrentModificationException\z
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(javax\.naming\.)?InsufficientResourcesException\z
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.util\.)?MissingResourceException\z
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.util\.jar\.)?JarException\z
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.security\.acl\.)?NotOwnerException\z
 languages:
   - java
 severity: warning

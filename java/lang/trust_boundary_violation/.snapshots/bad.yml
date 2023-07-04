@@ -319,17 +319,17 @@ warning:
             end: 35
             column:
                 start: 7
-                end: 36
+                end: 46
       sink:
         location:
             start: 35
             end: 35
             column:
                 start: 7
-                end: 36
-        content: e.setAttribute(KEY, getFoo())
+                end: 46
+        content: caughtError.setAttribute(KEY, getFoo())
       parent_line_number: 35
-      snippet: e.setAttribute(KEY, getFoo())
+      snippet: caughtError.setAttribute(KEY, getFoo())
       fingerprint: 0011f9ce80042a297b7ed3b3edbcf26a_8
       old_fingerprint: 2bfea37963fd4ad9955ed90333a00976_8
     - rule:
@@ -347,26 +347,26 @@ warning:
 
             ✅ Avoid adding trusted data to data structures containing untrusted data
         documentation_url: https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation
-      line_number: 39
+      line_number: 41
       full_filename: /tmp/scan/bad.java
       filename: .
       source:
         location:
-            start: 39
-            end: 39
+            start: 41
+            end: 41
             column:
                 start: 7
-                end: 43
+                end: 54
       sink:
         location:
-            start: 39
-            end: 39
+            start: 41
+            end: 41
             column:
                 start: 7
-                end: 43
-        content: resource.setAttribute(KEY, getFoo())
-      parent_line_number: 39
-      snippet: resource.setAttribute(KEY, getFoo())
+                end: 54
+        content: caughtResourceError.setAttribute(KEY, getFoo())
+      parent_line_number: 41
+      snippet: caughtResourceError.setAttribute(KEY, getFoo())
       fingerprint: 0011f9ce80042a297b7ed3b3edbcf26a_9
       old_fingerprint: 2bfea37963fd4ad9955ed90333a00976_9
     - rule:
@@ -384,26 +384,63 @@ warning:
 
             ✅ Avoid adding trusted data to data structures containing untrusted data
         documentation_url: https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation
-      line_number: 43
+      line_number: 45
       full_filename: /tmp/scan/bad.java
       filename: .
       source:
         location:
-            start: 43
-            end: 43
+            start: 45
+            end: 45
+            column:
+                start: 7
+                end: 43
+      sink:
+        location:
+            start: 45
+            end: 45
+            column:
+                start: 7
+                end: 43
+        content: resource.setAttribute(KEY, getFoo())
+      parent_line_number: 45
+      snippet: resource.setAttribute(KEY, getFoo())
+      fingerprint: 0011f9ce80042a297b7ed3b3edbcf26a_10
+      old_fingerprint: 2bfea37963fd4ad9955ed90333a00976_10
+    - rule:
+        cwe_ids:
+            - "501"
+        id: java_lang_trust_boundary_violation
+        title: Trust boundary violation detected.
+        description: |
+            ## Description
+
+            Mixing trusted and untrusted data inside the same data structure can lead
+            to untrusted data being mistakenly treated as being trusted.
+
+            ## Remediations
+
+            ✅ Avoid adding trusted data to data structures containing untrusted data
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation
+      line_number: 49
+      full_filename: /tmp/scan/bad.java
+      filename: .
+      source:
+        location:
+            start: 49
+            end: 49
             column:
                 start: 7
                 end: 42
       sink:
         location:
-            start: 43
-            end: 43
+            start: 49
+            end: 49
             column:
                 start: 7
                 end: 42
         content: forEach.setAttribute(KEY, getFoo())
-      parent_line_number: 43
+      parent_line_number: 49
       snippet: forEach.setAttribute(KEY, getFoo())
-      fingerprint: 0011f9ce80042a297b7ed3b3edbcf26a_10
-      old_fingerprint: 2bfea37963fd4ad9955ed90333a00976_10
+      fingerprint: 0011f9ce80042a297b7ed3b3edbcf26a_11
+      old_fingerprint: 2bfea37963fd4ad9955ed90333a00976_11
 

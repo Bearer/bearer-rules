@@ -3,7 +3,7 @@ public class Main {
     try {
       // something risky!
     } catch (Exception e) {
-      System.out.println("Oops!")
+      System.out.println("Oops!");
     }
   }
 }
