@@ -20,7 +20,7 @@ low:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/java_lang_insecure_cookie
       line_number: 8
-      full_filename: /tmp/scan/bad.java
+      full_filename: /tmp/scan/bad_http_only.java
       filename: .
       source:
         location:
@@ -28,19 +28,19 @@ low:
             end: 8
             column:
                 start: 5
-                end: 24
+                end: 26
       sink:
         location:
             start: 8
             end: 8
             column:
                 start: 5
-                end: 24
-        content: c1.setSecure(false)
+                end: 26
+        content: c1.setHttpOnly(false)
       parent_line_number: 8
-      snippet: c1.setSecure(false)
+      snippet: c1.setHttpOnly(false)
       fingerprint: ebb3bb66f61c10a70c9710467ac46faf_0
-      old_fingerprint: d1d18cff70ec728a5983d08465c6b56d_0
+      old_fingerprint: 806680826c73d23a4d4a5e051377b031_0
     - rule:
         cwe_ids:
             - "614"
@@ -62,7 +62,7 @@ low:
             ```
         documentation_url: https://docs.bearer.com/reference/rules/java_lang_insecure_cookie
       line_number: 12
-      full_filename: /tmp/scan/bad.java
+      full_filename: /tmp/scan/bad_http_only.java
       filename: .
       source:
         location:
@@ -70,17 +70,17 @@ low:
             end: 12
             column:
                 start: 5
-                end: 20
+                end: 22
       sink:
         location:
             start: 12
             end: 12
             column:
                 start: 5
-                end: 20
-        content: c2.setSecure(f)
+                end: 22
+        content: c2.setHttpOnly(f)
       parent_line_number: 12
-      snippet: c2.setSecure(f)
+      snippet: c2.setHttpOnly(f)
       fingerprint: ebb3bb66f61c10a70c9710467ac46faf_1
-      old_fingerprint: d1d18cff70ec728a5983d08465c6b56d_1
+      old_fingerprint: 806680826c73d23a4d4a5e051377b031_1
 

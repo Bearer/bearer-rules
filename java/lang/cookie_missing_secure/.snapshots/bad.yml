@@ -1,0 +1,44 @@
+low:
+    - rule:
+        cwe_ids:
+            - "614"
+        id: java_lang_cookie_missing_secure
+        title: Missing secure options for cookie detected.
+        description: |
+            ## Description
+
+            The "Secure" attribute when set to "true" ensures that a client will only send
+            the cookie to the server when HTTPS is being used. This prevents the cookie
+            from being observed by unauthorized third parties.
+
+            ## Remediations
+
+            ✅ Set `setSecure` to `true`
+
+            ```java
+            cookie.setSecure(true);
+            ```
+        documentation_url: https://docs.bearer.com/reference/rules/java_lang_cookie_missing_secure
+      line_number: 6
+      full_filename: /tmp/scan/bad.java
+      filename: .
+      source:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 21
+                end: 57
+      sink:
+        location:
+            start: 6
+            end: 6
+            column:
+                start: 21
+                end: 57
+        content: new Cookie(COOKIE_NAME, cookieValue)
+      parent_line_number: 6
+      snippet: new Cookie(COOKIE_NAME, cookieValue)
+      fingerprint: c4bc05c07b10e54f98f66405ee9722e7_0
+      old_fingerprint: 3fe3c322897aac9c8c8be59b5f3283db_0
+

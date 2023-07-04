@@ -1,0 +1,49 @@
+imports:
+  - java_shared_lang_instance
+patterns:
+  - pattern: $<COOKIE>.setSecure($<TRUE>);
+    filters:
+      - variable: COOKIE
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(javax\.servlet\.http\.)?Cookie\z
+      - variable: "TRUE"
+        detection: java_lang_cookie_missing_secure_true
+        scope: cursor
+trigger:
+  match_on: absence
+  required_detection: java_lang_cookie_missing_secure_init
+auxiliary:
+  - id: java_lang_cookie_missing_secure_init
+    patterns:
+      - pattern: new $<COOKIE_TYPE>();
+        filters:
+          - variable: COOKIE_TYPE
+            regex: \A(javax\.servlet\.http\.)?Cookie\z
+  - id: java_lang_cookie_missing_secure_true
+    patterns:
+      - "true;"
+languages:
+  - java
+metadata:
+  description: "Missing secure options for cookie detected."
+  remediation_message: |
+    ## Description
+
+    The "Secure" attribute when set to "true" ensures that a client will only send
+    the cookie to the server when HTTPS is being used. This prevents the cookie
+    from being observed by unauthorized third parties.
+
+    ## Remediations
+
+    ✅ Set `setSecure` to `true`
+
+    ```java
+    cookie.setSecure(true);
+    ```
+  cwe_id:
+    - 614
+  id: java_lang_cookie_missing_secure
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_cookie_missing_secure

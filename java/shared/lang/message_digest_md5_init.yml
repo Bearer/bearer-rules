@@ -4,9 +4,9 @@ languages:
 imports:
   - java_shared_lang_string
 patterns:
-  - pattern: $<MESSAGE_DIGEST>.getInstance($<JAVA_SHARED_LANG_MESSAGE_DIGEST_MD5_INIT_ALGORITHM>$<...>)
+  - pattern: $<JAVA_SHARED_LANG_MESSAGE_DIGEST_MD5_INIT_TYPE>.getInstance($<JAVA_SHARED_LANG_MESSAGE_DIGEST_MD5_INIT_ALGORITHM>$<...>)
     filters:
-      - variable: MESSAGE_DIGEST
+      - variable: JAVA_SHARED_LANG_MESSAGE_DIGEST_MD5_INIT_TYPE
         regex: \A(java\.security\.)?MessageDigest\z
       - variable: JAVA_SHARED_LANG_MESSAGE_DIGEST_MD5_INIT_ALGORITHM
         detection: java_shared_lang_string

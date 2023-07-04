@@ -10,5 +10,7 @@ public class Cls extends HttpServlet
 
         String expression = "/Users/User[@userID='" + userID + "']";
         String result = xp.evaluate(expression, xmlDocument);
+
+        var compiled = xpf.newXPath().compile(expression);
     }
 }

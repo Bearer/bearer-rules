@@ -36,26 +36,26 @@ low:
             ## References
             - [XPATH Injection](https://owasp.org/www-community/attacks/XPATH_Injection)
         documentation_url: https://docs.bearer.com/reference/rules/java_lang_xpath_injection
-      line_number: 12
+      line_number: 14
       full_filename: /tmp/scan/xpath_injection.java
       filename: .
       source:
         location:
-            start: 12
-            end: 12
+            start: 14
+            end: 14
             column:
-                start: 25
-                end: 61
+                start: 24
+                end: 58
       sink:
         location:
-            start: 12
-            end: 12
+            start: 14
+            end: 14
             column:
-                start: 25
-                end: 61
-        content: xp.evaluate(expression, xmlDocument)
-      parent_line_number: 12
-      snippet: xp.evaluate(expression, xmlDocument)
+                start: 24
+                end: 58
+        content: xpf.newXPath().compile(expression)
+      parent_line_number: 14
+      snippet: xpf.newXPath().compile(expression)
       fingerprint: d8456dfb1c7f1ed1b1c088e426430687_0
       old_fingerprint: bab24dc45dedd504cefea20de245a58d_0
 

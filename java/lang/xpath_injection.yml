@@ -1,21 +1,36 @@
 imports:
   - java_shared_lang_user_input
+  - java_shared_lang_instance
 patterns:
   - pattern: |
-      $<XPATH>.evaluate($<USER_INPUT>$<...>)
+      $<XPATH>.$<METHOD>($<USER_INPUT>$<...>);
     filters:
       - variable: XPATH
+        detection: java_lang_xpath_injection_instance
+        scope: cursor
+      - variable: METHOD
         values:
-          - xp
-          - xpf
-          - XPath
-          - XPathFactory
+          - compile
+          - evaluate
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
+        scope: result
+auxiliary:
+  - id: java_lang_xpath_injection_instance
+    patterns:
+      - $<_>.newXPath();
+      - pattern: $<XPATH_INSTANCE>;
+        filters:
+          - variable: XPATH_INSTANCE
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(javax\.xml\.xpath\.)?XPath\z
+      # fallback
+      - xp;
 languages:
   - java
-trigger:
-  match_on: presence
 metadata:
   description: "XPATH injection threat detected"
   remediation_message: |
