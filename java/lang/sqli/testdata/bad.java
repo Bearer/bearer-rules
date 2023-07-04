@@ -7,8 +7,11 @@ public class SQLExample {
    static final String USER = "guest";
    static final String PASS = "guest";
 
-   public static void main(String[] args) {
-      String sqlQuery = "select name from users where id='"+ args[1] + "'";
+   HttpServletRequest request;
+
+   public static void main() {
+      var param = request.getParameter("id");
+      String sqlQuery = "select name from users where id='"+ param + "'";
 
       // Open a connection
       try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -30,14 +33,14 @@ public class SQLExample {
    }
 
    public static void conTest(Connection x) {
-      x.prepareStatement("select " + y);
+      x.prepareStatement("select " + request.getParameter("id"));
    }
 
    public static void stmtTest(Statement x) {
-      x.executeQuery("select " + y);
+      x.executeQuery("select " + request.getParameter("id"));
    }
 
    public static void emTest(EntityManager x) {
-      x.createQuery("select " + y);
+      x.createQuery("select " + request.getParameter("id"));
    }
 }

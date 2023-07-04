@@ -43,7 +43,7 @@ low:
             - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/java_spring_sqli
       line_number: 14
-      full_filename: /tmp/scan/string_concatenation.java
+      full_filename: /tmp/scan/bad.java
       filename: .
       source:
         location:
@@ -63,7 +63,7 @@ low:
       parent_line_number: 14
       snippet: new PreparedStatementCreatorFactory(myQueryStr, Types.VARCHAR)
       fingerprint: ebf8b9a53c73eabed841989514b90054_0
-      old_fingerprint: b6b432ac3b8b51ea957f2fed2a2732ae_0
+      old_fingerprint: 34043e261c96bd8da2e0c0eb99d4b550_0
     - rule:
         cwe_ids:
             - "89"
@@ -108,7 +108,7 @@ low:
             - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/java_spring_sqli
       line_number: 15
-      full_filename: /tmp/scan/string_concatenation.java
+      full_filename: /tmp/scan/bad.java
       filename: .
       source:
         location:
@@ -128,7 +128,7 @@ low:
       parent_line_number: 15
       snippet: factory.newPreparedStatementCreator(myQueryStr, [])
       fingerprint: ebf8b9a53c73eabed841989514b90054_1
-      old_fingerprint: b6b432ac3b8b51ea957f2fed2a2732ae_1
+      old_fingerprint: 34043e261c96bd8da2e0c0eb99d4b550_1
     - rule:
         cwe_ids:
             - "89"
@@ -173,7 +173,7 @@ low:
             - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/java_spring_sqli
       line_number: 17
-      full_filename: /tmp/scan/string_concatenation.java
+      full_filename: /tmp/scan/bad.java
       filename: .
       source:
         location:
@@ -193,7 +193,7 @@ low:
       parent_line_number: 17
       snippet: t.batchUpdate("ok", myQueryStr)
       fingerprint: ebf8b9a53c73eabed841989514b90054_2
-      old_fingerprint: b6b432ac3b8b51ea957f2fed2a2732ae_2
+      old_fingerprint: 34043e261c96bd8da2e0c0eb99d4b550_2
     - rule:
         cwe_ids:
             - "89"
@@ -238,7 +238,7 @@ low:
             - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
         documentation_url: https://docs.bearer.com/reference/rules/java_spring_sqli
       line_number: 18
-      full_filename: /tmp/scan/string_concatenation.java
+      full_filename: /tmp/scan/bad.java
       filename: .
       source:
         location:
@@ -258,5 +258,5 @@ low:
       parent_line_number: 18
       snippet: t.execute(myQueryStr)
       fingerprint: ebf8b9a53c73eabed841989514b90054_3
-      old_fingerprint: b6b432ac3b8b51ea957f2fed2a2732ae_3
+      old_fingerprint: 34043e261c96bd8da2e0c0eb99d4b550_3
 

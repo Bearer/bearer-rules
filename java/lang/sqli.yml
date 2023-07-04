@@ -1,8 +1,9 @@
 imports:
   - java_shared_lang_instance
+  - java_shared_lang_user_input
 patterns:
   - pattern: |
-      $<CONNECTION>.$<METHOD>($<DYNAMIC_INPUT_LITERAL>$<...>);
+      $<CONNECTION>.$<METHOD>($<USER_INPUT>$<...>);
     filters:
       - variable: CONNECTION
         detection: java_lang_sqli_connection
@@ -12,11 +13,11 @@ patterns:
           - nativeSQL
           - prepareCall
           - prepareStatement
-      - variable: DYNAMIC_INPUT_LITERAL
-        detection: java_lang_sqli_dynamic_input
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
         scope: result
   - pattern: |
-      $<STATEMENT>.$<METHOD>($<DYNAMIC_INPUT_LITERAL>$<...>);
+      $<STATEMENT>.$<METHOD>($<USER_INPUT>$<...>);
     filters:
       - variable: STATEMENT
         detection: java_lang_sqli_statement
@@ -28,11 +29,11 @@ patterns:
           - executeLargeUpdate
           - executeQuery
           - executeUpdate
-      - variable: DYNAMIC_INPUT_LITERAL
-        detection: java_lang_sqli_dynamic_input
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
         scope: result
   - pattern: |
-      $<ENTITY_MANAGER>.$<METHOD>($<DYNAMIC_INPUT_LITERAL>$<...>);
+      $<ENTITY_MANAGER>.$<METHOD>($<USER_INPUT>$<...>);
     filters:
       - variable: ENTITY_MANAGER
         detection: java_lang_sqli_entity_manager
@@ -41,8 +42,8 @@ patterns:
         values:
           - createNativeQuery
           - createQuery
-      - variable: DYNAMIC_INPUT_LITERAL
-        detection: java_lang_sqli_dynamic_input
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
         scope: result
 auxiliary:
   - id: java_lang_sqli_connection
@@ -88,18 +89,6 @@ auxiliary:
       # fallback
       - em;
       - entityManager;
-  - id: java_lang_sqli_dynamic_input
-    patterns:
-      - pattern: |
-          $<STRING_LITERAL> + $<DYNAMIC_INPUT>
-        filters:
-          - variable: STRING_LITERAL
-            detection: string_literal
-            scope: cursor
-          - not:
-              variable: DYNAMIC_INPUT
-              detection: string_literal
-              scope: cursor
 languages:
   - java
 trigger:
