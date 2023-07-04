@@ -1,5 +1,5 @@
 response = Net::HTTP.post_form("https://my.api.com/users/search")
-
+response = Net::HTTP.post_form("https://my.api.com/users/search", { email: user.email })
 
 Curl.http("GET", "https://my.api.com/users/search", nil) do
 end
@@ -19,3 +19,6 @@ Excon.get("https://my.api.com/secure", foo: true)
 
 Faraday.get("https://api.secure.com")
 Faraday.post("https://api.secure.com")
+
+
+HTTParty.post("https://my.api.com/users/search", body: { email: user.email })
