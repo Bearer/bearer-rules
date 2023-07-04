@@ -31,8 +31,14 @@ public class Main {
       x.foo();
     } catch (SomeException e) {
       foo;
-    } catch (OtherException|HttpServletRequest e) {
-      e.setAttribute(KEY, getFoo());
+    } catch (OtherException|HttpServletRequest caughtError) {
+      caughtError.setAttribute(KEY, getFoo());
+    }
+
+    try (Something abc = getBar()) {
+      abc.foo();
+    } catch (HttpServletRequest caughtResourceError) {
+      caughtResourceError.setAttribute(KEY, getFoo());
     }
 
     try (ServletRequest resource = getReq()) {
