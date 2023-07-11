@@ -7,16 +7,19 @@ high:
         description: |
             ## Description
 
-            Code is not a safe place to store secrets, use environment variables instead.
+            Code is not a safe place to store secrets. Use environment variables or a secret management system instead.
 
             ## Remediations
+
+            ❌ Do not store plaintext secrets in your code
+
             ```javascript
               passport.use(new OAuth2Strategy({
                   authorizationURL: 'https://www.example.com/oauth2/authorize',
                   tokenURL: 'https://www.example.com/oauth2/token',
-                  clientID:  process.env.CLIENT_ID,
-                  clientSecret: process.env.CLIENT_SECRET,
-                  callbackURL: "http://localhost:3000/auth/example/callback"
+                  clientID: 'my-id-123',
+                  clientSecret: 'shh-my-secret',
+                  callbackURL: 'http://localhost:3000/auth/example/callback'
                 },
                 function(accessToken, refreshToken, profile, cb) {
                   User.findOrCreate({ exampleId: profile.id }, function (err, user) {
@@ -26,8 +29,30 @@ high:
               ));
             ```
 
+            ✅ Use environment variables
+
+            ```javascript
+              passport.use(new OAuth2Strategy({
+                  authorizationURL: 'https://www.example.com/oauth2/authorize',
+                  tokenURL: 'https://www.example.com/oauth2/token',
+                  clientID:  process.env.CLIENT_ID,
+                  clientSecret: process.env.CLIENT_SECRET,
+                  callbackURL: 'http://localhost:3000/auth/example/callback'
+                },
+                function(accessToken, refreshToken, profile, cb) {
+                  User.findOrCreate({ exampleId: profile.id }, function (err, user) {
+                    return cb(err, user);
+                  });
+                }
+              ));
+            ```
+
+            ✅ Use a secret management system or even better, a key management service (KMS) with encryption, to manage and access your secrets
+
             ## Resources
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
+            - [Google Cloud Key Management Service](https://cloud.google.com/kms/docs)
+            - [AWS Key Management Service](https://aws.amazon.com/kms/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
       line_number: 2
       full_filename: /tmp/scan/insecure_assigment.js
@@ -59,16 +84,19 @@ high:
         description: |
             ## Description
 
-            Code is not a safe place to store secrets, use environment variables instead.
+            Code is not a safe place to store secrets. Use environment variables or a secret management system instead.
 
             ## Remediations
+
+            ❌ Do not store plaintext secrets in your code
+
             ```javascript
               passport.use(new OAuth2Strategy({
                   authorizationURL: 'https://www.example.com/oauth2/authorize',
                   tokenURL: 'https://www.example.com/oauth2/token',
-                  clientID:  process.env.CLIENT_ID,
-                  clientSecret: process.env.CLIENT_SECRET,
-                  callbackURL: "http://localhost:3000/auth/example/callback"
+                  clientID: 'my-id-123',
+                  clientSecret: 'shh-my-secret',
+                  callbackURL: 'http://localhost:3000/auth/example/callback'
                 },
                 function(accessToken, refreshToken, profile, cb) {
                   User.findOrCreate({ exampleId: profile.id }, function (err, user) {
@@ -78,8 +106,30 @@ high:
               ));
             ```
 
+            ✅ Use environment variables
+
+            ```javascript
+              passport.use(new OAuth2Strategy({
+                  authorizationURL: 'https://www.example.com/oauth2/authorize',
+                  tokenURL: 'https://www.example.com/oauth2/token',
+                  clientID:  process.env.CLIENT_ID,
+                  clientSecret: process.env.CLIENT_SECRET,
+                  callbackURL: 'http://localhost:3000/auth/example/callback'
+                },
+                function(accessToken, refreshToken, profile, cb) {
+                  User.findOrCreate({ exampleId: profile.id }, function (err, user) {
+                    return cb(err, user);
+                  });
+                }
+              ));
+            ```
+
+            ✅ Use a secret management system or even better, a key management service (KMS) with encryption, to manage and access your secrets
+
             ## Resources
             - [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)
+            - [Google Cloud Key Management Service](https://cloud.google.com/kms/docs)
+            - [AWS Key Management Service](https://aws.amazon.com/kms/)
         documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_hardcoded_secret
       line_number: 4
       full_filename: /tmp/scan/insecure_assigment.js
