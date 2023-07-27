@@ -1,7 +1,7 @@
 #!/bin/bash
 printf "INFO: Validating rule structure...\n"
 args=""
-for rule_file in $(find $PWD -type f | grep .yml | grep -vE '.snapshots|.github'); do
+for rule_file in $(find $PWD/rules -type f | grep .yml | grep -vE '.snapshots|.github'); do
   args="$args -d $rule_file"
 done
 

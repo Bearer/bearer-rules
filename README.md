@@ -25,7 +25,7 @@ Simple! Fork this repository, and, when running Bearer, disable default rules an
 ```bash
   bearer scan my-project \
   --disable-default-rules \
-  --external-rule-dir=/bearer-rules
+  --external-rule-dir=bearer-rules/rules
 ```
 
 ## :handshake: Contributing
