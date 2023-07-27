@@ -1,5 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`javascript_third_parties_datadog_browser insecure 1`] = `"{}"`;
+exports[`javascript_third_parties_datadog_browser insecure 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "javascript_third_parties_datadog_browser",
+      "title": "Sensitive data sent to Datadog detected.",
+      "description": "## Description\\nSensitive and private data contained in your pages may be sent to datatdog to identify elements that a user interacted with.\\n\\n## Remediations\\n\\nTo control which information is sent to Datadog, manually set an action name, or implement a global scrubbing rule in the Datadog Browser SDK for RUM.\\n\\n## Resources\\n- [Datadog docs](https://docs.datadoghq.com)\\n- [Scrubbing data](https://docs.datadoghq.com/real_user_monitoring/browser/modifying_data_and_context/?tab=npm)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_datadog_browser",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/insecure.js",
+      "filename": ".",
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 2,
+          "end": 29
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 2,
+          "end": 29
+        },
+        "content": "trackUserInteractions: true"
+      },
+      "parent_line_number": 2,
+      "snippet": "trackUserInteractions: true",
+      "fingerprint": "b626a271a3e7a2abcbd7299cc0ca4fca_0",
+      "old_fingerprint": "e7395ebb254f0bc37f41ce5fad99985a_0"
+    }
+  ]
+}"
+`;
 
 exports[`javascript_third_parties_datadog_browser secure 1`] = `"{}"`;

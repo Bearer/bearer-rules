@@ -1,5 +1,208 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`java_lang_insufficiently_random_values bad 1`] = `"{}"`;
+exports[`java_lang_insufficiently_random_values bad 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "330"
+      ],
+      "id": "java_lang_insufficiently_random_values",
+      "title": "Insufficiently random value detected.",
+      "description": "## Description\\n\\nUsing predictable random values makes our application vulnerable to attacks,\\nespecially if these values are used for security purposes.\\n\\n## Remediations\\n\\n✅ Use a stronger library when generating random values\\n\\n\`\`\`java\\nSecureRandom random = new SecureRandom();\\n\`\`\`\\n\\n## Resources\\n- [Java SecureRandom class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/SecureRandom.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_insufficiently_random_values",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 1,
+          "end": 12
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 1,
+          "end": 12
+        },
+        "content": "rand.next()"
+      },
+      "parent_line_number": 2,
+      "snippet": "rand.next()",
+      "fingerprint": "8f51671abbce2a871cc191dc35531c9f_0",
+      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_0"
+    },
+    {
+      "cwe_ids": [
+        "330"
+      ],
+      "id": "java_lang_insufficiently_random_values",
+      "title": "Insufficiently random value detected.",
+      "description": "## Description\\n\\nUsing predictable random values makes our application vulnerable to attacks,\\nespecially if these values are used for security purposes.\\n\\n## Remediations\\n\\n✅ Use a stronger library when generating random values\\n\\n\`\`\`java\\nSecureRandom random = new SecureRandom();\\n\`\`\`\\n\\n## Resources\\n- [Java SecureRandom class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/SecureRandom.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_insufficiently_random_values",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 53
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 53
+        },
+        "content": "org.apache.commons.lang.RandomStringUtils.random(10)"
+      },
+      "parent_line_number": 4,
+      "snippet": "org.apache.commons.lang.RandomStringUtils.random(10)",
+      "fingerprint": "8f51671abbce2a871cc191dc35531c9f_1",
+      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_1"
+    },
+    {
+      "cwe_ids": [
+        "330"
+      ],
+      "id": "java_lang_insufficiently_random_values",
+      "title": "Insufficiently random value detected.",
+      "description": "## Description\\n\\nUsing predictable random values makes our application vulnerable to attacks,\\nespecially if these values are used for security purposes.\\n\\n## Remediations\\n\\n✅ Use a stronger library when generating random values\\n\\n\`\`\`java\\nSecureRandom random = new SecureRandom();\\n\`\`\`\\n\\n## Resources\\n- [Java SecureRandom class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/SecureRandom.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_insufficiently_random_values",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 29
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 29
+        },
+        "content": "RandomStringUtils.random(10)"
+      },
+      "parent_line_number": 5,
+      "snippet": "RandomStringUtils.random(10)",
+      "fingerprint": "8f51671abbce2a871cc191dc35531c9f_2",
+      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_2"
+    },
+    {
+      "cwe_ids": [
+        "330"
+      ],
+      "id": "java_lang_insufficiently_random_values",
+      "title": "Insufficiently random value detected.",
+      "description": "## Description\\n\\nUsing predictable random values makes our application vulnerable to attacks,\\nespecially if these values are used for security purposes.\\n\\n## Remediations\\n\\n✅ Use a stronger library when generating random values\\n\\n\`\`\`java\\nSecureRandom random = new SecureRandom();\\n\`\`\`\\n\\n## Resources\\n- [Java SecureRandom class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/SecureRandom.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_insufficiently_random_values",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 51
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 51
+        },
+        "content": "org.apache.commons.lang.math.RandomUtils.nextint()"
+      },
+      "parent_line_number": 7,
+      "snippet": "org.apache.commons.lang.math.RandomUtils.nextint()",
+      "fingerprint": "8f51671abbce2a871cc191dc35531c9f_3",
+      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_3"
+    },
+    {
+      "cwe_ids": [
+        "330"
+      ],
+      "id": "java_lang_insufficiently_random_values",
+      "title": "Insufficiently random value detected.",
+      "description": "## Description\\n\\nUsing predictable random values makes our application vulnerable to attacks,\\nespecially if these values are used for security purposes.\\n\\n## Remediations\\n\\n✅ Use a stronger library when generating random values\\n\\n\`\`\`java\\nSecureRandom random = new SecureRandom();\\n\`\`\`\\n\\n## Resources\\n- [Java SecureRandom class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/SecureRandom.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_insufficiently_random_values",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 22
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 22
+        },
+        "content": "RandomUtils.nextint()"
+      },
+      "parent_line_number": 8,
+      "snippet": "RandomUtils.nextint()",
+      "fingerprint": "8f51671abbce2a871cc191dc35531c9f_4",
+      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_4"
+    },
+    {
+      "cwe_ids": [
+        "330"
+      ],
+      "id": "java_lang_insufficiently_random_values",
+      "title": "Insufficiently random value detected.",
+      "description": "## Description\\n\\nUsing predictable random values makes our application vulnerable to attacks,\\nespecially if these values are used for security purposes.\\n\\n## Remediations\\n\\n✅ Use a stronger library when generating random values\\n\\n\`\`\`java\\nSecureRandom random = new SecureRandom();\\n\`\`\`\\n\\n## Resources\\n- [Java SecureRandom class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/SecureRandom.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_insufficiently_random_values",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 12,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 12,
+          "end": 35
+        },
+        "content": "java.lang.Math.random()"
+      },
+      "parent_line_number": 10,
+      "snippet": "java.lang.Math.random()",
+      "fingerprint": "8f51671abbce2a871cc191dc35531c9f_5",
+      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_5"
+    }
+  ]
+}"
+`;
 
 exports[`java_lang_insufficiently_random_values ok_secure_random 1`] = `"{}"`;

@@ -1,5 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`javascript_third_parties_google_analytics insecure 1`] = `"{}"`;
+exports[`javascript_third_parties_google_analytics insecure 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "javascript_third_parties_google_analytics",
+      "title": "Sensitive data sent to Google Analytic detected.",
+      "description": "## Description\\n\\nLeaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Google Analytics.\\n\\n## Remediations\\n\\nWhen sending data to analytics libraries, ensure all sensitive data is removed.\\n\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\n  gtag(\\"event\\", \\"screen_view\\", {\\n    user: {\\n      subscribed: true,\\n    },\\n  });\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_google_analytics",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/insecure.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 3,
+          "end": 26
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 3
+        },
+        "content": "gtag(\\"event\\", \\"screen_view\\", {\\n\\tuser: {\\n\\t\\temail: \\"jhon@gmail.com\\",\\n\\t},\\n})"
+      },
+      "parent_line_number": 1,
+      "snippet": "gtag(\\"event\\", \\"screen_view\\", {\\n\\tuser: {\\n\\t\\temail: \\"jhon@gmail.com\\",\\n\\t},\\n})",
+      "fingerprint": "50f052af0f997dae6751e3aa349aecf6_0",
+      "old_fingerprint": "4657d77eb63c00b706b210deab02e697_0"
+    }
+  ]
+}"
+`;
 
 exports[`javascript_third_parties_google_analytics secure 1`] = `"{}"`;

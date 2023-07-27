@@ -1,5 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`javascript_lang_post_message_origin bad 1`] = `"{}"`;
+exports[`javascript_lang_post_message_origin bad 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "923"
+      ],
+      "id": "javascript_lang_post_message_origin",
+      "title": "Permissive origin in postMessage detected.",
+      "description": "## Description\\n\\nUsing \\"*\\" (any) as the target origin of a postMessage call allows\\nthird-parties to read the message.\\n\\n## Remediations\\n\\n❌ Avoid using \\"*\\" as the target origin:\\n\\n\`\`\`javascript\\nwindow.postMessage(message, '*')\\n\`\`\`\\n\\n✅ Specify the origin for your target application:\\n\\n\`\`\`javascript\\nwindow.postMessage(message, 'https://myapp.example.com')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_post_message_origin",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 26
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 26
+        },
+        "content": "postMessage(message, '*')"
+      },
+      "parent_line_number": 1,
+      "snippet": "postMessage(message, '*')",
+      "fingerprint": "0e58e60389aa7b1dc2a5f244692f4333_0",
+      "old_fingerprint": "96ff67407e1715171bf80a8c1a6991e4_0"
+    },
+    {
+      "cwe_ids": [
+        "923"
+      ],
+      "id": "javascript_lang_post_message_origin",
+      "title": "Permissive origin in postMessage detected.",
+      "description": "## Description\\n\\nUsing \\"*\\" (any) as the target origin of a postMessage call allows\\nthird-parties to read the message.\\n\\n## Remediations\\n\\n❌ Avoid using \\"*\\" as the target origin:\\n\\n\`\`\`javascript\\nwindow.postMessage(message, '*')\\n\`\`\`\\n\\n✅ Specify the origin for your target application:\\n\\n\`\`\`javascript\\nwindow.postMessage(message, 'https://myapp.example.com')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_post_message_origin",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 33
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 33
+        },
+        "content": "window.postMessage(message, \\"*\\")"
+      },
+      "parent_line_number": 3,
+      "snippet": "window.postMessage(message, \\"*\\")",
+      "fingerprint": "0e58e60389aa7b1dc2a5f244692f4333_1",
+      "old_fingerprint": "96ff67407e1715171bf80a8c1a6991e4_1"
+    }
+  ]
+}"
+`;
 
 exports[`javascript_lang_post_message_origin ok 1`] = `"{}"`;
