@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_react_dangerously_set_inner_html insecure-raw_input 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_react_dangerously_set_inner_html",
+      "title": "React's dangerously set inner HTML detected.",
+      "description": "## Description\\nThere are Cross-Site Scripting (XSS) vulnerabilites when using React's dangerouslySetInnerHTML with unsanitized data.\\n\\n## Remediations\\n✅ Sanitize data when using dangerouslySetInnerHTML\\n\\n\`\`\`javascript\\n  <div\\n    dangerouslySetInnerHTML={{__html: sanitize(data)}}\\n  />\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_react_dangerously_set_inner_html",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/insecure-raw_input.js",
+      "filename": ".",
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 52,
+          "end": 69
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 52,
+          "end": 69
+        },
+        "content": "{ __html: input }"
+      },
+      "parent_line_number": 2,
+      "snippet": "{ __html: input }",
+      "fingerprint": "d22d7ec8e5e9695e2f1909d8059d96df_0",
+      "old_fingerprint": "800f90fcc888d200ca077ff5e100b72d_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_react_dangerously_set_inner_html insecure-template_string 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_react_dangerously_set_inner_html",
+      "title": "React's dangerously set inner HTML detected.",
+      "description": "## Description\\nThere are Cross-Site Scripting (XSS) vulnerabilites when using React's dangerouslySetInnerHTML with unsanitized data.\\n\\n## Remediations\\n✅ Sanitize data when using dangerouslySetInnerHTML\\n\\n\`\`\`javascript\\n  <div\\n    dangerouslySetInnerHTML={{__html: sanitize(data)}}\\n  />\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_react_dangerously_set_inner_html",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/insecure-template_string.js",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 28,
+          "end": 72
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 28,
+          "end": 72
+        },
+        "content": "{ __html: \`<a href=\${input}>home page</a>\` }"
+      },
+      "parent_line_number": 4,
+      "snippet": "{ __html: \`<a href=\${input}>home page</a>\` }",
+      "fingerprint": "d22d7ec8e5e9695e2f1909d8059d96df_0",
+      "old_fingerprint": "aa5f0c01827445feeda685b3e0490112_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_react_dangerously_set_inner_html secure-render-markdown 1`] = `"{}"`;
+
+exports[`javascript_react_dangerously_set_inner_html secure-sanitize 1`] = `"{}"`;
+
+exports[`javascript_react_dangerously_set_inner_html secure-template_string 1`] = `"{}"`;

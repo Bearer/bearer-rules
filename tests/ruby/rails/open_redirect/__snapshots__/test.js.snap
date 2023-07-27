@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_rails_open_redirect insecure 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "601"
+      ],
+      "id": "ruby_rails_open_redirect",
+      "title": "Open redirect detected",
+      "description": "## Description\\nA web application accepts a user-controlled input that specifies a link to an external site, and uses that link in a Redirect. This simplifies phishing attacks.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_open_redirect",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/insecure.rb",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 5,
+          "end": 44
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 5,
+          "end": 44
+        },
+        "content": "redirect_to params[:id], status: :found"
+      },
+      "parent_line_number": 3,
+      "snippet": "redirect_to params[:id], status: :found",
+      "fingerprint": "4d813584d428633571450f7832ab6139_0",
+      "old_fingerprint": "50c7dfdc7ff2350a071de10a3ce622c1_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_rails_open_redirect ok 1`] = `"{}"`;

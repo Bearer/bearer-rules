@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_lang_os_command_injection ok_no_os_command_injection 1`] = `"{}"`;
+
+exports[`javascript_lang_os_command_injection os_command_injection 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "javascript_lang_os_command_injection",
+      "title": "OS command injection vulnerability detected.",
+      "description": "## Description\\nUsing external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.\\n\\n## Remediations\\n\\nThink twice if user input is really needed there.\\n\\nIt might be possible to use dynamic hardcoded values:\\n\\n\`\`\`javascript\\n  let filePattern = \\"*.js\\"\\n\\n  if req.params.graphql {\\n    filePattern = \\"*.gql\\"\\n  }\\n\\n  cp.exec(\`cp \${filePattern} foo\`, (error, stdout, stderr) => {});\\n\`\`\`\\n\\n## Resources\\n- [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/os_command_injection.js",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 6,
+        "column": {
+          "start": 3,
+          "end": 5
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 6,
+        "column": {
+          "start": 3,
+          "end": 5
+        },
+        "content": "exec(\\"ls \\"+event[\\"user_dir\\"]+\\"| wc -l\\", (err, stdout, stderr) => {\\n    // do something\\n  })"
+      },
+      "parent_line_number": 4,
+      "snippet": "exec(\\"ls \\"+event[\\"user_dir\\"]+\\"| wc -l\\", (err, stdout, stderr) => {\\n    // do something\\n  })",
+      "fingerprint": "b13e40973c5519829a310b6c100f0710_0",
+      "old_fingerprint": "cf9919163361d9a9aafa0a4bf6b67464_0"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "javascript_lang_os_command_injection",
+      "title": "OS command injection vulnerability detected.",
+      "description": "## Description\\nUsing external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.\\n\\n## Remediations\\n\\nThink twice if user input is really needed there.\\n\\nIt might be possible to use dynamic hardcoded values:\\n\\n\`\`\`javascript\\n  let filePattern = \\"*.js\\"\\n\\n  if req.params.graphql {\\n    filePattern = \\"*.gql\\"\\n  }\\n\\n  cp.exec(\`cp \${filePattern} foo\`, (error, stdout, stderr) => {});\\n\`\`\`\\n\\n## Resources\\n- [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/os_command_injection.js",
+      "filename": ".",
+      "source": {
+        "start": 8,
+        "end": 10,
+        "column": {
+          "start": 3,
+          "end": 5
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 10,
+        "column": {
+          "start": 3,
+          "end": 5
+        },
+        "content": "execSync(\\"ls \\"+event[\\"user\\"]+\\"| wc -l\\", (err, stdout, stderr) => {\\n    // do something\\n  })"
+      },
+      "parent_line_number": 8,
+      "snippet": "execSync(\\"ls \\"+event[\\"user\\"]+\\"| wc -l\\", (err, stdout, stderr) => {\\n    // do something\\n  })",
+      "fingerprint": "b13e40973c5519829a310b6c100f0710_1",
+      "old_fingerprint": "cf9919163361d9a9aafa0a4bf6b67464_1"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "javascript_lang_os_command_injection",
+      "title": "OS command injection vulnerability detected.",
+      "description": "## Description\\nUsing external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.\\n\\n## Remediations\\n\\nThink twice if user input is really needed there.\\n\\nIt might be possible to use dynamic hardcoded values:\\n\\n\`\`\`javascript\\n  let filePattern = \\"*.js\\"\\n\\n  if req.params.graphql {\\n    filePattern = \\"*.gql\\"\\n  }\\n\\n  cp.exec(\`cp \${filePattern} foo\`, (error, stdout, stderr) => {});\\n\`\`\`\\n\\n## Resources\\n- [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/os_command_injection.js",
+      "filename": ".",
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 3,
+          "end": 24
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 3,
+          "end": 24
+        },
+        "content": "spawn(event[\\"query\\"])"
+      },
+      "parent_line_number": 12,
+      "snippet": "spawn(event[\\"query\\"])",
+      "fingerprint": "b13e40973c5519829a310b6c100f0710_2",
+      "old_fingerprint": "cf9919163361d9a9aafa0a4bf6b67464_2"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "javascript_lang_os_command_injection",
+      "title": "OS command injection vulnerability detected.",
+      "description": "## Description\\nUsing external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.\\n\\n## Remediations\\n\\nThink twice if user input is really needed there.\\n\\nIt might be possible to use dynamic hardcoded values:\\n\\n\`\`\`javascript\\n  let filePattern = \\"*.js\\"\\n\\n  if req.params.graphql {\\n    filePattern = \\"*.gql\\"\\n  }\\n\\n  cp.exec(\`cp \${filePattern} foo\`, (error, stdout, stderr) => {});\\n\`\`\`\\n\\n## Resources\\n- [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/os_command_injection.js",
+      "filename": ".",
+      "source": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 3,
+          "end": 36
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 3,
+          "end": 36
+        },
+        "content": "spawnSync(\\"grep \\" + event[\\"tmp\\"])"
+      },
+      "parent_line_number": 14,
+      "snippet": "spawnSync(\\"grep \\" + event[\\"tmp\\"])",
+      "fingerprint": "b13e40973c5519829a310b6c100f0710_3",
+      "old_fingerprint": "cf9919163361d9a9aafa0a4bf6b67464_3"
+    }
+  ]
+}"
+`;

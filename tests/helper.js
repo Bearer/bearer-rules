@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 exports.getEnvironment = (path) => ({
     ruleId: path.split("/").slice(-3).join("_"),
     testBase: `${path}/testdata/`,
-    ruleFile: `./rules/${+path.split("/").slice(-3).join("/")}.yml`
+    ruleFile: `./rules/${path.split("/").slice(-3).join("/")}.yml`
   })
 
 exports.createInvoker = (ruleId, ruleFile, testBase) => {

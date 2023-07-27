@@ -1,0 +1,519 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_express_cross_site_scripting no_xss 1`] = `"{}"`;
+
+exports[`javascript_express_cross_site_scripting res_send_xss 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_express_cross_site_scripting",
+      "title": "Cross-site scripting (XSS) vulnerability detected.",
+      "description": "## Description\\nSending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.\\n\\n\\n## Remediations\\n❌ Avoid including user input directly in a response:\\n\\n\`\`\`javascript\\nres.send(req.body.data)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/res_send_xss.js",
+      "filename": ".",
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 3,
+          "end": 52
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 3,
+          "end": 52
+        },
+        "content": "res.send(\\"<p>\\" + req.body.customer.name + \\"</p>\\")"
+      },
+      "parent_line_number": 9,
+      "snippet": "res.send(\\"<p>\\" + req.body.customer.name + \\"</p>\\")",
+      "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_0",
+      "old_fingerprint": "4ba7bacee2b0774a580d15c60551c11f_0"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_express_cross_site_scripting",
+      "title": "Cross-site scripting (XSS) vulnerability detected.",
+      "description": "## Description\\nSending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.\\n\\n\\n## Remediations\\n❌ Avoid including user input directly in a response:\\n\\n\`\`\`javascript\\nres.send(req.body.data)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/res_send_xss.js",
+      "filename": ".",
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 3,
+          "end": 49
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 3,
+          "end": 49
+        },
+        "content": "res.send(\\"<p>\\" + req.body[\\"user_id\\"] + \\"</p>\\")"
+      },
+      "parent_line_number": 13,
+      "snippet": "res.send(\\"<p>\\" + req.body[\\"user_id\\"] + \\"</p>\\")",
+      "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_1",
+      "old_fingerprint": "4ba7bacee2b0774a580d15c60551c11f_1"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_express_cross_site_scripting res_write_xss 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_express_cross_site_scripting",
+      "title": "Cross-site scripting (XSS) vulnerability detected.",
+      "description": "## Description\\nSending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.\\n\\n\\n## Remediations\\n❌ Avoid including user input directly in a response:\\n\\n\`\`\`javascript\\nres.send(req.body.data)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/res_write_xss.js",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 3,
+          "end": 56
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 3,
+          "end": 56
+        },
+        "content": "res.write(\\"<h3> Greetings \\" + customerName + \\"</h3>\\")"
+      },
+      "parent_line_number": 10,
+      "snippet": "res.write(\\"<h3> Greetings \\" + customerName + \\"</h3>\\")",
+      "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_0",
+      "old_fingerprint": "acf04397b0418a725db9d537ac99b39a_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_express_cross_site_scripting user_input_types 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_express_cross_site_scripting",
+      "title": "Cross-site scripting (XSS) vulnerability detected.",
+      "description": "## Description\\nSending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.\\n\\n\\n## Remediations\\n❌ Avoid including user input directly in a response:\\n\\n\`\`\`javascript\\nres.send(req.body.data)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/user_input_types.ts",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 26
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 26
+        },
+        "content": "res.send(req.params.oops)"
+      },
+      "parent_line_number": 3,
+      "snippet": "res.send(req.params.oops)",
+      "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_0",
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_0"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_express_cross_site_scripting",
+      "title": "Cross-site scripting (XSS) vulnerability detected.",
+      "description": "## Description\\nSending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.\\n\\n\\n## Remediations\\n❌ Avoid including user input directly in a response:\\n\\n\`\`\`javascript\\nres.send(req.body.data)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/user_input_types.ts",
+      "filename": ".",
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 22
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 22
+        },
+        "content": "res.send(params.oops)"
+      },
+      "parent_line_number": 9,
+      "snippet": "res.send(params.oops)",
+      "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_1",
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_1"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_express_cross_site_scripting",
+      "title": "Cross-site scripting (XSS) vulnerability detected.",
+      "description": "## Description\\nSending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.\\n\\n\\n## Remediations\\n❌ Avoid including user input directly in a response:\\n\\n\`\`\`javascript\\nres.send(req.body.data)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/user_input_types.ts",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 15
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 15
+        },
+        "content": "res.send(oops)"
+      },
+      "parent_line_number": 10,
+      "snippet": "res.send(oops)",
+      "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_2",
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_2"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_express_cross_site_scripting",
+      "title": "Cross-site scripting (XSS) vulnerability detected.",
+      "description": "## Description\\nSending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.\\n\\n\\n## Remediations\\n❌ Avoid including user input directly in a response:\\n\\n\`\`\`javascript\\nres.send(req.body.data)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/user_input_types.ts",
+      "filename": ".",
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 26
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 26
+        },
+        "content": "res.send(foo.params.oops)"
+      },
+      "parent_line_number": 13,
+      "snippet": "res.send(foo.params.oops)",
+      "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_3",
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_3"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_express_cross_site_scripting",
+      "title": "Cross-site scripting (XSS) vulnerability detected.",
+      "description": "## Description\\nSending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.\\n\\n\\n## Remediations\\n❌ Avoid including user input directly in a response:\\n\\n\`\`\`javascript\\nres.send(req.body.data)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting",
+      "line_number": 16,
+      "full_filename": "/tmp/bearer-scan/user_input_types.ts",
+      "filename": ".",
+      "source": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 3,
+          "end": 29
+        }
+      },
+      "sink": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 3,
+          "end": 29
+        },
+        "content": "res.send(foo2.params.oops)"
+      },
+      "parent_line_number": 16,
+      "snippet": "res.send(foo2.params.oops)",
+      "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_4",
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_4"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_express_cross_site_scripting",
+      "title": "Cross-site scripting (XSS) vulnerability detected.",
+      "description": "## Description\\nSending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.\\n\\n\\n## Remediations\\n❌ Avoid including user input directly in a response:\\n\\n\`\`\`javascript\\nres.send(req.body.data)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/user_input_types.ts",
+      "filename": ".",
+      "source": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 3,
+          "end": 24
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 3,
+          "end": 24
+        },
+        "content": "res.send(params.oops)"
+      },
+      "parent_line_number": 17,
+      "snippet": "res.send(params.oops)",
+      "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_5",
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_5"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_express_cross_site_scripting",
+      "title": "Cross-site scripting (XSS) vulnerability detected.",
+      "description": "## Description\\nSending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.\\n\\n\\n## Remediations\\n❌ Avoid including user input directly in a response:\\n\\n\`\`\`javascript\\nres.send(req.body.data)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting",
+      "line_number": 21,
+      "full_filename": "/tmp/bearer-scan/user_input_types.ts",
+      "filename": ".",
+      "source": {
+        "start": 21,
+        "end": 21,
+        "column": {
+          "start": 3,
+          "end": 29
+        }
+      },
+      "sink": {
+        "start": 21,
+        "end": 21,
+        "column": {
+          "start": 3,
+          "end": 29
+        },
+        "content": "res.send(foo3.params.oops)"
+      },
+      "parent_line_number": 21,
+      "snippet": "res.send(foo3.params.oops)",
+      "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_6",
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_6"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_express_cross_site_scripting",
+      "title": "Cross-site scripting (XSS) vulnerability detected.",
+      "description": "## Description\\nSending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.\\n\\n\\n## Remediations\\n❌ Avoid including user input directly in a response:\\n\\n\`\`\`javascript\\nres.send(req.body.data)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting",
+      "line_number": 22,
+      "full_filename": "/tmp/bearer-scan/user_input_types.ts",
+      "filename": ".",
+      "source": {
+        "start": 22,
+        "end": 22,
+        "column": {
+          "start": 3,
+          "end": 24
+        }
+      },
+      "sink": {
+        "start": 22,
+        "end": 22,
+        "column": {
+          "start": 3,
+          "end": 24
+        },
+        "content": "res.send(params.oops)"
+      },
+      "parent_line_number": 22,
+      "snippet": "res.send(params.oops)",
+      "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_7",
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_7"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_express_cross_site_scripting",
+      "title": "Cross-site scripting (XSS) vulnerability detected.",
+      "description": "## Description\\nSending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.\\n\\n\\n## Remediations\\n❌ Avoid including user input directly in a response:\\n\\n\`\`\`javascript\\nres.send(req.body.data)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting",
+      "line_number": 26,
+      "full_filename": "/tmp/bearer-scan/user_input_types.ts",
+      "filename": ".",
+      "source": {
+        "start": 26,
+        "end": 26,
+        "column": {
+          "start": 3,
+          "end": 29
+        }
+      },
+      "sink": {
+        "start": 26,
+        "end": 26,
+        "column": {
+          "start": 3,
+          "end": 29
+        },
+        "content": "res.send(foo4.params.oops)"
+      },
+      "parent_line_number": 26,
+      "snippet": "res.send(foo4.params.oops)",
+      "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_8",
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_8"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_express_cross_site_scripting",
+      "title": "Cross-site scripting (XSS) vulnerability detected.",
+      "description": "## Description\\nSending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.\\n\\n\\n## Remediations\\n❌ Avoid including user input directly in a response:\\n\\n\`\`\`javascript\\nres.send(req.body.data)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting",
+      "line_number": 27,
+      "full_filename": "/tmp/bearer-scan/user_input_types.ts",
+      "filename": ".",
+      "source": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 3,
+          "end": 24
+        }
+      },
+      "sink": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 3,
+          "end": 24
+        },
+        "content": "res.send(params.oops)"
+      },
+      "parent_line_number": 27,
+      "snippet": "res.send(params.oops)",
+      "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_9",
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_9"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_express_cross_site_scripting",
+      "title": "Cross-site scripting (XSS) vulnerability detected.",
+      "description": "## Description\\nSending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.\\n\\n\\n## Remediations\\n❌ Avoid including user input directly in a response:\\n\\n\`\`\`javascript\\nres.send(req.body.data)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting",
+      "line_number": 33,
+      "full_filename": "/tmp/bearer-scan/user_input_types.ts",
+      "filename": ".",
+      "source": {
+        "start": 33,
+        "end": 33,
+        "column": {
+          "start": 5,
+          "end": 31
+        }
+      },
+      "sink": {
+        "start": 33,
+        "end": 33,
+        "column": {
+          "start": 5,
+          "end": 31
+        },
+        "content": "res.send(foo5.params.oops)"
+      },
+      "parent_line_number": 33,
+      "snippet": "res.send(foo5.params.oops)",
+      "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_10",
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_10"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "javascript_express_cross_site_scripting",
+      "title": "Cross-site scripting (XSS) vulnerability detected.",
+      "description": "## Description\\nSending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.\\n\\n\\n## Remediations\\n❌ Avoid including user input directly in a response:\\n\\n\`\`\`javascript\\nres.send(req.body.data)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_cross_site_scripting",
+      "line_number": 34,
+      "full_filename": "/tmp/bearer-scan/user_input_types.ts",
+      "filename": ".",
+      "source": {
+        "start": 34,
+        "end": 34,
+        "column": {
+          "start": 5,
+          "end": 26
+        }
+      },
+      "sink": {
+        "start": 34,
+        "end": 34,
+        "column": {
+          "start": 5,
+          "end": 26
+        },
+        "content": "res.send(params.oops)"
+      },
+      "parent_line_number": 34,
+      "snippet": "res.send(params.oops)",
+      "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_11",
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_11"
+    }
+  ]
+}"
+`;

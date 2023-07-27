@@ -1,0 +1,226 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_lang_weak_hash_md5 crypto_md5 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "327",
+        "328"
+      ],
+      "id": "javascript_lang_weak_hash_md5",
+      "title": "Weak hashing library (MD5) detected.",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hash algorithm and therefore shouldn't be used.\\n\\n✅ Use stronger hashing algorithms when storing data.\\n\\n\`\`\`javascript\\nconst crypto = require(\\"crypto\\");\\n\\nconst key = \\"secret key\\";\\nconst hash = crypto.createHmac(\\"es-256-cbc\\", key).update(user.password);\\n\`\`\`\\n\\n## Resources\\n- [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_hash_md5",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/crypto_md5.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 40,
+          "end": 50
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 51
+        },
+        "content": "myCrypto.createHmac(\\"md5\\", key).update(user.email)"
+      },
+      "parent_line_number": 4,
+      "snippet": "myCrypto.createHmac(\\"md5\\", key).update(user.email)",
+      "fingerprint": "c4f165d7f589bd4f3415165e96c2b249_0",
+      "old_fingerprint": "5f7ffe7da12bab4459cdb44a8be8ba08_0"
+    },
+    {
+      "cwe_ids": [
+        "327",
+        "328"
+      ],
+      "id": "javascript_lang_weak_hash_md5",
+      "title": "Weak hashing library (MD5) detected.",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hash algorithm and therefore shouldn't be used.\\n\\n✅ Use stronger hashing algorithms when storing data.\\n\\n\`\`\`javascript\\nconst crypto = require(\\"crypto\\");\\n\\nconst key = \\"secret key\\";\\nconst hash = crypto.createHmac(\\"es-256-cbc\\", key).update(user.password);\\n\`\`\`\\n\\n## Resources\\n- [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_hash_md5",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/crypto_md5.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 49,
+          "end": 59
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 15,
+          "end": 60
+        },
+        "content": "myCrypto.createHash(\\"md5\\").update(user.email)"
+      },
+      "parent_line_number": 5,
+      "snippet": "myCrypto.createHash(\\"md5\\").update(user.email)",
+      "fingerprint": "c4f165d7f589bd4f3415165e96c2b249_1",
+      "old_fingerprint": "5f7ffe7da12bab4459cdb44a8be8ba08_1"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_lang_weak_hash_md5 cryptojs_md5 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "327",
+        "328"
+      ],
+      "id": "javascript_lang_weak_hash_md5",
+      "title": "Weak hashing library (MD5) detected.",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hash algorithm and therefore shouldn't be used.\\n\\n✅ Use stronger hashing algorithms when storing data.\\n\\n\`\`\`javascript\\nconst crypto = require(\\"crypto\\");\\n\\nconst key = \\"secret key\\";\\nconst hash = crypto.createHmac(\\"es-256-cbc\\", key).update(user.password);\\n\`\`\`\\n\\n## Resources\\n- [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_hash_md5",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/cryptojs_md5.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 27,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 12,
+          "end": 38
+        },
+        "content": "MyCryptoJS.MD5(user.email)"
+      },
+      "parent_line_number": 2,
+      "snippet": "MyCryptoJS.MD5(user.email)",
+      "fingerprint": "c4f165d7f589bd4f3415165e96c2b249_0",
+      "old_fingerprint": "c51ec588c3a82750a8a435bfa0d6da1a_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_lang_weak_hash_md5 md5 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "327",
+        "328"
+      ],
+      "id": "javascript_lang_weak_hash_md5",
+      "title": "Weak hashing library (MD5) detected.",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hash algorithm and therefore shouldn't be used.\\n\\n✅ Use stronger hashing algorithms when storing data.\\n\\n\`\`\`javascript\\nconst crypto = require(\\"crypto\\");\\n\\nconst key = \\"secret key\\";\\nconst hash = crypto.createHmac(\\"es-256-cbc\\", key).update(user.password);\\n\`\`\`\\n\\n## Resources\\n- [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_hash_md5",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/md5.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 20,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 14,
+          "end": 36
+        },
+        "content": "myMd5(req.query.email)"
+      },
+      "parent_line_number": 4,
+      "snippet": "myMd5(req.query.email)",
+      "fingerprint": "c4f165d7f589bd4f3415165e96c2b249_0",
+      "old_fingerprint": "92bff4755c0c3a39ad0f98e5a35ed1d5_0"
+    }
+  ],
+  "low": [
+    {
+      "cwe_ids": [
+        "327",
+        "328"
+      ],
+      "id": "javascript_lang_weak_hash_md5",
+      "title": "Weak hashing library (MD5) detected.",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hash algorithm and therefore shouldn't be used.\\n\\n✅ Use stronger hashing algorithms when storing data.\\n\\n\`\`\`javascript\\nconst crypto = require(\\"crypto\\");\\n\\nconst key = \\"secret key\\";\\nconst hash = crypto.createHmac(\\"es-256-cbc\\", key).update(user.password);\\n\`\`\`\\n\\n## Resources\\n- [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_hash_md5",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/md5.js",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 14,
+          "end": 28
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 14,
+          "end": 28
+        },
+        "content": "myMd5(\\"hello\\")"
+      },
+      "parent_line_number": 5,
+      "snippet": "myMd5(\\"hello\\")",
+      "fingerprint": "c4f165d7f589bd4f3415165e96c2b249_1",
+      "old_fingerprint": "92bff4755c0c3a39ad0f98e5a35ed1d5_1"
+    }
+  ]
+}"
+`;

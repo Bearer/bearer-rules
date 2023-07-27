@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_lang_weak_encryption_rc4 rc4 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "javascript_lang_weak_encryption_rc4",
+      "title": "Weak encryption algorithm (RC4) detected.",
+      "description": "## Description\\n\\nA weak encryption library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), RC4 (Rivest Cipher 4) is considered a weak encryption algorithm and therefore shouldn't be used.\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`javascript\\nconst crypto = require(\\"crypto\\");\\n\\nconst cipher = crypto.createCipheriv(\\"aes-256-cbc\\", key, iv);\\n\\nconst encrypted = cipher.update(\\"my secret message\\", \\"utf8\\");\\n\`\`\`\\n\\n## Resources\\n- [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_encryption_rc4",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/rc4.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 22,
+          "end": 32
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 47
+        },
+        "content": "CryptoJS.RC4.encrypt(user.email, \\"secret key\\")"
+      },
+      "parent_line_number": 3,
+      "snippet": "CryptoJS.RC4.encrypt(user.email, \\"secret key\\")",
+      "fingerprint": "b7095893a4df6379250dd8d32db44880_0",
+      "old_fingerprint": "fc184834779816acc9558b565162e417_0"
+    }
+  ]
+}"
+`;

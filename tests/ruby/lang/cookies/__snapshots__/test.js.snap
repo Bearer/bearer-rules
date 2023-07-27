@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_lang_cookies datatype_in_signed_cookies 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "315",
+        "539"
+      ],
+      "id": "ruby_lang_cookies",
+      "title": "Sensitive data stored in a cookie detected.",
+      "description": "## Description\\n\\nStoring sensitive data in cookies can lead to a data breach. This rule looks for instances where sensitive data is stored in browser cookies.\\n\\n## Remediations\\n\\n❌ Avoid storing sensitive data in unencrypted cookies messages:\\n\\n\`\`\`ruby\\ncookies[:user_email] = \\"john@doe.com\\"\\n\`\`\`\\n\\n✅ To ensure cookie data stays safe, use encrypted cookies:\\n\\n\`\`\`ruby\\ncookies.encrypted[:user_email] = \\"john@doe.com\\"\\n\`\`\`\\n\\n## Resources\\n\\n- Cookie object documentation: [ActionDispatch::Cookies](https://edgeapi.rubyonrails.org/classes/ActionDispatch/Cookies.html)\\n- [Demystifying cookie security in rails 6](https://dev.to/ayushn21/demystifying-cookie-security-in-rails-6-1j2f#:~:text=Rails%20provides%20a%20special%20kind,data%20in%20the%20session%20cookie)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_cookies",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_in_signed_cookies.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 25,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 35
+        },
+        "content": "cookies.signed[:info] = user.email"
+      },
+      "parent_line_number": 1,
+      "snippet": "cookies.signed[:info] = user.email",
+      "fingerprint": "f9dc481eed8af7b00deadc6b2dc07984_0",
+      "old_fingerprint": "1edd187b24ee4ae849bd00c46a29a79a_0"
+    },
+    {
+      "cwe_ids": [
+        "315",
+        "539"
+      ],
+      "id": "ruby_lang_cookies",
+      "title": "Sensitive data stored in a cookie detected.",
+      "description": "## Description\\n\\nStoring sensitive data in cookies can lead to a data breach. This rule looks for instances where sensitive data is stored in browser cookies.\\n\\n## Remediations\\n\\n❌ Avoid storing sensitive data in unencrypted cookies messages:\\n\\n\`\`\`ruby\\ncookies[:user_email] = \\"john@doe.com\\"\\n\`\`\`\\n\\n✅ To ensure cookie data stays safe, use encrypted cookies:\\n\\n\`\`\`ruby\\ncookies.encrypted[:user_email] = \\"john@doe.com\\"\\n\`\`\`\\n\\n## Resources\\n\\n- Cookie object documentation: [ActionDispatch::Cookies](https://edgeapi.rubyonrails.org/classes/ActionDispatch/Cookies.html)\\n- [Demystifying cookie security in rails 6](https://dev.to/ayushn21/demystifying-cookie-security-in-rails-6-1j2f#:~:text=Rails%20provides%20a%20special%20kind,data%20in%20the%20session%20cookie)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_cookies",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/datatype_in_signed_cookies.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 37,
+          "end": 52
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 1,
+          "end": 52
+        },
+        "content": "cookies.permanent.signed[:secret] = user.first_name"
+      },
+      "parent_line_number": 2,
+      "snippet": "cookies.permanent.signed[:secret] = user.first_name",
+      "fingerprint": "f9dc481eed8af7b00deadc6b2dc07984_1",
+      "old_fingerprint": "1edd187b24ee4ae849bd00c46a29a79a_1"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_lang_cookies datatype_object_in_cookie 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "315",
+        "539"
+      ],
+      "id": "ruby_lang_cookies",
+      "title": "Sensitive data stored in a cookie detected.",
+      "description": "## Description\\n\\nStoring sensitive data in cookies can lead to a data breach. This rule looks for instances where sensitive data is stored in browser cookies.\\n\\n## Remediations\\n\\n❌ Avoid storing sensitive data in unencrypted cookies messages:\\n\\n\`\`\`ruby\\ncookies[:user_email] = \\"john@doe.com\\"\\n\`\`\`\\n\\n✅ To ensure cookie data stays safe, use encrypted cookies:\\n\\n\`\`\`ruby\\ncookies.encrypted[:user_email] = \\"john@doe.com\\"\\n\`\`\`\\n\\n## Resources\\n\\n- Cookie object documentation: [ActionDispatch::Cookies](https://edgeapi.rubyonrails.org/classes/ActionDispatch/Cookies.html)\\n- [Demystifying cookie security in rails 6](https://dev.to/ayushn21/demystifying-cookie-security-in-rails-6-1j2f#:~:text=Rails%20provides%20a%20special%20kind,data%20in%20the%20session%20cookie)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_cookies",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/datatype_object_in_cookie.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 3,
+          "end": 21
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 73
+        },
+        "content": "cookies[:login] = { value: user.to_json, expires: 1.hour, secure: true }"
+      },
+      "parent_line_number": 5,
+      "snippet": "cookies[:login] = { value: user.to_json, expires: 1.hour, secure: true }",
+      "fingerprint": "f9dc481eed8af7b00deadc6b2dc07984_0",
+      "old_fingerprint": "b6a2d6ed5a8a41637970160ca9b3bc63_0"
+    },
+    {
+      "cwe_ids": [
+        "315",
+        "539"
+      ],
+      "id": "ruby_lang_cookies",
+      "title": "Sensitive data stored in a cookie detected.",
+      "description": "## Description\\n\\nStoring sensitive data in cookies can lead to a data breach. This rule looks for instances where sensitive data is stored in browser cookies.\\n\\n## Remediations\\n\\n❌ Avoid storing sensitive data in unencrypted cookies messages:\\n\\n\`\`\`ruby\\ncookies[:user_email] = \\"john@doe.com\\"\\n\`\`\`\\n\\n✅ To ensure cookie data stays safe, use encrypted cookies:\\n\\n\`\`\`ruby\\ncookies.encrypted[:user_email] = \\"john@doe.com\\"\\n\`\`\`\\n\\n## Resources\\n\\n- Cookie object documentation: [ActionDispatch::Cookies](https://edgeapi.rubyonrails.org/classes/ActionDispatch/Cookies.html)\\n- [Demystifying cookie security in rails 6](https://dev.to/ayushn21/demystifying-cookie-security-in-rails-6-1j2f#:~:text=Rails%20provides%20a%20special%20kind,data%20in%20the%20session%20cookie)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_cookies",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/datatype_object_in_cookie.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Lastname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 2,
+          "end": 18
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 73
+        },
+        "content": "cookies[:login] = { value: user.to_json, expires: 1.hour, secure: true }"
+      },
+      "parent_line_number": 5,
+      "snippet": "cookies[:login] = { value: user.to_json, expires: 1.hour, secure: true }",
+      "fingerprint": "f9dc481eed8af7b00deadc6b2dc07984_1",
+      "old_fingerprint": "b6a2d6ed5a8a41637970160ca9b3bc63_1"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_lang_cookies ok_encrypted_cookies 1`] = `"{}"`;
+
+exports[`ruby_lang_cookies ok_no_datatypes 1`] = `"{}"`;

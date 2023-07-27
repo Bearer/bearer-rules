@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`java_lang_logger simple 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "209",
+        "532"
+      ],
+      "id": "java_lang_logger",
+      "title": "Sensitive data in a logger message detected.",
+      "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`java\\nlogger.info(user.email)\\n\`\`\`\\n\\n✅ If you need to identify a user, use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`java\\nlogger.info(user.uuid)\\n\`\`\`\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_logger",
+      "line_number": 16,
+      "full_filename": "/tmp/bearer-scan/simple.java",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Fullname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 26,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 13,
+          "end": 36
+        },
+        "content": "logger.error(user.name)"
+      },
+      "parent_line_number": 16,
+      "snippet": "logger.error(user.name)",
+      "fingerprint": "14b8421b91dfd6860ab797a528643c7f_0",
+      "old_fingerprint": "52b4f9ef975cdb0ca989d6f9b7b721db_0"
+    }
+  ]
+}"
+`;

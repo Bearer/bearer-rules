@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_lang_file_generation file_generation 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "313"
+      ],
+      "id": "javascript_lang_file_generation",
+      "title": "Sensitive data detected as part of a dynamic file generation.",
+      "description": "## Description\\n\\nIt is not uncommon to generate logs, backups, or data exports to static file formats. This rule checks if code exists to write sensitive data to static files.\\n\\n## Remediations\\n\\nAvoid writing sensitive data to logs, backups, or exports whenever possible. Instead obfuscate and/or filter the data to exclude sensitive information.\\n\\n<!--\\n## Resources\\nComing soon.\\n-->\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_file_generation",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/file_generation.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 10,
+          "end": 20
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 18,
+        "column": {
+          "start": 1,
+          "end": 3
+        },
+        "content": "fs.writeFile(\\"data.csv\\", JSON.stringify(users), \\"utf-8\\", (err) => {\\n  if (err) console.log(err)\\n  else console.log(\\"Data saved\\")\\n})"
+      },
+      "parent_line_number": 15,
+      "snippet": "fs.writeFile(\\"data.csv\\", JSON.stringify(users), \\"utf-8\\", (err) => {\\n  if (err) console.log(err)\\n  else console.log(\\"Data saved\\")\\n})",
+      "fingerprint": "7162a96ee591e4689c1fa24bfcc02fd5_0",
+      "old_fingerprint": "e07392ef7687a29685f9b9f7fd673469_0"
+    },
+    {
+      "cwe_ids": [
+        "313"
+      ],
+      "id": "javascript_lang_file_generation",
+      "title": "Sensitive data detected as part of a dynamic file generation.",
+      "description": "## Description\\n\\nIt is not uncommon to generate logs, backups, or data exports to static file formats. This rule checks if code exists to write sensitive data to static files.\\n\\n## Remediations\\n\\nAvoid writing sensitive data to logs, backups, or exports whenever possible. Instead obfuscate and/or filter the data to exclude sensitive information.\\n\\n<!--\\n## Resources\\nComing soon.\\n-->\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_file_generation",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/file_generation.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 15,
+          "end": 29
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 18,
+        "column": {
+          "start": 1,
+          "end": 3
+        },
+        "content": "fs.writeFile(\\"data.csv\\", JSON.stringify(users), \\"utf-8\\", (err) => {\\n  if (err) console.log(err)\\n  else console.log(\\"Data saved\\")\\n})"
+      },
+      "parent_line_number": 15,
+      "snippet": "fs.writeFile(\\"data.csv\\", JSON.stringify(users), \\"utf-8\\", (err) => {\\n  if (err) console.log(err)\\n  else console.log(\\"Data saved\\")\\n})",
+      "fingerprint": "7162a96ee591e4689c1fa24bfcc02fd5_1",
+      "old_fingerprint": "e07392ef7687a29685f9b9f7fd673469_1"
+    }
+  ]
+}"
+`;

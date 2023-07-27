@@ -1,3 +1,3 @@
 #!/bin/bash
 
-npx prettier -cw "./**/*.yml"
+npx prettier -cw "./rules/**/*.yml"

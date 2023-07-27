@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_lang_regex_using_user_input bad 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "javascript_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_regex_using_user_input",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 41
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 41
+        },
+        "content": "new RegExp(\`abc\${req.params.oops}\`, 'i')"
+      },
+      "parent_line_number": 1,
+      "snippet": "new RegExp(\`abc\${req.params.oops}\`, 'i')",
+      "fingerprint": "042322614661c2cfbb59c697536202e3_0",
+      "old_fingerprint": "66dbf3e2c520e0f438bfcf2747cbfe29_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_lang_regex_using_user_input ok 1`] = `"{}"`;

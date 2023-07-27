@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`java_lang_hardcoded_database_password asterisk_case 1`] = `"{}"`;
+
+exports[`java_lang_hardcoded_database_password bad 1`] = `
+"{
+  "warning": [
+    {
+      "cwe_ids": [
+        "259"
+      ],
+      "id": "java_lang_hardcoded_database_password",
+      "title": "Hardcoded database password detected",
+      "description": "## Description\\n\\nHardcoded password used in database connection string detected. Code is not a safe place to store passwords like this; use environment variables or a key-management system instead.\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_hardcoded_database_password",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 23,
+          "end": 73
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 23,
+          "end": 73
+        },
+        "content": "DriverManager.getConnection(url, \\"admin\\", \\"admin\\")"
+      },
+      "parent_line_number": 8,
+      "snippet": "DriverManager.getConnection(url, \\"admin\\", \\"admin\\")",
+      "fingerprint": "7a00c02c6f0e9c523225383da4ade342_0",
+      "old_fingerprint": "afb409af8b801ce44ef647d12c7ec368_0"
+    }
+  ]
+}"
+`;
+
+exports[`java_lang_hardcoded_database_password ok 1`] = `"{}"`;

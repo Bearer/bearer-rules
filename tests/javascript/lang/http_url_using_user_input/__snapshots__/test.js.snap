@@ -1,0 +1,274 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_lang_http_url_using_user_input bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "javascript_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 20
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 20
+        },
+        "content": "axios({ url: url })"
+      },
+      "parent_line_number": 6,
+      "snippet": "axios({ url: url })",
+      "fingerprint": "d03323e4c199405710e778b32492501f_0",
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_0"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "javascript_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 15
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 15
+        },
+        "content": "axios.get(url)"
+      },
+      "parent_line_number": 8,
+      "snippet": "axios.get(url)",
+      "fingerprint": "d03323e4c199405710e778b32492501f_1",
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_1"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "javascript_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 11
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 11
+        },
+        "content": "fetch(url)"
+      },
+      "parent_line_number": 13,
+      "snippet": "fetch(url)",
+      "fingerprint": "d03323e4c199405710e778b32492501f_2",
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_2"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "javascript_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
+      "line_number": 19,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 23
+        }
+      },
+      "sink": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 23
+        },
+        "content": "xhttp.open('GET', url)"
+      },
+      "parent_line_number": 19,
+      "snippet": "xhttp.open('GET', url)",
+      "fingerprint": "d03323e4c199405710e778b32492501f_3",
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_3"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "javascript_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
+      "line_number": 25,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 25,
+        "end": 25,
+        "column": {
+          "start": 22,
+          "end": 38
+        }
+      },
+      "sink": {
+        "start": 25,
+        "end": 25,
+        "column": {
+          "start": 22,
+          "end": 38
+        },
+        "content": "request.get(url)"
+      },
+      "parent_line_number": 25,
+      "snippet": "request.get(url)",
+      "fingerprint": "d03323e4c199405710e778b32492501f_4",
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_4"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "javascript_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
+      "line_number": 27,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 1,
+          "end": 29
+        }
+      },
+      "sink": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 1,
+          "end": 29
+        },
+        "content": "request(url, function () {})"
+      },
+      "parent_line_number": 27,
+      "snippet": "request(url, function () {})",
+      "fingerprint": "d03323e4c199405710e778b32492501f_5",
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_5"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "javascript_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
+      "line_number": 31,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 31,
+        "end": 31,
+        "column": {
+          "start": 3,
+          "end": 23
+        }
+      },
+      "sink": {
+        "start": 31,
+        "end": 31,
+        "column": {
+          "start": 3,
+          "end": 23
+        },
+        "content": "axios.get(event.url)"
+      },
+      "parent_line_number": 31,
+      "snippet": "axios.get(event.url)",
+      "fingerprint": "d03323e4c199405710e778b32492501f_6",
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_6"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "javascript_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
+      "line_number": 35,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 35,
+        "end": 35,
+        "column": {
+          "start": 3,
+          "end": 26
+        }
+      },
+      "sink": {
+        "start": 35,
+        "end": 35,
+        "column": {
+          "start": 3,
+          "end": 26
+        },
+        "content": "axios.get(event[\\"url\\"])"
+      },
+      "parent_line_number": 35,
+      "snippet": "axios.get(event[\\"url\\"])",
+      "fingerprint": "d03323e4c199405710e778b32492501f_7",
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_7"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_lang_http_url_using_user_input ok 1`] = `"{}"`;

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`java_lang_file_permission_others ok 1`] = `"{}"`;
+
+exports[`java_lang_file_permission_others others 1`] = `
+"{
+  "warning": [
+    {
+      "cwe_ids": [
+        "732"
+      ],
+      "id": "java_lang_file_permission_others",
+      "title": "File permission open to 'other' detected.",
+      "description": "## Description\\n\\nHaving overly permissive file permissions, such as extending read, write, or execute privileges to 'other', is risky and could lead to accidental exposure of sensitive information.\\n\\n## Remediations\\n\\n✅ Keep file permissions as restrictive as possible. With the Posix enum, for example, prefer 'groups' to 'other', when extending privileges to users without owner privileges.\\n\\n\`\`\`java\\n  permissions.add(PosixFilePermission.GROUP_WRITE)\\n\`\`\`\\n\\n## Resources\\n- [Java Files class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/nio/file/Files.html)\\n- [Java PosixFilePermission enum](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/nio/file/attribute/PosixFilePermission.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_file_permission_others",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/others.java",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 3,
+          "end": 51
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 3,
+          "end": 51
+        },
+        "content": "permissions.add(PosixFilePermission.OTHER_WRITE)"
+      },
+      "parent_line_number": 3,
+      "snippet": "permissions.add(PosixFilePermission.OTHER_WRITE)",
+      "fingerprint": "12e9ca5557a4ca260d8f219fc77d4d18_0",
+      "old_fingerprint": "c338dacd7a46dcb729fd2bd27f4328e9_0"
+    }
+  ]
+}"
+`;

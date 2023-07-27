@@ -1,0 +1,862 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_third_parties_airbrake datatype_in_build_notice 1`] = `"{}"`;
+
+exports[`ruby_third_parties_airbrake datatype_in_custom_notice 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/datatype_in_custom_notice.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 23,
+          "end": 41
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 6,
+        "column": {
+          "start": 3,
+          "end": 6
+        },
+        "content": "def to_airbrake\\n    { params: { user: current_user.email } }\\n  end"
+      },
+      "parent_line_number": 4,
+      "snippet": "def to_airbrake\\n    { params: { user: current_user.email } }\\n  end",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_0",
+      "old_fingerprint": "6b2ccb36a95efe7f5ec5b674ff3e8377_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_airbrake datatype_in_extended_notify_methods 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/datatype_in_extended_notify_methods.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 20,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Airbrake.notify_request_sync(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  status_code: 200,\\n  timing: 123.45 # ms\\n)"
+      },
+      "parent_line_number": 1,
+      "snippet": "Airbrake.notify_request_sync(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  status_code: 200,\\n  timing: 123.45 # ms\\n)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_0",
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_0"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/datatype_in_extended_notify_methods.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 20,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Airbrake.notify_request(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  status_code: 200,\\n  timing: 123.45 # ms\\n)"
+      },
+      "parent_line_number": 7,
+      "snippet": "Airbrake.notify_request(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  status_code: 200,\\n  timing: 123.45 # ms\\n)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_1",
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_1"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/datatype_in_extended_notify_methods.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 19,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 20,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Airbrake.notify_request_sync(\\n  {\\n    current_user: current_user.email\\n  },\\n  request_id: 123\\n)"
+      },
+      "parent_line_number": 15,
+      "snippet": "Airbrake.notify_request_sync(\\n  {\\n    current_user: current_user.email\\n  },\\n  request_id: 123\\n)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_2",
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_2"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 23,
+      "full_filename": "/tmp/bearer-scan/datatype_in_extended_notify_methods.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 23,
+        "end": 23,
+        "column": {
+          "start": 19,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 21,
+        "end": 26,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Airbrake.notify_request(\\n  {\\n    current_user: current_user.email\\n  },\\n  request_id: 123\\n)"
+      },
+      "parent_line_number": 21,
+      "snippet": "Airbrake.notify_request(\\n  {\\n    current_user: current_user.email\\n  },\\n  request_id: 123\\n)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_3",
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_3"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 31,
+      "full_filename": "/tmp/bearer-scan/datatype_in_extended_notify_methods.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 31,
+        "end": 31,
+        "column": {
+          "start": 20,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 29,
+        "end": 33,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Airbrake.notify_query_sync(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  query: 'SELECT * FROM foos'\\n)"
+      },
+      "parent_line_number": 29,
+      "snippet": "Airbrake.notify_query_sync(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  query: 'SELECT * FROM foos'\\n)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_4",
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_4"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 36,
+      "full_filename": "/tmp/bearer-scan/datatype_in_extended_notify_methods.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 36,
+        "end": 36,
+        "column": {
+          "start": 20,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 34,
+        "end": 38,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Airbrake.notify_query(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  query: 'SELECT * FROM foos'\\n)"
+      },
+      "parent_line_number": 34,
+      "snippet": "Airbrake.notify_query(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  query: 'SELECT * FROM foos'\\n)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_5",
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_5"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 43,
+      "full_filename": "/tmp/bearer-scan/datatype_in_extended_notify_methods.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 43,
+        "end": 43,
+        "column": {
+          "start": 11,
+          "end": 21
+        }
+      },
+      "sink": {
+        "start": 41,
+        "end": 46,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Airbrake.notify_query_sync(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)"
+      },
+      "parent_line_number": 41,
+      "snippet": "Airbrake.notify_query_sync(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_6",
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_6"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 49,
+      "full_filename": "/tmp/bearer-scan/datatype_in_extended_notify_methods.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 49,
+        "end": 49,
+        "column": {
+          "start": 11,
+          "end": 21
+        }
+      },
+      "sink": {
+        "start": 47,
+        "end": 52,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Airbrake.notify_query(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)"
+      },
+      "parent_line_number": 47,
+      "snippet": "Airbrake.notify_query(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_7",
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_7"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 57,
+      "full_filename": "/tmp/bearer-scan/datatype_in_extended_notify_methods.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 57,
+        "end": 57,
+        "column": {
+          "start": 20,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 55,
+        "end": 61,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Airbrake.notify_performance_breakdown_sync(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  response_type: 'json',\\n  groups: { db: 24.0, view: 0.4 }, # ms\\n  timing: 123.45 # ms\\n)"
+      },
+      "parent_line_number": 55,
+      "snippet": "Airbrake.notify_performance_breakdown_sync(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  response_type: 'json',\\n  groups: { db: 24.0, view: 0.4 }, # ms\\n  timing: 123.45 # ms\\n)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_8",
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_8"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 64,
+      "full_filename": "/tmp/bearer-scan/datatype_in_extended_notify_methods.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 64,
+        "end": 64,
+        "column": {
+          "start": 20,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 62,
+        "end": 68,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Airbrake.notify_performance_breakdown(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  response_type: 'json',\\n  groups: { db: 24.0, view: 0.4 }, # ms\\n  timing: 123.45 # ms\\n)"
+      },
+      "parent_line_number": 62,
+      "snippet": "Airbrake.notify_performance_breakdown(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  response_type: 'json',\\n  groups: { db: 24.0, view: 0.4 }, # ms\\n  timing: 123.45 # ms\\n)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_9",
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_9"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 73,
+      "full_filename": "/tmp/bearer-scan/datatype_in_extended_notify_methods.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 73,
+        "end": 73,
+        "column": {
+          "start": 11,
+          "end": 21
+        }
+      },
+      "sink": {
+        "start": 71,
+        "end": 76,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Airbrake.notify_performance_breakdown_sync(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)"
+      },
+      "parent_line_number": 71,
+      "snippet": "Airbrake.notify_performance_breakdown_sync(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_10",
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_10"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 79,
+      "full_filename": "/tmp/bearer-scan/datatype_in_extended_notify_methods.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 79,
+        "end": 79,
+        "column": {
+          "start": 11,
+          "end": 21
+        }
+      },
+      "sink": {
+        "start": 77,
+        "end": 82,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Airbrake.notify_performance_breakdown(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)"
+      },
+      "parent_line_number": 77,
+      "snippet": "Airbrake.notify_performance_breakdown(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_11",
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_11"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 101,
+      "full_filename": "/tmp/bearer-scan/datatype_in_extended_notify_methods.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 101,
+        "end": 101,
+        "column": {
+          "start": 11,
+          "end": 21
+        }
+      },
+      "sink": {
+        "start": 99,
+        "end": 104,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Airbrake.notify_queue_sync(\\n  {\\n    user: user.email\\n  },\\n  job_id: 123\\n)"
+      },
+      "parent_line_number": 99,
+      "snippet": "Airbrake.notify_queue_sync(\\n  {\\n    user: user.email\\n  },\\n  job_id: 123\\n)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_12",
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_12"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 107,
+      "full_filename": "/tmp/bearer-scan/datatype_in_extended_notify_methods.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 107,
+        "end": 107,
+        "column": {
+          "start": 11,
+          "end": 21
+        }
+      },
+      "sink": {
+        "start": 105,
+        "end": 110,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Airbrake.notify_queue(\\n  {\\n    user: user.email\\n  },\\n  job_id: 123\\n)"
+      },
+      "parent_line_number": 105,
+      "snippet": "Airbrake.notify_queue(\\n  {\\n    user: user.email\\n  },\\n  job_id: 123\\n)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_13",
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_13"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_airbrake datatype_in_merge_context 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_in_merge_context.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 10,
+          "end": 28
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 1,
+          "end": 37
+        },
+        "content": "Airbrake.merge_context(users: users)"
+      },
+      "parent_line_number": 2,
+      "snippet": "Airbrake.merge_context(users: users)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_0",
+      "old_fingerprint": "785abc6bd901e9a027378222a924bc79_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_airbrake datatype_in_notify 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_in_notify.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 17,
+          "end": 32
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 33
+        },
+        "content": "Airbrake.notify(user.first_name)"
+      },
+      "parent_line_number": 1,
+      "snippet": "Airbrake.notify(user.first_name)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_0",
+      "old_fingerprint": "09631ca7e08ff7c66fd80c426a01e034_0"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/datatype_in_notify.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 17,
+          "end": 27
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 3
+        },
+        "content": "Airbrake.notify('App crashed!', {\\n  current_user: user.email\\n})"
+      },
+      "parent_line_number": 3,
+      "snippet": "Airbrake.notify('App crashed!', {\\n  current_user: user.email\\n})",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_1",
+      "old_fingerprint": "09631ca7e08ff7c66fd80c426a01e034_1"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/datatype_in_notify.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 29,
+          "end": 43
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 4
+        },
+        "content": "Airbrake.notify('App crashed') do |notice|\\n  notice[:params][:email] = customer.email\\nend"
+      },
+      "parent_line_number": 7,
+      "snippet": "Airbrake.notify('App crashed') do |notice|\\n  notice[:params][:email] = customer.email\\nend",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_2",
+      "old_fingerprint": "09631ca7e08ff7c66fd80c426a01e034_2"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_airbrake datatype_in_rescue_block 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_airbrake",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/datatype_in_rescue_block.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 35,
+          "end": 58
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 14,
+          "end": 59
+        },
+        "content": "Airbrake.notify_sync(current_user.first_name)"
+      },
+      "parent_line_number": 4,
+      "snippet": "Airbrake.notify_sync(current_user.first_name)",
+      "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_0",
+      "old_fingerprint": "ced73356b3d5173766d3f163c02367b0_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_airbrake ok_ignored_datatypes 1`] = `"{}"`;
+
+exports[`ruby_third_parties_airbrake ok_no_datatypes 1`] = `"{}"`;

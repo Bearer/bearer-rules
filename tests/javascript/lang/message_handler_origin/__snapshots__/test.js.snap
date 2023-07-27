@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_lang_message_handler_origin bad 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "346"
+      ],
+      "id": "javascript_lang_message_handler_origin",
+      "title": "Unchecked origin in message handler detected.",
+      "description": "## Description\\n\\nApplications should check the origin of \`message\` events. Handling messages\\nfrom untrusted origins could lead to Cross-Site Scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid handling messages from any origin:\\n\\n\`\`\`javascript\\nwindow.addEventListener('message', (event) => {\\n  actOnMessage(event.data)\\n})\\n\`\`\`\\n\\n✅ Validate the origin:\\n\\n\`\`\`javascript\\nwindow.addEventListener('message', (event) => {\\n  if (event.origin != 'https://myapp.example.com') {\\n    throw new Error('invalid origin')\\n  }\\n\\n  actOnMessage(event.data)\\n})\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_message_handler_origin",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 1,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 3
+        },
+        "content": "window.addEventListener('message', (event) => {\\n  actOnMessage(event.data)\\n})"
+      },
+      "parent_line_number": 1,
+      "snippet": "window.addEventListener('message', (event) => {\\n  actOnMessage(event.data)\\n})",
+      "fingerprint": "4ac5e012a055ff87b9c6ec59be0139aa_0",
+      "old_fingerprint": "a8447e4b3d7e807590f9509e24e4470b_0"
+    },
+    {
+      "cwe_ids": [
+        "346"
+      ],
+      "id": "javascript_lang_message_handler_origin",
+      "title": "Unchecked origin in message handler detected.",
+      "description": "## Description\\n\\nApplications should check the origin of \`message\` events. Handling messages\\nfrom untrusted origins could lead to Cross-Site Scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid handling messages from any origin:\\n\\n\`\`\`javascript\\nwindow.addEventListener('message', (event) => {\\n  actOnMessage(event.data)\\n})\\n\`\`\`\\n\\n✅ Validate the origin:\\n\\n\`\`\`javascript\\nwindow.addEventListener('message', (event) => {\\n  if (event.origin != 'https://myapp.example.com') {\\n    throw new Error('invalid origin')\\n  }\\n\\n  actOnMessage(event.data)\\n})\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_message_handler_origin",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 3
+        },
+        "content": "addEventListener('message', function (event) {\\n  actOnMessage(event.data)\\n})"
+      },
+      "parent_line_number": 5,
+      "snippet": "addEventListener('message', function (event) {\\n  actOnMessage(event.data)\\n})",
+      "fingerprint": "4ac5e012a055ff87b9c6ec59be0139aa_1",
+      "old_fingerprint": "a8447e4b3d7e807590f9509e24e4470b_1"
+    },
+    {
+      "cwe_ids": [
+        "346"
+      ],
+      "id": "javascript_lang_message_handler_origin",
+      "title": "Unchecked origin in message handler detected.",
+      "description": "## Description\\n\\nApplications should check the origin of \`message\` events. Handling messages\\nfrom untrusted origins could lead to Cross-Site Scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid handling messages from any origin:\\n\\n\`\`\`javascript\\nwindow.addEventListener('message', (event) => {\\n  actOnMessage(event.data)\\n})\\n\`\`\`\\n\\n✅ Validate the origin:\\n\\n\`\`\`javascript\\nwindow.addEventListener('message', (event) => {\\n  if (event.origin != 'https://myapp.example.com') {\\n    throw new Error('invalid origin')\\n  }\\n\\n  actOnMessage(event.data)\\n})\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_message_handler_origin",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 9,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 3
+        },
+        "content": "addEventListener('message', function f(event) {\\n  actOnMessage(event.data)\\n})"
+      },
+      "parent_line_number": 9,
+      "snippet": "addEventListener('message', function f(event) {\\n  actOnMessage(event.data)\\n})",
+      "fingerprint": "4ac5e012a055ff87b9c6ec59be0139aa_2",
+      "old_fingerprint": "a8447e4b3d7e807590f9509e24e4470b_2"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_lang_message_handler_origin ok 1`] = `"{}"`;

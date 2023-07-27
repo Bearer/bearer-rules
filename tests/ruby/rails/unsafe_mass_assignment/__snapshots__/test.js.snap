@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_rails_unsafe_mass_assignment ok 1`] = `"{}"`;
+
+exports[`ruby_rails_unsafe_mass_assignment unsafe 1`] = `
+"{
+  "warning": [
+    {
+      "cwe_ids": [
+        "915"
+      ],
+      "id": "ruby_rails_unsafe_mass_assignment",
+      "title": "Possibly dangerous permitted parameter key detected.",
+      "description": "## Description\\nSafe-listing high-risk param keys makes Rails applications open to mass assignment vulnerability.\\n\\nIn Rails, mass assignment is when we use a hash to assign attributes all at once rather than individually. For example:\\n\\n\`\`\`\\nuser_attributes = { name: \\"Mish\\", email: \\"mish@bearer.com\\" }\\nUser.new(user_attributes)\\n\`\`\`\\n\\nWhen used with an untrusted hash (for example, the \`params\` hash in a controller), mass assignment is open to attack because any attribute on the record that corresponds to a key in the hash will be automatically assigned the value in the hash. An attacker could exploit this vulnerability to change their role and permissions or to assign themselves as an admin.\\n\\nBy default, Rails' strong parameters protect against mass assignment vulnerability; however, we must take care when safe-listing high-risk param keys.\\n\\n## Remediations\\n❌ Where possible, avoid safe-listed high-risk param keys such as :admin or :role\\n\\n\`\`\`ruby\\nuser_params = params(:user).permit!(:name, :email, :admin)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Mass Assignment Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Mass_Assignment_Cheat_Sheet.html)\\n- [Ruby on Rails security guide on mass assignment](https://guides.rubyonrails.org/v3.2.9/security.html#mass-assignment)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_unsafe_mass_assignment",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/unsafe.rb",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 5,
+          "end": 48
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 5,
+          "end": 48
+        },
+        "content": "params(:user).permit(:name, :email, :admin)"
+      },
+      "parent_line_number": 5,
+      "snippet": "params(:user).permit(:name, :email, :admin)",
+      "fingerprint": "896362db4e1fcb4072dce49bd52969e7_0",
+      "old_fingerprint": "50d775c0577e899f1447b11284b59ddf_0"
+    }
+  ]
+}"
+`;

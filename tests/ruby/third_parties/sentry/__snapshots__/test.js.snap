@@ -1,0 +1,970 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_third_parties_sentry datatype_in_breadcrumb 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/datatype_in_breadcrumb.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 34,
+          "end": 44
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Sentry::Breadcrumb.new(\\n  category: \\"auth\\",\\n  message: \\"Authenticated user #{user.email}\\",\\n  level: \\"info\\"\\n)"
+      },
+      "parent_line_number": 1,
+      "snippet": "Sentry::Breadcrumb.new(\\n  category: \\"auth\\",\\n  message: \\"Authenticated user #{user.email}\\",\\n  level: \\"info\\"\\n)",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
+      "old_fingerprint": "4d76966f826e044c73acb790652187cf_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_sentry datatype_in_capture_message 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_in_capture_message.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 33,
+          "end": 43
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 46
+        },
+        "content": "Sentry.capture_message(\\"test: #{user.email}\\")"
+      },
+      "parent_line_number": 1,
+      "snippet": "Sentry.capture_message(\\"test: #{user.email}\\")",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
+      "old_fingerprint": "3c2f97c55ef5e5b24063d839d17b8b64_0"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/datatype_in_capture_message.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 41,
+          "end": 58
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 1,
+          "end": 61
+        },
+        "content": "Sentry.capture_message(\\"test\\", extra: { email: user.email })"
+      },
+      "parent_line_number": 2,
+      "snippet": "Sentry.capture_message(\\"test\\", extra: { email: user.email })",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_1",
+      "old_fingerprint": "3c2f97c55ef5e5b24063d839d17b8b64_1"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/datatype_in_capture_message.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 40,
+          "end": 57
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 60
+        },
+        "content": "Sentry.capture_message(\\"test\\", tags: { email: user.email })"
+      },
+      "parent_line_number": 3,
+      "snippet": "Sentry.capture_message(\\"test\\", tags: { email: user.email })",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_2",
+      "old_fingerprint": "3c2f97c55ef5e5b24063d839d17b8b64_2"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/datatype_in_capture_message.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 40,
+          "end": 57
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 60
+        },
+        "content": "Sentry.capture_message(\\"test\\", user: { email: user.email })"
+      },
+      "parent_line_number": 4,
+      "snippet": "Sentry.capture_message(\\"test\\", user: { email: user.email })",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_3",
+      "old_fingerprint": "3c2f97c55ef5e5b24063d839d17b8b64_3"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_sentry datatype_in_init 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/datatype_in_init.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 48,
+          "end": 66
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 5,
+          "end": 68
+        },
+        "content": "breadcrumb.message = \\"Authenticated user #{current_user.email}\\""
+      },
+      "parent_line_number": 3,
+      "snippet": "breadcrumb.message = \\"Authenticated user #{current_user.email}\\"",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
+      "old_fingerprint": "24769c14af4c1ae06c71c4f70c48f223_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_sentry datatype_in_set_context 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_context.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 38,
+          "end": 48
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 51
+        },
+        "content": "Sentry.set_context('email', { email: user.email })"
+      },
+      "parent_line_number": 1,
+      "snippet": "Sentry.set_context('email', { email: user.email })",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
+      "old_fingerprint": "0845321ca80f47fdde1a83b28f0683d0_0"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_context.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 39,
+          "end": 49
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 3,
+          "end": 52
+        },
+        "content": "scope.set_context('email', { email: user.email })"
+      },
+      "parent_line_number": 4,
+      "snippet": "scope.set_context('email', { email: user.email })",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_1",
+      "old_fingerprint": "0845321ca80f47fdde1a83b28f0683d0_1"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_context.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 39,
+          "end": 49
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 3,
+          "end": 52
+        },
+        "content": "scope.set_context('email', { email: user.email })"
+      },
+      "parent_line_number": 8,
+      "snippet": "scope.set_context('email', { email: user.email })",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_2",
+      "old_fingerprint": "0845321ca80f47fdde1a83b28f0683d0_2"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_sentry datatype_in_set_extra 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_extra.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 27,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 3,
+          "end": 38
+        },
+        "content": "scope.set_extra(:email, user.email)"
+      },
+      "parent_line_number": 2,
+      "snippet": "scope.set_extra(:email, user.email)",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
+      "old_fingerprint": "4163555c4c0210577353d6817401f992_0"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_extra.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 27,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 3,
+          "end": 38
+        },
+        "content": "scope.set_extra(:email, user.email)"
+      },
+      "parent_line_number": 6,
+      "snippet": "scope.set_extra(:email, user.email)",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_1",
+      "old_fingerprint": "4163555c4c0210577353d6817401f992_1"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_sentry datatype_in_set_extras 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_extras.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 26,
+          "end": 36
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 37
+        },
+        "content": "Sentry.set_extras(email: user.email)"
+      },
+      "parent_line_number": 1,
+      "snippet": "Sentry.set_extras(email: user.email)",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
+      "old_fingerprint": "bb64209db13f7e6efee7030704bd6a79_0"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_extras.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 27,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 3,
+          "end": 38
+        },
+        "content": "scope.set_extras(email: user.email)"
+      },
+      "parent_line_number": 4,
+      "snippet": "scope.set_extras(email: user.email)",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_1",
+      "old_fingerprint": "bb64209db13f7e6efee7030704bd6a79_1"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_extras.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 27,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 3,
+          "end": 38
+        },
+        "content": "scope.set_extras(email: user.email)"
+      },
+      "parent_line_number": 8,
+      "snippet": "scope.set_extras(email: user.email)",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_2",
+      "old_fingerprint": "bb64209db13f7e6efee7030704bd6a79_2"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_sentry datatype_in_set_tag 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_tag.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 25,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 3,
+          "end": 36
+        },
+        "content": "scope.set_tag(:email, user.email)"
+      },
+      "parent_line_number": 2,
+      "snippet": "scope.set_tag(:email, user.email)",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
+      "old_fingerprint": "27473785f9a7671e3c695e3aaf6eec03_0"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_tag.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 25,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 3,
+          "end": 36
+        },
+        "content": "scope.set_tag(:email, user.email)"
+      },
+      "parent_line_number": 6,
+      "snippet": "scope.set_tag(:email, user.email)",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_1",
+      "old_fingerprint": "27473785f9a7671e3c695e3aaf6eec03_1"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_sentry datatype_in_set_tags 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_tags.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 24,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 35
+        },
+        "content": "Sentry.set_tags(email: user.email)"
+      },
+      "parent_line_number": 1,
+      "snippet": "Sentry.set_tags(email: user.email)",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
+      "old_fingerprint": "cbd4d2dff7310acca4439378d7da6a6b_0"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_tags.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 25,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 3,
+          "end": 36
+        },
+        "content": "scope.set_tags(email: user.email)"
+      },
+      "parent_line_number": 4,
+      "snippet": "scope.set_tags(email: user.email)",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_1",
+      "old_fingerprint": "cbd4d2dff7310acca4439378d7da6a6b_1"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_tags.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 25,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 3,
+          "end": 36
+        },
+        "content": "scope.set_tags(email: user.email)"
+      },
+      "parent_line_number": 8,
+      "snippet": "scope.set_tags(email: user.email)",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_2",
+      "old_fingerprint": "cbd4d2dff7310acca4439378d7da6a6b_2"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_sentry datatype_in_set_user 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_user.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 24,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 35
+        },
+        "content": "Sentry.set_user(email: user.email)"
+      },
+      "parent_line_number": 3,
+      "snippet": "Sentry.set_user(email: user.email)",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
+      "old_fingerprint": "f6f7da2d92578b32e57b3e3ef1f8e638_0"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_user.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 25,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 3,
+          "end": 36
+        },
+        "content": "scope.set_user(email: user.email)"
+      },
+      "parent_line_number": 6,
+      "snippet": "scope.set_user(email: user.email)",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_1",
+      "old_fingerprint": "f6f7da2d92578b32e57b3e3ef1f8e638_1"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_sentry",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_user.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 25,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 3,
+          "end": 36
+        },
+        "content": "scope.set_user(email: user.email)"
+      },
+      "parent_line_number": 10,
+      "snippet": "scope.set_user(email: user.email)",
+      "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_2",
+      "old_fingerprint": "f6f7da2d92578b32e57b3e3ef1f8e638_2"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_sentry ok_datatype_ignored 1`] = `"{}"`;
+
+exports[`ruby_third_parties_sentry ok_no_datatype 1`] = `"{}"`;

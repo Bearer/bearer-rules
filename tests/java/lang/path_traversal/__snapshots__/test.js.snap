@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`java_lang_path_traversal cookie_file_traversal 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "22"
+      ],
+      "id": "java_lang_path_traversal",
+      "title": "Possible path traversal vulnerability detected",
+      "description": "## Description\\n\\nAllowing unsanitized user input in path resolution methods means an attacker could gain access to files and folders outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Sanitize user input when resolving paths, for example:\\nUse \`FilenameUtils.getName()\` to mitigate against unwanted patterns in the path (such as \`\\\\..\\\\..\`)\\n\\n\`\`\`java\\n  public class Cls extends HttpServlet\\n  {\\n\\n      public void handleRequest(HttpServletRequest request, HttpServletResponse response)\\n      {\\n          String image = request.getParameter(\\"user_profile_picture\\");\\n          File file = new File(\\"user/profile/\\" + FilenameUtils.getName(image));\\n      }\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_path_traversal",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/cookie_file_traversal.java",
+      "filename": ".",
+      "source": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 21,
+          "end": 59
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 21,
+          "end": 59
+        },
+        "content": "new File(\\"user/profile/\\", userProfile)"
+      },
+      "parent_line_number": 17,
+      "snippet": "new File(\\"user/profile/\\", userProfile)",
+      "fingerprint": "0ddbea485a733931cca743266783dadc_0",
+      "old_fingerprint": "e235348fe3c9ed5201ec4ef44d9dcecd_0"
+    }
+  ]
+}"
+`;
+
+exports[`java_lang_path_traversal request_file_traversal 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "22"
+      ],
+      "id": "java_lang_path_traversal",
+      "title": "Possible path traversal vulnerability detected",
+      "description": "## Description\\n\\nAllowing unsanitized user input in path resolution methods means an attacker could gain access to files and folders outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Sanitize user input when resolving paths, for example:\\nUse \`FilenameUtils.getName()\` to mitigate against unwanted patterns in the path (such as \`\\\\..\\\\..\`)\\n\\n\`\`\`java\\n  public class Cls extends HttpServlet\\n  {\\n\\n      public void handleRequest(HttpServletRequest request, HttpServletResponse response)\\n      {\\n          String image = request.getParameter(\\"user_profile_picture\\");\\n          File file = new File(\\"user/profile/\\" + FilenameUtils.getName(image));\\n      }\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_path_traversal",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/request_file_traversal.java",
+      "filename": ".",
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 21,
+          "end": 53
+        }
+      },
+      "sink": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 21,
+          "end": 53
+        },
+        "content": "new File(\\"user/profile/\\", image)"
+      },
+      "parent_line_number": 18,
+      "snippet": "new File(\\"user/profile/\\", image)",
+      "fingerprint": "0ddbea485a733931cca743266783dadc_0",
+      "old_fingerprint": "dacce4d7fc5a813b92dbac426a4a3030_0"
+    }
+  ]
+}"
+`;
+
+exports[`java_lang_path_traversal request_file_traversal_sanitized 1`] = `"{}"`;

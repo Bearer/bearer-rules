@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_lang_import_using_user_input ok_known_resource 1`] = `"{}"`;
+
+exports[`javascript_lang_import_using_user_input require_destructured_resource 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "22",
+        "95"
+      ],
+      "id": "javascript_lang_import_using_user_input",
+      "title": "Loading of resource resolved from external name detected.",
+      "description": "## Description\\n\\nLoading code dynamically from a path formed from user input can allow an\\nattacker to execute arbitrary code.\\n\\n## Remediations\\n\\n❌ Avoid passing user or request input to require().\\n\\n✅ Where it is unavoidable to rely on user input, sanitize the input or use a safelist\\n\\n\`\`\`javascript\\nvar path = req.body.path\\nif (['users', 'posts', 'pages'].includes(path)) {\\n  require(\`\${path}.js\`)\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_import_using_user_input",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/require_destructured_resource.js",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 3,
+          "end": 16
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 3,
+          "end": 16
+        },
+        "content": "require(path)"
+      },
+      "parent_line_number": 7,
+      "snippet": "require(path)",
+      "fingerprint": "ce8a5417c71d4166a93f05ca32da7883_0",
+      "old_fingerprint": "d110bd47bf4a579b94604413a38a5bf7_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_lang_import_using_user_input require_external_resource 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "22",
+        "95"
+      ],
+      "id": "javascript_lang_import_using_user_input",
+      "title": "Loading of resource resolved from external name detected.",
+      "description": "## Description\\n\\nLoading code dynamically from a path formed from user input can allow an\\nattacker to execute arbitrary code.\\n\\n## Remediations\\n\\n❌ Avoid passing user or request input to require().\\n\\n✅ Where it is unavoidable to rely on user input, sanitize the input or use a safelist\\n\\n\`\`\`javascript\\nvar path = req.body.path\\nif (['users', 'posts', 'pages'].includes(path)) {\\n  require(\`\${path}.js\`)\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_import_using_user_input",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/require_external_resource.js",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 5,
+          "end": 33
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 5,
+          "end": 33
+        },
+        "content": "require(req.query.user.path)"
+      },
+      "parent_line_number": 10,
+      "snippet": "require(req.query.user.path)",
+      "fingerprint": "ce8a5417c71d4166a93f05ca32da7883_0",
+      "old_fingerprint": "e26d7c8e16a0427a93ddc87b40c1fc6c_0"
+    },
+    {
+      "cwe_ids": [
+        "22",
+        "95"
+      ],
+      "id": "javascript_lang_import_using_user_input",
+      "title": "Loading of resource resolved from external name detected.",
+      "description": "## Description\\n\\nLoading code dynamically from a path formed from user input can allow an\\nattacker to execute arbitrary code.\\n\\n## Remediations\\n\\n❌ Avoid passing user or request input to require().\\n\\n✅ Where it is unavoidable to rely on user input, sanitize the input or use a safelist\\n\\n\`\`\`javascript\\nvar path = req.body.path\\nif (['users', 'posts', 'pages'].includes(path)) {\\n  require(\`\${path}.js\`)\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_import_using_user_input",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/require_external_resource.js",
+      "filename": ".",
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 3,
+          "end": 30
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 3,
+          "end": 30
+        },
+        "content": "import(req.query.user.path)"
+      },
+      "parent_line_number": 15,
+      "snippet": "import(req.query.user.path)",
+      "fingerprint": "ce8a5417c71d4166a93f05ca32da7883_1",
+      "old_fingerprint": "e26d7c8e16a0427a93ddc87b40c1fc6c_1"
+    }
+  ]
+}"
+`;

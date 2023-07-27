@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_express_exposed_dir_listing ok_app_use 1`] = `"{}"`;
+
+exports[`javascript_express_exposed_dir_listing serve_index_in_app_use 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "548"
+      ],
+      "id": "javascript_express_exposed_dir_listing",
+      "title": "Missing access restriction to directory listing detected.",
+      "description": "## Description\\nInappropriate exposure of a directory listing could give attackers access to sensitive data or source code, either directly or through exploitation of an exposed file structure.\\n\\n## Remediations\\n✅ Restrict access to sensitive directories and files\\n\\n## Resources\\n- [Express Serve index middleware](https://expressjs.com/en/resources/middleware/serve-index.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_exposed_dir_listing",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/serve_index_in_app_use.js",
+      "filename": ".",
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 52
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 52
+        },
+        "content": "app.use(\\"/public\\", serveIndex(__dirname + \\"files\\"))"
+      },
+      "parent_line_number": 9,
+      "snippet": "app.use(\\"/public\\", serveIndex(__dirname + \\"files\\"))",
+      "fingerprint": "e5160a3a6c8ab399600f1eef9413fa8d_0",
+      "old_fingerprint": "dd4210f84fbf2407460fbaf103e463d2_0"
+    }
+  ]
+}"
+`;

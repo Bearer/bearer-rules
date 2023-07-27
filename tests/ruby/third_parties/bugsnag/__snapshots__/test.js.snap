@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_third_parties_bugsnag before_bugsnag_notify_add_metadata 1`] = `"{}"`;
+
+exports[`ruby_third_parties_bugsnag before_bugsnag_notify_set_user 1`] = `"{}"`;
+
+exports[`ruby_third_parties_bugsnag breadcrumb 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_bugsnag",
+      "title": "Sensitive data sent to Bugsnag detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Bugsnag.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Bugsnag Docs](https://docs.bugsnag.com/platforms/ruby/rails/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_bugsnag",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/breadcrumb.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 3,
+          "end": 28
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 84
+        },
+        "content": "Bugsnag.leave_breadcrumb('User logged in', metadata, Bugsnag::BreadcrumbType::USER)"
+      },
+      "parent_line_number": 7,
+      "snippet": "Bugsnag.leave_breadcrumb('User logged in', metadata, Bugsnag::BreadcrumbType::USER)",
+      "fingerprint": "524e26b29dda01375b05516947e0c2a5_0",
+      "old_fingerprint": "19cf8c0d84864e84c24e330bc3e24034_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_bugsnag bugsnag_notify 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_bugsnag",
+      "title": "Sensitive data sent to Bugsnag detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Bugsnag.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Bugsnag Docs](https://docs.bugsnag.com/platforms/ruby/rails/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_bugsnag",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/bugsnag_notify.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Fullname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 16,
+          "end": 33
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 15,
+        "column": {
+          "start": 3,
+          "end": 5
+        },
+        "content": "event.add_metadata(:account, {\\n    user_name: current_user.name,\\n    paying_customer: true\\n  })"
+      },
+      "parent_line_number": 12,
+      "snippet": "event.add_metadata(:account, {\\n    user_name: current_user.name,\\n    paying_customer: true\\n  })",
+      "fingerprint": "524e26b29dda01375b05516947e0c2a5_0",
+      "old_fingerprint": "06e0bd074abf09be1c0491739cd93042_0"
+    }
+  ]
+}"
+`;

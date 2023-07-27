@@ -1,0 +1,696 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_third_parties_rollbar datatype_in_context 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_in_context.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 39,
+          "end": 67
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 71
+        },
+        "content": "exception.rollbar_context = { user: { email: \\"someone@example.com\\" } }"
+      },
+      "parent_line_number": 1,
+      "snippet": "exception.rollbar_context = { user: { email: \\"someone@example.com\\" } }",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_0",
+      "old_fingerprint": "bd7a8b51a211109f98cc7d26f053f50d_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_rollbar datatype_in_log 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_in_log.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 30,
+          "end": 40
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 43
+        },
+        "content": "Rollbar.log(\\"error\\", \\"oops #{user.email}\\")"
+      },
+      "parent_line_number": 1,
+      "snippet": "Rollbar.log(\\"error\\", \\"oops #{user.email}\\")",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_0",
+      "old_fingerprint": "4a6c22db854101c19e52d02ad72bade2_0"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/datatype_in_log.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 38,
+          "end": 66
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 1,
+          "end": 69
+        },
+        "content": "Rollbar.log(\\"error\\", \\"oops\\", user: { email: \\"someone@example.com\\" })"
+      },
+      "parent_line_number": 2,
+      "snippet": "Rollbar.log(\\"error\\", \\"oops\\", user: { email: \\"someone@example.com\\" })",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_1",
+      "old_fingerprint": "4a6c22db854101c19e52d02ad72bade2_1"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/datatype_in_log.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 40,
+          "end": 61
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 66
+        },
+        "content": "Rollbar.log(\\"error\\", \\"oops\\", { user: { first_name: \\"someone\\" } })"
+      },
+      "parent_line_number": 3,
+      "snippet": "Rollbar.log(\\"error\\", \\"oops\\", { user: { first_name: \\"someone\\" } })",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_2",
+      "old_fingerprint": "4a6c22db854101c19e52d02ad72bade2_2"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_rollbar datatype_in_log_helper 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_in_log_helper.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 26,
+          "end": 36
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 39
+        },
+        "content": "Rollbar.critical(\\"oops #{user.email}\\")"
+      },
+      "parent_line_number": 1,
+      "snippet": "Rollbar.critical(\\"oops #{user.email}\\")",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_0",
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_0"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/datatype_in_log_helper.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 29,
+          "end": 39
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 1,
+          "end": 42
+        },
+        "content": "Rollbar.critical(e, \\"oops #{user.email}\\")"
+      },
+      "parent_line_number": 2,
+      "snippet": "Rollbar.critical(e, \\"oops #{user.email}\\")",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_1",
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_1"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/datatype_in_log_helper.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 29,
+          "end": 57
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 60
+        },
+        "content": "Rollbar.critical(e, user: { email: \\"someone@example.com\\" })"
+      },
+      "parent_line_number": 3,
+      "snippet": "Rollbar.critical(e, user: { email: \\"someone@example.com\\" })",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_2",
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_2"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/datatype_in_log_helper.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 31,
+          "end": 52
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 57
+        },
+        "content": "Rollbar.critical(e, { user: { first_name: \\"someone\\" } })"
+      },
+      "parent_line_number": 4,
+      "snippet": "Rollbar.critical(e, { user: { first_name: \\"someone\\" } })",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_3",
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_3"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/datatype_in_log_helper.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 23,
+          "end": 33
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 36
+        },
+        "content": "Rollbar.error(\\"oops #{user.email}\\")"
+      },
+      "parent_line_number": 6,
+      "snippet": "Rollbar.error(\\"oops #{user.email}\\")",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_4",
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_4"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/datatype_in_log_helper.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 23,
+          "end": 33
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 36
+        },
+        "content": "Rollbar.debug(\\"oops #{user.email}\\")"
+      },
+      "parent_line_number": 8,
+      "snippet": "Rollbar.debug(\\"oops #{user.email}\\")",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_5",
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_5"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/datatype_in_log_helper.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 22,
+          "end": 32
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 35
+        },
+        "content": "Rollbar.info(\\"oops #{user.email}\\")"
+      },
+      "parent_line_number": 10,
+      "snippet": "Rollbar.info(\\"oops #{user.email}\\")",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_6",
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_6"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/datatype_in_log_helper.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 25,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 38
+        },
+        "content": "Rollbar.warning(\\"oops #{user.email}\\")"
+      },
+      "parent_line_number": 12,
+      "snippet": "Rollbar.warning(\\"oops #{user.email}\\")",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_7",
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_7"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_rollbar datatype_in_scope 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_in_scope.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 26,
+          "end": 54
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 58
+        },
+        "content": "Rollbar.scope!({ user: { email: \\"someone@example.com\\" }})"
+      },
+      "parent_line_number": 1,
+      "snippet": "Rollbar.scope!({ user: { email: \\"someone@example.com\\" }})",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_0",
+      "old_fingerprint": "089b70eb8599544b29be710d89a39e13_0"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/datatype_in_scope.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 10,
+          "end": 38
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 12,
+          "end": 31
+        },
+        "content": "Rollbar.scope(user)"
+      },
+      "parent_line_number": 5,
+      "snippet": "Rollbar.scope(user)",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_1",
+      "old_fingerprint": "089b70eb8599544b29be710d89a39e13_1"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/datatype_in_scope.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 24,
+          "end": 45
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 48
+        },
+        "content": "notifier.scope(user: { first_name: \\"someone\\" })"
+      },
+      "parent_line_number": 7,
+      "snippet": "notifier.scope(user: { first_name: \\"someone\\" })",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_2",
+      "old_fingerprint": "089b70eb8599544b29be710d89a39e13_2"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_rollbar datatype_in_scoped 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/ruby)\\n- [Scrubbing items](https://docs.rollbar.com/docs/ruby#section-scrubbing-items)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_rollbar",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_in_scoped.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 21,
+          "end": 49
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 4
+        },
+        "content": "Rollbar.scoped(scope) do\\n  call\\nend"
+      },
+      "parent_line_number": 3,
+      "snippet": "Rollbar.scoped(scope) do\\n  call\\nend",
+      "fingerprint": "0976992b89aa3cb2fa891be53248a418_0",
+      "old_fingerprint": "1348b9d9c9d8e06edbe0f17da849401d_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_rollbar ok_datatype_ignored 1`] = `"{}"`;
+
+exports[`ruby_third_parties_rollbar ok_no_datatype 1`] = `"{}"`;

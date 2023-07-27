@@ -1,0 +1,1134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_lang_http_url_using_user_input ok_not_unsafe 1`] = `"{}"`;
+
+exports[`ruby_lang_http_url_using_user_input unsafe_curb 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/unsafe_curb.rb",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 4
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 4
+        },
+        "content": "Curl.http(\\"GET\\", params[:oops], nil) do\\nend"
+      },
+      "parent_line_number": 3,
+      "snippet": "Curl.http(\\"GET\\", params[:oops], nil) do\\nend",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_0",
+      "old_fingerprint": "ae9a7ccadf66e065d40096da706ab2e7_0"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/unsafe_curb.rb",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 27
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 27
+        },
+        "content": "Curl.get(params[:oops]) {}"
+      },
+      "parent_line_number": 6,
+      "snippet": "Curl.get(params[:oops]) {}",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_1",
+      "old_fingerprint": "ae9a7ccadf66e065d40096da706ab2e7_1"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/unsafe_curb.rb",
+      "filename": ".",
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 37
+        },
+        "content": "Curl::Easy.perform(params[:oops]) {}"
+      },
+      "parent_line_number": 8,
+      "snippet": "Curl::Easy.perform(params[:oops]) {}",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_2",
+      "old_fingerprint": "ae9a7ccadf66e065d40096da706ab2e7_2"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/unsafe_curb.rb",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 8,
+          "end": 40
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 8,
+          "end": 40
+        },
+        "content": "Curl::Easy.new(params[:oops]) {}"
+      },
+      "parent_line_number": 10,
+      "snippet": "Curl::Easy.new(params[:oops]) {}",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_3",
+      "old_fingerprint": "ae9a7ccadf66e065d40096da706ab2e7_3"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/unsafe_curb.rb",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 26
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 26
+        },
+        "content": "easy.url = params[:oops2]"
+      },
+      "parent_line_number": 11,
+      "snippet": "easy.url = params[:oops2]",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_4",
+      "old_fingerprint": "ae9a7ccadf66e065d40096da706ab2e7_4"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/unsafe_curb.rb",
+      "filename": ".",
+      "source": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 26
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 26
+        },
+        "content": "easy2.url = params[:oops]"
+      },
+      "parent_line_number": 14,
+      "snippet": "easy2.url = params[:oops]",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_5",
+      "old_fingerprint": "ae9a7ccadf66e065d40096da706ab2e7_5"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 16,
+      "full_filename": "/tmp/bearer-scan/unsafe_curb.rb",
+      "filename": ".",
+      "source": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 1,
+          "end": 69
+        }
+      },
+      "sink": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 1,
+          "end": 69
+        },
+        "content": "Curl::Multi.get([\\"https://my.api.com/secure\\", params[:oops]], {}) {}"
+      },
+      "parent_line_number": 16,
+      "snippet": "Curl::Multi.get([\\"https://my.api.com/secure\\", params[:oops]], {}) {}",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_6",
+      "old_fingerprint": "ae9a7ccadf66e065d40096da706ab2e7_6"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/unsafe_curb.rb",
+      "filename": ".",
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 1,
+          "end": 61
+        }
+      },
+      "sink": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 1,
+          "end": 61
+        },
+        "content": "Curl::Multi.http([{ url: params[:oops], method: :post }]) {}"
+      },
+      "parent_line_number": 18,
+      "snippet": "Curl::Multi.http([{ url: params[:oops], method: :post }]) {}",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_7",
+      "old_fingerprint": "ae9a7ccadf66e065d40096da706ab2e7_7"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_lang_http_url_using_user_input unsafe_excon 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/unsafe_excon.rb",
+      "filename": ".",
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 14,
+          "end": 49
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 14,
+          "end": 49
+        },
+        "content": "Excon.new(params[:oops], foo: true)"
+      },
+      "parent_line_number": 1,
+      "snippet": "Excon.new(params[:oops], foo: true)",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_0",
+      "old_fingerprint": "fb05b6d51d5328931c2a238a6c4512c0_0"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/unsafe_excon.rb",
+      "filename": ".",
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 15,
+          "end": 67
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 15,
+          "end": 67
+        },
+        "content": "Excon.new(\\"http://example.com\\", path: params[:oops])"
+      },
+      "parent_line_number": 2,
+      "snippet": "Excon.new(\\"http://example.com\\", path: params[:oops])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_1",
+      "old_fingerprint": "fb05b6d51d5328931c2a238a6c4512c0_1"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/unsafe_excon.rb",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 15,
+          "end": 57
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 15,
+          "end": 57
+        },
+        "content": "Excon::Connection.new(host: params[:oops])"
+      },
+      "parent_line_number": 4,
+      "snippet": "Excon::Connection.new(host: params[:oops])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_2",
+      "old_fingerprint": "fb05b6d51d5328931c2a238a6c4512c0_2"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/unsafe_excon.rb",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 15,
+          "end": 61
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 15,
+          "end": 61
+        },
+        "content": "Excon::Connection.new(hostname: params[:oops])"
+      },
+      "parent_line_number": 5,
+      "snippet": "Excon::Connection.new(hostname: params[:oops])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_3",
+      "old_fingerprint": "fb05b6d51d5328931c2a238a6c4512c0_3"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/unsafe_excon.rb",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 15,
+          "end": 57
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 15,
+          "end": 57
+        },
+        "content": "Excon::Connection.new(path: params[:oops])"
+      },
+      "parent_line_number": 6,
+      "snippet": "Excon::Connection.new(path: params[:oops])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_4",
+      "old_fingerprint": "fb05b6d51d5328931c2a238a6c4512c0_4"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/unsafe_excon.rb",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 15,
+          "end": 57
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 15,
+          "end": 57
+        },
+        "content": "Excon::Connection.new(port: params[:oops])"
+      },
+      "parent_line_number": 7,
+      "snippet": "Excon::Connection.new(port: params[:oops])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_5",
+      "old_fingerprint": "fb05b6d51d5328931c2a238a6c4512c0_5"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/unsafe_excon.rb",
+      "filename": ".",
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 37
+        },
+        "content": "connection.post(path: params[:oops])"
+      },
+      "parent_line_number": 9,
+      "snippet": "connection.post(path: params[:oops])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_6",
+      "old_fingerprint": "fb05b6d51d5328931c2a238a6c4512c0_6"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/unsafe_excon.rb",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 41
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 41
+        },
+        "content": "connection2.request(path: params[:oops])"
+      },
+      "parent_line_number": 11,
+      "snippet": "connection2.request(path: params[:oops])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_7",
+      "old_fingerprint": "fb05b6d51d5328931c2a238a6c4512c0_7"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/unsafe_excon.rb",
+      "filename": ".",
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 65
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 65
+        },
+        "content": "connection3.requests([{ :method => :get, path: params[:oops] }])"
+      },
+      "parent_line_number": 13,
+      "snippet": "connection3.requests([{ :method => :get, path: params[:oops] }])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_8",
+      "old_fingerprint": "fb05b6d51d5328931c2a238a6c4512c0_8"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/unsafe_excon.rb",
+      "filename": ".",
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 25
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 25
+        },
+        "content": "Excon.get(params[:oops])"
+      },
+      "parent_line_number": 15,
+      "snippet": "Excon.get(params[:oops])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_9",
+      "old_fingerprint": "fb05b6d51d5328931c2a238a6c4512c0_9"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 16,
+      "full_filename": "/tmp/bearer-scan/unsafe_excon.rb",
+      "filename": ".",
+      "source": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 1,
+          "end": 54
+        }
+      },
+      "sink": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 1,
+          "end": 54
+        },
+        "content": "Excon.post(\\"http://example.com\\", path: params[:oops])"
+      },
+      "parent_line_number": 16,
+      "snippet": "Excon.post(\\"http://example.com\\", path: params[:oops])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_10",
+      "old_fingerprint": "fb05b6d51d5328931c2a238a6c4512c0_10"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_lang_http_url_using_user_input unsafe_get 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/unsafe_get.rb",
+      "filename": ".",
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 27
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 27
+        },
+        "content": "Faraday.get(params[:oops])"
+      },
+      "parent_line_number": 1,
+      "snippet": "Faraday.get(params[:oops])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_0",
+      "old_fingerprint": "4afb81c77f6bea9fed7d47a48ef1dae1_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/unsafe_net_http.rb",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 12,
+          "end": 71
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 12,
+          "end": 71
+        },
+        "content": "Net::HTTP.post_form(\\"http://#{params[:oops]}/users/search\\")"
+      },
+      "parent_line_number": 3,
+      "snippet": "Net::HTTP.post_form(\\"http://#{params[:oops]}/users/search\\")",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_0",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_0"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/unsafe_net_http.rb",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 4
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 4
+        },
+        "content": "Net::HTTP.start(params[:host]) do |instance1|\\n  instance1.head(params[:path])\\nend"
+      },
+      "parent_line_number": 5,
+      "snippet": "Net::HTTP.start(params[:host]) do |instance1|\\n  instance1.head(params[:path])\\nend",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_1",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_1"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/unsafe_net_http.rb",
+      "filename": ".",
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 52
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 52
+        },
+        "content": "Net::HTTP::Get.new(params[:oops], { \\"X-Test\\": 42 })"
+      },
+      "parent_line_number": 9,
+      "snippet": "Net::HTTP::Get.new(params[:oops], { \\"X-Test\\": 42 })",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_2",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_2"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/unsafe_net_http.rb",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 13,
+          "end": 43
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 13,
+          "end": 43
+        },
+        "content": "Net::HTTP.start(params[:oops])"
+      },
+      "parent_line_number": 11,
+      "snippet": "Net::HTTP.start(params[:oops])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_3",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_3"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/unsafe_net_http.rb",
+      "filename": ".",
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 38
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 38
+        },
+        "content": "instance2.ipaddr = request.env[:oops]"
+      },
+      "parent_line_number": 12,
+      "snippet": "instance2.ipaddr = request.env[:oops]",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_4",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_4"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/unsafe_net_http.rb",
+      "filename": ".",
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 50
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 50
+        },
+        "content": "instance2.send_request(\\"GET\\", params[:oops], nil)"
+      },
+      "parent_line_number": 13,
+      "snippet": "instance2.send_request(\\"GET\\", params[:oops], nil)",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_5",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_5"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/unsafe_net_http.rb",
+      "filename": ".",
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 13,
+          "end": 41
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 13,
+          "end": 41
+        },
+        "content": "Net::HTTP.new(params[:oops])"
+      },
+      "parent_line_number": 15,
+      "snippet": "Net::HTTP.new(params[:oops])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_6",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_6"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 16,
+      "full_filename": "/tmp/bearer-scan/unsafe_net_http.rb",
+      "filename": ".",
+      "source": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 1,
+          "end": 31
+        }
+      },
+      "sink": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 1,
+          "end": 31
+        },
+        "content": "instance3.patch(params[:path])"
+      },
+      "parent_line_number": 16,
+      "snippet": "instance3.patch(params[:path])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_7",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_7"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/unsafe_net_http.rb",
+      "filename": ".",
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 3,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 3,
+          "end": 37
+        },
+        "content": "instance4.post(request.env[:oops])"
+      },
+      "parent_line_number": 18,
+      "snippet": "instance4.post(request.env[:oops])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_8",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_8"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_lang_http_url_using_user_input unsafe_open 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/unsafe_open.rb",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 15
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 15
+        },
+        "content": "open(uri, \\"r\\")"
+      },
+      "parent_line_number": 3,
+      "snippet": "open(uri, \\"r\\")",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_0",
+      "old_fingerprint": "f5e84776d6758b182e69f0f6bf47ab5f_0"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/unsafe_open.rb",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 20
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 20
+        },
+        "content": "Kernel.open(uri) {}"
+      },
+      "parent_line_number": 5,
+      "snippet": "Kernel.open(uri) {}",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_1",
+      "old_fingerprint": "f5e84776d6758b182e69f0f6bf47ab5f_1"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/unsafe_open.rb",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 9
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 9
+        },
+        "content": "uri.open"
+      },
+      "parent_line_number": 7,
+      "snippet": "uri.open",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_2",
+      "old_fingerprint": "f5e84776d6758b182e69f0f6bf47ab5f_2"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_lang_http_url_using_user_input unsafe_post 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/unsafe_post.rb",
+      "filename": ".",
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 28
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 28
+        },
+        "content": "Faraday.post(params[:oops])"
+      },
+      "parent_line_number": 1,
+      "snippet": "Faraday.post(params[:oops])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_0",
+      "old_fingerprint": "262289f2ec02a87d9b89b0cb0ad2dc55_0"
+    }
+  ]
+}"
+`;

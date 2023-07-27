@@ -1,0 +1,284 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_third_parties_google_analytics datatype_in_cohort 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_google_analytics",
+      "title": "Sensitive data sent to Google Analytics detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Google Analytics.\\n\\n## Remediations\\n\\nWhen sending data to analytics libraries, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Google Analytics docs](https://developers.google.com/analytics/devguides/reporting/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_google_analytics",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_in_cohort.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Physical Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 54,
+          "end": 67
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 68
+        },
+        "content": "Google::Apis::AnalyticsreportingV4::Cohort.new(name: user.zip_code)"
+      },
+      "parent_line_number": 1,
+      "snippet": "Google::Apis::AnalyticsreportingV4::Cohort.new(name: user.zip_code)",
+      "fingerprint": "9668b35f31e900a0f216e97a20bbf3cd_0",
+      "old_fingerprint": "07e0bdfd5273b995e800fbd9822e079b_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_google_analytics datatype_in_custom_dimension 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_google_analytics",
+      "title": "Sensitive data sent to Google Analytics detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Google Analytics.\\n\\n## Remediations\\n\\nWhen sending data to analytics libraries, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Google Analytics docs](https://developers.google.com/analytics/devguides/reporting/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_google_analytics",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/datatype_in_custom_dimension.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 10,
+          "end": 20
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Google::Apis::AnalyticsreportingV4::CustomDimension.new(\\n  value: user.email\\n)"
+      },
+      "parent_line_number": 1,
+      "snippet": "Google::Apis::AnalyticsreportingV4::CustomDimension.new(\\n  value: user.email\\n)",
+      "fingerprint": "9668b35f31e900a0f216e97a20bbf3cd_0",
+      "old_fingerprint": "b31a2371b0fc4b246004bb19df48863e_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_google_analytics datatype_in_event_data 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_google_analytics",
+      "title": "Sensitive data sent to Google Analytics detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Google Analytics.\\n\\n## Remediations\\n\\nWhen sending data to analytics libraries, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Google Analytics docs](https://developers.google.com/analytics/devguides/reporting/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_google_analytics",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/datatype_in_event_data.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "b5a3b0fd-dd5c-420d-91ce-dd2dddc8cc38",
+        "name": "IP address"
+      },
+      "category_groups": [
+        "Personal Data"
+      ],
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 27,
+          "end": 46
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Google::Apis::AnalyticsreportingV4::EventData.new(\\n  event_label: \\"Sign in #{customer.ip_address}\\"\\n)"
+      },
+      "parent_line_number": 1,
+      "snippet": "Google::Apis::AnalyticsreportingV4::EventData.new(\\n  event_label: \\"Sign in #{customer.ip_address}\\"\\n)",
+      "fingerprint": "9668b35f31e900a0f216e97a20bbf3cd_0",
+      "old_fingerprint": "090b4b49e1509fb58f2c2e516c354fc4_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_google_analytics datatype_in_transaction_data 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_google_analytics",
+      "title": "Sensitive data sent to Google Analytics detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Google Analytics.\\n\\n## Remediations\\n\\nWhen sending data to analytics libraries, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Google Analytics docs](https://developers.google.com/analytics/devguides/reporting/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_google_analytics",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_in_transaction_data.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "7a794bd6-a6d1-429d-91a2-377acce9e9db",
+        "name": "Bank Account"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 104,
+          "end": 128
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 20,
+          "end": 129
+        },
+        "content": "Google::Apis::AnalyticsreportingV4::TransactionData.update!(transaction_id: \\"user_\\"+user.bank_account_number)"
+      },
+      "parent_line_number": 1,
+      "snippet": "Google::Apis::AnalyticsreportingV4::TransactionData.update!(transaction_id: \\"user_\\"+user.bank_account_number)",
+      "fingerprint": "9668b35f31e900a0f216e97a20bbf3cd_0",
+      "old_fingerprint": "79249ff412a6e96c6adcdfeb64f78c0c_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_google_analytics datatype_in_user_classes 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_google_analytics",
+      "title": "Sensitive data sent to Google Analytics detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Google Analytics.\\n\\n## Remediations\\n\\nWhen sending data to analytics libraries, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Google Analytics docs](https://developers.google.com/analytics/devguides/reporting/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_google_analytics",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_in_user_classes.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 55,
+          "end": 65
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 66
+        },
+        "content": "Google::Apis::AnalyticsreportingV4::User.new(user_id: user.email)"
+      },
+      "parent_line_number": 1,
+      "snippet": "Google::Apis::AnalyticsreportingV4::User.new(user_id: user.email)",
+      "fingerprint": "9668b35f31e900a0f216e97a20bbf3cd_0",
+      "old_fingerprint": "2ebbcf2d24eeab56cd2168ce1c841196_0"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "ruby_third_parties_google_analytics",
+      "title": "Sensitive data sent to Google Analytics detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Google Analytics.\\n\\n## Remediations\\n\\nWhen sending data to analytics libraries, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Google Analytics docs](https://developers.google.com/analytics/devguides/reporting/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_google_analytics",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/datatype_in_user_classes.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "b5a3b0fd-dd5c-420d-91ce-dd2dddc8cc38",
+        "name": "IP address"
+      },
+      "category_groups": [
+        "Personal Data"
+      ],
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 30,
+          "end": 45
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "Google::Apis::AnalyticsreportingV4::UserActivitySession.update!(\\n  session_id: DateTime.now + user.ip_address\\n)"
+      },
+      "parent_line_number": 3,
+      "snippet": "Google::Apis::AnalyticsreportingV4::UserActivitySession.update!(\\n  session_id: DateTime.now + user.ip_address\\n)",
+      "fingerprint": "9668b35f31e900a0f216e97a20bbf3cd_1",
+      "old_fingerprint": "2ebbcf2d24eeab56cd2168ce1c841196_1"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_third_parties_google_analytics ok_ignored_datatype 1`] = `"{}"`;
+
+exports[`ruby_third_parties_google_analytics ok_no_datatype 1`] = `"{}"`;

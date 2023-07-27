@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_express_default_cookie_config default_cookie_session_config 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "523",
+        "522"
+      ],
+      "id": "javascript_express_default_cookie_config",
+      "title": "Cookie with default config detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or unauthorized access, don't use default cookie values.\\n\\n## Remediations\\n✅ Instead of the default cookie name, use generic names.\\n\\n✅ Always set a maxAge or expires value\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_default_cookie_config",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/default_cookie_session_config.js",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 16,
+        "column": {
+          "start": 17,
+          "end": 4
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 16,
+        "column": {
+          "start": 17,
+          "end": 4
+        },
+        "content": "{\\n    domain: \\"example.com\\",\\n    httpOnly: false,\\n    secure: true,\\n    maxAge: 24 * 60 * 60 * 1000,\\n  }"
+      },
+      "parent_line_number": 11,
+      "snippet": "{\\n    domain: \\"example.com\\",\\n    httpOnly: false,\\n    secure: true,\\n    maxAge: 24 * 60 * 60 * 1000,\\n  }",
+      "fingerprint": "71183b4d479dfbbd68cb2cfa62a497b4_0",
+      "old_fingerprint": "1764f09d4f779f8cdff868982d8cb613_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_express_default_cookie_config default_express_session_cookie_config 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "523",
+        "522"
+      ],
+      "id": "javascript_express_default_cookie_config",
+      "title": "Cookie with default config detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or unauthorized access, don't use default cookie values.\\n\\n## Remediations\\n✅ Instead of the default cookie name, use generic names.\\n\\n✅ Always set a maxAge or expires value\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_default_cookie_config",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/default_express_session_cookie_config.js",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 13,
+          "end": 15
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 13,
+          "end": 15
+        },
+        "content": "{}"
+      },
+      "parent_line_number": 11,
+      "snippet": "{}",
+      "fingerprint": "71183b4d479dfbbd68cb2cfa62a497b4_0",
+      "old_fingerprint": "a4047d98c895b75060af4642f98e67f5_0"
+    },
+    {
+      "cwe_ids": [
+        "523",
+        "522"
+      ],
+      "id": "javascript_express_default_cookie_config",
+      "title": "Cookie with default config detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or unauthorized access, don't use default cookie values.\\n\\n## Remediations\\n✅ Instead of the default cookie name, use generic names.\\n\\n✅ Always set a maxAge or expires value\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_default_cookie_config",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/default_express_session_cookie_config.js",
+      "filename": ".",
+      "source": {
+        "start": 17,
+        "end": 23,
+        "column": {
+          "start": 13,
+          "end": 6
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 23,
+        "column": {
+          "start": 13,
+          "end": 6
+        },
+        "content": "{\\n      domain: \\"example.com\\",\\n      secure: true,\\n      httpOnly: false,\\n      maxAge: 24 * 60 * 60 * 1000,\\n      path: \\"/some-path\\",\\n    }"
+      },
+      "parent_line_number": 17,
+      "snippet": "{\\n      domain: \\"example.com\\",\\n      secure: true,\\n      httpOnly: false,\\n      maxAge: 24 * 60 * 60 * 1000,\\n      path: \\"/some-path\\",\\n    }",
+      "fingerprint": "71183b4d479dfbbd68cb2cfa62a497b4_1",
+      "old_fingerprint": "a4047d98c895b75060af4642f98e67f5_1"
+    },
+    {
+      "cwe_ids": [
+        "523",
+        "522"
+      ],
+      "id": "javascript_express_default_cookie_config",
+      "title": "Cookie with default config detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or unauthorized access, don't use default cookie values.\\n\\n## Remediations\\n✅ Instead of the default cookie name, use generic names.\\n\\n✅ Always set a maxAge or expires value\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_default_cookie_config",
+      "line_number": 29,
+      "full_filename": "/tmp/bearer-scan/default_express_session_cookie_config.js",
+      "filename": ".",
+      "source": {
+        "start": 29,
+        "end": 34,
+        "column": {
+          "start": 13,
+          "end": 6
+        }
+      },
+      "sink": {
+        "start": 29,
+        "end": 34,
+        "column": {
+          "start": 13,
+          "end": 6
+        },
+        "content": "{\\n      domain: \\"example.com\\",\\n      secure: true,\\n      httpOnly: false,\\n      name: \\"my-custom-cookie-name\\",\\n    }"
+      },
+      "parent_line_number": 29,
+      "snippet": "{\\n      domain: \\"example.com\\",\\n      secure: true,\\n      httpOnly: false,\\n      name: \\"my-custom-cookie-name\\",\\n    }",
+      "fingerprint": "71183b4d479dfbbd68cb2cfa62a497b4_2",
+      "old_fingerprint": "a4047d98c895b75060af4642f98e67f5_2"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_express_default_cookie_config ok_cookie_configured 1`] = `"{}"`;

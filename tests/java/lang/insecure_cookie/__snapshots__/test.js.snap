@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`java_lang_insecure_cookie bad 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "614"
+      ],
+      "id": "java_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\n\\nTo make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n\\n✅ Set \`Secure\` to \`true\` to force cookies to only be sent over HTTPS\\n✅ Set \`HttpOnly\` to \`true\` to protect the cookie value from being accessed by client side JavaScript\\n\\n\`\`\`java\\ncookie.setSecure(true);\\ncookie.setHttpOnly(true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_insecure_cookie",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 5,
+          "end": 24
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 5,
+          "end": 24
+        },
+        "content": "c1.setSecure(false)"
+      },
+      "parent_line_number": 8,
+      "snippet": "c1.setSecure(false)",
+      "fingerprint": "ebb3bb66f61c10a70c9710467ac46faf_0",
+      "old_fingerprint": "5221acf9beea014b2cdb88e2ee84fbd0_0"
+    },
+    {
+      "cwe_ids": [
+        "614"
+      ],
+      "id": "java_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\n\\nTo make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n\\n✅ Set \`Secure\` to \`true\` to force cookies to only be sent over HTTPS\\n✅ Set \`HttpOnly\` to \`true\` to protect the cookie value from being accessed by client side JavaScript\\n\\n\`\`\`java\\ncookie.setSecure(true);\\ncookie.setHttpOnly(true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_insecure_cookie",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 5,
+          "end": 20
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 5,
+          "end": 20
+        },
+        "content": "c2.setSecure(f)"
+      },
+      "parent_line_number": 12,
+      "snippet": "c2.setSecure(f)",
+      "fingerprint": "ebb3bb66f61c10a70c9710467ac46faf_1",
+      "old_fingerprint": "5221acf9beea014b2cdb88e2ee84fbd0_1"
+    }
+  ]
+}"
+`;
+
+exports[`java_lang_insecure_cookie bad_http_only 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "614"
+      ],
+      "id": "java_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\n\\nTo make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n\\n✅ Set \`Secure\` to \`true\` to force cookies to only be sent over HTTPS\\n✅ Set \`HttpOnly\` to \`true\` to protect the cookie value from being accessed by client side JavaScript\\n\\n\`\`\`java\\ncookie.setSecure(true);\\ncookie.setHttpOnly(true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_insecure_cookie",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/bad_http_only.java",
+      "filename": ".",
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 5,
+          "end": 26
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 5,
+          "end": 26
+        },
+        "content": "c1.setHttpOnly(false)"
+      },
+      "parent_line_number": 8,
+      "snippet": "c1.setHttpOnly(false)",
+      "fingerprint": "ebb3bb66f61c10a70c9710467ac46faf_0",
+      "old_fingerprint": "88305cb77e1bf754fea5b271b438084e_0"
+    },
+    {
+      "cwe_ids": [
+        "614"
+      ],
+      "id": "java_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\n\\nTo make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n\\n✅ Set \`Secure\` to \`true\` to force cookies to only be sent over HTTPS\\n✅ Set \`HttpOnly\` to \`true\` to protect the cookie value from being accessed by client side JavaScript\\n\\n\`\`\`java\\ncookie.setSecure(true);\\ncookie.setHttpOnly(true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_insecure_cookie",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/bad_http_only.java",
+      "filename": ".",
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 5,
+          "end": 22
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 5,
+          "end": 22
+        },
+        "content": "c2.setHttpOnly(f)"
+      },
+      "parent_line_number": 12,
+      "snippet": "c2.setHttpOnly(f)",
+      "fingerprint": "ebb3bb66f61c10a70c9710467ac46faf_1",
+      "old_fingerprint": "88305cb77e1bf754fea5b271b438084e_1"
+    }
+  ]
+}"
+`;
+
+exports[`java_lang_insecure_cookie ok 1`] = `"{}"`;
