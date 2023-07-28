@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_rails_logger datatype_leak 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "209",
+        "532"
+      ],
+      "id": "ruby_rails_logger",
+      "title": "Sensitive data sent to Rails loggers detected.",
+      "description": "## Description\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to rails loggers.\\n\\n## Remediations\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`ruby\\nRails.logger.info('User is: #{user.email}')\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`ruby\\nRails.logger.info('User is: #{user.uuid}')\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_logger",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/datatype_leak.rb",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 19,
+          "end": 29
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 30
+        },
+        "content": "Rails.logger.info(user.email)"
+      },
+      "parent_line_number": 1,
+      "snippet": "Rails.logger.info(user.email)",
+      "fingerprint": "4126be7d46bfa3cff42c7715a0b01c1a_0",
+      "old_fingerprint": "7cd6ff38b50f83345ce1b10bf689c1d1_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_rails_logger ok_no_datatypes 1`] = `"{}"`;

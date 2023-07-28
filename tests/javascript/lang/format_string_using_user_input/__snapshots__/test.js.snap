@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_lang_format_string_using_user_input bad 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "134"
+      ],
+      "id": "javascript_lang_format_string_using_user_input",
+      "title": "User input in format string detected.",
+      "description": "## Description\\n\\nIf an application includes user input directly in a format string, an\\nattacker can use format specifiers in the user input to produce misleading\\nor fabricated messages.\\n\\n## Remediations\\n\\n❌ Avoid format strings containing user input:\\n\\n\`\`\`javascript\\nconsole.log(\`The value was \${req.params.value}\`)\\n\`\`\`\\n\\n✅ Use a literal format string with additional arguments:\\n\\n\`\`\`javascript\\nconsole.log(\\"The value was %s\\", req.params.value)\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_format_string_using_user_input",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 47
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 47
+        },
+        "content": "console.error(\`Value: \${req.params.value}\`, e)"
+      },
+      "parent_line_number": 1,
+      "snippet": "console.error(\`Value: \${req.params.value}\`, e)",
+      "fingerprint": "16cab48ad098a8cc47c366d7cec8f691_0",
+      "old_fingerprint": "2c779a0497da541764199928f8f852c2_0"
+    },
+    {
+      "cwe_ids": [
+        "134"
+      ],
+      "id": "javascript_lang_format_string_using_user_input",
+      "title": "User input in format string detected.",
+      "description": "## Description\\n\\nIf an application includes user input directly in a format string, an\\nattacker can use format specifiers in the user input to produce misleading\\nor fabricated messages.\\n\\n## Remediations\\n\\n❌ Avoid format strings containing user input:\\n\\n\`\`\`javascript\\nconsole.log(\`The value was \${req.params.value}\`)\\n\`\`\`\\n\\n✅ Use a literal format string with additional arguments:\\n\\n\`\`\`javascript\\nconsole.log(\\"The value was %s\\", req.params.value)\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_format_string_using_user_input",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 42
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 42
+        },
+        "content": "util.format(\`Value: \${req.params.value}\`)"
+      },
+      "parent_line_number": 3,
+      "snippet": "util.format(\`Value: \${req.params.value}\`)",
+      "fingerprint": "16cab48ad098a8cc47c366d7cec8f691_1",
+      "old_fingerprint": "2c779a0497da541764199928f8f852c2_1"
+    },
+    {
+      "cwe_ids": [
+        "134"
+      ],
+      "id": "javascript_lang_format_string_using_user_input",
+      "title": "User input in format string detected.",
+      "description": "## Description\\n\\nIf an application includes user input directly in a format string, an\\nattacker can use format specifiers in the user input to produce misleading\\nor fabricated messages.\\n\\n## Remediations\\n\\n❌ Avoid format strings containing user input:\\n\\n\`\`\`javascript\\nconsole.log(\`The value was \${req.params.value}\`)\\n\`\`\`\\n\\n✅ Use a literal format string with additional arguments:\\n\\n\`\`\`javascript\\nconsole.log(\\"The value was %s\\", req.params.value)\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_format_string_using_user_input",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad.js",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 63
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 63
+        },
+        "content": "util.formatWithOptions({}, \`Value: \${req.params.value} %s\`, x)"
+      },
+      "parent_line_number": 5,
+      "snippet": "util.formatWithOptions({}, \`Value: \${req.params.value} %s\`, x)",
+      "fingerprint": "16cab48ad098a8cc47c366d7cec8f691_2",
+      "old_fingerprint": "2c779a0497da541764199928f8f852c2_2"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_lang_format_string_using_user_input ok 1`] = `"{}"`;

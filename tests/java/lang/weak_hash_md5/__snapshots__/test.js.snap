@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`java_lang_weak_hash_md5 md5_hash 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "java_lang_weak_hash_md5",
+      "title": "Weak hashing library (MD5) detected",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`java\\n  MessageDigest md = MessageDigest.getInstance(\\"MD5\\");\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`java\\n  MessageDigest md = MessageDigest.getInstance(\\"SHA-256\\");\\n\`\`\`\\n\\n## Resources\\n- [Java MessageDigest class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/MessageDigest.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_weak_hash_md5",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/md5_hash.java",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Fullname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 17,
+          "end": 30
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 7,
+          "end": 42
+        },
+        "content": "md.update(user.fullname.getBytes())"
+      },
+      "parent_line_number": 6,
+      "snippet": "md.update(user.fullname.getBytes())",
+      "fingerprint": "42ffc7b5d0492110367e370dc2e0752d_0",
+      "old_fingerprint": "64ccf1edbc2d451528f075885f51dd89_0"
+    }
+  ],
+  "low": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "java_lang_weak_hash_md5",
+      "title": "Weak hashing library (MD5) detected",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`java\\n  MessageDigest md = MessageDigest.getInstance(\\"MD5\\");\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`java\\n  MessageDigest md = MessageDigest.getInstance(\\"SHA-256\\");\\n\`\`\`\\n\\n## Resources\\n- [Java MessageDigest class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/MessageDigest.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_weak_hash_md5",
+      "line_number": 23,
+      "full_filename": "/tmp/bearer-scan/md5_hash.java",
+      "filename": ".",
+      "source": {
+        "start": 23,
+        "end": 23,
+        "column": {
+          "start": 7,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 23,
+        "end": 23,
+        "column": {
+          "start": 7,
+          "end": 35
+        },
+        "content": "md.update(secret.getBytes())"
+      },
+      "parent_line_number": 23,
+      "snippet": "md.update(secret.getBytes())",
+      "fingerprint": "42ffc7b5d0492110367e370dc2e0752d_1",
+      "old_fingerprint": "64ccf1edbc2d451528f075885f51dd89_1"
+    }
+  ]
+}"
+`;

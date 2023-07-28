@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_express_insecure_cookie http_only 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "javascript_express_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set cookie security values to use HTTP(S) instead of client-side javascript.\\n\\n✅ Set \`secure\` values to \`true\` to force cookies to only send over HTTPS.\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_insecure_cookie",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/http_only.js",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 19,
+        "column": {
+          "start": 11,
+          "end": 4
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 19,
+        "column": {
+          "start": 11,
+          "end": 4
+        },
+        "content": "{\\n    cookie: {\\n      domain: \\"example.com\\",\\n      httpOnly: false,\\n      secure: true,\\n      name: \\"my-custom-cookie-name\\",\\n      maxAge: 24 * 60 * 60 * 1000,\\n      path: \\"/some-path\\",\\n    },\\n  }"
+      },
+      "parent_line_number": 10,
+      "snippet": "{\\n    cookie: {\\n      domain: \\"example.com\\",\\n      httpOnly: false,\\n      secure: true,\\n      name: \\"my-custom-cookie-name\\",\\n      maxAge: 24 * 60 * 60 * 1000,\\n      path: \\"/some-path\\",\\n    },\\n  }",
+      "fingerprint": "0b87579d3cc308770141504e6ed4a2a5_0",
+      "old_fingerprint": "e0793e4ce5233244e0eb2357b7c9dd0b_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_express_insecure_cookie insecure_cookie 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "javascript_express_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set cookie security values to use HTTP(S) instead of client-side javascript.\\n\\n✅ Set \`secure\` values to \`true\` to force cookies to only send over HTTPS.\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_insecure_cookie",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/insecure_cookie.js",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 19,
+        "column": {
+          "start": 11,
+          "end": 4
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 19,
+        "column": {
+          "start": 11,
+          "end": 4
+        },
+        "content": "{\\n    cookie: {\\n      domain: \\"example.com\\",\\n      secure: false, // Ensures the browser only sends the cookie over HTTPS.\\n      httpOnly: false,\\n      name: \\"my-custom-cookie-name\\",\\n      maxAge: 24 * 60 * 60 * 1000,\\n      path: \\"/some-path\\",\\n    },\\n  }"
+      },
+      "parent_line_number": 10,
+      "snippet": "{\\n    cookie: {\\n      domain: \\"example.com\\",\\n      secure: false, // Ensures the browser only sends the cookie over HTTPS.\\n      httpOnly: false,\\n      name: \\"my-custom-cookie-name\\",\\n      maxAge: 24 * 60 * 60 * 1000,\\n      path: \\"/some-path\\",\\n    },\\n  }",
+      "fingerprint": "0b87579d3cc308770141504e6ed4a2a5_0",
+      "old_fingerprint": "fa507af055fc4d80a9c9e2c7f45439cc_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_express_insecure_cookie insecure_cookie_csurf 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "javascript_express_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set cookie security values to use HTTP(S) instead of client-side javascript.\\n\\n✅ Set \`secure\` values to \`true\` to force cookies to only send over HTTPS.\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_insecure_cookie",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/insecure_cookie_csurf.js",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 13,
+        "column": {
+          "start": 28,
+          "end": 4
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 13,
+        "column": {
+          "start": 28,
+          "end": 4
+        },
+        "content": "{\\n    cookie: { ...csrfOptions, httpOnly: true },\\n    // cookie: { secure: false, httpOnly: true },\\n  }"
+      },
+      "parent_line_number": 10,
+      "snippet": "{\\n    cookie: { ...csrfOptions, httpOnly: true },\\n    // cookie: { secure: false, httpOnly: true },\\n  }",
+      "fingerprint": "0b87579d3cc308770141504e6ed4a2a5_0",
+      "old_fingerprint": "d0e5b9b4d419c509afe5c674e7c35392_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_express_insecure_cookie insecure_cookie_session 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "javascript_express_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set cookie security values to use HTTP(S) instead of client-side javascript.\\n\\n✅ Set \`secure\` values to \`true\` to force cookies to only send over HTTPS.\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_insecure_cookie",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/insecure_cookie_session.js",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 18,
+        "column": {
+          "start": 3,
+          "end": 5
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 18,
+        "column": {
+          "start": 3,
+          "end": 5
+        },
+        "content": "cookieSession({\\n    domain: \\"example.com\\",\\n    httpOnly: false,\\n    secure: false,\\n    name: \\"my-custom-cookie-name\\",\\n    maxAge: 24 * 60 * 60 * 1000,\\n    path: \\"/some-path\\",\\n  })"
+      },
+      "parent_line_number": 11,
+      "snippet": "cookieSession({\\n    domain: \\"example.com\\",\\n    httpOnly: false,\\n    secure: false,\\n    name: \\"my-custom-cookie-name\\",\\n    maxAge: 24 * 60 * 60 * 1000,\\n    path: \\"/some-path\\",\\n  })",
+      "fingerprint": "0b87579d3cc308770141504e6ed4a2a5_0",
+      "old_fingerprint": "993b8ff881a2d9574b307ebb48943593_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_express_insecure_cookie secure_cookie_csurf 1`] = `"{}"`;

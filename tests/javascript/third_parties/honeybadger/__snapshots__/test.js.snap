@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_third_parties_honeybadger insecure 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "javascript_third_parties_honeybadger",
+      "title": "Sensitive data sent to Honeybadger detected.",
+      "description": "## Description\\n\\nLeaking sensitive data to third-party error logging tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Honeybadger.\\n\\n## Remediations\\n\\nWhen sending data to logging libraries, ensure all sensitive data is removed.\\n\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\n  const Honeybadger = require(\\"@honeybadger-io/js\\");\\n\\n  let context = { user: { uuid: \\"aacd05fd-8f5b-4bc6-aa8b-35e5fbf37325\\" } };\\n\\n  Honeybadger.setContext(context);\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_honeybadger",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/insecure.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 25,
+          "end": 48
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 32
+        },
+        "content": "Honeybadger.setContext(context)"
+      },
+      "parent_line_number": 5,
+      "snippet": "Honeybadger.setContext(context)",
+      "fingerprint": "b951d3bbde6630fbf6e50c52b01dc701_0",
+      "old_fingerprint": "ffe206430d05c27ca79209b5765ccbd0_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_third_parties_honeybadger secure 1`] = `"{}"`;

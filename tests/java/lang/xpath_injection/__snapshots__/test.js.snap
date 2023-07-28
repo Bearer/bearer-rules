@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`java_lang_xpath_injection xpath_injection 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "643"
+      ],
+      "id": "java_lang_xpath_injection",
+      "title": "XPATH injection threat detected",
+      "description": "## Description\\n  Unsanitized input going into XPath evaluate detected.\\n  This could lead to xpath injection if variables passed into the evaluate or compile commands are not properly sanitized.\\n  Xpath injection could lead to unauthorized access to sensitive information in XML documents.\\n  Instead, thoroughly sanitize user input or use parameterized xpath queries if you can.\\n\\n## Remediations\\n\\n✅ Sanitize XPATH queries\\n\\n\`\`\`java\\n  public class Cls extends HttpServlet\\n  {\\n\\n      public void handleRequest(HttpServletRequest request, HttpServletResponse response)\\n      {\\n          String userID = request.getParameter(\\"userID\\");\\n          String sanitizedUserID = sanitize(userID);\\n\\n          javax.xml.xpath.XPathFactory xpf = javax.xml.xpath.XPathFactory.newInstance();\\n          javax.xml.xpath.XPath xp = xpf.newXPath();\\n\\n          String expression = \\"/Users/User[@userID='\\" + sanitizedUserID + \\"']\\";\\n          String result = xp.evaluate(expression, xmlDocument);\\n      }\\n  }\\n\`\`\`\\n\\n## References\\n- [XPATH Injection](https://owasp.org/www-community/attacks/XPATH_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_xpath_injection",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/xpath_injection.java",
+      "filename": ".",
+      "source": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 24,
+          "end": 58
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 24,
+          "end": 58
+        },
+        "content": "xpf.newXPath().compile(expression)"
+      },
+      "parent_line_number": 14,
+      "snippet": "xpf.newXPath().compile(expression)",
+      "fingerprint": "d8456dfb1c7f1ed1b1c088e426430687_0",
+      "old_fingerprint": "a1c9a49efc8e4e79a8407bbb5e677663_0"
+    }
+  ]
+}"
+`;

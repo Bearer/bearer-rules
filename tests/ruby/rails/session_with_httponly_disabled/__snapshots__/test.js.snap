@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_rails_session_with_httponly_disabled httponly_disabled 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "1004"
+      ],
+      "id": "ruby_rails_session_with_httponly_disabled",
+      "title": "Session store with HttpOnly set to false detected.",
+      "description": "## Description\\nTo mitigate against Cross-Site Scripting attacks, we should avoid accessing session cookies using JavaScript.\\nBy default, Rails avoids this by setting the HttpOnly flag to true on session cookies. Setting this flag to false puts our application at risk of Cross-Site Scripting attacks.\\n\\n## Remediations\\n❌ Do not disable httponly flag if configuring Rails session_store\\n\\n\`\`\`\\nRails.application.config.session_store :cookie_store, key: \\"some_key\\", httponly: false\\n\`\`\`\\n\\n## Resources\\n- [OWASP HttpOnly](https://owasp.org/www-community/HttpOnly)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_session_with_httponly_disabled",
+      "line_number": 1,
+      "full_filename": "/tmp/bearer-scan/httponly_disabled.rb",
+      "filename": ".",
+      "source": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 93
+        }
+      },
+      "sink": {
+        "start": 1,
+        "end": 1,
+        "column": {
+          "start": 1,
+          "end": 93
+        },
+        "content": "Rails.application.config.session_store :cookie_store, key: \\"cookie_monster\\", httponly: false"
+      },
+      "parent_line_number": 1,
+      "snippet": "Rails.application.config.session_store :cookie_store, key: \\"cookie_monster\\", httponly: false",
+      "fingerprint": "0f9d8e9026141181680d9e63e7bd8293_0",
+      "old_fingerprint": "0d89b3124e255e9048721e001b9d0b76_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_rails_session_with_httponly_disabled ok 1`] = `"{}"`;

@@ -1,0 +1,406 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`java_lang_trust_boundary_violation bad 1`] = `
+"{
+  "warning": [
+    {
+      "cwe_ids": [
+        "501"
+      ],
+      "id": "java_lang_trust_boundary_violation",
+      "title": "Trust boundary violation detected.",
+      "description": "## Description\\n\\nMixing trusted and untrusted data inside the same data structure can lead\\nto untrusted data being mistakenly treated as being trusted.\\n\\n## Remediations\\n\\n✅ Avoid adding trusted data to data structures containing untrusted data\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 5,
+          "end": 44
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 5,
+          "end": 44
+        },
+        "content": "constructor.setAttribute(KEY, getFoo())"
+      },
+      "parent_line_number": 10,
+      "snippet": "constructor.setAttribute(KEY, getFoo())",
+      "fingerprint": "0011f9ce80042a297b7ed3b3edbcf26a_0",
+      "old_fingerprint": "f415451549d92e7d789365977c7a7ecd_0"
+    },
+    {
+      "cwe_ids": [
+        "501"
+      ],
+      "id": "java_lang_trust_boundary_violation",
+      "title": "Trust boundary violation detected.",
+      "description": "## Description\\n\\nMixing trusted and untrusted data inside the same data structure can lead\\nto untrusted data being mistakenly treated as being trusted.\\n\\n## Remediations\\n\\n✅ Avoid adding trusted data to data structures containing untrusted data\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation",
+      "line_number": 16,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 5,
+          "end": 33
+        }
+      },
+      "sink": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 5,
+          "end": 33
+        },
+        "content": "param.setAttribute(KEY, foo)"
+      },
+      "parent_line_number": 16,
+      "snippet": "param.setAttribute(KEY, foo)",
+      "fingerprint": "0011f9ce80042a297b7ed3b3edbcf26a_1",
+      "old_fingerprint": "f415451549d92e7d789365977c7a7ecd_1"
+    },
+    {
+      "cwe_ids": [
+        "501"
+      ],
+      "id": "java_lang_trust_boundary_violation",
+      "title": "Trust boundary violation detected.",
+      "description": "## Description\\n\\nMixing trusted and untrusted data inside the same data structure can lead\\nto untrusted data being mistakenly treated as being trusted.\\n\\n## Remediations\\n\\n✅ Avoid adding trusted data to data structures containing untrusted data\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 5,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 5,
+          "end": 37
+        },
+        "content": "param.setAttribute(foo, \\"value\\")"
+      },
+      "parent_line_number": 17,
+      "snippet": "param.setAttribute(foo, \\"value\\")",
+      "fingerprint": "0011f9ce80042a297b7ed3b3edbcf26a_2",
+      "old_fingerprint": "f415451549d92e7d789365977c7a7ecd_2"
+    },
+    {
+      "cwe_ids": [
+        "501"
+      ],
+      "id": "java_lang_trust_boundary_violation",
+      "title": "Trust boundary violation detected.",
+      "description": "## Description\\n\\nMixing trusted and untrusted data inside the same data structure can lead\\nto untrusted data being mistakenly treated as being trusted.\\n\\n## Remediations\\n\\n✅ Avoid adding trusted data to data structures containing untrusted data\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 5,
+          "end": 46
+        }
+      },
+      "sink": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 5,
+          "end": 46
+        },
+        "content": "param.getSession().setAttribute(KEY, foo)"
+      },
+      "parent_line_number": 18,
+      "snippet": "param.getSession().setAttribute(KEY, foo)",
+      "fingerprint": "0011f9ce80042a297b7ed3b3edbcf26a_3",
+      "old_fingerprint": "f415451549d92e7d789365977c7a7ecd_3"
+    },
+    {
+      "cwe_ids": [
+        "501"
+      ],
+      "id": "java_lang_trust_boundary_violation",
+      "title": "Trust boundary violation detected.",
+      "description": "## Description\\n\\nMixing trusted and untrusted data inside the same data structure can lead\\nto untrusted data being mistakenly treated as being trusted.\\n\\n## Remediations\\n\\n✅ Avoid adding trusted data to data structures containing untrusted data\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation",
+      "line_number": 19,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 5,
+          "end": 42
+        }
+      },
+      "sink": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 5,
+          "end": 42
+        },
+        "content": "param.getSession().putValue(KEY, foo)"
+      },
+      "parent_line_number": 19,
+      "snippet": "param.getSession().putValue(KEY, foo)",
+      "fingerprint": "0011f9ce80042a297b7ed3b3edbcf26a_4",
+      "old_fingerprint": "f415451549d92e7d789365977c7a7ecd_4"
+    },
+    {
+      "cwe_ids": [
+        "501"
+      ],
+      "id": "java_lang_trust_boundary_violation",
+      "title": "Trust boundary violation detected.",
+      "description": "## Description\\n\\nMixing trusted and untrusted data inside the same data structure can lead\\nto untrusted data being mistakenly treated as being trusted.\\n\\n## Remediations\\n\\n✅ Avoid adding trusted data to data structures containing untrusted data\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation",
+      "line_number": 21,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 21,
+        "end": 21,
+        "column": {
+          "start": 5,
+          "end": 38
+        }
+      },
+      "sink": {
+        "start": 21,
+        "end": 21,
+        "column": {
+          "start": 5,
+          "end": 38
+        },
+        "content": "field.setAttribute(KEY, getFoo())"
+      },
+      "parent_line_number": 21,
+      "snippet": "field.setAttribute(KEY, getFoo())",
+      "fingerprint": "0011f9ce80042a297b7ed3b3edbcf26a_5",
+      "old_fingerprint": "f415451549d92e7d789365977c7a7ecd_5"
+    },
+    {
+      "cwe_ids": [
+        "501"
+      ],
+      "id": "java_lang_trust_boundary_violation",
+      "title": "Trust boundary violation detected.",
+      "description": "## Description\\n\\nMixing trusted and untrusted data inside the same data structure can lead\\nto untrusted data being mistakenly treated as being trusted.\\n\\n## Remediations\\n\\n✅ Avoid adding trusted data to data structures containing untrusted data\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation",
+      "line_number": 24,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 24,
+        "end": 24,
+        "column": {
+          "start": 5,
+          "end": 38
+        }
+      },
+      "sink": {
+        "start": 24,
+        "end": 24,
+        "column": {
+          "start": 5,
+          "end": 38
+        },
+        "content": "local.setAttribute(KEY, getFoo())"
+      },
+      "parent_line_number": 24,
+      "snippet": "local.setAttribute(KEY, getFoo())",
+      "fingerprint": "0011f9ce80042a297b7ed3b3edbcf26a_6",
+      "old_fingerprint": "f415451549d92e7d789365977c7a7ecd_6"
+    },
+    {
+      "cwe_ids": [
+        "501"
+      ],
+      "id": "java_lang_trust_boundary_violation",
+      "title": "Trust boundary violation detected.",
+      "description": "## Description\\n\\nMixing trusted and untrusted data inside the same data structure can lead\\nto untrusted data being mistakenly treated as being trusted.\\n\\n## Remediations\\n\\n✅ Avoid adding trusted data to data structures containing untrusted data\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation",
+      "line_number": 27,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 5,
+          "end": 40
+        }
+      },
+      "sink": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 5,
+          "end": 40
+        },
+        "content": "request.setAttribute(KEY, getFoo())"
+      },
+      "parent_line_number": 27,
+      "snippet": "request.setAttribute(KEY, getFoo())",
+      "fingerprint": "0011f9ce80042a297b7ed3b3edbcf26a_7",
+      "old_fingerprint": "f415451549d92e7d789365977c7a7ecd_7"
+    },
+    {
+      "cwe_ids": [
+        "501"
+      ],
+      "id": "java_lang_trust_boundary_violation",
+      "title": "Trust boundary violation detected.",
+      "description": "## Description\\n\\nMixing trusted and untrusted data inside the same data structure can lead\\nto untrusted data being mistakenly treated as being trusted.\\n\\n## Remediations\\n\\n✅ Avoid adding trusted data to data structures containing untrusted data\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation",
+      "line_number": 35,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 35,
+        "end": 35,
+        "column": {
+          "start": 7,
+          "end": 46
+        }
+      },
+      "sink": {
+        "start": 35,
+        "end": 35,
+        "column": {
+          "start": 7,
+          "end": 46
+        },
+        "content": "caughtError.setAttribute(KEY, getFoo())"
+      },
+      "parent_line_number": 35,
+      "snippet": "caughtError.setAttribute(KEY, getFoo())",
+      "fingerprint": "0011f9ce80042a297b7ed3b3edbcf26a_8",
+      "old_fingerprint": "f415451549d92e7d789365977c7a7ecd_8"
+    },
+    {
+      "cwe_ids": [
+        "501"
+      ],
+      "id": "java_lang_trust_boundary_violation",
+      "title": "Trust boundary violation detected.",
+      "description": "## Description\\n\\nMixing trusted and untrusted data inside the same data structure can lead\\nto untrusted data being mistakenly treated as being trusted.\\n\\n## Remediations\\n\\n✅ Avoid adding trusted data to data structures containing untrusted data\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation",
+      "line_number": 41,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 41,
+        "end": 41,
+        "column": {
+          "start": 7,
+          "end": 54
+        }
+      },
+      "sink": {
+        "start": 41,
+        "end": 41,
+        "column": {
+          "start": 7,
+          "end": 54
+        },
+        "content": "caughtResourceError.setAttribute(KEY, getFoo())"
+      },
+      "parent_line_number": 41,
+      "snippet": "caughtResourceError.setAttribute(KEY, getFoo())",
+      "fingerprint": "0011f9ce80042a297b7ed3b3edbcf26a_9",
+      "old_fingerprint": "f415451549d92e7d789365977c7a7ecd_9"
+    },
+    {
+      "cwe_ids": [
+        "501"
+      ],
+      "id": "java_lang_trust_boundary_violation",
+      "title": "Trust boundary violation detected.",
+      "description": "## Description\\n\\nMixing trusted and untrusted data inside the same data structure can lead\\nto untrusted data being mistakenly treated as being trusted.\\n\\n## Remediations\\n\\n✅ Avoid adding trusted data to data structures containing untrusted data\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation",
+      "line_number": 45,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 45,
+        "end": 45,
+        "column": {
+          "start": 7,
+          "end": 43
+        }
+      },
+      "sink": {
+        "start": 45,
+        "end": 45,
+        "column": {
+          "start": 7,
+          "end": 43
+        },
+        "content": "resource.setAttribute(KEY, getFoo())"
+      },
+      "parent_line_number": 45,
+      "snippet": "resource.setAttribute(KEY, getFoo())",
+      "fingerprint": "0011f9ce80042a297b7ed3b3edbcf26a_10",
+      "old_fingerprint": "f415451549d92e7d789365977c7a7ecd_10"
+    },
+    {
+      "cwe_ids": [
+        "501"
+      ],
+      "id": "java_lang_trust_boundary_violation",
+      "title": "Trust boundary violation detected.",
+      "description": "## Description\\n\\nMixing trusted and untrusted data inside the same data structure can lead\\nto untrusted data being mistakenly treated as being trusted.\\n\\n## Remediations\\n\\n✅ Avoid adding trusted data to data structures containing untrusted data\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_trust_boundary_violation",
+      "line_number": 49,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 49,
+        "end": 49,
+        "column": {
+          "start": 7,
+          "end": 42
+        }
+      },
+      "sink": {
+        "start": 49,
+        "end": 49,
+        "column": {
+          "start": 7,
+          "end": 42
+        },
+        "content": "forEach.setAttribute(KEY, getFoo())"
+      },
+      "parent_line_number": 49,
+      "snippet": "forEach.setAttribute(KEY, getFoo())",
+      "fingerprint": "0011f9ce80042a297b7ed3b3edbcf26a_11",
+      "old_fingerprint": "f415451549d92e7d789365977c7a7ecd_11"
+    }
+  ]
+}"
+`;
+
+exports[`java_lang_trust_boundary_violation ok 1`] = `"{}"`;

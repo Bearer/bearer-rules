@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_express_unsafe_deserialization node_serialize 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "502"
+      ],
+      "id": "javascript_express_unsafe_deserialization",
+      "title": "Deserialization of untrusted data detected.",
+      "description": "## Description\\nIt is bad practice to deserialize (unmarshal) untrusted data, such as data direct from the request object.\\nAttackers can transfer payloads or malicious code via serialized data, and deserializing such data puts your application at risk.\\n\\n## Remediations\\n❌ Do not deserialize untrusted data\\n\\n✅ Prefer pure (data-only) and language-agnostic (de)serialization formats such as JSON or XML\\n\\nAvoiding language-specific (de)serialization formats reduces the risk of attackers manipulating the deserialization process for malicious purposes.\\n\\n\`\`\`javascript\\n  JSON.parse(req.params)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_unsafe_deserialization",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/node_serialize.js",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 3,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 3,
+          "end": 37
+        },
+        "content": "nodeSerialize.unserialize(userStr)"
+      },
+      "parent_line_number": 5,
+      "snippet": "nodeSerialize.unserialize(userStr)",
+      "fingerprint": "8344d2cb0faaa6ea9f5e63d59dac105b_0",
+      "old_fingerprint": "562850de5efefc0b1924b72570005361_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_express_unsafe_deserialization ok_safe_deserialization 1`] = `"{}"`;
+
+exports[`javascript_express_unsafe_deserialization serialize_error 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "502"
+      ],
+      "id": "javascript_express_unsafe_deserialization",
+      "title": "Deserialization of untrusted data detected.",
+      "description": "## Description\\nIt is bad practice to deserialize (unmarshal) untrusted data, such as data direct from the request object.\\nAttackers can transfer payloads or malicious code via serialized data, and deserializing such data puts your application at risk.\\n\\n## Remediations\\n❌ Do not deserialize untrusted data\\n\\n✅ Prefer pure (data-only) and language-agnostic (de)serialization formats such as JSON or XML\\n\\nAvoiding language-specific (de)serialization formats reduces the risk of attackers manipulating the deserialization process for malicious purposes.\\n\\n\`\`\`javascript\\n  JSON.parse(req.params)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_unsafe_deserialization",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/serialize_error.js",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 7,
+        "column": {
+          "start": 3,
+          "end": 5
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 7,
+        "column": {
+          "start": 3,
+          "end": 5
+        },
+        "content": "deserializeError({\\n    name: \\"MyCustomError\\",\\n    message: req.params.error\\n  })"
+      },
+      "parent_line_number": 4,
+      "snippet": "deserializeError({\\n    name: \\"MyCustomError\\",\\n    message: req.params.error\\n  })",
+      "fingerprint": "8344d2cb0faaa6ea9f5e63d59dac105b_0",
+      "old_fingerprint": "84d0cb074d10cd54e16d62f4b9fd99ed_0"
+    }
+  ]
+}"
+`;

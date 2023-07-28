@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_express_ui_redress ok_no_ui_redress 1`] = `"{}"`;
+
+exports[`javascript_express_ui_redress ui_redress_vulnerability 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "1021"
+      ],
+      "id": "javascript_express_ui_redress",
+      "title": "User Interface (UI) redress vulnerability (clickjacking) detected.",
+      "description": "## Description\\nUsing unsanitized user input to set X-Frame-Options or Content-Security-Policy HTTP headers puts your application at risk for UI redress attacks (clickjacking).\\n\\n## Remediations\\n✅ Prefer the most secure values when setting these headers\\n\\n\`\`\`javascript\\nres.set('X-Frame-Options', 'DENY')\\nres.set('Content-Security-Policy', \\"frame-ancestors 'none'\\")\\n\`\`\`\\n\\n✅ Avoid using user input directly to set the headers, or use a safelist to guard against clickjacking\\n\\n\`\`\`javascript\\nif (req.query.options === 'same') {\\n  res.set('X-Frame-Options', 'SAME')\\n}\\n\\n// safelist\\nif (['deny', 'sameorigin'].includes(req.query.options.toLowerCase)) {\\n  res.set('X-Frame-Options', req.query.options)\\n}\\n\`\`\`\\n\\n## Resources\\n- [OWASP Clickjacking attack explained](https://owasp.org/www-community/attacks/Clickjacking)\\n- [OWASP Clickjacking defense cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_ui_redress",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/ui_redress_vulnerability.js",
+      "filename": ".",
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 3,
+          "end": 48
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 3,
+          "end": 48
+        },
+        "content": "res.set(\\"X-Frame-Options\\", req.query.options)"
+      },
+      "parent_line_number": 9,
+      "snippet": "res.set(\\"X-Frame-Options\\", req.query.options)",
+      "fingerprint": "b40f739a8e41b1f282e8933e44d85b5b_0",
+      "old_fingerprint": "5ec2d95d1c9df152e461eee42bb653ff_0"
+    }
+  ]
+}"
+`;

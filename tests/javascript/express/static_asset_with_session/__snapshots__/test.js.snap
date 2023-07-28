@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_express_static_asset_with_session ok 1`] = `"{}"`;
+
+exports[`javascript_express_static_asset_with_session unsafe 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "352",
+        "668"
+      ],
+      "id": "javascript_express_static_asset_with_session",
+      "title": "Static asset with active session detected.",
+      "description": "## Description\\nStatic assets are often cached by services in front of the application\\n(eg. CDNs). Serving static assets with sessions enabled may lead to\\nCross-Site Request Forgery (CSRF) attacks that can hijack a user's session.\\n\\n## Remediations\\n\\n✅ Ensure static resources are handled prior to session initialization:\\n\\n\`\`\`javascript\\n  // static middleware should be added before session middleware\\n  app.use(express.static(__dirname + \\"/public\\"))\\n\\n  app.use(session())\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_static_asset_with_session",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/unsafe.js",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 47
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 47
+        },
+        "content": "app.use(express.static(__dirname + \\"/public\\"))"
+      },
+      "parent_line_number": 3,
+      "snippet": "app.use(express.static(__dirname + \\"/public\\"))",
+      "fingerprint": "602559f0bc1d3e94565f9bd2eeed56ca_0",
+      "old_fingerprint": "62d68eea63378ca9d5adbf7d5c39ca1c_0"
+    }
+  ]
+}"
+`;

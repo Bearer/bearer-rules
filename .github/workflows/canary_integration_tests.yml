@@ -20,7 +20,6 @@ jobs:
         version: ["canary-amd64"]
         group:
           [
-            "javascript/aws_lambda",
             "javascript/express",
             "javascript/lang",
             "javascript/react",
@@ -29,9 +28,11 @@ jobs:
             "ruby/rails",
             "ruby/third_parties",
             "java/lang",
+            "java/spring",
           ]
     steps:
       - uses: actions/checkout@v3
+      - run: npm ci
       - name: Test ${{ matrix.group }}
-        run: BEARER_VERSION=${{matrix.version}} ./scripts/run_tests.sh ${{ matrix.group }}
+        run: BEARER_VERSION=${{matrix.version}} npm test tests/${{ matrix.group }}
         shell: bash

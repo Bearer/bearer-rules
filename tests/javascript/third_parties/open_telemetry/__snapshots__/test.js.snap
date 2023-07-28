@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_third_parties_open_telemetry datatype_in_add_event 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "javascript_third_parties_open_telemetry",
+      "title": "Sensitive data sent to Open Telemetry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Open Telemetry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Open Telemetry Docs](https://opentelemetry.io/docs/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_open_telemetry",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/datatype_in_add_event.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 21,
+          "end": 42
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 3
+        },
+        "content": "currentSpan.addEvent('my-event', {\\n  'event.metadata': customer.emailAddress\\n})"
+      },
+      "parent_line_number": 4,
+      "snippet": "currentSpan.addEvent('my-event', {\\n  'event.metadata': customer.emailAddress\\n})",
+      "fingerprint": "cd48423a5a7a06612fb15c8b7045814c_0",
+      "old_fingerprint": "61188f2f3df9254f0d28be6f2c03f687_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_third_parties_open_telemetry datatype_in_record_exception 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "javascript_third_parties_open_telemetry",
+      "title": "Sensitive data sent to Open Telemetry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Open Telemetry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Open Telemetry Docs](https://opentelemetry.io/docs/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_open_telemetry",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/datatype_in_record_exception.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "b5a3b0fd-dd5c-420d-91ce-dd2dddc8cc38",
+        "name": "IP address"
+      },
+      "category_groups": [
+        "Personal Data"
+      ],
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 24,
+          "end": 45
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 3,
+          "end": 46
+        },
+        "content": "span.recordException(currentUser.ipAddress)"
+      },
+      "parent_line_number": 9,
+      "snippet": "span.recordException(currentUser.ipAddress)",
+      "fingerprint": "cd48423a5a7a06612fb15c8b7045814c_0",
+      "old_fingerprint": "b722ff54510aa26ac8f0ecf64037d639_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_third_parties_open_telemetry datatype_in_set_attribute 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "javascript_third_parties_open_telemetry",
+      "title": "Sensitive data sent to Open Telemetry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Open Telemetry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Open Telemetry Docs](https://opentelemetry.io/docs/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_open_telemetry",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_attribute.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 37,
+          "end": 61
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 3,
+          "end": 62
+        },
+        "content": "span.setAttribute(\\"current-user\\", currentUser.emailAddress)"
+      },
+      "parent_line_number": 6,
+      "snippet": "span.setAttribute(\\"current-user\\", currentUser.emailAddress)",
+      "fingerprint": "cd48423a5a7a06612fb15c8b7045814c_0",
+      "old_fingerprint": "46c63d278ec3bb5452fcbdf1305375ae_0"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "javascript_third_parties_open_telemetry",
+      "title": "Sensitive data sent to Open Telemetry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Open Telemetry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Open Telemetry Docs](https://opentelemetry.io/docs/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_open_telemetry",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_attribute.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 35,
+          "end": 45
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 46
+        },
+        "content": "span.setAttribute(\\"current-user\\", user.email)"
+      },
+      "parent_line_number": 11,
+      "snippet": "span.setAttribute(\\"current-user\\", user.email)",
+      "fingerprint": "cd48423a5a7a06612fb15c8b7045814c_1",
+      "old_fingerprint": "46c63d278ec3bb5452fcbdf1305375ae_1"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_third_parties_open_telemetry datatype_in_set_status 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "javascript_third_parties_open_telemetry",
+      "title": "Sensitive data sent to Open Telemetry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Open Telemetry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Open Telemetry Docs](https://opentelemetry.io/docs/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_open_telemetry",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/datatype_in_set_status.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 40,
+          "end": 64
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 10,
+        "column": {
+          "start": 5,
+          "end": 7
+        },
+        "content": "span.setStatus({\\n      code: opentelemetry.SpanStatusCode.ERROR,\\n      message: \\"Bad connection for \\" + currentUser.emailAddress\\n    })"
+      },
+      "parent_line_number": 7,
+      "snippet": "span.setStatus({\\n      code: opentelemetry.SpanStatusCode.ERROR,\\n      message: \\"Bad connection for \\" + currentUser.emailAddress\\n    })",
+      "fingerprint": "cd48423a5a7a06612fb15c8b7045814c_0",
+      "old_fingerprint": "b455b6a052b93860acda04124875787e_0"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_third_parties_open_telemetry ok_no_datatypes 1`] = `"{}"`;

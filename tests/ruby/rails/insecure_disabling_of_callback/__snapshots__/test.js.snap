@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_rails_insecure_disabling_of_callback insecure 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "284"
+      ],
+      "id": "ruby_rails_insecure_disabling_of_callback",
+      "title": "Insecure disabling of callback detected.",
+      "description": "## Description\\nWhen using except for disabling a callback, there is a high chance\\nof skipping important access control logic by accident.\\n\\n### Remediations\\n\\n✅ Prefer enumerating all of the actions using \`only\`:\\n\\n\`\`\`ruby\\nskip_before_action :access_control, only: %i[public_action1 public_action2]\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_insecure_disabling_of_callback",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/insecure.rb",
+      "filename": ".",
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 3,
+          "end": 54
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 3,
+          "end": 54
+        },
+        "content": "skip_before_action :access_control, except: :secure"
+      },
+      "parent_line_number": 2,
+      "snippet": "skip_before_action :access_control, except: :secure",
+      "fingerprint": "f031370b5f804210ae8bb2d5e6e2a318_0",
+      "old_fingerprint": "81f7bd355be55469f3d8c6228776e6c6_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_rails_insecure_disabling_of_callback ok 1`] = `"{}"`;

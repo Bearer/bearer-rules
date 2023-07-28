@@ -19,6 +19,6 @@ jobs:
           cache: "npm"
           cache-dependency-path: "**/.github/workflows/*.yml"
       - name: Lint YML
-        run: npx prettier -c "./**/*.yml"
+        run: npx prettier -c "./rules/**/*.yml"
       - name: Validate Schema
         run: scripts/validate.sh

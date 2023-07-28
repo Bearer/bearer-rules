@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_rails_insecure_smtp ok_ssl_verify_peer_mode 1`] = `"{}"`;
+
+exports[`ruby_rails_insecure_smtp verify_none 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "319"
+      ],
+      "id": "ruby_rails_insecure_smtp",
+      "title": "Communication with an insecure SMTP connection detected.",
+      "description": "## Description\\n\\nSecure connections using SMTP help prevent unauthorized actors from viewing transmitted data. This policy checks if SMTP mailer settings are set to only allow secure connections.\\n\\n## Remediations\\n✅ When using the SMTP protocol, make sure to enable SSL encryption in ActionMailer configuration:\\n\\n\`\`\`ruby\\nconfig.action_mailer.smtp_settings = {\\n\\t...\\n\\tssl: true\\n}\\n\`\`\`\\n\\n## Resources\\n- [Ruby on Rails configuring Action Mailer](https://guides.rubyonrails.org/configuring.html#configuring-action-mailer)\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_insecure_smtp",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/verify_none.rb",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 5,
+          "end": 32
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 5,
+          "end": 32
+        },
+        "content": "openssl_verify_mode: \\"none\\""
+      },
+      "parent_line_number": 8,
+      "snippet": "openssl_verify_mode: \\"none\\"",
+      "fingerprint": "15848ae0fa89ae0c3ff07ff572214b1f_0",
+      "old_fingerprint": "85dfa5180e5a8c4667f68b1f118e0f4b_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_rails_insecure_smtp verify_none_ssl_var 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "319"
+      ],
+      "id": "ruby_rails_insecure_smtp",
+      "title": "Communication with an insecure SMTP connection detected.",
+      "description": "## Description\\n\\nSecure connections using SMTP help prevent unauthorized actors from viewing transmitted data. This policy checks if SMTP mailer settings are set to only allow secure connections.\\n\\n## Remediations\\n✅ When using the SMTP protocol, make sure to enable SSL encryption in ActionMailer configuration:\\n\\n\`\`\`ruby\\nconfig.action_mailer.smtp_settings = {\\n\\t...\\n\\tssl: true\\n}\\n\`\`\`\\n\\n## Resources\\n- [Ruby on Rails configuring Action Mailer](https://guides.rubyonrails.org/configuring.html#configuring-action-mailer)\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_insecure_smtp",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/verify_none_ssl_var.rb",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 5,
+          "end": 54
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 5,
+          "end": 54
+        },
+        "content": ":openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE"
+      },
+      "parent_line_number": 3,
+      "snippet": ":openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE",
+      "fingerprint": "15848ae0fa89ae0c3ff07ff572214b1f_0",
+      "old_fingerprint": "1ab7d1d70eacd490d627b75298d234e8_0"
+    }
+  ]
+}"
+`;

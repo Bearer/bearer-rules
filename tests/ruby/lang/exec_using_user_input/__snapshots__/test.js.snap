@@ -1,0 +1,512 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_lang_exec_using_user_input ok_not_unsafe 1`] = `"{}"`;
+
+exports[`ruby_lang_exec_using_user_input unsafe_shell 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "ruby_lang_exec_using_user_input",
+      "title": "Execution of OS command formed with user input detected.",
+      "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`ruby\\nsystem(params[:command])\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`ruby\\ncommand =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"command1\\"\\n  when \\"option2\\"\\n    \\"command2\\"\\n  end\\n\\nsystem(command)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/unsafe_shell.rb",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 45
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 45
+        },
+        "content": "Shell.alias_command(\\"foo\\", params[:oops]) {}"
+      },
+      "parent_line_number": 3,
+      "snippet": "Shell.alias_command(\\"foo\\", params[:oops]) {}",
+      "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_0",
+      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_0"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "ruby_lang_exec_using_user_input",
+      "title": "Execution of OS command formed with user input detected.",
+      "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`ruby\\nsystem(params[:command])\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`ruby\\ncommand =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"command1\\"\\n  when \\"option2\\"\\n    \\"command2\\"\\n  end\\n\\nsystem(command)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/unsafe_shell.rb",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 69
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 69
+        },
+        "content": "Shell::CommandProcessor.alias_command(x, \\"/bin/#{params[:oops]}\\") {}"
+      },
+      "parent_line_number": 4,
+      "snippet": "Shell::CommandProcessor.alias_command(x, \\"/bin/#{params[:oops]}\\") {}",
+      "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_1",
+      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_1"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "ruby_lang_exec_using_user_input",
+      "title": "Execution of OS command formed with user input detected.",
+      "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`ruby\\nsystem(params[:command])\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`ruby\\ncommand =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"command1\\"\\n  when \\"option2\\"\\n    \\"command2\\"\\n  end\\n\\nsystem(command)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/unsafe_shell.rb",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 57
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 57
+        },
+        "content": "Shell.def_system_command(\\"foo\\", \\"bar\\", params[:oops]) {}"
+      },
+      "parent_line_number": 6,
+      "snippet": "Shell.def_system_command(\\"foo\\", \\"bar\\", params[:oops]) {}",
+      "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_2",
+      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_2"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "ruby_lang_exec_using_user_input",
+      "title": "Execution of OS command formed with user input detected.",
+      "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`ruby\\nsystem(params[:command])\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`ruby\\ncommand =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"command1\\"\\n  when \\"option2\\"\\n    \\"command2\\"\\n  end\\n\\nsystem(command)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/unsafe_shell.rb",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 68
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 68
+        },
+        "content": "Shell::CommandProcessor.def_system_command(\\"foo\\", params[:oops]) {}"
+      },
+      "parent_line_number": 7,
+      "snippet": "Shell::CommandProcessor.def_system_command(\\"foo\\", params[:oops]) {}",
+      "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_3",
+      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_3"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "ruby_lang_exec_using_user_input",
+      "title": "Execution of OS command formed with user input detected.",
+      "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`ruby\\nsystem(params[:command])\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`ruby\\ncommand =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"command1\\"\\n  when \\"option2\\"\\n    \\"command2\\"\\n  end\\n\\nsystem(command)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/unsafe_shell.rb",
+      "filename": ".",
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 33
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 33
+        },
+        "content": "processor1.system(params[:oops])"
+      },
+      "parent_line_number": 12,
+      "snippet": "processor1.system(params[:oops])",
+      "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_4",
+      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_4"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "ruby_lang_exec_using_user_input",
+      "title": "Execution of OS command formed with user input detected.",
+      "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`ruby\\nsystem(params[:command])\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`ruby\\ncommand =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"command1\\"\\n  when \\"option2\\"\\n    \\"command2\\"\\n  end\\n\\nsystem(command)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/unsafe_shell.rb",
+      "filename": ".",
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 36
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 36
+        },
+        "content": "processor2.system(x, params[:oops])"
+      },
+      "parent_line_number": 15,
+      "snippet": "processor2.system(x, params[:oops])",
+      "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_5",
+      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_5"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_lang_exec_using_user_input unsafe_stdlib 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "ruby_lang_exec_using_user_input",
+      "title": "Execution of OS command formed with user input detected.",
+      "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`ruby\\nsystem(params[:command])\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`ruby\\ncommand =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"command1\\"\\n  when \\"option2\\"\\n    \\"command2\\"\\n  end\\n\\nsystem(command)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/unsafe_stdlib.rb",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 27
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 27
+        },
+        "content": "Kernel.exec(params[:oops])"
+      },
+      "parent_line_number": 3,
+      "snippet": "Kernel.exec(params[:oops])",
+      "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_0",
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_0"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "ruby_lang_exec_using_user_input",
+      "title": "Execution of OS command formed with user input detected.",
+      "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`ruby\\nsystem(params[:command])\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`ruby\\ncommand =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"command1\\"\\n  when \\"option2\\"\\n    \\"command2\\"\\n  end\\n\\nsystem(command)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/unsafe_stdlib.rb",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 21
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 21
+        },
+        "content": "spawn(params[:oops])"
+      },
+      "parent_line_number": 5,
+      "snippet": "spawn(params[:oops])",
+      "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_1",
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_1"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "ruby_lang_exec_using_user_input",
+      "title": "Execution of OS command formed with user input detected.",
+      "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`ruby\\nsystem(params[:command])\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`ruby\\ncommand =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"command1\\"\\n  when \\"option2\\"\\n    \\"command2\\"\\n  end\\n\\nsystem(command)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/unsafe_stdlib.rb",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 27
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 27
+        },
+        "content": "IO.popen(params[:oops]) {}"
+      },
+      "parent_line_number": 7,
+      "snippet": "IO.popen(params[:oops]) {}",
+      "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_2",
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_2"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "ruby_lang_exec_using_user_input",
+      "title": "Execution of OS command formed with user input detected.",
+      "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`ruby\\nsystem(params[:command])\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`ruby\\ncommand =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"command1\\"\\n  when \\"option2\\"\\n    \\"command2\\"\\n  end\\n\\nsystem(command)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/unsafe_stdlib.rb",
+      "filename": ".",
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 28
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 28
+        },
+        "content": "Process.exec(params[:oops])"
+      },
+      "parent_line_number": 9,
+      "snippet": "Process.exec(params[:oops])",
+      "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_3",
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_3"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "ruby_lang_exec_using_user_input",
+      "title": "Execution of OS command formed with user input detected.",
+      "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`ruby\\nsystem(params[:command])\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`ruby\\ncommand =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"command1\\"\\n  when \\"option2\\"\\n    \\"command2\\"\\n  end\\n\\nsystem(command)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/unsafe_stdlib.rb",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 47
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 47
+        },
+        "content": "Open3.popen3([\\"cmd\\", params[:oops]], \\"abc\\") {}"
+      },
+      "parent_line_number": 11,
+      "snippet": "Open3.popen3([\\"cmd\\", params[:oops]], \\"abc\\") {}",
+      "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_4",
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_4"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "ruby_lang_exec_using_user_input",
+      "title": "Execution of OS command formed with user input detected.",
+      "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`ruby\\nsystem(params[:command])\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`ruby\\ncommand =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"command1\\"\\n  when \\"option2\\"\\n    \\"command2\\"\\n  end\\n\\nsystem(command)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/unsafe_stdlib.rb",
+      "filename": ".",
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 42
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 42
+        },
+        "content": "Gem::Util.silent_system(x, params[:oops])"
+      },
+      "parent_line_number": 13,
+      "snippet": "Gem::Util.silent_system(x, params[:oops])",
+      "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_5",
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_5"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "ruby_lang_exec_using_user_input",
+      "title": "Execution of OS command formed with user input detected.",
+      "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`ruby\\nsystem(params[:command])\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`ruby\\ncommand =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"command1\\"\\n  when \\"option2\\"\\n    \\"command2\\"\\n  end\\n\\nsystem(command)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/unsafe_stdlib.rb",
+      "filename": ".",
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 38
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 38
+        },
+        "content": "PTY.spawn(\\"/bin/#{params[:oops]}\\") {}"
+      },
+      "parent_line_number": 15,
+      "snippet": "PTY.spawn(\\"/bin/#{params[:oops]}\\") {}",
+      "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_6",
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_6"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "ruby_lang_exec_using_user_input",
+      "title": "Execution of OS command formed with user input detected.",
+      "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`ruby\\nsystem(params[:command])\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`ruby\\ncommand =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"command1\\"\\n  when \\"option2\\"\\n    \\"command2\\"\\n  end\\n\\nsystem(command)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/unsafe_stdlib.rb",
+      "filename": ".",
+      "source": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 1,
+          "end": 26
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 1,
+          "end": 26
+        },
+        "content": "%x{/bin/#{params[:oops]}}"
+      },
+      "parent_line_number": 17,
+      "snippet": "%x{/bin/#{params[:oops]}}",
+      "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_7",
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_7"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "ruby_lang_exec_using_user_input",
+      "title": "Execution of OS command formed with user input detected.",
+      "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`ruby\\nsystem(params[:command])\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`ruby\\ncommand =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"command1\\"\\n  when \\"option2\\"\\n    \\"command2\\"\\n  end\\n\\nsystem(command)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_exec_using_user_input",
+      "line_number": 19,
+      "full_filename": "/tmp/bearer-scan/unsafe_stdlib.rb",
+      "filename": ".",
+      "source": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 24
+        }
+      },
+      "sink": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 24
+        },
+        "content": "\`/bin/#{params[:oops]}\`"
+      },
+      "parent_line_number": 19,
+      "snippet": "\`/bin/#{params[:oops]}\`",
+      "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_8",
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_8"
+    }
+  ]
+}"
+`;

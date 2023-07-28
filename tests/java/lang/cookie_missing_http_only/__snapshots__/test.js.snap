@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`java_lang_cookie_missing_http_only bad 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "614"
+      ],
+      "id": "java_lang_cookie_missing_http_only",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\n\\nThe \\"HttpOnly\\" attribute when set to \\"true\\" protects the cookie value from\\nbeing accessed by client side JavaScript such as reading the \\"document.cookie\\"\\nvalues. By enabling this protection, a website that is vulnerable to Cross-Site\\nScripting (XSS) will be able to block malicious scripts from accessing the\\ncookie value from JavaScript.\\n\\n## Remediations\\n\\n✅ Set \`setHttpOnly\` to \`true\`\\n\\n\`\`\`java\\ncookie.setHttpOnly(true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_cookie_missing_http_only",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 21,
+          "end": 57
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 21,
+          "end": 57
+        },
+        "content": "new Cookie(COOKIE_NAME, cookieValue)"
+      },
+      "parent_line_number": 6,
+      "snippet": "new Cookie(COOKIE_NAME, cookieValue)",
+      "fingerprint": "f19844cb5814cfe006b0bb91a5260c9c_0",
+      "old_fingerprint": "72fe7bec9a96db8401a76c1ebfde1d0a_0"
+    }
+  ]
+}"
+`;
+
+exports[`java_lang_cookie_missing_http_only ok 1`] = `"{}"`;

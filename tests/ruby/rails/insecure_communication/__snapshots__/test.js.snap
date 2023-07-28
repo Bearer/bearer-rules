@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_rails_insecure_communication no_datatypes 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "319"
+      ],
+      "id": "ruby_rails_insecure_communication",
+      "title": "Missing force SSL configuration for incoming communication detected.",
+      "description": "## Description\\nWhen applications process sensitive data, they should default to always use SSL when available. This rule checks if force SSL is enabled at the application level.\\n\\n### Remediations\\nThis helps avoid attacks like [session hijacking](https://guides.rubyonrails.org/security.html#session-hijacking). More importantly, unencrypted HTTP communication sends all requests as plain text, meaning anyone listening in can see all the traffic and extract user data.\\n\\nWhile you want to avoid sending sensitive data whenever possible, it's unavoidable so protecting the connection is an important method of improving your rails application data security.\\n\\n✅ To force all traffic to your application to be encrypted though SSL, use the following Rails configuration option:\\n\\n\`\`\`ruby\\nconfig.force_ssl = true\\n\`\`\`\\n\\n## Resources\\n- [Configuring Rails Applications - Ruby on Rails Guides](https://guides.rubyonrails.org/configuring.html#config-force-ssl)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_insecure_communication",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/no_datatypes.rb",
+      "filename": ".",
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 3,
+          "end": 27
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 3,
+          "end": 27
+        },
+        "content": "config.force_ssl = false"
+      },
+      "parent_line_number": 2,
+      "snippet": "config.force_ssl = false",
+      "fingerprint": "e07395ca5fb10df0be4836e21bcb4b95_0",
+      "old_fingerprint": "c4fc71a3029de7f3db75b1b8e4856fb6_0"
+    }
+  ]
+}"
+`;
+
+exports[`ruby_rails_insecure_communication ok_ssl_disabled_commented_out 1`] = `"{}"`;
+
+exports[`ruby_rails_insecure_communication ok_ssl_enabled 1`] = `"{}"`;
+
+exports[`ruby_rails_insecure_communication ssl_disabled 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "319"
+      ],
+      "id": "ruby_rails_insecure_communication",
+      "title": "Missing force SSL configuration for incoming communication detected.",
+      "description": "## Description\\nWhen applications process sensitive data, they should default to always use SSL when available. This rule checks if force SSL is enabled at the application level.\\n\\n### Remediations\\nThis helps avoid attacks like [session hijacking](https://guides.rubyonrails.org/security.html#session-hijacking). More importantly, unencrypted HTTP communication sends all requests as plain text, meaning anyone listening in can see all the traffic and extract user data.\\n\\nWhile you want to avoid sending sensitive data whenever possible, it's unavoidable so protecting the connection is an important method of improving your rails application data security.\\n\\n✅ To force all traffic to your application to be encrypted though SSL, use the following Rails configuration option:\\n\\n\`\`\`ruby\\nconfig.force_ssl = true\\n\`\`\`\\n\\n## Resources\\n- [Configuring Rails Applications - Ruby on Rails Guides](https://guides.rubyonrails.org/configuring.html#config-force-ssl)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_insecure_communication",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/ssl_disabled.rb",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 3,
+          "end": 27
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 3,
+          "end": 27
+        },
+        "content": "config.force_ssl = false"
+      },
+      "parent_line_number": 7,
+      "snippet": "config.force_ssl = false",
+      "fingerprint": "e07395ca5fb10df0be4836e21bcb4b95_0",
+      "old_fingerprint": "c11cdffd4f037912945b9cca3d0a7dab_0"
+    }
+  ]
+}"
+`;

@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_express_open_redirect ok_no_open_redirect 1`] = `"{}"`;
+
+exports[`javascript_express_open_redirect open_redirect 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "601"
+      ],
+      "id": "javascript_express_open_redirect",
+      "title": "Open redirect detected.",
+      "description": "## Description\\nA redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.\\n\\n## Remediations\\n❌ Do not use unsanitized user input when constructing URLs\\n\\n✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs\\n\\n\`\`\`javascript\\n  var map = {\\n    \\"1\\": \\"/planes\\",\\n    \\"2\\": \\"/trains\\",\\n    \\"3\\": \\"/automobiles\\",\\n  }\\n\\n  res.redirect(map[req.body.transport])\\n\`\`\`\\n## Resources\\n- [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_open_redirect",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/open_redirect.js",
+      "filename": ".",
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 3,
+          "end": 31
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 3,
+          "end": 31
+        },
+        "content": "res.redirect(req.params.url)"
+      },
+      "parent_line_number": 2,
+      "snippet": "res.redirect(req.params.url)",
+      "fingerprint": "39fed10ce763bb1caf6ca1ea51314f28_0",
+      "old_fingerprint": "9b90ab18e9d910d91f630ff180293aed_0"
+    },
+    {
+      "cwe_ids": [
+        "601"
+      ],
+      "id": "javascript_express_open_redirect",
+      "title": "Open redirect detected.",
+      "description": "## Description\\nA redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.\\n\\n## Remediations\\n❌ Do not use unsanitized user input when constructing URLs\\n\\n✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs\\n\\n\`\`\`javascript\\n  var map = {\\n    \\"1\\": \\"/planes\\",\\n    \\"2\\": \\"/trains\\",\\n    \\"3\\": \\"/automobiles\\",\\n  }\\n\\n  res.redirect(map[req.body.transport])\\n\`\`\`\\n## Resources\\n- [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_open_redirect",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/open_redirect.js",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 3,
+          "end": 39
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 3,
+          "end": 39
+        },
+        "content": "res.redirect(req.query.url + \\"/bar\\")"
+      },
+      "parent_line_number": 3,
+      "snippet": "res.redirect(req.query.url + \\"/bar\\")",
+      "fingerprint": "39fed10ce763bb1caf6ca1ea51314f28_1",
+      "old_fingerprint": "9b90ab18e9d910d91f630ff180293aed_1"
+    },
+    {
+      "cwe_ids": [
+        "601"
+      ],
+      "id": "javascript_express_open_redirect",
+      "title": "Open redirect detected.",
+      "description": "## Description\\nA redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.\\n\\n## Remediations\\n❌ Do not use unsanitized user input when constructing URLs\\n\\n✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs\\n\\n\`\`\`javascript\\n  var map = {\\n    \\"1\\": \\"/planes\\",\\n    \\"2\\": \\"/trains\\",\\n    \\"3\\": \\"/automobiles\\",\\n  }\\n\\n  res.redirect(map[req.body.transport])\\n\`\`\`\\n## Resources\\n- [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_open_redirect",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/open_redirect.js",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 3,
+          "end": 53
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 3,
+          "end": 53
+        },
+        "content": "res.redirect(\\"https://\\" + req.params.url + \\"/bar\\")"
+      },
+      "parent_line_number": 4,
+      "snippet": "res.redirect(\\"https://\\" + req.params.url + \\"/bar\\")",
+      "fingerprint": "39fed10ce763bb1caf6ca1ea51314f28_2",
+      "old_fingerprint": "9b90ab18e9d910d91f630ff180293aed_2"
+    },
+    {
+      "cwe_ids": [
+        "601"
+      ],
+      "id": "javascript_express_open_redirect",
+      "title": "Open redirect detected.",
+      "description": "## Description\\nA redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.\\n\\n## Remediations\\n❌ Do not use unsanitized user input when constructing URLs\\n\\n✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs\\n\\n\`\`\`javascript\\n  var map = {\\n    \\"1\\": \\"/planes\\",\\n    \\"2\\": \\"/trains\\",\\n    \\"3\\": \\"/automobiles\\",\\n  }\\n\\n  res.redirect(map[req.body.transport])\\n\`\`\`\\n## Resources\\n- [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_open_redirect",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/open_redirect.js",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 3,
+          "end": 53
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 3,
+          "end": 53
+        },
+        "content": "res.redirect(\\"http://\\" + req.params.path + \\"/bar\\")"
+      },
+      "parent_line_number": 5,
+      "snippet": "res.redirect(\\"http://\\" + req.params.path + \\"/bar\\")",
+      "fingerprint": "39fed10ce763bb1caf6ca1ea51314f28_3",
+      "old_fingerprint": "9b90ab18e9d910d91f630ff180293aed_3"
+    }
+  ]
+}"
+`;

@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`java_lang_sqli bad 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "89"
+      ],
+      "id": "java_lang_sqli",
+      "title": "Unsanitized user input in SQL query detected.",
+      "description": "## Description\\n\\nIncluding unsanitized data, such as user input or request data, in raw SQL\\nqueries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input:\\n\\n\`\`\`java\\n  Statement stmt = conn.createStatement();\\n  ResultSet rs = stmt.executeQuery(\\"select name from users where id='\\"+ uri.getQueryParameter(\\"user_id\\") \\"'\\")) {\\n\`\`\`\\n\\n✅ Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead\\n\\n\`\`\`java\\nmyStmt = myCon.prepareStatement(\\"select * from students where age > ? and name = ?\\");\\nmyStmt.setInt(1, uri.getQueryParameter(\\"age\\"));\\nmyStmt.setString(2, uri.getQueryParameter(\\"name\\"));\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_sqli",
+      "line_number": 19,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 25,
+          "end": 52
+        }
+      },
+      "sink": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 25,
+          "end": 52
+        },
+        "content": "stmt.executeQuery(sqlQuery)"
+      },
+      "parent_line_number": 19,
+      "snippet": "stmt.executeQuery(sqlQuery)",
+      "fingerprint": "79d5d495c5c408c582b32582f1ae9171_0",
+      "old_fingerprint": "db6f664c606e5cc7e0b287583ab73e93_0"
+    },
+    {
+      "cwe_ids": [
+        "89"
+      ],
+      "id": "java_lang_sqli",
+      "title": "Unsanitized user input in SQL query detected.",
+      "description": "## Description\\n\\nIncluding unsanitized data, such as user input or request data, in raw SQL\\nqueries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input:\\n\\n\`\`\`java\\n  Statement stmt = conn.createStatement();\\n  ResultSet rs = stmt.executeQuery(\\"select name from users where id='\\"+ uri.getQueryParameter(\\"user_id\\") \\"'\\")) {\\n\`\`\`\\n\\n✅ Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead\\n\\n\`\`\`java\\nmyStmt = myCon.prepareStatement(\\"select * from students where age > ? and name = ?\\");\\nmyStmt.setInt(1, uri.getQueryParameter(\\"age\\"));\\nmyStmt.setString(2, uri.getQueryParameter(\\"name\\"));\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_sqli",
+      "line_number": 26,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 26,
+        "end": 26,
+        "column": {
+          "start": 10,
+          "end": 45
+        }
+      },
+      "sink": {
+        "start": 26,
+        "end": 26,
+        "column": {
+          "start": 10,
+          "end": 45
+        },
+        "content": "conn.prepareStatement(sqlQuery, 42)"
+      },
+      "parent_line_number": 26,
+      "snippet": "conn.prepareStatement(sqlQuery, 42)",
+      "fingerprint": "79d5d495c5c408c582b32582f1ae9171_1",
+      "old_fingerprint": "db6f664c606e5cc7e0b287583ab73e93_1"
+    },
+    {
+      "cwe_ids": [
+        "89"
+      ],
+      "id": "java_lang_sqli",
+      "title": "Unsanitized user input in SQL query detected.",
+      "description": "## Description\\n\\nIncluding unsanitized data, such as user input or request data, in raw SQL\\nqueries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input:\\n\\n\`\`\`java\\n  Statement stmt = conn.createStatement();\\n  ResultSet rs = stmt.executeQuery(\\"select name from users where id='\\"+ uri.getQueryParameter(\\"user_id\\") \\"'\\")) {\\n\`\`\`\\n\\n✅ Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead\\n\\n\`\`\`java\\nmyStmt = myCon.prepareStatement(\\"select * from students where age > ? and name = ?\\");\\nmyStmt.setInt(1, uri.getQueryParameter(\\"age\\"));\\nmyStmt.setString(2, uri.getQueryParameter(\\"name\\"));\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_sqli",
+      "line_number": 32,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 32,
+        "end": 32,
+        "column": {
+          "start": 7,
+          "end": 54
+        }
+      },
+      "sink": {
+        "start": 32,
+        "end": 32,
+        "column": {
+          "start": 7,
+          "end": 54
+        },
+        "content": "emf.createEntityManager().createQuery(sqlQuery)"
+      },
+      "parent_line_number": 32,
+      "snippet": "emf.createEntityManager().createQuery(sqlQuery)",
+      "fingerprint": "79d5d495c5c408c582b32582f1ae9171_2",
+      "old_fingerprint": "db6f664c606e5cc7e0b287583ab73e93_2"
+    }
+  ]
+}"
+`;
+
+exports[`java_lang_sqli safe 1`] = `"{}"`;

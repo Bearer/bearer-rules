@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_third_parties_airbrake datatype_in_notify 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "javascript_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\nairbrake.notify({\\n  error: err,\\n  params: { user: user.uuid },\\n});\\n\`\`\`\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_airbrake",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/datatype_in_notify.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 41,
+          "end": 67
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 15,
+          "end": 68
+        },
+        "content": "airbrake.notify(\\"user \\" + currentUser().emailAddress)"
+      },
+      "parent_line_number": 9,
+      "snippet": "airbrake.notify(\\"user \\" + currentUser().emailAddress)",
+      "fingerprint": "b062988f903356f85f1052011a6c72d0_0",
+      "old_fingerprint": "f9bd32bc01740503cc34d336db979930_0"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "javascript_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\nairbrake.notify({\\n  error: err,\\n  params: { user: user.uuid },\\n});\\n\`\`\`\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_airbrake",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/datatype_in_notify.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "b5a3b0fd-dd5c-420d-91ce-dd2dddc8cc38",
+        "name": "IP address"
+      },
+      "category_groups": [
+        "Personal Data"
+      ],
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 23,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 16,
+        "end": 19,
+        "column": {
+          "start": 5,
+          "end": 7
+        },
+        "content": "airbrake.notify({\\n      error: err,\\n      params: { user: user.ipAddress },\\n    })"
+      },
+      "parent_line_number": 16,
+      "snippet": "airbrake.notify({\\n      error: err,\\n      params: { user: user.ipAddress },\\n    })",
+      "fingerprint": "b062988f903356f85f1052011a6c72d0_1",
+      "old_fingerprint": "f9bd32bc01740503cc34d336db979930_1"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_third_parties_airbrake ok_no_datatype 1`] = `"{}"`;

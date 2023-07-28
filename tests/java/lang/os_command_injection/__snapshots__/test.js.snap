@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`java_lang_os_command_injection bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "java_lang_os_command_injection",
+      "title": "Command injection vulnerability detected.",
+      "description": "## Description\\n\\nUsing external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.\\n\\n## Remediations\\n\\n❌ Avoid using OS commands, with or without dynamic input, wherever possible. For example, look for an equivalent library or function to use instead.\\n\\n✅ For dynamic input, rely on hardcoded values wherever possible\\n\\n\`\`\`java\\n  String filePattern = \\"*.json\\";\\n  if request.getParameter(\\"format\\") == \\"xml\\" {\\n    filePattern = \\"*.xml\\"\\n  }\\n\\n  Process process = Runtime.getRuntime().exec(\\"ls /myDir/\\" + extension);\\n\`\`\`\\n\\n## Resources\\n- [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_os_command_injection",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 9,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 9,
+          "end": 37
+        },
+        "content": "r.exec(\\"sh -c echo \\" + name)"
+      },
+      "parent_line_number": 10,
+      "snippet": "r.exec(\\"sh -c echo \\" + name)",
+      "fingerprint": "5665fcfd14328e5c667ee31b32dffafd_0",
+      "old_fingerprint": "a0ce9f3043b13a6baf7c16fd7608b765_0"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "java_lang_os_command_injection",
+      "title": "Command injection vulnerability detected.",
+      "description": "## Description\\n\\nUsing external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.\\n\\n## Remediations\\n\\n❌ Avoid using OS commands, with or without dynamic input, wherever possible. For example, look for an equivalent library or function to use instead.\\n\\n✅ For dynamic input, rely on hardcoded values wherever possible\\n\\n\`\`\`java\\n  String filePattern = \\"*.json\\";\\n  if request.getParameter(\\"format\\") == \\"xml\\" {\\n    filePattern = \\"*.xml\\"\\n  }\\n\\n  Process process = Runtime.getRuntime().exec(\\"ls /myDir/\\" + extension);\\n\`\`\`\\n\\n## Resources\\n- [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_os_command_injection",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 9,
+          "end": 56
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 9,
+          "end": 56
+        },
+        "content": "Runtime.getRuntime().exec(\\"sh -c echo \\" + name)"
+      },
+      "parent_line_number": 12,
+      "snippet": "Runtime.getRuntime().exec(\\"sh -c echo \\" + name)",
+      "fingerprint": "5665fcfd14328e5c667ee31b32dffafd_1",
+      "old_fingerprint": "a0ce9f3043b13a6baf7c16fd7608b765_1"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "java_lang_os_command_injection",
+      "title": "Command injection vulnerability detected.",
+      "description": "## Description\\n\\nUsing external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.\\n\\n## Remediations\\n\\n❌ Avoid using OS commands, with or without dynamic input, wherever possible. For example, look for an equivalent library or function to use instead.\\n\\n✅ For dynamic input, rely on hardcoded values wherever possible\\n\\n\`\`\`java\\n  String filePattern = \\"*.json\\";\\n  if request.getParameter(\\"format\\") == \\"xml\\" {\\n    filePattern = \\"*.xml\\"\\n  }\\n\\n  Process process = Runtime.getRuntime().exec(\\"ls /myDir/\\" + extension);\\n\`\`\`\\n\\n## Resources\\n- [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_os_command_injection",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 29,
+          "end": 69
+        }
+      },
+      "sink": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 29,
+          "end": 69
+        },
+        "content": "new ProcessBuilder(\\"sh -c echo \\" + name)"
+      },
+      "parent_line_number": 18,
+      "snippet": "new ProcessBuilder(\\"sh -c echo \\" + name)",
+      "fingerprint": "5665fcfd14328e5c667ee31b32dffafd_2",
+      "old_fingerprint": "a0ce9f3043b13a6baf7c16fd7608b765_2"
+    }
+  ]
+}"
+`;
+
+exports[`java_lang_os_command_injection ok 1`] = `"{}"`;

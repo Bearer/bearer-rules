@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript_lang_weak_password_hash_md5 md5_password 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "327",
+        "328"
+      ],
+      "id": "javascript_lang_weak_password_hash_md5",
+      "title": "Weak hashing library (MD5) used for password detected.",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\n✅ Use a recommended hashing library such as Argon2id for passwords\\n\\n\`\`\`javascript\\n  const argon2 = require(\\"argon2\\");\\n\\n  const hash = await argon2.hash(req.params.password, { type: argon2.argon2id })\\n\`\`\`\\n\\n## Resources\\n- [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_password_hash_md5",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/md5_password.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "dd88aee5-9d40-4ad2-8983-0c791ddec47c",
+        "name": "Passwords"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 54,
+          "end": 67
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 17,
+          "end": 68
+        },
+        "content": "crypto.createHmac(\\"md5\\", key).update(user.password)"
+      },
+      "parent_line_number": 4,
+      "snippet": "crypto.createHmac(\\"md5\\", key).update(user.password)",
+      "fingerprint": "842bae8a65c472461b4845ea606a7fed_0",
+      "old_fingerprint": "29170146f7ca0a20898163aad42ffe78_0"
+    },
+    {
+      "cwe_ids": [
+        "327",
+        "328"
+      ],
+      "id": "javascript_lang_weak_password_hash_md5",
+      "title": "Weak hashing library (MD5) used for password detected.",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\n✅ Use a recommended hashing library such as Argon2id for passwords\\n\\n\`\`\`javascript\\n  const argon2 = require(\\"argon2\\");\\n\\n  const hash = await argon2.hash(req.params.password, { type: argon2.argon2id })\\n\`\`\`\\n\\n## Resources\\n- [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_password_hash_md5",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/md5_password.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "dd88aee5-9d40-4ad2-8983-0c791ddec47c",
+        "name": "Passwords"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 47,
+          "end": 60
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 15,
+          "end": 61
+        },
+        "content": "crypto.createHash(\\"md5\\").update(user.password)"
+      },
+      "parent_line_number": 5,
+      "snippet": "crypto.createHash(\\"md5\\").update(user.password)",
+      "fingerprint": "842bae8a65c472461b4845ea606a7fed_1",
+      "old_fingerprint": "29170146f7ca0a20898163aad42ffe78_1"
+    },
+    {
+      "cwe_ids": [
+        "327",
+        "328"
+      ],
+      "id": "javascript_lang_weak_password_hash_md5",
+      "title": "Weak hashing library (MD5) used for password detected.",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\n✅ Use a recommended hashing library such as Argon2id for passwords\\n\\n\`\`\`javascript\\n  const argon2 = require(\\"argon2\\");\\n\\n  const hash = await argon2.hash(req.params.password, { type: argon2.argon2id })\\n\`\`\`\\n\\n## Resources\\n- [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_password_hash_md5",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/md5_password.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "dd88aee5-9d40-4ad2-8983-0c791ddec47c",
+        "name": "Passwords"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 25,
+          "end": 38
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 12,
+          "end": 39
+        },
+        "content": "CryptoJS.MD5(user.password)"
+      },
+      "parent_line_number": 9,
+      "snippet": "CryptoJS.MD5(user.password)",
+      "fingerprint": "842bae8a65c472461b4845ea606a7fed_2",
+      "old_fingerprint": "29170146f7ca0a20898163aad42ffe78_2"
+    }
+  ]
+}"
+`;
+
+exports[`javascript_lang_weak_password_hash_md5 ok_not_a_password 1`] = `"{}"`;

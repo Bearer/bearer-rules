@@ -23,7 +23,9 @@ Be sure to add some testdata for your change!
 Simple! Fork this repository, and, when running Bearer, disable default rules and instead pull your forked rules from an external directory.
 
 ```bash
-  bearer scan my-project --disable-default-rules --external-rule-dir=/path-to-your-forked-bearer-rules
+  bearer scan my-project \
+  --disable-default-rules \
+  --external-rule-dir=bearer-rules/rules
 ```
 
 ## :handshake: Contributing
