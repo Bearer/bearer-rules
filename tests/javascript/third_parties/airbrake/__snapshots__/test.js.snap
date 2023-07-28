@@ -42,7 +42,8 @@ exports[`javascript_third_parties_airbrake datatype_in_notify 1`] = `
       "parent_line_number": 9,
       "snippet": "airbrake.notify(\\"user \\" + currentUser().emailAddress)",
       "fingerprint": "b062988f903356f85f1052011a6c72d0_0",
-      "old_fingerprint": "f9bd32bc01740503cc34d336db979930_0"
+      "old_fingerprint": "f9bd32bc01740503cc34d336db979930_0",
+      "code_extract": "let promise = airbrake.notify(\\"user \\" + currentUser().emailAddress)"
     },
     {
       "cwe_ids": [
@@ -82,7 +83,8 @@ exports[`javascript_third_parties_airbrake datatype_in_notify 1`] = `
       "parent_line_number": 16,
       "snippet": "airbrake.notify({\\n      error: err,\\n      params: { user: user.ipAddress },\\n    })",
       "fingerprint": "b062988f903356f85f1052011a6c72d0_1",
-      "old_fingerprint": "f9bd32bc01740503cc34d336db979930_1"
+      "old_fingerprint": "f9bd32bc01740503cc34d336db979930_1",
+      "code_extract": "    airbrake.notify({\\n      error: err,\\n      params: { user: user.ipAddress },\\n    });"
     }
   ]
 }"

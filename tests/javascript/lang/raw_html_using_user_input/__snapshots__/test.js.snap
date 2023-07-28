@@ -34,7 +34,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 1,
       "snippet": "\`<h1 class=\\"test\\">\${req.params.oops}</h1>\`",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_0",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_0"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_0",
+      "code_extract": "\`<h1 class=\\"test\\">\${req.params.oops}</h1>\`"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 2,
       "snippet": "\`<h1>\${req.params.oops}</h1>\`",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_1",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_1"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_1",
+      "code_extract": "\`<h1>\${req.params.oops}</h1>\`"
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 4,
       "snippet": "doT.compile(req.params.oops, {})",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_2",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_2"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_2",
+      "code_extract": "doT.compile(req.params.oops, {})"
     },
     {
       "cwe_ids": [
@@ -133,7 +136,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 6,
       "snippet": "ejs.compile(req.params.oops, {})",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_3",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_3"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_3",
+      "code_extract": "ejs.compile(req.params.oops, {})"
     },
     {
       "cwe_ids": [
@@ -166,7 +170,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 8,
       "snippet": "Handlebars.compile(req.params.oops, {})",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_4",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_4"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_4",
+      "code_extract": "Handlebars.compile(req.params.oops, {})"
     },
     {
       "cwe_ids": [
@@ -199,7 +204,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 10,
       "snippet": "Hogan.parse(Hogan.scan(req.params.oops), null)",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_5",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_5"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_5",
+      "code_extract": "Hogan.parse(Hogan.scan(req.params.oops), null)"
     },
     {
       "cwe_ids": [
@@ -232,7 +238,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 12,
       "snippet": "$.templates(req.params.oops)",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_6",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_6"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_6",
+      "code_extract": "$.templates(req.params.oops)"
     },
     {
       "cwe_ids": [
@@ -265,7 +272,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 14,
       "snippet": "template(req.params.oops, {})",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_7",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_7"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_7",
+      "code_extract": "template(req.params.oops, {})"
     },
     {
       "cwe_ids": [
@@ -298,7 +306,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 15,
       "snippet": "_.template(req.params.oops, {})",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_8",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_8"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_8",
+      "code_extract": "_.template(req.params.oops, {})"
     },
     {
       "cwe_ids": [
@@ -331,7 +340,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 17,
       "snippet": "compiler.compileSync(req.params.oops, \\"test.js\\")",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_9",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_9"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_9",
+      "code_extract": "compiler.compileSync(req.params.oops, \\"test.js\\")"
     },
     {
       "cwe_ids": [
@@ -364,7 +374,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 19,
       "snippet": "Mustache.render(req.params.oops, {})",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_10",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_10"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_10",
+      "code_extract": "Mustache.render(req.params.oops, {})"
     },
     {
       "cwe_ids": [
@@ -397,7 +408,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 21,
       "snippet": "nunjucks.renderString(req.params.oops, {})",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_11",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_11"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_11",
+      "code_extract": "nunjucks.renderString(req.params.oops, {})"
     },
     {
       "cwe_ids": [
@@ -430,7 +442,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 23,
       "snippet": "pug.render(req.params.oops, {})",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_12",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_12"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_12",
+      "code_extract": "pug.render(req.params.oops, {})"
     },
     {
       "cwe_ids": [
@@ -463,7 +476,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 25,
       "snippet": "Sqrl.render(req.params.oops, {})",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_13",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_13"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_13",
+      "code_extract": "Sqrl.render(req.params.oops, {})"
     },
     {
       "cwe_ids": [
@@ -496,7 +510,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 27,
       "snippet": "Template7.compile(req.params.oops, {})",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_14",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_14"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_14",
+      "code_extract": "Template7.compile(req.params.oops, {})"
     },
     {
       "cwe_ids": [
@@ -529,7 +544,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 29,
       "snippet": "webix.ui({\\n  id: \\"mylayout\\",\\n  rows: [\\n    { view: \\"toolbar\\", id: \\"mybar\\" },\\n    { template: req.params.oops }\\n  ]\\n})",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_15",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_15"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_15",
+      "code_extract": "webix.ui({\\n  id: \\"mylayout\\",\\n  rows: [\\n    ...omitted (buffer value 3)\\n    { template: req.params.oops }\\n  ]\\n})"
     },
     {
       "cwe_ids": [
@@ -562,7 +578,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 44,
       "snippet": "Eta.render(req.params, { name: \\"insecure\\" })",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_16",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_16"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_16",
+      "code_extract": "  Eta.render(req.params, { name: \\"insecure\\" })"
     },
     {
       "cwe_ids": [
@@ -595,7 +612,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 51,
       "snippet": "whiskers.render(req.params.text, context)",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_17",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_17"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_17",
+      "code_extract": "  whiskers.render(req.params.text, context)"
     },
     {
       "cwe_ids": [
@@ -628,7 +646,8 @@ exports[`javascript_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 58,
       "snippet": "engine.parse(req.params.text, { hello: \\"world\\" })",
       "fingerprint": "56d9a2a17ab908c88aee2b81bceff767_18",
-      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_18"
+      "old_fingerprint": "c858f7f6f30bb28c6b1427458f7d3934_18",
+      "code_extract": "  engine.parse(req.params.text, { hello: \\"world\\" })"
     }
   ]
 }"

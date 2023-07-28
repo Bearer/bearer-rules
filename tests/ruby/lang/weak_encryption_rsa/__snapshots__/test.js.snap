@@ -35,7 +35,8 @@ exports[`ruby_lang_weak_encryption_rsa openssl_rsa 1`] = `
       "parent_line_number": 3,
       "snippet": "OpenSSL::PKey::RSA.new(512).to_pem(cipher, \\"hello world\\")",
       "fingerprint": "0cb94b27eb6c4b2d4cf40690fd9ce947_0",
-      "old_fingerprint": "a5908329d819ef7738ef208fc6bc3498_0"
+      "old_fingerprint": "a5908329d819ef7738ef208fc6bc3498_0",
+      "code_extract": "OpenSSL::PKey::RSA.new(512).to_pem(cipher, \\"hello world\\") # insecure"
     }
   ]
 }"
@@ -84,7 +85,8 @@ exports[`ruby_lang_weak_encryption_rsa openssl_rsa_data 1`] = `
       "parent_line_number": 5,
       "snippet": "rsa_encrypt.export(cipher, user.address)",
       "fingerprint": "0cb94b27eb6c4b2d4cf40690fd9ce947_0",
-      "old_fingerprint": "ec8eb812f7a4602ef8ee5b5a6f726bf3_0"
+      "old_fingerprint": "ec8eb812f7a4602ef8ee5b5a6f726bf3_0",
+      "code_extract": "rsa_encrypt.export(cipher, user.address)"
     },
     {
       "cwe_ids": [
@@ -126,7 +128,8 @@ exports[`ruby_lang_weak_encryption_rsa openssl_rsa_data 1`] = `
       "parent_line_number": 7,
       "snippet": "OpenSSL::PKey::RSA.new(1024).to_pem(cipher, user.first_name)",
       "fingerprint": "0cb94b27eb6c4b2d4cf40690fd9ce947_1",
-      "old_fingerprint": "ec8eb812f7a4602ef8ee5b5a6f726bf3_1"
+      "old_fingerprint": "ec8eb812f7a4602ef8ee5b5a6f726bf3_1",
+      "code_extract": "OpenSSL::PKey::RSA.new(1024).to_pem(cipher, user.first_name)"
     }
   ]
 }"

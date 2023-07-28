@@ -34,7 +34,8 @@ exports[`java_lang_insecure_cookie bad 1`] = `
       "parent_line_number": 8,
       "snippet": "c1.setSecure(false)",
       "fingerprint": "ebb3bb66f61c10a70c9710467ac46faf_0",
-      "old_fingerprint": "5221acf9beea014b2cdb88e2ee84fbd0_0"
+      "old_fingerprint": "5221acf9beea014b2cdb88e2ee84fbd0_0",
+      "code_extract": "    c1.setSecure(false);"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`java_lang_insecure_cookie bad 1`] = `
       "parent_line_number": 12,
       "snippet": "c2.setSecure(f)",
       "fingerprint": "ebb3bb66f61c10a70c9710467ac46faf_1",
-      "old_fingerprint": "5221acf9beea014b2cdb88e2ee84fbd0_1"
+      "old_fingerprint": "5221acf9beea014b2cdb88e2ee84fbd0_1",
+      "code_extract": "    c2.setSecure(f);"
     }
   ]
 }"
@@ -107,7 +109,8 @@ exports[`java_lang_insecure_cookie bad_http_only 1`] = `
       "parent_line_number": 8,
       "snippet": "c1.setHttpOnly(false)",
       "fingerprint": "ebb3bb66f61c10a70c9710467ac46faf_0",
-      "old_fingerprint": "88305cb77e1bf754fea5b271b438084e_0"
+      "old_fingerprint": "88305cb77e1bf754fea5b271b438084e_0",
+      "code_extract": "    c1.setHttpOnly(false);"
     },
     {
       "cwe_ids": [
@@ -140,7 +143,8 @@ exports[`java_lang_insecure_cookie bad_http_only 1`] = `
       "parent_line_number": 12,
       "snippet": "c2.setHttpOnly(f)",
       "fingerprint": "ebb3bb66f61c10a70c9710467ac46faf_1",
-      "old_fingerprint": "88305cb77e1bf754fea5b271b438084e_1"
+      "old_fingerprint": "88305cb77e1bf754fea5b271b438084e_1",
+      "code_extract": "    c2.setHttpOnly(f);"
     }
   ]
 }"

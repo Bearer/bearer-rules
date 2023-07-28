@@ -42,7 +42,8 @@ exports[`ruby_third_parties_segment datatype_as_user_id 1`] = `
       "parent_line_number": 2,
       "snippet": "analytics.alias(user_id: user.email, previous_id: \\"some id\\")",
       "fingerprint": "1a443dec6ce049efa8df29bca4a1ec80_0",
-      "old_fingerprint": "9896d90ab48b8f02860a62d387b67ad8_0"
+      "old_fingerprint": "9896d90ab48b8f02860a62d387b67ad8_0",
+      "code_extract": "analytics.alias(user_id: user.email, previous_id: \\"some id\\")"
     }
   ]
 }"
@@ -89,7 +90,8 @@ exports[`ruby_third_parties_segment datatype_in_nested_attribute 1`] = `
       "parent_line_number": 2,
       "snippet": "analytics.track(user_id: user.id, event: \\"account sign in\\", context: { ip: user.ip_address })",
       "fingerprint": "1a443dec6ce049efa8df29bca4a1ec80_0",
-      "old_fingerprint": "0e3e8727aa86c8cd267f639af524dc16_0"
+      "old_fingerprint": "0e3e8727aa86c8cd267f639af524dc16_0",
+      "code_extract": "analytics.track(user_id: user.id, event: \\"account sign in\\", context: { ip: user.ip_address })"
     }
   ]
 }"

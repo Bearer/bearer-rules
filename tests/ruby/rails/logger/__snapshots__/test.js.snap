@@ -43,7 +43,8 @@ exports[`ruby_rails_logger datatype_leak 1`] = `
       "parent_line_number": 1,
       "snippet": "Rails.logger.info(user.email)",
       "fingerprint": "4126be7d46bfa3cff42c7715a0b01c1a_0",
-      "old_fingerprint": "7cd6ff38b50f83345ce1b10bf689c1d1_0"
+      "old_fingerprint": "7cd6ff38b50f83345ce1b10bf689c1d1_0",
+      "code_extract": "Rails.logger.info(user.email)"
     }
   ]
 }"

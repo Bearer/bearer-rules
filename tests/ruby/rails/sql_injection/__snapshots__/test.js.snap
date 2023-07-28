@@ -34,7 +34,8 @@ exports[`ruby_rails_sql_injection injected_params 1`] = `
       "parent_line_number": 1,
       "snippet": "User.find_by(params[:oops])",
       "fingerprint": "4375e8a33c7009e3ee375e18f3a797b1_0",
-      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_0"
+      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_0",
+      "code_extract": "User.find_by(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`ruby_rails_sql_injection injected_params 1`] = `
       "parent_line_number": 2,
       "snippet": "find_by!(\\"oops #{params[:oops]}\\")",
       "fingerprint": "4375e8a33c7009e3ee375e18f3a797b1_1",
-      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_1"
+      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_1",
+      "code_extract": "find_by!(\\"oops #{params[:oops]}\\")"
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`ruby_rails_sql_injection injected_params 1`] = `
       "parent_line_number": 3,
       "snippet": "User.joins(\\"INNER JOIN #{params[:oops]}\\")",
       "fingerprint": "4375e8a33c7009e3ee375e18f3a797b1_2",
-      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_2"
+      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_2",
+      "code_extract": "User.joins(\\"INNER JOIN #{params[:oops]}\\")"
     },
     {
       "cwe_ids": [
@@ -133,7 +136,8 @@ exports[`ruby_rails_sql_injection injected_params 1`] = `
       "parent_line_number": 4,
       "snippet": "select(\\"#{params[:oops]} AS oops\\")",
       "fingerprint": "4375e8a33c7009e3ee375e18f3a797b1_3",
-      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_3"
+      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_3",
+      "code_extract": "select(\\"#{params[:oops]} AS oops\\")"
     },
     {
       "cwe_ids": [
@@ -166,7 +170,8 @@ exports[`ruby_rails_sql_injection injected_params 1`] = `
       "parent_line_number": 7,
       "snippet": "User\\n  .where(\\"oops #{params[:one]}\\")\\n  .count(\\"#{params[:two]}\\")",
       "fingerprint": "4375e8a33c7009e3ee375e18f3a797b1_4",
-      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_4"
+      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_4",
+      "code_extract": "User\\n  .where(\\"oops #{params[:one]}\\")\\n  .count(\\"#{params[:two]}\\")"
     },
     {
       "cwe_ids": [
@@ -199,7 +204,8 @@ exports[`ruby_rails_sql_injection injected_params 1`] = `
       "parent_line_number": 11,
       "snippet": "ActiveRecord::Base.connection.exec_query(\\"SELECT #{params[:oops]}\\")",
       "fingerprint": "4375e8a33c7009e3ee375e18f3a797b1_5",
-      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_5"
+      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_5",
+      "code_extract": "ActiveRecord::Base.connection.exec_query(\\"SELECT #{params[:oops]}\\")"
     },
     {
       "cwe_ids": [
@@ -232,7 +238,8 @@ exports[`ruby_rails_sql_injection injected_params 1`] = `
       "parent_line_number": 13,
       "snippet": "connection.select_all(\\"SELECT #{params[:oops]}\\")",
       "fingerprint": "4375e8a33c7009e3ee375e18f3a797b1_6",
-      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_6"
+      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_6",
+      "code_extract": "connection.select_all(\\"SELECT #{params[:oops]}\\")"
     }
   ]
 }"

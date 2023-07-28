@@ -34,7 +34,8 @@ exports[`java_lang_path_traversal cookie_file_traversal 1`] = `
       "parent_line_number": 17,
       "snippet": "new File(\\"user/profile/\\", userProfile)",
       "fingerprint": "0ddbea485a733931cca743266783dadc_0",
-      "old_fingerprint": "e235348fe3c9ed5201ec4ef44d9dcecd_0"
+      "old_fingerprint": "e235348fe3c9ed5201ec4ef44d9dcecd_0",
+      "code_extract": "        File file = new File(\\"user/profile/\\", userProfile);"
     }
   ]
 }"
@@ -74,7 +75,8 @@ exports[`java_lang_path_traversal request_file_traversal 1`] = `
       "parent_line_number": 18,
       "snippet": "new File(\\"user/profile/\\", image)",
       "fingerprint": "0ddbea485a733931cca743266783dadc_0",
-      "old_fingerprint": "dacce4d7fc5a813b92dbac426a4a3030_0"
+      "old_fingerprint": "dacce4d7fc5a813b92dbac426a4a3030_0",
+      "code_extract": "        File file = new File(\\"user/profile/\\", image);"
     }
   ]
 }"

@@ -36,7 +36,8 @@ exports[`ruby_lang_reflection_using_user_input unsafe_rails 1`] = `
       "parent_line_number": 1,
       "snippet": "params[:class].constantize",
       "fingerprint": "23f90aa15d412fbb5e8bd9ead1b2472a_0",
-      "old_fingerprint": "e2b58440235b5b3f6308434273c00db6_0"
+      "old_fingerprint": "e2b58440235b5b3f6308434273c00db6_0",
+      "code_extract": "params[:class].constantize"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`ruby_lang_reflection_using_user_input unsafe_rails 1`] = `
       "parent_line_number": 3,
       "snippet": "current_user.try(params[:profession])",
       "fingerprint": "23f90aa15d412fbb5e8bd9ead1b2472a_1",
-      "old_fingerprint": "e2b58440235b5b3f6308434273c00db6_1"
+      "old_fingerprint": "e2b58440235b5b3f6308434273c00db6_1",
+      "code_extract": "raise if current_user.try(params[:profession]) == \\"hacker\\""
     }
   ]
 }"
@@ -109,7 +111,8 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 1,
       "snippet": "Object.const_get(params[:class])",
       "fingerprint": "23f90aa15d412fbb5e8bd9ead1b2472a_0",
-      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_0"
+      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_0",
+      "code_extract": "Object.const_get(params[:class])"
     },
     {
       "cwe_ids": [
@@ -142,7 +145,8 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 2,
       "snippet": "Object.const_set(params[:class], 42)",
       "fingerprint": "23f90aa15d412fbb5e8bd9ead1b2472a_1",
-      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_1"
+      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_1",
+      "code_extract": "Object.const_set(params[:class], 42)"
     },
     {
       "cwe_ids": [
@@ -175,7 +179,8 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 3,
       "snippet": "Object.remove_const(params[:class])",
       "fingerprint": "23f90aa15d412fbb5e8bd9ead1b2472a_2",
-      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_2"
+      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_2",
+      "code_extract": "Object.remove_const(params[:class])"
     },
     {
       "cwe_ids": [
@@ -208,7 +213,8 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 5,
       "snippet": "method(params[:method])",
       "fingerprint": "23f90aa15d412fbb5e8bd9ead1b2472a_3",
-      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_3"
+      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_3",
+      "code_extract": "method(params[:method])"
     },
     {
       "cwe_ids": [
@@ -241,7 +247,8 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 7,
       "snippet": "x.define_method(params[:method]) {}",
       "fingerprint": "23f90aa15d412fbb5e8bd9ead1b2472a_4",
-      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_4"
+      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_4",
+      "code_extract": "x.define_method(params[:method]) {}"
     },
     {
       "cwe_ids": [
@@ -274,7 +281,8 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 9,
       "snippet": "params[:method].to_sym.to_proc",
       "fingerprint": "23f90aa15d412fbb5e8bd9ead1b2472a_5",
-      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_5"
+      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_5",
+      "code_extract": "params[:method].to_sym.to_proc"
     },
     {
       "cwe_ids": [
@@ -307,7 +315,8 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 11,
       "snippet": "bad_things(&params[:method].to_sym)",
       "fingerprint": "23f90aa15d412fbb5e8bd9ead1b2472a_6",
-      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_6"
+      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_6",
+      "code_extract": "bad_things(&params[:method].to_sym)"
     },
     {
       "cwe_ids": [
@@ -340,7 +349,8 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 12,
       "snippet": "x.bad_things(&params[:method].to_sym)",
       "fingerprint": "23f90aa15d412fbb5e8bd9ead1b2472a_7",
-      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_7"
+      "old_fingerprint": "0c3f65391f794fe18d98c4cf0a8f9c0a_7",
+      "code_extract": "x.bad_things(&params[:method].to_sym)"
     }
   ]
 }"

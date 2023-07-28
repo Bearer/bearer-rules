@@ -34,7 +34,8 @@ exports[`ruby_rails_detailed_exceptions bad 1`] = `
       "parent_line_number": 2,
       "snippet": "def show_detailed_exceptions?\\n    foo\\n  end",
       "fingerprint": "7059a2ab8162be1224ad1d584c3607a6_0",
-      "old_fingerprint": "0bf871ae7978273fdccfc0aebb7b25b7_0"
+      "old_fingerprint": "0bf871ae7978273fdccfc0aebb7b25b7_0",
+      "code_extract": "  def show_detailed_exceptions?\\n    foo\\n  end"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`ruby_rails_detailed_exceptions bad 1`] = `
       "parent_line_number": 7,
       "snippet": "config.consider_all_requests_local = true",
       "fingerprint": "7059a2ab8162be1224ad1d584c3607a6_1",
-      "old_fingerprint": "0bf871ae7978273fdccfc0aebb7b25b7_1"
+      "old_fingerprint": "0bf871ae7978273fdccfc0aebb7b25b7_1",
+      "code_extract": "config.consider_all_requests_local = true"
     }
   ]
 }"

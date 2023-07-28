@@ -34,7 +34,8 @@ exports[`javascript_express_server_side_request_forgery axios_ssrf_injection 1`]
       "parent_line_number": 10,
       "snippet": "axios.get(req.query.path)",
       "fingerprint": "2cac44cfde0c19367f3aa0fde6167679_0",
-      "old_fingerprint": "c94f877ee3e4e2c02a79e4bf25e012e6_0"
+      "old_fingerprint": "c94f877ee3e4e2c02a79e4bf25e012e6_0",
+      "code_extract": "  axios.get(req.query.path).then((response) => res.json(response.data))"
     }
   ]
 }"
@@ -74,7 +75,8 @@ exports[`javascript_express_server_side_request_forgery node_fetch_ssrf_injectio
       "parent_line_number": 12,
       "snippet": "fetch(\\"https://\\" + req.query.path)",
       "fingerprint": "2cac44cfde0c19367f3aa0fde6167679_0",
-      "old_fingerprint": "dd939000e17001ab48d7c6a8eed78795_0"
+      "old_fingerprint": "dd939000e17001ab48d7c6a8eed78795_0",
+      "code_extract": "  response = await fetch(\\"https://\\" + req.query.path)"
     }
   ]
 }"
@@ -116,7 +118,8 @@ exports[`javascript_express_server_side_request_forgery puppeteer_ssrf_injection
       "parent_line_number": 15,
       "snippet": "page.setContent(content)",
       "fingerprint": "2cac44cfde0c19367f3aa0fde6167679_0",
-      "old_fingerprint": "b491f2bf9c290ee7c8845af36dd58aa6_0"
+      "old_fingerprint": "b491f2bf9c290ee7c8845af36dd58aa6_0",
+      "code_extract": "  await page.setContent(content)"
     },
     {
       "cwe_ids": [
@@ -149,7 +152,8 @@ exports[`javascript_express_server_side_request_forgery puppeteer_ssrf_injection
       "parent_line_number": 16,
       "snippet": "page.goto(\\"https://\\" + req.query.path)",
       "fingerprint": "2cac44cfde0c19367f3aa0fde6167679_1",
-      "old_fingerprint": "b491f2bf9c290ee7c8845af36dd58aa6_1"
+      "old_fingerprint": "b491f2bf9c290ee7c8845af36dd58aa6_1",
+      "code_extract": "  await page.goto(\\"https://\\" + req.query.path)"
     }
   ]
 }"

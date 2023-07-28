@@ -42,7 +42,8 @@ exports[`ruby_third_parties_new_relic datatype_in_add_custom_attributes 1`] = `
       "parent_line_number": 2,
       "snippet": "NewRelic::Agent.add_custom_attributes(user)",
       "fingerprint": "e91414b566cbe37b71f0714e38013f90_0",
-      "old_fingerprint": "ad45949950d339338cc402a12fd5daee_0"
+      "old_fingerprint": "ad45949950d339338cc402a12fd5daee_0",
+      "code_extract": "NewRelic::Agent.add_custom_attributes(user)"
     },
     {
       "cwe_ids": [
@@ -83,7 +84,8 @@ exports[`ruby_third_parties_new_relic datatype_in_add_custom_attributes 1`] = `
       "parent_line_number": 3,
       "snippet": "NewRelic::Agent.add_custom_attributes(a: \\"test\\", user: { email: \\"user@example.com\\" }, other: 42)",
       "fingerprint": "e91414b566cbe37b71f0714e38013f90_1",
-      "old_fingerprint": "ad45949950d339338cc402a12fd5daee_1"
+      "old_fingerprint": "ad45949950d339338cc402a12fd5daee_1",
+      "code_extract": "NewRelic::Agent.add_custom_attributes(a: \\"test\\", user: { email: \\"user@example.com\\" }, other: 42)"
     }
   ]
 }"
@@ -131,7 +133,8 @@ exports[`ruby_third_parties_new_relic datatype_in_add_custom_parameters 1`] = `
       "parent_line_number": 2,
       "snippet": "NewRelic::Agent.add_custom_parameters(user)",
       "fingerprint": "e91414b566cbe37b71f0714e38013f90_0",
-      "old_fingerprint": "cb7bb30d776feb081adcc47a41a13331_0"
+      "old_fingerprint": "cb7bb30d776feb081adcc47a41a13331_0",
+      "code_extract": "NewRelic::Agent.add_custom_parameters(user)"
     },
     {
       "cwe_ids": [
@@ -172,7 +175,8 @@ exports[`ruby_third_parties_new_relic datatype_in_add_custom_parameters 1`] = `
       "parent_line_number": 3,
       "snippet": "NewRelic::Agent.add_custom_parameters(user: { email: \\"user@example.com\\" })",
       "fingerprint": "e91414b566cbe37b71f0714e38013f90_1",
-      "old_fingerprint": "cb7bb30d776feb081adcc47a41a13331_1"
+      "old_fingerprint": "cb7bb30d776feb081adcc47a41a13331_1",
+      "code_extract": "NewRelic::Agent.add_custom_parameters(user: { email: \\"user@example.com\\" })"
     }
   ]
 }"
@@ -220,7 +224,8 @@ exports[`ruby_third_parties_new_relic datatype_in_notice_error 1`] = `
       "parent_line_number": 2,
       "snippet": "NewRelic::Agent.notice_error(exception, { custom_params: user })",
       "fingerprint": "e91414b566cbe37b71f0714e38013f90_0",
-      "old_fingerprint": "26a26a88854528c42a67b076cef5cdbb_0"
+      "old_fingerprint": "26a26a88854528c42a67b076cef5cdbb_0",
+      "code_extract": "NewRelic::Agent.notice_error(exception, { custom_params: user })"
     },
     {
       "cwe_ids": [
@@ -261,7 +266,8 @@ exports[`ruby_third_parties_new_relic datatype_in_notice_error 1`] = `
       "parent_line_number": 3,
       "snippet": "NewRelic::Agent.notice_error(exception, expected: true, custom_params: { last_name: \\"foo\\" }, metric: \\"test\\")",
       "fingerprint": "e91414b566cbe37b71f0714e38013f90_1",
-      "old_fingerprint": "26a26a88854528c42a67b076cef5cdbb_1"
+      "old_fingerprint": "26a26a88854528c42a67b076cef5cdbb_1",
+      "code_extract": "NewRelic::Agent.notice_error(exception, expected: true, custom_params: { last_name: \\"foo\\" }, metric: \\"test\\")"
     }
   ]
 }"

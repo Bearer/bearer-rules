@@ -35,7 +35,8 @@ exports[`ruby_lang_weak_encryption_dsa openssl_dsa 1`] = `
       "parent_line_number": 3,
       "snippet": "dsa_encrypt.export(cipher, \\"hello world\\")",
       "fingerprint": "ceb3d421b9b94edfb4f69dce57a00c20_0",
-      "old_fingerprint": "b60f5f3963ab2a62ced3652dc73a826e_0"
+      "old_fingerprint": "b60f5f3963ab2a62ced3652dc73a826e_0",
+      "code_extract": "dsa_encrypt.export(cipher, \\"hello world\\")"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`ruby_lang_weak_encryption_dsa openssl_dsa 1`] = `
       "parent_line_number": 5,
       "snippet": "OpenSSL::PKey::DSA.new(1024).to_pem(cipher, \\"hello world\\")",
       "fingerprint": "ceb3d421b9b94edfb4f69dce57a00c20_1",
-      "old_fingerprint": "b60f5f3963ab2a62ced3652dc73a826e_1"
+      "old_fingerprint": "b60f5f3963ab2a62ced3652dc73a826e_1",
+      "code_extract": "OpenSSL::PKey::DSA.new(1024).to_pem(cipher, \\"hello world\\")"
     }
   ]
 }"
@@ -118,7 +120,8 @@ exports[`ruby_lang_weak_encryption_dsa openssl_dsa_data 1`] = `
       "parent_line_number": 3,
       "snippet": "dsa_encrypt.export(cipher, user.email)",
       "fingerprint": "ceb3d421b9b94edfb4f69dce57a00c20_0",
-      "old_fingerprint": "a7f43f7e9dd42e364d66d88a7f6a03ae_0"
+      "old_fingerprint": "a7f43f7e9dd42e364d66d88a7f6a03ae_0",
+      "code_extract": "dsa_encrypt.export(cipher, user.email)"
     },
     {
       "cwe_ids": [
@@ -160,7 +163,8 @@ exports[`ruby_lang_weak_encryption_dsa openssl_dsa_data 1`] = `
       "parent_line_number": 5,
       "snippet": "OpenSSL::PKey::DSA.new(1024).to_pem(cipher, user.first_name)",
       "fingerprint": "ceb3d421b9b94edfb4f69dce57a00c20_1",
-      "old_fingerprint": "a7f43f7e9dd42e364d66d88a7f6a03ae_1"
+      "old_fingerprint": "a7f43f7e9dd42e364d66d88a7f6a03ae_1",
+      "code_extract": "OpenSSL::PKey::DSA.new(1024).to_pem(cipher, user.first_name)"
     }
   ]
 }"

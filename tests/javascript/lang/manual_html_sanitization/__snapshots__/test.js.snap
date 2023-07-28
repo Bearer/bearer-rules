@@ -36,7 +36,8 @@ exports[`javascript_lang_manual_html_sanitization unsafe 1`] = `
       "parent_line_number": 1,
       "snippet": "user.Input.replaceAll('<', '&lt;').replaceAll('>', '&gt;')",
       "fingerprint": "883581e9effcc89f50531cd2677ebf31_0",
-      "old_fingerprint": "f64354c034f32ea4927e1f751b63cb3b_0"
+      "old_fingerprint": "f64354c034f32ea4927e1f751b63cb3b_0",
+      "code_extract": "const sanitizedUserInput = user.Input.replaceAll('<', '&lt;').replaceAll('>', '&gt;');"
     }
   ]
 }"

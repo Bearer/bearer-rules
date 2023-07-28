@@ -42,7 +42,8 @@ exports[`ruby_lang_jwt datatype_in_jwt 1`] = `
       "parent_line_number": 1,
       "snippet": "JWT.encode user.address, nil, \\"none\\"",
       "fingerprint": "ea186f391e78c5aef2a6a0e01d435e54_0",
-      "old_fingerprint": "5b67b014afa55c5733c8e47d898082d7_0"
+      "old_fingerprint": "5b67b014afa55c5733c8e47d898082d7_0",
+      "code_extract": "JWT.encode user.address, nil, \\"none\\""
     }
   ]
 }"
@@ -90,7 +91,8 @@ exports[`ruby_lang_jwt datatype_object_in_jwt 1`] = `
       "parent_line_number": 6,
       "snippet": "JWT.encode(payload, ENV.fetch(\\"SECRET_KEY\\"))",
       "fingerprint": "ea186f391e78c5aef2a6a0e01d435e54_0",
-      "old_fingerprint": "0fb23f03b4b9d4bd40ce9918b3b077e5_0"
+      "old_fingerprint": "0fb23f03b4b9d4bd40ce9918b3b077e5_0",
+      "code_extract": "JWT.encode(payload, ENV.fetch(\\"SECRET_KEY\\"))"
     }
   ]
 }"
@@ -138,7 +140,8 @@ exports[`ruby_lang_jwt datatypes_with_encrypted_jwt 1`] = `
       "parent_line_number": 2,
       "snippet": "JWT.encode({ user: current_user.email }, private_key, 'HS256', {})",
       "fingerprint": "ea186f391e78c5aef2a6a0e01d435e54_0",
-      "old_fingerprint": "31398923d4260c265bf9f9f112693bd9_0"
+      "old_fingerprint": "31398923d4260c265bf9f9f112693bd9_0",
+      "code_extract": "JWT.encode({ user: current_user.email }, private_key, 'HS256', {})"
     },
     {
       "cwe_ids": [
@@ -179,7 +182,8 @@ exports[`ruby_lang_jwt datatypes_with_encrypted_jwt 1`] = `
       "parent_line_number": 4,
       "snippet": "JWT.encode({ user: current_user.email }, ENV[\\"SECRET_KEY\\"])",
       "fingerprint": "ea186f391e78c5aef2a6a0e01d435e54_1",
-      "old_fingerprint": "31398923d4260c265bf9f9f112693bd9_1"
+      "old_fingerprint": "31398923d4260c265bf9f9f112693bd9_1",
+      "code_extract": "JWT.encode({ user: current_user.email }, ENV[\\"SECRET_KEY\\"])"
     },
     {
       "cwe_ids": [
@@ -220,7 +224,8 @@ exports[`ruby_lang_jwt datatypes_with_encrypted_jwt 1`] = `
       "parent_line_number": 6,
       "snippet": "JWT.encode({ user_name: user.name }, Rails.application.secret_key_base)",
       "fingerprint": "ea186f391e78c5aef2a6a0e01d435e54_2",
-      "old_fingerprint": "31398923d4260c265bf9f9f112693bd9_2"
+      "old_fingerprint": "31398923d4260c265bf9f9f112693bd9_2",
+      "code_extract": "JWT.encode({ user_name: user.name }, Rails.application.secret_key_base)"
     }
   ]
 }"

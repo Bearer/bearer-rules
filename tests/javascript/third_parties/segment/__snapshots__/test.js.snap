@@ -42,7 +42,8 @@ exports[`javascript_third_parties_segment datatype_in_alias 1`] = `
       "parent_line_number": 7,
       "snippet": "appAnalytics.alias({\\n  previousId: user.email,\\n  userId: user.id,\\n})",
       "fingerprint": "df462286e9e34d817b61a361c26e8720_0",
-      "old_fingerprint": "db340be69ed775c0191d246a49a09329_0"
+      "old_fingerprint": "db340be69ed775c0191d246a49a09329_0",
+      "code_extract": "appAnalytics.alias({\\n  previousId: user.email,\\n  userId: user.id,\\n});"
     }
   ]
 }"
@@ -90,7 +91,8 @@ exports[`javascript_third_parties_segment datatype_in_group 1`] = `
       "parent_line_number": 6,
       "snippet": "analytics.group({\\n  userId: user.id,\\n  groupId: user.job_title,\\n  traits: {},\\n})",
       "fingerprint": "df462286e9e34d817b61a361c26e8720_0",
-      "old_fingerprint": "8a1109dfe8fc062a4e1155a216bb8914_0"
+      "old_fingerprint": "8a1109dfe8fc062a4e1155a216bb8914_0",
+      "code_extract": "analytics.group({\\n  userId: user.id,\\n  groupId: user.job_title,\\n  traits: {},\\n});"
     }
   ]
 }"
@@ -138,7 +140,8 @@ exports[`javascript_third_parties_segment datatype_in_identify 1`] = `
       "parent_line_number": 5,
       "snippet": "analytics.identify({\\n  userId: user.id,\\n  traits: {\\n    name: user.fullName,\\n    email: user.emailAddress,\\n    plan: user.businessPlan,\\n    friends: user.friendCount\\n  }\\n})",
       "fingerprint": "df462286e9e34d817b61a361c26e8720_0",
-      "old_fingerprint": "cb032b072d0a7bcaf1ca43e2bdc2b5cb_0"
+      "old_fingerprint": "cb032b072d0a7bcaf1ca43e2bdc2b5cb_0",
+      "code_extract": "analytics.identify({\\n  userId: user.id,\\n  traits: {\\n    name: user.fullName,\\n    email: user.emailAddress,\\n    plan: user.businessPlan,\\n    friends: user.friendCount\\n  }\\n});"
     },
     {
       "cwe_ids": [
@@ -179,7 +182,8 @@ exports[`javascript_third_parties_segment datatype_in_identify 1`] = `
       "parent_line_number": 5,
       "snippet": "analytics.identify({\\n  userId: user.id,\\n  traits: {\\n    name: user.fullName,\\n    email: user.emailAddress,\\n    plan: user.businessPlan,\\n    friends: user.friendCount\\n  }\\n})",
       "fingerprint": "df462286e9e34d817b61a361c26e8720_1",
-      "old_fingerprint": "cb032b072d0a7bcaf1ca43e2bdc2b5cb_1"
+      "old_fingerprint": "cb032b072d0a7bcaf1ca43e2bdc2b5cb_1",
+      "code_extract": "analytics.identify({\\n  userId: user.id,\\n  traits: {\\n    name: user.fullName,\\n    email: user.emailAddress,\\n    plan: user.businessPlan,\\n    friends: user.friendCount\\n  }\\n});"
     },
     {
       "cwe_ids": [
@@ -220,7 +224,8 @@ exports[`javascript_third_parties_segment datatype_in_identify 1`] = `
       "parent_line_number": 5,
       "snippet": "analytics.identify({\\n  userId: user.id,\\n  traits: {\\n    name: user.fullName,\\n    email: user.emailAddress,\\n    plan: user.businessPlan,\\n    friends: user.friendCount\\n  }\\n})",
       "fingerprint": "df462286e9e34d817b61a361c26e8720_2",
-      "old_fingerprint": "cb032b072d0a7bcaf1ca43e2bdc2b5cb_2"
+      "old_fingerprint": "cb032b072d0a7bcaf1ca43e2bdc2b5cb_2",
+      "code_extract": "analytics.identify({\\n  userId: user.id,\\n  traits: {\\n    name: user.fullName,\\n    email: user.emailAddress,\\n    plan: user.businessPlan,\\n    friends: user.friendCount\\n  }\\n});"
     },
     {
       "cwe_ids": [
@@ -261,7 +266,8 @@ exports[`javascript_third_parties_segment datatype_in_identify 1`] = `
       "parent_line_number": 18,
       "snippet": "browser.identify(user.email)",
       "fingerprint": "df462286e9e34d817b61a361c26e8720_3",
-      "old_fingerprint": "cb032b072d0a7bcaf1ca43e2bdc2b5cb_3"
+      "old_fingerprint": "cb032b072d0a7bcaf1ca43e2bdc2b5cb_3",
+      "code_extract": "browser.identify(user.email)"
     }
   ]
 }"
@@ -309,7 +315,8 @@ exports[`javascript_third_parties_segment datatype_in_page 1`] = `
       "parent_line_number": 6,
       "snippet": "analytics.page({\\n  userId: customer.id,\\n  category: \\"Shopping Cart\\",\\n  properties: {\\n    path: \\"/cart/\\"+customer.bank_account_number\\n  },\\n})",
       "fingerprint": "df462286e9e34d817b61a361c26e8720_0",
-      "old_fingerprint": "95be5742a2ea59fc50223aba570b3b1f_0"
+      "old_fingerprint": "95be5742a2ea59fc50223aba570b3b1f_0",
+      "code_extract": "analytics.page({\\n  userId: customer.id,\\n  category: \\"Shopping Cart\\",\\n  properties: {\\n    path: \\"/cart/\\"+customer.bank_account_number\\n  },\\n});"
     }
   ]
 }"
@@ -356,7 +363,8 @@ exports[`javascript_third_parties_segment datatype_in_track 1`] = `
       "parent_line_number": 5,
       "snippet": "client.track({\\n  event: \\"some event name\\",\\n  userId: user.id,\\n  userIpAddr: user.ip_address,\\n})",
       "fingerprint": "df462286e9e34d817b61a361c26e8720_0",
-      "old_fingerprint": "7e3a0a37a21c50a3052b1d15f7ab8216_0"
+      "old_fingerprint": "7e3a0a37a21c50a3052b1d15f7ab8216_0",
+      "code_extract": "client.track({\\n  event: \\"some event name\\",\\n  userId: user.id,\\n  userIpAddr: user.ip_address,\\n});"
     },
     {
       "cwe_ids": [
@@ -397,7 +405,8 @@ exports[`javascript_third_parties_segment datatype_in_track 1`] = `
       "parent_line_number": 17,
       "snippet": "browser.track(user.email)",
       "fingerprint": "df462286e9e34d817b61a361c26e8720_1",
-      "old_fingerprint": "7e3a0a37a21c50a3052b1d15f7ab8216_1"
+      "old_fingerprint": "7e3a0a37a21c50a3052b1d15f7ab8216_1",
+      "code_extract": "  browser.track(user.email)"
     }
   ]
 }"

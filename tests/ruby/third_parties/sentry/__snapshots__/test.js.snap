@@ -42,7 +42,8 @@ exports[`ruby_third_parties_sentry datatype_in_breadcrumb 1`] = `
       "parent_line_number": 1,
       "snippet": "Sentry::Breadcrumb.new(\\n  category: \\"auth\\",\\n  message: \\"Authenticated user #{user.email}\\",\\n  level: \\"info\\"\\n)",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
-      "old_fingerprint": "4d76966f826e044c73acb790652187cf_0"
+      "old_fingerprint": "4d76966f826e044c73acb790652187cf_0",
+      "code_extract": "Sentry::Breadcrumb.new(\\n  category: \\"auth\\",\\n  message: \\"Authenticated user #{user.email}\\",\\n  level: \\"info\\"\\n)"
     }
   ]
 }"
@@ -90,7 +91,8 @@ exports[`ruby_third_parties_sentry datatype_in_capture_message 1`] = `
       "parent_line_number": 1,
       "snippet": "Sentry.capture_message(\\"test: #{user.email}\\")",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
-      "old_fingerprint": "3c2f97c55ef5e5b24063d839d17b8b64_0"
+      "old_fingerprint": "3c2f97c55ef5e5b24063d839d17b8b64_0",
+      "code_extract": "Sentry.capture_message(\\"test: #{user.email}\\")"
     },
     {
       "cwe_ids": [
@@ -131,7 +133,8 @@ exports[`ruby_third_parties_sentry datatype_in_capture_message 1`] = `
       "parent_line_number": 2,
       "snippet": "Sentry.capture_message(\\"test\\", extra: { email: user.email })",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_1",
-      "old_fingerprint": "3c2f97c55ef5e5b24063d839d17b8b64_1"
+      "old_fingerprint": "3c2f97c55ef5e5b24063d839d17b8b64_1",
+      "code_extract": "Sentry.capture_message(\\"test\\", extra: { email: user.email })"
     },
     {
       "cwe_ids": [
@@ -172,7 +175,8 @@ exports[`ruby_third_parties_sentry datatype_in_capture_message 1`] = `
       "parent_line_number": 3,
       "snippet": "Sentry.capture_message(\\"test\\", tags: { email: user.email })",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_2",
-      "old_fingerprint": "3c2f97c55ef5e5b24063d839d17b8b64_2"
+      "old_fingerprint": "3c2f97c55ef5e5b24063d839d17b8b64_2",
+      "code_extract": "Sentry.capture_message(\\"test\\", tags: { email: user.email })"
     },
     {
       "cwe_ids": [
@@ -213,7 +217,8 @@ exports[`ruby_third_parties_sentry datatype_in_capture_message 1`] = `
       "parent_line_number": 4,
       "snippet": "Sentry.capture_message(\\"test\\", user: { email: user.email })",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_3",
-      "old_fingerprint": "3c2f97c55ef5e5b24063d839d17b8b64_3"
+      "old_fingerprint": "3c2f97c55ef5e5b24063d839d17b8b64_3",
+      "code_extract": "Sentry.capture_message(\\"test\\", user: { email: user.email })"
     }
   ]
 }"
@@ -261,7 +266,8 @@ exports[`ruby_third_parties_sentry datatype_in_init 1`] = `
       "parent_line_number": 3,
       "snippet": "breadcrumb.message = \\"Authenticated user #{current_user.email}\\"",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
-      "old_fingerprint": "24769c14af4c1ae06c71c4f70c48f223_0"
+      "old_fingerprint": "24769c14af4c1ae06c71c4f70c48f223_0",
+      "code_extract": "    breadcrumb.message = \\"Authenticated user #{current_user.email}\\""
     }
   ]
 }"
@@ -309,7 +315,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_context 1`] = `
       "parent_line_number": 1,
       "snippet": "Sentry.set_context('email', { email: user.email })",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
-      "old_fingerprint": "0845321ca80f47fdde1a83b28f0683d0_0"
+      "old_fingerprint": "0845321ca80f47fdde1a83b28f0683d0_0",
+      "code_extract": "Sentry.set_context('email', { email: user.email })"
     },
     {
       "cwe_ids": [
@@ -350,7 +357,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_context 1`] = `
       "parent_line_number": 4,
       "snippet": "scope.set_context('email', { email: user.email })",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_1",
-      "old_fingerprint": "0845321ca80f47fdde1a83b28f0683d0_1"
+      "old_fingerprint": "0845321ca80f47fdde1a83b28f0683d0_1",
+      "code_extract": "  scope.set_context('email', { email: user.email })"
     },
     {
       "cwe_ids": [
@@ -391,7 +399,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_context 1`] = `
       "parent_line_number": 8,
       "snippet": "scope.set_context('email', { email: user.email })",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_2",
-      "old_fingerprint": "0845321ca80f47fdde1a83b28f0683d0_2"
+      "old_fingerprint": "0845321ca80f47fdde1a83b28f0683d0_2",
+      "code_extract": "  scope.set_context('email', { email: user.email })"
     }
   ]
 }"
@@ -439,7 +448,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_extra 1`] = `
       "parent_line_number": 2,
       "snippet": "scope.set_extra(:email, user.email)",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
-      "old_fingerprint": "4163555c4c0210577353d6817401f992_0"
+      "old_fingerprint": "4163555c4c0210577353d6817401f992_0",
+      "code_extract": "  scope.set_extra(:email, user.email)"
     },
     {
       "cwe_ids": [
@@ -480,7 +490,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_extra 1`] = `
       "parent_line_number": 6,
       "snippet": "scope.set_extra(:email, user.email)",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_1",
-      "old_fingerprint": "4163555c4c0210577353d6817401f992_1"
+      "old_fingerprint": "4163555c4c0210577353d6817401f992_1",
+      "code_extract": "  scope.set_extra(:email, user.email)"
     }
   ]
 }"
@@ -528,7 +539,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_extras 1`] = `
       "parent_line_number": 1,
       "snippet": "Sentry.set_extras(email: user.email)",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
-      "old_fingerprint": "bb64209db13f7e6efee7030704bd6a79_0"
+      "old_fingerprint": "bb64209db13f7e6efee7030704bd6a79_0",
+      "code_extract": "Sentry.set_extras(email: user.email)"
     },
     {
       "cwe_ids": [
@@ -569,7 +581,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_extras 1`] = `
       "parent_line_number": 4,
       "snippet": "scope.set_extras(email: user.email)",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_1",
-      "old_fingerprint": "bb64209db13f7e6efee7030704bd6a79_1"
+      "old_fingerprint": "bb64209db13f7e6efee7030704bd6a79_1",
+      "code_extract": "  scope.set_extras(email: user.email)"
     },
     {
       "cwe_ids": [
@@ -610,7 +623,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_extras 1`] = `
       "parent_line_number": 8,
       "snippet": "scope.set_extras(email: user.email)",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_2",
-      "old_fingerprint": "bb64209db13f7e6efee7030704bd6a79_2"
+      "old_fingerprint": "bb64209db13f7e6efee7030704bd6a79_2",
+      "code_extract": "  scope.set_extras(email: user.email)"
     }
   ]
 }"
@@ -658,7 +672,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_tag 1`] = `
       "parent_line_number": 2,
       "snippet": "scope.set_tag(:email, user.email)",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
-      "old_fingerprint": "27473785f9a7671e3c695e3aaf6eec03_0"
+      "old_fingerprint": "27473785f9a7671e3c695e3aaf6eec03_0",
+      "code_extract": "  scope.set_tag(:email, user.email)"
     },
     {
       "cwe_ids": [
@@ -699,7 +714,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_tag 1`] = `
       "parent_line_number": 6,
       "snippet": "scope.set_tag(:email, user.email)",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_1",
-      "old_fingerprint": "27473785f9a7671e3c695e3aaf6eec03_1"
+      "old_fingerprint": "27473785f9a7671e3c695e3aaf6eec03_1",
+      "code_extract": "  scope.set_tag(:email, user.email)"
     }
   ]
 }"
@@ -747,7 +763,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_tags 1`] = `
       "parent_line_number": 1,
       "snippet": "Sentry.set_tags(email: user.email)",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
-      "old_fingerprint": "cbd4d2dff7310acca4439378d7da6a6b_0"
+      "old_fingerprint": "cbd4d2dff7310acca4439378d7da6a6b_0",
+      "code_extract": "Sentry.set_tags(email: user.email)"
     },
     {
       "cwe_ids": [
@@ -788,7 +805,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_tags 1`] = `
       "parent_line_number": 4,
       "snippet": "scope.set_tags(email: user.email)",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_1",
-      "old_fingerprint": "cbd4d2dff7310acca4439378d7da6a6b_1"
+      "old_fingerprint": "cbd4d2dff7310acca4439378d7da6a6b_1",
+      "code_extract": "  scope.set_tags(email: user.email)"
     },
     {
       "cwe_ids": [
@@ -829,7 +847,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_tags 1`] = `
       "parent_line_number": 8,
       "snippet": "scope.set_tags(email: user.email)",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_2",
-      "old_fingerprint": "cbd4d2dff7310acca4439378d7da6a6b_2"
+      "old_fingerprint": "cbd4d2dff7310acca4439378d7da6a6b_2",
+      "code_extract": "  scope.set_tags(email: user.email)"
     }
   ]
 }"
@@ -877,7 +896,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_user 1`] = `
       "parent_line_number": 3,
       "snippet": "Sentry.set_user(email: user.email)",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_0",
-      "old_fingerprint": "f6f7da2d92578b32e57b3e3ef1f8e638_0"
+      "old_fingerprint": "f6f7da2d92578b32e57b3e3ef1f8e638_0",
+      "code_extract": "Sentry.set_user(email: user.email)"
     },
     {
       "cwe_ids": [
@@ -918,7 +938,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_user 1`] = `
       "parent_line_number": 6,
       "snippet": "scope.set_user(email: user.email)",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_1",
-      "old_fingerprint": "f6f7da2d92578b32e57b3e3ef1f8e638_1"
+      "old_fingerprint": "f6f7da2d92578b32e57b3e3ef1f8e638_1",
+      "code_extract": "  scope.set_user(email: user.email)"
     },
     {
       "cwe_ids": [
@@ -959,7 +980,8 @@ exports[`ruby_third_parties_sentry datatype_in_set_user 1`] = `
       "parent_line_number": 10,
       "snippet": "scope.set_user(email: user.email)",
       "fingerprint": "5d8b2ba735b43a85c387bc0d7f2d4226_2",
-      "old_fingerprint": "f6f7da2d92578b32e57b3e3ef1f8e638_2"
+      "old_fingerprint": "f6f7da2d92578b32e57b3e3ef1f8e638_2",
+      "code_extract": "  scope.set_user(email: user.email)"
     }
   ]
 }"

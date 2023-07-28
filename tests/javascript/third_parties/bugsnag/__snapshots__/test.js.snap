@@ -42,7 +42,8 @@ exports[`javascript_third_parties_bugsnag datatype_in_breadcrumb 1`] = `
       "parent_line_number": 1,
       "snippet": "Bugsnag.leaveBreadcrumb(user.email)",
       "fingerprint": "4ed64b524e1062cd19e85082c56d7357_0",
-      "old_fingerprint": "9717161f6e1f94bbd3de51f7be3b004f_0"
+      "old_fingerprint": "9717161f6e1f94bbd3de51f7be3b004f_0",
+      "code_extract": "Bugsnag.leaveBreadcrumb(user.email)"
     }
   ]
 }"
@@ -89,7 +90,8 @@ exports[`javascript_third_parties_bugsnag datatype_in_notify 1`] = `
       "parent_line_number": 5,
       "snippet": "Bugsnag.notify(user.ip_address + \\" : \\" + e)",
       "fingerprint": "4ed64b524e1062cd19e85082c56d7357_0",
-      "old_fingerprint": "2600f103b2022b74b701bf181d930726_0"
+      "old_fingerprint": "2600f103b2022b74b701bf181d930726_0",
+      "code_extract": "    Bugsnag.notify(user.ip_address + \\" : \\" + e)"
     }
   ]
 }"
@@ -137,7 +139,8 @@ exports[`javascript_third_parties_bugsnag datatype_in_session 1`] = `
       "parent_line_number": 4,
       "snippet": "bugSession.notify(user.email)",
       "fingerprint": "4ed64b524e1062cd19e85082c56d7357_0",
-      "old_fingerprint": "f9b5504b668494291b95b2caaaea43a7_0"
+      "old_fingerprint": "f9b5504b668494291b95b2caaaea43a7_0",
+      "code_extract": "bugSession.notify(user.email)"
     }
   ]
 }"
@@ -185,7 +188,8 @@ exports[`javascript_third_parties_bugsnag datatype_in_start 1`] = `
       "parent_line_number": 1,
       "snippet": "Bugsnag.start({\\n  onError: function (e) {\\n    e.setUser(user.id, user.email, user.name)\\n    e.addMetadata('user location', {\\n      country: user.home_country,\\n    })\\n  },\\n  onSession: function (session) {\\n    session.setUser(user.email)\\n  }\\n})",
       "fingerprint": "4ed64b524e1062cd19e85082c56d7357_0",
-      "old_fingerprint": "16c296d0999c2d095505c981bdb4e7df_0"
+      "old_fingerprint": "16c296d0999c2d095505c981bdb4e7df_0",
+      "code_extract": "Bugsnag.start({\\n  onError: function (e) {\\n    e.setUser(user.id, user.email, user.name)\\n    e.addMetadata('user location', {\\n      country: user.home_country,\\n    })\\n  },\\n  onSession: function (session) {\\n    session.setUser(user.email)\\n  }\\n})"
     },
     {
       "cwe_ids": [
@@ -226,7 +230,8 @@ exports[`javascript_third_parties_bugsnag datatype_in_start 1`] = `
       "parent_line_number": 1,
       "snippet": "Bugsnag.start({\\n  onError: function (e) {\\n    e.setUser(user.id, user.email, user.name)\\n    e.addMetadata('user location', {\\n      country: user.home_country,\\n    })\\n  },\\n  onSession: function (session) {\\n    session.setUser(user.email)\\n  }\\n})",
       "fingerprint": "4ed64b524e1062cd19e85082c56d7357_2",
-      "old_fingerprint": "16c296d0999c2d095505c981bdb4e7df_2"
+      "old_fingerprint": "16c296d0999c2d095505c981bdb4e7df_2",
+      "code_extract": "Bugsnag.start({\\n  onError: function (e) {\\n    e.setUser(user.id, user.email, user.name)\\n    e.addMetadata('user location', {\\n      country: user.home_country,\\n    })\\n  },\\n  onSession: function (session) {\\n    session.setUser(user.email)\\n  }\\n})"
     },
     {
       "cwe_ids": [
@@ -267,7 +272,8 @@ exports[`javascript_third_parties_bugsnag datatype_in_start 1`] = `
       "parent_line_number": 1,
       "snippet": "Bugsnag.start({\\n  onError: function (e) {\\n    e.setUser(user.id, user.email, user.name)\\n    e.addMetadata('user location', {\\n      country: user.home_country,\\n    })\\n  },\\n  onSession: function (session) {\\n    session.setUser(user.email)\\n  }\\n})",
       "fingerprint": "4ed64b524e1062cd19e85082c56d7357_3",
-      "old_fingerprint": "16c296d0999c2d095505c981bdb4e7df_3"
+      "old_fingerprint": "16c296d0999c2d095505c981bdb4e7df_3",
+      "code_extract": "Bugsnag.start({\\n  onError: function (e) {\\n    e.setUser(user.id, user.email, user.name)\\n    e.addMetadata('user location', {\\n      country: user.home_country,\\n    })\\n  },\\n  onSession: function (session) {\\n    session.setUser(user.email)\\n  }\\n})"
     }
   ]
 }"

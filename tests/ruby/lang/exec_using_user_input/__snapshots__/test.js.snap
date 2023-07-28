@@ -36,7 +36,8 @@ exports[`ruby_lang_exec_using_user_input unsafe_shell 1`] = `
       "parent_line_number": 3,
       "snippet": "Shell.alias_command(\\"foo\\", params[:oops]) {}",
       "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_0",
-      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_0"
+      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_0",
+      "code_extract": "Shell.alias_command(\\"foo\\", params[:oops]) {}"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`ruby_lang_exec_using_user_input unsafe_shell 1`] = `
       "parent_line_number": 4,
       "snippet": "Shell::CommandProcessor.alias_command(x, \\"/bin/#{params[:oops]}\\") {}",
       "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_1",
-      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_1"
+      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_1",
+      "code_extract": "Shell::CommandProcessor.alias_command(x, \\"/bin/#{params[:oops]}\\") {}"
     },
     {
       "cwe_ids": [
@@ -102,7 +104,8 @@ exports[`ruby_lang_exec_using_user_input unsafe_shell 1`] = `
       "parent_line_number": 6,
       "snippet": "Shell.def_system_command(\\"foo\\", \\"bar\\", params[:oops]) {}",
       "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_2",
-      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_2"
+      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_2",
+      "code_extract": "Shell.def_system_command(\\"foo\\", \\"bar\\", params[:oops]) {}"
     },
     {
       "cwe_ids": [
@@ -135,7 +138,8 @@ exports[`ruby_lang_exec_using_user_input unsafe_shell 1`] = `
       "parent_line_number": 7,
       "snippet": "Shell::CommandProcessor.def_system_command(\\"foo\\", params[:oops]) {}",
       "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_3",
-      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_3"
+      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_3",
+      "code_extract": "Shell::CommandProcessor.def_system_command(\\"foo\\", params[:oops]) {}"
     },
     {
       "cwe_ids": [
@@ -168,7 +172,8 @@ exports[`ruby_lang_exec_using_user_input unsafe_shell 1`] = `
       "parent_line_number": 12,
       "snippet": "processor1.system(params[:oops])",
       "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_4",
-      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_4"
+      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_4",
+      "code_extract": "processor1.system(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -201,7 +206,8 @@ exports[`ruby_lang_exec_using_user_input unsafe_shell 1`] = `
       "parent_line_number": 15,
       "snippet": "processor2.system(x, params[:oops])",
       "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_5",
-      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_5"
+      "old_fingerprint": "d5d77ec79802deec0bde434dd425a000_5",
+      "code_extract": "processor2.system(x, params[:oops])"
     }
   ]
 }"
@@ -241,7 +247,8 @@ exports[`ruby_lang_exec_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 3,
       "snippet": "Kernel.exec(params[:oops])",
       "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_0",
-      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_0"
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_0",
+      "code_extract": "Kernel.exec(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -274,7 +281,8 @@ exports[`ruby_lang_exec_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 5,
       "snippet": "spawn(params[:oops])",
       "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_1",
-      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_1"
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_1",
+      "code_extract": "spawn(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -307,7 +315,8 @@ exports[`ruby_lang_exec_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 7,
       "snippet": "IO.popen(params[:oops]) {}",
       "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_2",
-      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_2"
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_2",
+      "code_extract": "IO.popen(params[:oops]) {}"
     },
     {
       "cwe_ids": [
@@ -340,7 +349,8 @@ exports[`ruby_lang_exec_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 9,
       "snippet": "Process.exec(params[:oops])",
       "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_3",
-      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_3"
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_3",
+      "code_extract": "Process.exec(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -373,7 +383,8 @@ exports[`ruby_lang_exec_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 11,
       "snippet": "Open3.popen3([\\"cmd\\", params[:oops]], \\"abc\\") {}",
       "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_4",
-      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_4"
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_4",
+      "code_extract": "Open3.popen3([\\"cmd\\", params[:oops]], \\"abc\\") {}"
     },
     {
       "cwe_ids": [
@@ -406,7 +417,8 @@ exports[`ruby_lang_exec_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 13,
       "snippet": "Gem::Util.silent_system(x, params[:oops])",
       "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_5",
-      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_5"
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_5",
+      "code_extract": "Gem::Util.silent_system(x, params[:oops])"
     },
     {
       "cwe_ids": [
@@ -439,7 +451,8 @@ exports[`ruby_lang_exec_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 15,
       "snippet": "PTY.spawn(\\"/bin/#{params[:oops]}\\") {}",
       "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_6",
-      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_6"
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_6",
+      "code_extract": "PTY.spawn(\\"/bin/#{params[:oops]}\\") {}"
     },
     {
       "cwe_ids": [
@@ -472,7 +485,8 @@ exports[`ruby_lang_exec_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 17,
       "snippet": "%x{/bin/#{params[:oops]}}",
       "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_7",
-      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_7"
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_7",
+      "code_extract": "%x{/bin/#{params[:oops]}}"
     },
     {
       "cwe_ids": [
@@ -505,7 +519,8 @@ exports[`ruby_lang_exec_using_user_input unsafe_stdlib 1`] = `
       "parent_line_number": 19,
       "snippet": "\`/bin/#{params[:oops]}\`",
       "fingerprint": "1c074b69a64b914d2a6310c63c4eed91_8",
-      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_8"
+      "old_fingerprint": "ada7788f45576ced09365f4f94c716b7_8",
+      "code_extract": "\`/bin/#{params[:oops]}\`"
     }
   ]
 }"

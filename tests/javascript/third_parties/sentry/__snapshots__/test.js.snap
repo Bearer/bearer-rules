@@ -42,7 +42,8 @@ exports[`javascript_third_parties_sentry javascript_add_breadcrumb 1`] = `
       "parent_line_number": 1,
       "snippet": "Sentry.addBreadcrumb({\\n  message: \`my message for \${user.email}\`,\\n  // ...\\n})",
       "fingerprint": "af49328f7c7aa692f05a50dc6ccda334_0",
-      "old_fingerprint": "d7d709503374e3bf595da3e08eeceec4_0"
+      "old_fingerprint": "d7d709503374e3bf595da3e08eeceec4_0",
+      "code_extract": "Sentry.addBreadcrumb({\\n  message: \`my message for \${user.email}\`,\\n  // ...\\n})"
     }
   ]
 }"
@@ -90,7 +91,8 @@ exports[`javascript_third_parties_sentry javascript_capture_event 1`] = `
       "parent_line_number": 1,
       "snippet": "Sentry.captureEvent({\\n  message: \\"user successfully logged in \\" + current_user.email,\\n  stacktrace: [\\n    // ...\\n  ],\\n})",
       "fingerprint": "af49328f7c7aa692f05a50dc6ccda334_0",
-      "old_fingerprint": "9255d3182ae19e404031e6003bf5aab4_0"
+      "old_fingerprint": "9255d3182ae19e404031e6003bf5aab4_0",
+      "code_extract": "Sentry.captureEvent({\\n  message: \\"user successfully logged in \\" + current_user.email,\\n  stacktrace: [\\n    // ...\\n  ],\\n})"
     }
   ]
 }"
@@ -138,7 +140,8 @@ exports[`javascript_third_parties_sentry javascript_capture_exception 1`] = `
       "parent_line_number": 1,
       "snippet": "Sentry.captureException(\\n  new Error(\`user \${current_user.email} couldn't log in!\`)\\n)",
       "fingerprint": "af49328f7c7aa692f05a50dc6ccda334_0",
-      "old_fingerprint": "0c0f755f6e40eb8e1d15b1b1b1441d37_0"
+      "old_fingerprint": "0c0f755f6e40eb8e1d15b1b1b1441d37_0",
+      "code_extract": "Sentry.captureException(\\n  new Error(\`user \${current_user.email} couldn't log in!\`)\\n)"
     }
   ]
 }"
@@ -186,7 +189,8 @@ exports[`javascript_third_parties_sentry javascript_capture_message 1`] = `
       "parent_line_number": 1,
       "snippet": "Sentry.captureMessage(\\"User has successfully signed in \\" + current_user.email)",
       "fingerprint": "af49328f7c7aa692f05a50dc6ccda334_0",
-      "old_fingerprint": "c0d18affe729b0be031a2c99547bb92d_0"
+      "old_fingerprint": "c0d18affe729b0be031a2c99547bb92d_0",
+      "code_extract": "Sentry.captureMessage(\\"User has successfully signed in \\" + current_user.email)"
     }
   ]
 }"
@@ -234,7 +238,8 @@ exports[`javascript_third_parties_sentry javascript_configure_scope_set_extra 1`
       "parent_line_number": 2,
       "snippet": "scope.setExtra(\\"email\\", user.email)",
       "fingerprint": "af49328f7c7aa692f05a50dc6ccda334_0",
-      "old_fingerprint": "7fa6f199e6bdbd6a051494d9ee166320_0"
+      "old_fingerprint": "7fa6f199e6bdbd6a051494d9ee166320_0",
+      "code_extract": "\\tscope.setExtra(\\"email\\", user.email);"
     }
   ]
 }"
@@ -282,7 +287,8 @@ exports[`javascript_third_parties_sentry javascript_configure_scope_set_tag 1`] 
       "parent_line_number": 2,
       "snippet": "scope.setTag(\\"user_email\\", user.email)",
       "fingerprint": "af49328f7c7aa692f05a50dc6ccda334_0",
-      "old_fingerprint": "f3c682baa6ac5bd21f56c4f06348fe75_0"
+      "old_fingerprint": "f3c682baa6ac5bd21f56c4f06348fe75_0",
+      "code_extract": "  scope.setTag(\\"user_email\\", user.email)"
     }
   ]
 }"
@@ -330,7 +336,8 @@ exports[`javascript_third_parties_sentry javascript_configure_scope_set_user 1`]
       "parent_line_number": 2,
       "snippet": "scope.setUser({ email: user.email })",
       "fingerprint": "af49328f7c7aa692f05a50dc6ccda334_0",
-      "old_fingerprint": "9a4f46bec10157052d7e2ca15329cd45_0"
+      "old_fingerprint": "9a4f46bec10157052d7e2ca15329cd45_0",
+      "code_extract": "  scope.setUser({ email: user.email })"
     }
   ]
 }"

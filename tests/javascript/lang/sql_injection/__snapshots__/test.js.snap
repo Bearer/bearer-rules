@@ -34,7 +34,8 @@ exports[`javascript_lang_sql_injection knex_sql_injection 1`] = `
       "parent_line_number": 6,
       "snippet": "knex\\n\\t\\t.select(\\"user.cart_details\\")\\n\\t\\t.from(\\"users\\")\\n\\t\\t.whereRaw(\\"name = \\" + req.query.user.name)",
       "fingerprint": "e729d82176c9ebea695fa6b6a606960b_0",
-      "old_fingerprint": "880f4c9c37375e6b5f2109ca0c19d16d_0"
+      "old_fingerprint": "880f4c9c37375e6b5f2109ca0c19d16d_0",
+      "code_extract": "\\tvar cartDetails = knex\\n\\t\\t.select(\\"user.cart_details\\")\\n\\t\\t.from(\\"users\\")\\n\\t\\t.whereRaw(\\"name = \\" + req.query.user.name);"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`javascript_lang_sql_injection knex_sql_injection 1`] = `
       "parent_line_number": 15,
       "snippet": "knex.select('user.cart_details')\\n\\t\\t.from('users')\\n\\t\\t.whereRaw('name = ' + event.user.name)",
       "fingerprint": "e729d82176c9ebea695fa6b6a606960b_1",
-      "old_fingerprint": "880f4c9c37375e6b5f2109ca0c19d16d_1"
+      "old_fingerprint": "880f4c9c37375e6b5f2109ca0c19d16d_1",
+      "code_extract": "\\tvar cartDetails = knex.select('user.cart_details')\\n\\t\\t.from('users')\\n\\t\\t.whereRaw('name = ' + event.user.name)"
     }
   ]
 }"
@@ -107,7 +109,8 @@ exports[`javascript_lang_sql_injection mysql2_sql_injection 1`] = `
       "parent_line_number": 12,
       "snippet": "connection.query(\\n\\t\\t\\"SELECT * FROM \`user\` WHERE name = \\" + req.params.customer.name\\n\\t)",
       "fingerprint": "e729d82176c9ebea695fa6b6a606960b_0",
-      "old_fingerprint": "e9eeaa250a67e5508b60f1fb3f8d50cc_0"
+      "old_fingerprint": "e9eeaa250a67e5508b60f1fb3f8d50cc_0",
+      "code_extract": "\\tconnection.query(\\n\\t\\t\\"SELECT * FROM \`user\` WHERE name = \\" + req.params.customer.name\\n\\t);"
     },
     {
       "cwe_ids": [
@@ -140,7 +143,8 @@ exports[`javascript_lang_sql_injection mysql2_sql_injection 1`] = `
       "parent_line_number": 18,
       "snippet": "pool.query(\\n\\t\\t\\"SELECT * FROM users WHERE name = \\" + req.params.user_name,\\n\\t\\tfunction () {}\\n\\t)",
       "fingerprint": "e729d82176c9ebea695fa6b6a606960b_1",
-      "old_fingerprint": "e9eeaa250a67e5508b60f1fb3f8d50cc_1"
+      "old_fingerprint": "e9eeaa250a67e5508b60f1fb3f8d50cc_1",
+      "code_extract": "\\tpool.query(\\n\\t\\t\\"SELECT * FROM users WHERE name = \\" + req.params.user_name,\\n\\t\\tfunction () {}\\n\\t);"
     },
     {
       "cwe_ids": [
@@ -173,7 +177,8 @@ exports[`javascript_lang_sql_injection mysql2_sql_injection 1`] = `
       "parent_line_number": 23,
       "snippet": "conn.query(\\"SELECT * FROM users WHERE name = \\" + req.params.user_name, function () {})",
       "fingerprint": "e729d82176c9ebea695fa6b6a606960b_2",
-      "old_fingerprint": "e9eeaa250a67e5508b60f1fb3f8d50cc_2"
+      "old_fingerprint": "e9eeaa250a67e5508b60f1fb3f8d50cc_2",
+      "code_extract": "\\t\\tconn.query(\\"SELECT * FROM users WHERE name = \\" + req.params.user_name, function () {});"
     }
   ]
 }"
@@ -215,7 +220,8 @@ exports[`javascript_lang_sql_injection pg_sql_injection 1`] = `
       "parent_line_number": 8,
       "snippet": "client.query(\\n\\t\\t\\"SELECT * FROM users WHERE user.name = \\" + req.params.user.name\\n\\t)",
       "fingerprint": "e729d82176c9ebea695fa6b6a606960b_0",
-      "old_fingerprint": "bc5d3f2f841878afc5a8115d2888f3a8_0"
+      "old_fingerprint": "bc5d3f2f841878afc5a8115d2888f3a8_0",
+      "code_extract": "\\tvar user = client.query(\\n\\t\\t\\"SELECT * FROM users WHERE user.name = \\" + req.params.user.name\\n\\t);"
     }
   ]
 }"
@@ -255,7 +261,8 @@ exports[`javascript_lang_sql_injection sequelize_sql_injection 1`] = `
       "parent_line_number": 7,
       "snippet": "sqlite.query(customerQuery)",
       "fingerprint": "e729d82176c9ebea695fa6b6a606960b_0",
-      "old_fingerprint": "f1d2ee2aa33151125a649885d538997b_0"
+      "old_fingerprint": "f1d2ee2aa33151125a649885d538997b_0",
+      "code_extract": "\\tsqlite.query(customerQuery);"
     }
   ]
 }"
@@ -295,7 +302,8 @@ exports[`javascript_lang_sql_injection sql_injection_juice 1`] = `
       "parent_line_number": 4,
       "snippet": "models.sequelize\\n        .query(\\n          \`SELECT * FROM Users WHERE email = '\${\\n            req.body.email || \\"\\"\\n          }' AND password = '\${security.hash(\\n            req.body.password || \\"\\"\\n          )}' AND deletedAt IS NULL\`,\\n          { model: UserModel, plain: true }\\n        )",
       "fingerprint": "e729d82176c9ebea695fa6b6a606960b_0",
-      "old_fingerprint": "6d3311960dc20256573ff2fbab5a8b1e_0"
+      "old_fingerprint": "6d3311960dc20256573ff2fbab5a8b1e_0",
+      "code_extract": "      models.sequelize\\n        .query(\\n          \`SELECT * FROM Users WHERE email = '\${\\n            ...omitted (buffer value 3)\\n          )}' AND deletedAt IS NULL\`,\\n          { model: UserModel, plain: true }\\n        )"
     }
   ]
 }"

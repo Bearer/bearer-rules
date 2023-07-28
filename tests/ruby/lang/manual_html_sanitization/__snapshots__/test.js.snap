@@ -36,7 +36,8 @@ exports[`ruby_lang_manual_html_sanitization unsafe 1`] = `
       "parent_line_number": 1,
       "snippet": "user.Input\\n  .gsub('<', '&lt;')\\n  .gsub('>', '&gt;')",
       "fingerprint": "2a5444c188b207201b5ce8c74ed321fe_0",
-      "old_fingerprint": "dd0ed0b0b63f9147a628422412658b4c_0"
+      "old_fingerprint": "dd0ed0b0b63f9147a628422412658b4c_0",
+      "code_extract": "sanitized_user_input = user.Input\\n  .gsub('<', '&lt;')\\n  .gsub('>', '&gt;')"
     }
   ]
 }"

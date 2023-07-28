@@ -36,7 +36,8 @@ exports[`javascript_express_external_file_upload send_file_with_external_input 1
       "parent_line_number": 12,
       "snippet": "res.sendFile(file)",
       "fingerprint": "f39779a929c915fb55fa930e548d6d6f_0",
-      "old_fingerprint": "810bde41a13d23d020b32bc1302aa56f_0"
+      "old_fingerprint": "810bde41a13d23d020b32bc1302aa56f_0",
+      "code_extract": "  res.sendFile(file)"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`javascript_express_external_file_upload send_file_with_external_input 1
       "parent_line_number": 13,
       "snippet": "res.sendFile(path.resolve(file))",
       "fingerprint": "f39779a929c915fb55fa930e548d6d6f_1",
-      "old_fingerprint": "810bde41a13d23d020b32bc1302aa56f_1"
+      "old_fingerprint": "810bde41a13d23d020b32bc1302aa56f_1",
+      "code_extract": "  res.sendFile(path.resolve(file))"
     },
     {
       "cwe_ids": [
@@ -102,7 +104,8 @@ exports[`javascript_express_external_file_upload send_file_with_external_input 1
       "parent_line_number": 14,
       "snippet": "res.sendFile(req.params.file, {}, () => {})",
       "fingerprint": "f39779a929c915fb55fa930e548d6d6f_2",
-      "old_fingerprint": "810bde41a13d23d020b32bc1302aa56f_2"
+      "old_fingerprint": "810bde41a13d23d020b32bc1302aa56f_2",
+      "code_extract": "  res.sendFile(req.params.file, {}, () => {})"
     },
     {
       "cwe_ids": [
@@ -135,7 +138,8 @@ exports[`javascript_express_external_file_upload send_file_with_external_input 1
       "parent_line_number": 15,
       "snippet": "res.sendFile(\\"file.txt\\", { root: path.join(__dirname, req.params.root) })",
       "fingerprint": "f39779a929c915fb55fa930e548d6d6f_3",
-      "old_fingerprint": "810bde41a13d23d020b32bc1302aa56f_3"
+      "old_fingerprint": "810bde41a13d23d020b32bc1302aa56f_3",
+      "code_extract": "  res.sendFile(\\"file.txt\\", { root: path.join(__dirname, req.params.root) })"
     }
   ]
 }"

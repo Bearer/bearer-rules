@@ -34,7 +34,8 @@ exports[`ruby_lang_hardcoded_secret bad 1`] = `
       "parent_line_number": 2,
       "snippet": "PASSWORD = pw",
       "fingerprint": "09d1f2784824ed137c7c0e9630818ed5_0",
-      "old_fingerprint": "76b07107c16660c43ef4b5e327a8440c_0"
+      "old_fingerprint": "76b07107c16660c43ef4b5e327a8440c_0",
+      "code_extract": "PASSWORD = pw"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`ruby_lang_hardcoded_secret bad 1`] = `
       "parent_line_number": 4,
       "snippet": "api_key: \\"oops\\"",
       "fingerprint": "09d1f2784824ed137c7c0e9630818ed5_1",
-      "old_fingerprint": "76b07107c16660c43ef4b5e327a8440c_1"
+      "old_fingerprint": "76b07107c16660c43ef4b5e327a8440c_1",
+      "code_extract": "call(api_key: \\"oops\\")"
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`ruby_lang_hardcoded_secret bad 1`] = `
       "parent_line_number": 6,
       "snippet": "\\"secret\\" => \\"oops\\"",
       "fingerprint": "09d1f2784824ed137c7c0e9630818ed5_2",
-      "old_fingerprint": "76b07107c16660c43ef4b5e327a8440c_2"
+      "old_fingerprint": "76b07107c16660c43ef4b5e327a8440c_2",
+      "code_extract": "call(\\"secret\\" => \\"oops\\")"
     },
     {
       "cwe_ids": [
@@ -133,7 +136,8 @@ exports[`ruby_lang_hardcoded_secret bad 1`] = `
       "parent_line_number": 8,
       "snippet": "API_KEY: \\"oops\\"",
       "fingerprint": "09d1f2784824ed137c7c0e9630818ed5_3",
-      "old_fingerprint": "76b07107c16660c43ef4b5e327a8440c_3"
+      "old_fingerprint": "76b07107c16660c43ef4b5e327a8440c_3",
+      "code_extract": "{ API_KEY: \\"oops\\" }"
     },
     {
       "cwe_ids": [
@@ -166,7 +170,8 @@ exports[`ruby_lang_hardcoded_secret bad 1`] = `
       "parent_line_number": 10,
       "snippet": "\\"secret\\" => \\"oops\\"",
       "fingerprint": "09d1f2784824ed137c7c0e9630818ed5_4",
-      "old_fingerprint": "76b07107c16660c43ef4b5e327a8440c_4"
+      "old_fingerprint": "76b07107c16660c43ef4b5e327a8440c_4",
+      "code_extract": "{ \\"secret\\" => \\"oops\\" }"
     }
   ]
 }"

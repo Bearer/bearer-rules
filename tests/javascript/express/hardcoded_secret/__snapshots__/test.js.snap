@@ -34,7 +34,8 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_jwt 1`] = `
       "parent_line_number": 14,
       "snippet": "expressjwt({ secret: \\"my-hardcoded-secret\\" })",
       "fingerprint": "1cfb7760604e7cc75fe776199e231fb6_0",
-      "old_fingerprint": "2c914a536f4a4f72a15ad382685fd5ef_0"
+      "old_fingerprint": "2c914a536f4a4f72a15ad382685fd5ef_0",
+      "code_extract": "  expressjwt({ secret: \\"my-hardcoded-secret\\" }),"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_jwt 1`] = `
       "parent_line_number": 22,
       "snippet": "jwt.sign({ x: 42 }, secret, y)",
       "fingerprint": "1cfb7760604e7cc75fe776199e231fb6_1",
-      "old_fingerprint": "2c914a536f4a4f72a15ad382685fd5ef_1"
+      "old_fingerprint": "2c914a536f4a4f72a15ad382685fd5ef_1",
+      "code_extract": "jwt.sign({ x: 42 }, secret, y)"
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_jwt 1`] = `
       "parent_line_number": 24,
       "snippet": "jwt2({ secret: secret })",
       "fingerprint": "1cfb7760604e7cc75fe776199e231fb6_2",
-      "old_fingerprint": "2c914a536f4a4f72a15ad382685fd5ef_2"
+      "old_fingerprint": "2c914a536f4a4f72a15ad382685fd5ef_2",
+      "code_extract": "app.get(\\"/bad-2\\", jwt2({ secret: secret }), function (_req, res) {"
     },
     {
       "cwe_ids": [
@@ -133,7 +136,8 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_jwt 1`] = `
       "parent_line_number": 29,
       "snippet": "foo({ x: 42 }, secret)",
       "fingerprint": "1cfb7760604e7cc75fe776199e231fb6_3",
-      "old_fingerprint": "2c914a536f4a4f72a15ad382685fd5ef_3"
+      "old_fingerprint": "2c914a536f4a4f72a15ad382685fd5ef_3",
+      "code_extract": "foo({ x: 42 }, secret)"
     },
     {
       "cwe_ids": [
@@ -166,7 +170,8 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_jwt 1`] = `
       "parent_line_number": 32,
       "snippet": "sign({ x: 42 }, secret)",
       "fingerprint": "1cfb7760604e7cc75fe776199e231fb6_4",
-      "old_fingerprint": "2c914a536f4a4f72a15ad382685fd5ef_4"
+      "old_fingerprint": "2c914a536f4a4f72a15ad382685fd5ef_4",
+      "code_extract": "sign({ x: 42 }, secret)"
     },
     {
       "cwe_ids": [
@@ -199,7 +204,8 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_jwt 1`] = `
       "parent_line_number": 37,
       "snippet": "expressjwt2({ secret: \\"my-hardcoded-secret\\" })",
       "fingerprint": "1cfb7760604e7cc75fe776199e231fb6_5",
-      "old_fingerprint": "2c914a536f4a4f72a15ad382685fd5ef_5"
+      "old_fingerprint": "2c914a536f4a4f72a15ad382685fd5ef_5",
+      "code_extract": "  expressjwt2({ secret: \\"my-hardcoded-secret\\" }),"
     }
   ]
 }"
@@ -239,7 +245,8 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_session 1`] = `
       "parent_line_number": 12,
       "snippet": "session({\\n    name: \\"my-custom-session-name\\",\\n    secret: \\"my-hardcoded-secret\\",\\n  })",
       "fingerprint": "1cfb7760604e7cc75fe776199e231fb6_0",
-      "old_fingerprint": "d7b3e3dde37854840dd24e2179af6ca9_0"
+      "old_fingerprint": "d7b3e3dde37854840dd24e2179af6ca9_0",
+      "code_extract": "  session({\\n    name: \\"my-custom-session-name\\",\\n    secret: \\"my-hardcoded-secret\\",\\n  })"
     },
     {
       "cwe_ids": [
@@ -272,7 +279,8 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_session 1`] = `
       "parent_line_number": 23,
       "snippet": "session(sessionConfig)",
       "fingerprint": "1cfb7760604e7cc75fe776199e231fb6_1",
-      "old_fingerprint": "d7b3e3dde37854840dd24e2179af6ca9_1"
+      "old_fingerprint": "d7b3e3dde37854840dd24e2179af6ca9_1",
+      "code_extract": "app.use(session(sessionConfig))"
     }
   ]
 }"

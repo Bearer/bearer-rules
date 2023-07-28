@@ -34,7 +34,8 @@ exports[`javascript_lang_regex_using_user_input bad 1`] = `
       "parent_line_number": 1,
       "snippet": "new RegExp(\`abc\${req.params.oops}\`, 'i')",
       "fingerprint": "042322614661c2cfbb59c697536202e3_0",
-      "old_fingerprint": "66dbf3e2c520e0f438bfcf2747cbfe29_0"
+      "old_fingerprint": "66dbf3e2c520e0f438bfcf2747cbfe29_0",
+      "code_extract": "new RegExp(\`abc\${req.params.oops}\`, 'i')"
     }
   ]
 }"

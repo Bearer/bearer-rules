@@ -37,7 +37,8 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
       "parent_line_number": 2,
       "snippet": "Dir[\\"foo\\", base: event[\\"oops\\"]]",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_0",
-      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_0"
+      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_0",
+      "code_extract": "  Dir[\\"foo\\", base: event[\\"oops\\"]]"
     },
     {
       "cwe_ids": [
@@ -71,7 +72,8 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
       "parent_line_number": 4,
       "snippet": "Dir.chdir(\\"/home/#{event[\\"oops\\"]}\\")",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_1",
-      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_1"
+      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_1",
+      "code_extract": "  Dir.chdir(\\"/home/#{event[\\"oops\\"]}\\")"
     },
     {
       "cwe_ids": [
@@ -105,7 +107,8 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
       "parent_line_number": 6,
       "snippet": "File.exist?(event[\\"oops\\"])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_2",
-      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_2"
+      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_2",
+      "code_extract": "  File.exist?(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -139,7 +142,8 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
       "parent_line_number": 8,
       "snippet": "IO.readlines(\\"/home/#{event[\\"oops\\"]}\\")",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_3",
-      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_3"
+      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_3",
+      "code_extract": "  IO.readlines(\\"/home/#{event[\\"oops\\"]}\\")"
     },
     {
       "cwe_ids": [
@@ -173,7 +177,8 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
       "parent_line_number": 10,
       "snippet": "Kernel.open(event[\\"oops\\"], \\"w+\\") do\\n  end",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_4",
-      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_4"
+      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_4",
+      "code_extract": "  Kernel.open(event[\\"oops\\"], \\"w+\\") do\\n  end"
     },
     {
       "cwe_ids": [
@@ -207,7 +212,8 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
       "parent_line_number": 13,
       "snippet": "open(event[\\"oops\\"])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_5",
-      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_5"
+      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_5",
+      "code_extract": "  open(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -241,7 +247,8 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
       "parent_line_number": 15,
       "snippet": "PStore.new(event[\\"oops\\"])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_6",
-      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_6"
+      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_6",
+      "code_extract": "  PStore.new(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -275,7 +282,8 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
       "parent_line_number": 17,
       "snippet": "Pathname.new(event[\\"oops\\"])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_7",
-      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_7"
+      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_7",
+      "code_extract": "  path = Pathname.new(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -309,7 +317,8 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
       "parent_line_number": 18,
       "snippet": "path + event[\\"two\\"]",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_8",
-      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_8"
+      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_8",
+      "code_extract": "  path + event[\\"two\\"]"
     },
     {
       "cwe_ids": [
@@ -343,7 +352,8 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
       "parent_line_number": 19,
       "snippet": "path / event[\\"two\\"]",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_9",
-      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_9"
+      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_9",
+      "code_extract": "  path / event[\\"two\\"]"
     },
     {
       "cwe_ids": [
@@ -377,7 +387,8 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
       "parent_line_number": 20,
       "snippet": "path.join(\\"a\\", event[\\"three\\"])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_10",
-      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_10"
+      "old_fingerprint": "98f587f9a494c40b746fd08f11011f88_10",
+      "code_extract": "  path.join(\\"a\\", event[\\"three\\"])"
     }
   ]
 }"
@@ -418,7 +429,8 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
       "parent_line_number": 1,
       "snippet": "Dir[\\"foo\\", base: params[:oops]]",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_0",
-      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_0"
+      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_0",
+      "code_extract": "Dir[\\"foo\\", base: params[:oops]]"
     },
     {
       "cwe_ids": [
@@ -452,7 +464,8 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
       "parent_line_number": 3,
       "snippet": "Dir.chdir(\\"/home/#{params[:oops]}\\")",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_1",
-      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_1"
+      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_1",
+      "code_extract": "Dir.chdir(\\"/home/#{params[:oops]}\\")"
     },
     {
       "cwe_ids": [
@@ -486,7 +499,8 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
       "parent_line_number": 5,
       "snippet": "File.exist?(params[:oops])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_2",
-      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_2"
+      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_2",
+      "code_extract": "File.exist?(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -520,7 +534,8 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
       "parent_line_number": 7,
       "snippet": "IO.readlines(\\"/home/#{params[:oops]}\\")",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_3",
-      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_3"
+      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_3",
+      "code_extract": "IO.readlines(\\"/home/#{params[:oops]}\\")"
     },
     {
       "cwe_ids": [
@@ -554,7 +569,8 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
       "parent_line_number": 9,
       "snippet": "Kernel.open(params[:oops], \\"w+\\") do\\nend",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_4",
-      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_4"
+      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_4",
+      "code_extract": "Kernel.open(params[:oops], \\"w+\\") do\\nend"
     },
     {
       "cwe_ids": [
@@ -588,7 +604,8 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
       "parent_line_number": 12,
       "snippet": "open(params[:oops])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_5",
-      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_5"
+      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_5",
+      "code_extract": "open(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -622,7 +639,8 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
       "parent_line_number": 14,
       "snippet": "PStore.new(params[:oops])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_6",
-      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_6"
+      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_6",
+      "code_extract": "PStore.new(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -656,7 +674,8 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
       "parent_line_number": 16,
       "snippet": "Pathname.new(params[:oops])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_7",
-      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_7"
+      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_7",
+      "code_extract": "path = Pathname.new(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -690,7 +709,8 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
       "parent_line_number": 17,
       "snippet": "path + params[:two]",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_8",
-      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_8"
+      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_8",
+      "code_extract": "path + params[:two]"
     },
     {
       "cwe_ids": [
@@ -724,7 +744,8 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
       "parent_line_number": 18,
       "snippet": "path / params[:three]",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_9",
-      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_9"
+      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_9",
+      "code_extract": "path / params[:three]"
     },
     {
       "cwe_ids": [
@@ -758,7 +779,8 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
       "parent_line_number": 19,
       "snippet": "path.join(\\"a\\", params[:four])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_10",
-      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_10"
+      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_10",
+      "code_extract": "path.join(\\"a\\", params[:four])"
     },
     {
       "cwe_ids": [
@@ -792,7 +814,8 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
       "parent_line_number": 21,
       "snippet": "Rails.root.join(params[:oops])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_11",
-      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_11"
+      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_11",
+      "code_extract": "Rails.root.join(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -826,7 +849,8 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
       "parent_line_number": 23,
       "snippet": "Gem::Util.traverse_parents(params[:oops]) {}",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_12",
-      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_12"
+      "old_fingerprint": "a41dfcef57ab30320d9fbfa209e8fa3a_12",
+      "code_extract": "Gem::Util.traverse_parents(params[:oops]) {}"
     }
   ]
 }"
@@ -867,7 +891,8 @@ exports[`ruby_lang_path_using_user_input unsafe_rails 1`] = `
       "parent_line_number": 1,
       "snippet": "Rails.root.join(params[:oops])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_0",
-      "old_fingerprint": "426908f413fa11f9575e96958780e984_0"
+      "old_fingerprint": "426908f413fa11f9575e96958780e984_0",
+      "code_extract": "Rails.root.join(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -901,7 +926,8 @@ exports[`ruby_lang_path_using_user_input unsafe_rails 1`] = `
       "parent_line_number": 3,
       "snippet": "render(partial: params[:oops])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_1",
-      "old_fingerprint": "426908f413fa11f9575e96958780e984_1"
+      "old_fingerprint": "426908f413fa11f9575e96958780e984_1",
+      "code_extract": "render(partial: params[:oops])"
     },
     {
       "cwe_ids": [
@@ -935,7 +961,8 @@ exports[`ruby_lang_path_using_user_input unsafe_rails 1`] = `
       "parent_line_number": 4,
       "snippet": "render(\\"something/#{params[:oops]}\\")",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_2",
-      "old_fingerprint": "426908f413fa11f9575e96958780e984_2"
+      "old_fingerprint": "426908f413fa11f9575e96958780e984_2",
+      "code_extract": "render(\\"something/#{params[:oops]}\\")"
     },
     {
       "cwe_ids": [
@@ -969,7 +996,8 @@ exports[`ruby_lang_path_using_user_input unsafe_rails 1`] = `
       "parent_line_number": 5,
       "snippet": "render_to_string({ file: \\"/templates/#{params[:oops]}\\" })",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_3",
-      "old_fingerprint": "426908f413fa11f9575e96958780e984_3"
+      "old_fingerprint": "426908f413fa11f9575e96958780e984_3",
+      "code_extract": "render_to_string({ file: \\"/templates/#{params[:oops]}\\" })"
     },
     {
       "cwe_ids": [
@@ -1003,7 +1031,8 @@ exports[`ruby_lang_path_using_user_input unsafe_rails 1`] = `
       "parent_line_number": 7,
       "snippet": "send_file params[:oops], type: \\"text/html\\"",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_4",
-      "old_fingerprint": "426908f413fa11f9575e96958780e984_4"
+      "old_fingerprint": "426908f413fa11f9575e96958780e984_4",
+      "code_extract": "send_file params[:oops], type: \\"text/html\\""
     }
   ]
 }"
@@ -1044,7 +1073,8 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
       "parent_line_number": 1,
       "snippet": "Dir[\\"foo\\", base: request.env[:oops]]",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_0",
-      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_0"
+      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_0",
+      "code_extract": "Dir[\\"foo\\", base: request.env[:oops]]"
     },
     {
       "cwe_ids": [
@@ -1078,7 +1108,8 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
       "parent_line_number": 3,
       "snippet": "Dir.chdir(\\"/home/#{request.env[:oops]}\\")",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_1",
-      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_1"
+      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_1",
+      "code_extract": "Dir.chdir(\\"/home/#{request.env[:oops]}\\")"
     },
     {
       "cwe_ids": [
@@ -1112,7 +1143,8 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
       "parent_line_number": 5,
       "snippet": "File.exist?(request.env[:oops])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_2",
-      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_2"
+      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_2",
+      "code_extract": "File.exist?(request.env[:oops])"
     },
     {
       "cwe_ids": [
@@ -1146,7 +1178,8 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
       "parent_line_number": 7,
       "snippet": "IO.readlines(\\"/home/#{request.env[:oops]}\\")",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_3",
-      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_3"
+      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_3",
+      "code_extract": "IO.readlines(\\"/home/#{request.env[:oops]}\\")"
     },
     {
       "cwe_ids": [
@@ -1180,7 +1213,8 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
       "parent_line_number": 9,
       "snippet": "Kernel.open(request.env[:oops], \\"w+\\") do\\nend",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_4",
-      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_4"
+      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_4",
+      "code_extract": "Kernel.open(request.env[:oops], \\"w+\\") do\\nend"
     },
     {
       "cwe_ids": [
@@ -1214,7 +1248,8 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
       "parent_line_number": 12,
       "snippet": "open(request.env[:oops])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_5",
-      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_5"
+      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_5",
+      "code_extract": "open(request.env[:oops])"
     },
     {
       "cwe_ids": [
@@ -1248,7 +1283,8 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
       "parent_line_number": 14,
       "snippet": "PStore.new(request.env[:oops])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_6",
-      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_6"
+      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_6",
+      "code_extract": "PStore.new(request.env[:oops])"
     },
     {
       "cwe_ids": [
@@ -1282,7 +1318,8 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
       "parent_line_number": 16,
       "snippet": "Pathname.new(request.env[:oops])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_7",
-      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_7"
+      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_7",
+      "code_extract": "path = Pathname.new(request.env[:oops])"
     },
     {
       "cwe_ids": [
@@ -1316,7 +1353,8 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
       "parent_line_number": 17,
       "snippet": "path + request.headers[:oops]",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_8",
-      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_8"
+      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_8",
+      "code_extract": "path + request.headers[:oops]"
     },
     {
       "cwe_ids": [
@@ -1350,7 +1388,8 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
       "parent_line_number": 18,
       "snippet": "path / request.query_parameters[:oops]",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_9",
-      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_9"
+      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_9",
+      "code_extract": "path / request.query_parameters[:oops]"
     },
     {
       "cwe_ids": [
@@ -1384,7 +1423,8 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
       "parent_line_number": 19,
       "snippet": "path.join(\\"a\\", request.body)",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_10",
-      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_10"
+      "old_fingerprint": "e422a4f7b5342a72e859f1b84e263fc8_10",
+      "code_extract": "path.join(\\"a\\", request.body)"
     }
   ]
 }"
@@ -1425,7 +1465,8 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
       "parent_line_number": 3,
       "snippet": "Shell.cd(params[:oops])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_0",
-      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_0"
+      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_0",
+      "code_extract": "Shell.cd(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -1459,7 +1500,8 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
       "parent_line_number": 5,
       "snippet": "Shell.default_system_path = params[:oops]",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_1",
-      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_1"
+      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_1",
+      "code_extract": "Shell.default_system_path = params[:oops]"
     },
     {
       "cwe_ids": [
@@ -1493,7 +1535,8 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
       "parent_line_number": 7,
       "snippet": "Shell.new(params[:oops], umask)",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_2",
-      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_2"
+      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_2",
+      "code_extract": "shell = Shell.new(params[:oops], umask)"
     },
     {
       "cwe_ids": [
@@ -1527,7 +1570,8 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
       "parent_line_number": 9,
       "snippet": "shell.pushdir(params[:oops], true)",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_3",
-      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_3"
+      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_3",
+      "code_extract": "shell.pushdir(params[:oops], true)"
     },
     {
       "cwe_ids": [
@@ -1561,7 +1605,8 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
       "parent_line_number": 12,
       "snippet": "processor1.foreach(params[:oops], rs) {}",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_4",
-      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_4"
+      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_4",
+      "code_extract": "processor1.foreach(params[:oops], rs) {}"
     },
     {
       "cwe_ids": [
@@ -1595,7 +1640,8 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
       "parent_line_number": 15,
       "snippet": "processor2.test(:exists?, x, params[:oops])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_5",
-      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_5"
+      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_5",
+      "code_extract": "processor2.test(:exists?, x, params[:oops])"
     },
     {
       "cwe_ids": [
@@ -1629,7 +1675,8 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
       "parent_line_number": 17,
       "snippet": "processor2[:exists?, x, params[:oops], y]",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_6",
-      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_6"
+      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_6",
+      "code_extract": "processor2[:exists?, x, params[:oops], y]"
     },
     {
       "cwe_ids": [
@@ -1663,7 +1710,8 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
       "parent_line_number": 20,
       "snippet": "test(:exists?, params[:oops])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_7",
-      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_7"
+      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_7",
+      "code_extract": "  test(:exists?, params[:oops])"
     },
     {
       "cwe_ids": [
@@ -1697,7 +1745,8 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
       "parent_line_number": 24,
       "snippet": "Shell.new(params[:oops])",
       "fingerprint": "d8ab0f4720e4b75e105ae709050ef6ed_8",
-      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_8"
+      "old_fingerprint": "8d19ebd634f5b6323ecb822ea72721ad_8",
+      "code_extract": "shell = Shell.new(params[:oops])"
     }
   ]
 }"

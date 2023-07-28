@@ -44,7 +44,8 @@ exports[`ruby_lang_weak_password_encryption_blowfish blowfish_data 1`] = `
       "parent_line_number": 1,
       "snippet": "Crypt::Blowfish.new(\\"insecure\\").encrypt_block { |user|\\n  user.password\\n}",
       "fingerprint": "6d37c719924a9616ee15d12e48f7a19e_0",
-      "old_fingerprint": "4d1772d016d8a73cdb5e5f203b9d9dd6_0"
+      "old_fingerprint": "4d1772d016d8a73cdb5e5f203b9d9dd6_0",
+      "code_extract": "Crypt::Blowfish.new(\\"insecure\\").encrypt_block { |user|\\n  user.password\\n}"
     },
     {
       "cwe_ids": [
@@ -87,7 +88,8 @@ exports[`ruby_lang_weak_password_encryption_blowfish blowfish_data 1`] = `
       "parent_line_number": 5,
       "snippet": "Crypt::Blowfish.new(\\"insecure\\").encrypt_block do |user|\\n  user.password\\nend",
       "fingerprint": "6d37c719924a9616ee15d12e48f7a19e_1",
-      "old_fingerprint": "4d1772d016d8a73cdb5e5f203b9d9dd6_1"
+      "old_fingerprint": "4d1772d016d8a73cdb5e5f203b9d9dd6_1",
+      "code_extract": "Crypt::Blowfish.new(\\"insecure\\").encrypt_block do |user|\\n  user.password\\nend"
     }
   ]
 }"

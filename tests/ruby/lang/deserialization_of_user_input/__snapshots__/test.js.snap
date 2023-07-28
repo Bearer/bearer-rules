@@ -36,7 +36,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_event 1`] = `
       "parent_line_number": 2,
       "snippet": "YAML.load(event[\\"oops\\"])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_0",
-      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_0"
+      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_0",
+      "code_extract": "  YAML.load(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_event 1`] = `
       "parent_line_number": 4,
       "snippet": "Psych.load(event[\\"oops\\"])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_1",
-      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_1"
+      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_1",
+      "code_extract": "  Psych.load(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -102,7 +104,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_event 1`] = `
       "parent_line_number": 6,
       "snippet": "Syck.load(event[\\"oops\\"])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_2",
-      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_2"
+      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_2",
+      "code_extract": "  Syck.load(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -135,7 +138,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_event 1`] = `
       "parent_line_number": 8,
       "snippet": "JSON.load(event[\\"oops\\"])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_3",
-      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_3"
+      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_3",
+      "code_extract": "  JSON.load(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -168,7 +172,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_event 1`] = `
       "parent_line_number": 10,
       "snippet": "Oj.load(event[\\"oops\\"])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_4",
-      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_4"
+      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_4",
+      "code_extract": "  Oj.load(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -201,7 +206,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_event 1`] = `
       "parent_line_number": 11,
       "snippet": "Oj.object_load(event[\\"oops\\"]) do |json|\\n  end",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_5",
-      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_5"
+      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_5",
+      "code_extract": "  Oj.object_load(event[\\"oops\\"]) do |json|\\n  end"
     },
     {
       "cwe_ids": [
@@ -234,7 +240,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_event 1`] = `
       "parent_line_number": 14,
       "snippet": "Marshal.load(event[\\"oops\\"])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_6",
-      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_6"
+      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_6",
+      "code_extract": "  Marshal.load(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -267,7 +274,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_event 1`] = `
       "parent_line_number": 15,
       "snippet": "Marshal.restore(event[\\"oops\\"])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_7",
-      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_7"
+      "old_fingerprint": "cd1cc9f0914dba6da8db1cd87ec0912a_7",
+      "code_extract": "  Marshal.restore(event[\\"oops\\"])"
     }
   ]
 }"
@@ -307,7 +315,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_params 1`] = `
       "parent_line_number": 1,
       "snippet": "YAML.load(params[:oops])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_0",
-      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_0"
+      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_0",
+      "code_extract": "YAML.load(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -340,7 +349,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_params 1`] = `
       "parent_line_number": 3,
       "snippet": "Psych.load(params[:oops])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_1",
-      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_1"
+      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_1",
+      "code_extract": "Psych.load(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -373,7 +383,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_params 1`] = `
       "parent_line_number": 5,
       "snippet": "Syck.load(params[:oops])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_2",
-      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_2"
+      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_2",
+      "code_extract": "Syck.load(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -406,7 +417,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_params 1`] = `
       "parent_line_number": 7,
       "snippet": "JSON.load(params[:oops])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_3",
-      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_3"
+      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_3",
+      "code_extract": "JSON.load(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -439,7 +451,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_params 1`] = `
       "parent_line_number": 9,
       "snippet": "Oj.load(params[:oops]) do |json|\\nend",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_4",
-      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_4"
+      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_4",
+      "code_extract": "Oj.load(params[:oops]) do |json|\\nend"
     },
     {
       "cwe_ids": [
@@ -472,7 +485,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_params 1`] = `
       "parent_line_number": 11,
       "snippet": "Oj.object_load(params[:oops])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_5",
-      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_5"
+      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_5",
+      "code_extract": "Oj.object_load(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -505,7 +519,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_params 1`] = `
       "parent_line_number": 13,
       "snippet": "Marshal.load(params[:oops])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_6",
-      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_6"
+      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_6",
+      "code_extract": "Marshal.load(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -538,7 +553,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_params 1`] = `
       "parent_line_number": 14,
       "snippet": "Marshal.restore(params[:oops])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_7",
-      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_7"
+      "old_fingerprint": "55f5ba7de5388bd9d194ac766273fd0f_7",
+      "code_extract": "Marshal.restore(params[:oops])"
     }
   ]
 }"
@@ -578,7 +594,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_request 1`] = `
       "parent_line_number": 1,
       "snippet": "YAML.load(request.env[:oops])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_0",
-      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_0"
+      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_0",
+      "code_extract": "YAML.load(request.env[:oops])"
     },
     {
       "cwe_ids": [
@@ -611,7 +628,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_request 1`] = `
       "parent_line_number": 3,
       "snippet": "Psych.load(request.env[:oops])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_1",
-      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_1"
+      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_1",
+      "code_extract": "Psych.load(request.env[:oops])"
     },
     {
       "cwe_ids": [
@@ -644,7 +662,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_request 1`] = `
       "parent_line_number": 5,
       "snippet": "Syck.load(request.env[:oops])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_2",
-      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_2"
+      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_2",
+      "code_extract": "Syck.load(request.env[:oops])"
     },
     {
       "cwe_ids": [
@@ -677,7 +696,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_request 1`] = `
       "parent_line_number": 7,
       "snippet": "JSON.load(request.env[:oops])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_3",
-      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_3"
+      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_3",
+      "code_extract": "JSON.load(request.env[:oops])"
     },
     {
       "cwe_ids": [
@@ -710,7 +730,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_request 1`] = `
       "parent_line_number": 9,
       "snippet": "Oj.load(request.env[:oops])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_4",
-      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_4"
+      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_4",
+      "code_extract": "Oj.load(request.env[:oops])"
     },
     {
       "cwe_ids": [
@@ -743,7 +764,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_request 1`] = `
       "parent_line_number": 10,
       "snippet": "Oj.object_load(request.env[:oops]) do |json|\\nend",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_5",
-      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_5"
+      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_5",
+      "code_extract": "Oj.object_load(request.env[:oops]) do |json|\\nend"
     },
     {
       "cwe_ids": [
@@ -776,7 +798,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_request 1`] = `
       "parent_line_number": 13,
       "snippet": "Marshal.load(request.env[:oops])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_6",
-      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_6"
+      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_6",
+      "code_extract": "Marshal.load(request.env[:oops])"
     },
     {
       "cwe_ids": [
@@ -809,7 +832,8 @@ exports[`ruby_lang_deserialization_of_user_input unsafe_request 1`] = `
       "parent_line_number": 14,
       "snippet": "Marshal.restore(request.env[:oops])",
       "fingerprint": "73baed8cdf6590c9f10d9841a0709fd9_7",
-      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_7"
+      "old_fingerprint": "1a016949d3db4c803f86792602d92bcc_7",
+      "code_extract": "Marshal.restore(request.env[:oops])"
     }
   ]
 }"

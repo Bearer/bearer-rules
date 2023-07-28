@@ -37,7 +37,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
       "parent_line_number": 2,
       "snippet": "RubyVM::InstructionSequence.compile(event[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_0",
-      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_0"
+      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_0",
+      "code_extract": "  RubyVM::InstructionSequence.compile(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -71,7 +72,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
       "parent_line_number": 4,
       "snippet": "a.eval(event[\\"oops\\"], \\"test\\")",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_1",
-      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_1"
+      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_1",
+      "code_extract": "  a.eval(event[\\"oops\\"], \\"test\\")"
     },
     {
       "cwe_ids": [
@@ -105,7 +107,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
       "parent_line_number": 6,
       "snippet": "a.instance_eval(event[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_2",
-      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_2"
+      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_2",
+      "code_extract": "  a.instance_eval(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -139,7 +142,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
       "parent_line_number": 8,
       "snippet": "a.class_eval(event[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_3",
-      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_3"
+      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_3",
+      "code_extract": "  a.class_eval(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -173,7 +177,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
       "parent_line_number": 10,
       "snippet": "a.module_eval(event[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_4",
-      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_4"
+      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_4",
+      "code_extract": "  a.module_eval(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -207,7 +212,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
       "parent_line_number": 12,
       "snippet": "eval(event[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_5",
-      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_5"
+      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_5",
+      "code_extract": "  eval(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -241,7 +247,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
       "parent_line_number": 14,
       "snippet": "instance_eval(event[\\"oops\\"], \\"test\\")",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_6",
-      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_6"
+      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_6",
+      "code_extract": "  instance_eval(event[\\"oops\\"], \\"test\\")"
     },
     {
       "cwe_ids": [
@@ -275,7 +282,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
       "parent_line_number": 16,
       "snippet": "class_eval(event[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_7",
-      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_7"
+      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_7",
+      "code_extract": "  class_eval(event[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -309,7 +317,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
       "parent_line_number": 18,
       "snippet": "module_eval(event[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_8",
-      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_8"
+      "old_fingerprint": "6ed683ef427119396ac6fec2dd163b2d_8",
+      "code_extract": "  module_eval(event[\\"oops\\"])"
     }
   ]
 }"
@@ -350,7 +359,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
       "parent_line_number": 1,
       "snippet": "RubyVM::InstructionSequence.compile(params[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_0",
-      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_0"
+      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_0",
+      "code_extract": "RubyVM::InstructionSequence.compile(params[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -384,7 +394,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
       "parent_line_number": 3,
       "snippet": "a.eval(params[\\"oops\\"], \\"test\\")",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_1",
-      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_1"
+      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_1",
+      "code_extract": "a.eval(params[\\"oops\\"], \\"test\\")"
     },
     {
       "cwe_ids": [
@@ -418,7 +429,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
       "parent_line_number": 5,
       "snippet": "a.instance_eval(params[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_2",
-      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_2"
+      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_2",
+      "code_extract": "a.instance_eval(params[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -452,7 +464,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
       "parent_line_number": 7,
       "snippet": "a.class_eval(params[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_3",
-      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_3"
+      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_3",
+      "code_extract": "a.class_eval(params[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -486,7 +499,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
       "parent_line_number": 9,
       "snippet": "a.module_eval(params[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_4",
-      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_4"
+      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_4",
+      "code_extract": "a.module_eval(params[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -520,7 +534,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
       "parent_line_number": 11,
       "snippet": "eval(params[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_5",
-      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_5"
+      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_5",
+      "code_extract": "eval(params[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -554,7 +569,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
       "parent_line_number": 13,
       "snippet": "instance_eval(params[\\"oops\\"], \\"test\\")",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_6",
-      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_6"
+      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_6",
+      "code_extract": "instance_eval(params[\\"oops\\"], \\"test\\")"
     },
     {
       "cwe_ids": [
@@ -588,7 +604,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
       "parent_line_number": 15,
       "snippet": "class_eval(params[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_7",
-      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_7"
+      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_7",
+      "code_extract": "class_eval(params[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -622,7 +639,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
       "parent_line_number": 17,
       "snippet": "module_eval(params[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_8",
-      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_8"
+      "old_fingerprint": "7170a471695a2cb206343b39cc5eb83f_8",
+      "code_extract": "module_eval(params[\\"oops\\"])"
     }
   ]
 }"
@@ -663,7 +681,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
       "parent_line_number": 1,
       "snippet": "RubyVM::InstructionSequence.compile(request.env[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_0",
-      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_0"
+      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_0",
+      "code_extract": "RubyVM::InstructionSequence.compile(request.env[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -697,7 +716,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
       "parent_line_number": 3,
       "snippet": "a.eval(request.env[\\"oops\\"], \\"test\\")",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_1",
-      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_1"
+      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_1",
+      "code_extract": "a.eval(request.env[\\"oops\\"], \\"test\\")"
     },
     {
       "cwe_ids": [
@@ -731,7 +751,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
       "parent_line_number": 5,
       "snippet": "a.instance_eval(request.env[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_2",
-      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_2"
+      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_2",
+      "code_extract": "a.instance_eval(request.env[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -765,7 +786,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
       "parent_line_number": 7,
       "snippet": "a.class_eval(request.env[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_3",
-      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_3"
+      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_3",
+      "code_extract": "a.class_eval(request.env[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -799,7 +821,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
       "parent_line_number": 9,
       "snippet": "a.module_eval(request.env[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_4",
-      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_4"
+      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_4",
+      "code_extract": "a.module_eval(request.env[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -833,7 +856,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
       "parent_line_number": 11,
       "snippet": "eval(request.env[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_5",
-      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_5"
+      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_5",
+      "code_extract": "eval(request.env[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -867,7 +891,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
       "parent_line_number": 13,
       "snippet": "instance_eval(request.env[\\"oops\\"], \\"test\\")",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_6",
-      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_6"
+      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_6",
+      "code_extract": "instance_eval(request.env[\\"oops\\"], \\"test\\")"
     },
     {
       "cwe_ids": [
@@ -901,7 +926,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
       "parent_line_number": 15,
       "snippet": "class_eval(request.env[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_7",
-      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_7"
+      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_7",
+      "code_extract": "class_eval(request.env[\\"oops\\"])"
     },
     {
       "cwe_ids": [
@@ -935,7 +961,8 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
       "parent_line_number": 17,
       "snippet": "module_eval(request.env[\\"oops\\"])",
       "fingerprint": "c6c863e06a572d469f9d34897bd78ca4_8",
-      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_8"
+      "old_fingerprint": "a103c54ad162c91391ed72c32a4fe7b2_8",
+      "code_extract": "module_eval(request.env[\\"oops\\"])"
     }
   ]
 }"

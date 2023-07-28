@@ -36,7 +36,8 @@ exports[`java_lang_hardcoded_database_password bad 1`] = `
       "parent_line_number": 8,
       "snippet": "DriverManager.getConnection(url, \\"admin\\", \\"admin\\")",
       "fingerprint": "7a00c02c6f0e9c523225383da4ade342_0",
-      "old_fingerprint": "afb409af8b801ce44ef647d12c7ec368_0"
+      "old_fingerprint": "afb409af8b801ce44ef647d12c7ec368_0",
+      "code_extract": "    Connection conn = DriverManager.getConnection(url, \\"admin\\", \\"admin\\");"
     }
   ]
 }"

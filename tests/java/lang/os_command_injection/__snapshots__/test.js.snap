@@ -34,7 +34,8 @@ exports[`java_lang_os_command_injection bad 1`] = `
       "parent_line_number": 10,
       "snippet": "r.exec(\\"sh -c echo \\" + name)",
       "fingerprint": "5665fcfd14328e5c667ee31b32dffafd_0",
-      "old_fingerprint": "a0ce9f3043b13a6baf7c16fd7608b765_0"
+      "old_fingerprint": "a0ce9f3043b13a6baf7c16fd7608b765_0",
+      "code_extract": "        r.exec(\\"sh -c echo \\" + name);"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`java_lang_os_command_injection bad 1`] = `
       "parent_line_number": 12,
       "snippet": "Runtime.getRuntime().exec(\\"sh -c echo \\" + name)",
       "fingerprint": "5665fcfd14328e5c667ee31b32dffafd_1",
-      "old_fingerprint": "a0ce9f3043b13a6baf7c16fd7608b765_1"
+      "old_fingerprint": "a0ce9f3043b13a6baf7c16fd7608b765_1",
+      "code_extract": "        Runtime.getRuntime().exec(\\"sh -c echo \\" + name);"
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`java_lang_os_command_injection bad 1`] = `
       "parent_line_number": 18,
       "snippet": "new ProcessBuilder(\\"sh -c echo \\" + name)",
       "fingerprint": "5665fcfd14328e5c667ee31b32dffafd_2",
-      "old_fingerprint": "a0ce9f3043b13a6baf7c16fd7608b765_2"
+      "old_fingerprint": "a0ce9f3043b13a6baf7c16fd7608b765_2",
+      "code_extract": "        ProcessBuilder pb = new ProcessBuilder(\\"sh -c echo \\" + name);"
     }
   ]
 }"

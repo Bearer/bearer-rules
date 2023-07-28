@@ -34,7 +34,8 @@ exports[`java_lang_sqli bad 1`] = `
       "parent_line_number": 19,
       "snippet": "stmt.executeQuery(sqlQuery)",
       "fingerprint": "79d5d495c5c408c582b32582f1ae9171_0",
-      "old_fingerprint": "db6f664c606e5cc7e0b287583ab73e93_0"
+      "old_fingerprint": "db6f664c606e5cc7e0b287583ab73e93_0",
+      "code_extract": "         ResultSet rs = stmt.executeQuery(sqlQuery);) {"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`java_lang_sqli bad 1`] = `
       "parent_line_number": 26,
       "snippet": "conn.prepareStatement(sqlQuery, 42)",
       "fingerprint": "79d5d495c5c408c582b32582f1ae9171_1",
-      "old_fingerprint": "db6f664c606e5cc7e0b287583ab73e93_1"
+      "old_fingerprint": "db6f664c606e5cc7e0b287583ab73e93_1",
+      "code_extract": "         conn.prepareStatement(sqlQuery, 42);"
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`java_lang_sqli bad 1`] = `
       "parent_line_number": 32,
       "snippet": "emf.createEntityManager().createQuery(sqlQuery)",
       "fingerprint": "79d5d495c5c408c582b32582f1ae9171_2",
-      "old_fingerprint": "db6f664c606e5cc7e0b287583ab73e93_2"
+      "old_fingerprint": "db6f664c606e5cc7e0b287583ab73e93_2",
+      "code_extract": "      emf.createEntityManager().createQuery(sqlQuery);"
     }
   ]
 }"

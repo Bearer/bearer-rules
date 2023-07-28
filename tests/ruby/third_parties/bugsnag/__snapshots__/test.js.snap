@@ -46,7 +46,8 @@ exports[`ruby_third_parties_bugsnag breadcrumb 1`] = `
       "parent_line_number": 7,
       "snippet": "Bugsnag.leave_breadcrumb('User logged in', metadata, Bugsnag::BreadcrumbType::USER)",
       "fingerprint": "524e26b29dda01375b05516947e0c2a5_0",
-      "old_fingerprint": "19cf8c0d84864e84c24e330bc3e24034_0"
+      "old_fingerprint": "19cf8c0d84864e84c24e330bc3e24034_0",
+      "code_extract": "Bugsnag.leave_breadcrumb('User logged in', metadata, Bugsnag::BreadcrumbType::USER)"
     }
   ]
 }"
@@ -94,7 +95,8 @@ exports[`ruby_third_parties_bugsnag bugsnag_notify 1`] = `
       "parent_line_number": 12,
       "snippet": "event.add_metadata(:account, {\\n    user_name: current_user.name,\\n    paying_customer: true\\n  })",
       "fingerprint": "524e26b29dda01375b05516947e0c2a5_0",
-      "old_fingerprint": "06e0bd074abf09be1c0491739cd93042_0"
+      "old_fingerprint": "06e0bd074abf09be1c0491739cd93042_0",
+      "code_extract": "  event.add_metadata(:account, {\\n    user_name: current_user.name,\\n    paying_customer: true\\n  })"
     }
   ]
 }"

@@ -34,7 +34,8 @@ exports[`javascript_third_parties_dynamodb_query_injection dynamodb_query_inject
       "parent_line_number": 10,
       "snippet": "new QueryCommand(params)",
       "fingerprint": "d3d9829e398dc3fa0b84684d1f8da7ef_0",
-      "old_fingerprint": "f80826420da7749a22d012e08e53f48f_0"
+      "old_fingerprint": "f80826420da7749a22d012e08e53f48f_0",
+      "code_extract": "  const data = await ddbClient.send(new QueryCommand(params));"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`javascript_third_parties_dynamodb_query_injection dynamodb_query_inject
       "parent_line_number": 18,
       "snippet": "docClient.query(event[\\"query\\"][\\"params\\"], function(err, data) {})",
       "fingerprint": "d3d9829e398dc3fa0b84684d1f8da7ef_1",
-      "old_fingerprint": "f80826420da7749a22d012e08e53f48f_1"
+      "old_fingerprint": "f80826420da7749a22d012e08e53f48f_1",
+      "code_extract": "  docClient.query(event[\\"query\\"][\\"params\\"], function(err, data) {});"
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`javascript_third_parties_dynamodb_query_injection dynamodb_query_inject
       "parent_line_number": 32,
       "snippet": "new QueryCommand(params)",
       "fingerprint": "d3d9829e398dc3fa0b84684d1f8da7ef_2",
-      "old_fingerprint": "f80826420da7749a22d012e08e53f48f_2"
+      "old_fingerprint": "f80826420da7749a22d012e08e53f48f_2",
+      "code_extract": "  const data = await ddbClient.send(new QueryCommand(params));"
     }
   ]
 }"

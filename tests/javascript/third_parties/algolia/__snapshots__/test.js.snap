@@ -42,7 +42,8 @@ exports[`javascript_third_parties_algolia datatype_in_index 1`] = `
       "parent_line_number": 4,
       "snippet": "myAlgolia.initIndex(company.bank_account_number)",
       "fingerprint": "3b8a9db66a5d96671524cd36226b34d5_0",
-      "old_fingerprint": "06d0cf262781955d2293578d29424a6f_0"
+      "old_fingerprint": "06d0cf262781955d2293578d29424a6f_0",
+      "code_extract": "const index = myAlgolia.initIndex(company.bank_account_number)"
     }
   ]
 }"
@@ -89,7 +90,8 @@ exports[`javascript_third_parties_algolia datatype_in_save_object 1`] = `
       "parent_line_number": 8,
       "snippet": "index\\n  .saveObject(userObj, { autoGenerateObjectIDIfNotExist: true })",
       "fingerprint": "3b8a9db66a5d96671524cd36226b34d5_0",
-      "old_fingerprint": "38d2aaad78cefccc70a267a9100219ff_0"
+      "old_fingerprint": "38d2aaad78cefccc70a267a9100219ff_0",
+      "code_extract": "index\\n  .saveObject(userObj, { autoGenerateObjectIDIfNotExist: true })"
     },
     {
       "cwe_ids": [
@@ -130,7 +132,8 @@ exports[`javascript_third_parties_algolia datatype_in_save_object 1`] = `
       "parent_line_number": 12,
       "snippet": "index.saveObjects([{ email: user.email }])",
       "fingerprint": "3b8a9db66a5d96671524cd36226b34d5_1",
-      "old_fingerprint": "38d2aaad78cefccc70a267a9100219ff_1"
+      "old_fingerprint": "38d2aaad78cefccc70a267a9100219ff_1",
+      "code_extract": "index.saveObjects([{ email: user.email }])"
     }
   ]
 }"

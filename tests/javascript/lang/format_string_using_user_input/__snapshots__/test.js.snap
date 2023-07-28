@@ -34,7 +34,8 @@ exports[`javascript_lang_format_string_using_user_input bad 1`] = `
       "parent_line_number": 1,
       "snippet": "console.error(\`Value: \${req.params.value}\`, e)",
       "fingerprint": "16cab48ad098a8cc47c366d7cec8f691_0",
-      "old_fingerprint": "2c779a0497da541764199928f8f852c2_0"
+      "old_fingerprint": "2c779a0497da541764199928f8f852c2_0",
+      "code_extract": "console.error(\`Value: \${req.params.value}\`, e)"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`javascript_lang_format_string_using_user_input bad 1`] = `
       "parent_line_number": 3,
       "snippet": "util.format(\`Value: \${req.params.value}\`)",
       "fingerprint": "16cab48ad098a8cc47c366d7cec8f691_1",
-      "old_fingerprint": "2c779a0497da541764199928f8f852c2_1"
+      "old_fingerprint": "2c779a0497da541764199928f8f852c2_1",
+      "code_extract": "util.format(\`Value: \${req.params.value}\`)"
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`javascript_lang_format_string_using_user_input bad 1`] = `
       "parent_line_number": 5,
       "snippet": "util.formatWithOptions({}, \`Value: \${req.params.value} %s\`, x)",
       "fingerprint": "16cab48ad098a8cc47c366d7cec8f691_2",
-      "old_fingerprint": "2c779a0497da541764199928f8f852c2_2"
+      "old_fingerprint": "2c779a0497da541764199928f8f852c2_2",
+      "code_extract": "util.formatWithOptions({}, \`Value: \${req.params.value} %s\`, x)"
     }
   ]
 }"

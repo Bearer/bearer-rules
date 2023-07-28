@@ -36,7 +36,8 @@ exports[`ruby_rails_http_verb_confusion unsafe 1`] = `
       "parent_line_number": 1,
       "snippet": "if request.get?\\nelse\\n  change_state\\nend",
       "fingerprint": "478a6bee5ed0d66cc8930155f8bb9fd8_0",
-      "old_fingerprint": "a1ae60495215469cb3908a1adfa7d991_0"
+      "old_fingerprint": "a1ae60495215469cb3908a1adfa7d991_0",
+      "code_extract": "if request.get?\\nelse\\n  change_state\\nend"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`ruby_rails_http_verb_confusion unsafe 1`] = `
       "parent_line_number": 6,
       "snippet": "change_state unless request.get?",
       "fingerprint": "478a6bee5ed0d66cc8930155f8bb9fd8_1",
-      "old_fingerprint": "a1ae60495215469cb3908a1adfa7d991_1"
+      "old_fingerprint": "a1ae60495215469cb3908a1adfa7d991_1",
+      "code_extract": "change_state unless request.get?"
     },
     {
       "cwe_ids": [
@@ -102,7 +104,8 @@ exports[`ruby_rails_http_verb_confusion unsafe 1`] = `
       "parent_line_number": 8,
       "snippet": "unless request.get?\\n  change_state\\nend",
       "fingerprint": "478a6bee5ed0d66cc8930155f8bb9fd8_2",
-      "old_fingerprint": "a1ae60495215469cb3908a1adfa7d991_2"
+      "old_fingerprint": "a1ae60495215469cb3908a1adfa7d991_2",
+      "code_extract": "unless request.get?\\n  change_state\\nend"
     }
   ]
 }"

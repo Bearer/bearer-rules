@@ -34,7 +34,8 @@ exports[`ruby_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 1,
       "snippet": "\\"<h1 class=\\\\\\"test\\\\\\">#{params[:oops]}</h1>\\"",
       "fingerprint": "bbce316340479255472a6bc49330c542_0",
-      "old_fingerprint": "eef01466c0f4aefe92a29f710d1513d9_0"
+      "old_fingerprint": "eef01466c0f4aefe92a29f710d1513d9_0",
+      "code_extract": "\\"<h1 class=\\\\\\"test\\\\\\">#{params[:oops]}</h1>\\""
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`ruby_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 2,
       "snippet": "\\"<h1>#{params[:oops]}</h1>\\"",
       "fingerprint": "bbce316340479255472a6bc49330c542_1",
-      "old_fingerprint": "eef01466c0f4aefe92a29f710d1513d9_1"
+      "old_fingerprint": "eef01466c0f4aefe92a29f710d1513d9_1",
+      "code_extract": "\\"<h1>#{params[:oops]}</h1>\\""
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`ruby_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 4,
       "snippet": "raw(\\"Hello: #{params[:oops]}\\")",
       "fingerprint": "bbce316340479255472a6bc49330c542_2",
-      "old_fingerprint": "eef01466c0f4aefe92a29f710d1513d9_2"
+      "old_fingerprint": "eef01466c0f4aefe92a29f710d1513d9_2",
+      "code_extract": "raw(\\"Hello: #{params[:oops]}\\")"
     },
     {
       "cwe_ids": [
@@ -133,7 +136,8 @@ exports[`ruby_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 5,
       "snippet": "raw(\\"<h1>#{params[:oops]}</h1>\\")",
       "fingerprint": "bbce316340479255472a6bc49330c542_3",
-      "old_fingerprint": "eef01466c0f4aefe92a29f710d1513d9_3"
+      "old_fingerprint": "eef01466c0f4aefe92a29f710d1513d9_3",
+      "code_extract": "raw(\\"<h1>#{params[:oops]}</h1>\\")"
     },
     {
       "cwe_ids": [
@@ -166,7 +170,8 @@ exports[`ruby_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 7,
       "snippet": "\\"Hello: #{params[:oops]}\\".html_safe",
       "fingerprint": "bbce316340479255472a6bc49330c542_4",
-      "old_fingerprint": "eef01466c0f4aefe92a29f710d1513d9_4"
+      "old_fingerprint": "eef01466c0f4aefe92a29f710d1513d9_4",
+      "code_extract": "\\"Hello: #{params[:oops]}\\".html_safe"
     },
     {
       "cwe_ids": [
@@ -199,7 +204,8 @@ exports[`ruby_lang_raw_html_using_user_input bad 1`] = `
       "parent_line_number": 9,
       "snippet": "ERB.new(\\"Test: \\" + params[:oops])",
       "fingerprint": "bbce316340479255472a6bc49330c542_5",
-      "old_fingerprint": "eef01466c0f4aefe92a29f710d1513d9_5"
+      "old_fingerprint": "eef01466c0f4aefe92a29f710d1513d9_5",
+      "code_extract": "ERB.new(\\"Test: \\" + params[:oops])"
     }
   ]
 }"

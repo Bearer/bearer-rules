@@ -42,7 +42,8 @@ exports[`javascript_third_parties_new_relic datatype_in_interaction_set_attribut
       "parent_line_number": 5,
       "snippet": "newrelic.interaction()\\n    .setAttribute(\\"username\\", user.first_name)\\n    .setAttribute(\\"postal-code\\", user.post_code)",
       "fingerprint": "63161101404765527f0dada7fd00b64e_0",
-      "old_fingerprint": "d4a33ef10c96118848e50cbe6babe62c_0"
+      "old_fingerprint": "d4a33ef10c96118848e50cbe6babe62c_0",
+      "code_extract": "  newrelic.interaction()\\n    .setAttribute(\\"username\\", user.first_name)\\n    .setAttribute(\\"postal-code\\", user.post_code);"
     },
     {
       "cwe_ids": [
@@ -83,7 +84,8 @@ exports[`javascript_third_parties_new_relic datatype_in_interaction_set_attribut
       "parent_line_number": 13,
       "snippet": "interaction.setAttribute(\\"email\\", user.email_address)",
       "fingerprint": "63161101404765527f0dada7fd00b64e_1",
-      "old_fingerprint": "d4a33ef10c96118848e50cbe6babe62c_1"
+      "old_fingerprint": "d4a33ef10c96118848e50cbe6babe62c_1",
+      "code_extract": "interaction.setAttribute(\\"email\\", user.email_address)"
     }
   ]
 }"
@@ -130,7 +132,8 @@ exports[`javascript_third_parties_new_relic datatype_in_notice_error 1`] = `
       "parent_line_number": 7,
       "snippet": "newrelic.noticeError(err, customer.ip_address)",
       "fingerprint": "63161101404765527f0dada7fd00b64e_0",
-      "old_fingerprint": "cf5937bc41ef8e6cf874e0326f3da03e_0"
+      "old_fingerprint": "cf5937bc41ef8e6cf874e0326f3da03e_0",
+      "code_extract": "    newrelic.noticeError(err, customer.ip_address)"
     }
   ]
 }"
@@ -178,7 +181,8 @@ exports[`javascript_third_parties_new_relic datatype_in_set_custom_attribute 1`]
       "parent_line_number": 3,
       "snippet": "newrelic.setCustomAttribute(\\"user-id\\", customer.email)",
       "fingerprint": "63161101404765527f0dada7fd00b64e_0",
-      "old_fingerprint": "04e609e85c5a7c6ca13e1b88df45e81f_0"
+      "old_fingerprint": "04e609e85c5a7c6ca13e1b88df45e81f_0",
+      "code_extract": "newrelic.setCustomAttribute(\\"user-id\\", customer.email)"
     }
   ]
 }"
@@ -226,7 +230,8 @@ exports[`javascript_third_parties_new_relic datatype_in_set_page_view_name 1`] =
       "parent_line_number": 3,
       "snippet": "newrelic.setPageViewName(customer.bank_account_number, \\"$host\\")",
       "fingerprint": "63161101404765527f0dada7fd00b64e_0",
-      "old_fingerprint": "16039f64b7a3f77ef2f016652ce21d1f_0"
+      "old_fingerprint": "16039f64b7a3f77ef2f016652ce21d1f_0",
+      "code_extract": "newrelic.setPageViewName(customer.bank_account_number, \\"$host\\")"
     }
   ]
 }"

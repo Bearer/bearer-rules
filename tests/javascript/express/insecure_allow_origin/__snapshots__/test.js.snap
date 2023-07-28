@@ -34,7 +34,8 @@ exports[`javascript_express_insecure_allow_origin insecure_allow_origin 1`] = `
       "parent_line_number": 10,
       "snippet": "res.writeHead(200, { \\"Access-Control-Allow-Origin\\": req.params.origin })",
       "fingerprint": "2c55192ac05fbc2a0358431b12920a25_0",
-      "old_fingerprint": "6c5f0d5a0935eb4b82635d3c430a1533_0"
+      "old_fingerprint": "6c5f0d5a0935eb4b82635d3c430a1533_0",
+      "code_extract": "  res.writeHead(200, { \\"Access-Control-Allow-Origin\\": req.params.origin })"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`javascript_express_insecure_allow_origin insecure_allow_origin 1`] = `
       "parent_line_number": 11,
       "snippet": "res.set(\\"access-control-allow-origin\\", origin)",
       "fingerprint": "2c55192ac05fbc2a0358431b12920a25_1",
-      "old_fingerprint": "6c5f0d5a0935eb4b82635d3c430a1533_1"
+      "old_fingerprint": "6c5f0d5a0935eb4b82635d3c430a1533_1",
+      "code_extract": "  res.set(\\"access-control-allow-origin\\", origin)"
     }
   ]
 }"
@@ -107,7 +109,8 @@ exports[`javascript_express_insecure_allow_origin insecure_allow_origin_query 1`
       "parent_line_number": 10,
       "snippet": "res.setHeader(\\"Access-Control-Allow-Origin\\", origin)",
       "fingerprint": "2c55192ac05fbc2a0358431b12920a25_0",
-      "old_fingerprint": "7e2b3f2aefd2cefd077620f64b827953_0"
+      "old_fingerprint": "7e2b3f2aefd2cefd077620f64b827953_0",
+      "code_extract": "  res.setHeader(\\"Access-Control-Allow-Origin\\", origin)"
     }
   ]
 }"

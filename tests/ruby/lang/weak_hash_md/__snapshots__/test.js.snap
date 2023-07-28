@@ -35,7 +35,8 @@ exports[`ruby_lang_weak_hash_md digest_md5 1`] = `
       "parent_line_number": 1,
       "snippet": "Digest::MD5.hexdigest(\\"hello world\\")",
       "fingerprint": "3276f92b69c48d11c40170b20d1b2950_0",
-      "old_fingerprint": "2da9055029d6e9d6fd3aff33b82e6bd0_0"
+      "old_fingerprint": "2da9055029d6e9d6fd3aff33b82e6bd0_0",
+      "code_extract": "Digest::MD5.hexdigest(\\"hello world\\")"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`ruby_lang_weak_hash_md digest_md5 1`] = `
       "parent_line_number": 3,
       "snippet": "Digest::MD5.new << \\"hello world\\"",
       "fingerprint": "3276f92b69c48d11c40170b20d1b2950_1",
-      "old_fingerprint": "2da9055029d6e9d6fd3aff33b82e6bd0_1"
+      "old_fingerprint": "2da9055029d6e9d6fd3aff33b82e6bd0_1",
+      "code_extract": "Digest::MD5.new << \\"hello world\\""
     }
   ]
 }"
@@ -118,7 +120,8 @@ exports[`ruby_lang_weak_hash_md digest_md5_data 1`] = `
       "parent_line_number": 1,
       "snippet": "Digest::MD5.hexdigest(user.address)",
       "fingerprint": "3276f92b69c48d11c40170b20d1b2950_0",
-      "old_fingerprint": "edb0beac350fa9a38f6135e819bc9a36_0"
+      "old_fingerprint": "edb0beac350fa9a38f6135e819bc9a36_0",
+      "code_extract": "Digest::MD5.hexdigest(user.address)"
     },
     {
       "cwe_ids": [
@@ -160,7 +163,8 @@ exports[`ruby_lang_weak_hash_md digest_md5_data 1`] = `
       "parent_line_number": 3,
       "snippet": "Digest::MD5.new << user.address",
       "fingerprint": "3276f92b69c48d11c40170b20d1b2950_1",
-      "old_fingerprint": "edb0beac350fa9a38f6135e819bc9a36_1"
+      "old_fingerprint": "edb0beac350fa9a38f6135e819bc9a36_1",
+      "code_extract": "Digest::MD5.new << user.address"
     }
   ]
 }"
@@ -201,7 +205,8 @@ exports[`ruby_lang_weak_hash_md openssl_md5 1`] = `
       "parent_line_number": 1,
       "snippet": "OpenSSL::Digest::MD5.digest(\\"hello world\\")",
       "fingerprint": "3276f92b69c48d11c40170b20d1b2950_0",
-      "old_fingerprint": "9bbefea0357a148dede1d5c81bd7279c_0"
+      "old_fingerprint": "9bbefea0357a148dede1d5c81bd7279c_0",
+      "code_extract": "OpenSSL::Digest::MD5.digest(\\"hello world\\")"
     }
   ]
 }"
@@ -250,7 +255,8 @@ exports[`ruby_lang_weak_hash_md openssl_md5_data 1`] = `
       "parent_line_number": 1,
       "snippet": "OpenSSL::Digest::MD5.digest(user.first_name)",
       "fingerprint": "3276f92b69c48d11c40170b20d1b2950_0",
-      "old_fingerprint": "7455ed5d4a4e769434450048ed5f4fc5_0"
+      "old_fingerprint": "7455ed5d4a4e769434450048ed5f4fc5_0",
+      "code_extract": "OpenSSL::Digest::MD5.digest(user.first_name)"
     }
   ]
 }"

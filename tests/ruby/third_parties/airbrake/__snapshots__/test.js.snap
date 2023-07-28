@@ -44,7 +44,8 @@ exports[`ruby_third_parties_airbrake datatype_in_custom_notice 1`] = `
       "parent_line_number": 4,
       "snippet": "def to_airbrake\\n    { params: { user: current_user.email } }\\n  end",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_0",
-      "old_fingerprint": "6b2ccb36a95efe7f5ec5b674ff3e8377_0"
+      "old_fingerprint": "6b2ccb36a95efe7f5ec5b674ff3e8377_0",
+      "code_extract": "  def to_airbrake\\n    { params: { user: current_user.email } }\\n  end"
     }
   ]
 }"
@@ -92,7 +93,8 @@ exports[`ruby_third_parties_airbrake datatype_in_extended_notify_methods 1`] = `
       "parent_line_number": 1,
       "snippet": "Airbrake.notify_request_sync(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  status_code: 200,\\n  timing: 123.45 # ms\\n)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_0",
-      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_0"
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_0",
+      "code_extract": "Airbrake.notify_request_sync(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  status_code: 200,\\n  timing: 123.45 # ms\\n)"
     },
     {
       "cwe_ids": [
@@ -133,7 +135,8 @@ exports[`ruby_third_parties_airbrake datatype_in_extended_notify_methods 1`] = `
       "parent_line_number": 7,
       "snippet": "Airbrake.notify_request(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  status_code: 200,\\n  timing: 123.45 # ms\\n)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_1",
-      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_1"
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_1",
+      "code_extract": "Airbrake.notify_request(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  status_code: 200,\\n  timing: 123.45 # ms\\n)"
     },
     {
       "cwe_ids": [
@@ -174,7 +177,8 @@ exports[`ruby_third_parties_airbrake datatype_in_extended_notify_methods 1`] = `
       "parent_line_number": 15,
       "snippet": "Airbrake.notify_request_sync(\\n  {\\n    current_user: current_user.email\\n  },\\n  request_id: 123\\n)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_2",
-      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_2"
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_2",
+      "code_extract": "Airbrake.notify_request_sync(\\n  {\\n    current_user: current_user.email\\n  },\\n  request_id: 123\\n)"
     },
     {
       "cwe_ids": [
@@ -215,7 +219,8 @@ exports[`ruby_third_parties_airbrake datatype_in_extended_notify_methods 1`] = `
       "parent_line_number": 21,
       "snippet": "Airbrake.notify_request(\\n  {\\n    current_user: current_user.email\\n  },\\n  request_id: 123\\n)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_3",
-      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_3"
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_3",
+      "code_extract": "Airbrake.notify_request(\\n  {\\n    current_user: current_user.email\\n  },\\n  request_id: 123\\n)"
     },
     {
       "cwe_ids": [
@@ -256,7 +261,8 @@ exports[`ruby_third_parties_airbrake datatype_in_extended_notify_methods 1`] = `
       "parent_line_number": 29,
       "snippet": "Airbrake.notify_query_sync(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  query: 'SELECT * FROM foos'\\n)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_4",
-      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_4"
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_4",
+      "code_extract": "Airbrake.notify_query_sync(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  query: 'SELECT * FROM foos'\\n)"
     },
     {
       "cwe_ids": [
@@ -297,7 +303,8 @@ exports[`ruby_third_parties_airbrake datatype_in_extended_notify_methods 1`] = `
       "parent_line_number": 34,
       "snippet": "Airbrake.notify_query(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  query: 'SELECT * FROM foos'\\n)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_5",
-      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_5"
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_5",
+      "code_extract": "Airbrake.notify_query(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  query: 'SELECT * FROM foos'\\n)"
     },
     {
       "cwe_ids": [
@@ -338,7 +345,8 @@ exports[`ruby_third_parties_airbrake datatype_in_extended_notify_methods 1`] = `
       "parent_line_number": 41,
       "snippet": "Airbrake.notify_query_sync(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_6",
-      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_6"
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_6",
+      "code_extract": "Airbrake.notify_query_sync(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)"
     },
     {
       "cwe_ids": [
@@ -379,7 +387,8 @@ exports[`ruby_third_parties_airbrake datatype_in_extended_notify_methods 1`] = `
       "parent_line_number": 47,
       "snippet": "Airbrake.notify_query(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_7",
-      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_7"
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_7",
+      "code_extract": "Airbrake.notify_query(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)"
     },
     {
       "cwe_ids": [
@@ -420,7 +429,8 @@ exports[`ruby_third_parties_airbrake datatype_in_extended_notify_methods 1`] = `
       "parent_line_number": 55,
       "snippet": "Airbrake.notify_performance_breakdown_sync(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  response_type: 'json',\\n  groups: { db: 24.0, view: 0.4 }, # ms\\n  timing: 123.45 # ms\\n)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_8",
-      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_8"
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_8",
+      "code_extract": "Airbrake.notify_performance_breakdown_sync(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  response_type: 'json',\\n  groups: { db: 24.0, view: 0.4 }, # ms\\n  timing: 123.45 # ms\\n)"
     },
     {
       "cwe_ids": [
@@ -461,7 +471,8 @@ exports[`ruby_third_parties_airbrake datatype_in_extended_notify_methods 1`] = `
       "parent_line_number": 62,
       "snippet": "Airbrake.notify_performance_breakdown(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  response_type: 'json',\\n  groups: { db: 24.0, view: 0.4 }, # ms\\n  timing: 123.45 # ms\\n)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_9",
-      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_9"
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_9",
+      "code_extract": "Airbrake.notify_performance_breakdown(\\n  method: 'GET',\\n  route: \\"/users/#{user.first_name}\\",\\n  response_type: 'json',\\n  groups: { db: 24.0, view: 0.4 }, # ms\\n  timing: 123.45 # ms\\n)"
     },
     {
       "cwe_ids": [
@@ -502,7 +513,8 @@ exports[`ruby_third_parties_airbrake datatype_in_extended_notify_methods 1`] = `
       "parent_line_number": 71,
       "snippet": "Airbrake.notify_performance_breakdown_sync(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_10",
-      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_10"
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_10",
+      "code_extract": "Airbrake.notify_performance_breakdown_sync(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)"
     },
     {
       "cwe_ids": [
@@ -543,7 +555,8 @@ exports[`ruby_third_parties_airbrake datatype_in_extended_notify_methods 1`] = `
       "parent_line_number": 77,
       "snippet": "Airbrake.notify_performance_breakdown(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_11",
-      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_11"
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_11",
+      "code_extract": "Airbrake.notify_performance_breakdown(\\n  {\\n    user: user.email\\n  },\\n  request_id: 123\\n)"
     },
     {
       "cwe_ids": [
@@ -584,7 +597,8 @@ exports[`ruby_third_parties_airbrake datatype_in_extended_notify_methods 1`] = `
       "parent_line_number": 99,
       "snippet": "Airbrake.notify_queue_sync(\\n  {\\n    user: user.email\\n  },\\n  job_id: 123\\n)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_12",
-      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_12"
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_12",
+      "code_extract": "Airbrake.notify_queue_sync(\\n  {\\n    user: user.email\\n  },\\n  job_id: 123\\n)"
     },
     {
       "cwe_ids": [
@@ -625,7 +639,8 @@ exports[`ruby_third_parties_airbrake datatype_in_extended_notify_methods 1`] = `
       "parent_line_number": 105,
       "snippet": "Airbrake.notify_queue(\\n  {\\n    user: user.email\\n  },\\n  job_id: 123\\n)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_13",
-      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_13"
+      "old_fingerprint": "497a306ecd19f15e9b80b3b4997a5077_13",
+      "code_extract": "Airbrake.notify_queue(\\n  {\\n    user: user.email\\n  },\\n  job_id: 123\\n)"
     }
   ]
 }"
@@ -673,7 +688,8 @@ exports[`ruby_third_parties_airbrake datatype_in_merge_context 1`] = `
       "parent_line_number": 2,
       "snippet": "Airbrake.merge_context(users: users)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_0",
-      "old_fingerprint": "785abc6bd901e9a027378222a924bc79_0"
+      "old_fingerprint": "785abc6bd901e9a027378222a924bc79_0",
+      "code_extract": "Airbrake.merge_context(users: users)"
     }
   ]
 }"
@@ -721,7 +737,8 @@ exports[`ruby_third_parties_airbrake datatype_in_notify 1`] = `
       "parent_line_number": 1,
       "snippet": "Airbrake.notify(user.first_name)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_0",
-      "old_fingerprint": "09631ca7e08ff7c66fd80c426a01e034_0"
+      "old_fingerprint": "09631ca7e08ff7c66fd80c426a01e034_0",
+      "code_extract": "Airbrake.notify(user.first_name)"
     },
     {
       "cwe_ids": [
@@ -762,7 +779,8 @@ exports[`ruby_third_parties_airbrake datatype_in_notify 1`] = `
       "parent_line_number": 3,
       "snippet": "Airbrake.notify('App crashed!', {\\n  current_user: user.email\\n})",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_1",
-      "old_fingerprint": "09631ca7e08ff7c66fd80c426a01e034_1"
+      "old_fingerprint": "09631ca7e08ff7c66fd80c426a01e034_1",
+      "code_extract": "Airbrake.notify('App crashed!', {\\n  current_user: user.email\\n})"
     },
     {
       "cwe_ids": [
@@ -803,7 +821,8 @@ exports[`ruby_third_parties_airbrake datatype_in_notify 1`] = `
       "parent_line_number": 7,
       "snippet": "Airbrake.notify('App crashed') do |notice|\\n  notice[:params][:email] = customer.email\\nend",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_2",
-      "old_fingerprint": "09631ca7e08ff7c66fd80c426a01e034_2"
+      "old_fingerprint": "09631ca7e08ff7c66fd80c426a01e034_2",
+      "code_extract": "Airbrake.notify('App crashed') do |notice|\\n  notice[:params][:email] = customer.email\\nend"
     }
   ]
 }"
@@ -851,7 +870,8 @@ exports[`ruby_third_parties_airbrake datatype_in_rescue_block 1`] = `
       "parent_line_number": 4,
       "snippet": "Airbrake.notify_sync(current_user.first_name)",
       "fingerprint": "606b8ab8c67de6fc836e00fdc8a039de_0",
-      "old_fingerprint": "ced73356b3d5173766d3f163c02367b0_0"
+      "old_fingerprint": "ced73356b3d5173766d3f163c02367b0_0",
+      "code_extract": "  response = Airbrake.notify_sync(current_user.first_name)"
     }
   ]
 }"

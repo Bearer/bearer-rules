@@ -42,7 +42,8 @@ exports[`ruby_third_parties_honeybadger honeybadger_breadcrumb 1`] = `
       "parent_line_number": 1,
       "snippet": "Honeybadger.add_breadcrumb(\\"Email Sent\\", metadata: { user_email: current_user.email, message: message })",
       "fingerprint": "4ac2a71f9343f5925f464b72beb3339b_0",
-      "old_fingerprint": "d2e8457988d84dbfabb7f2d011a4d9a4_0"
+      "old_fingerprint": "d2e8457988d84dbfabb7f2d011a4d9a4_0",
+      "code_extract": "Honeybadger.add_breadcrumb(\\"Email Sent\\", metadata: { user_email: current_user.email, message: message })"
     }
   ]
 }"
@@ -90,7 +91,8 @@ exports[`ruby_third_parties_honeybadger honeybadger_context 1`] = `
       "parent_line_number": 3,
       "snippet": "Honeybadger.context({\\n  tags: tags\\n})",
       "fingerprint": "4ac2a71f9343f5925f464b72beb3339b_0",
-      "old_fingerprint": "ba018180f3a2ba14eb2e2c6266a5bd60_0"
+      "old_fingerprint": "ba018180f3a2ba14eb2e2c6266a5bd60_0",
+      "code_extract": "Honeybadger.context({\\n  tags: tags\\n})"
     },
     {
       "cwe_ids": [
@@ -131,7 +133,8 @@ exports[`ruby_third_parties_honeybadger honeybadger_context 1`] = `
       "parent_line_number": 7,
       "snippet": "Honeybadger.context({\\n  my_data: current_user.email\\n})",
       "fingerprint": "4ac2a71f9343f5925f464b72beb3339b_2",
-      "old_fingerprint": "ba018180f3a2ba14eb2e2c6266a5bd60_2"
+      "old_fingerprint": "ba018180f3a2ba14eb2e2c6266a5bd60_2",
+      "code_extract": "Honeybadger.context({\\n  my_data: current_user.email\\n})"
     }
   ]
 }"
@@ -179,7 +182,8 @@ exports[`ruby_third_parties_honeybadger honeybadger_methods 1`] = `
       "parent_line_number": 2,
       "snippet": "def to_honeybadger_context\\n    { user: { id: id, email: email } }\\n  end",
       "fingerprint": "4ac2a71f9343f5925f464b72beb3339b_0",
-      "old_fingerprint": "1fe89d3f8a80ec2f3dcf162cffec8a19_0"
+      "old_fingerprint": "1fe89d3f8a80ec2f3dcf162cffec8a19_0",
+      "code_extract": "  def to_honeybadger_context\\n    { user: { id: id, email: email } }\\n  end"
     }
   ]
 }"
@@ -227,7 +231,8 @@ exports[`ruby_third_parties_honeybadger honeybadger_notify 1`] = `
       "parent_line_number": 28,
       "snippet": "Honeybadger.notify(\\n  \\"Something is wrong here for \\" + user.gender,\\n  class_name: \\"MyError\\",\\n  error_message: error_message,\\n  tags: tags,\\n  context: context,\\n  parameters: parameters,\\n)",
       "fingerprint": "4ac2a71f9343f5925f464b72beb3339b_0",
-      "old_fingerprint": "9c4a47e63bd10035d0c78421e4f66784_0"
+      "old_fingerprint": "9c4a47e63bd10035d0c78421e4f66784_0",
+      "code_extract": "Honeybadger.notify(\\n  \\"Something is wrong here for \\" + user.gender,\\n  class_name: \\"MyError\\",\\n  error_message: error_message,\\n  tags: tags,\\n  context: context,\\n  parameters: parameters,\\n)"
     },
     {
       "cwe_ids": [
@@ -268,7 +273,8 @@ exports[`ruby_third_parties_honeybadger honeybadger_notify 1`] = `
       "parent_line_number": 28,
       "snippet": "Honeybadger.notify(\\n  \\"Something is wrong here for \\" + user.gender,\\n  class_name: \\"MyError\\",\\n  error_message: error_message,\\n  tags: tags,\\n  context: context,\\n  parameters: parameters,\\n)",
       "fingerprint": "4ac2a71f9343f5925f464b72beb3339b_1",
-      "old_fingerprint": "9c4a47e63bd10035d0c78421e4f66784_1"
+      "old_fingerprint": "9c4a47e63bd10035d0c78421e4f66784_1",
+      "code_extract": "Honeybadger.notify(\\n  \\"Something is wrong here for \\" + user.gender,\\n  class_name: \\"MyError\\",\\n  error_message: error_message,\\n  tags: tags,\\n  context: context,\\n  parameters: parameters,\\n)"
     },
     {
       "cwe_ids": [
@@ -309,7 +315,8 @@ exports[`ruby_third_parties_honeybadger honeybadger_notify 1`] = `
       "parent_line_number": 28,
       "snippet": "Honeybadger.notify(\\n  \\"Something is wrong here for \\" + user.gender,\\n  class_name: \\"MyError\\",\\n  error_message: error_message,\\n  tags: tags,\\n  context: context,\\n  parameters: parameters,\\n)",
       "fingerprint": "4ac2a71f9343f5925f464b72beb3339b_3",
-      "old_fingerprint": "9c4a47e63bd10035d0c78421e4f66784_3"
+      "old_fingerprint": "9c4a47e63bd10035d0c78421e4f66784_3",
+      "code_extract": "Honeybadger.notify(\\n  \\"Something is wrong here for \\" + user.gender,\\n  class_name: \\"MyError\\",\\n  error_message: error_message,\\n  tags: tags,\\n  context: context,\\n  parameters: parameters,\\n)"
     },
     {
       "cwe_ids": [
@@ -350,7 +357,8 @@ exports[`ruby_third_parties_honeybadger honeybadger_notify 1`] = `
       "parent_line_number": 28,
       "snippet": "Honeybadger.notify(\\n  \\"Something is wrong here for \\" + user.gender,\\n  class_name: \\"MyError\\",\\n  error_message: error_message,\\n  tags: tags,\\n  context: context,\\n  parameters: parameters,\\n)",
       "fingerprint": "4ac2a71f9343f5925f464b72beb3339b_4",
-      "old_fingerprint": "9c4a47e63bd10035d0c78421e4f66784_4"
+      "old_fingerprint": "9c4a47e63bd10035d0c78421e4f66784_4",
+      "code_extract": "Honeybadger.notify(\\n  \\"Something is wrong here for \\" + user.gender,\\n  class_name: \\"MyError\\",\\n  error_message: error_message,\\n  tags: tags,\\n  context: context,\\n  parameters: parameters,\\n)"
     },
     {
       "cwe_ids": [
@@ -391,7 +399,8 @@ exports[`ruby_third_parties_honeybadger honeybadger_notify 1`] = `
       "parent_line_number": 28,
       "snippet": "Honeybadger.notify(\\n  \\"Something is wrong here for \\" + user.gender,\\n  class_name: \\"MyError\\",\\n  error_message: error_message,\\n  tags: tags,\\n  context: context,\\n  parameters: parameters,\\n)",
       "fingerprint": "4ac2a71f9343f5925f464b72beb3339b_5",
-      "old_fingerprint": "9c4a47e63bd10035d0c78421e4f66784_5"
+      "old_fingerprint": "9c4a47e63bd10035d0c78421e4f66784_5",
+      "code_extract": "Honeybadger.notify(\\n  \\"Something is wrong here for \\" + user.gender,\\n  class_name: \\"MyError\\",\\n  error_message: error_message,\\n  tags: tags,\\n  context: context,\\n  parameters: parameters,\\n)"
     },
     {
       "cwe_ids": [
@@ -432,7 +441,8 @@ exports[`ruby_third_parties_honeybadger honeybadger_notify 1`] = `
       "parent_line_number": 28,
       "snippet": "Honeybadger.notify(\\n  \\"Something is wrong here for \\" + user.gender,\\n  class_name: \\"MyError\\",\\n  error_message: error_message,\\n  tags: tags,\\n  context: context,\\n  parameters: parameters,\\n)",
       "fingerprint": "4ac2a71f9343f5925f464b72beb3339b_6",
-      "old_fingerprint": "9c4a47e63bd10035d0c78421e4f66784_6"
+      "old_fingerprint": "9c4a47e63bd10035d0c78421e4f66784_6",
+      "code_extract": "Honeybadger.notify(\\n  \\"Something is wrong here for \\" + user.gender,\\n  class_name: \\"MyError\\",\\n  error_message: error_message,\\n  tags: tags,\\n  context: context,\\n  parameters: parameters,\\n)"
     }
   ]
 }"

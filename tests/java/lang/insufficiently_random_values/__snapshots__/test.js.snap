@@ -34,7 +34,8 @@ exports[`java_lang_insufficiently_random_values bad 1`] = `
       "parent_line_number": 2,
       "snippet": "rand.next()",
       "fingerprint": "8f51671abbce2a871cc191dc35531c9f_0",
-      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_0"
+      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_0",
+      "code_extract": "rand.next();"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`java_lang_insufficiently_random_values bad 1`] = `
       "parent_line_number": 4,
       "snippet": "org.apache.commons.lang.RandomStringUtils.random(10)",
       "fingerprint": "8f51671abbce2a871cc191dc35531c9f_1",
-      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_1"
+      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_1",
+      "code_extract": "org.apache.commons.lang.RandomStringUtils.random(10);"
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`java_lang_insufficiently_random_values bad 1`] = `
       "parent_line_number": 5,
       "snippet": "RandomStringUtils.random(10)",
       "fingerprint": "8f51671abbce2a871cc191dc35531c9f_2",
-      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_2"
+      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_2",
+      "code_extract": "RandomStringUtils.random(10);"
     },
     {
       "cwe_ids": [
@@ -133,7 +136,8 @@ exports[`java_lang_insufficiently_random_values bad 1`] = `
       "parent_line_number": 7,
       "snippet": "org.apache.commons.lang.math.RandomUtils.nextint()",
       "fingerprint": "8f51671abbce2a871cc191dc35531c9f_3",
-      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_3"
+      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_3",
+      "code_extract": "org.apache.commons.lang.math.RandomUtils.nextint();"
     },
     {
       "cwe_ids": [
@@ -166,7 +170,8 @@ exports[`java_lang_insufficiently_random_values bad 1`] = `
       "parent_line_number": 8,
       "snippet": "RandomUtils.nextint()",
       "fingerprint": "8f51671abbce2a871cc191dc35531c9f_4",
-      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_4"
+      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_4",
+      "code_extract": "RandomUtils.nextint();"
     },
     {
       "cwe_ids": [
@@ -199,7 +204,8 @@ exports[`java_lang_insufficiently_random_values bad 1`] = `
       "parent_line_number": 10,
       "snippet": "java.lang.Math.random()",
       "fingerprint": "8f51671abbce2a871cc191dc35531c9f_5",
-      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_5"
+      "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_5",
+      "code_extract": "double v = java.lang.Math.random();"
     }
   ]
 }"

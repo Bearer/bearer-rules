@@ -45,7 +45,8 @@ exports[`javascript_lang_weak_hash_sha1 sha1 1`] = `
       "parent_line_number": 5,
       "snippet": "myCrypto.createHmac(\\"sha1\\", key).update(user.email)",
       "fingerprint": "68b0e05340dc0b05a89f0a0753374255_0",
-      "old_fingerprint": "38ca7a09d253090085cb0ae595105fe5_0"
+      "old_fingerprint": "38ca7a09d253090085cb0ae595105fe5_0",
+      "code_extract": "var encrypted = myCrypto.createHmac(\\"sha1\\", key).update(user.email);"
     },
     {
       "cwe_ids": [
@@ -87,7 +88,8 @@ exports[`javascript_lang_weak_hash_sha1 sha1 1`] = `
       "parent_line_number": 6,
       "snippet": "myCrypto.createHash(\\"sha1\\").update(user.email)",
       "fingerprint": "68b0e05340dc0b05a89f0a0753374255_1",
-      "old_fingerprint": "38ca7a09d253090085cb0ae595105fe5_1"
+      "old_fingerprint": "38ca7a09d253090085cb0ae595105fe5_1",
+      "code_extract": "var hashmd5 = myCrypto.createHash(\\"sha1\\").update(user.email);"
     },
     {
       "cwe_ids": [
@@ -129,7 +131,8 @@ exports[`javascript_lang_weak_hash_sha1 sha1 1`] = `
       "parent_line_number": 8,
       "snippet": "MyCryptoJS.HmacSHA1(user.email, \\"Key\\")",
       "fingerprint": "68b0e05340dc0b05a89f0a0753374255_2",
-      "old_fingerprint": "38ca7a09d253090085cb0ae595105fe5_2"
+      "old_fingerprint": "38ca7a09d253090085cb0ae595105fe5_2",
+      "code_extract": "MyCryptoJS.HmacSHA1(user.email, \\"Key\\")"
     },
     {
       "cwe_ids": [
@@ -171,7 +174,8 @@ exports[`javascript_lang_weak_hash_sha1 sha1 1`] = `
       "parent_line_number": 9,
       "snippet": "MyCryptoJS.SHA1(user.email)",
       "fingerprint": "68b0e05340dc0b05a89f0a0753374255_3",
-      "old_fingerprint": "38ca7a09d253090085cb0ae595105fe5_3"
+      "old_fingerprint": "38ca7a09d253090085cb0ae595105fe5_3",
+      "code_extract": "MyCryptoJS.SHA1(user.email)"
     }
   ]
 }"

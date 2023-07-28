@@ -42,7 +42,8 @@ exports[`ruby_third_parties_rollbar datatype_in_context 1`] = `
       "parent_line_number": 1,
       "snippet": "exception.rollbar_context = { user: { email: \\"someone@example.com\\" } }",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_0",
-      "old_fingerprint": "bd7a8b51a211109f98cc7d26f053f50d_0"
+      "old_fingerprint": "bd7a8b51a211109f98cc7d26f053f50d_0",
+      "code_extract": "exception.rollbar_context = { user: { email: \\"someone@example.com\\" } }"
     }
   ]
 }"
@@ -90,7 +91,8 @@ exports[`ruby_third_parties_rollbar datatype_in_log 1`] = `
       "parent_line_number": 1,
       "snippet": "Rollbar.log(\\"error\\", \\"oops #{user.email}\\")",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_0",
-      "old_fingerprint": "4a6c22db854101c19e52d02ad72bade2_0"
+      "old_fingerprint": "4a6c22db854101c19e52d02ad72bade2_0",
+      "code_extract": "Rollbar.log(\\"error\\", \\"oops #{user.email}\\")"
     },
     {
       "cwe_ids": [
@@ -131,7 +133,8 @@ exports[`ruby_third_parties_rollbar datatype_in_log 1`] = `
       "parent_line_number": 2,
       "snippet": "Rollbar.log(\\"error\\", \\"oops\\", user: { email: \\"someone@example.com\\" })",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_1",
-      "old_fingerprint": "4a6c22db854101c19e52d02ad72bade2_1"
+      "old_fingerprint": "4a6c22db854101c19e52d02ad72bade2_1",
+      "code_extract": "Rollbar.log(\\"error\\", \\"oops\\", user: { email: \\"someone@example.com\\" })"
     },
     {
       "cwe_ids": [
@@ -172,7 +175,8 @@ exports[`ruby_third_parties_rollbar datatype_in_log 1`] = `
       "parent_line_number": 3,
       "snippet": "Rollbar.log(\\"error\\", \\"oops\\", { user: { first_name: \\"someone\\" } })",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_2",
-      "old_fingerprint": "4a6c22db854101c19e52d02ad72bade2_2"
+      "old_fingerprint": "4a6c22db854101c19e52d02ad72bade2_2",
+      "code_extract": "Rollbar.log(\\"error\\", \\"oops\\", { user: { first_name: \\"someone\\" } })"
     }
   ]
 }"
@@ -220,7 +224,8 @@ exports[`ruby_third_parties_rollbar datatype_in_log_helper 1`] = `
       "parent_line_number": 1,
       "snippet": "Rollbar.critical(\\"oops #{user.email}\\")",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_0",
-      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_0"
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_0",
+      "code_extract": "Rollbar.critical(\\"oops #{user.email}\\")"
     },
     {
       "cwe_ids": [
@@ -261,7 +266,8 @@ exports[`ruby_third_parties_rollbar datatype_in_log_helper 1`] = `
       "parent_line_number": 2,
       "snippet": "Rollbar.critical(e, \\"oops #{user.email}\\")",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_1",
-      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_1"
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_1",
+      "code_extract": "Rollbar.critical(e, \\"oops #{user.email}\\")"
     },
     {
       "cwe_ids": [
@@ -302,7 +308,8 @@ exports[`ruby_third_parties_rollbar datatype_in_log_helper 1`] = `
       "parent_line_number": 3,
       "snippet": "Rollbar.critical(e, user: { email: \\"someone@example.com\\" })",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_2",
-      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_2"
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_2",
+      "code_extract": "Rollbar.critical(e, user: { email: \\"someone@example.com\\" })"
     },
     {
       "cwe_ids": [
@@ -343,7 +350,8 @@ exports[`ruby_third_parties_rollbar datatype_in_log_helper 1`] = `
       "parent_line_number": 4,
       "snippet": "Rollbar.critical(e, { user: { first_name: \\"someone\\" } })",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_3",
-      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_3"
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_3",
+      "code_extract": "Rollbar.critical(e, { user: { first_name: \\"someone\\" } })"
     },
     {
       "cwe_ids": [
@@ -384,7 +392,8 @@ exports[`ruby_third_parties_rollbar datatype_in_log_helper 1`] = `
       "parent_line_number": 6,
       "snippet": "Rollbar.error(\\"oops #{user.email}\\")",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_4",
-      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_4"
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_4",
+      "code_extract": "Rollbar.error(\\"oops #{user.email}\\")"
     },
     {
       "cwe_ids": [
@@ -425,7 +434,8 @@ exports[`ruby_third_parties_rollbar datatype_in_log_helper 1`] = `
       "parent_line_number": 8,
       "snippet": "Rollbar.debug(\\"oops #{user.email}\\")",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_5",
-      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_5"
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_5",
+      "code_extract": "Rollbar.debug(\\"oops #{user.email}\\")"
     },
     {
       "cwe_ids": [
@@ -466,7 +476,8 @@ exports[`ruby_third_parties_rollbar datatype_in_log_helper 1`] = `
       "parent_line_number": 10,
       "snippet": "Rollbar.info(\\"oops #{user.email}\\")",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_6",
-      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_6"
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_6",
+      "code_extract": "Rollbar.info(\\"oops #{user.email}\\")"
     },
     {
       "cwe_ids": [
@@ -507,7 +518,8 @@ exports[`ruby_third_parties_rollbar datatype_in_log_helper 1`] = `
       "parent_line_number": 12,
       "snippet": "Rollbar.warning(\\"oops #{user.email}\\")",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_7",
-      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_7"
+      "old_fingerprint": "da3c9e273d81b95b95df97e3cee6ff6d_7",
+      "code_extract": "Rollbar.warning(\\"oops #{user.email}\\")"
     }
   ]
 }"
@@ -555,7 +567,8 @@ exports[`ruby_third_parties_rollbar datatype_in_scope 1`] = `
       "parent_line_number": 1,
       "snippet": "Rollbar.scope!({ user: { email: \\"someone@example.com\\" }})",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_0",
-      "old_fingerprint": "089b70eb8599544b29be710d89a39e13_0"
+      "old_fingerprint": "089b70eb8599544b29be710d89a39e13_0",
+      "code_extract": "Rollbar.scope!({ user: { email: \\"someone@example.com\\" }})"
     },
     {
       "cwe_ids": [
@@ -596,7 +609,8 @@ exports[`ruby_third_parties_rollbar datatype_in_scope 1`] = `
       "parent_line_number": 5,
       "snippet": "Rollbar.scope(user)",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_1",
-      "old_fingerprint": "089b70eb8599544b29be710d89a39e13_1"
+      "old_fingerprint": "089b70eb8599544b29be710d89a39e13_1",
+      "code_extract": "notifier = Rollbar.scope(user)"
     },
     {
       "cwe_ids": [
@@ -637,7 +651,8 @@ exports[`ruby_third_parties_rollbar datatype_in_scope 1`] = `
       "parent_line_number": 7,
       "snippet": "notifier.scope(user: { first_name: \\"someone\\" })",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_2",
-      "old_fingerprint": "089b70eb8599544b29be710d89a39e13_2"
+      "old_fingerprint": "089b70eb8599544b29be710d89a39e13_2",
+      "code_extract": "notifier.scope(user: { first_name: \\"someone\\" })"
     }
   ]
 }"
@@ -685,7 +700,8 @@ exports[`ruby_third_parties_rollbar datatype_in_scoped 1`] = `
       "parent_line_number": 3,
       "snippet": "Rollbar.scoped(scope) do\\n  call\\nend",
       "fingerprint": "0976992b89aa3cb2fa891be53248a418_0",
-      "old_fingerprint": "1348b9d9c9d8e06edbe0f17da849401d_0"
+      "old_fingerprint": "1348b9d9c9d8e06edbe0f17da849401d_0",
+      "code_extract": "Rollbar.scoped(scope) do\\n  call\\nend"
     }
   ]
 }"

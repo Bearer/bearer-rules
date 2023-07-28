@@ -42,7 +42,8 @@ exports[`ruby_third_parties_datadog datatype_in_tags 1`] = `
       "parent_line_number": 3,
       "snippet": "c.tags = user",
       "fingerprint": "2eba6887e2962e1904b9ac5c8be1515a_0",
-      "old_fingerprint": "d7f79a4c66507c70a8cf7f2aa6bb1384_0"
+      "old_fingerprint": "d7f79a4c66507c70a8cf7f2aa6bb1384_0",
+      "code_extract": "  c.tags = user"
     },
     {
       "cwe_ids": [
@@ -83,7 +84,8 @@ exports[`ruby_third_parties_datadog datatype_in_tags 1`] = `
       "parent_line_number": 7,
       "snippet": "span.set_tag('user.email', user.email)",
       "fingerprint": "2eba6887e2962e1904b9ac5c8be1515a_1",
-      "old_fingerprint": "d7f79a4c66507c70a8cf7f2aa6bb1384_1"
+      "old_fingerprint": "d7f79a4c66507c70a8cf7f2aa6bb1384_1",
+      "code_extract": "span.set_tag('user.email', user.email)"
     },
     {
       "cwe_ids": [
@@ -124,7 +126,8 @@ exports[`ruby_third_parties_datadog datatype_in_tags 1`] = `
       "parent_line_number": 9,
       "snippet": "Datadog::Tracing.active_span&.set_tag('customer.id', user.email)",
       "fingerprint": "2eba6887e2962e1904b9ac5c8be1515a_2",
-      "old_fingerprint": "d7f79a4c66507c70a8cf7f2aa6bb1384_2"
+      "old_fingerprint": "d7f79a4c66507c70a8cf7f2aa6bb1384_2",
+      "code_extract": "Datadog::Tracing.active_span&.set_tag('customer.id', user.email)"
     },
     {
       "cwe_ids": [
@@ -165,7 +168,8 @@ exports[`ruby_third_parties_datadog datatype_in_tags 1`] = `
       "parent_line_number": 10,
       "snippet": "Datadog::Tracing.active_span.set_tag('customer.id', user.email)",
       "fingerprint": "2eba6887e2962e1904b9ac5c8be1515a_3",
-      "old_fingerprint": "d7f79a4c66507c70a8cf7f2aa6bb1384_3"
+      "old_fingerprint": "d7f79a4c66507c70a8cf7f2aa6bb1384_3",
+      "code_extract": "Datadog::Tracing.active_span.set_tag('customer.id', user.email)"
     },
     {
       "cwe_ids": [
@@ -206,7 +210,8 @@ exports[`ruby_third_parties_datadog datatype_in_tags 1`] = `
       "parent_line_number": 12,
       "snippet": "Datadog::Tracing.trace(\\"web.request\\", tags: { email: user.email }) do |span, trace|\\n  call\\nend",
       "fingerprint": "2eba6887e2962e1904b9ac5c8be1515a_4",
-      "old_fingerprint": "d7f79a4c66507c70a8cf7f2aa6bb1384_4"
+      "old_fingerprint": "d7f79a4c66507c70a8cf7f2aa6bb1384_4",
+      "code_extract": "Datadog::Tracing.trace(\\"web.request\\", tags: { email: user.email }) do |span, trace|\\n  call\\nend"
     },
     {
       "cwe_ids": [
@@ -247,7 +252,8 @@ exports[`ruby_third_parties_datadog datatype_in_tags 1`] = `
       "parent_line_number": 17,
       "snippet": "span.set_tag('user.email', user.email)",
       "fingerprint": "2eba6887e2962e1904b9ac5c8be1515a_5",
-      "old_fingerprint": "d7f79a4c66507c70a8cf7f2aa6bb1384_5"
+      "old_fingerprint": "d7f79a4c66507c70a8cf7f2aa6bb1384_5",
+      "code_extract": "  span.set_tag('user.email', user.email)"
     }
   ]
 }"

@@ -34,7 +34,8 @@ exports[`javascript_lang_jwt_hardcoded_secret insecure 1`] = `
       "parent_line_number": 3,
       "snippet": "jwt.sign({ foo: \\"bar\\" }, \\"someSecret\\")",
       "fingerprint": "d0029fa61eca40823af6b8a00901cfaf_0",
-      "old_fingerprint": "ef25e950f616899c3627380e235b558c_0"
+      "old_fingerprint": "ef25e950f616899c3627380e235b558c_0",
+      "code_extract": "var token = jwt.sign({ foo: \\"bar\\" }, \\"someSecret\\");"
     }
   ]
 }"
@@ -74,7 +75,8 @@ exports[`javascript_lang_jwt_hardcoded_secret insecure_jose_jwt 1`] = `
       "parent_line_number": 5,
       "snippet": "new jose.SignJWT({ 'urn:example:claim': true })\\n  .setIssuedAt()\\n  .setExpirationTime('2h')\\n  .sign(secret)",
       "fingerprint": "d0029fa61eca40823af6b8a00901cfaf_0",
-      "old_fingerprint": "0821f1feacde43f91832d6ae43918279_0"
+      "old_fingerprint": "0821f1feacde43f91832d6ae43918279_0",
+      "code_extract": "const jwt = await new jose.SignJWT({ 'urn:example:claim': true })\\n  .setIssuedAt()\\n  .setExpirationTime('2h')\\n  .sign(secret)"
     },
     {
       "cwe_ids": [
@@ -107,7 +109,8 @@ exports[`javascript_lang_jwt_hardcoded_secret insecure_jose_jwt 1`] = `
       "parent_line_number": 10,
       "snippet": "(new jose.SignJWT()).sign(secret)",
       "fingerprint": "d0029fa61eca40823af6b8a00901cfaf_1",
-      "old_fingerprint": "0821f1feacde43f91832d6ae43918279_1"
+      "old_fingerprint": "0821f1feacde43f91832d6ae43918279_1",
+      "code_extract": "const jwt2 = await (new jose.SignJWT()).sign(secret)"
     }
   ]
 }"
@@ -147,7 +150,8 @@ exports[`javascript_lang_jwt_hardcoded_secret insecure_jwt 1`] = `
       "parent_line_number": 6,
       "snippet": "myJWT.sign(user, privateKey, { expiresInMinutes: 60 * 5, algorithm: \\"RS256\\" })",
       "fingerprint": "d0029fa61eca40823af6b8a00901cfaf_0",
-      "old_fingerprint": "6c80799d9ecd67e779a8a69f88fd87c4_0"
+      "old_fingerprint": "6c80799d9ecd67e779a8a69f88fd87c4_0",
+      "code_extract": "  myJWT.sign(user, privateKey, { expiresInMinutes: 60 * 5, algorithm: \\"RS256\\" })"
     }
   ]
 }"

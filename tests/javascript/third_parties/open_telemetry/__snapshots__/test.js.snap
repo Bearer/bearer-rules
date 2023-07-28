@@ -42,7 +42,8 @@ exports[`javascript_third_parties_open_telemetry datatype_in_add_event 1`] = `
       "parent_line_number": 4,
       "snippet": "currentSpan.addEvent('my-event', {\\n  'event.metadata': customer.emailAddress\\n})",
       "fingerprint": "cd48423a5a7a06612fb15c8b7045814c_0",
-      "old_fingerprint": "61188f2f3df9254f0d28be6f2c03f687_0"
+      "old_fingerprint": "61188f2f3df9254f0d28be6f2c03f687_0",
+      "code_extract": "currentSpan.addEvent('my-event', {\\n  'event.metadata': customer.emailAddress\\n})"
     }
   ]
 }"
@@ -89,7 +90,8 @@ exports[`javascript_third_parties_open_telemetry datatype_in_record_exception 1`
       "parent_line_number": 9,
       "snippet": "span.recordException(currentUser.ipAddress)",
       "fingerprint": "cd48423a5a7a06612fb15c8b7045814c_0",
-      "old_fingerprint": "b722ff54510aa26ac8f0ecf64037d639_0"
+      "old_fingerprint": "b722ff54510aa26ac8f0ecf64037d639_0",
+      "code_extract": "  span.recordException(currentUser.ipAddress)"
     }
   ]
 }"
@@ -137,7 +139,8 @@ exports[`javascript_third_parties_open_telemetry datatype_in_set_attribute 1`] =
       "parent_line_number": 6,
       "snippet": "span.setAttribute(\\"current-user\\", currentUser.emailAddress)",
       "fingerprint": "cd48423a5a7a06612fb15c8b7045814c_0",
-      "old_fingerprint": "46c63d278ec3bb5452fcbdf1305375ae_0"
+      "old_fingerprint": "46c63d278ec3bb5452fcbdf1305375ae_0",
+      "code_extract": "  span.setAttribute(\\"current-user\\", currentUser.emailAddress);"
     },
     {
       "cwe_ids": [
@@ -178,7 +181,8 @@ exports[`javascript_third_parties_open_telemetry datatype_in_set_attribute 1`] =
       "parent_line_number": 11,
       "snippet": "span.setAttribute(\\"current-user\\", user.email)",
       "fingerprint": "cd48423a5a7a06612fb15c8b7045814c_1",
-      "old_fingerprint": "46c63d278ec3bb5452fcbdf1305375ae_1"
+      "old_fingerprint": "46c63d278ec3bb5452fcbdf1305375ae_1",
+      "code_extract": "span.setAttribute(\\"current-user\\", user.email);"
     }
   ]
 }"
@@ -226,7 +230,8 @@ exports[`javascript_third_parties_open_telemetry datatype_in_set_status 1`] = `
       "parent_line_number": 7,
       "snippet": "span.setStatus({\\n      code: opentelemetry.SpanStatusCode.ERROR,\\n      message: \\"Bad connection for \\" + currentUser.emailAddress\\n    })",
       "fingerprint": "cd48423a5a7a06612fb15c8b7045814c_0",
-      "old_fingerprint": "b455b6a052b93860acda04124875787e_0"
+      "old_fingerprint": "b455b6a052b93860acda04124875787e_0",
+      "code_extract": "    span.setStatus({\\n      code: opentelemetry.SpanStatusCode.ERROR,\\n      message: \\"Bad connection for \\" + currentUser.emailAddress\\n    })"
     }
   ]
 }"

@@ -37,7 +37,8 @@ exports[`javascript_lang_import_using_user_input require_destructured_resource 1
       "parent_line_number": 7,
       "snippet": "require(path)",
       "fingerprint": "ce8a5417c71d4166a93f05ca32da7883_0",
-      "old_fingerprint": "d110bd47bf4a579b94604413a38a5bf7_0"
+      "old_fingerprint": "d110bd47bf4a579b94604413a38a5bf7_0",
+      "code_extract": "\\t\\trequire(path);"
     }
   ]
 }"
@@ -78,7 +79,8 @@ exports[`javascript_lang_import_using_user_input require_external_resource 1`] =
       "parent_line_number": 10,
       "snippet": "require(req.query.user.path)",
       "fingerprint": "ce8a5417c71d4166a93f05ca32da7883_0",
-      "old_fingerprint": "e26d7c8e16a0427a93ddc87b40c1fc6c_0"
+      "old_fingerprint": "e26d7c8e16a0427a93ddc87b40c1fc6c_0",
+      "code_extract": "    require(req.query.user.path)"
     },
     {
       "cwe_ids": [
@@ -112,7 +114,8 @@ exports[`javascript_lang_import_using_user_input require_external_resource 1`] =
       "parent_line_number": 15,
       "snippet": "import(req.query.user.path)",
       "fingerprint": "ce8a5417c71d4166a93f05ca32da7883_1",
-      "old_fingerprint": "e26d7c8e16a0427a93ddc87b40c1fc6c_1"
+      "old_fingerprint": "e26d7c8e16a0427a93ddc87b40c1fc6c_1",
+      "code_extract": "  import(req.query.user.path)"
     }
   ]
 }"

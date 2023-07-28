@@ -42,7 +42,8 @@ exports[`ruby_lang_exception datatype_leak 1`] = `
       "parent_line_number": 1,
       "snippet": "raise CustomException.new(user.email)",
       "fingerprint": "41890a2ed9c1a59b53c2e1effaad0b60_0",
-      "old_fingerprint": "1f37be76006c0c1cc803217fb5558c68_0"
+      "old_fingerprint": "1f37be76006c0c1cc803217fb5558c68_0",
+      "code_extract": "raise CustomException.new(user.email)"
     },
     {
       "cwe_ids": [
@@ -83,7 +84,8 @@ exports[`ruby_lang_exception datatype_leak 1`] = `
       "parent_line_number": 2,
       "snippet": "raise \\"User doesn't exist #{user.email}\\"",
       "fingerprint": "41890a2ed9c1a59b53c2e1effaad0b60_1",
-      "old_fingerprint": "1f37be76006c0c1cc803217fb5558c68_1"
+      "old_fingerprint": "1f37be76006c0c1cc803217fb5558c68_1",
+      "code_extract": "raise \\"User doesn't exist #{user.email}\\""
     }
   ]
 }"

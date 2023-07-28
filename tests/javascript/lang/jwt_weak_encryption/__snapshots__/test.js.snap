@@ -34,7 +34,8 @@ exports[`javascript_lang_jwt_weak_encryption insecure 1`] = `
       "parent_line_number": 3,
       "snippet": "jwt.sign({ foo: \\"bar\\" }, process.env.JWT_SECRET, {\\n\\talgorithm: \\"none\\",\\n})",
       "fingerprint": "4a605c6c148c868f59c5f8060462cf2d_0",
-      "old_fingerprint": "010757aec840934f5b262a8bb139ba29_0"
+      "old_fingerprint": "010757aec840934f5b262a8bb139ba29_0",
+      "code_extract": "var token = jwt.sign({ foo: \\"bar\\" }, process.env.JWT_SECRET, {\\n\\talgorithm: \\"none\\",\\n});"
     }
   ]
 }"

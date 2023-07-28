@@ -46,7 +46,8 @@ exports[`ruby_lang_weak_password_encryption_rsa openssl_rsa_data 1`] = `
       "parent_line_number": 5,
       "snippet": "rsa_encrypt.export(cipher, user.password)",
       "fingerprint": "45491f60e6265eadeb48641af8091f90_0",
-      "old_fingerprint": "db05944ac8260c2604b3ead2e9ff5d8a_0"
+      "old_fingerprint": "db05944ac8260c2604b3ead2e9ff5d8a_0",
+      "code_extract": "rsa_encrypt.export(cipher, user.password)"
     },
     {
       "cwe_ids": [
@@ -89,7 +90,8 @@ exports[`ruby_lang_weak_password_encryption_rsa openssl_rsa_data 1`] = `
       "parent_line_number": 7,
       "snippet": "OpenSSL::PKey::RSA.new(1024).to_pem(cipher, current_user.password)",
       "fingerprint": "45491f60e6265eadeb48641af8091f90_1",
-      "old_fingerprint": "db05944ac8260c2604b3ead2e9ff5d8a_1"
+      "old_fingerprint": "db05944ac8260c2604b3ead2e9ff5d8a_1",
+      "code_extract": "OpenSSL::PKey::RSA.new(1024).to_pem(cipher, current_user.password)"
     }
   ]
 }"

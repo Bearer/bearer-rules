@@ -34,7 +34,8 @@ exports[`javascript_lang_dangerous_insert_html insecure-document_write 1`] = `
       "parent_line_number": 2,
       "snippet": "document.write(\`<li>\${input}</li>\`)",
       "fingerprint": "315770dda0d4ea464e59f5bd073bd950_0",
-      "old_fingerprint": "f2715af76f6b84d2f19052ee9292d9e3_0"
+      "old_fingerprint": "f2715af76f6b84d2f19052ee9292d9e3_0",
+      "code_extract": "  document.write(\`<li>\${input}</li>\`)"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`javascript_lang_dangerous_insert_html insecure-document_write 1`] = `
       "parent_line_number": 8,
       "snippet": "el.innerHTML = \\"<div>\\" + userInput + \\"</div>\\"",
       "fingerprint": "315770dda0d4ea464e59f5bd073bd950_1",
-      "old_fingerprint": "f2715af76f6b84d2f19052ee9292d9e3_1"
+      "old_fingerprint": "f2715af76f6b84d2f19052ee9292d9e3_1",
+      "code_extract": "  el.innerHTML = \\"<div>\\" + userInput + \\"</div>\\""
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`javascript_lang_dangerous_insert_html insecure-document_write 1`] = `
       "parent_line_number": 12,
       "snippet": "document.body.outerHTML = userInput",
       "fingerprint": "315770dda0d4ea464e59f5bd073bd950_2",
-      "old_fingerprint": "f2715af76f6b84d2f19052ee9292d9e3_2"
+      "old_fingerprint": "f2715af76f6b84d2f19052ee9292d9e3_2",
+      "code_extract": "  document.body.outerHTML = userInput"
     },
     {
       "cwe_ids": [
@@ -133,7 +136,8 @@ exports[`javascript_lang_dangerous_insert_html insecure-document_write 1`] = `
       "parent_line_number": 17,
       "snippet": "document.write(name)",
       "fingerprint": "315770dda0d4ea464e59f5bd073bd950_3",
-      "old_fingerprint": "f2715af76f6b84d2f19052ee9292d9e3_3"
+      "old_fingerprint": "f2715af76f6b84d2f19052ee9292d9e3_3",
+      "code_extract": "  document.write(name)"
     }
   ]
 }"
@@ -173,7 +177,8 @@ exports[`javascript_lang_dangerous_insert_html insecure-element_ref 1`] = `
       "parent_line_number": 2,
       "snippet": "this.ref.replaceChildren(\`<li>\${input}</li>\`)",
       "fingerprint": "315770dda0d4ea464e59f5bd073bd950_0",
-      "old_fingerprint": "77aaf3a9264049dc97cafbd34be6192b_0"
+      "old_fingerprint": "77aaf3a9264049dc97cafbd34be6192b_0",
+      "code_extract": "\\tthis.ref.replaceChildren(\`<li>\${input}</li>\`);"
     }
   ]
 }"
@@ -213,7 +218,8 @@ exports[`javascript_lang_dangerous_insert_html insecure-property_assigment 1`] =
       "parent_line_number": 2,
       "snippet": "this.ref.innerHTML = \`<li>\${input}</li>\`",
       "fingerprint": "315770dda0d4ea464e59f5bd073bd950_0",
-      "old_fingerprint": "98894f5fc03e671c1269e70e059ae14f_0"
+      "old_fingerprint": "98894f5fc03e671c1269e70e059ae14f_0",
+      "code_extract": "\\tthis.ref.innerHTML = \`<li>\${input}</li>\`;"
     }
   ]
 }"

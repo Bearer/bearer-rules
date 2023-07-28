@@ -36,7 +36,8 @@ exports[`javascript_express_cross_site_scripting res_send_xss 1`] = `
       "parent_line_number": 9,
       "snippet": "res.send(\\"<p>\\" + req.body.customer.name + \\"</p>\\")",
       "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_0",
-      "old_fingerprint": "4ba7bacee2b0774a580d15c60551c11f_0"
+      "old_fingerprint": "4ba7bacee2b0774a580d15c60551c11f_0",
+      "code_extract": "  res.send(\\"<p>\\" + req.body.customer.name + \\"</p>\\")"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`javascript_express_cross_site_scripting res_send_xss 1`] = `
       "parent_line_number": 13,
       "snippet": "res.send(\\"<p>\\" + req.body[\\"user_id\\"] + \\"</p>\\")",
       "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_1",
-      "old_fingerprint": "4ba7bacee2b0774a580d15c60551c11f_1"
+      "old_fingerprint": "4ba7bacee2b0774a580d15c60551c11f_1",
+      "code_extract": "  res.send(\\"<p>\\" + req.body[\\"user_id\\"] + \\"</p>\\")"
     }
   ]
 }"
@@ -109,7 +111,8 @@ exports[`javascript_express_cross_site_scripting res_write_xss 1`] = `
       "parent_line_number": 10,
       "snippet": "res.write(\\"<h3> Greetings \\" + customerName + \\"</h3>\\")",
       "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_0",
-      "old_fingerprint": "acf04397b0418a725db9d537ac99b39a_0"
+      "old_fingerprint": "acf04397b0418a725db9d537ac99b39a_0",
+      "code_extract": "  res.write(\\"<h3> Greetings \\" + customerName + \\"</h3>\\")"
     }
   ]
 }"
@@ -149,7 +152,8 @@ exports[`javascript_express_cross_site_scripting user_input_types 1`] = `
       "parent_line_number": 3,
       "snippet": "res.send(req.params.oops)",
       "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_0",
-      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_0"
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_0",
+      "code_extract": "res.send(req.params.oops)"
     },
     {
       "cwe_ids": [
@@ -182,7 +186,8 @@ exports[`javascript_express_cross_site_scripting user_input_types 1`] = `
       "parent_line_number": 9,
       "snippet": "res.send(params.oops)",
       "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_1",
-      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_1"
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_1",
+      "code_extract": "res.send(params.oops)"
     },
     {
       "cwe_ids": [
@@ -215,7 +220,8 @@ exports[`javascript_express_cross_site_scripting user_input_types 1`] = `
       "parent_line_number": 10,
       "snippet": "res.send(oops)",
       "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_2",
-      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_2"
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_2",
+      "code_extract": "res.send(oops)"
     },
     {
       "cwe_ids": [
@@ -248,7 +254,8 @@ exports[`javascript_express_cross_site_scripting user_input_types 1`] = `
       "parent_line_number": 13,
       "snippet": "res.send(foo.params.oops)",
       "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_3",
-      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_3"
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_3",
+      "code_extract": "res.send(foo.params.oops)"
     },
     {
       "cwe_ids": [
@@ -281,7 +288,8 @@ exports[`javascript_express_cross_site_scripting user_input_types 1`] = `
       "parent_line_number": 16,
       "snippet": "res.send(foo2.params.oops)",
       "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_4",
-      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_4"
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_4",
+      "code_extract": "  res.send(foo2.params.oops)"
     },
     {
       "cwe_ids": [
@@ -314,7 +322,8 @@ exports[`javascript_express_cross_site_scripting user_input_types 1`] = `
       "parent_line_number": 17,
       "snippet": "res.send(params.oops)",
       "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_5",
-      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_5"
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_5",
+      "code_extract": "  res.send(params.oops)"
     },
     {
       "cwe_ids": [
@@ -347,7 +356,8 @@ exports[`javascript_express_cross_site_scripting user_input_types 1`] = `
       "parent_line_number": 21,
       "snippet": "res.send(foo3.params.oops)",
       "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_6",
-      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_6"
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_6",
+      "code_extract": "  res.send(foo3.params.oops)"
     },
     {
       "cwe_ids": [
@@ -380,7 +390,8 @@ exports[`javascript_express_cross_site_scripting user_input_types 1`] = `
       "parent_line_number": 22,
       "snippet": "res.send(params.oops)",
       "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_7",
-      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_7"
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_7",
+      "code_extract": "  res.send(params.oops)"
     },
     {
       "cwe_ids": [
@@ -413,7 +424,8 @@ exports[`javascript_express_cross_site_scripting user_input_types 1`] = `
       "parent_line_number": 26,
       "snippet": "res.send(foo4.params.oops)",
       "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_8",
-      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_8"
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_8",
+      "code_extract": "  res.send(foo4.params.oops)"
     },
     {
       "cwe_ids": [
@@ -446,7 +458,8 @@ exports[`javascript_express_cross_site_scripting user_input_types 1`] = `
       "parent_line_number": 27,
       "snippet": "res.send(params.oops)",
       "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_9",
-      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_9"
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_9",
+      "code_extract": "  res.send(params.oops)"
     },
     {
       "cwe_ids": [
@@ -479,7 +492,8 @@ exports[`javascript_express_cross_site_scripting user_input_types 1`] = `
       "parent_line_number": 33,
       "snippet": "res.send(foo5.params.oops)",
       "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_10",
-      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_10"
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_10",
+      "code_extract": "    res.send(foo5.params.oops)"
     },
     {
       "cwe_ids": [
@@ -512,7 +526,8 @@ exports[`javascript_express_cross_site_scripting user_input_types 1`] = `
       "parent_line_number": 34,
       "snippet": "res.send(params.oops)",
       "fingerprint": "df7c00dff42ea03e2153d41a4dc2fc8e_11",
-      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_11"
+      "old_fingerprint": "8294bf109e23715233663d5f51e4954a_11",
+      "code_extract": "    res.send(params.oops)"
     }
   ]
 }"
