@@ -2,18 +2,11 @@ imports:
   - java_shared_lang_instance
 patterns:
   - pattern: |
-      $<RANDOM>.$<METHOD>();
+      new $<RANDOM>();
     filters:
       - variable: RANDOM
-        detection: java_shared_lang_instance
+        regex: \A(java\.util\.)?Random\z
         scope: cursor
-        filters:
-          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-            regex: \A(java\.util\.)?Random\z
-      - not:
-          variable: METHOD
-          values:
-            - setSeed
   - pattern: $<TYPE>.random();
     filters:
       - variable: TYPE
