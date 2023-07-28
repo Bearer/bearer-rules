@@ -36,11 +36,11 @@ jobs:
           fetch-depth: 0
       - run: mkdir release
       - name: Archive Ruby
-        run: tar -czvf release/ruby.tar.gz ./rules/ruby
+        run: tar -czvf release/ruby.tar.gz --directory ./rules ruby
       - name: Archive JavaScript
-        run: tar -czvf release/javascript.tar.gz ./rules/javascript
+        run: tar -czvf release/javascript.tar.gz --directory ./rules javascript
       - name: Archive Java
-        run: tar -czvf release/java.tar.gz ./rules/java
+        run: tar -czvf release/java.tar.gz --directory ./rules java
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
