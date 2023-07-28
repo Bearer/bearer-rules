@@ -1,11 +1,6 @@
 const config = {
-  maxConcurrency: 1,
-  maxWorkers: 1,
-  roots:  ["."],
-  testPathIgnorePatterns: [
-    "/node_modules/",
-    "/testdata/"
-  ],
-};
+  roots: ["."],
+  testPathIgnorePatterns: ["/node_modules/", "/testdata/"],
+}
 
-module.exports = config;
+module.exports = config

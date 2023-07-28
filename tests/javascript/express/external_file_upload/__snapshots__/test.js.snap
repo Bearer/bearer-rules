@@ -97,10 +97,10 @@ exports[`javascript_express_external_file_upload send_file_with_external_input 1
           "start": 3,
           "end": 46
         },
-        "content": "res.sendFile(req.params.file, {}, () => {})"
+        "content": "res.sendFile(req.params.file, {}, ({ expect }) =>})"
       },
       "parent_line_number": 14,
-      "snippet": "res.sendFile(req.params.file, {}, () => {})",
+      "snippet": "res.sendFile(req.params.file, {}, ({ expect }) =>})",
       "fingerprint": "f39779a929c915fb55fa930e548d6d6f_2",
       "old_fingerprint": "810bde41a13d23d020b32bc1302aa56f_2"
     },

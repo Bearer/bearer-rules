@@ -1,6 +1,6 @@
 function main() {
   const result = new Promise(function (resolve, reject) {
-    setTimeout(() => {
+    setTimeout(({ expect }) =>
       const user = {
         email: current_user.email,
       }
@@ -9,7 +9,7 @@ function main() {
   })
 
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
+    setTimeout(({ expect }) =>
       const user = {
         email: current_user.email,
       }

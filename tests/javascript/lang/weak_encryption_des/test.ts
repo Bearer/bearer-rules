@@ -1,0 +1,12 @@
+const { createInvoker, getEnvironment } = require("../../../helper.js")
+const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
+
+describe(ruleId, () => {
+  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  
+  test.concurrent("des", async () => {
+    const testCase = "des.js"
+    expect(invoke(testCase)).toMatchSnapshot();
+  })
+  
+})

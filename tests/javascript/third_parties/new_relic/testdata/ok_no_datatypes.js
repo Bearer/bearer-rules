@@ -1,6 +1,6 @@
 const newrelic = require("newrelic")
 
-someFunc(() => {
+someFunc(({ expect }) =>
   try {
     // something
   } catch (err){

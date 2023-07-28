@@ -7,9 +7,9 @@ const airbrake = new Notifier({
 });
 
 let promise = airbrake.notify("user " + currentUser().emailAddress)
-promise.then(() => {})
+promise.then(({ expect }) =>})
 
-riskyCode(() => {
+riskyCode(({ expect }) =>
   try {
     // something risky
   } catch (err) {

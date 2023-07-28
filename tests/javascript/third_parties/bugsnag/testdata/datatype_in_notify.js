@@ -1,4 +1,4 @@
-riskyCode(() => {
+riskyCode(({ expect }) =>
   try {
     // risky business
   } catch (e) {
