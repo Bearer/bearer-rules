@@ -4,14 +4,12 @@ const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 describe(ruleId, () => {
   const invoke = createInvoker(ruleId, ruleFile, testBase)
   
-
-  test("dynamodb_query_injection", () => {
+  test("dynamodb_query_injection", ({ expect }) => {
     const testCase = "dynamodb_query_injection.js"
     expect(invoke(testCase)).toMatchSnapshot();
   })
   
-
-  test("ok_no_injection", () => {
+  test("ok_no_injection", ({ expect }) => {
     const testCase = "ok_no_injection.js"
     expect(invoke(testCase)).toMatchSnapshot();
   })

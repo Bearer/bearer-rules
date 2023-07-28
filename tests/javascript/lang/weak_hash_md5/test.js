@@ -4,20 +4,17 @@ const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 describe(ruleId, () => {
   const invoke = createInvoker(ruleId, ruleFile, testBase)
   
-
-  test("crypto_md5", () => {
+  test("crypto_md5", ({ expect }) => {
     const testCase = "crypto_md5.js"
     expect(invoke(testCase)).toMatchSnapshot();
   })
   
-
-  test("cryptojs_md5", () => {
+  test("cryptojs_md5", ({ expect }) => {
     const testCase = "cryptojs_md5.js"
     expect(invoke(testCase)).toMatchSnapshot();
   })
   
-
-  test("md5", () => {
+  test("md5", ({ expect }) => {
     const testCase = "md5.js"
     expect(invoke(testCase)).toMatchSnapshot();
   })

@@ -22,7 +22,7 @@ export const addHelmet = (app: Express) => {
   app.use(hidePoweredBy())
 }
 
-const bootstrapServer = async () => {
+const bootstrapServer = async ({ expect }) =>
   const expressApp = express()
   addHelmet(expressApp)
 }

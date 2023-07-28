@@ -4,20 +4,17 @@ const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 describe(ruleId, () => {
   const invoke = createInvoker(ruleId, ruleFile, testBase)
   
-
-  test("ok_known_resource", () => {
+  test("ok_known_resource", ({ expect }) => {
     const testCase = "ok_known_resource.js"
     expect(invoke(testCase)).toMatchSnapshot();
   })
   
-
-  test("require_destructured_resource", () => {
+  test("require_destructured_resource", ({ expect }) => {
     const testCase = "require_destructured_resource.js"
     expect(invoke(testCase)).toMatchSnapshot();
   })
   
-
-  test("require_external_resource", () => {
+  test("require_external_resource", ({ expect }) => {
     const testCase = "require_external_resource.js"
     expect(invoke(testCase)).toMatchSnapshot();
   })

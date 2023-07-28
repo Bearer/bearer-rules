@@ -9,7 +9,7 @@ app.get("/good", (_, res) => {
   return res.send("<p>hello world</p>")
 })
 
-app.get("/good-2", () => {
+app.get("/good-2", ({ expect }) =>
   // don't match on req params within strings
   return res.send({
     success: false,
@@ -17,7 +17,7 @@ app.get("/good-2", () => {
   })
 })
 
-app.get("/good-3", () => {
+app.get("/good-3", ({ expect }) =>
   // don't match on custom req attributes
   const userSettings = req.user.settings
   return res.send(userSettings)

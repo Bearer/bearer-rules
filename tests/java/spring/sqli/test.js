@@ -4,14 +4,12 @@ const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 describe(ruleId, () => {
   const invoke = createInvoker(ruleId, ruleFile, testBase)
   
-
-  test("bad", () => {
+  test("bad", ({ expect }) => {
     const testCase = "bad.java"
     expect(invoke(testCase)).toMatchSnapshot();
   })
   
-
-  test("safe", () => {
+  test("safe", ({ expect }) => {
     const testCase = "safe.java"
     expect(invoke(testCase)).toMatchSnapshot();
   })

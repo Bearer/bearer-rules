@@ -1,6 +1,6 @@
 const newrelic = require("newrelic")
 
-router.addRoute("/order", () => {
+router.addRoute("/order", ({ expect }) =>
   const user = getCurrentUser();
   newrelic.interaction()
     .setAttribute("username", user.first_name)

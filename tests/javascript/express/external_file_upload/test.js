@@ -4,14 +4,12 @@ const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 describe(ruleId, () => {
   const invoke = createInvoker(ruleId, ruleFile, testBase)
   
-
-  test("ok_send_file", () => {
+  test("ok_send_file", ({ expect }) => {
     const testCase = "ok_send_file.js"
     expect(invoke(testCase)).toMatchSnapshot();
   })
   
-
-  test("send_file_with_external_input", () => {
+  test("send_file_with_external_input", ({ expect }) => {
     const testCase = "send_file_with_external_input.js"
     expect(invoke(testCase)).toMatchSnapshot();
   })

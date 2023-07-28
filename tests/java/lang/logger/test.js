@@ -4,8 +4,7 @@ const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 describe(ruleId, () => {
   const invoke = createInvoker(ruleId, ruleFile, testBase)
   
-
-  test("simple", () => {
+  test("simple", ({ expect }) => {
     const testCase = "simple.java"
     expect(invoke(testCase)).toMatchSnapshot();
   })

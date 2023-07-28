@@ -13,6 +13,6 @@ client.track({
 import { AnalyticsBrowser } from "@segment/analytics-next"
 const browser = AnalyticsBrowser.load({ writeKey: 'write-key' })
 
-document.body?.addEventListener('click', () => {
+document.body?.addEventListener('click', ({ expect }) =>
   browser.track(user.email)
 })
