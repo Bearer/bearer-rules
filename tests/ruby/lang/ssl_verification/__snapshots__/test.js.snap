@@ -36,7 +36,8 @@ exports[`ruby_lang_ssl_verification verification_disabled 1`] = `
       "parent_line_number": 1,
       "snippet": "http.verify_mode = OpenSSL::SSL::VERIFY_NONE",
       "fingerprint": "a5365845bf89898b802308907f944ba0_0",
-      "old_fingerprint": "8a89556d2d42470a9dd26a5ce39fc0f0_0"
+      "old_fingerprint": "8a89556d2d42470a9dd26a5ce39fc0f0_0",
+      "code_extract": "http.verify_mode = OpenSSL::SSL::VERIFY_NONE"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`ruby_lang_ssl_verification verification_disabled 1`] = `
       "parent_line_number": 4,
       "snippet": "Net::HTTP.start(uri.host, uri.port, :use_ssl => true, :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|\\n  Net::HTTP::Get.new uri\\nend",
       "fingerprint": "a5365845bf89898b802308907f944ba0_1",
-      "old_fingerprint": "8a89556d2d42470a9dd26a5ce39fc0f0_1"
+      "old_fingerprint": "8a89556d2d42470a9dd26a5ce39fc0f0_1",
+      "code_extract": "Net::HTTP.start(uri.host, uri.port, :use_ssl => true, :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|\\n  Net::HTTP::Get.new uri\\nend"
     }
   ]
 }"

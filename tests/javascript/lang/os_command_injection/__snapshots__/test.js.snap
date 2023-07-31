@@ -36,7 +36,8 @@ exports[`javascript_lang_os_command_injection os_command_injection 1`] = `
       "parent_line_number": 4,
       "snippet": "exec(\\"ls \\"+event[\\"user_dir\\"]+\\"| wc -l\\", (err, stdout, stderr) => {\\n    // do something\\n  })",
       "fingerprint": "b13e40973c5519829a310b6c100f0710_0",
-      "old_fingerprint": "cf9919163361d9a9aafa0a4bf6b67464_0"
+      "old_fingerprint": "cf9919163361d9a9aafa0a4bf6b67464_0",
+      "code_extract": "  exec(\\"ls \\"+event[\\"user_dir\\"]+\\"| wc -l\\", (err, stdout, stderr) => {\\n    // do something\\n  });"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`javascript_lang_os_command_injection os_command_injection 1`] = `
       "parent_line_number": 8,
       "snippet": "execSync(\\"ls \\"+event[\\"user\\"]+\\"| wc -l\\", (err, stdout, stderr) => {\\n    // do something\\n  })",
       "fingerprint": "b13e40973c5519829a310b6c100f0710_1",
-      "old_fingerprint": "cf9919163361d9a9aafa0a4bf6b67464_1"
+      "old_fingerprint": "cf9919163361d9a9aafa0a4bf6b67464_1",
+      "code_extract": "  execSync(\\"ls \\"+event[\\"user\\"]+\\"| wc -l\\", (err, stdout, stderr) => {\\n    // do something\\n  });"
     },
     {
       "cwe_ids": [
@@ -102,7 +104,8 @@ exports[`javascript_lang_os_command_injection os_command_injection 1`] = `
       "parent_line_number": 12,
       "snippet": "spawn(event[\\"query\\"])",
       "fingerprint": "b13e40973c5519829a310b6c100f0710_2",
-      "old_fingerprint": "cf9919163361d9a9aafa0a4bf6b67464_2"
+      "old_fingerprint": "cf9919163361d9a9aafa0a4bf6b67464_2",
+      "code_extract": "  spawn(event[\\"query\\"]);"
     },
     {
       "cwe_ids": [
@@ -135,7 +138,8 @@ exports[`javascript_lang_os_command_injection os_command_injection 1`] = `
       "parent_line_number": 14,
       "snippet": "spawnSync(\\"grep \\" + event[\\"tmp\\"])",
       "fingerprint": "b13e40973c5519829a310b6c100f0710_3",
-      "old_fingerprint": "cf9919163361d9a9aafa0a4bf6b67464_3"
+      "old_fingerprint": "cf9919163361d9a9aafa0a4bf6b67464_3",
+      "code_extract": "  spawnSync(\\"grep \\" + event[\\"tmp\\"])"
     }
   ]
 }"

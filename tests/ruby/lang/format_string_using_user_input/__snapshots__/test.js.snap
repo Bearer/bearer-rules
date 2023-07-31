@@ -34,7 +34,8 @@ exports[`ruby_lang_format_string_using_user_input bad 1`] = `
       "parent_line_number": 1,
       "snippet": "sprintf(\\"Value: #{params[:value]} %d\\", x)",
       "fingerprint": "b6dd045c211476b3e020225065dbdb96_0",
-      "old_fingerprint": "a0a128cea90586a6bae6cc5524b0853a_0"
+      "old_fingerprint": "a0a128cea90586a6bae6cc5524b0853a_0",
+      "code_extract": "sprintf(\\"Value: #{params[:value]} %d\\", x)"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`ruby_lang_format_string_using_user_input bad 1`] = `
       "parent_line_number": 3,
       "snippet": "Kernel.printf(\\"Value: #{params[:value]} %d\\", x)",
       "fingerprint": "b6dd045c211476b3e020225065dbdb96_1",
-      "old_fingerprint": "a0a128cea90586a6bae6cc5524b0853a_1"
+      "old_fingerprint": "a0a128cea90586a6bae6cc5524b0853a_1",
+      "code_extract": "Kernel.printf(\\"Value: #{params[:value]} %d\\", x)"
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`ruby_lang_format_string_using_user_input bad 1`] = `
       "parent_line_number": 5,
       "snippet": "\\"Value: #{params[:value]} %s\\" % [x]",
       "fingerprint": "b6dd045c211476b3e020225065dbdb96_2",
-      "old_fingerprint": "a0a128cea90586a6bae6cc5524b0853a_2"
+      "old_fingerprint": "a0a128cea90586a6bae6cc5524b0853a_2",
+      "code_extract": "\\"Value: #{params[:value]} %s\\" % [x]"
     }
   ]
 }"

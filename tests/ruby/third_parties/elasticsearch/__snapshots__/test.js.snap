@@ -42,7 +42,8 @@ exports[`ruby_third_parties_elasticsearch datatype_in_bulk 1`] = `
       "parent_line_number": 10,
       "snippet": "client.bulk(body: body)",
       "fingerprint": "93988d54e68509de8c6ec9eca5c9ee30_0",
-      "old_fingerprint": "149568b24676a5bf75d00ae3965931b2_0"
+      "old_fingerprint": "149568b24676a5bf75d00ae3965931b2_0",
+      "code_extract": "client.bulk(body: body)"
     }
   ]
 }"
@@ -90,7 +91,8 @@ exports[`ruby_third_parties_elasticsearch datatype_in_index 1`] = `
       "parent_line_number": 4,
       "snippet": "client.index({ index: 'users', body: user })",
       "fingerprint": "93988d54e68509de8c6ec9eca5c9ee30_0",
-      "old_fingerprint": "b117595351fb5d441f2d8ae32cc172fa_0"
+      "old_fingerprint": "b117595351fb5d441f2d8ae32cc172fa_0",
+      "code_extract": "client.index({ index: 'users', body: user })"
     }
   ]
 }"
@@ -138,7 +140,8 @@ exports[`ruby_third_parties_elasticsearch datatype_in_update 1`] = `
       "parent_line_number": 3,
       "snippet": "Elasticsearch::Client\\n  .new\\n  .update(index: 'books', id: 42, body: user)",
       "fingerprint": "93988d54e68509de8c6ec9eca5c9ee30_0",
-      "old_fingerprint": "d0c2cbc2f125ea7324bf6e74b68ebe1c_0"
+      "old_fingerprint": "d0c2cbc2f125ea7324bf6e74b68ebe1c_0",
+      "code_extract": "Elasticsearch::Client\\n  .new\\n  .update(index: 'books', id: 42, body: user)"
     }
   ]
 }"

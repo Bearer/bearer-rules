@@ -34,7 +34,8 @@ exports[`javascript_react_dangerously_set_inner_html insecure-raw_input 1`] = `
       "parent_line_number": 2,
       "snippet": "{ __html: input }",
       "fingerprint": "d22d7ec8e5e9695e2f1909d8059d96df_0",
-      "old_fingerprint": "800f90fcc888d200ca077ff5e100b72d_0"
+      "old_fingerprint": "800f90fcc888d200ca077ff5e100b72d_0",
+      "code_extract": "\\t<li className={\\"foobar\\"} dangerouslySetInnerHTML={{ __html: input }} />;"
     }
   ]
 }"
@@ -74,7 +75,8 @@ exports[`javascript_react_dangerously_set_inner_html insecure-template_string 1`
       "parent_line_number": 4,
       "snippet": "{ __html: \`<a href=\${input}>home page</a>\` }",
       "fingerprint": "d22d7ec8e5e9695e2f1909d8059d96df_0",
-      "old_fingerprint": "aa5f0c01827445feeda685b3e0490112_0"
+      "old_fingerprint": "aa5f0c01827445feeda685b3e0490112_0",
+      "code_extract": "\\t\\tdangerouslySetInnerHTML={{ __html: \`<a href=\${input}>home page</a>\` }}"
     }
   ]
 }"

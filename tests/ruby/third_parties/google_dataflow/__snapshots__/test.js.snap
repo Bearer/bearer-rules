@@ -42,7 +42,8 @@ exports[`ruby_third_parties_google_dataflow datatype_in_config 1`] = `
       "parent_line_number": 8,
       "snippet": "config.metadata = { current_user_id: current_user.email }",
       "fingerprint": "413255d6456534b1be7ccdeddaeeb019_0",
-      "old_fingerprint": "14ec80be3c20aa40ecb54384676d0e82_0"
+      "old_fingerprint": "14ec80be3c20aa40ecb54384676d0e82_0",
+      "code_extract": "  config.metadata = { current_user_id: current_user.email }"
     },
     {
       "cwe_ids": [
@@ -83,7 +84,8 @@ exports[`ruby_third_parties_google_dataflow datatype_in_config 1`] = `
       "parent_line_number": 14,
       "snippet": "client_config.metadata = { current_user_id: current_user.email }",
       "fingerprint": "413255d6456534b1be7ccdeddaeeb019_1",
-      "old_fingerprint": "14ec80be3c20aa40ecb54384676d0e82_1"
+      "old_fingerprint": "14ec80be3c20aa40ecb54384676d0e82_1",
+      "code_extract": "client_config.metadata = { current_user_id: current_user.email }"
     }
   ]
 }"
@@ -130,7 +132,8 @@ exports[`ruby_third_parties_google_dataflow datatype_in_job_message 1`] = `
       "parent_line_number": 2,
       "snippet": "msg.message_text = \\"Current user: #{user.ip_address}\\"",
       "fingerprint": "413255d6456534b1be7ccdeddaeeb019_0",
-      "old_fingerprint": "b69ba9920cecb1ec93acb85941af5a0a_0"
+      "old_fingerprint": "b69ba9920cecb1ec93acb85941af5a0a_0",
+      "code_extract": "msg.message_text = \\"Current user: #{user.ip_address}\\""
     }
   ]
 }"
@@ -177,7 +180,8 @@ exports[`ruby_third_parties_google_dataflow datatype_in_metadata 1`] = `
       "parent_line_number": 2,
       "snippet": "custom_metadata.value = \\"ip: #{customer.ip_address}\\"",
       "fingerprint": "413255d6456534b1be7ccdeddaeeb019_0",
-      "old_fingerprint": "8ab25500a910a9ed7912fa6b0f1e141e_0"
+      "old_fingerprint": "8ab25500a910a9ed7912fa6b0f1e141e_0",
+      "code_extract": "custom_metadata.value = \\"ip: #{customer.ip_address}\\""
     },
     {
       "cwe_ids": [
@@ -217,7 +221,8 @@ exports[`ruby_third_parties_google_dataflow datatype_in_metadata 1`] = `
       "parent_line_number": 5,
       "snippet": "template_metadata.description =\\"ip: #{customer.ip_address}\\"",
       "fingerprint": "413255d6456534b1be7ccdeddaeeb019_1",
-      "old_fingerprint": "8ab25500a910a9ed7912fa6b0f1e141e_1"
+      "old_fingerprint": "8ab25500a910a9ed7912fa6b0f1e141e_1",
+      "code_extract": "template_metadata.description =\\"ip: #{customer.ip_address}\\""
     },
     {
       "cwe_ids": [
@@ -257,7 +262,8 @@ exports[`ruby_third_parties_google_dataflow datatype_in_metadata 1`] = `
       "parent_line_number": 6,
       "snippet": "template_metadata.name =\\"ip: #{customer.ip_address}\\"",
       "fingerprint": "413255d6456534b1be7ccdeddaeeb019_2",
-      "old_fingerprint": "8ab25500a910a9ed7912fa6b0f1e141e_2"
+      "old_fingerprint": "8ab25500a910a9ed7912fa6b0f1e141e_2",
+      "code_extract": "template_metadata.name =\\"ip: #{customer.ip_address}\\""
     }
   ]
 }"
@@ -304,7 +310,8 @@ exports[`ruby_third_parties_google_dataflow datatype_in_params_entry 1`] = `
       "parent_line_number": 2,
       "snippet": "param.value = \\"ip: #{customer.ip_address}\\"",
       "fingerprint": "413255d6456534b1be7ccdeddaeeb019_0",
-      "old_fingerprint": "38ecf06004d8de9f876411175045116d_0"
+      "old_fingerprint": "38ecf06004d8de9f876411175045116d_0",
+      "code_extract": "param.value = \\"ip: #{customer.ip_address}\\""
     }
   ]
 }"
@@ -351,7 +358,8 @@ exports[`ruby_third_parties_google_dataflow datatype_in_snapshot_job_request 1`]
       "parent_line_number": 2,
       "snippet": "req.description = \\"Current user: #{user.ip_address}\\"",
       "fingerprint": "413255d6456534b1be7ccdeddaeeb019_0",
-      "old_fingerprint": "fd348a183be480cd9e93dfc9b272b388_0"
+      "old_fingerprint": "fd348a183be480cd9e93dfc9b272b388_0",
+      "code_extract": "req.description = \\"Current user: #{user.ip_address}\\""
     }
   ]
 }"
@@ -399,7 +407,8 @@ exports[`ruby_third_parties_google_dataflow datatype_in_snapshot_setter 1`] = `
       "parent_line_number": 9,
       "snippet": "snapshot.description = \\"Current user: #{user.email_address}\\"",
       "fingerprint": "413255d6456534b1be7ccdeddaeeb019_0",
-      "old_fingerprint": "0367c62f5b5a4f5f15e25f7ef85e500f_0"
+      "old_fingerprint": "0367c62f5b5a4f5f15e25f7ef85e500f_0",
+      "code_extract": "snapshot.description = \\"Current user: #{user.email_address}\\""
     }
   ]
 }"
@@ -446,7 +455,8 @@ exports[`ruby_third_parties_google_dataflow datatype_in_structured_message 1`] =
       "parent_line_number": 4,
       "snippet": "str_msg.message_text = \\"Current user: #{user.ip_address}\\"",
       "fingerprint": "413255d6456534b1be7ccdeddaeeb019_0",
-      "old_fingerprint": "d5d30e5cbe893bfcd32ae3481cbc6a6f_0"
+      "old_fingerprint": "d5d30e5cbe893bfcd32ae3481cbc6a6f_0",
+      "code_extract": "str_msg.message_text = \\"Current user: #{user.ip_address}\\""
     }
   ]
 }"
@@ -493,7 +503,8 @@ exports[`ruby_third_parties_google_dataflow datatype_in_structured_message_param
       "parent_line_number": 2,
       "snippet": "param2.value = \\"ip: #{customer.ip_address}\\"",
       "fingerprint": "413255d6456534b1be7ccdeddaeeb019_0",
-      "old_fingerprint": "6592df61f091ba8cac7869153d08d639_0"
+      "old_fingerprint": "6592df61f091ba8cac7869153d08d639_0",
+      "code_extract": "param2.value = \\"ip: #{customer.ip_address}\\""
     }
   ]
 }"
@@ -541,7 +552,8 @@ exports[`ruby_third_parties_google_dataflow datatype_in_template_job_creation 1`
       "parent_line_number": 5,
       "snippet": "templates_client.create_job_from_template(project_id: \\"123\\", job_name: \\"my-job\\", parameters: { current_user: user.email })",
       "fingerprint": "413255d6456534b1be7ccdeddaeeb019_0",
-      "old_fingerprint": "a82d76165de3ede0c9a49837be37cc43_0"
+      "old_fingerprint": "a82d76165de3ede0c9a49837be37cc43_0",
+      "code_extract": "templates_client.create_job_from_template(project_id: \\"123\\", job_name: \\"my-job\\", parameters: { current_user: user.email })"
     }
   ]
 }"
@@ -589,7 +601,8 @@ exports[`ruby_third_parties_google_dataflow fail_with_different_version 1`] = `
       "parent_line_number": 5,
       "snippet": "templates_client.create_job_from_template(project_id: \\"123\\", job_name: \\"my-job\\", parameters: { current_user: user.email })",
       "fingerprint": "413255d6456534b1be7ccdeddaeeb019_0",
-      "old_fingerprint": "0ba2dc3878f27769d6c4c9c38f886442_0"
+      "old_fingerprint": "0ba2dc3878f27769d6c4c9c38f886442_0",
+      "code_extract": "templates_client.create_job_from_template(project_id: \\"123\\", job_name: \\"my-job\\", parameters: { current_user: user.email })"
     }
   ]
 }"

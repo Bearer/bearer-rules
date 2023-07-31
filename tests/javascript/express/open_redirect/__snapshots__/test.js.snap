@@ -36,7 +36,8 @@ exports[`javascript_express_open_redirect open_redirect 1`] = `
       "parent_line_number": 2,
       "snippet": "res.redirect(req.params.url)",
       "fingerprint": "39fed10ce763bb1caf6ca1ea51314f28_0",
-      "old_fingerprint": "9b90ab18e9d910d91f630ff180293aed_0"
+      "old_fingerprint": "9b90ab18e9d910d91f630ff180293aed_0",
+      "code_extract": "  res.redirect(req.params.url)"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`javascript_express_open_redirect open_redirect 1`] = `
       "parent_line_number": 3,
       "snippet": "res.redirect(req.query.url + \\"/bar\\")",
       "fingerprint": "39fed10ce763bb1caf6ca1ea51314f28_1",
-      "old_fingerprint": "9b90ab18e9d910d91f630ff180293aed_1"
+      "old_fingerprint": "9b90ab18e9d910d91f630ff180293aed_1",
+      "code_extract": "  res.redirect(req.query.url + \\"/bar\\")"
     },
     {
       "cwe_ids": [
@@ -102,7 +104,8 @@ exports[`javascript_express_open_redirect open_redirect 1`] = `
       "parent_line_number": 4,
       "snippet": "res.redirect(\\"https://\\" + req.params.url + \\"/bar\\")",
       "fingerprint": "39fed10ce763bb1caf6ca1ea51314f28_2",
-      "old_fingerprint": "9b90ab18e9d910d91f630ff180293aed_2"
+      "old_fingerprint": "9b90ab18e9d910d91f630ff180293aed_2",
+      "code_extract": "  res.redirect(\\"https://\\" + req.params.url + \\"/bar\\")"
     },
     {
       "cwe_ids": [
@@ -135,7 +138,8 @@ exports[`javascript_express_open_redirect open_redirect 1`] = `
       "parent_line_number": 5,
       "snippet": "res.redirect(\\"http://\\" + req.params.path + \\"/bar\\")",
       "fingerprint": "39fed10ce763bb1caf6ca1ea51314f28_3",
-      "old_fingerprint": "9b90ab18e9d910d91f630ff180293aed_3"
+      "old_fingerprint": "9b90ab18e9d910d91f630ff180293aed_3",
+      "code_extract": "  res.redirect(\\"http://\\" + req.params.path + \\"/bar\\")"
     }
   ]
 }"

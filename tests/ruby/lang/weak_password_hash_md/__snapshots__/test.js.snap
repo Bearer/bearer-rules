@@ -44,7 +44,8 @@ exports[`ruby_lang_weak_password_hash_md digest_md5_data 1`] = `
       "parent_line_number": 1,
       "snippet": "Digest::MD5.hexdigest(user.password)",
       "fingerprint": "b83963f29f4460fcee1ffc2479f2ba4d_0",
-      "old_fingerprint": "414fd75a5cfa82e53d7ca50c7b768927_0"
+      "old_fingerprint": "414fd75a5cfa82e53d7ca50c7b768927_0",
+      "code_extract": "Digest::MD5.hexdigest(user.password)"
     },
     {
       "cwe_ids": [
@@ -87,7 +88,8 @@ exports[`ruby_lang_weak_password_hash_md digest_md5_data 1`] = `
       "parent_line_number": 3,
       "snippet": "Digest::MD5.new << user.password",
       "fingerprint": "b83963f29f4460fcee1ffc2479f2ba4d_1",
-      "old_fingerprint": "414fd75a5cfa82e53d7ca50c7b768927_1"
+      "old_fingerprint": "414fd75a5cfa82e53d7ca50c7b768927_1",
+      "code_extract": "Digest::MD5.new << user.password"
     }
   ]
 }"
@@ -139,7 +141,8 @@ exports[`ruby_lang_weak_password_hash_md openssl_md5_data 1`] = `
       "parent_line_number": 1,
       "snippet": "OpenSSL::Digest::MD5.digest(user.password)",
       "fingerprint": "b83963f29f4460fcee1ffc2479f2ba4d_0",
-      "old_fingerprint": "66f1c853bb2780fa8cf7485059be3971_0"
+      "old_fingerprint": "66f1c853bb2780fa8cf7485059be3971_0",
+      "code_extract": "OpenSSL::Digest::MD5.digest(user.password)"
     }
   ]
 }"

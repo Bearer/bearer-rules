@@ -42,7 +42,8 @@ exports[`ruby_third_parties_scout_apm datatype_in_add 1`] = `
       "parent_line_number": 1,
       "snippet": "ScoutApm::Context.add({ user: { first_name: \\"someone\\" }})",
       "fingerprint": "2e6ed4d28852ce79a75741641fa8b1a3_0",
-      "old_fingerprint": "76329b27f9c8a069fc8928ecbcc28c95_0"
+      "old_fingerprint": "76329b27f9c8a069fc8928ecbcc28c95_0",
+      "code_extract": "ScoutApm::Context.add({ user: { first_name: \\"someone\\" }})"
     }
   ]
 }"
@@ -90,7 +91,8 @@ exports[`ruby_third_parties_scout_apm datatype_in_add_user 1`] = `
       "parent_line_number": 2,
       "snippet": "ScoutApm::Context.add_user(user)",
       "fingerprint": "2e6ed4d28852ce79a75741641fa8b1a3_0",
-      "old_fingerprint": "7589e8e314cc7ce8f0410d0681b79d5b_0"
+      "old_fingerprint": "7589e8e314cc7ce8f0410d0681b79d5b_0",
+      "code_extract": "ScoutApm::Context.add_user(user)"
     }
   ]
 }"

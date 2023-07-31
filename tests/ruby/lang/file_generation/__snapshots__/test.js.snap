@@ -43,7 +43,8 @@ exports[`ruby_lang_file_generation datatype_in_csv_generate 1`] = `
       "parent_line_number": 4,
       "snippet": "csv << [\\n\\t\\t\\tuser.email,\\n\\t\\t\\tuser.first_name,\\n\\t\\t\\tuser.last_name\\n\\t\\t]",
       "fingerprint": "fce21edf0734b5bb814a9395c2b09559_0",
-      "old_fingerprint": "0eded97c585058482d6020b26ccc8093_0"
+      "old_fingerprint": "0eded97c585058482d6020b26ccc8093_0",
+      "code_extract": "\\t\\tcsv << [\\n\\t\\t\\tuser.email,\\n\\t\\t\\tuser.first_name,\\n\\t\\t\\tuser.last_name\\n\\t\\t]"
     },
     {
       "cwe_ids": [
@@ -85,7 +86,8 @@ exports[`ruby_lang_file_generation datatype_in_csv_generate 1`] = `
       "parent_line_number": 4,
       "snippet": "csv << [\\n\\t\\t\\tuser.email,\\n\\t\\t\\tuser.first_name,\\n\\t\\t\\tuser.last_name\\n\\t\\t]",
       "fingerprint": "fce21edf0734b5bb814a9395c2b09559_1",
-      "old_fingerprint": "0eded97c585058482d6020b26ccc8093_1"
+      "old_fingerprint": "0eded97c585058482d6020b26ccc8093_1",
+      "code_extract": "\\t\\tcsv << [\\n\\t\\t\\tuser.email,\\n\\t\\t\\tuser.first_name,\\n\\t\\t\\tuser.last_name\\n\\t\\t]"
     },
     {
       "cwe_ids": [
@@ -127,7 +129,8 @@ exports[`ruby_lang_file_generation datatype_in_csv_generate 1`] = `
       "parent_line_number": 4,
       "snippet": "csv << [\\n\\t\\t\\tuser.email,\\n\\t\\t\\tuser.first_name,\\n\\t\\t\\tuser.last_name\\n\\t\\t]",
       "fingerprint": "fce21edf0734b5bb814a9395c2b09559_2",
-      "old_fingerprint": "0eded97c585058482d6020b26ccc8093_2"
+      "old_fingerprint": "0eded97c585058482d6020b26ccc8093_2",
+      "code_extract": "\\t\\tcsv << [\\n\\t\\t\\tuser.email,\\n\\t\\t\\tuser.first_name,\\n\\t\\t\\tuser.last_name\\n\\t\\t]"
     }
   ]
 }"
@@ -176,7 +179,8 @@ exports[`ruby_lang_file_generation datatype_in_csv_open 1`] = `
       "parent_line_number": 4,
       "snippet": "csv << [\\n\\t\\t\\tuser.email,\\n\\t\\t\\tuser.first_name,\\n\\t\\t\\tuser.last_name\\n\\t\\t]",
       "fingerprint": "fce21edf0734b5bb814a9395c2b09559_0",
-      "old_fingerprint": "78c1d30861258f59ead0fd99cda2e81c_0"
+      "old_fingerprint": "78c1d30861258f59ead0fd99cda2e81c_0",
+      "code_extract": "\\t\\tcsv << [\\n\\t\\t\\tuser.email,\\n\\t\\t\\tuser.first_name,\\n\\t\\t\\tuser.last_name\\n\\t\\t]"
     },
     {
       "cwe_ids": [
@@ -218,7 +222,8 @@ exports[`ruby_lang_file_generation datatype_in_csv_open 1`] = `
       "parent_line_number": 4,
       "snippet": "csv << [\\n\\t\\t\\tuser.email,\\n\\t\\t\\tuser.first_name,\\n\\t\\t\\tuser.last_name\\n\\t\\t]",
       "fingerprint": "fce21edf0734b5bb814a9395c2b09559_1",
-      "old_fingerprint": "78c1d30861258f59ead0fd99cda2e81c_1"
+      "old_fingerprint": "78c1d30861258f59ead0fd99cda2e81c_1",
+      "code_extract": "\\t\\tcsv << [\\n\\t\\t\\tuser.email,\\n\\t\\t\\tuser.first_name,\\n\\t\\t\\tuser.last_name\\n\\t\\t]"
     },
     {
       "cwe_ids": [
@@ -260,7 +265,8 @@ exports[`ruby_lang_file_generation datatype_in_csv_open 1`] = `
       "parent_line_number": 4,
       "snippet": "csv << [\\n\\t\\t\\tuser.email,\\n\\t\\t\\tuser.first_name,\\n\\t\\t\\tuser.last_name\\n\\t\\t]",
       "fingerprint": "fce21edf0734b5bb814a9395c2b09559_2",
-      "old_fingerprint": "78c1d30861258f59ead0fd99cda2e81c_2"
+      "old_fingerprint": "78c1d30861258f59ead0fd99cda2e81c_2",
+      "code_extract": "\\t\\tcsv << [\\n\\t\\t\\tuser.email,\\n\\t\\t\\tuser.first_name,\\n\\t\\t\\tuser.last_name\\n\\t\\t]"
     }
   ]
 }"
@@ -309,7 +315,8 @@ exports[`ruby_lang_file_generation datatype_in_file_open 1`] = `
       "parent_line_number": 1,
       "snippet": "f.write \\"#{Time.now} - User #{user.email} logged in\\\\n\\"",
       "fingerprint": "fce21edf0734b5bb814a9395c2b09559_0",
-      "old_fingerprint": "d29b123d41048c426b2bb210d0c0bf17_0"
+      "old_fingerprint": "d29b123d41048c426b2bb210d0c0bf17_0",
+      "code_extract": "File.open(\\"users.log\\", \\"w\\") { |f| f.write \\"#{Time.now} - User #{user.email} logged in\\\\n\\" }"
     },
     {
       "cwe_ids": [
@@ -351,7 +358,8 @@ exports[`ruby_lang_file_generation datatype_in_file_open 1`] = `
       "parent_line_number": 5,
       "snippet": "f.write \\"#{user.email},#{user.first_name},#{user.last_name}\\"",
       "fingerprint": "fce21edf0734b5bb814a9395c2b09559_1",
-      "old_fingerprint": "d29b123d41048c426b2bb210d0c0bf17_1"
+      "old_fingerprint": "d29b123d41048c426b2bb210d0c0bf17_1",
+      "code_extract": "\\t\\tf.write \\"#{user.email},#{user.first_name},#{user.last_name}\\""
     }
   ]
 }"
@@ -400,7 +408,8 @@ exports[`ruby_lang_file_generation datatype_in_io_sysopen 1`] = `
       "parent_line_number": 3,
       "snippet": "a.puts \\"Hello, #{user.full_name}!\\"",
       "fingerprint": "fce21edf0734b5bb814a9395c2b09559_0",
-      "old_fingerprint": "85a01b834b7c33b75118c9b0f1aee41a_0"
+      "old_fingerprint": "85a01b834b7c33b75118c9b0f1aee41a_0",
+      "code_extract": "  a.puts \\"Hello, #{user.full_name}!\\""
     }
   ]
 }"

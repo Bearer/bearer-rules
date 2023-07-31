@@ -42,7 +42,8 @@ exports[`javascript_lang_jwt insecure 1`] = `
       "parent_line_number": 2,
       "snippet": "jwt.sign(\\n\\t{ user: { email: \\"jhon@gmail.com\\" } },\\n\\tprocess.env.JWT_SECRET\\n)",
       "fingerprint": "a07bf92978c23dd3276b9f99c6468078_0",
-      "old_fingerprint": "033a53b024d0cc266ed79667e570c3ba_0"
+      "old_fingerprint": "033a53b024d0cc266ed79667e570c3ba_0",
+      "code_extract": "var token = jwt.sign(\\n\\t{ user: { email: \\"jhon@gmail.com\\" } },\\n\\tprocess.env.JWT_SECRET\\n);"
     }
   ]
 }"

@@ -42,7 +42,8 @@ exports[`javascript_third_parties_openai insecure 1`] = `
       "parent_line_number": 8,
       "snippet": "openai.createCompletion({\\n  model: \\"text-davinci-003\\",\\n  prompt: \`Hello world \${user.email}\`,\\n})",
       "fingerprint": "5bb06b54684897680375ebb1559bacfd_0",
-      "old_fingerprint": "13b565e880e29c576c454fa1935f87ea_0"
+      "old_fingerprint": "13b565e880e29c576c454fa1935f87ea_0",
+      "code_extract": "const completion = await openai.createCompletion({\\n  model: \\"text-davinci-003\\",\\n  prompt: \`Hello world \${user.email}\`,\\n})"
     }
   ]
 }"

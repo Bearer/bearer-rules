@@ -7,7 +7,7 @@ rule_location=$1
 test_location=$2
 rule_id=$3
 rule_loc=$PWD/rules
-BEARER_VERSION="latest"
+BEARER_VERSION=${BEARER_VERSION=latest}
 
 filename=$(basename $test_location)
 tmp_location=/tmp/bearer-scan/$filename

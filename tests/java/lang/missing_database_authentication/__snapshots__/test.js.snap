@@ -34,7 +34,8 @@ exports[`java_lang_missing_database_authentication bad 1`] = `
       "parent_line_number": 8,
       "snippet": "DriverManager.getConnection(url, \\"root\\", \\"\\")",
       "fingerprint": "c604e41b22b8045034a2fdf34214a28c_0",
-      "old_fingerprint": "561bd711639a61295d21d7d593d46497_0"
+      "old_fingerprint": "561bd711639a61295d21d7d593d46497_0",
+      "code_extract": "    Connection conn = DriverManager.getConnection(url, \\"root\\", \\"\\");"
     }
   ]
 }"

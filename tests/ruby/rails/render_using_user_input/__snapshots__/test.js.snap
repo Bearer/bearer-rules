@@ -36,7 +36,8 @@ exports[`ruby_rails_render_using_user_input unsafe 1`] = `
       "parent_line_number": 1,
       "snippet": "render html: params[:oops]",
       "fingerprint": "dc07dbdb5ca1d80d0e141eb46186a1b3_0",
-      "old_fingerprint": "87c88bd91b06c0666559664ac6800bbe_0"
+      "old_fingerprint": "87c88bd91b06c0666559664ac6800bbe_0",
+      "code_extract": "render html: params[:oops]"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`ruby_rails_render_using_user_input unsafe 1`] = `
       "parent_line_number": 2,
       "snippet": "render inline: \\"<h1>#{params[:oops]}</h1>\\"",
       "fingerprint": "dc07dbdb5ca1d80d0e141eb46186a1b3_1",
-      "old_fingerprint": "87c88bd91b06c0666559664ac6800bbe_1"
+      "old_fingerprint": "87c88bd91b06c0666559664ac6800bbe_1",
+      "code_extract": "render inline: \\"<h1>#{params[:oops]}</h1>\\""
     }
   ]
 }"

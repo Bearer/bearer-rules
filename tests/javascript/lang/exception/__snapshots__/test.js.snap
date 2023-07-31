@@ -42,7 +42,8 @@ exports[`javascript_lang_exception promise_reject 1`] = `
       "parent_line_number": 5,
       "snippet": "Promise.reject(new PermissionDenied(\\"fail\\" + user.email))",
       "fingerprint": "bba6dc65c9d6db47ce50e7ab7f50f853_0",
-      "old_fingerprint": "da0026a5def4e4f489fa9b3008f96481_0"
+      "old_fingerprint": "da0026a5def4e4f489fa9b3008f96481_0",
+      "code_extract": "    Promise.reject(new PermissionDenied(\\"fail\\" + user.email))"
     }
   ]
 }"
@@ -90,7 +91,8 @@ exports[`javascript_lang_exception reject 1`] = `
       "parent_line_number": 7,
       "snippet": "reject(\\"Error with user \\" + user)",
       "fingerprint": "bba6dc65c9d6db47ce50e7ab7f50f853_0",
-      "old_fingerprint": "32fbb67159b1ad1c81f5b5bad0fbd9ff_0"
+      "old_fingerprint": "32fbb67159b1ad1c81f5b5bad0fbd9ff_0",
+      "code_extract": "      reject(\\"Error with user \\" + user)"
     },
     {
       "cwe_ids": [
@@ -131,7 +133,8 @@ exports[`javascript_lang_exception reject 1`] = `
       "parent_line_number": 16,
       "snippet": "reject(\\"Error with user \\" + user)",
       "fingerprint": "bba6dc65c9d6db47ce50e7ab7f50f853_1",
-      "old_fingerprint": "32fbb67159b1ad1c81f5b5bad0fbd9ff_1"
+      "old_fingerprint": "32fbb67159b1ad1c81f5b5bad0fbd9ff_1",
+      "code_extract": "      reject(\\"Error with user \\" + user)"
     }
   ]
 }"
@@ -179,7 +182,8 @@ exports[`javascript_lang_exception throw_custom_exception 1`] = `
       "parent_line_number": 5,
       "snippet": "throw new PermissionDenied(\`Error with \${current_user.email}\`)",
       "fingerprint": "bba6dc65c9d6db47ce50e7ab7f50f853_0",
-      "old_fingerprint": "6e6b0780d0f087c941a439d0510874d7_0"
+      "old_fingerprint": "6e6b0780d0f087c941a439d0510874d7_0",
+      "code_extract": "    throw new PermissionDenied(\`Error with \${current_user.email}\`)"
     }
   ]
 }"
@@ -227,7 +231,8 @@ exports[`javascript_lang_exception throw_string 1`] = `
       "parent_line_number": 5,
       "snippet": "throw \`\${user.email}\`",
       "fingerprint": "bba6dc65c9d6db47ce50e7ab7f50f853_0",
-      "old_fingerprint": "95a519fc5dadded7300b3b7819ac09a8_0"
+      "old_fingerprint": "95a519fc5dadded7300b3b7819ac09a8_0",
+      "code_extract": "    throw \`\${user.email}\`"
     }
   ]
 }"

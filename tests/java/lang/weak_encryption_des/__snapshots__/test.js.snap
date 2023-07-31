@@ -43,7 +43,8 @@ exports[`java_lang_weak_encryption_des des 1`] = `
       "parent_line_number": 16,
       "snippet": "c.update(user.firstname)",
       "fingerprint": "60af5e5a37dd787a36691cc2e2f2b9e9_1",
-      "old_fingerprint": "27357c0c82c205919517bc283f383f18_1"
+      "old_fingerprint": "27357c0c82c205919517bc283f383f18_1",
+      "code_extract": "  c.update(user.firstname)"
     },
     {
       "cwe_ids": [
@@ -85,7 +86,8 @@ exports[`java_lang_weak_encryption_des des 1`] = `
       "parent_line_number": 17,
       "snippet": "c.doFinal(user.lastname)",
       "fingerprint": "60af5e5a37dd787a36691cc2e2f2b9e9_2",
-      "old_fingerprint": "27357c0c82c205919517bc283f383f18_2"
+      "old_fingerprint": "27357c0c82c205919517bc283f383f18_2",
+      "code_extract": "  return c.doFinal(user.lastname);"
     }
   ],
   "low": [
@@ -121,7 +123,8 @@ exports[`java_lang_weak_encryption_des des 1`] = `
       "parent_line_number": 8,
       "snippet": "c.doFinal(payload)",
       "fingerprint": "60af5e5a37dd787a36691cc2e2f2b9e9_0",
-      "old_fingerprint": "27357c0c82c205919517bc283f383f18_0"
+      "old_fingerprint": "27357c0c82c205919517bc283f383f18_0",
+      "code_extract": "  return c.doFinal(payload);"
     }
   ]
 }"

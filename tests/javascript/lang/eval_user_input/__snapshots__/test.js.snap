@@ -35,7 +35,8 @@ exports[`javascript_lang_eval_user_input eval 1`] = `
       "parent_line_number": 11,
       "snippet": "eval(command)",
       "fingerprint": "845c467daab5771a9b5844e411f5576c_0",
-      "old_fingerprint": "047e7e7cf3819e02752e3eb5c918098c_0"
+      "old_fingerprint": "047e7e7cf3819e02752e3eb5c918098c_0",
+      "code_extract": "  return eval(command)"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`javascript_lang_eval_user_input eval 1`] = `
       "parent_line_number": 18,
       "snippet": "eval(context)",
       "fingerprint": "845c467daab5771a9b5844e411f5576c_1",
-      "old_fingerprint": "047e7e7cf3819e02752e3eb5c918098c_1"
+      "old_fingerprint": "047e7e7cf3819e02752e3eb5c918098c_1",
+      "code_extract": "  eval(context);"
     }
   ]
 }"
@@ -110,7 +112,8 @@ exports[`javascript_lang_eval_user_input new_function 1`] = `
       "parent_line_number": 11,
       "snippet": "new Function(command)",
       "fingerprint": "845c467daab5771a9b5844e411f5576c_0",
-      "old_fingerprint": "4751fd38350c5b49b6d4ff040230f0e4_0"
+      "old_fingerprint": "4751fd38350c5b49b6d4ff040230f0e4_0",
+      "code_extract": "  new Function(command)()"
     }
   ]
 }"
@@ -153,7 +156,8 @@ exports[`javascript_lang_eval_user_input set_interval 1`] = `
       "parent_line_number": 11,
       "snippet": "setInterval(command)",
       "fingerprint": "845c467daab5771a9b5844e411f5576c_0",
-      "old_fingerprint": "bb4962f8468dfa6bd503cc5cbb72b698_0"
+      "old_fingerprint": "bb4962f8468dfa6bd503cc5cbb72b698_0",
+      "code_extract": "  setInterval(command)"
     }
   ]
 }"
@@ -194,7 +198,8 @@ exports[`javascript_lang_eval_user_input set_timeout 1`] = `
       "parent_line_number": 11,
       "snippet": "setTimeout(command)",
       "fingerprint": "845c467daab5771a9b5844e411f5576c_0",
-      "old_fingerprint": "166156db7e38b3833a5b23e795e25f54_0"
+      "old_fingerprint": "166156db7e38b3833a5b23e795e25f54_0",
+      "code_extract": "  setTimeout(command)"
     }
   ]
 }"

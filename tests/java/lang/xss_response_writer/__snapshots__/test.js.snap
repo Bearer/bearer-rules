@@ -36,7 +36,8 @@ exports[`java_lang_xss_response_writer vulnerable 1`] = `
       "parent_line_number": 14,
       "snippet": "out.println(user)",
       "fingerprint": "32b949b64f3ce7cf97466aa83aae561a_0",
-      "old_fingerprint": "4dd9cda869eb830ac4340c82e1084f03_0"
+      "old_fingerprint": "4dd9cda869eb830ac4340c82e1084f03_0",
+      "code_extract": "      out.println(user);"
     }
   ]
 }"

@@ -34,7 +34,8 @@ exports[`javascript_lang_hardcoded_secret insecure_assigment 1`] = `
       "parent_line_number": 2,
       "snippet": "config.clientSecret = \\"secretHardcodedString\\"",
       "fingerprint": "68ec549b0c4baac7ca684eb14e42834e_0",
-      "old_fingerprint": "cb0768aaec39cd633bcc91bca96ca617_0"
+      "old_fingerprint": "cb0768aaec39cd633bcc91bca96ca617_0",
+      "code_extract": "config.clientSecret = \\"secretHardcodedString\\";"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`javascript_lang_hardcoded_secret insecure_assigment 1`] = `
       "parent_line_number": 4,
       "snippet": "const apiKey = \\"oops\\"",
       "fingerprint": "68ec549b0c4baac7ca684eb14e42834e_1",
-      "old_fingerprint": "cb0768aaec39cd633bcc91bca96ca617_1"
+      "old_fingerprint": "cb0768aaec39cd633bcc91bca96ca617_1",
+      "code_extract": "const apiKey = \\"oops\\""
     }
   ]
 }"
@@ -107,7 +109,8 @@ exports[`javascript_lang_hardcoded_secret insecure_crypto 1`] = `
       "parent_line_number": 1,
       "snippet": "crypto.createHmac('sha256', 'secretHardcodedString', { encoding: \\"utf-8\\" })",
       "fingerprint": "68ec549b0c4baac7ca684eb14e42834e_0",
-      "old_fingerprint": "57fd1461af37edfce7e2eb6fa55b50d3_0"
+      "old_fingerprint": "57fd1461af37edfce7e2eb6fa55b50d3_0",
+      "code_extract": "crypto.createHmac('sha256', 'secretHardcodedString', { encoding: \\"utf-8\\" })"
     },
     {
       "cwe_ids": [
@@ -140,7 +143,8 @@ exports[`javascript_lang_hardcoded_secret insecure_crypto 1`] = `
       "parent_line_number": 3,
       "snippet": "crypto.createSecretKey('secretHardcodedString', \\"utf-8\\")",
       "fingerprint": "68ec549b0c4baac7ca684eb14e42834e_1",
-      "old_fingerprint": "57fd1461af37edfce7e2eb6fa55b50d3_1"
+      "old_fingerprint": "57fd1461af37edfce7e2eb6fa55b50d3_1",
+      "code_extract": "crypto.createSecretKey('secretHardcodedString', \\"utf-8\\")"
     },
     {
       "cwe_ids": [
@@ -173,7 +177,8 @@ exports[`javascript_lang_hardcoded_secret insecure_crypto 1`] = `
       "parent_line_number": 5,
       "snippet": "crypto.createPrivateKey('secretHardcodedString')",
       "fingerprint": "68ec549b0c4baac7ca684eb14e42834e_2",
-      "old_fingerprint": "57fd1461af37edfce7e2eb6fa55b50d3_2"
+      "old_fingerprint": "57fd1461af37edfce7e2eb6fa55b50d3_2",
+      "code_extract": "crypto.createPrivateKey('secretHardcodedString')"
     },
     {
       "cwe_ids": [
@@ -206,7 +211,8 @@ exports[`javascript_lang_hardcoded_secret insecure_crypto 1`] = `
       "parent_line_number": 7,
       "snippet": "crypto.privateDecrypt({ key: 'secretHardcodedString' }, buffer)",
       "fingerprint": "68ec549b0c4baac7ca684eb14e42834e_3",
-      "old_fingerprint": "57fd1461af37edfce7e2eb6fa55b50d3_3"
+      "old_fingerprint": "57fd1461af37edfce7e2eb6fa55b50d3_3",
+      "code_extract": "crypto.privateDecrypt({ key: 'secretHardcodedString' }, buffer)"
     },
     {
       "cwe_ids": [
@@ -239,7 +245,8 @@ exports[`javascript_lang_hardcoded_secret insecure_crypto 1`] = `
       "parent_line_number": 9,
       "snippet": "crypto.privateEncrypt({ passphrase: 'secretHardcodedString' }, buffer)",
       "fingerprint": "68ec549b0c4baac7ca684eb14e42834e_4",
-      "old_fingerprint": "57fd1461af37edfce7e2eb6fa55b50d3_4"
+      "old_fingerprint": "57fd1461af37edfce7e2eb6fa55b50d3_4",
+      "code_extract": "crypto.privateEncrypt({ passphrase: 'secretHardcodedString' }, buffer)"
     },
     {
       "cwe_ids": [
@@ -272,7 +279,8 @@ exports[`javascript_lang_hardcoded_secret insecure_crypto 1`] = `
       "parent_line_number": 12,
       "snippet": "s.sign('secretHardcodedString', \\"utf-8\\")",
       "fingerprint": "68ec549b0c4baac7ca684eb14e42834e_5",
-      "old_fingerprint": "57fd1461af37edfce7e2eb6fa55b50d3_5"
+      "old_fingerprint": "57fd1461af37edfce7e2eb6fa55b50d3_5",
+      "code_extract": "s.sign('secretHardcodedString', \\"utf-8\\")"
     }
   ]
 }"
@@ -316,7 +324,8 @@ exports[`javascript_lang_hardcoded_secret insecure_object 1`] = `
       "parent_line_number": 3,
       "snippet": "clientSecret: \\"secretHardcodedString\\"",
       "fingerprint": "68ec549b0c4baac7ca684eb14e42834e_0",
-      "old_fingerprint": "96d420b4e549b4b59b1846d59c40595a_0"
+      "old_fingerprint": "96d420b4e549b4b59b1846d59c40595a_0",
+      "code_extract": "\\tclientSecret: \\"secretHardcodedString\\","
     }
   ]
 }"

@@ -36,7 +36,8 @@ exports[`ruby_lang_regex_using_user_input unsafe 1`] = `
       "parent_line_number": 1,
       "snippet": "/#{params[:oops]}.*/",
       "fingerprint": "96c8bf129cd985608c41f865f39cbdab_0",
-      "old_fingerprint": "34fa075fb264c180f9c08521854bba84_0"
+      "old_fingerprint": "34fa075fb264c180f9c08521854bba84_0",
+      "code_extract": "/#{params[:oops]}.*/"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`ruby_lang_regex_using_user_input unsafe 1`] = `
       "parent_line_number": 3,
       "snippet": "%r{abc#{params[:oops]}def}",
       "fingerprint": "96c8bf129cd985608c41f865f39cbdab_1",
-      "old_fingerprint": "34fa075fb264c180f9c08521854bba84_1"
+      "old_fingerprint": "34fa075fb264c180f9c08521854bba84_1",
+      "code_extract": "%r{abc#{params[:oops]}def}"
     },
     {
       "cwe_ids": [
@@ -102,7 +104,8 @@ exports[`ruby_lang_regex_using_user_input unsafe 1`] = `
       "parent_line_number": 5,
       "snippet": "Regexp.new(params[:oops])",
       "fingerprint": "96c8bf129cd985608c41f865f39cbdab_2",
-      "old_fingerprint": "34fa075fb264c180f9c08521854bba84_2"
+      "old_fingerprint": "34fa075fb264c180f9c08521854bba84_2",
+      "code_extract": "Regexp.new(params[:oops])"
     }
   ]
 }"

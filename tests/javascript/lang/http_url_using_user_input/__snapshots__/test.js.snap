@@ -34,7 +34,8 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
       "parent_line_number": 6,
       "snippet": "axios({ url: url })",
       "fingerprint": "d03323e4c199405710e778b32492501f_0",
-      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_0"
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_0",
+      "code_extract": "axios({ url: url })"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
       "parent_line_number": 8,
       "snippet": "axios.get(url)",
       "fingerprint": "d03323e4c199405710e778b32492501f_1",
-      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_1"
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_1",
+      "code_extract": "axios.get(url)"
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
       "parent_line_number": 13,
       "snippet": "fetch(url)",
       "fingerprint": "d03323e4c199405710e778b32492501f_2",
-      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_2"
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_2",
+      "code_extract": "fetch(url)"
     },
     {
       "cwe_ids": [
@@ -133,7 +136,8 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
       "parent_line_number": 19,
       "snippet": "xhttp.open('GET', url)",
       "fingerprint": "d03323e4c199405710e778b32492501f_3",
-      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_3"
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_3",
+      "code_extract": "xhttp.open('GET', url)"
     },
     {
       "cwe_ids": [
@@ -166,7 +170,8 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
       "parent_line_number": 25,
       "snippet": "request.get(url)",
       "fingerprint": "d03323e4c199405710e778b32492501f_4",
-      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_4"
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_4",
+      "code_extract": "const imageRequest = request.get(url)"
     },
     {
       "cwe_ids": [
@@ -199,7 +204,8 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
       "parent_line_number": 27,
       "snippet": "request(url, function () {})",
       "fingerprint": "d03323e4c199405710e778b32492501f_5",
-      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_5"
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_5",
+      "code_extract": "request(url, function () {})"
     },
     {
       "cwe_ids": [
@@ -232,7 +238,8 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
       "parent_line_number": 31,
       "snippet": "axios.get(event.url)",
       "fingerprint": "d03323e4c199405710e778b32492501f_6",
-      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_6"
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_6",
+      "code_extract": "  axios.get(event.url)"
     },
     {
       "cwe_ids": [
@@ -265,7 +272,8 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
       "parent_line_number": 35,
       "snippet": "axios.get(event[\\"url\\"])",
       "fingerprint": "d03323e4c199405710e778b32492501f_7",
-      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_7"
+      "old_fingerprint": "c3fc40c776f8110ab15690122331723a_7",
+      "code_extract": "  axios.get(event[\\"url\\"])"
     }
   ]
 }"

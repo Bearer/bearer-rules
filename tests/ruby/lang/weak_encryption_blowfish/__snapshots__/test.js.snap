@@ -35,7 +35,8 @@ exports[`ruby_lang_weak_encryption_blowfish blowfish 1`] = `
       "parent_line_number": 2,
       "snippet": "blowfish.encrypt_block do\\n  \\"hello world\\"\\nend",
       "fingerprint": "bd49baf006f18f3010498485ae3f5dfa_0",
-      "old_fingerprint": "5648e1c4bb9d2084f25ff405cf6fb9cd_0"
+      "old_fingerprint": "5648e1c4bb9d2084f25ff405cf6fb9cd_0",
+      "code_extract": "blowfish.encrypt_block do\\n  \\"hello world\\"\\nend"
     }
   ]
 }"
@@ -84,7 +85,8 @@ exports[`ruby_lang_weak_encryption_blowfish blowfish_data 1`] = `
       "parent_line_number": 1,
       "snippet": "Crypt::Blowfish.new(\\"insecure\\").encrypt_block { |user|\\n  user.full_name\\n}",
       "fingerprint": "bd49baf006f18f3010498485ae3f5dfa_0",
-      "old_fingerprint": "425bf82b0c8dade97640afdaae8f6567_0"
+      "old_fingerprint": "425bf82b0c8dade97640afdaae8f6567_0",
+      "code_extract": "Crypt::Blowfish.new(\\"insecure\\").encrypt_block { |user|\\n  user.full_name\\n}"
     },
     {
       "cwe_ids": [
@@ -126,7 +128,8 @@ exports[`ruby_lang_weak_encryption_blowfish blowfish_data 1`] = `
       "parent_line_number": 5,
       "snippet": "Crypt::Blowfish.new(\\"insecure\\").encrypt_block do |user|\\n  user.full_name\\nend",
       "fingerprint": "bd49baf006f18f3010498485ae3f5dfa_1",
-      "old_fingerprint": "425bf82b0c8dade97640afdaae8f6567_1"
+      "old_fingerprint": "425bf82b0c8dade97640afdaae8f6567_1",
+      "code_extract": "Crypt::Blowfish.new(\\"insecure\\").encrypt_block do |user|\\n  user.full_name\\nend"
     },
     {
       "cwe_ids": [
@@ -168,7 +171,8 @@ exports[`ruby_lang_weak_encryption_blowfish blowfish_data 1`] = `
       "parent_line_number": 9,
       "snippet": "Crypt::Blowfish.new(\\"your-key\\").encrypt_string(user.email)",
       "fingerprint": "bd49baf006f18f3010498485ae3f5dfa_2",
-      "old_fingerprint": "425bf82b0c8dade97640afdaae8f6567_2"
+      "old_fingerprint": "425bf82b0c8dade97640afdaae8f6567_2",
+      "code_extract": "Crypt::Blowfish.new(\\"your-key\\").encrypt_string(user.email)"
     }
   ]
 }"

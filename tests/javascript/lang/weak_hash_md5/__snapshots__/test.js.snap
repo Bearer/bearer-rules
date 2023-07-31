@@ -43,7 +43,8 @@ exports[`javascript_lang_weak_hash_md5 crypto_md5 1`] = `
       "parent_line_number": 4,
       "snippet": "myCrypto.createHmac(\\"md5\\", key).update(user.email)",
       "fingerprint": "c4f165d7f589bd4f3415165e96c2b249_0",
-      "old_fingerprint": "5f7ffe7da12bab4459cdb44a8be8ba08_0"
+      "old_fingerprint": "5f7ffe7da12bab4459cdb44a8be8ba08_0",
+      "code_extract": "myCrypto.createHmac(\\"md5\\", key).update(user.email);"
     },
     {
       "cwe_ids": [
@@ -85,7 +86,8 @@ exports[`javascript_lang_weak_hash_md5 crypto_md5 1`] = `
       "parent_line_number": 5,
       "snippet": "myCrypto.createHash(\\"md5\\").update(user.email)",
       "fingerprint": "c4f165d7f589bd4f3415165e96c2b249_1",
-      "old_fingerprint": "5f7ffe7da12bab4459cdb44a8be8ba08_1"
+      "old_fingerprint": "5f7ffe7da12bab4459cdb44a8be8ba08_1",
+      "code_extract": "var hashmd5 = myCrypto.createHash(\\"md5\\").update(user.email);"
     }
   ]
 }"
@@ -134,7 +136,8 @@ exports[`javascript_lang_weak_hash_md5 cryptojs_md5 1`] = `
       "parent_line_number": 2,
       "snippet": "MyCryptoJS.MD5(user.email)",
       "fingerprint": "c4f165d7f589bd4f3415165e96c2b249_0",
-      "old_fingerprint": "c51ec588c3a82750a8a435bfa0d6da1a_0"
+      "old_fingerprint": "c51ec588c3a82750a8a435bfa0d6da1a_0",
+      "code_extract": "var hash = MyCryptoJS.MD5(user.email);"
     }
   ]
 }"
@@ -183,7 +186,8 @@ exports[`javascript_lang_weak_hash_md5 md5 1`] = `
       "parent_line_number": 4,
       "snippet": "myMd5(req.query.email)",
       "fingerprint": "c4f165d7f589bd4f3415165e96c2b249_0",
-      "old_fingerprint": "92bff4755c0c3a39ad0f98e5a35ed1d5_0"
+      "old_fingerprint": "92bff4755c0c3a39ad0f98e5a35ed1d5_0",
+      "code_extract": "  hashedPw = myMd5(req.query.email)"
     }
   ],
   "low": [
@@ -219,7 +223,8 @@ exports[`javascript_lang_weak_hash_md5 md5 1`] = `
       "parent_line_number": 5,
       "snippet": "myMd5(\\"hello\\")",
       "fingerprint": "c4f165d7f589bd4f3415165e96c2b249_1",
-      "old_fingerprint": "92bff4755c0c3a39ad0f98e5a35ed1d5_1"
+      "old_fingerprint": "92bff4755c0c3a39ad0f98e5a35ed1d5_1",
+      "code_extract": "  hashedPw = myMd5(\\"hello\\")"
     }
   ]
 }"

@@ -34,7 +34,8 @@ exports[`ruby_rails_permissive_regex_validation bad 1`] = `
       "parent_line_number": 1,
       "snippet": "validates :attr, format: { with: /^oops$/ }",
       "fingerprint": "2413542e48eb6c729510ed1ba924b4cb_0",
-      "old_fingerprint": "97ed93c4b804498902421b9fcd7b5dfd_0"
+      "old_fingerprint": "97ed93c4b804498902421b9fcd7b5dfd_0",
+      "code_extract": "validates :attr, format: { with: /^oops$/ }"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`ruby_rails_permissive_regex_validation bad 1`] = `
       "parent_line_number": 2,
       "snippet": "validates :attr, format: { with: %r[oops] }",
       "fingerprint": "2413542e48eb6c729510ed1ba924b4cb_1",
-      "old_fingerprint": "97ed93c4b804498902421b9fcd7b5dfd_1"
+      "old_fingerprint": "97ed93c4b804498902421b9fcd7b5dfd_1",
+      "code_extract": "validates :attr, format: { with: %r[oops] }"
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`ruby_rails_permissive_regex_validation bad 1`] = `
       "parent_line_number": 3,
       "snippet": "validates :attr, format: { with: \\"\\\\Aoops\\" }",
       "fingerprint": "2413542e48eb6c729510ed1ba924b4cb_2",
-      "old_fingerprint": "97ed93c4b804498902421b9fcd7b5dfd_2"
+      "old_fingerprint": "97ed93c4b804498902421b9fcd7b5dfd_2",
+      "code_extract": "validates :attr, format: { with: \\"\\\\Aoops\\" }"
     },
     {
       "cwe_ids": [
@@ -133,7 +136,8 @@ exports[`ruby_rails_permissive_regex_validation bad 1`] = `
       "parent_line_number": 4,
       "snippet": "validates :attr, format: { with: /oops\\\\z/ }",
       "fingerprint": "2413542e48eb6c729510ed1ba924b4cb_3",
-      "old_fingerprint": "97ed93c4b804498902421b9fcd7b5dfd_3"
+      "old_fingerprint": "97ed93c4b804498902421b9fcd7b5dfd_3",
+      "code_extract": "validates :attr, format: { with: /oops\\\\z/ }"
     },
     {
       "cwe_ids": [
@@ -166,7 +170,8 @@ exports[`ruby_rails_permissive_regex_validation bad 1`] = `
       "parent_line_number": 6,
       "snippet": "validates_format_of :attr, with: '^oops$'",
       "fingerprint": "2413542e48eb6c729510ed1ba924b4cb_4",
-      "old_fingerprint": "97ed93c4b804498902421b9fcd7b5dfd_4"
+      "old_fingerprint": "97ed93c4b804498902421b9fcd7b5dfd_4",
+      "code_extract": "validates_format_of :attr, with: '^oops$'"
     }
   ]
 }"

@@ -42,7 +42,8 @@ exports[`java_lang_weak_hash_md5 md5_hash 1`] = `
       "parent_line_number": 6,
       "snippet": "md.update(user.fullname.getBytes())",
       "fingerprint": "42ffc7b5d0492110367e370dc2e0752d_0",
-      "old_fingerprint": "64ccf1edbc2d451528f075885f51dd89_0"
+      "old_fingerprint": "64ccf1edbc2d451528f075885f51dd89_0",
+      "code_extract": "      md.update(user.fullname.getBytes());"
     }
   ],
   "low": [
@@ -77,7 +78,8 @@ exports[`java_lang_weak_hash_md5 md5_hash 1`] = `
       "parent_line_number": 23,
       "snippet": "md.update(secret.getBytes())",
       "fingerprint": "42ffc7b5d0492110367e370dc2e0752d_1",
-      "old_fingerprint": "64ccf1edbc2d451528f075885f51dd89_1"
+      "old_fingerprint": "64ccf1edbc2d451528f075885f51dd89_1",
+      "code_extract": "      md.update(secret.getBytes());"
     }
   ]
 }"

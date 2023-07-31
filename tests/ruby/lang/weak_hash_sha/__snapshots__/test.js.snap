@@ -35,7 +35,8 @@ exports[`ruby_lang_weak_hash_sha digest_sha1 1`] = `
       "parent_line_number": 1,
       "snippet": "Digest::SHA1.hexdigest(\\"hello world\\")",
       "fingerprint": "8cacde796989dd63650ab546d3b610ed_0",
-      "old_fingerprint": "65058bc29cb476385e5e870d567acb4d_0"
+      "old_fingerprint": "65058bc29cb476385e5e870d567acb4d_0",
+      "code_extract": "Digest::SHA1.hexdigest(\\"hello world\\")"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`ruby_lang_weak_hash_sha digest_sha1 1`] = `
       "parent_line_number": 3,
       "snippet": "Digest::SHA1.new.update(\\"hello world\\")",
       "fingerprint": "8cacde796989dd63650ab546d3b610ed_1",
-      "old_fingerprint": "65058bc29cb476385e5e870d567acb4d_1"
+      "old_fingerprint": "65058bc29cb476385e5e870d567acb4d_1",
+      "code_extract": "Digest::SHA1.new.update(\\"hello world\\")"
     }
   ]
 }"
@@ -118,7 +120,8 @@ exports[`ruby_lang_weak_hash_sha digest_sha1_data 1`] = `
       "parent_line_number": 1,
       "snippet": "Digest::SHA1.hexdigest(user.first_name)",
       "fingerprint": "8cacde796989dd63650ab546d3b610ed_0",
-      "old_fingerprint": "fb56b92f74acb87c2526864c3551199a_0"
+      "old_fingerprint": "fb56b92f74acb87c2526864c3551199a_0",
+      "code_extract": "Digest::SHA1.hexdigest(user.first_name)"
     },
     {
       "cwe_ids": [
@@ -160,7 +163,8 @@ exports[`ruby_lang_weak_hash_sha digest_sha1_data 1`] = `
       "parent_line_number": 3,
       "snippet": "Digest::SHA1.new.update(user.first_name)",
       "fingerprint": "8cacde796989dd63650ab546d3b610ed_1",
-      "old_fingerprint": "fb56b92f74acb87c2526864c3551199a_1"
+      "old_fingerprint": "fb56b92f74acb87c2526864c3551199a_1",
+      "code_extract": "Digest::SHA1.new.update(user.first_name)"
     }
   ]
 }"
@@ -201,7 +205,8 @@ exports[`ruby_lang_weak_hash_sha openssl_sha1 1`] = `
       "parent_line_number": 2,
       "snippet": "y.digest(\\"hello world\\")",
       "fingerprint": "8cacde796989dd63650ab546d3b610ed_0",
-      "old_fingerprint": "0fa7aa72ca0380ab9d57a2727571076c_0"
+      "old_fingerprint": "0fa7aa72ca0380ab9d57a2727571076c_0",
+      "code_extract": "y.digest(\\"hello world\\")"
     }
   ]
 }"
@@ -250,7 +255,8 @@ exports[`ruby_lang_weak_hash_sha openssl_sha1_data 1`] = `
       "parent_line_number": 1,
       "snippet": "OpenSSL::Digest.digest(\\"sha1\\", user.first_name)",
       "fingerprint": "8cacde796989dd63650ab546d3b610ed_0",
-      "old_fingerprint": "f9db0d86ee21fabf25a3f224fa90d919_0"
+      "old_fingerprint": "f9db0d86ee21fabf25a3f224fa90d919_0",
+      "code_extract": "OpenSSL::Digest.digest(\\"sha1\\", user.first_name)"
     },
     {
       "cwe_ids": [
@@ -292,7 +298,8 @@ exports[`ruby_lang_weak_hash_sha openssl_sha1_data 1`] = `
       "parent_line_number": 4,
       "snippet": "y.digest(user.first_name)",
       "fingerprint": "8cacde796989dd63650ab546d3b610ed_1",
-      "old_fingerprint": "f9db0d86ee21fabf25a3f224fa90d919_1"
+      "old_fingerprint": "f9db0d86ee21fabf25a3f224fa90d919_1",
+      "code_extract": "y.digest(user.first_name)"
     }
   ]
 }"

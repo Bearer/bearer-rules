@@ -34,7 +34,8 @@ exports[`java_spring_sqli bad 1`] = `
       "parent_line_number": 14,
       "snippet": "new PreparedStatementCreatorFactory(myQueryStr, Types.VARCHAR)",
       "fingerprint": "ebf8b9a53c73eabed841989514b90054_0",
-      "old_fingerprint": "9ea5f5b3d1131ed66c9e6fe7484aa506_0"
+      "old_fingerprint": "9ea5f5b3d1131ed66c9e6fe7484aa506_0",
+      "code_extract": "      var factory = new PreparedStatementCreatorFactory(myQueryStr, Types.VARCHAR);"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`java_spring_sqli bad 1`] = `
       "parent_line_number": 15,
       "snippet": "factory.newPreparedStatementCreator(myQueryStr, [])",
       "fingerprint": "ebf8b9a53c73eabed841989514b90054_1",
-      "old_fingerprint": "9ea5f5b3d1131ed66c9e6fe7484aa506_1"
+      "old_fingerprint": "9ea5f5b3d1131ed66c9e6fe7484aa506_1",
+      "code_extract": "      factory.newPreparedStatementCreator(myQueryStr, []);"
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`java_spring_sqli bad 1`] = `
       "parent_line_number": 17,
       "snippet": "t.batchUpdate(\\"ok\\", myQueryStr)",
       "fingerprint": "ebf8b9a53c73eabed841989514b90054_2",
-      "old_fingerprint": "9ea5f5b3d1131ed66c9e6fe7484aa506_2"
+      "old_fingerprint": "9ea5f5b3d1131ed66c9e6fe7484aa506_2",
+      "code_extract": "      t.batchUpdate(\\"ok\\", myQueryStr);"
     },
     {
       "cwe_ids": [
@@ -133,7 +136,8 @@ exports[`java_spring_sqli bad 1`] = `
       "parent_line_number": 18,
       "snippet": "t.execute(myQueryStr)",
       "fingerprint": "ebf8b9a53c73eabed841989514b90054_3",
-      "old_fingerprint": "9ea5f5b3d1131ed66c9e6fe7484aa506_3"
+      "old_fingerprint": "9ea5f5b3d1131ed66c9e6fe7484aa506_3",
+      "code_extract": "      t.execute(myQueryStr);"
     }
   ]
 }"

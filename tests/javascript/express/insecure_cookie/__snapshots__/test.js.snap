@@ -35,7 +35,8 @@ exports[`javascript_express_insecure_cookie http_only 1`] = `
       "parent_line_number": 10,
       "snippet": "{\\n    cookie: {\\n      domain: \\"example.com\\",\\n      httpOnly: false,\\n      secure: true,\\n      name: \\"my-custom-cookie-name\\",\\n      maxAge: 24 * 60 * 60 * 1000,\\n      path: \\"/some-path\\",\\n    },\\n  }",
       "fingerprint": "0b87579d3cc308770141504e6ed4a2a5_0",
-      "old_fingerprint": "e0793e4ce5233244e0eb2357b7c9dd0b_0"
+      "old_fingerprint": "e0793e4ce5233244e0eb2357b7c9dd0b_0",
+      "code_extract": "  session({\\n    cookie: {\\n      domain: \\"example.com\\",\\n      ...omitted (buffer value 3)\\n      path: \\"/some-path\\",\\n    },\\n  })"
     }
   ]
 }"
@@ -76,7 +77,8 @@ exports[`javascript_express_insecure_cookie insecure_cookie 1`] = `
       "parent_line_number": 10,
       "snippet": "{\\n    cookie: {\\n      domain: \\"example.com\\",\\n      secure: false, // Ensures the browser only sends the cookie over HTTPS.\\n      httpOnly: false,\\n      name: \\"my-custom-cookie-name\\",\\n      maxAge: 24 * 60 * 60 * 1000,\\n      path: \\"/some-path\\",\\n    },\\n  }",
       "fingerprint": "0b87579d3cc308770141504e6ed4a2a5_0",
-      "old_fingerprint": "fa507af055fc4d80a9c9e2c7f45439cc_0"
+      "old_fingerprint": "fa507af055fc4d80a9c9e2c7f45439cc_0",
+      "code_extract": "  session({\\n    cookie: {\\n      domain: \\"example.com\\",\\n      ...omitted (buffer value 3)\\n      path: \\"/some-path\\",\\n    },\\n  })"
     }
   ]
 }"
@@ -117,7 +119,8 @@ exports[`javascript_express_insecure_cookie insecure_cookie_csurf 1`] = `
       "parent_line_number": 10,
       "snippet": "{\\n    cookie: { ...csrfOptions, httpOnly: true },\\n    // cookie: { secure: false, httpOnly: true },\\n  }",
       "fingerprint": "0b87579d3cc308770141504e6ed4a2a5_0",
-      "old_fingerprint": "d0e5b9b4d419c509afe5c674e7c35392_0"
+      "old_fingerprint": "d0e5b9b4d419c509afe5c674e7c35392_0",
+      "code_extract": "  const protection = csurf({\\n    cookie: { ...csrfOptions, httpOnly: true },\\n    // cookie: { secure: false, httpOnly: true },\\n  })"
     }
   ]
 }"
@@ -158,7 +161,8 @@ exports[`javascript_express_insecure_cookie insecure_cookie_session 1`] = `
       "parent_line_number": 11,
       "snippet": "cookieSession({\\n    domain: \\"example.com\\",\\n    httpOnly: false,\\n    secure: false,\\n    name: \\"my-custom-cookie-name\\",\\n    maxAge: 24 * 60 * 60 * 1000,\\n    path: \\"/some-path\\",\\n  })",
       "fingerprint": "0b87579d3cc308770141504e6ed4a2a5_0",
-      "old_fingerprint": "993b8ff881a2d9574b307ebb48943593_0"
+      "old_fingerprint": "993b8ff881a2d9574b307ebb48943593_0",
+      "code_extract": "  cookieSession({\\n    domain: \\"example.com\\",\\n    httpOnly: false,\\n    ...omitted (buffer value 3)\\n    maxAge: 24 * 60 * 60 * 1000,\\n    path: \\"/some-path\\",\\n  })"
     }
   ]
 }"

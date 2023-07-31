@@ -42,7 +42,8 @@ exports[`ruby_third_parties_open_telemetry datatype_in_record_exception 1`] = `
       "parent_line_number": 7,
       "snippet": "current_span.status = OpenTelemetry::Trace::Status.error(\\"error for user #{current_user.email}\\")",
       "fingerprint": "949ba3eb3d0c9c539480c41846520b5b_0",
-      "old_fingerprint": "372ce2e171b67268c33449c0272f1bc2_0"
+      "old_fingerprint": "372ce2e171b67268c33449c0272f1bc2_0",
+      "code_extract": "  current_span.status = OpenTelemetry::Trace::Status.error(\\"error for user #{current_user.email}\\")"
     },
     {
       "cwe_ids": [
@@ -82,7 +83,8 @@ exports[`ruby_third_parties_open_telemetry datatype_in_record_exception 1`] = `
       "parent_line_number": 17,
       "snippet": "current_span.record_exception(ex, attributes: { \\"user.ip\\" => user.ip_address })",
       "fingerprint": "949ba3eb3d0c9c539480c41846520b5b_1",
-      "old_fingerprint": "372ce2e171b67268c33449c0272f1bc2_1"
+      "old_fingerprint": "372ce2e171b67268c33449c0272f1bc2_1",
+      "code_extract": "  current_span.record_exception(ex, attributes: { \\"user.ip\\" => user.ip_address })"
     }
   ]
 }"
@@ -130,7 +132,8 @@ exports[`ruby_third_parties_open_telemetry datatype_in_span_attributes 1`] = `
       "parent_line_number": 5,
       "snippet": "current_span.add_attributes({\\n    \\"user.id\\" => user.id,\\n    \\"user.first_name\\" => user.first_name\\n  })",
       "fingerprint": "949ba3eb3d0c9c539480c41846520b5b_0",
-      "old_fingerprint": "91364e9b5bd7abadd8fa318aa086e242_0"
+      "old_fingerprint": "91364e9b5bd7abadd8fa318aa086e242_0",
+      "code_extract": "  current_span.add_attributes({\\n    \\"user.id\\" => user.id,\\n    \\"user.first_name\\" => user.first_name\\n  })"
     },
     {
       "cwe_ids": [
@@ -171,7 +174,8 @@ exports[`ruby_third_parties_open_telemetry datatype_in_span_attributes 1`] = `
       "parent_line_number": 14,
       "snippet": "current_span.set_attribute(\\"current_users\\", users)",
       "fingerprint": "949ba3eb3d0c9c539480c41846520b5b_1",
-      "old_fingerprint": "91364e9b5bd7abadd8fa318aa086e242_1"
+      "old_fingerprint": "91364e9b5bd7abadd8fa318aa086e242_1",
+      "code_extract": "current_span.set_attribute(\\"current_users\\", users)"
     }
   ]
 }"
@@ -219,7 +223,8 @@ exports[`ruby_third_parties_open_telemetry datatype_in_span_event 1`] = `
       "parent_line_number": 2,
       "snippet": "span.add_event(\\"Schedule job for user: #{current_user.email}\\")",
       "fingerprint": "949ba3eb3d0c9c539480c41846520b5b_0",
-      "old_fingerprint": "790a624de39af2e1d3e6b5c4a866b1ae_0"
+      "old_fingerprint": "790a624de39af2e1d3e6b5c4a866b1ae_0",
+      "code_extract": "span.add_event(\\"Schedule job for user: #{current_user.email}\\")"
     },
     {
       "cwe_ids": [
@@ -260,7 +265,8 @@ exports[`ruby_third_parties_open_telemetry datatype_in_span_event 1`] = `
       "parent_line_number": 3,
       "snippet": "span.add_event(\\"Cancel job for user\\", attributes: {\\n  \\"current_user\\" => current_user.email\\n})",
       "fingerprint": "949ba3eb3d0c9c539480c41846520b5b_1",
-      "old_fingerprint": "790a624de39af2e1d3e6b5c4a866b1ae_1"
+      "old_fingerprint": "790a624de39af2e1d3e6b5c4a866b1ae_1",
+      "code_extract": "span.add_event(\\"Cancel job for user\\", attributes: {\\n  \\"current_user\\" => current_user.email\\n})"
     }
   ]
 }"
@@ -308,7 +314,8 @@ exports[`ruby_third_parties_open_telemetry datatypes_in_span_init_block 1`] = `
       "parent_line_number": 2,
       "snippet": "Tracer.in_span(\\"data leaking\\", attributes: { \\"current_user\\" => user.email, \\"date\\" => DateTime.now }) do |span|\\n  puts \\"in the span block\\"\\nend",
       "fingerprint": "949ba3eb3d0c9c539480c41846520b5b_0",
-      "old_fingerprint": "e3c915377ea892d2c15b106449f05e8c_0"
+      "old_fingerprint": "e3c915377ea892d2c15b106449f05e8c_0",
+      "code_extract": "Tracer.in_span(\\"data leaking\\", attributes: { \\"current_user\\" => user.email, \\"date\\" => DateTime.now }) do |span|\\n  puts \\"in the span block\\"\\nend"
     },
     {
       "cwe_ids": [
@@ -349,7 +356,8 @@ exports[`ruby_third_parties_open_telemetry datatypes_in_span_init_block 1`] = `
       "parent_line_number": 6,
       "snippet": "SomeOtherTracer.in_span(\\"data leaking\\", attributes: { \\"current_user\\" => user.email, \\"date\\" => DateTime.now }) do |span|\\n  span.add_attributes(user.email)\\nend",
       "fingerprint": "949ba3eb3d0c9c539480c41846520b5b_1",
-      "old_fingerprint": "e3c915377ea892d2c15b106449f05e8c_1"
+      "old_fingerprint": "e3c915377ea892d2c15b106449f05e8c_1",
+      "code_extract": "SomeOtherTracer.in_span(\\"data leaking\\", attributes: { \\"current_user\\" => user.email, \\"date\\" => DateTime.now }) do |span|\\n  span.add_attributes(user.email)\\nend"
     },
     {
       "cwe_ids": [
@@ -390,7 +398,8 @@ exports[`ruby_third_parties_open_telemetry datatypes_in_span_init_block 1`] = `
       "parent_line_number": 11,
       "snippet": "span.add_event(\\"leaking data for #{user.email}\\")",
       "fingerprint": "949ba3eb3d0c9c539480c41846520b5b_2",
-      "old_fingerprint": "e3c915377ea892d2c15b106449f05e8c_2"
+      "old_fingerprint": "e3c915377ea892d2c15b106449f05e8c_2",
+      "code_extract": "  span.add_event(\\"leaking data for #{user.email}\\")"
     }
   ]
 }"

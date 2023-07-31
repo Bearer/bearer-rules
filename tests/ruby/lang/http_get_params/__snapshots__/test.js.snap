@@ -42,7 +42,8 @@ exports[`ruby_lang_http_get_params datatype_in_param_hash 1`] = `
       "parent_line_number": 1,
       "snippet": "HTTP.get(\\"https://my.api.com/users/search\\", params: { user: { first_name: user.first_name } })",
       "fingerprint": "8894dae3b2e5b5fbbe850e0eb0759f58_0",
-      "old_fingerprint": "56c2e7ffa7bfaac1b9dae6bb93d074ec_0"
+      "old_fingerprint": "56c2e7ffa7bfaac1b9dae6bb93d074ec_0",
+      "code_extract": "HTTP.get(\\"https://my.api.com/users/search\\", params: { user: { first_name: user.first_name } })"
     }
   ]
 }"
@@ -91,7 +92,8 @@ exports[`ruby_lang_http_get_params datatype_in_params 1`] = `
       "parent_line_number": 1,
       "snippet": "URI(\\"https://my.api.com/users/search?ethnic_origin=#{user.ethnic_origin}\\")",
       "fingerprint": "8894dae3b2e5b5fbbe850e0eb0759f58_0",
-      "old_fingerprint": "3e9cb6017396c05df43fe1f2dff79bea_0"
+      "old_fingerprint": "3e9cb6017396c05df43fe1f2dff79bea_0",
+      "code_extract": "uri = URI(\\"https://my.api.com/users/search?ethnic_origin=#{user.ethnic_origin}\\")"
     }
   ],
   "high": [
@@ -134,7 +136,8 @@ exports[`ruby_lang_http_get_params datatype_in_params 1`] = `
       "parent_line_number": 3,
       "snippet": "RestClient.get(\\"https://my.api.com/users/search?first_name=#{user.first_name}\\")",
       "fingerprint": "8894dae3b2e5b5fbbe850e0eb0759f58_1",
-      "old_fingerprint": "3e9cb6017396c05df43fe1f2dff79bea_1"
+      "old_fingerprint": "3e9cb6017396c05df43fe1f2dff79bea_1",
+      "code_extract": "RestClient.get(\\"https://my.api.com/users/search?first_name=#{user.first_name}\\")"
     }
   ]
 }"

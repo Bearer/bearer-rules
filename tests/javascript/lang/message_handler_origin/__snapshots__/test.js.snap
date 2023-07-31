@@ -34,7 +34,8 @@ exports[`javascript_lang_message_handler_origin bad 1`] = `
       "parent_line_number": 1,
       "snippet": "window.addEventListener('message', (event) => {\\n  actOnMessage(event.data)\\n})",
       "fingerprint": "4ac5e012a055ff87b9c6ec59be0139aa_0",
-      "old_fingerprint": "a8447e4b3d7e807590f9509e24e4470b_0"
+      "old_fingerprint": "a8447e4b3d7e807590f9509e24e4470b_0",
+      "code_extract": "window.addEventListener('message', (event) => {\\n  actOnMessage(event.data)\\n})"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`javascript_lang_message_handler_origin bad 1`] = `
       "parent_line_number": 5,
       "snippet": "addEventListener('message', function (event) {\\n  actOnMessage(event.data)\\n})",
       "fingerprint": "4ac5e012a055ff87b9c6ec59be0139aa_1",
-      "old_fingerprint": "a8447e4b3d7e807590f9509e24e4470b_1"
+      "old_fingerprint": "a8447e4b3d7e807590f9509e24e4470b_1",
+      "code_extract": "addEventListener('message', function (event) {\\n  actOnMessage(event.data)\\n})"
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`javascript_lang_message_handler_origin bad 1`] = `
       "parent_line_number": 9,
       "snippet": "addEventListener('message', function f(event) {\\n  actOnMessage(event.data)\\n})",
       "fingerprint": "4ac5e012a055ff87b9c6ec59be0139aa_2",
-      "old_fingerprint": "a8447e4b3d7e807590f9509e24e4470b_2"
+      "old_fingerprint": "a8447e4b3d7e807590f9509e24e4470b_2",
+      "code_extract": "addEventListener('message', function f(event) {\\n  actOnMessage(event.data)\\n})"
     }
   ]
 }"

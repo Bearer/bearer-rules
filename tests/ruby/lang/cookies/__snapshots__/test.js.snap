@@ -43,7 +43,8 @@ exports[`ruby_lang_cookies datatype_in_signed_cookies 1`] = `
       "parent_line_number": 1,
       "snippet": "cookies.signed[:info] = user.email",
       "fingerprint": "f9dc481eed8af7b00deadc6b2dc07984_0",
-      "old_fingerprint": "1edd187b24ee4ae849bd00c46a29a79a_0"
+      "old_fingerprint": "1edd187b24ee4ae849bd00c46a29a79a_0",
+      "code_extract": "cookies.signed[:info] = user.email"
     },
     {
       "cwe_ids": [
@@ -85,7 +86,8 @@ exports[`ruby_lang_cookies datatype_in_signed_cookies 1`] = `
       "parent_line_number": 2,
       "snippet": "cookies.permanent.signed[:secret] = user.first_name",
       "fingerprint": "f9dc481eed8af7b00deadc6b2dc07984_1",
-      "old_fingerprint": "1edd187b24ee4ae849bd00c46a29a79a_1"
+      "old_fingerprint": "1edd187b24ee4ae849bd00c46a29a79a_1",
+      "code_extract": "cookies.permanent.signed[:secret] = user.first_name"
     }
   ]
 }"
@@ -134,7 +136,8 @@ exports[`ruby_lang_cookies datatype_object_in_cookie 1`] = `
       "parent_line_number": 5,
       "snippet": "cookies[:login] = { value: user.to_json, expires: 1.hour, secure: true }",
       "fingerprint": "f9dc481eed8af7b00deadc6b2dc07984_0",
-      "old_fingerprint": "b6a2d6ed5a8a41637970160ca9b3bc63_0"
+      "old_fingerprint": "b6a2d6ed5a8a41637970160ca9b3bc63_0",
+      "code_extract": "cookies[:login] = { value: user.to_json, expires: 1.hour, secure: true }"
     },
     {
       "cwe_ids": [
@@ -176,7 +179,8 @@ exports[`ruby_lang_cookies datatype_object_in_cookie 1`] = `
       "parent_line_number": 5,
       "snippet": "cookies[:login] = { value: user.to_json, expires: 1.hour, secure: true }",
       "fingerprint": "f9dc481eed8af7b00deadc6b2dc07984_1",
-      "old_fingerprint": "b6a2d6ed5a8a41637970160ca9b3bc63_1"
+      "old_fingerprint": "b6a2d6ed5a8a41637970160ca9b3bc63_1",
+      "code_extract": "cookies[:login] = { value: user.to_json, expires: 1.hour, secure: true }"
     }
   ]
 }"

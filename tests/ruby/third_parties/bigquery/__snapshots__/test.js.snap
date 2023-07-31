@@ -42,7 +42,8 @@ exports[`ruby_third_parties_bigquery datatype_in_insert 1`] = `
       "parent_line_number": 7,
       "snippet": "dataset.insert(\\"my_table\\", rows) do |result|\\n  call\\nend",
       "fingerprint": "fa66126708eadfd7a10516ce3578a767_0",
-      "old_fingerprint": "d9af778d06f51872dfc83bd618eb08e3_0"
+      "old_fingerprint": "d9af778d06f51872dfc83bd618eb08e3_0",
+      "code_extract": "inserter = dataset.insert(\\"my_table\\", rows) do |result|\\n  call\\nend"
     }
   ]
 }"
@@ -90,7 +91,8 @@ exports[`ruby_third_parties_bigquery datatype_in_insert_async 1`] = `
       "parent_line_number": 8,
       "snippet": "inserter.insert([{ first_name: user.first_name }])",
       "fingerprint": "fa66126708eadfd7a10516ce3578a767_0",
-      "old_fingerprint": "2c7ca51c00daf3854b004c70c6cdbbd9_0"
+      "old_fingerprint": "2c7ca51c00daf3854b004c70c6cdbbd9_0",
+      "code_extract": "inserter.insert([{ first_name: user.first_name }])"
     }
   ]
 }"
@@ -138,7 +140,8 @@ exports[`ruby_third_parties_bigquery datatype_in_table_insert 1`] = `
       "parent_line_number": 8,
       "snippet": "table.insert(rows)",
       "fingerprint": "fa66126708eadfd7a10516ce3578a767_0",
-      "old_fingerprint": "e4080b0d11ae2ff9e59dd231eb2d8fb2_0"
+      "old_fingerprint": "e4080b0d11ae2ff9e59dd231eb2d8fb2_0",
+      "code_extract": "table.insert(rows)"
     }
   ]
 }"
@@ -186,7 +189,8 @@ exports[`ruby_third_parties_bigquery datatype_in_table_insert_async 1`] = `
       "parent_line_number": 11,
       "snippet": "inserter.insert(rows)",
       "fingerprint": "fa66126708eadfd7a10516ce3578a767_0",
-      "old_fingerprint": "6c0db10774dd869af5b00e7762e8609a_0"
+      "old_fingerprint": "6c0db10774dd869af5b00e7762e8609a_0",
+      "code_extract": "inserter.insert(rows)"
     }
   ]
 }"

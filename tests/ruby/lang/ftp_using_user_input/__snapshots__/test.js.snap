@@ -36,7 +36,8 @@ exports[`ruby_lang_ftp_using_user_input unsafe 1`] = `
       "parent_line_number": 1,
       "snippet": "Net::FTP.new(params[:oops])",
       "fingerprint": "f44de33c1fcd881c7cadc1c450652253_0",
-      "old_fingerprint": "235d514be331689d1435628db74d36b1_0"
+      "old_fingerprint": "235d514be331689d1435628db74d36b1_0",
+      "code_extract": "Net::FTP.new(params[:oops])"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`ruby_lang_ftp_using_user_input unsafe 1`] = `
       "parent_line_number": 3,
       "snippet": "Net::FTP.open(\\"example.com\\", username: params[:user]) do\\n\\nend",
       "fingerprint": "f44de33c1fcd881c7cadc1c450652253_1",
-      "old_fingerprint": "235d514be331689d1435628db74d36b1_1"
+      "old_fingerprint": "235d514be331689d1435628db74d36b1_1",
+      "code_extract": "Net::FTP.open(\\"example.com\\", username: params[:user]) do\\n\\nend"
     },
     {
       "cwe_ids": [
@@ -102,7 +104,8 @@ exports[`ruby_lang_ftp_using_user_input unsafe 1`] = `
       "parent_line_number": 9,
       "snippet": "ftp.puttextfile(\\"local.txt\\", event[\\"filename\\"])",
       "fingerprint": "f44de33c1fcd881c7cadc1c450652253_2",
-      "old_fingerprint": "235d514be331689d1435628db74d36b1_2"
+      "old_fingerprint": "235d514be331689d1435628db74d36b1_2",
+      "code_extract": "  ftp.puttextfile(\\"local.txt\\", event[\\"filename\\"])"
     }
   ]
 }"

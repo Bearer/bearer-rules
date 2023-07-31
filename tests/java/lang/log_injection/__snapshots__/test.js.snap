@@ -34,7 +34,8 @@ exports[`java_lang_log_injection log_injection 1`] = `
       "parent_line_number": 17,
       "snippet": "log.info(\\"Username is\\" + request.getParameter(\\"username\\"))",
       "fingerprint": "729129102c16042b19d35640a9d9b661_0",
-      "old_fingerprint": "a45c0a68b3af767b3565879508913c0d_0"
+      "old_fingerprint": "a45c0a68b3af767b3565879508913c0d_0",
+      "code_extract": "            log.info(\\"Username is\\" + request.getParameter(\\"username\\"));"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`java_lang_log_injection log_injection 1`] = `
       "parent_line_number": 18,
       "snippet": "log.warn(\\"Username is\\" + username)",
       "fingerprint": "729129102c16042b19d35640a9d9b661_1",
-      "old_fingerprint": "a45c0a68b3af767b3565879508913c0d_1"
+      "old_fingerprint": "a45c0a68b3af767b3565879508913c0d_1",
+      "code_extract": "            log.warn(\\"Username is\\" + username);"
     },
     {
       "cwe_ids": [
@@ -100,7 +102,8 @@ exports[`java_lang_log_injection log_injection 1`] = `
       "parent_line_number": 19,
       "snippet": "log.error(username)",
       "fingerprint": "729129102c16042b19d35640a9d9b661_2",
-      "old_fingerprint": "a45c0a68b3af767b3565879508913c0d_2"
+      "old_fingerprint": "a45c0a68b3af767b3565879508913c0d_2",
+      "code_extract": "            log.error(username);"
     }
   ]
 }"

@@ -38,7 +38,8 @@ exports[`ruby_lang_insecure_ftp ftp_new 1`] = `
       "parent_line_number": 8,
       "snippet": "Net::FTP.new(\\"ftp.ruby-lang.org\\")",
       "fingerprint": "b48187bc987e84ed94e63b90448fda84_0",
-      "old_fingerprint": "68a2c2e3f7fe31846311256891bfb647_0"
+      "old_fingerprint": "68a2c2e3f7fe31846311256891bfb647_0",
+      "code_extract": "ftp = Net::FTP.new(\\"ftp.ruby-lang.org\\")"
     }
   ]
 }"
@@ -78,7 +79,8 @@ exports[`ruby_lang_insecure_ftp ftp_open 1`] = `
       "parent_line_number": 3,
       "snippet": "Net::FTP.open(\\"example.com\\") do |ftp|\\n  ftp.login\\n  files = ftp.chdir('pub/lang/ruby/contrib')\\n  files = ftp.list('n*')\\n  ftp.getbinaryfile('nif.rb-0.91.gz', 'nif.gz', 1024)\\nend",
       "fingerprint": "b48187bc987e84ed94e63b90448fda84_0",
-      "old_fingerprint": "1e30e272a5ba8f351486a1d632fc7653_0"
+      "old_fingerprint": "1e30e272a5ba8f351486a1d632fc7653_0",
+      "code_extract": "Net::FTP.open(\\"example.com\\") do |ftp|\\n  ftp.login\\n  files = ftp.chdir('pub/lang/ruby/contrib')\\n  files = ftp.list('n*')\\n  ftp.getbinaryfile('nif.rb-0.91.gz', 'nif.gz', 1024)\\nend"
     }
   ]
 }"
@@ -126,7 +128,8 @@ exports[`ruby_lang_insecure_ftp ftp_open_with_datatype 1`] = `
       "parent_line_number": 3,
       "snippet": "Net::FTP.open(\\"ftp.site.com\\") do |ftp|\\n  file = Tempfile.new(\\"user_data\\")\\n  begin\\n    file << [user.email, user.gender]\\n    file.close\\n\\n    ftp.puttextfile(file.path, \\"/users/123.json\\")\\n  ensure\\n    file.close!\\n  end\\nend",
       "fingerprint": "b48187bc987e84ed94e63b90448fda84_0",
-      "old_fingerprint": "939ea86449fb9e763a3cc5786dbc7672_0"
+      "old_fingerprint": "939ea86449fb9e763a3cc5786dbc7672_0",
+      "code_extract": "Net::FTP.open(\\"ftp.site.com\\") do |ftp|\\n  file = Tempfile.new(\\"user_data\\")\\n  begin\\n    file << [user.email, user.gender]\\n    file.close\\n\\n    ftp.puttextfile(file.path, \\"/users/123.json\\")\\n  ensure\\n    file.close!\\n  end\\nend"
     }
   ]
 }"

@@ -43,7 +43,8 @@ exports[`javascript_lang_logger child 1`] = `
       "parent_line_number": 7,
       "snippet": "logger.child(ctx)",
       "fingerprint": "327449cd47ed82672cc47bf9cfccdb4a_0",
-      "old_fingerprint": "75088f50d0c8c96afbea96e5a2bfbb74_0"
+      "old_fingerprint": "75088f50d0c8c96afbea96e5a2bfbb74_0",
+      "code_extract": "logger.child(ctx);"
     }
   ]
 }"
@@ -92,7 +93,8 @@ exports[`javascript_lang_logger child_level 1`] = `
       "parent_line_number": 7,
       "snippet": "logger.child(ctx).info(user.name)",
       "fingerprint": "327449cd47ed82672cc47bf9cfccdb4a_0",
-      "old_fingerprint": "02e247f69b1c812c168a85bc9af2be8d_0"
+      "old_fingerprint": "02e247f69b1c812c168a85bc9af2be8d_0",
+      "code_extract": "logger.child(ctx).info(user.name);"
     }
   ]
 }"
@@ -141,7 +143,8 @@ exports[`javascript_lang_logger console 1`] = `
       "parent_line_number": 1,
       "snippet": "console.log(user.name)",
       "fingerprint": "327449cd47ed82672cc47bf9cfccdb4a_0",
-      "old_fingerprint": "378108517b74500d91317c3001e7edf2_0"
+      "old_fingerprint": "378108517b74500d91317c3001e7edf2_0",
+      "code_extract": "console.log(user.name)"
     },
     {
       "cwe_ids": [
@@ -183,7 +186,8 @@ exports[`javascript_lang_logger console 1`] = `
       "parent_line_number": 2,
       "snippet": "console.log(\\"user email is\\", user.email)",
       "fingerprint": "327449cd47ed82672cc47bf9cfccdb4a_1",
-      "old_fingerprint": "378108517b74500d91317c3001e7edf2_1"
+      "old_fingerprint": "378108517b74500d91317c3001e7edf2_1",
+      "code_extract": "console.log(\\"user email is\\", user.email)"
     }
   ]
 }"
@@ -232,7 +236,8 @@ exports[`javascript_lang_logger datatype_leak 1`] = `
       "parent_line_number": 1,
       "snippet": "logger.info(user.email)",
       "fingerprint": "327449cd47ed82672cc47bf9cfccdb4a_0",
-      "old_fingerprint": "a8e78221aec2fca81292bfd15370d686_0"
+      "old_fingerprint": "a8e78221aec2fca81292bfd15370d686_0",
+      "code_extract": "logger.info(user.email)"
     }
   ]
 }"
@@ -281,7 +286,8 @@ exports[`javascript_lang_logger log 1`] = `
       "parent_line_number": 1,
       "snippet": "log.info(user.name)",
       "fingerprint": "327449cd47ed82672cc47bf9cfccdb4a_0",
-      "old_fingerprint": "723726a459dfed5a2d43f971770ff0f4_0"
+      "old_fingerprint": "723726a459dfed5a2d43f971770ff0f4_0",
+      "code_extract": "log.info(user.name);"
     }
   ]
 }"

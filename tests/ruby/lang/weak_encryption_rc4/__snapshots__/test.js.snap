@@ -43,7 +43,8 @@ exports[`ruby_lang_weak_encryption_rc4 rc4_data 1`] = `
       "parent_line_number": 1,
       "snippet": "RC4.new(\\"insecure\\").encrypt(user.email)",
       "fingerprint": "7128690f8ca061c785b752b9862b1d22_0",
-      "old_fingerprint": "5142d4861046be3b3d8cb125ad7de960_0"
+      "old_fingerprint": "5142d4861046be3b3d8cb125ad7de960_0",
+      "code_extract": "RC4.new(\\"insecure\\").encrypt(user.email)"
     },
     {
       "cwe_ids": [
@@ -85,7 +86,8 @@ exports[`ruby_lang_weak_encryption_rc4 rc4_data 1`] = `
       "parent_line_number": 4,
       "snippet": "rc4_encrypt.encrypt!(user.fullname)",
       "fingerprint": "7128690f8ca061c785b752b9862b1d22_1",
-      "old_fingerprint": "5142d4861046be3b3d8cb125ad7de960_1"
+      "old_fingerprint": "5142d4861046be3b3d8cb125ad7de960_1",
+      "code_extract": "rc4_encrypt.encrypt!(user.fullname)"
     }
   ]
 }"
@@ -126,7 +128,8 @@ exports[`ruby_lang_weak_encryption_rc4 rc4_encrypt 1`] = `
       "parent_line_number": 1,
       "snippet": "RC4.new(\\"insecure\\").encrypt(\\"hello world\\")",
       "fingerprint": "7128690f8ca061c785b752b9862b1d22_0",
-      "old_fingerprint": "fac8ed5a665357d4b01303be93ce6f96_0"
+      "old_fingerprint": "fac8ed5a665357d4b01303be93ce6f96_0",
+      "code_extract": "RC4.new(\\"insecure\\").encrypt(\\"hello world\\")"
     },
     {
       "cwe_ids": [
@@ -160,7 +163,8 @@ exports[`ruby_lang_weak_encryption_rc4 rc4_encrypt 1`] = `
       "parent_line_number": 4,
       "snippet": "rc4_encrypt.encrypt!(\\"hello world\\")",
       "fingerprint": "7128690f8ca061c785b752b9862b1d22_1",
-      "old_fingerprint": "fac8ed5a665357d4b01303be93ce6f96_1"
+      "old_fingerprint": "fac8ed5a665357d4b01303be93ce6f96_1",
+      "code_extract": "rc4_encrypt.encrypt!(\\"hello world\\")"
     }
   ]
 }"

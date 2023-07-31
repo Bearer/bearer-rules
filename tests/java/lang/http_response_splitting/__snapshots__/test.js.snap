@@ -35,7 +35,8 @@ exports[`java_lang_http_response_splitting bad 1`] = `
       "parent_line_number": 4,
       "snippet": "new Cookie(\\"oops\\", foo)",
       "fingerprint": "e717435722185b758fde0b9e5e989023_0",
-      "old_fingerprint": "e877612fdf26a2fdb5bff3098e9989db_0"
+      "old_fingerprint": "e877612fdf26a2fdb5bff3098e9989db_0",
+      "code_extract": "    new Cookie(\\"oops\\", foo);"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`java_lang_http_response_splitting bad 1`] = `
       "parent_line_number": 8,
       "snippet": "c.setValue(bar)",
       "fingerprint": "e717435722185b758fde0b9e5e989023_1",
-      "old_fingerprint": "e877612fdf26a2fdb5bff3098e9989db_1"
+      "old_fingerprint": "e877612fdf26a2fdb5bff3098e9989db_1",
+      "code_extract": "    c.setValue(bar);"
     },
     {
       "cwe_ids": [
@@ -103,7 +105,8 @@ exports[`java_lang_http_response_splitting bad 1`] = `
       "parent_line_number": 10,
       "snippet": "new Cookie(\\"oops3\\", foo.replaceAll(\\"\\\\r\\\\n\\", \\"oops\\\\r\\\\n\\"))",
       "fingerprint": "e717435722185b758fde0b9e5e989023_2",
-      "old_fingerprint": "e877612fdf26a2fdb5bff3098e9989db_2"
+      "old_fingerprint": "e877612fdf26a2fdb5bff3098e9989db_2",
+      "code_extract": "    new Cookie(\\"oops3\\", foo.replaceAll(\\"\\\\r\\\\n\\", \\"oops\\\\r\\\\n\\"));"
     }
   ]
 }"

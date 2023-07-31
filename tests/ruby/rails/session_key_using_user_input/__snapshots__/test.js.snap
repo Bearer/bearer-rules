@@ -36,7 +36,8 @@ exports[`ruby_rails_session_key_using_user_input unsafe 1`] = `
       "parent_line_number": 1,
       "snippet": "session[params[:key]]",
       "fingerprint": "d52b20e83740e7ccaeb160dfa4789d5c_0",
-      "old_fingerprint": "eb1562871c618785f61675b4101796d9_0"
+      "old_fingerprint": "eb1562871c618785f61675b4101796d9_0",
+      "code_extract": "session[params[:key]] = 42"
     },
     {
       "cwe_ids": [
@@ -69,7 +70,8 @@ exports[`ruby_rails_session_key_using_user_input unsafe 1`] = `
       "parent_line_number": 3,
       "snippet": "session[request.env[:key]]",
       "fingerprint": "d52b20e83740e7ccaeb160dfa4789d5c_1",
-      "old_fingerprint": "eb1562871c618785f61675b4101796d9_1"
+      "old_fingerprint": "eb1562871c618785f61675b4101796d9_1",
+      "code_extract": "session[request.env[:key]] = 42"
     },
     {
       "cwe_ids": [
@@ -102,7 +104,8 @@ exports[`ruby_rails_session_key_using_user_input unsafe 1`] = `
       "parent_line_number": 5,
       "snippet": "session[\\"test-#{cookies[\\"oops\\"]}\\"]",
       "fingerprint": "d52b20e83740e7ccaeb160dfa4789d5c_2",
-      "old_fingerprint": "eb1562871c618785f61675b4101796d9_2"
+      "old_fingerprint": "eb1562871c618785f61675b4101796d9_2",
+      "code_extract": "session[\\"test-#{cookies[\\"oops\\"]}\\"] = 42"
     }
   ]
 }"

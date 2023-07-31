@@ -34,7 +34,8 @@ exports[`java_lang_xpath_injection xpath_injection 1`] = `
       "parent_line_number": 14,
       "snippet": "xpf.newXPath().compile(expression)",
       "fingerprint": "d8456dfb1c7f1ed1b1c088e426430687_0",
-      "old_fingerprint": "a1c9a49efc8e4e79a8407bbb5e677663_0"
+      "old_fingerprint": "a1c9a49efc8e4e79a8407bbb5e677663_0",
+      "code_extract": "        var compiled = xpf.newXPath().compile(expression);"
     }
   ]
 }"

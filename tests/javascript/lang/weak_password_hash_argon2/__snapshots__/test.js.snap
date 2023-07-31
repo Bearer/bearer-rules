@@ -43,7 +43,8 @@ exports[`javascript_lang_weak_password_hash_argon2 argon2i 1`] = `
       "parent_line_number": 4,
       "snippet": "argon2.hash(currentUser.password, {\\n    type: argon2.argon2i,\\n    memoryCost: 2 ** 16,\\n    hashLength: 50,\\n  })",
       "fingerprint": "29037a4aa6dcbd49fb1b22d24d403754_0",
-      "old_fingerprint": "5c21523ad759096994916831a8bdca65_0"
+      "old_fingerprint": "5c21523ad759096994916831a8bdca65_0",
+      "code_extract": "  const hash = await argon2.hash(currentUser.password, {\\n    type: argon2.argon2i,\\n    memoryCost: 2 ** 16,\\n    hashLength: 50,\\n  });"
     }
   ]
 }"

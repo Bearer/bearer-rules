@@ -34,7 +34,8 @@ exports[`javascript_third_parties_dom_purify insecure 1`] = `
       "parent_line_number": 2,
       "snippet": "DOMPurify.sanitize(dirty, config)",
       "fingerprint": "e58733026a71734e4be7c15cc5b475ac_0",
-      "old_fingerprint": "38f5dacd3609670d15a3c1d7c8cb1968_0"
+      "old_fingerprint": "38f5dacd3609670d15a3c1d7c8cb1968_0",
+      "code_extract": "const html = DOMPurify.sanitize(dirty, config);"
     },
     {
       "cwe_ids": [
@@ -67,7 +68,8 @@ exports[`javascript_third_parties_dom_purify insecure 1`] = `
       "parent_line_number": 5,
       "snippet": "DOMPurify.sanitize(dirty)",
       "fingerprint": "e58733026a71734e4be7c15cc5b475ac_1",
-      "old_fingerprint": "38f5dacd3609670d15a3c1d7c8cb1968_1"
+      "old_fingerprint": "38f5dacd3609670d15a3c1d7c8cb1968_1",
+      "code_extract": "const body = DOMPurify.sanitize(dirty);"
     }
   ]
 }"
