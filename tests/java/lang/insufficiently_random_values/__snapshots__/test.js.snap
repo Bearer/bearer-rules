@@ -35,7 +35,7 @@ exports[`java_lang_insufficiently_random_values bad 1`] = `
       "snippet": "new Random()",
       "fingerprint": "8f51671abbce2a871cc191dc35531c9f_0",
       "old_fingerprint": "32a0cd15fe8bb40ad4a1cfb2d4b4da96_0",
-      "code_extract": "rand.next();"
+      "code_extract": "Random rand = new Random();"
     },
     {
       "cwe_ids": [
