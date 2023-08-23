@@ -10,3 +10,7 @@ function ok2() {
 function ok3(userInput) {
   document.innerHTML = "<div>" + sanitizeHtml(userInput) + "</div>"
 }
+
+function ok4(userInput) {
+  document.innerHTML = "<div>" + sanitize(userInput) + "</div>"
+}

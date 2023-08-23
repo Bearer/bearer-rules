@@ -2,6 +2,8 @@ type: shared
 languages:
   - javascript
 patterns:
+  - $<_>.sanitize($<!>$<_>$<...>)
+  - sanitize($<!>$<_>$<...>)
   - sanitizeHtml($<!>$<_>$<...>)
 metadata:
   description: "sanitize-html HTML sanitizer."
