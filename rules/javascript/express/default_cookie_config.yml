@@ -6,25 +6,32 @@ patterns:
     filters:
       - variable: HASH_CONTENT
         detection: javascript_express_default_cookie_config_hash_val
+        scope: cursor
       - either:
           - not:
               variable: HASH_CONTENT
               detection: javascript_express_default_cookie_config_name_attribute
+              scope: cursor
           - not:
               variable: HASH_CONTENT
               detection: javascript_express_default_cookie_config_expiry_attribute
+              scope: cursor
           - not:
               variable: HASH_CONTENT
               detection: javascript_express_default_cookie_config_path_attribute
+              scope: cursor
           - not:
               variable: HASH_CONTENT
               detection: javascript_express_default_cookie_config_domain_attribute
+              scope: cursor
           - not:
               variable: HASH_CONTENT
               detection: javascript_express_default_cookie_config_secure_attribute
+              scope: cursor
           - not:
               variable: HASH_CONTENT
               detection: javascript_express_default_cookie_config_httponly_attribute
+              scope: cursor
   - pattern: |
       cookieSession($<!>$<HASH_CONTENT>)
     filters:
@@ -34,21 +41,27 @@ patterns:
           - not:
               variable: HASH_CONTENT
               detection: javascript_express_default_cookie_config_name_attribute
+              scope: cursor
           - not:
               variable: HASH_CONTENT
               detection: javascript_express_default_cookie_config_expiry_attribute
+              scope: cursor
           - not:
               variable: HASH_CONTENT
               detection: javascript_express_default_cookie_config_path_attribute
+              scope: cursor
           - not:
               variable: HASH_CONTENT
               detection: javascript_express_default_cookie_config_domain_attribute
+              scope: cursor
           - not:
               variable: HASH_CONTENT
               detection: javascript_express_default_cookie_config_secure_attribute
+              scope: cursor
           - not:
               variable: HASH_CONTENT
               detection: javascript_express_default_cookie_config_httponly_attribute
+              scope: cursor
 languages:
   - javascript
 auxiliary:

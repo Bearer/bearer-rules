@@ -3,6 +3,7 @@ patterns:
     filters:
       - variable: PERMISSIONS
         detection: java_lang_get_posix_file_permissions
+        scope: cursor
       - variable: OTHER_PERMISSION
         regex: ^(PosixFilePermission.)?OTHER_
 auxiliary:

@@ -27,6 +27,19 @@ patterns:
           - getHeaderNames
           - getPart
           - getParts
+  - pattern: $<JAVA_SHARED_LANG_USER_INPUT_COOKIE>.getValue();
+    filters:
+      - variable: JAVA_SHARED_LANG_USER_INPUT_COOKIE
+        detection: java_shared_lang_user_input_cookies
+        scope: result
+auxiliary:
+  - id: java_shared_lang_user_input_cookies
+    patterns:
+      - pattern: $<JAVA_SHARED_LANG_USER_INPUT_REQUEST>.getCookies();
+        filters:
+          - variable: JAVA_SHARED_LANG_USER_INPUT_REQUEST
+            detection: java_shared_lang_servlet_request
+            scope: cursor
 metadata:
   description: "Java user input."
   id: java_shared_lang_user_input

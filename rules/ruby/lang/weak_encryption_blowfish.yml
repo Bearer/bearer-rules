@@ -6,6 +6,7 @@ patterns:
     filters:
       - variable: VAR
         detection: ruby_shared_lang_blowfish_init
+        scope: cursor
       - variable: METHOD
         values:
           - encrypt_string
@@ -23,6 +24,7 @@ patterns:
     filters:
       - variable: VAR
         detection: ruby_shared_lang_blowfish_init
+        scope: cursor
       - variable: METHOD
         values:
           - encrypt_pair
@@ -42,6 +44,7 @@ patterns:
     filters:
       - variable: VAR
         detection: ruby_shared_lang_blowfish_init
+        scope: cursor
       - variable: METHOD
         values:
           - encrypt_block

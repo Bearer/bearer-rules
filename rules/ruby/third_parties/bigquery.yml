@@ -5,10 +5,13 @@ patterns:
       - either:
           - variable: INSERTER
             detection: ruby_third_parties_bigquery_dataset
+            scope: cursor
           - variable: INSERTER
             detection: ruby_third_parties_bigquery_insert_async
+            scope: cursor
           - variable: INSERTER
             detection: ruby_third_parties_bigquery_table
+            scope: cursor
       - variable: DATA_TYPE
         detection: datatype
         scope: result
@@ -28,6 +31,7 @@ auxiliary:
         filters:
           - variable: CLIENT
             detection: ruby_third_parties_bigquery_client
+            scope: cursor
   - id: ruby_third_parties_bigquery_table
     patterns:
       - pattern: |
@@ -35,11 +39,13 @@ auxiliary:
         filters:
           - variable: DATASET
             detection: ruby_third_parties_bigquery_dataset
+            scope: cursor
       - pattern: |
           $<DATASET>.create_table()$<...>
         filters:
           - variable: DATASET
             detection: ruby_third_parties_bigquery_dataset
+            scope: cursor
   - id: ruby_third_parties_bigquery_insert_async
     patterns:
       - pattern: |
@@ -47,16 +53,19 @@ auxiliary:
         filters:
           - variable: DATASET
             detection: ruby_third_parties_bigquery_dataset
+            scope: cursor
       - pattern: |
           $<TABLE>.insert_async$<...>
         filters:
           - variable: TABLE
             detection: ruby_third_parties_bigquery_table
+            scope: cursor
       - pattern: |
           $<TABLE>.insert_async()$<...>
         filters:
           - variable: TABLE
             detection: ruby_third_parties_bigquery_table
+            scope: cursor
 skip_data_types:
   - "Unique Identifier"
 metadata:

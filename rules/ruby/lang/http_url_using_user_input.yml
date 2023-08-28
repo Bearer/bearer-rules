@@ -55,6 +55,7 @@ patterns:
     filters:
       - variable: NET_HTTP
         detection: ruby_lang_http_url_using_user_input_net_http
+        scope: cursor
       - variable: METHOD
         values:
           - copy
@@ -85,6 +86,7 @@ patterns:
     filters:
       - variable: NET_HTTP
         detection: ruby_lang_http_url_using_user_input_net_http
+        scope: cursor
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
         scope: result
@@ -93,6 +95,7 @@ patterns:
     filters:
       - variable: NET_HTTP
         detection: ruby_lang_http_url_using_user_input_net_http
+        scope: cursor
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
         scope: result
@@ -100,14 +103,17 @@ patterns:
     filters:
       - variable: URI
         detection: ruby_lang_http_url_using_user_input_uri
+        scope: cursor
   - pattern: open($<URI>$<...>)$<...>
     filters:
       - variable: URI
         detection: ruby_lang_http_url_using_user_input_uri
+        scope: cursor
   - pattern: Kernel.open($<URI>$<...>)$<...>
     filters:
       - variable: URI
         detection: ruby_lang_http_url_using_user_input_uri
+        scope: cursor
   - pattern: |
       Curl.http($<_>, $<USER_INPUT>$<...>)$<...>
     filters:
@@ -150,6 +156,7 @@ patterns:
     filters:
       - variable: CURB
         detection: ruby_lang_http_url_using_user_input_curb
+        scope: cursor
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
         scope: result
@@ -233,6 +240,7 @@ patterns:
           - trace
       - variable: EXCON
         detection: ruby_lang_http_url_using_user_input_excon
+        scope: cursor
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
         scope: result
@@ -241,6 +249,7 @@ patterns:
     filters:
       - variable: EXCON
         detection: ruby_lang_http_url_using_user_input_excon
+        scope: cursor
       - variable: USER_INPUT_PATH_HASH
         detection: ruby_lang_http_url_using_user_input_path_hash
         scope: result
@@ -291,6 +300,7 @@ auxiliary:
         filters:
           - variable: USER_INPUT
             detection: ruby_shared_common_user_input
+            scope: result
   - id: ruby_lang_http_url_using_user_input_net_http
     patterns:
       - pattern: |
@@ -298,16 +308,19 @@ auxiliary:
         filters:
           - variable: NET_HTTP_NEW
             detection: ruby_lang_http_url_using_user_input_net_http_new
+            scope: cursor
       - pattern: |
           $<NET_HTTP_NEW>.start { |$<!>$<_:identifier>| }
         filters:
           - variable: NET_HTTP_NEW
             detection: ruby_lang_http_url_using_user_input_net_http_new
+            scope: cursor
       - pattern: |
           $<NET_HTTP_NEW>.start
         filters:
           - variable: NET_HTTP_NEW
             detection: ruby_lang_http_url_using_user_input_net_http_new
+            scope: cursor
   - id: ruby_lang_http_url_using_user_input_curb
     patterns:
       - |
@@ -325,6 +338,7 @@ auxiliary:
         filters:
           - variable: USER_INPUT
             detection: ruby_shared_common_user_input
+            scope: result
   - id: ruby_lang_http_url_using_user_input_path_hash
     patterns:
       - pattern: |
@@ -332,6 +346,7 @@ auxiliary:
         filters:
           - variable: USER_INPUT
             detection: ruby_shared_common_user_input
+            scope: result
 severity: high
 metadata:
   description: "HTTP communication with user-controlled destination detected."

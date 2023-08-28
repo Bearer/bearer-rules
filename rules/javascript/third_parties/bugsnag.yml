@@ -5,8 +5,10 @@ patterns:
       - either:
           - variable: INSTANCE
             detection: javascript_third_parties_bugsnag_client
+            scope: cursor
           - variable: INSTANCE
             detection: javascript_third_parties_bugsnag_session
+            scope: cursor
       - variable: DATA_TYPE
         detection: datatype
         scope: result
@@ -15,6 +17,7 @@ patterns:
     filters:
       - variable: CLIENT
         detection: javascript_third_parties_bugsnag_client
+        scope: cursor
       - variable: DATA_TYPE
         detection: datatype
         scope: result
@@ -23,6 +26,7 @@ patterns:
     filters:
       - variable: CLIENT
         detection: javascript_third_parties_bugsnag_client
+        scope: cursor
       - variable: START_DATA_TYPE
         detection: javascript_third_parties_bugsnag_start_data_type
 languages:
@@ -34,10 +38,11 @@ auxiliary:
         Bugsnag
   - id: javascript_third_parties_bugsnag_session
     patterns:
-      - pattern: $<CLIENT>.startSession
+      - pattern: $<CLIENT>.startSession()
         filters:
           - variable: CLIENT
             detection: javascript_third_parties_bugsnag_client
+            scope: cursor
   - id: javascript_third_parties_bugsnag_start_data_type
     patterns:
       - pattern: $<_>.$<_>($<...>$<DATA_TYPE>$<...>)

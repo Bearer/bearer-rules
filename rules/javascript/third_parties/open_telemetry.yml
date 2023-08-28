@@ -4,6 +4,7 @@ patterns:
     filters:
       - variable: SPAN
         detection: javascript_third_parties_open_telemetry_span
+        scope: cursor
       - variable: METHOD
         values:
           - addEvent

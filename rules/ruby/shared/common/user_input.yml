@@ -10,10 +10,10 @@ patterns:
       - either:
           - variable: RUBY_SHARED_COMMON_USER_INPUT
             detection: ruby_shared_aws_lambda_user_input
-            contains: false
+            scope: cursor
           - variable: RUBY_SHARED_COMMON_USER_INPUT
             detection: ruby_shared_rails_user_input
-            contains: false
+            scope: cursor
 metadata:
   description: "Ruby user input."
   id: ruby_shared_common_user_input

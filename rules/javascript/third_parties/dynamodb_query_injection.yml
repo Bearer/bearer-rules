@@ -15,6 +15,7 @@ patterns:
         scope: result
       - variable: DYNAMODB_INIT
         detection: javascript_third_parties_dynamodb_query_injection_dynamodb_v2_init
+        scope: cursor
 auxiliary:
   - id: javascript_third_parties_dynamodb_query_injection_hash
     patterns:
@@ -29,7 +30,7 @@ auxiliary:
         filters:
           - variable: USER_INPUT
             detection: javascript_shared_common_user_input
-            contains: false
+            scope: cursor
           - not:
               variable: USER_INPUT
               detection: javascript_third_parties_dynamodb_query_injection_hash

@@ -5,6 +5,7 @@ patterns:
       - not:
           variable: HASH_CONTENT
           detection: express_default_session_config_name_attribute
+          scope: cursor
 languages:
   - javascript
 auxiliary:

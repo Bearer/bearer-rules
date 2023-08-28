@@ -4,6 +4,7 @@ patterns:
     filters:
       - variable: VAR
         detection: open_telemetry_current_span
+        scope: cursor
       - variable: DATA_TYPE
         detection: datatype
         scope: result
@@ -24,6 +25,7 @@ patterns:
     filters:
       - variable: VAR
         detection: open_telemetry_current_span
+        scope: cursor
       - variable: DATA_TYPE
         detection: datatype
         scope: result

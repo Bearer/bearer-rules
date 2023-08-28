@@ -4,6 +4,7 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: java_lang_log_dynamic_input
+        scope: result
       - variable: METHOD
         values:
           - log

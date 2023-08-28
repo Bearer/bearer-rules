@@ -6,18 +6,20 @@ patterns:
     filters:
       - variable: INSECURE_COOKIE
         detection: javascript_express_insecure_cookie_insecure_cookie
+        scope: result
   - pattern: |
       cookieSession($<INSECURE_COOKIE>)
     filters:
       - variable: INSECURE_COOKIE
         detection: javascript_express_insecure_cookie_insecure_cookie
+        scope: result
 auxiliary:
   - id: javascript_express_insecure_cookie_insecure_cookie
     patterns:
       - pattern: |
-          { $<!>secure: false }
+          { secure: false }
       - pattern: |
-          { $<!>httpOnly: false }
+          { httpOnly: false }
 languages:
   - javascript
 metadata:

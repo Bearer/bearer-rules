@@ -44,6 +44,7 @@ patterns:
     filters:
       - variable: VAR
         detection: child_logger
+        scope: cursor
       - variable: METHOD
         values:
           - warn

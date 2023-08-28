@@ -5,16 +5,18 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
   - pattern: res.sendFile($<_>, $<OPTIONS>$<...>)
     filters:
       - not:
           variable: OPTIONS
           detection: javascript_express_external_file_upload_root_option_not_user_input
-          contains: false
+          scope: cursor
   - pattern: res.sendFile($<_>, $<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
 languages:
   - javascript
 auxiliary:
@@ -26,6 +28,7 @@ auxiliary:
           - not:
               variable: ROOT_VALUE
               detection: javascript_shared_common_user_input
+              scope: result
 metadata:
   description: "External control of filename or path detected."
   remediation_message: |

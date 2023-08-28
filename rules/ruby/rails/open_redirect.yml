@@ -25,7 +25,7 @@ auxiliary:
         filters:
           - variable: REDIRECT_USER_INPUT
             detection: ruby_shared_common_user_input
-            contains: false
+            scope: cursor
 severity: medium
 metadata:
   description: "Open redirect detected"

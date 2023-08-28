@@ -11,30 +11,30 @@ patterns:
           - connect
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
-        contains: false
+        scope: cursor
   - pattern: WebSocket::Client::Simple.connect($<INSECURE_URL>$<...>)$<...>
     filters:
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
-        contains: false
+        scope: cursor
   - pattern: $<SIMPLE_CLIENT>.connect($<INSECURE_URL>$<...>)
     filters:
       - variable: SIMPLE_CLIENT
         detection: ruby_lang_websocket_insecure_simple_client
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
-        contains: false
+        scope: cursor
   - pattern: Faye::WebSocket::Client.new($<INSECURE_URL>$<...>)
     filters:
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
-        contains: false
+        scope: cursor
   - pattern: |
       WebSocket::Handshake::Client.new(url: $<INSECURE_URL>)
     filters:
       - variable: INSECURE_URL
         detection: ruby_shared_common_insecure_url
-        contains: false
+        scope: cursor
   - pattern: |
       WebSocket::Handshake::Client.new(secure: false)
 auxiliary:

@@ -7,7 +7,7 @@ patterns:
     filters:
       - variable: INSECURE_URL
         detection: javascript_shared_common_insecure_url
-        contains: false
+        scope: cursor
 severity: low
 metadata:
   description: "Insecure websocket communication detected."

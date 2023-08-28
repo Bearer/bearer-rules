@@ -24,6 +24,7 @@ patterns:
     filters:
       - variable: USER_INPUT_CONFIG
         detection: javascript_lang_http_url_using_user_input_axios_object
+        scope: cursor
   - pattern: |
       fetch($<USER_INPUT>$<...>)
     filters:
@@ -35,6 +36,7 @@ patterns:
     filters:
       - variable: XML_HTTP
         detection: javascript_lang_http_url_using_user_input_xmlhttp
+        scope: cursor
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
         scope: result

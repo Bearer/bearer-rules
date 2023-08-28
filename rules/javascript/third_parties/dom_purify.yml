@@ -5,6 +5,7 @@ patterns:
       - not:
           variable: CONFIG
           detection: javascript_dom_purify_safe_config
+          scope: cursor
   - |
     DOMPurify.sanitize($<_>)
 auxiliary:

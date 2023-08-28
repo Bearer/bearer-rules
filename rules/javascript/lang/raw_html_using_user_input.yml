@@ -156,6 +156,7 @@ patterns:
     filters:
       - variable: LIQUID_INIT
         detection: javascript_lang_raw_html_using_user_input_liquid_init
+        scope: cursor
       - variable: METHOD
         values:
           - parse
@@ -172,6 +173,7 @@ auxiliary:
         filters:
           - variable: STRING
             detection: javascript_shared_common_html_user_input
+            scope: result
   - id: javascript_lang_raw_html_using_user_input_liquid_init
     patterns:
       - new Liquid()

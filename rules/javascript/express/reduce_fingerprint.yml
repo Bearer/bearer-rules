@@ -9,6 +9,7 @@ patterns:
     filters:
       - variable: FUNCTION_CALL
         detection: javascript_express_reduce_fingerprint_helmet_configuration
+        scope: cursor
 auxiliary:
   - id: javascript_express_reduce_fingerprint_express_init
     patterns:

@@ -4,6 +4,7 @@ patterns:
     filters:
       - variable: SEGMENT_ANALYTICS
         detection: segment_init
+        scope: cursor
       - variable: METHOD
         values:
           - alias

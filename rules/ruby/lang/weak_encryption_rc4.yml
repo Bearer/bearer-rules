@@ -6,6 +6,7 @@ patterns:
     filters:
       - variable: VAR
         detection: ruby_shared_lang_rc4_init
+        scope: cursor
       - variable: METHOD
         values:
           - encrypt

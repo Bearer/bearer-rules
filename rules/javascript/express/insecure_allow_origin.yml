@@ -13,11 +13,13 @@ patterns:
         regex: (?i)['"]access-control-allow-origin["']
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
   - pattern: |
       res.writeHead($<_>, $<INSECURE_CORS_HASH>)
     filters:
       - variable: INSECURE_CORS_HASH
         detection: javascript_express_insecure_allow_origin_insecure_cors_hash
+        scope: cursor
 languages:
   - javascript
 auxiliary:
@@ -30,6 +32,7 @@ auxiliary:
             regex: (?i)['"]access-control-allow-origin["']
           - variable: USER_INPUT
             detection: javascript_shared_common_user_input
+            scope: result
 metadata:
   description: "Insecure Access-Control-Allow-Origin detected."
   remediation_message: |

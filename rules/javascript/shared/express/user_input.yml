@@ -6,7 +6,7 @@ patterns:
     filters:
       - variable: REQUEST
         detection: javascript_shared_express_user_input_request
-        contains: false
+        scope: cursor
       - variable: PROPERTY
         values:
           - body
@@ -18,7 +18,7 @@ patterns:
     filters:
       - variable: REQUEST
         detection: javascript_shared_express_user_input_request
-        contains: false
+        scope: cursor
       - variable: PROPERTY
         values:
           - body

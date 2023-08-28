@@ -6,6 +6,7 @@ patterns:
     filters:
       - variable: CONTEXT
         detection: java_lang_ldap_injection_context
+        scope: cursor
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
   - pattern: |
@@ -13,6 +14,7 @@ patterns:
     filters:
       - variable: CONTEXT
         detection: java_lang_ldap_injection_context
+        scope: cursor
       - variable: METHOD
         values:
           - list
