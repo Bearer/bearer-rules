@@ -6,17 +6,17 @@ patterns:
     filters:
       - variable: INJECTION
         detection: ruby_rails_sql_injection_regular_injection
-        contains: false
+        scope: cursor
   - pattern: |
       $<INJECTION>
     filters:
       - variable: INJECTION
         detection: ruby_rails_sql_injection_special_arg_injection
-        contains: false
+        scope: cursor
       - not:
           variable: INJECTION
           detection: ruby_rails_sql_injection_safe_special_arg
-          contains: false
+          scope: cursor
 auxiliary:
   - id: ruby_rails_sql_injection_regular_method
     patterns:
@@ -76,7 +76,7 @@ auxiliary:
         filters:
           - variable: COMMON_USER_INPUT
             detection: ruby_shared_common_user_input
-            contains: false
+            scope: cursor
   - id: ruby_rails_sql_injection_safe_special_arg
     patterns:
       - pattern:
@@ -125,7 +125,7 @@ auxiliary:
         filters:
           - variable: METHOD
             detection: ruby_rails_sql_injection_regular_method
-            contains: false
+            scope: cursor
           - variable: USER_INPUT
             detection: ruby_rails_sql_injection_user_input
             scope: result
@@ -133,7 +133,7 @@ auxiliary:
         filters:
           - variable: METHOD
             detection: ruby_rails_sql_injection_regular_method
-            contains: false
+            scope: cursor
           - variable: USER_INPUT
             detection: ruby_rails_sql_injection_user_input
             scope: result
@@ -141,7 +141,7 @@ auxiliary:
         filters:
           - variable: CONN_METHOD
             detection: ruby_rails_sql_injection_connection_method
-            contains: false
+            scope: cursor
           - variable: USER_INPUT
             detection: ruby_rails_sql_injection_user_input
             scope: result
@@ -149,7 +149,7 @@ auxiliary:
         filters:
           - variable: CONN_METHOD
             detection: ruby_rails_sql_injection_connection_method
-            contains: false
+            scope: cursor
           - variable: USER_INPUT
             detection: ruby_rails_sql_injection_user_input
             scope: result
@@ -159,7 +159,7 @@ auxiliary:
         filters:
           - variable: SPECIAL_METHOD
             detection: ruby_rails_sql_injection_special_arg_method
-            contains: false
+            scope: cursor
           - variable: USER_INPUT
             detection: ruby_rails_sql_injection_user_input
             scope: result
@@ -170,7 +170,7 @@ auxiliary:
         filters:
           - variable: SPECIAL_METHOD
             detection: ruby_rails_sql_injection_special_arg_method
-            contains: false
+            scope: cursor
           - variable: USER_INPUT
             detection: ruby_rails_sql_injection_user_input
             scope: result

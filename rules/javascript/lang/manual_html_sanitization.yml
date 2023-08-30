@@ -7,7 +7,7 @@ patterns:
           - replace
           - replaceAll
       - variable: UNSAFE
-        regex: "&(lt|gt|apos|quot|amp);"
+        string_regex: "&(lt|gt|apos|quot|amp);"
 languages:
   - javascript
 severity: low

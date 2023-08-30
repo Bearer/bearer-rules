@@ -45,6 +45,7 @@ patterns:
     filters:
       - variable: DIGEST
         detection: ruby_shared_lang_openssl_digest_md_init
+        scope: cursor
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
@@ -58,6 +59,7 @@ patterns:
     filters:
       - variable: DIGEST
         detection: ruby_shared_lang_openssl_digest_md_init
+        scope: cursor
       - either:
           - variable: OPTIONAL_DATA_TYPE
             detection: datatype
@@ -70,6 +72,7 @@ patterns:
     filters:
       - variable: DIGEST
         detection: ruby_shared_lang_openssl_digest_md_init
+        scope: cursor
       - variable: METHOD
         values:
           - digest

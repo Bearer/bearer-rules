@@ -100,6 +100,7 @@ patterns:
     filters:
       - variable: PROCESSOR
         detection: ruby_lang_exec_using_user_input_shell_cmd_proc
+        scope: cursor
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
         scope: result
@@ -115,6 +116,7 @@ auxiliary:
         filters:
           - variable: SHELL
             detection: ruby_lang_exec_using_user_input_shell
+            scope: cursor
       - Shell::CommandProcessor.new$<...>
 severity: high
 metadata:

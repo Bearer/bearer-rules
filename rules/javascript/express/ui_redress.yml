@@ -8,6 +8,7 @@ patterns:
         regex: (?i)['"](x-frame-options|content-security-policy)["']
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
 languages:
   - javascript
 metadata:

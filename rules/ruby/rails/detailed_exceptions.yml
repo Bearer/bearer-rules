@@ -12,11 +12,11 @@ patterns:
         regex: Controller\z
       - variable: METHOD
         detection: show_detailed_exceptions_method
-        contains: false
+        scope: cursor
       - not:
           variable: METHOD
           detection: show_detailed_exceptions_method_false
-          contains: false
+          scope: cursor
 auxiliary:
   - id: show_detailed_exceptions_method
     patterns:

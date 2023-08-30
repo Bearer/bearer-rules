@@ -6,6 +6,7 @@ patterns:
     filters:
       - variable: VAR
         detection: ruby_shared_lang_openssl_digest_dsa_init
+        scope: cursor
       - variable: METHOD
         values:
           - export

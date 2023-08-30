@@ -11,8 +11,10 @@ patterns:
       - either:
           - variable: USER_INPUT
             detection: javascript_shared_common_user_input
+            scope: result
           - variable: USER_INPUT
             detection: javascript_express_deserialization_buffer
+            scope: result
   - pattern: |
       $<LIB>.unserialize($<USER_INPUT>)
     filters:
@@ -23,8 +25,10 @@ patterns:
       - either:
           - variable: USER_INPUT
             detection: javascript_shared_common_user_input
+            scope: result
           - variable: USER_INPUT
             detection: javascript_express_deserialization_buffer
+            scope: result
 auxiliary:
   - id: javascript_express_deserialization_buffer
     patterns:
@@ -33,6 +37,7 @@ auxiliary:
         filters:
           - variable: BUFFER_USER_INPUT
             detection: javascript_shared_common_user_input
+            scope: result
 languages:
   - javascript
 severity: high

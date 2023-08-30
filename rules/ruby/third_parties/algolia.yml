@@ -4,6 +4,7 @@ patterns:
     filters:
       - variable: INDEX
         detection: ruby_third_parties_algolia_index
+        scope: cursor
       - variable: METHOD
         values:
           - save_object
@@ -25,6 +26,7 @@ auxiliary:
         filters:
           - variable: CLIENT
             detection: ruby_third_parties_algolia_client
+            scope: cursor
 skip_data_types:
   - "Unique Identifier"
 metadata:

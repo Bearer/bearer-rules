@@ -4,6 +4,7 @@ patterns:
     filters:
       - variable: CLIENT
         detection: javascript_third_parties_hotshot_statsd
+        scope: cursor
       - variable: METHOD
         values:
           - event

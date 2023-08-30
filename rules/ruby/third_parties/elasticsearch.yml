@@ -4,6 +4,7 @@ patterns:
     filters:
       - variable: CLIENT
         detection: ruby_third_parties_elasticsearch_client
+        scope: cursor
       - variable: METHOD
         values:
           - bulk
@@ -17,6 +18,7 @@ patterns:
     filters:
       - variable: CLIENT
         detection: ruby_third_parties_elasticsearch_client
+        scope: cursor
       - variable: METHOD
         values:
           - bulk

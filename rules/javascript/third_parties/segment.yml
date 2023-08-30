@@ -4,6 +4,7 @@ patterns:
     filters:
       - variable: INSTANCE
         detection: javascript_third_parties_segment_instance
+        scope: cursor
       - variable: METHOD
         values:
           - alias

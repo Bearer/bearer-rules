@@ -6,6 +6,7 @@ patterns:
     filters:
       - variable: FILE
         detection: ruby_lang_file_generation_file
+        scope: cursor
       - variable: DATA_TYPE
         detection: datatype
         scope: result
@@ -14,6 +15,7 @@ patterns:
     filters:
       - variable: FILE
         detection: ruby_lang_file_generation_file
+        scope: cursor
       - variable: METHOD
         values:
           - puts

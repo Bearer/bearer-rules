@@ -5,11 +5,13 @@ patterns:
       - either:
           - variable: EXPRESS
             detection: javascript_express_helmet_missing_express_init
+            scope: cursor
           - variable: EXPRESS
             values:
               - app
       - variable: MIDDLEWARE
         detection: javascript_express_helmet_missing_middleware
+        scope: cursor
 auxiliary:
   - id: javascript_express_helmet_missing_express_init
     patterns:
@@ -17,7 +19,7 @@ auxiliary:
         filters:
           - variable: EXPRESS
             detection: javascript_express_helmet_missing_express
-            contains: false
+            scope: cursor
       - |
         const $<_>: Express = $<!>$<_>
       - |
@@ -47,12 +49,12 @@ auxiliary:
         filters:
           - variable: HELMET
             detection: javascript_express_helmet_missing_helmet
-            contains: false
+            scope: cursor
       - pattern: $<HELMET_PART>()
         filters:
           - variable: HELMET_PART
             detection: javascript_express_helmet_missing_helmet_part
-            contains: false
+            scope: cursor
   - id: javascript_express_helmet_missing_helmet
     patterns:
       - pattern: $<METHOD>($<NAME>)
@@ -72,12 +74,12 @@ auxiliary:
         filters:
           - variable: HELMET
             detection: javascript_express_helmet_missing_helmet
-            contains: false
+            scope: cursor
       - pattern: const { $<!>$<_> } = $<HELMET>
         filters:
           - variable: HELMET
             detection: javascript_express_helmet_missing_helmet
-            contains: false
+            scope: cursor
       - import $<...>{ $<!>$<_> } from "helmet"
       - import $<...>{ $<_> as $<!>$<_> } from "helmet"
 languages:

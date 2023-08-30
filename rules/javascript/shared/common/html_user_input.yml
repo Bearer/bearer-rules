@@ -10,7 +10,7 @@ patterns:
     filters:
       - variable: JAVASCRIPT_SHARED_COMMON_HTML_USER_INPUT
         detection: javascript_shared_common_user_input
-        contains: false
+        scope: cursor
 metadata:
   description: "Javascript user input not HTML sanitized."
   id: javascript_shared_common_html_user_input

@@ -78,6 +78,7 @@ patterns:
     filters:
       - variable: PATHNAME
         detection: ruby_lang_path_using_user_input_pathname
+        scope: cursor
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
         scope: result
@@ -120,6 +121,7 @@ patterns:
     filters:
       - variable: SHELL
         detection: ruby_lang_path_using_user_input_shell
+        scope: cursor
       - variable: METHOD
         values:
           - chdir
@@ -133,6 +135,7 @@ patterns:
     filters:
       - variable: PROCESSOR
         detection: ruby_lang_path_using_user_input_shell_cmd_proc
+        scope: cursor
       - variable: METHOD
         values:
           - cat
@@ -154,6 +157,7 @@ patterns:
     filters:
       - variable: PROCESSOR
         detection: ruby_lang_path_using_user_input_shell_cmd_proc
+        scope: cursor
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
         scope: result
@@ -164,6 +168,7 @@ patterns:
     filters:
       - variable: PROCESSOR
         detection: ruby_lang_path_using_user_input_shell_cmd_proc
+        scope: cursor
       - variable: PROCESSOR_TRANSACT_USER_INPUT
         detection: ruby_lang_path_using_user_input_shell_cmd_trans_user_input
   - pattern: |
@@ -190,7 +195,7 @@ patterns:
       - not:
           variable: USER_INPUT
           detection: ruby_lang_path_using_user_input_render_first_arg_pair
-          contains: false
+          scope: cursor
   - pattern: |
       $<METHOD>({ $<ARGUMENT>: $<USER_INPUT> })
     filters:
@@ -221,7 +226,7 @@ auxiliary:
         filters:
           - variable: USER_INPUT
             detection: ruby_shared_common_user_input
-            contains: false
+            scope: cursor
   - id: ruby_lang_path_using_user_input_open_sanitized
     patterns:
       - pattern: URI($<!>$<_>)
@@ -240,6 +245,7 @@ auxiliary:
         filters:
           - variable: SHELL
             detection: ruby_lang_path_using_user_input_shell
+            scope: cursor
       - Shell::CommandProcessor.new$<...>
   - id: ruby_lang_path_using_user_input_shell_cmd_trans_user_input
     patterns:

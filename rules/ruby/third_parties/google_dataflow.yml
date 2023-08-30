@@ -4,6 +4,7 @@ patterns:
     filters:
       - variable: VAR
         detection: google_dataflow_message_text_classes
+        scope: cursor
       - variable: DATA_TYPE
         detection: datatype
         scope: result
@@ -12,6 +13,7 @@ patterns:
     filters:
       - variable: VAR
         detection: google_dataflow_description_classes
+        scope: cursor
       - variable: DATA_TYPE
         detection: datatype
         scope: result
@@ -20,6 +22,7 @@ patterns:
     filters:
       - variable: VAR
         detection: google_dataflow_value_classes
+        scope: cursor
       - variable: DATA_TYPE
         detection: datatype
         scope: result
@@ -28,6 +31,7 @@ patterns:
     filters:
       - variable: VAR
         detection: google_dataflow_templates_service_client_init
+        scope: cursor
       - variable: DATA_TYPE
         detection: datatype
         scope: result
@@ -36,6 +40,7 @@ patterns:
     filters:
       - variable: VAR
         detection: google_dataflow_template_metadata_init
+        scope: cursor
       - variable: DATA_TYPE
         detection: datatype
         scope: result
@@ -48,6 +53,7 @@ patterns:
     filters:
       - variable: VAR
         detection: google_dataflow_config
+        scope: cursor
       - variable: DATA_TYPE
         detection: datatype
         scope: result
@@ -76,11 +82,13 @@ auxiliary:
         filters:
           - variable: CLIENT
             detection: google_dataflow_client_init
+            scope: cursor
       - pattern: |
           $<CLIENT>.configure { |$<!>$<_:identifier>| }
         filters:
           - variable: CLIENT
             detection: google_dataflow_client_init
+            scope: cursor
   - id: google_dataflow_message_text_classes
     patterns:
       - |
@@ -102,6 +110,7 @@ auxiliary:
         filters:
           - variable: CLIENT
             detection: google_dataflow_snapshots_client_init
+            scope: cursor
   - id: google_dataflow_value_classes
     patterns:
       - |

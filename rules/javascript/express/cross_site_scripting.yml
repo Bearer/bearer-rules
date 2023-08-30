@@ -6,11 +6,13 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: javascript_express_cross_site_scripting_user_input
+        scope: result
   - pattern: |
       res.send($<USER_INPUT>)
     filters:
       - variable: USER_INPUT
         detection: javascript_express_cross_site_scripting_user_input
+        scope: result
 languages:
   - javascript
 auxiliary:
@@ -25,7 +27,7 @@ auxiliary:
         filters:
           - variable: UNSANITIZED_USER_INPUT
             detection: javascript_shared_common_user_input
-            contains: false
+            scope: cursor
 severity: high
 metadata:
   description: "Cross-site scripting (XSS) vulnerability detected."

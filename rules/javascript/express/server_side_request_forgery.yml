@@ -6,16 +6,19 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
   - pattern: |
       axios.get($<USER_INPUT>)
     filters:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
   - pattern: |
       $<PUPPETEER_PAGE>.$<METHOD>($<USER_INPUT>)
     filters:
       - variable: PUPPETEER_PAGE
         detection: javascript_puppeteer_page
+        scope: cursor
       - variable: METHOD
         values:
           - goto
@@ -24,14 +27,30 @@ patterns:
           - evaluateOnNewDocument
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
+        scope: result
 auxiliary:
   - id: javascript_puppeteer_page
     patterns:
-      - $<PUPPETEER_BROWSER>.newPage()
+      - pattern: await $<PAGE_PROMISE>
+        filters:
+          - variable: PAGE_PROMISE
+            detection: javascript_puppeteer_page_promise
+            scope: cursor
+  - id: javascript_puppeteer_page_promise
+    patterns:
+      - $<BROWSER>.newPage()
     filters:
-      - variable: PUPPETEER_BROWSER
+      - variable: BROWSER
         detection: javascript_puppeteer_browser
+        scope: cursor
   - id: javascript_puppeteer_browser
+    patterns:
+      - pattern: await $<BROWSER_PROMISE>
+        filters:
+          - variable: BROWSER_PROMISE
+            detection: javascript_puppeteer_browser_promise
+            scope: cursor
+  - id: javascript_puppeteer_browser_promise
     patterns:
       - puppeteer.launch()
 languages:

@@ -6,6 +6,7 @@ patterns:
     filters:
       - variable: CIPHER_DES
         detection: java_shared_lang_cipher_des_init
+        scope: cursor
       - variable: METHOD
         values:
           - update
@@ -13,11 +14,13 @@ patterns:
           - doFinal
       - variable: DATA_TYPE
         detection: datatype
+        scope: result
   - pattern: |
       $<CIPHER_DES>.$<METHOD>()
     filters:
       - variable: CIPHER_DES
         detection: java_shared_lang_cipher_des_init
+        scope: cursor
       - variable: METHOD
         values:
           - update

@@ -5,6 +5,7 @@ patterns:
       - not:
           variable: DATA
           detection: javascript_react_dangerously_set_inner_html_sanitzed_input
+          scope: result
 auxiliary:
   - id: javascript_react_dangerously_set_inner_html_sanitzed_input
     patterns:
@@ -13,7 +14,7 @@ auxiliary:
         filters:
           - variable: STRING_LITERAL
             detection: string_literal
-            contains: false
+            scope: cursor
       - sanitize($<_>)
       - sanitizeHTML($<_>)
       - renderMarkdown($<_>)

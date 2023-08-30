@@ -10,6 +10,7 @@ patterns:
           - resolve
       - variable: USER_INPUT
         detection: javascript_express_path_traversal_user_input
+        scope: result
 auxiliary:
   - id: javascript_express_path_traversal_user_input
     sanitizer: javascript_express_path_traversal_sanitizer
@@ -18,7 +19,7 @@ auxiliary:
         filters:
           - variable: UNSANITIZED_USER_INPUT
             detection: javascript_shared_common_user_input
-            contains: false
+            scope: cursor
   - id: javascript_express_path_traversal_sanitizer
     patterns:
       - $<_>.replace($<_>, "")

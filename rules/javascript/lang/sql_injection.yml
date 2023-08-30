@@ -19,6 +19,7 @@ patterns:
     filters:
       - variable: PG_CLIENT
         detection: javascript_lang_sql_injection_pg_client
+        scope: cursor
       - variable: USER_INPUT
         detection: javascript_lang_sql_injection_user_input
         scope: result
@@ -36,11 +37,13 @@ patterns:
         scope: result
       - variable: SEQUELIZE
         detection: javascript_lang_sql_injection_sequelize_init
+        scope: cursor
   - pattern: |
       $<MYSQL_CONN>.$<METHOD>($<...>$<USER_INPUT>$<...>)
     filters:
       - variable: MYSQL_CONN
         detection: javascript_lang_sql_injection_mysql_conn
+        scope: cursor
       - variable: USER_INPUT
         detection: javascript_lang_sql_injection_user_input
         scope: result
@@ -53,6 +56,7 @@ patterns:
     filters:
       - variable: MYSQL_POOL
         detection: javascript_lang_sql_injection_mysql_pool
+        scope: cursor
       - variable: USER_INPUT
         detection: javascript_lang_sql_injection_user_input
         scope: result
@@ -61,6 +65,7 @@ patterns:
     filters:
       - variable: CONN
         detection: javascript_lang_sql_injection_pool_conn
+        scope: cursor
       - variable: USER_INPUT
         detection: javascript_lang_sql_injection_user_input
         scope: result
@@ -72,7 +77,7 @@ auxiliary:
         filters:
           - variable: UNSANITIZED_USER_INPUT
             detection: javascript_shared_common_user_input
-            contains: false
+            scope: cursor
   - id: javascript_lang_sql_injection_pg_client
     patterns:
       - new Client()
