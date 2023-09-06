@@ -18,6 +18,7 @@ auxiliary:
       - $<_>.sanitize($<_>)
       - sanitize($<_>)
       - sanitizeHTML($<_>)
+      - sanitizeHtml($<_>)
       - renderMarkdown($<_>)
 languages:
   - javascript
