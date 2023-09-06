@@ -24,6 +24,7 @@ if [ -n "$BEARER_WORKSPACE" ]; then
     --format=json \
     --disable-version-check \
     --force \
+    --exit-code=0 \
 
 else
   docker run --platform linux/amd64 --rm -v /tmp/bearer-scan:/tmp/bearer-scan -v $rule_loc:/tmp/rules bearer/bearer:$BEARER_VERSION scan $tmp_location \
@@ -33,5 +34,6 @@ else
     --format=json \
     --quiet \
     --disable-version-check \
+    --exit-code=0 \
 
 fi
