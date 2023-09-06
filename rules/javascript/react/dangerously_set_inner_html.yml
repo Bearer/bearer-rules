@@ -4,10 +4,10 @@ patterns:
     filters:
       - not:
           variable: DATA
-          detection: javascript_react_dangerously_set_inner_html_sanitzed_input
+          detection: javascript_react_dangerously_set_inner_html_sanitized_input
           scope: result
 auxiliary:
-  - id: javascript_react_dangerously_set_inner_html_sanitzed_input
+  - id: javascript_react_dangerously_set_inner_html_sanitized_input
     patterns:
       - pattern: |
           $<STRING_LITERAL>
@@ -15,8 +15,10 @@ auxiliary:
           - variable: STRING_LITERAL
             detection: string_literal
             scope: cursor
+      - $<_>.sanitize($<_>)
       - sanitize($<_>)
       - sanitizeHTML($<_>)
+      - sanitizeHtml($<_>)
       - renderMarkdown($<_>)
 languages:
   - javascript
