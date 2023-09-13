@@ -223,6 +223,21 @@
           "type": "string",
           "enum": ["cursor", "nested", "result"]
         },
+        "imports": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "variable": {
+                "type": "string"
+              },
+              "as": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "values": {
           "type": "array",
           "items": {
