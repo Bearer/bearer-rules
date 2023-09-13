@@ -9,6 +9,9 @@ patterns:
       - variable: JAVASCRIPT_SHARED_IMPORT_MEMBER_LIBRARY
         detection: javascript_shared_import_library
         scope: cursor
+        imports:
+          - variable: JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME
+            as: JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME
 metadata:
   description: "Import of member from library"
   id: javascript_shared_import_member

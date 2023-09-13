@@ -7,7 +7,14 @@ patterns:
           - replace
           - replaceAll
       - variable: UNSAFE
-        string_regex: "&(lt|gt|apos|quot|amp);"
+        detection: javascript_lang_manual_html_sanitization_escaped_string
+auxiliary:
+  - id: javascript_lang_manual_html_sanitization_escaped_string
+    patterns:
+      - pattern: $<STRING>
+        filters:
+          - variable: STRING
+            string_regex: "&(lt|gt|apos|quot|amp);"
 languages:
   - javascript
 severity: low

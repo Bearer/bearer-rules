@@ -2,9 +2,42 @@ type: shared
 languages:
   - ruby
 patterns:
-  - params
   - request.$<_>
   - cookies
+  - pattern: $<RUBY_SHARED_RAILS_USER_INPUT_PARAMS>
+    filters:
+      - variable: RUBY_SHARED_RAILS_USER_INPUT_PARAMS
+        values:
+          - params
+      - not:
+          variable: RUBY_SHARED_RAILS_USER_INPUT_PARAMS
+          detection: ruby_shared_rails_user_input_hash
+          scope: cursor
+  - pattern: $<RUBY_SHARED_RAILS_USER_INPUT_PERMITTED_PARAMS>
+    filters:
+      - variable: RUBY_SHARED_RAILS_USER_INPUT_PERMITTED_PARAMS
+        detection: ruby_shared_rails_user_input_params
+        scope: cursor
+      - not:
+          variable: RUBY_SHARED_RAILS_USER_INPUT_PERMITTED_PARAMS
+          detection: ruby_shared_rails_user_input_hash
+          scope: cursor
+auxiliary:
+  - id: ruby_shared_rails_user_input_params
+    patterns:
+      - params
+      - pattern: $<RUBY_SHARED_RAILS_USER_INPUT_PARAMS>.$<RUBY_SHARED_RAILS_USER_INPUT_PARAMS_METHOD>()
+        filters:
+          - variable: RUBY_SHARED_RAILS_USER_INPUT_PARAMS_METHOD
+            values:
+              - permit
+              - require
+          - variable: RUBY_SHARED_RAILS_USER_INPUT_PARAMS
+            detection: ruby_shared_rails_user_input_params
+            scope: result
+  - id: ruby_shared_rails_user_input_hash
+    patterns:
+      - "{}"
 metadata:
   description: "Rails user input."
   id: ruby_shared_rails_user_input

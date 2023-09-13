@@ -4,15 +4,21 @@ patterns:
   - pattern: |
       /$<...>#{$<USER_INPUT>}$<...>/
     filters:
-      - variable: USER_INPUT
-        detection: ruby_shared_common_user_input
-        scope: result
+      - either:
+          - variable: USER_INPUT
+            detection: ruby_shared_common_user_input
+            scope: result
+          - variable: USER_INPUT
+            detection: ruby_shared_common_user_input
   - pattern: |
       %r{$<...>#{$<USER_INPUT>}$<...>}
     filters:
-      - variable: USER_INPUT
-        detection: ruby_shared_common_user_input
-        scope: result
+      - either:
+          - variable: USER_INPUT
+            detection: ruby_shared_common_user_input
+            scope: result
+          - variable: USER_INPUT
+            detection: ruby_shared_common_user_input
   - pattern: |
       Regexp.$<METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -20,9 +26,12 @@ patterns:
         values:
           - new
           - compile
-      - variable: USER_INPUT
-        detection: ruby_shared_common_user_input
-        scope: result
+      - either:
+          - variable: USER_INPUT
+            detection: ruby_shared_common_user_input
+            scope: result
+          - variable: USER_INPUT
+            detection: ruby_shared_common_user_input
 languages:
   - ruby
 metadata:

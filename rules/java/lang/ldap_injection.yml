@@ -1,5 +1,6 @@
 imports:
   - java_shared_lang_user_input
+  - java_shared_lang_instance
 patterns:
   - pattern: |
       $<CONTEXT>.search($<_>, $<USER_INPUT>$<...>)
@@ -9,6 +10,16 @@ patterns:
         scope: cursor
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
+        scope: result
+  - pattern: |
+      $<CONTEXT>.search($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: CONTEXT
+        detection: java_lang_ldap_injection_context_fallback
+        scope: cursor
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
+        scope: result
   - pattern: |
       $<CONTEXT>.$<METHOD>($<USER_INPUT>)
     filters:
@@ -21,38 +32,43 @@ patterns:
           - lookup
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
+        scope: result
+  - pattern: |
+      $<CONTEXT>.$<METHOD>($<USER_INPUT>)
+    filters:
+      - variable: CONTEXT
+        detection: java_lang_ldap_injection_context_fallback
+        scope: cursor
+      - variable: METHOD
+        values:
+          - list
+          - lookup
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
+        scope: result
 auxiliary:
   - id: java_lang_ldap_injection_context
     patterns:
-      - pattern: $<LIB>$<CLASS> $<VARIABLE> = $<_>;
-        focus: VARIABLE
+      - pattern: $<CONTEXT_INSTANCE>;
         filters:
-          - variable: LIB
-            regex: ^(javax.)?(naming.)?(directory.)?
-          - variable: CLASS
-            values:
-              - Context
-              - DirContext
-              - InitialDirContext
-      - pattern: $<LIB>LdapContext $<VARIABLE>
-        focus: VARIABLE
-        filters:
-          - variable: LIB
-            regex: ^(javax.)?(naming.)?(ldap.)?
-      - pattern: $<LIB>$<CLASS> $<VARIABLE>
-        focus: VARIABLE
-        filters:
-          - variable: LIB
-            regex: ^(javax.)?(naming.)?(event.)?
-          - variable: CLASS
-            values:
-              - EventContext
-              - EventDirContext
-      # fallback
+          - variable: CONTEXT_INSTANCE
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - either:
+                  - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                    regex: \A(javax\.naming\.directory\.)?(Context|DirContext|InitialDirContext)\z
+                  - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                    regex: \A(javax\.naming\.ldap\.)?LdapContext\z
+                  - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                    regex: \A(javax\.naming\.event\.)?(EventContext|EventDirContext)\z
+  - id: java_lang_ldap_injection_context_fallback
+    patterns:
       - context;
       - ctx;
       - dirContext;
       - dirCtx;
+      - idc;
 languages:
   - java
 metadata:

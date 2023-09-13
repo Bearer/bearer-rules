@@ -1,22 +1,60 @@
 imports:
   - ruby_shared_common_user_input
 patterns:
-  - pattern: |
-      $<INJECTION>
+  - pattern: $<_>.$<METHOD>($<...>$<USER_INPUT>$<...>)
     filters:
-      - variable: INJECTION
-        detection: ruby_rails_sql_injection_regular_injection
+      - variable: METHOD
+        detection: ruby_rails_sql_injection_regular_method
         scope: cursor
-  - pattern: |
-      $<INJECTION>
+      - variable: USER_INPUT
+        detection: ruby_rails_sql_injection_user_input
+        scope: result
+  - pattern: $<METHOD>($<USER_INPUT>$<...>)
     filters:
-      - variable: INJECTION
-        detection: ruby_rails_sql_injection_special_arg_injection
+      - variable: METHOD
+        detection: ruby_rails_sql_injection_regular_method
         scope: cursor
+      - variable: USER_INPUT
+        detection: ruby_rails_sql_injection_user_input
+        scope: result
+  - pattern: ActiveRecord::Base.connection.$<CONN_METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: CONN_METHOD
+        detection: ruby_rails_sql_injection_connection_method
+        scope: cursor
+      - variable: USER_INPUT
+        detection: ruby_rails_sql_injection_user_input
+        scope: result
+  - pattern: connection.$<CONN_METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: CONN_METHOD
+        detection: ruby_rails_sql_injection_connection_method
+        scope: cursor
+      - variable: USER_INPUT
+        detection: ruby_rails_sql_injection_user_input
+        scope: result
+  - pattern: $<_>.$<SPECIAL_METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: SPECIAL_METHOD
+        detection: ruby_rails_sql_injection_special_arg_method
+        scope: cursor
+      - variable: USER_INPUT
+        detection: ruby_rails_sql_injection_user_input
+        scope: result
       - not:
-          variable: INJECTION
+          variable: USER_INPUT
           detection: ruby_rails_sql_injection_safe_special_arg
-          scope: cursor
+  - pattern: $<SPECIAL_METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: SPECIAL_METHOD
+        detection: ruby_rails_sql_injection_special_arg_method
+        scope: cursor
+      - variable: USER_INPUT
+        detection: ruby_rails_sql_injection_user_input
+        scope: result
+      - not:
+          variable: USER_INPUT
+          detection: ruby_rails_sql_injection_safe_special_arg
 auxiliary:
   - id: ruby_rails_sql_injection_regular_method
     patterns:
@@ -82,19 +120,17 @@ auxiliary:
       - pattern:
           | # where(["attr = ?", params[:oops]]) or where({ attr: params[:oops] })
           $<_>($<OBJECT_ARG>$<...>)
+        focus: OBJECT_ARG
         filters:
           - variable: OBJECT_ARG
             detection: ruby_rails_sql_injection_safe_special_object_arg
       - pattern:
           | # User.where(["attr = ?", params[:oops]]) or User.where({ attr: params[:oops] })
           $<_>.$<_>($<OBJECT_ARG>$<...>)
+        focus: OBJECT_ARG
         filters:
           - variable: OBJECT_ARG
             detection: ruby_rails_sql_injection_safe_special_object_arg
-      - pattern: | # where("attr = ?", params[:oops])
-          $<_>($<_>, $<...>$<!>$<_>$<...>)
-      - pattern: | # User.where("attr = ?", params[:oops])
-          $<_>.$<_>($<_>, $<...>$<!>$<_>$<...>)
       - pattern: | # where(attr: params[:oops])
           $<_>($<_>: $<!>$<_>)
       - pattern: | # User.where(attr: params[:oops])
@@ -119,64 +155,6 @@ auxiliary:
               - sanitize_conditions
       - pattern: $<_>.to_i
       - pattern: $<_>.to_f
-  - id: ruby_rails_sql_injection_regular_injection
-    patterns:
-      - pattern: $<_>.$<METHOD>($<...>$<USER_INPUT>$<...>)
-        filters:
-          - variable: METHOD
-            detection: ruby_rails_sql_injection_regular_method
-            scope: cursor
-          - variable: USER_INPUT
-            detection: ruby_rails_sql_injection_user_input
-            scope: result
-      - pattern: $<METHOD>($<USER_INPUT>$<...>)
-        filters:
-          - variable: METHOD
-            detection: ruby_rails_sql_injection_regular_method
-            scope: cursor
-          - variable: USER_INPUT
-            detection: ruby_rails_sql_injection_user_input
-            scope: result
-      - pattern: ActiveRecord::Base.connection.$<CONN_METHOD>($<USER_INPUT>$<...>)
-        filters:
-          - variable: CONN_METHOD
-            detection: ruby_rails_sql_injection_connection_method
-            scope: cursor
-          - variable: USER_INPUT
-            detection: ruby_rails_sql_injection_user_input
-            scope: result
-      - pattern: connection.$<CONN_METHOD>($<USER_INPUT>$<...>)
-        filters:
-          - variable: CONN_METHOD
-            detection: ruby_rails_sql_injection_connection_method
-            scope: cursor
-          - variable: USER_INPUT
-            detection: ruby_rails_sql_injection_user_input
-            scope: result
-  - id: ruby_rails_sql_injection_special_arg_injection
-    patterns:
-      - pattern: $<_>.$<SPECIAL_METHOD>($<USER_INPUT>$<...>)
-        filters:
-          - variable: SPECIAL_METHOD
-            detection: ruby_rails_sql_injection_special_arg_method
-            scope: cursor
-          - variable: USER_INPUT
-            detection: ruby_rails_sql_injection_user_input
-            scope: result
-          - not:
-              variable: USER_INPUT
-              detection: ruby_rails_sql_injection_safe_special_arg
-      - pattern: $<SPECIAL_METHOD>($<USER_INPUT>$<...>)
-        filters:
-          - variable: SPECIAL_METHOD
-            detection: ruby_rails_sql_injection_special_arg_method
-            scope: cursor
-          - variable: USER_INPUT
-            detection: ruby_rails_sql_injection_user_input
-            scope: result
-          - not:
-              variable: USER_INPUT
-              detection: ruby_rails_sql_injection_safe_special_arg
 languages:
   - ruby
 severity: high
