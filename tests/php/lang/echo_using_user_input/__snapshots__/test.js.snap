@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_echo_using_user_input echo_using_user_input 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "php_lang_echo_using_user_input",
+      "title": "Unsanitized user input detected in echo.",
+      "description": "## Description\\n\\nApplications should not include unsanitized user input in responses. This\\ncan allow cross-site scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid including user input directly in the response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . $_GET[\\"title\\"] . \\"</h1>\\"\\n\`\`\`\\n\\n✅ Sanitize user input when including it in a response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . filter_var($_GET[\\"title\\"], FILTER_SANITIZE_STRING). \\"</h1>\\"\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_echo",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/echo.php",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 20
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 20
+        },
+        "content": "echo $_GET['oops'];"
+      },
+      "parent_line_number": 4,
+      "snippet": "echo $_GET['oops'];",
+      "fingerprint": "bf18a6fe6fb9754a25a2ef6a27ee011b_0",
+      "old_fingerprint": "f7ddc509c4b5302f88ca68b54a518d7d_0",
+      "code_extract": "echo $_GET['oops'];"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "php_lang_echo_using_user_input",
+      "title": "Unsanitized user input detected in echo.",
+      "description": "## Description\\n\\nApplications should not include unsanitized user input in responses. This\\ncan allow cross-site scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid including user input directly in the response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . $_GET[\\"title\\"] . \\"</h1>\\"\\n\`\`\`\\n\\n✅ Sanitize user input when including it in a response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . filter_var($_GET[\\"title\\"], FILTER_SANITIZE_STRING). \\"</h1>\\"\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_echo",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/echo.php",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 41
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 41
+        },
+        "content": "echo $_GET['ok'] ? $_GET[\\"oops\\"] : \\"20\\";"
+      },
+      "parent_line_number": 6,
+      "snippet": "echo $_GET['ok'] ? $_GET[\\"oops\\"] : \\"20\\";",
+      "fingerprint": "bf18a6fe6fb9754a25a2ef6a27ee011b_1",
+      "old_fingerprint": "f7ddc509c4b5302f88ca68b54a518d7d_1",
+      "code_extract": "echo $_GET['ok'] ? $_GET[\\"oops\\"] : \\"20\\";"
+    }
+  ]
+}"
+`;

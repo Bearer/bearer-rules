@@ -1,0 +1,21 @@
+type: shared
+languages:
+  - php
+sanitizer: php_shared_lang_user_input_sanitized
+patterns:
+  - pattern: $$<METHOD>[$<_>]
+    filters:
+      - variable: METHOD
+        values:
+          - _GET
+          - _POST
+
+auxiliary:
+  - id: php_shared_lang_user_input_sanitized
+    patterns:
+      - count($<_>)
+      - filter_var($<!>$<_>$<...>)
+
+metadata:
+  description: "PHP user input."
+  id: php_shared_lang_user_input
