@@ -1,4 +1,5 @@
 <?php
 
-$user = array('username' => 'Seldaek', 'uuid' => 'unique-identifier');
-$log->info('Adding a new user', $user);
+$user = array('email' => 'user@email.com', 'uuid' => 'unique-identifier');
+$log->info('Adding a new user', $user.email);
+$log->info('Adding a new user', $user["email"]);

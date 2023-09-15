@@ -32,13 +32,13 @@ metadata:
     ❌ Avoid using sensitive data in logger messages:
 
     ```php
-    error_log('User is: ' . $user.email)
+    $log->info('User is: ' . $user.email)
     ```
 
     ✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:
 
     ```php
-    error_log('User is: ' . $user.uuid)
+    log->info('User is: ' . $user.uuid)
     ```
 
     ## Resources
