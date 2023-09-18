@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_eval_using_user_input bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "94",
+        "95"
+      ],
+      "id": "php_lang_eval_using_user_input",
+      "title": "Potential command injection with user input detected.",
+      "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to command injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_eval_using_user_input",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 30
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 30
+        },
+        "content": "eval(\\"echo \\" . $_GET[\\"oops\\"])"
+      },
+      "parent_line_number": 3,
+      "snippet": "eval(\\"echo \\" . $_GET[\\"oops\\"])",
+      "fingerprint": "43b4511ce098191dea3fa024aa7f66cc_0",
+      "old_fingerprint": "2935b68ea0455100c1ee50d53b6d628a_0",
+      "code_extract": "eval(\\"echo \\" . $_GET[\\"oops\\"]);"
+    },
+    {
+      "cwe_ids": [
+        "94",
+        "95"
+      ],
+      "id": "php_lang_eval_using_user_input",
+      "title": "Potential command injection with user input detected.",
+      "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to command injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_eval_using_user_input",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 45
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 45
+        },
+        "content": "call_user_func(\\"func_\\" . $_POST[\\"oops\\"], 42)"
+      },
+      "parent_line_number": 5,
+      "snippet": "call_user_func(\\"func_\\" . $_POST[\\"oops\\"], 42)",
+      "fingerprint": "43b4511ce098191dea3fa024aa7f66cc_1",
+      "old_fingerprint": "2935b68ea0455100c1ee50d53b6d628a_1",
+      "code_extract": "call_user_func(\\"func_\\" . $_POST[\\"oops\\"], 42)"
+    },
+    {
+      "cwe_ids": [
+        "94",
+        "95"
+      ],
+      "id": "php_lang_eval_using_user_input",
+      "title": "Potential command injection with user input detected.",
+      "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to command injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_eval_using_user_input",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 53
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 53
+        },
+        "content": "call_user_func_array(\\"func_\\" . $_POST[\\"oops\\"], [42])"
+      },
+      "parent_line_number": 6,
+      "snippet": "call_user_func_array(\\"func_\\" . $_POST[\\"oops\\"], [42])",
+      "fingerprint": "43b4511ce098191dea3fa024aa7f66cc_2",
+      "old_fingerprint": "2935b68ea0455100c1ee50d53b6d628a_2",
+      "code_extract": "call_user_func_array(\\"func_\\" . $_POST[\\"oops\\"], [42])"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_eval_using_user_input ok 1`] = `"{}"`;
