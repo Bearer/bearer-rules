@@ -26,18 +26,18 @@ exports[`ruby_lang_manual_html_sanitization unsafe 1`] = `
       },
       "sink": {
         "start": 1,
-        "end": 3,
+        "end": 2,
         "column": {
           "start": 24,
           "end": 21
         },
-        "content": "user.Input\\n  .gsub('<', '&lt;')\\n  .gsub('>', '&gt;')"
+        "content": "user.Input\\n  .gsub('<', '&lt;')"
       },
       "parent_line_number": 1,
-      "snippet": "user.Input\\n  .gsub('<', '&lt;')\\n  .gsub('>', '&gt;')",
+      "snippet": "user.Input\\n  .gsub('<', '&lt;')",
       "fingerprint": "2a5444c188b207201b5ce8c74ed321fe_0",
       "old_fingerprint": "dd0ed0b0b63f9147a628422412658b4c_0",
-      "code_extract": "sanitized_user_input = user.Input\\n  .gsub('<', '&lt;')\\n  .gsub('>', '&gt;')"
+      "code_extract": "sanitized_user_input = user.Input\\n  .gsub('<', '&lt;')"
     }
   ]
 }"
