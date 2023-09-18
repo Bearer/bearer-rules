@@ -782,6 +782,40 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
       "title": "HTTP communication with user-controlled destination detected.",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/unsafe_net_http.rb",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 3,
+          "end": 32
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 3,
+          "end": 32
+        },
+        "content": "instance1.head(params[:path])"
+      },
+      "parent_line_number": 6,
+      "snippet": "instance1.head(params[:path])",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_2",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_2",
+      "code_extract": "  instance1.head(params[:path])"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "ruby_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 9,
       "full_filename": "/tmp/bearer-scan/unsafe_net_http.rb",
       "filename": ".",
@@ -804,8 +838,8 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
       },
       "parent_line_number": 9,
       "snippet": "Net::HTTP::Get.new(params[:oops], { \\"X-Test\\": 42 })",
-      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_2",
-      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_2",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_3",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_3",
       "code_extract": "Net::HTTP::Get.new(params[:oops], { \\"X-Test\\": 42 })"
     },
     {
@@ -838,8 +872,8 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
       },
       "parent_line_number": 11,
       "snippet": "Net::HTTP.start(params[:oops])",
-      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_3",
-      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_3",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_4",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_4",
       "code_extract": "instance2 = Net::HTTP.start(params[:oops])"
     },
     {
@@ -872,8 +906,8 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
       },
       "parent_line_number": 12,
       "snippet": "instance2.ipaddr = request.env[:oops]",
-      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_4",
-      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_4",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_5",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_5",
       "code_extract": "instance2.ipaddr = request.env[:oops]"
     },
     {
@@ -906,8 +940,8 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
       },
       "parent_line_number": 13,
       "snippet": "instance2.send_request(\\"GET\\", params[:oops], nil)",
-      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_5",
-      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_5",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_6",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_6",
       "code_extract": "instance2.send_request(\\"GET\\", params[:oops], nil)"
     },
     {
@@ -940,8 +974,8 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
       },
       "parent_line_number": 15,
       "snippet": "Net::HTTP.new(params[:oops])",
-      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_6",
-      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_6",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_7",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_7",
       "code_extract": "instance3 = Net::HTTP.new(params[:oops])"
     },
     {
@@ -974,8 +1008,8 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
       },
       "parent_line_number": 16,
       "snippet": "instance3.patch(params[:path])",
-      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_7",
-      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_7",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_8",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_8",
       "code_extract": "instance3.patch(params[:path])"
     },
     {
@@ -1008,8 +1042,8 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
       },
       "parent_line_number": 18,
       "snippet": "instance4.post(request.env[:oops])",
-      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_8",
-      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_8",
+      "fingerprint": "f8b7e1c48c1bb6e71f6a8996b228371b_9",
+      "old_fingerprint": "8a18caa1fbaa41082d9423ffb7a8e20a_9",
       "code_extract": "  instance4.post(request.env[:oops])"
     }
   ]

@@ -203,8 +203,8 @@ exports[`ruby_rails_sql_injection injected_params 1`] = `
       },
       "parent_line_number": 11,
       "snippet": "ActiveRecord::Base.connection.exec_query(\\"SELECT #{params[:oops]}\\")",
-      "fingerprint": "4375e8a33c7009e3ee375e18f3a797b1_5",
-      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_5",
+      "fingerprint": "4375e8a33c7009e3ee375e18f3a797b1_6",
+      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_6",
       "code_extract": "ActiveRecord::Base.connection.exec_query(\\"SELECT #{params[:oops]}\\")"
     },
     {
@@ -237,8 +237,8 @@ exports[`ruby_rails_sql_injection injected_params 1`] = `
       },
       "parent_line_number": 13,
       "snippet": "connection.select_all(\\"SELECT #{params[:oops]}\\")",
-      "fingerprint": "4375e8a33c7009e3ee375e18f3a797b1_6",
-      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_6",
+      "fingerprint": "4375e8a33c7009e3ee375e18f3a797b1_7",
+      "old_fingerprint": "a81302659c0d03a625eebd21fae512b5_7",
       "code_extract": "connection.select_all(\\"SELECT #{params[:oops]}\\")"
     }
   ]

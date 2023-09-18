@@ -11,6 +11,48 @@ exports[`javascript_lang_file_generation file_generation 1`] = `
       "title": "Sensitive data detected as part of a dynamic file generation.",
       "description": "## Description\\n\\nIt is not uncommon to generate logs, backups, or data exports to static file formats. This rule checks if code exists to write sensitive data to static files.\\n\\n## Remediations\\n\\nAvoid writing sensitive data to logs, backups, or exports whenever possible. Instead obfuscate and/or filter the data to exclude sensitive information.\\n\\n<!--\\n## Resources\\nComing soon.\\n-->\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_file_generation",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/file_generation.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 35,
+          "end": 49
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 18,
+        "column": {
+          "start": 1,
+          "end": 3
+        },
+        "content": "fs.writeFile(\\"data.csv\\", JSON.stringify(users), \\"utf-8\\", (err) => {\\n  if (err) console.log(err)\\n  else console.log(\\"Data saved\\")\\n})"
+      },
+      "parent_line_number": 15,
+      "snippet": "fs.writeFile(\\"data.csv\\", JSON.stringify(users), \\"utf-8\\", (err) => {\\n  if (err) console.log(err)\\n  else console.log(\\"Data saved\\")\\n})",
+      "fingerprint": "7162a96ee591e4689c1fa24bfcc02fd5_0",
+      "old_fingerprint": "e07392ef7687a29685f9b9f7fd673469_0",
+      "code_extract": "fs.writeFile(\\"data.csv\\", JSON.stringify(users), \\"utf-8\\", (err) => {\\n  if (err) console.log(err)\\n  else console.log(\\"Data saved\\")\\n})"
+    },
+    {
+      "cwe_ids": [
+        "313"
+      ],
+      "id": "javascript_lang_file_generation",
+      "title": "Sensitive data detected as part of a dynamic file generation.",
+      "description": "## Description\\n\\nIt is not uncommon to generate logs, backups, or data exports to static file formats. This rule checks if code exists to write sensitive data to static files.\\n\\n## Remediations\\n\\nAvoid writing sensitive data to logs, backups, or exports whenever possible. Instead obfuscate and/or filter the data to exclude sensitive information.\\n\\n<!--\\n## Resources\\nComing soon.\\n-->\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_file_generation",
       "line_number": 9,
       "full_filename": "/tmp/bearer-scan/file_generation.js",
       "filename": ".",
@@ -41,8 +83,8 @@ exports[`javascript_lang_file_generation file_generation 1`] = `
       },
       "parent_line_number": 15,
       "snippet": "fs.writeFile(\\"data.csv\\", JSON.stringify(users), \\"utf-8\\", (err) => {\\n  if (err) console.log(err)\\n  else console.log(\\"Data saved\\")\\n})",
-      "fingerprint": "7162a96ee591e4689c1fa24bfcc02fd5_0",
-      "old_fingerprint": "e07392ef7687a29685f9b9f7fd673469_0",
+      "fingerprint": "7162a96ee591e4689c1fa24bfcc02fd5_2",
+      "old_fingerprint": "e07392ef7687a29685f9b9f7fd673469_2",
       "code_extract": "fs.writeFile(\\"data.csv\\", JSON.stringify(users), \\"utf-8\\", (err) => {\\n  if (err) console.log(err)\\n  else console.log(\\"Data saved\\")\\n})"
     },
     {
@@ -83,8 +125,8 @@ exports[`javascript_lang_file_generation file_generation 1`] = `
       },
       "parent_line_number": 15,
       "snippet": "fs.writeFile(\\"data.csv\\", JSON.stringify(users), \\"utf-8\\", (err) => {\\n  if (err) console.log(err)\\n  else console.log(\\"Data saved\\")\\n})",
-      "fingerprint": "7162a96ee591e4689c1fa24bfcc02fd5_1",
-      "old_fingerprint": "e07392ef7687a29685f9b9f7fd673469_1",
+      "fingerprint": "7162a96ee591e4689c1fa24bfcc02fd5_3",
+      "old_fingerprint": "e07392ef7687a29685f9b9f7fd673469_3",
       "code_extract": "fs.writeFile(\\"data.csv\\", JSON.stringify(users), \\"utf-8\\", (err) => {\\n  if (err) console.log(err)\\n  else console.log(\\"Data saved\\")\\n})"
     }
   ]
