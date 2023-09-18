@@ -32,19 +32,62 @@ exports[`php_third_parties_logger datatype_in_third_party_logger 1`] = `
         }
       },
       "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 39
+        },
+        "content": "$log->info('Adding a new user', $user)"
+      },
+      "parent_line_number": 6,
+      "snippet": "$log->info('Adding a new user', $user)",
+      "fingerprint": "2caf338f3e456f982a7fdc371f8426a0_0",
+      "old_fingerprint": "4f74b3cca38aee472340475cd0e9c736_0",
+      "code_extract": "$log->info('Adding a new user', $user);"
+    },
+    {
+      "cwe_ids": [
+        "209",
+        "532"
+      ],
+      "id": "php_third_parties_logger",
+      "title": "Sensitive data in a logger message detected.",
+      "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`php\\n$log->info('User is: ' . $user.email)\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`php\\nlog->info('User is: ' . $user.uuid)\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_logger",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/insecure.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 33,
+          "end": 45
+        }
+      },
+      "sink": {
         "start": 4,
         "end": 4,
         "column": {
           "start": 1,
-          "end": 45
+          "end": 46
         },
-        "content": "$log->info('Adding a new user', $user.email)"
+        "content": "$log->info('Adding a new user', $user->email)"
       },
       "parent_line_number": 4,
-      "snippet": "$log->info('Adding a new user', $user.email)",
-      "fingerprint": "2caf338f3e456f982a7fdc371f8426a0_0",
-      "old_fingerprint": "4f74b3cca38aee472340475cd0e9c736_0",
-      "code_extract": "$log->info('Adding a new user', $user.email);"
+      "snippet": "$log->info('Adding a new user', $user->email)",
+      "fingerprint": "2caf338f3e456f982a7fdc371f8426a0_1",
+      "old_fingerprint": "4f74b3cca38aee472340475cd0e9c736_1",
+      "code_extract": "$log->info('Adding a new user', $user->email);"
     },
     {
       "cwe_ids": [
@@ -85,8 +128,8 @@ exports[`php_third_parties_logger datatype_in_third_party_logger 1`] = `
       },
       "parent_line_number": 5,
       "snippet": "$log->info('Adding a new user', $user[\\"email\\"])",
-      "fingerprint": "2caf338f3e456f982a7fdc371f8426a0_1",
-      "old_fingerprint": "4f74b3cca38aee472340475cd0e9c736_1",
+      "fingerprint": "2caf338f3e456f982a7fdc371f8426a0_2",
+      "old_fingerprint": "4f74b3cca38aee472340475cd0e9c736_2",
       "code_extract": "$log->info('Adding a new user', $user[\\"email\\"]);"
     }
   ]
