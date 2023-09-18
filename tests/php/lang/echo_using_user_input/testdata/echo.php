@@ -9,4 +9,8 @@ echo "A total number of ".count($_POST['ok'])." users where removed.<hr/><a
 
 echo "<h1>" . filter_var($_GET["ok"], FILTER_SANITIZE_STRING) . "</h1>";
 
+// FIXME: Add support for $this
+$this->Username = $_POST["Username"];
+echo $this->Username;
+
 ?>
