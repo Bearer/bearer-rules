@@ -11,6 +11,48 @@ exports[`javascript_third_parties_new_relic datatype_in_interaction_set_attribut
       "title": "Sensitive data sent to New Relic detected.",
       "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to New Relic.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [New Relic Docs](https://docs.newrelic.com/)\\n- [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_new_relic",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/datatype_in_interaction_set_attribute.js",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Firstname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 31,
+          "end": 46
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 6,
+        "column": {
+          "start": 3,
+          "end": 47
+        },
+        "content": "newrelic.interaction()\\n    .setAttribute(\\"username\\", user.first_name)"
+      },
+      "parent_line_number": 5,
+      "snippet": "newrelic.interaction()\\n    .setAttribute(\\"username\\", user.first_name)",
+      "fingerprint": "63161101404765527f0dada7fd00b64e_0",
+      "old_fingerprint": "d4a33ef10c96118848e50cbe6babe62c_0",
+      "code_extract": "  newrelic.interaction()\\n    .setAttribute(\\"username\\", user.first_name)"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "javascript_third_parties_new_relic",
+      "title": "Sensitive data sent to New Relic detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to New Relic.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [New Relic Docs](https://docs.newrelic.com/)\\n- [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_new_relic",
       "line_number": 7,
       "full_filename": "/tmp/bearer-scan/datatype_in_interaction_set_attribute.js",
       "filename": ".",
@@ -41,8 +83,8 @@ exports[`javascript_third_parties_new_relic datatype_in_interaction_set_attribut
       },
       "parent_line_number": 5,
       "snippet": "newrelic.interaction()\\n    .setAttribute(\\"username\\", user.first_name)\\n    .setAttribute(\\"postal-code\\", user.post_code)",
-      "fingerprint": "63161101404765527f0dada7fd00b64e_0",
-      "old_fingerprint": "d4a33ef10c96118848e50cbe6babe62c_0",
+      "fingerprint": "63161101404765527f0dada7fd00b64e_1",
+      "old_fingerprint": "d4a33ef10c96118848e50cbe6babe62c_1",
       "code_extract": "  newrelic.interaction()\\n    .setAttribute(\\"username\\", user.first_name)\\n    .setAttribute(\\"postal-code\\", user.post_code);"
     },
     {
@@ -83,8 +125,8 @@ exports[`javascript_third_parties_new_relic datatype_in_interaction_set_attribut
       },
       "parent_line_number": 13,
       "snippet": "interaction.setAttribute(\\"email\\", user.email_address)",
-      "fingerprint": "63161101404765527f0dada7fd00b64e_1",
-      "old_fingerprint": "d4a33ef10c96118848e50cbe6babe62c_1",
+      "fingerprint": "63161101404765527f0dada7fd00b64e_2",
+      "old_fingerprint": "d4a33ef10c96118848e50cbe6babe62c_2",
       "code_extract": "interaction.setAttribute(\\"email\\", user.email_address)"
     }
   ]

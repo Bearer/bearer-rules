@@ -104,6 +104,40 @@ exports[`java_lang_os_command_injection bad 1`] = `
       "fingerprint": "5665fcfd14328e5c667ee31b32dffafd_2",
       "old_fingerprint": "a0ce9f3043b13a6baf7c16fd7608b765_2",
       "code_extract": "        ProcessBuilder pb = new ProcessBuilder(\\"sh -c echo \\" + name);"
+    },
+    {
+      "cwe_ids": [
+        "78"
+      ],
+      "id": "java_lang_os_command_injection",
+      "title": "Command injection vulnerability detected.",
+      "description": "## Description\\n\\nUsing external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.\\n\\n## Remediations\\n\\n❌ Avoid using OS commands, with or without dynamic input, wherever possible. For example, look for an equivalent library or function to use instead.\\n\\n✅ For dynamic input, rely on hardcoded values wherever possible\\n\\n\`\`\`java\\n  String filePattern = \\"*.json\\";\\n  if request.getParameter(\\"format\\") == \\"xml\\" {\\n    filePattern = \\"*.xml\\"\\n  }\\n\\n  Process process = Runtime.getRuntime().exec(\\"ls /myDir/\\" + extension);\\n\`\`\`\\n\\n## Resources\\n- [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_os_command_injection",
+      "line_number": 21,
+      "full_filename": "/tmp/bearer-scan/bad.java",
+      "filename": ".",
+      "source": {
+        "start": 21,
+        "end": 21,
+        "column": {
+          "start": 9,
+          "end": 41
+        }
+      },
+      "sink": {
+        "start": 21,
+        "end": 21,
+        "column": {
+          "start": 9,
+          "end": 41
+        },
+        "content": "pb.command(\\"sh -c echo \\" + name)"
+      },
+      "parent_line_number": 21,
+      "snippet": "pb.command(\\"sh -c echo \\" + name)",
+      "fingerprint": "5665fcfd14328e5c667ee31b32dffafd_3",
+      "old_fingerprint": "a0ce9f3043b13a6baf7c16fd7608b765_3",
+      "code_extract": "        pb.command(\\"sh -c echo \\" + name);"
     }
   ]
 }"
