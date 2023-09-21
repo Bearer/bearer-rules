@@ -6,11 +6,11 @@ patterns:
         regex: (?i)\A(expressjwt)\z
       - variable: HASH_CONTENT
         detection: javascript_express_jwt_not_revoked_secret
-        scope: result
+        scope: cursor
       - not:
           variable: HASH_CONTENT
           detection: javascript_express_jwt_not_revoked_is_revoked
-          scope: result
+          scope: cursor
 languages:
   - javascript
 auxiliary:
