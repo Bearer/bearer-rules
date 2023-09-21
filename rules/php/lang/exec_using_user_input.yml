@@ -1,0 +1,75 @@
+languages:
+  - php
+imports:
+  - php_shared_lang_user_input
+patterns:
+  - pattern: $<FUNCTION>($<USER_INPUT>$<...>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - exec
+          - passthru
+          - system
+          - shell_exec
+          - popen
+          - proc_open
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: proc_open($<_>, $<_>, $<_>, $<WORKING_DIR>)
+    filters:
+      - variable: WORKING_DIR
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: proc_open($<_>, $<_>, $<_>, $<_>, $<ENVIRONMENT>)
+    filters:
+      - variable: ENVIRONMENT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: pcntl_exec($<COMMAND>, $<ARGUMENTS>, $<ENVIRONMENT>)
+    filters:
+      - either:
+          - variable: COMMAND
+            detection: php_shared_lang_user_input
+            scope: result
+          - variable: ARGUMENTS
+            detection: php_shared_lang_user_input
+            scope: result
+          - variable: ENVIRONMENT
+            detection: php_shared_lang_user_input
+            scope: result
+severity: high
+metadata:
+  description: "Execution of OS command formed with user input detected."
+  remediation_message: |
+    ## Description
+
+    Applications should not execute OS commands that are formed from user input.
+    This rule checks for external commands containing user-supplied data.
+
+    ## Remediations
+
+    ❌ Avoid using user input when executing commands:
+
+    ```php
+    exec($_GET["command"]);
+    ```
+
+    ✅ Use user input indirectly when executing commands:
+
+    ```php
+    if ($_GET["action"] == "option1") {
+      $command = "command1";
+    } else {
+      $command = "command2";
+    }
+
+    exec($command);
+    ```
+
+    ## Resources
+    - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
+  cwe_id:
+    - 78
+  id: php_lang_exec_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_exec_using_user_input
