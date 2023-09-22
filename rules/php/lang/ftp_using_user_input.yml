@@ -1,0 +1,42 @@
+imports:
+  - php_shared_lang_user_input
+patterns:
+  - pattern: |
+      $<FUNCTION>($<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: FUNCTION
+        regex: \Aftp_
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+languages:
+  - php
+severity: high
+metadata:
+  description: "Do not use user input with FTP."
+  remediation_message: |
+    ## Description
+    Using raw unsanitized input with FTP methods is bad practice.
+    It could put your application at risk for code injection attacks, or lead
+    to path traversal, by which attackers can gain access to resources outside
+    of the intended scope.
+
+    ## Remediations
+    ❌ Do not form filenames or file paths for FTP from raw user input
+    ```php
+    $connection = ftp_ssl_connect("ftp.example.com", 21);
+    ftp_delete($connection, $_GET["name"]);
+    ```
+    ❌ Do not pass raw user input as arguments to FTP methods
+
+    ```php
+    $connection = ftp_ssl_connect($_GET["host"], 21);
+    ```
+
+    ## Resources
+    - [OWASP code injection](https://owasp.org/www-community/attacks/Code_Injection)
+    - [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)
+  cwe_id:
+    - 22
+  id: php_lang_ftp_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_ftp_using_user_input
