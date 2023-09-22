@@ -1,0 +1,54 @@
+imports:
+  - php_shared_lang_user_input
+patterns:
+  - pattern: $<FUNCTION>($<USER_INPUT>$<...>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - printf
+          - sprintf
+          - vprintf
+          - vsprintf
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: $<FUNCTION>($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - fprintf
+          - fscanf
+          - sscanf
+          - vfprintf
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+languages:
+  - php
+severity: low
+metadata:
+  description: "User input in format string detected."
+  remediation_message: |
+    ## Description
+
+    If an application includes user input directly in a format string, an
+    attacker can use format specifiers in the user input to produce misleading
+    or fabricated messages.
+
+    ## Remediations
+
+    ❌ Avoid format strings containing user input:
+
+    ```php
+    sprintf("The value was ${_GET["value"]}");
+    ```
+
+    ✅ Use a literal format string with additional arguments:
+
+    ```php
+    sprintf("The value was %s", $_GET["value"]);
+    ```
+  cwe_id:
+    - 134
+  id: php_lang_format_string_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_format_string_using_user_input
