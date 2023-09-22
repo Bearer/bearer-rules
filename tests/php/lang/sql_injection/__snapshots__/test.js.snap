@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_sql_injection no_sql_injection 1`] = `"{}"`;
+
+exports[`php_lang_sql_injection sql_injection 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "89"
+      ],
+      "id": "php_lang_sql_injection",
+      "title": "Potential SQL injection with user input detected.",
+      "description": "## Description\\nIncluding unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input\\n\\n\`\`\`php\\n  $oops = $_GET['oops'];\\n  $query  = \\"SELECT id, name FROM products ORDER BY name LIMIT 20 $oops;\\";\\n  $result = mysqli_query($conn, $query);\\n\`\`\`\\n\\nInstead, consider the following approaches when writing SQL queries\\n\\n✅ Validate query input or use prepared statement wherever possible\\n\\n\`\`\`php\\n  $sortingOrder = $_GET['sortingOrder'] === 'DESC' ? 'DESC' : 'ASC';\\n  $productId = $_GET['productId'];\\n  $stmt = $pdo->prepare(\\"SELECT * FROM products WHERE id LIKE ? ORDER BY price {$sortingOrder}\\");\\n  $stmt->execute([\\"%{$productId}%\\"]);\\n\`\`\`\\n\\n✅ Escape query input wherever possible\\n\\n\`\`\`php\\n  $ok = mysqli_real_escape_string($conn, $_GET['ok']);\\n  $query  = \\"SELECT id, name FROM products ORDER BY name LIMIT 20 $ok;\\";\\n  $result = pg_query($conn, $query);\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_sql_injection",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/injection.php",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 11,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 11,
+          "end": 34
+        },
+        "content": "pg_query($conn, $query)"
+      },
+      "parent_line_number": 5,
+      "snippet": "pg_query($conn, $query)",
+      "fingerprint": "9d772789a4d3fb94059b3ed7df14d339_0",
+      "old_fingerprint": "543093e931cc9eee3d10eaa0b559176d_0",
+      "code_extract": "$result = pg_query($conn, $query);"
+    },
+    {
+      "cwe_ids": [
+        "89"
+      ],
+      "id": "php_lang_sql_injection",
+      "title": "Potential SQL injection with user input detected.",
+      "description": "## Description\\nIncluding unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input\\n\\n\`\`\`php\\n  $oops = $_GET['oops'];\\n  $query  = \\"SELECT id, name FROM products ORDER BY name LIMIT 20 $oops;\\";\\n  $result = mysqli_query($conn, $query);\\n\`\`\`\\n\\nInstead, consider the following approaches when writing SQL queries\\n\\n✅ Validate query input or use prepared statement wherever possible\\n\\n\`\`\`php\\n  $sortingOrder = $_GET['sortingOrder'] === 'DESC' ? 'DESC' : 'ASC';\\n  $productId = $_GET['productId'];\\n  $stmt = $pdo->prepare(\\"SELECT * FROM products WHERE id LIKE ? ORDER BY price {$sortingOrder}\\");\\n  $stmt->execute([\\"%{$productId}%\\"]);\\n\`\`\`\\n\\n✅ Escape query input wherever possible\\n\\n\`\`\`php\\n  $ok = mysqli_real_escape_string($conn, $_GET['ok']);\\n  $query  = \\"SELECT id, name FROM products ORDER BY name LIMIT 20 $ok;\\";\\n  $result = pg_query($conn, $query);\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_sql_injection",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/injection.php",
+      "filename": ".",
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 11,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 11,
+          "end": 35
+        },
+        "content": "odbc_exec($conn, $query)"
+      },
+      "parent_line_number": 9,
+      "snippet": "odbc_exec($conn, $query)",
+      "fingerprint": "9d772789a4d3fb94059b3ed7df14d339_1",
+      "old_fingerprint": "543093e931cc9eee3d10eaa0b559176d_1",
+      "code_extract": "$result = odbc_exec($conn, $query);"
+    },
+    {
+      "cwe_ids": [
+        "89"
+      ],
+      "id": "php_lang_sql_injection",
+      "title": "Potential SQL injection with user input detected.",
+      "description": "## Description\\nIncluding unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input\\n\\n\`\`\`php\\n  $oops = $_GET['oops'];\\n  $query  = \\"SELECT id, name FROM products ORDER BY name LIMIT 20 $oops;\\";\\n  $result = mysqli_query($conn, $query);\\n\`\`\`\\n\\nInstead, consider the following approaches when writing SQL queries\\n\\n✅ Validate query input or use prepared statement wherever possible\\n\\n\`\`\`php\\n  $sortingOrder = $_GET['sortingOrder'] === 'DESC' ? 'DESC' : 'ASC';\\n  $productId = $_GET['productId'];\\n  $stmt = $pdo->prepare(\\"SELECT * FROM products WHERE id LIKE ? ORDER BY price {$sortingOrder}\\");\\n  $stmt->execute([\\"%{$productId}%\\"]);\\n\`\`\`\\n\\n✅ Escape query input wherever possible\\n\\n\`\`\`php\\n  $ok = mysqli_real_escape_string($conn, $_GET['ok']);\\n  $query  = \\"SELECT id, name FROM products ORDER BY name LIMIT 20 $ok;\\";\\n  $result = pg_query($conn, $query);\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_sql_injection",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/injection.php",
+      "filename": ".",
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 11,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 11,
+          "end": 37
+        },
+        "content": "mssql_query($conn, $query)"
+      },
+      "parent_line_number": 13,
+      "snippet": "mssql_query($conn, $query)",
+      "fingerprint": "9d772789a4d3fb94059b3ed7df14d339_2",
+      "old_fingerprint": "543093e931cc9eee3d10eaa0b559176d_2",
+      "code_extract": "$result = mssql_query($conn, $query);"
+    },
+    {
+      "cwe_ids": [
+        "89"
+      ],
+      "id": "php_lang_sql_injection",
+      "title": "Potential SQL injection with user input detected.",
+      "description": "## Description\\nIncluding unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input\\n\\n\`\`\`php\\n  $oops = $_GET['oops'];\\n  $query  = \\"SELECT id, name FROM products ORDER BY name LIMIT 20 $oops;\\";\\n  $result = mysqli_query($conn, $query);\\n\`\`\`\\n\\nInstead, consider the following approaches when writing SQL queries\\n\\n✅ Validate query input or use prepared statement wherever possible\\n\\n\`\`\`php\\n  $sortingOrder = $_GET['sortingOrder'] === 'DESC' ? 'DESC' : 'ASC';\\n  $productId = $_GET['productId'];\\n  $stmt = $pdo->prepare(\\"SELECT * FROM products WHERE id LIKE ? ORDER BY price {$sortingOrder}\\");\\n  $stmt->execute([\\"%{$productId}%\\"]);\\n\`\`\`\\n\\n✅ Escape query input wherever possible\\n\\n\`\`\`php\\n  $ok = mysqli_real_escape_string($conn, $_GET['ok']);\\n  $query  = \\"SELECT id, name FROM products ORDER BY name LIMIT 20 $ok;\\";\\n  $result = pg_query($conn, $query);\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_sql_injection",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/injection.php",
+      "filename": ".",
+      "source": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 11,
+          "end": 38
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 11,
+          "end": 38
+        },
+        "content": "mysqli_query($conn, $query)"
+      },
+      "parent_line_number": 17,
+      "snippet": "mysqli_query($conn, $query)",
+      "fingerprint": "9d772789a4d3fb94059b3ed7df14d339_3",
+      "old_fingerprint": "543093e931cc9eee3d10eaa0b559176d_3",
+      "code_extract": "$result = mysqli_query($conn, $query);"
+    }
+  ]
+}"
+`;
