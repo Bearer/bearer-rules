@@ -8,4 +8,9 @@ describe(ruleId, () => {
     const testCase = "echo.php"
     expect(invoke(testCase)).toMatchSnapshot()
   })
+
+  test("print_using_user_input", () => {
+    const testCase = "print.php"
+    expect(invoke(testCase)).toMatchSnapshot()
+  })
 })
