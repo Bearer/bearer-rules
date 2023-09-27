@@ -1,0 +1,53 @@
+patterns:
+  - pattern: |
+      sha1($<DATA_TYPE>$<...>)
+    filters:
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
+  - pattern: |
+      hash($<ALGORITHM>,$<DATATYPE>$<...>)
+    filters:
+      - variable: ALGORITHM
+        detection: php_lang_weak_hash_sha1_algo
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
+auxiliary:
+  - id: php_lang_weak_hash_sha1_algo
+    patterns:
+      - pattern: $<ALGO>;
+        filters:
+          - variable: ALGO
+            string_regex: sha1
+languages:
+  - php
+skip_data_types:
+  - "Unique Identifier"
+  - Passwords # see php_lang_weak_password_hash_sha1
+metadata:
+  description: "Weak hashing library (SHA-1) detected"
+  remediation_message: |
+    ## Description
+
+    A weak hashing library can lead to data breaches and greater security risk.
+
+    ## Remediations
+
+    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.
+
+    ❌ Avoid libraries and algorithms with known weaknesses:
+
+    ```php
+      $encrypted = sha1($input);
+    ```
+
+    ✅ Use stronger encryption algorithms when storing data.
+
+    ```php
+      $encrypted = hash('sha256', $input);
+    ```
+  cwe_id:
+    - 327
+  id: php_lang_weak_hash_sha1
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1

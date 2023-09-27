@@ -4,13 +4,13 @@ const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 describe(ruleId, () => {
   const invoke = createInvoker(ruleId, ruleFile, testBase)
 
-  test("datatype_leak", () => {
-    const testCase = "datatype_leak.rb"
+  test("insecure_library", () => {
+    const testCase = "insecure.php"
     expect(invoke(testCase)).toMatchSnapshot()
   })
 
-  test("ok_no_datatypes", () => {
-    const testCase = "ok_no_datatypes.rb"
+  test("secure_type", () => {
+    const testCase = "safe.php"
     expect(invoke(testCase)).toMatchSnapshot()
   })
 })
