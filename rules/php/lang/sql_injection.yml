@@ -1,7 +1,7 @@
 imports:
   - php_shared_lang_user_input
 patterns:
-  - pattern: $<ODBC_METHOD>($<_>, $<SANITIZED_USER_INPUT>)
+  - pattern: $<ODBC_METHOD>($<_>, $<UNSANITIZED_USER_INPUT>)
     filters:
       - variable: ODBC_METHOD
         values:
@@ -9,11 +9,11 @@ patterns:
           - odbc_exec
           - mssql_query
           - mysqli_query
-      - variable: SANITIZED_USER_INPUT
-        detection: php_lang_sql_injection_user_input_sanitized
+      - variable: UNSANITIZED_USER_INPUT
+        detection: php_lang_sql_injection_user_input_unsanitized
         scope: result
 auxiliary:
-  - id: php_lang_sql_injection_user_input_sanitized
+  - id: php_lang_sql_injection_user_input_unsanitized
     sanitizer: php_lang_sql_injection_user_input_sanitizer
     patterns:
       - pattern: $<USER_INPUT>;
