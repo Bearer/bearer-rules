@@ -57,7 +57,7 @@ metadata:
 
     Avoiding language-specific (de)serialization formats reduces the risk of attackers manipulating the deserialization process for malicious purposes.
 
-    ```javascript
+    ```ruby
       user_data = JSON.parse(params[:user])
       # handle any parsing errors
 
