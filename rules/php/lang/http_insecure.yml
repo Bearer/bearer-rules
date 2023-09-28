@@ -1,0 +1,332 @@
+languages:
+  - php
+imports:
+  - php_shared_lang_insecure_url
+  - php_shared_lang_instance
+patterns:
+  - pattern: $<FUNCTION>($<INSECURE_URL>$<...>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - curl_init
+          - file_get_contents
+          - fopen
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: curl_setopt($<_>, CURLOPT_URL, $<INSECURE_URL>)
+    filters:
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: new SoapClient($<_>, $<OPTIONS>)
+    filters:
+      - variable: OPTIONS
+        detection: php_lang_http_insecure_soap_options
+        scope: cursor
+  # PSR-17
+  - pattern: $<_>->createRequest($<_>, $<INSECURE_URL>)
+    filters:
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  # pecl_http
+  - pattern: new $<CLASS>($<_>, $<INSECURE_URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(http\\Client\\)?Request\z
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: new $<CLASS>($<INSECURE_URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A((Laminas|Zend)\\Http\\)?Client\z
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: $<LAMINAS>->setUri($<INSECURE_URL>)
+    filters:
+      - variable: LAMINAS
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A((Laminas|Zend)\\Http\\)?(Client|Request)\z
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: new $<CLASS>($<OPTIONS>)
+    filters:
+      - variable: CLASS
+        regex: \A(GuzzleHttp\\)?Client\z
+      - variable: OPTIONS
+        detection: php_lang_http_insecure_guzzle_options
+        scope: result
+  - pattern: $<GUZZLE>->request($<_>, $<INSECURE_URL>$<...>)
+    filters:
+      - variable: GUZZLE
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(GuzzleHttp\\)?Client\z
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: $<GUZZLE>->$<METHOD>($<INSECURE_URL>$<...>)
+    filters:
+      - variable: GUZZLE
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(GuzzleHttp\\)?Client\z
+      - variable: METHOD
+        values:
+          - get
+          - delete
+          - head
+          - options
+          - patch
+          - post
+          - put
+          - getAsync
+          - deleteAsync
+          - headAsync
+          - optionsAsync
+          - patchAsync
+          - postAsync
+          - putAsync
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: new $<CLASS>($<_>, $<INSECURE_URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(GuzzleHttp\\Psr7\\)?Request\z
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: $<CLASS>::$<METHOD>($<INSECURE_URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Requests\z
+      - variable: METHOD
+        values:
+          - get
+          - head
+          - delete
+          - trace
+          - post
+          - put
+          - options
+          - patch
+          - request
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: $<CLASS>::request_multiple($<OPTIONS>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Requests\z
+      - variable: OPTIONS
+        detection: php_lang_http_insecure_requests_options
+        scope: result
+  - pattern: new $<CLASS>($<INSECURE_URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: $<SESSION>->$<METHOD>($<INSECURE_URL>$<...>)
+    filters:
+      - variable: SESSION
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: METHOD
+        values:
+          - get
+          - head
+          - delete
+          - post
+          - put
+          - patch
+          - request
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: $<SESSION>->request_multiple($<OPTIONS>$<...>)
+    filters:
+      - variable: SESSION
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: OPTIONS
+        detection: php_lang_http_insecure_requests_options
+        scope: result
+  - pattern: $<BROWSER>->$<METHOD>($<INSECURE_URL>$<...>)
+    filters:
+      - variable: BROWSER
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(Buzz\\)?Browser\z
+      - variable: METHOD
+        values:
+          - get
+          - post
+          - head
+          - patch
+          - put
+          - delete
+          - submitForm
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: $<BROWSER>->request($<_>, $<INSECURE_URL>$<...>)
+    filters:
+      - variable: BROWSER
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(Buzz\\)?Browser\z
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: new $<CLASS>($<INSECURE_URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(SendGrid\\)?Client\z
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: $<CLASS>::$<METHOD>($<INSECURE_URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(Unirest\\)?Request\z
+      - variable: METHOD
+        values:
+          - get
+          - post
+          - put
+          - patch
+          - delete
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: $<CLASS>::send($<_>, $<INSECURE_URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(Unirest\\)?Request\z
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: $<CLASS>::$<METHOD>($<INSECURE_URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+      - variable: METHOD
+        values:
+          - head
+          - get
+          - post
+          - put
+          - patch
+          - delete
+          - withUrlParameters
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  - pattern: $<HTTP>->$<METHOD>($<INSECURE_URL>$<...>)
+    filters:
+      - variable: HTTP
+        detection: php_lang_http_insecure_laravel_http
+        scope: cursor
+      - variable: METHOD
+        values:
+          - head
+          - get
+          - post
+          - put
+          - patch
+          - delete
+          - withUrlParameters
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+  # symfony
+  - pattern: $<_>->request($<_>, $<INSECURE_URL>$<...>);
+    filters:
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: result
+auxiliary:
+  - id: php_lang_http_insecure_soap_options
+    patterns:
+      - pattern: array('location' => $<INSECURE_URL>)
+        filters:
+          - variable: INSECURE_URL
+            detection: php_shared_lang_insecure_url
+            scope: result
+  - id: php_lang_http_insecure_guzzle_options
+    patterns:
+      - pattern: array('base_uri' => $<INSECURE_URL>)
+        filters:
+          - variable: INSECURE_URL
+            detection: php_shared_lang_insecure_url
+            scope: result
+  - id: php_lang_http_insecure_requests_options
+    patterns:
+      - pattern: array('url' => $<INSECURE_URL>)
+        filters:
+          - variable: INSECURE_URL
+            detection: php_shared_lang_insecure_url
+            scope: result
+  - id: php_lang_http_insecure_laravel_http
+    patterns:
+      - pattern: $<CLASS>::$<_>()
+        filters:
+          - variable: CLASS
+            regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+      - pattern: $<HTTP>->$<_>()
+        filters:
+          - variable: HTTP
+            detection: php_lang_http_insecure_laravel_http
+            scope: cursor
+severity: low
+metadata:
+  description: "Communication through an insecure HTTP connection detected."
+  remediation_message: |
+    ## Description
+
+    Applications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.
+
+    ## Remediations
+
+    ❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:
+
+    ```php
+    $curl = curl_init('http://insecure-api.com');
+    ```
+
+    ✅ Ensure to always connect though HTTPS:
+
+    ```php
+    $curl = curl_init('https://secure-api.com');
+    ```
+
+    ## Resources
+    - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
+  cwe_id:
+    - 319
+  id: php_lang_http_insecure
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_http_insecure
