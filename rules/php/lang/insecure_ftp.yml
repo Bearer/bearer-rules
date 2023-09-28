@@ -1,0 +1,28 @@
+patterns:
+  - ftp_connect()
+languages:
+  - php
+severity: low
+metadata:
+  description: "Communication with an insecure FTP server detected."
+  remediation_message: |
+    ## Description
+
+    Communication with FTP servers should be done securely over SFTP in
+    applications that process sensitive data. This rule checks if all FTP
+    connections are made using SFTP.
+
+    ## Remediations
+
+    ✅ To ensure secure FTP connections are made, use the ftp_ssl_connect function
+
+    ```php
+    $ftp = ftp_ssl_connect("ftp.example.com");
+    ```
+
+    ## Resources
+    - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
+  cwe_id:
+    - 319
+  id: php_lang_insecure_ftp
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_insecure_ftp
