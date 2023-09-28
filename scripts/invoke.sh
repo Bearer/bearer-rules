@@ -33,7 +33,7 @@ else
     -v /tmp/bearer-scan:/tmp/bearer-scan \
     -v $rule_loc:/tmp/rules \
     -e BEARER_PYTHON_ENABLED=true \
-    -w BEARER_PHP_ENABLED=true \
+    -e BEARER_PHP_ENABLED=true \
     bearer/bearer:$BEARER_VERSION \
       scan $tmp_location \
       --only-rule=$rule_id \
