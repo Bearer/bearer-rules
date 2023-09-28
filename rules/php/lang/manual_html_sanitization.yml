@@ -1,0 +1,40 @@
+patterns:
+  - pattern: |
+      $<FUNCTION>($<_>, $<UNSAFE>$<...>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - str_replace
+          - preg_replace
+      - variable: UNSAFE
+        string_regex: "&(lt|gt|apos|quot|amp);"
+languages:
+  - php
+severity: low
+metadata:
+  description: "Manual HTML sanitization detected."
+  remediation_message: |
+    ## Description
+    Sanitizing HTML manually is error prone and can lead to Cross Site
+    Scripting (XSS) vulnerabilities.
+
+    ## Remediations
+
+    ❌ Avoid manually escaping HTML:
+
+    ```php
+    $html = str_replace("&", "&amp;", $text);
+    ```
+
+    ✅ Use a HTML sanitizer:
+
+    ```php
+    $html = htmlspecialchars($text);
+    ```
+
+    ## Resources
+    - [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)
+  cwe_id:
+    - 79
+  id: php_lang_manual_html_sanitization
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_manual_html_sanitization

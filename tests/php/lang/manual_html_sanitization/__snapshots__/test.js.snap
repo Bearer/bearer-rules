@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_manual_html_sanitization bad 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "php_lang_manual_html_sanitization",
+      "title": "Manual HTML sanitization detected.",
+      "description": "## Description\\nSanitizing HTML manually is error prone and can lead to Cross Site\\nScripting (XSS) vulnerabilities.\\n\\n## Remediations\\n\\n❌ Avoid manually escaping HTML:\\n\\n\`\`\`php\\n$html = str_replace(\\"&\\", \\"&amp;\\", $text);\\n\`\`\`\\n\\n✅ Use a HTML sanitizer:\\n\\n\`\`\`php\\n$html = htmlspecialchars($text);\\n\`\`\`\\n\\n## Resources\\n- [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_manual_html_sanitization",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 9,
+          "end": 38
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 9,
+          "end": 38
+        },
+        "content": "str_replace(\\"&\\", \\"&amp;\\", $x)"
+      },
+      "parent_line_number": 4,
+      "snippet": "str_replace(\\"&\\", \\"&amp;\\", $x)",
+      "fingerprint": "945af2d15f350b7360e12f19e7d7782b_0",
+      "old_fingerprint": "d406c89d0cfe8c2865de1c5a8e59be7f_0",
+      "code_extract": "$html = str_replace(\\"&\\", \\"&amp;\\", $x);"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "php_lang_manual_html_sanitization",
+      "title": "Manual HTML sanitization detected.",
+      "description": "## Description\\nSanitizing HTML manually is error prone and can lead to Cross Site\\nScripting (XSS) vulnerabilities.\\n\\n## Remediations\\n\\n❌ Avoid manually escaping HTML:\\n\\n\`\`\`php\\n$html = str_replace(\\"&\\", \\"&amp;\\", $text);\\n\`\`\`\\n\\n✅ Use a HTML sanitizer:\\n\\n\`\`\`php\\n$html = htmlspecialchars($text);\\n\`\`\`\\n\\n## Resources\\n- [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_manual_html_sanitization",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 9,
+          "end": 40
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 9,
+          "end": 40
+        },
+        "content": "str_replace(\\"<\\", \\"&lt;\\", $html)"
+      },
+      "parent_line_number": 5,
+      "snippet": "str_replace(\\"<\\", \\"&lt;\\", $html)",
+      "fingerprint": "945af2d15f350b7360e12f19e7d7782b_1",
+      "old_fingerprint": "d406c89d0cfe8c2865de1c5a8e59be7f_1",
+      "code_extract": "$html = str_replace(\\"<\\", \\"&lt;\\", $html);"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "php_lang_manual_html_sanitization",
+      "title": "Manual HTML sanitization detected.",
+      "description": "## Description\\nSanitizing HTML manually is error prone and can lead to Cross Site\\nScripting (XSS) vulnerabilities.\\n\\n## Remediations\\n\\n❌ Avoid manually escaping HTML:\\n\\n\`\`\`php\\n$html = str_replace(\\"&\\", \\"&amp;\\", $text);\\n\`\`\`\\n\\n✅ Use a HTML sanitizer:\\n\\n\`\`\`php\\n$html = htmlspecialchars($text);\\n\`\`\`\\n\\n## Resources\\n- [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_manual_html_sanitization",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 10,
+          "end": 40
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 10,
+          "end": 40
+        },
+        "content": "preg_replace(\\"&\\", \\"&amp;\\", $x)"
+      },
+      "parent_line_number": 7,
+      "snippet": "preg_replace(\\"&\\", \\"&amp;\\", $x)",
+      "fingerprint": "945af2d15f350b7360e12f19e7d7782b_2",
+      "old_fingerprint": "d406c89d0cfe8c2865de1c5a8e59be7f_2",
+      "code_extract": "$html2 = preg_replace(\\"&\\", \\"&amp;\\", $x);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_manual_html_sanitization ok 1`] = `"{}"`;
