@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_exception bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "210"
+      ],
+      "id": "php_lang_exception",
+      "title": "Sensitive data in a exception message detected.",
+      "description": "## Description\\n\\nLeaking sensitive data to an exception is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to exceptions.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`php\\nthrow new Exception(\\"error for {$user->email}\\");\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`php\\nthrow new Exception(\\"error for {$user->uuid}\\");\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exception",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 42,
+          "end": 54
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 57
+        },
+        "content": "throw new Exception(\\"error occurred for {$user->email}\\")"
+      },
+      "parent_line_number": 3,
+      "snippet": "throw new Exception(\\"error occurred for {$user->email}\\")",
+      "fingerprint": "70ef43ccc75d77cc05321c82fe7852c6_0",
+      "old_fingerprint": "2b002c2a933af8de1c1d21ef38d88015_0",
+      "code_extract": "throw new Exception(\\"error occurred for {$user->email}\\");"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_exception ok 1`] = `"{}"`;
