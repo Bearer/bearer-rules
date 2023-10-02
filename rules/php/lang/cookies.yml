@@ -1,0 +1,32 @@
+patterns:
+  - pattern: |
+      $<FUNCTION>($<_>, $<DATA_TYPE>$<...>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - setcookie
+          - setrawcookie
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
+languages:
+  - php
+metadata:
+  description: "Sensitive data stored in a cookie detected."
+  remediation_message: |
+    ## Description
+
+    Storing sensitive data in cookies can lead to a data breach. This rule looks for instances where sensitive data is stored in browser cookies.
+
+    ## Remediations
+
+    ❌ Avoid storing sensitive data in unencrypted cookies:
+
+    ```php
+    setcookie("user_email", $user->email);
+    ```
+  cwe_id:
+    - 315
+    - 539
+  id: php_lang_cookies
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_cookies
