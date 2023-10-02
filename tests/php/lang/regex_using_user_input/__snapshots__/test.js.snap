@@ -1,0 +1,656 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_regex_using_user_input bad 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 44
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 44
+        },
+        "content": "preg_filter($user_input,  \\"oops\\", $subject)"
+      },
+      "parent_line_number": 5,
+      "snippet": "preg_filter($user_input,  \\"oops\\", $subject)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_0",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_0",
+      "code_extract": "preg_filter($user_input,  \\"oops\\", $subject);"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 31
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 31
+        },
+        "content": "preg_grep($user_input, $array)"
+      },
+      "parent_line_number": 6,
+      "snippet": "preg_grep($user_input, $array)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_1",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_1",
+      "code_extract": "preg_grep($user_input, $array);"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 38
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 38
+        },
+        "content": "preg_match_all($user_input, $subject)"
+      },
+      "parent_line_number": 7,
+      "snippet": "preg_match_all($user_input, $subject)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_2",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_2",
+      "code_extract": "preg_match_all($user_input, $subject);"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 34
+        },
+        "content": "preg_match($user_input, $subject)"
+      },
+      "parent_line_number": 8,
+      "snippet": "preg_match($user_input, $subject)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_3",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_3",
+      "code_extract": "preg_match($user_input, $subject);"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 20,
+        "column": {
+          "start": 1,
+          "end": 2
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 20,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "preg_replace_callback_array(\\n  [\\n      $user_input => function ($match) {\\n          return \\"oops\\";\\n      },\\n      '~[b]+~i' => function ($match) {\\n          return \\"ok\\";\\n      }\\n  ],\\n  $subject\\n)"
+      },
+      "parent_line_number": 10,
+      "snippet": "preg_replace_callback_array(\\n  [\\n      $user_input => function ($match) {\\n          return \\"oops\\";\\n      },\\n      '~[b]+~i' => function ($match) {\\n          return \\"ok\\";\\n      }\\n  ],\\n  $subject\\n)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_4",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_4",
+      "code_extract": "preg_replace_callback_array(\\n  [\\n      $user_input => function ($match) {\\n          ...omitted (buffer value 3)\\n  ],\\n  $subject\\n);"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 22,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 22,
+        "end": 22,
+        "column": {
+          "start": 1,
+          "end": 82
+        }
+      },
+      "sink": {
+        "start": 22,
+        "end": 22,
+        "column": {
+          "start": 1,
+          "end": 82
+        },
+        "content": "preg_replace_callback($user_input, function($match) { return \\"oops\\"; }, $subject)"
+      },
+      "parent_line_number": 22,
+      "snippet": "preg_replace_callback($user_input, function($match) { return \\"oops\\"; }, $subject)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_5",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_5",
+      "code_extract": "preg_replace_callback($user_input, function($match) { return \\"oops\\"; }, $subject);"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 23,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 23,
+        "end": 23,
+        "column": {
+          "start": 1,
+          "end": 44
+        }
+      },
+      "sink": {
+        "start": 23,
+        "end": 23,
+        "column": {
+          "start": 1,
+          "end": 44
+        },
+        "content": "preg_replace($user_input, \\"oops\\", $subject)"
+      },
+      "parent_line_number": 23,
+      "snippet": "preg_replace($user_input, \\"oops\\", $subject)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_6",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_6",
+      "code_extract": "preg_replace($user_input, \\"oops\\", $subject);"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 24,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 24,
+        "end": 24,
+        "column": {
+          "start": 1,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 24,
+        "end": 24,
+        "column": {
+          "start": 1,
+          "end": 34
+        },
+        "content": "preg_split($user_input, $subject)"
+      },
+      "parent_line_number": 24,
+      "snippet": "preg_split($user_input, $subject)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_7",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_7",
+      "code_extract": "preg_split($user_input, $subject);"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 26,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 26,
+        "end": 26,
+        "column": {
+          "start": 1,
+          "end": 36
+        }
+      },
+      "sink": {
+        "start": 26,
+        "end": 26,
+        "column": {
+          "start": 1,
+          "end": 36
+        },
+        "content": "mb_ereg_match($user_input, $string)"
+      },
+      "parent_line_number": 26,
+      "snippet": "mb_ereg_match($user_input, $string)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_8",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_8",
+      "code_extract": "mb_ereg_match($user_input, $string);"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 27,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 1,
+          "end": 84
+        }
+      },
+      "sink": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 1,
+          "end": 84
+        },
+        "content": "mb_ereg_replace_callback($user_input, function($match) { return \\"oops\\"; }, $string)"
+      },
+      "parent_line_number": 27,
+      "snippet": "mb_ereg_replace_callback($user_input, function($match) { return \\"oops\\"; }, $string)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_9",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_9",
+      "code_extract": "mb_ereg_replace_callback($user_input, function($match) { return \\"oops\\"; }, $string);"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 28,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 28,
+        "end": 28,
+        "column": {
+          "start": 1,
+          "end": 46
+        }
+      },
+      "sink": {
+        "start": 28,
+        "end": 28,
+        "column": {
+          "start": 1,
+          "end": 46
+        },
+        "content": "mb_ereg_replace($user_input, \\"oops\\", $string)"
+      },
+      "parent_line_number": 28,
+      "snippet": "mb_ereg_replace($user_input, \\"oops\\", $string)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_10",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_10",
+      "code_extract": "mb_ereg_replace($user_input, \\"oops\\", $string);"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 29,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 29,
+        "end": 29,
+        "column": {
+          "start": 1,
+          "end": 42
+        }
+      },
+      "sink": {
+        "start": 29,
+        "end": 29,
+        "column": {
+          "start": 1,
+          "end": 42
+        },
+        "content": "mb_ereg_search_init($string, $user_input)"
+      },
+      "parent_line_number": 29,
+      "snippet": "mb_ereg_search_init($string, $user_input)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_11",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_11",
+      "code_extract": "mb_ereg_search_init($string, $user_input);"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 30,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 30,
+        "end": 30,
+        "column": {
+          "start": 1,
+          "end": 38
+        }
+      },
+      "sink": {
+        "start": 30,
+        "end": 30,
+        "column": {
+          "start": 1,
+          "end": 38
+        },
+        "content": "mb_ereg_search_pos($user_input, \\"ms\\")"
+      },
+      "parent_line_number": 30,
+      "snippet": "mb_ereg_search_pos($user_input, \\"ms\\")",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_12",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_12",
+      "code_extract": "mb_ereg_search_pos($user_input, \\"ms\\");"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 31,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 31,
+        "end": 31,
+        "column": {
+          "start": 1,
+          "end": 39
+        }
+      },
+      "sink": {
+        "start": 31,
+        "end": 31,
+        "column": {
+          "start": 1,
+          "end": 39
+        },
+        "content": "mb_ereg_search_regs($user_input, \\"ms\\")"
+      },
+      "parent_line_number": 31,
+      "snippet": "mb_ereg_search_regs($user_input, \\"ms\\")",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_13",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_13",
+      "code_extract": "mb_ereg_search_regs($user_input, \\"ms\\");"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 32,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 32,
+        "end": 32,
+        "column": {
+          "start": 1,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 32,
+        "end": 32,
+        "column": {
+          "start": 1,
+          "end": 34
+        },
+        "content": "mb_ereg_search($user_input, \\"ms\\")"
+      },
+      "parent_line_number": 32,
+      "snippet": "mb_ereg_search($user_input, \\"ms\\")",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_14",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_14",
+      "code_extract": "mb_ereg_search($user_input, \\"ms\\");"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 33,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 33,
+        "end": 33,
+        "column": {
+          "start": 1,
+          "end": 30
+        }
+      },
+      "sink": {
+        "start": 33,
+        "end": 33,
+        "column": {
+          "start": 1,
+          "end": 30
+        },
+        "content": "mb_ereg($user_input, $string)"
+      },
+      "parent_line_number": 33,
+      "snippet": "mb_ereg($user_input, $string)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_15",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_15",
+      "code_extract": "mb_ereg($user_input, $string);"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 34,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 34,
+        "end": 34,
+        "column": {
+          "start": 1,
+          "end": 47
+        }
+      },
+      "sink": {
+        "start": 34,
+        "end": 34,
+        "column": {
+          "start": 1,
+          "end": 47
+        },
+        "content": "mb_eregi_replace($user_input, \\"oops\\", $string)"
+      },
+      "parent_line_number": 34,
+      "snippet": "mb_eregi_replace($user_input, \\"oops\\", $string)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_16",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_16",
+      "code_extract": "mb_eregi_replace($user_input, \\"oops\\", $string);"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 35,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 35,
+        "end": 35,
+        "column": {
+          "start": 1,
+          "end": 31
+        }
+      },
+      "sink": {
+        "start": 35,
+        "end": 35,
+        "column": {
+          "start": 1,
+          "end": 31
+        },
+        "content": "mb_eregi($user_input, $string)"
+      },
+      "parent_line_number": 35,
+      "snippet": "mb_eregi($user_input, $string)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_17",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_17",
+      "code_extract": "mb_eregi($user_input, $string);"
+    },
+    {
+      "cwe_ids": [
+        "1333"
+      ],
+      "id": "php_lang_regex_using_user_input",
+      "title": "Regular expression built from user input detected.",
+      "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input",
+      "line_number": 36,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 36,
+        "end": 36,
+        "column": {
+          "start": 1,
+          "end": 31
+        }
+      },
+      "sink": {
+        "start": 36,
+        "end": 36,
+        "column": {
+          "start": 1,
+          "end": 31
+        },
+        "content": "mb_split($user_input, $string)"
+      },
+      "parent_line_number": 36,
+      "snippet": "mb_split($user_input, $string)",
+      "fingerprint": "d78a888644a71f285db9e3d2077914a0_18",
+      "old_fingerprint": "d8114901485de1eee95355471d685d43_18",
+      "code_extract": "mb_split($user_input, $string);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_regex_using_user_input ok 1`] = `"{}"`;

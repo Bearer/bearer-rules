@@ -1,0 +1,66 @@
+imports:
+  - php_shared_lang_user_input
+patterns:
+  - pattern: $<FUNCTION>($<USER_INPUT>$<...>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - preg_filter
+          - preg_grep
+          - preg_match_all
+          - preg_match
+          - preg_replace_callback
+          - preg_replace
+          - preg_split
+          - mb_ereg_match
+          - mb_ereg_replace_callback
+          - mb_ereg_replace
+          - mb_ereg_search_pos
+          - mb_ereg_search_regs
+          - mb_ereg_search
+          - mb_ereg
+          - mb_eregi_replace
+          - mb_eregi
+          - mb_split
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: preg_replace_callback_array($<PATTERN_ARRAY>$<...>)
+    filters:
+      - variable: PATTERN_ARRAY
+        detection: php_lang_regex_using_user_input_pattern_array
+        scope: cursor
+  - pattern: mb_ereg_search_init($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+auxiliary:
+  - id: php_lang_regex_using_user_input_pattern_array
+    patterns:
+      - pattern: array($<USER_INPUT> => $<_>)
+        filters:
+          - variable: USER_INPUT
+            detection: php_shared_lang_user_input
+            scope: result
+languages:
+  - php
+metadata:
+  description: "Regular expression built from user input detected."
+  remediation_message: |
+    ## Description
+
+    Applications should avoid constructing regular expressions from user input.
+    Regular expressions can have exponential worst-case computational
+    complexity, allowing users to trigger this behaviour can result in
+    excessive CPU consumption causing a regular expression denial of service (ReDoS).
+
+    ## Remediations
+    ❌ Avoid using untrusted or user data when building regular expressions
+
+    ## Resources
+    - [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)
+  cwe_id:
+    - 1333
+  id: php_lang_regex_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_regex_using_user_input

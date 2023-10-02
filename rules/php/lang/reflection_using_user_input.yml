@@ -79,21 +79,7 @@ metadata:
     ❌ Avoid using user input when using reflection:
 
     ```php
-    method(params[:method])
-    ```
-
-    ✅ Use user input indirectly when using reflection:
-
-    ```php
-    method_name =
-      case params[:action]
-      when "option1"
-        "method1"
-      when "option2"
-        "method2"
-      end
-
-    method(method_name)
+    $class = new ReflectionClass($_GET["class"])
     ```
 
     ## Resources
