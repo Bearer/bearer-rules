@@ -577,7 +577,7 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
       "title": "HTTP communication with user-controlled destination detected.",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`php\\n$curl = curl_init(\\"https://{$_GET['host']}');\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`php\\nif ($_GET[\\"host\\"] == \\"option1\\") {\\n  $host = \\"api1.com\\";\\n} else {\\n  $host = \\"api2.com\\";\\n}\\n\\n$curl = curl_init(\\"https://$host');\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_user_input",
-      "line_number": 16,
+      "line_number": 15,
       "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
       "filename": ".",
       "category_groups": [
@@ -585,27 +585,27 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "Personal Data"
       ],
       "source": {
-        "start": 16,
-        "end": 16,
+        "start": 15,
+        "end": 15,
         "column": {
-          "start": 1,
-          "end": 26
+          "start": 13,
+          "end": 58
         }
       },
       "sink": {
-        "start": 16,
-        "end": 16,
+        "start": 15,
+        "end": 15,
         "column": {
-          "start": 1,
-          "end": 26
+          "start": 13,
+          "end": 58
         },
-        "content": "$client->get($user_input)"
+        "content": "$client->requestAsync(\\"GET\\", $user_input, [])"
       },
-      "parent_line_number": 16,
-      "snippet": "$client->get($user_input)",
+      "parent_line_number": 15,
+      "snippet": "$client->requestAsync(\\"GET\\", $user_input, [])",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_2",
       "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_2",
-      "code_extract": "$client->get($user_input);"
+      "code_extract": "$response = $client->requestAsync(\\"GET\\", $user_input, []);"
     },
     {
       "cwe_ids": [
@@ -627,7 +627,7 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 17,
         "column": {
           "start": 1,
-          "end": 29
+          "end": 26
         }
       },
       "sink": {
@@ -635,15 +635,15 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 17,
         "column": {
           "start": 1,
-          "end": 29
+          "end": 26
         },
-        "content": "$client->delete($user_input)"
+        "content": "$client->get($user_input)"
       },
       "parent_line_number": 17,
-      "snippet": "$client->delete($user_input)",
+      "snippet": "$client->get($user_input)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_3",
       "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_3",
-      "code_extract": "$client->delete($user_input);"
+      "code_extract": "$client->get($user_input);"
     },
     {
       "cwe_ids": [
@@ -665,7 +665,7 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 18,
         "column": {
           "start": 1,
-          "end": 27
+          "end": 29
         }
       },
       "sink": {
@@ -673,15 +673,15 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 18,
         "column": {
           "start": 1,
-          "end": 27
+          "end": 29
         },
-        "content": "$client->head($user_input)"
+        "content": "$client->delete($user_input)"
       },
       "parent_line_number": 18,
-      "snippet": "$client->head($user_input)",
+      "snippet": "$client->delete($user_input)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_4",
       "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_4",
-      "code_extract": "$client->head($user_input);"
+      "code_extract": "$client->delete($user_input);"
     },
     {
       "cwe_ids": [
@@ -703,7 +703,7 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 19,
         "column": {
           "start": 1,
-          "end": 30
+          "end": 27
         }
       },
       "sink": {
@@ -711,15 +711,15 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 19,
         "column": {
           "start": 1,
-          "end": 30
+          "end": 27
         },
-        "content": "$client->options($user_input)"
+        "content": "$client->head($user_input)"
       },
       "parent_line_number": 19,
-      "snippet": "$client->options($user_input)",
+      "snippet": "$client->head($user_input)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_5",
       "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_5",
-      "code_extract": "$client->options($user_input);"
+      "code_extract": "$client->head($user_input);"
     },
     {
       "cwe_ids": [
@@ -741,7 +741,7 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 20,
         "column": {
           "start": 1,
-          "end": 28
+          "end": 30
         }
       },
       "sink": {
@@ -749,15 +749,15 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 20,
         "column": {
           "start": 1,
-          "end": 28
+          "end": 30
         },
-        "content": "$client->patch($user_input)"
+        "content": "$client->options($user_input)"
       },
       "parent_line_number": 20,
-      "snippet": "$client->patch($user_input)",
+      "snippet": "$client->options($user_input)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_6",
       "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_6",
-      "code_extract": "$client->patch($user_input);"
+      "code_extract": "$client->options($user_input);"
     },
     {
       "cwe_ids": [
@@ -779,7 +779,7 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 21,
         "column": {
           "start": 1,
-          "end": 27
+          "end": 28
         }
       },
       "sink": {
@@ -787,15 +787,15 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 21,
         "column": {
           "start": 1,
-          "end": 27
+          "end": 28
         },
-        "content": "$client->post($user_input)"
+        "content": "$client->patch($user_input)"
       },
       "parent_line_number": 21,
-      "snippet": "$client->post($user_input)",
+      "snippet": "$client->patch($user_input)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_7",
       "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_7",
-      "code_extract": "$client->post($user_input);"
+      "code_extract": "$client->patch($user_input);"
     },
     {
       "cwe_ids": [
@@ -817,7 +817,7 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 22,
         "column": {
           "start": 1,
-          "end": 26
+          "end": 27
         }
       },
       "sink": {
@@ -825,15 +825,15 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 22,
         "column": {
           "start": 1,
-          "end": 26
+          "end": 27
         },
-        "content": "$client->put($user_input)"
+        "content": "$client->post($user_input)"
       },
       "parent_line_number": 22,
-      "snippet": "$client->put($user_input)",
+      "snippet": "$client->post($user_input)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_8",
       "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_8",
-      "code_extract": "$client->put($user_input);"
+      "code_extract": "$client->post($user_input);"
     },
     {
       "cwe_ids": [
@@ -855,7 +855,7 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 23,
         "column": {
           "start": 1,
-          "end": 31
+          "end": 26
         }
       },
       "sink": {
@@ -863,15 +863,15 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 23,
         "column": {
           "start": 1,
-          "end": 31
+          "end": 26
         },
-        "content": "$client->getAsync($user_input)"
+        "content": "$client->put($user_input)"
       },
       "parent_line_number": 23,
-      "snippet": "$client->getAsync($user_input)",
+      "snippet": "$client->put($user_input)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_9",
       "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_9",
-      "code_extract": "$client->getAsync($user_input);"
+      "code_extract": "$client->put($user_input);"
     },
     {
       "cwe_ids": [
@@ -893,7 +893,7 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 24,
         "column": {
           "start": 1,
-          "end": 34
+          "end": 31
         }
       },
       "sink": {
@@ -901,15 +901,15 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 24,
         "column": {
           "start": 1,
-          "end": 34
+          "end": 31
         },
-        "content": "$client->deleteAsync($user_input)"
+        "content": "$client->getAsync($user_input)"
       },
       "parent_line_number": 24,
-      "snippet": "$client->deleteAsync($user_input)",
+      "snippet": "$client->getAsync($user_input)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_10",
       "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_10",
-      "code_extract": "$client->deleteAsync($user_input);"
+      "code_extract": "$client->getAsync($user_input);"
     },
     {
       "cwe_ids": [
@@ -931,7 +931,7 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 25,
         "column": {
           "start": 1,
-          "end": 32
+          "end": 34
         }
       },
       "sink": {
@@ -939,15 +939,15 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 25,
         "column": {
           "start": 1,
-          "end": 32
+          "end": 34
         },
-        "content": "$client->headAsync($user_input)"
+        "content": "$client->deleteAsync($user_input)"
       },
       "parent_line_number": 25,
-      "snippet": "$client->headAsync($user_input)",
+      "snippet": "$client->deleteAsync($user_input)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_11",
       "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_11",
-      "code_extract": "$client->headAsync($user_input);"
+      "code_extract": "$client->deleteAsync($user_input);"
     },
     {
       "cwe_ids": [
@@ -969,7 +969,7 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 26,
         "column": {
           "start": 1,
-          "end": 35
+          "end": 32
         }
       },
       "sink": {
@@ -977,15 +977,15 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 26,
         "column": {
           "start": 1,
-          "end": 35
+          "end": 32
         },
-        "content": "$client->optionsAsync($user_input)"
+        "content": "$client->headAsync($user_input)"
       },
       "parent_line_number": 26,
-      "snippet": "$client->optionsAsync($user_input)",
+      "snippet": "$client->headAsync($user_input)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_12",
       "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_12",
-      "code_extract": "$client->optionsAsync($user_input);"
+      "code_extract": "$client->headAsync($user_input);"
     },
     {
       "cwe_ids": [
@@ -1007,7 +1007,7 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 27,
         "column": {
           "start": 1,
-          "end": 33
+          "end": 35
         }
       },
       "sink": {
@@ -1015,15 +1015,15 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 27,
         "column": {
           "start": 1,
-          "end": 33
+          "end": 35
         },
-        "content": "$client->patchAsync($user_input)"
+        "content": "$client->optionsAsync($user_input)"
       },
       "parent_line_number": 27,
-      "snippet": "$client->patchAsync($user_input)",
+      "snippet": "$client->optionsAsync($user_input)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_13",
       "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_13",
-      "code_extract": "$client->patchAsync($user_input);"
+      "code_extract": "$client->optionsAsync($user_input);"
     },
     {
       "cwe_ids": [
@@ -1045,7 +1045,7 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 28,
         "column": {
           "start": 1,
-          "end": 32
+          "end": 33
         }
       },
       "sink": {
@@ -1053,15 +1053,15 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 28,
         "column": {
           "start": 1,
-          "end": 32
+          "end": 33
         },
-        "content": "$client->postAsync($user_input)"
+        "content": "$client->patchAsync($user_input)"
       },
       "parent_line_number": 28,
-      "snippet": "$client->postAsync($user_input)",
+      "snippet": "$client->patchAsync($user_input)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_14",
       "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_14",
-      "code_extract": "$client->postAsync($user_input);"
+      "code_extract": "$client->patchAsync($user_input);"
     },
     {
       "cwe_ids": [
@@ -1083,7 +1083,7 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 29,
         "column": {
           "start": 1,
-          "end": 31
+          "end": 32
         }
       },
       "sink": {
@@ -1091,14 +1091,52 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "end": 29,
         "column": {
           "start": 1,
+          "end": 32
+        },
+        "content": "$client->postAsync($user_input)"
+      },
+      "parent_line_number": 29,
+      "snippet": "$client->postAsync($user_input)",
+      "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_15",
+      "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_15",
+      "code_extract": "$client->postAsync($user_input);"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "php_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`php\\n$curl = curl_init(\\"https://{$_GET['host']}');\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`php\\nif ($_GET[\\"host\\"] == \\"option1\\") {\\n  $host = \\"api1.com\\";\\n} else {\\n  $host = \\"api2.com\\";\\n}\\n\\n$curl = curl_init(\\"https://$host');\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_user_input",
+      "line_number": 30,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 30,
+        "end": 30,
+        "column": {
+          "start": 1,
+          "end": 31
+        }
+      },
+      "sink": {
+        "start": 30,
+        "end": 30,
+        "column": {
+          "start": 1,
           "end": 31
         },
         "content": "$client->putAsync($user_input)"
       },
-      "parent_line_number": 29,
+      "parent_line_number": 30,
       "snippet": "$client->putAsync($user_input)",
-      "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_15",
-      "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_15",
+      "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_16",
+      "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_16",
       "code_extract": "$client->putAsync($user_input);"
     },
     {
@@ -1109,7 +1147,7 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
       "title": "HTTP communication with user-controlled destination detected.",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`php\\n$curl = curl_init(\\"https://{$_GET['host']}');\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`php\\nif ($_GET[\\"host\\"] == \\"option1\\") {\\n  $host = \\"api1.com\\";\\n} else {\\n  $host = \\"api2.com\\";\\n}\\n\\n$curl = curl_init(\\"https://$host');\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_user_input",
-      "line_number": 31,
+      "line_number": 32,
       "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
       "filename": ".",
       "category_groups": [
@@ -1117,26 +1155,26 @@ exports[`php_lang_http_url_using_user_input bad_guzzle 1`] = `
         "Personal Data"
       ],
       "source": {
-        "start": 31,
-        "end": 31,
+        "start": 32,
+        "end": 32,
         "column": {
           "start": 12,
           "end": 54
         }
       },
       "sink": {
-        "start": 31,
-        "end": 31,
+        "start": 32,
+        "end": 32,
         "column": {
           "start": 12,
           "end": 54
         },
         "content": "new Request('HEAD', $user_input, $headers)"
       },
-      "parent_line_number": 31,
+      "parent_line_number": 32,
       "snippet": "new Request('HEAD', $user_input, $headers)",
-      "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_16",
-      "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_16",
+      "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_17",
+      "old_fingerprint": "17e83d0cc3031c8657e6e7114ca5f644_17",
       "code_extract": "$request = new Request('HEAD', $user_input, $headers);"
     }
   ]
@@ -2377,13 +2415,13 @@ exports[`php_lang_http_url_using_user_input bad_unirest 1`] = `
           "start": 1,
           "end": 45
         },
-        "content": "Unirest\\\\Request::post($user_input, $headers)"
+        "content": "Unirest\\\\Request::head($user_input, $headers)"
       },
       "parent_line_number": 6,
-      "snippet": "Unirest\\\\Request::post($user_input, $headers)",
+      "snippet": "Unirest\\\\Request::head($user_input, $headers)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_1",
       "old_fingerprint": "38707c0990bd6b21708f1ca97cf9b1ea_1",
-      "code_extract": "Unirest\\\\Request::post($user_input, $headers);"
+      "code_extract": "Unirest\\\\Request::head($user_input, $headers);"
     },
     {
       "cwe_ids": [
@@ -2401,7 +2439,7 @@ exports[`php_lang_http_url_using_user_input bad_unirest 1`] = `
         "end": 7,
         "column": {
           "start": 1,
-          "end": 44
+          "end": 48
         }
       },
       "sink": {
@@ -2409,15 +2447,15 @@ exports[`php_lang_http_url_using_user_input bad_unirest 1`] = `
         "end": 7,
         "column": {
           "start": 1,
-          "end": 44
+          "end": 48
         },
-        "content": "Unirest\\\\Request::put($user_input, $headers)"
+        "content": "Unirest\\\\Request::options($user_input, $headers)"
       },
       "parent_line_number": 7,
-      "snippet": "Unirest\\\\Request::put($user_input, $headers)",
+      "snippet": "Unirest\\\\Request::options($user_input, $headers)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_2",
       "old_fingerprint": "38707c0990bd6b21708f1ca97cf9b1ea_2",
-      "code_extract": "Unirest\\\\Request::put($user_input, $headers);"
+      "code_extract": "Unirest\\\\Request::options($user_input, $headers);"
     },
     {
       "cwe_ids": [
@@ -2435,7 +2473,7 @@ exports[`php_lang_http_url_using_user_input bad_unirest 1`] = `
         "end": 8,
         "column": {
           "start": 1,
-          "end": 46
+          "end": 48
         }
       },
       "sink": {
@@ -2443,15 +2481,15 @@ exports[`php_lang_http_url_using_user_input bad_unirest 1`] = `
         "end": 8,
         "column": {
           "start": 1,
-          "end": 46
+          "end": 48
         },
-        "content": "Unirest\\\\Request::patch($user_input, $headers)"
+        "content": "Unirest\\\\Request::connect($user_input, $headers)"
       },
       "parent_line_number": 8,
-      "snippet": "Unirest\\\\Request::patch($user_input, $headers)",
+      "snippet": "Unirest\\\\Request::connect($user_input, $headers)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_3",
       "old_fingerprint": "38707c0990bd6b21708f1ca97cf9b1ea_3",
-      "code_extract": "Unirest\\\\Request::patch($user_input, $headers);"
+      "code_extract": "Unirest\\\\Request::connect($user_input, $headers);"
     },
     {
       "cwe_ids": [
@@ -2469,7 +2507,7 @@ exports[`php_lang_http_url_using_user_input bad_unirest 1`] = `
         "end": 9,
         "column": {
           "start": 1,
-          "end": 47
+          "end": 45
         }
       },
       "sink": {
@@ -2477,15 +2515,49 @@ exports[`php_lang_http_url_using_user_input bad_unirest 1`] = `
         "end": 9,
         "column": {
           "start": 1,
-          "end": 47
+          "end": 45
         },
-        "content": "Unirest\\\\Request::delete($user_input, $headers)"
+        "content": "Unirest\\\\Request::post($user_input, $headers)"
       },
       "parent_line_number": 9,
-      "snippet": "Unirest\\\\Request::delete($user_input, $headers)",
+      "snippet": "Unirest\\\\Request::post($user_input, $headers)",
       "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_4",
       "old_fingerprint": "38707c0990bd6b21708f1ca97cf9b1ea_4",
-      "code_extract": "Unirest\\\\Request::delete($user_input, $headers);"
+      "code_extract": "Unirest\\\\Request::post($user_input, $headers);"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "php_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`php\\n$curl = curl_init(\\"https://{$_GET['host']}');\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`php\\nif ($_GET[\\"host\\"] == \\"option1\\") {\\n  $host = \\"api1.com\\";\\n} else {\\n  $host = \\"api2.com\\";\\n}\\n\\n$curl = curl_init(\\"https://$host');\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_user_input",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad_unirest.php",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 44
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 44
+        },
+        "content": "Unirest\\\\Request::put($user_input, $headers)"
+      },
+      "parent_line_number": 10,
+      "snippet": "Unirest\\\\Request::put($user_input, $headers)",
+      "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_5",
+      "old_fingerprint": "38707c0990bd6b21708f1ca97cf9b1ea_5",
+      "code_extract": "Unirest\\\\Request::put($user_input, $headers);"
     },
     {
       "cwe_ids": [
@@ -2503,7 +2575,7 @@ exports[`php_lang_http_url_using_user_input bad_unirest 1`] = `
         "end": 11,
         "column": {
           "start": 1,
-          "end": 52
+          "end": 46
         }
       },
       "sink": {
@@ -2511,14 +2583,116 @@ exports[`php_lang_http_url_using_user_input bad_unirest 1`] = `
         "end": 11,
         "column": {
           "start": 1,
+          "end": 46
+        },
+        "content": "Unirest\\\\Request::patch($user_input, $headers)"
+      },
+      "parent_line_number": 11,
+      "snippet": "Unirest\\\\Request::patch($user_input, $headers)",
+      "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_6",
+      "old_fingerprint": "38707c0990bd6b21708f1ca97cf9b1ea_6",
+      "code_extract": "Unirest\\\\Request::patch($user_input, $headers);"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "php_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`php\\n$curl = curl_init(\\"https://{$_GET['host']}');\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`php\\nif ($_GET[\\"host\\"] == \\"option1\\") {\\n  $host = \\"api1.com\\";\\n} else {\\n  $host = \\"api2.com\\";\\n}\\n\\n$curl = curl_init(\\"https://$host');\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_user_input",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/bad_unirest.php",
+      "filename": ".",
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 46
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 46
+        },
+        "content": "Unirest\\\\Request::trace($user_input, $headers)"
+      },
+      "parent_line_number": 12,
+      "snippet": "Unirest\\\\Request::trace($user_input, $headers)",
+      "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_7",
+      "old_fingerprint": "38707c0990bd6b21708f1ca97cf9b1ea_7",
+      "code_extract": "Unirest\\\\Request::trace($user_input, $headers);"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "php_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`php\\n$curl = curl_init(\\"https://{$_GET['host']}');\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`php\\nif ($_GET[\\"host\\"] == \\"option1\\") {\\n  $host = \\"api1.com\\";\\n} else {\\n  $host = \\"api2.com\\";\\n}\\n\\n$curl = curl_init(\\"https://$host');\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_user_input",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/bad_unirest.php",
+      "filename": ".",
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 47
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 47
+        },
+        "content": "Unirest\\\\Request::delete($user_input, $headers)"
+      },
+      "parent_line_number": 13,
+      "snippet": "Unirest\\\\Request::delete($user_input, $headers)",
+      "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_8",
+      "old_fingerprint": "38707c0990bd6b21708f1ca97cf9b1ea_8",
+      "code_extract": "Unirest\\\\Request::delete($user_input, $headers);"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "php_lang_http_url_using_user_input",
+      "title": "HTTP communication with user-controlled destination detected.",
+      "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`php\\n$curl = curl_init(\\"https://{$_GET['host']}');\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`php\\nif ($_GET[\\"host\\"] == \\"option1\\") {\\n  $host = \\"api1.com\\";\\n} else {\\n  $host = \\"api2.com\\";\\n}\\n\\n$curl = curl_init(\\"https://$host');\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_user_input",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/bad_unirest.php",
+      "filename": ".",
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 52
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
           "end": 52
         },
         "content": "Unirest\\\\Request::send(\\"GET\\", $user_input, $headers)"
       },
-      "parent_line_number": 11,
+      "parent_line_number": 15,
       "snippet": "Unirest\\\\Request::send(\\"GET\\", $user_input, $headers)",
-      "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_5",
-      "old_fingerprint": "38707c0990bd6b21708f1ca97cf9b1ea_5",
+      "fingerprint": "8e7d370f3eae45947c2148f9b1a93a43_9",
+      "old_fingerprint": "38707c0990bd6b21708f1ca97cf9b1ea_9",
       "code_extract": "Unirest\\\\Request::send(\\"GET\\", $user_input, $headers);"
     }
   ]

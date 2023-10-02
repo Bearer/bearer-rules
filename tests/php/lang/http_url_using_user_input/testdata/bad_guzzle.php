@@ -12,6 +12,7 @@ $client = new Client([
 $response = $client->request("GET", $user_input, [
   'auth' => ['user', 'pass']
 ]);
+$response = $client->requestAsync("GET", $user_input, []);
 
 $client->get($user_input);
 $client->delete($user_input);

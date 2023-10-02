@@ -1,0 +1,252 @@
+type: shared
+languages:
+  - php
+imports:
+  - php_shared_lang_instance
+patterns:
+  - pattern: $<FUNCTION>($<URL>$<...>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - curl_init
+          - file_get_contents
+          - fopen
+  - pattern: curl_setopt($<_>, CURLOPT_URL, $<URL>)
+  - pattern: new SoapClient($<_>, $<OPTIONS>)
+    filters:
+      - variable: OPTIONS
+        detection: php_shared_lang_http_url_soap_options
+        scope: cursor
+        imports:
+          - variable: URL
+            as: URL
+  # PSR-17
+  - pattern: $<_>->createRequest($<_>, $<URL>)
+  # pecl_http
+  - pattern: new $<CLASS>($<_>, $<URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(http\\Client\\)?Request\z
+  - pattern: new $<CLASS>($<URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A((Laminas|Zend)\\Http\\)?Client\z
+  - pattern: $<LAMINAS>->setUri($<URL>)
+    filters:
+      - variable: LAMINAS
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A((Laminas|Zend)\\Http\\)?(Client|Request)\z
+  - pattern: new $<CLASS>($<OPTIONS>)
+    filters:
+      - variable: CLASS
+        regex: \A(GuzzleHttp\\)?Client\z
+      - variable: OPTIONS
+        detection: php_shared_lang_http_url_guzzle_options
+        scope: result
+        imports:
+          - variable: URL
+            as: URL
+  - pattern: $<GUZZLE>->$<METHOD>($<_>, $<URL>$<...>)
+    filters:
+      - variable: GUZZLE
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(GuzzleHttp\\)?Client\z
+      - variable: METHOD
+        values:
+          - request
+          - requestAsync
+  - pattern: $<GUZZLE>->$<METHOD>($<URL>$<...>)
+    filters:
+      - variable: GUZZLE
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(GuzzleHttp\\)?Client\z
+      - variable: METHOD
+        values:
+          - get
+          - delete
+          - head
+          - options
+          - patch
+          - post
+          - put
+          - getAsync
+          - deleteAsync
+          - headAsync
+          - optionsAsync
+          - patchAsync
+          - postAsync
+          - putAsync
+  - pattern: new $<CLASS>($<_>, $<URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(GuzzleHttp\\Psr7\\)?Request\z
+  - pattern: $<CLASS>::$<METHOD>($<URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Requests\z
+      - variable: METHOD
+        values:
+          - get
+          - head
+          - delete
+          - trace
+          - post
+          - put
+          - options
+          - patch
+          - request
+  - pattern: $<CLASS>::request_multiple($<OPTIONS>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Requests\z
+      - variable: OPTIONS
+        detection: php_shared_lang_http_url_requests_options
+        scope: result
+        imports:
+          - variable: URL
+            as: URL
+  - pattern: new $<CLASS>($<URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Session\z
+  - pattern: $<SESSION>->$<METHOD>($<URL>$<...>)
+    filters:
+      - variable: SESSION
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: METHOD
+        values:
+          - get
+          - head
+          - delete
+          - post
+          - put
+          - patch
+          - request
+  - pattern: $<SESSION>->request_multiple($<OPTIONS>$<...>)
+    filters:
+      - variable: SESSION
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: OPTIONS
+        detection: php_shared_lang_http_url_requests_options
+        scope: result
+        imports:
+          - variable: URL
+            as: URL
+  - pattern: $<BROWSER>->$<METHOD>($<URL>$<...>)
+    filters:
+      - variable: BROWSER
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(Buzz\\)?Browser\z
+      - variable: METHOD
+        values:
+          - get
+          - post
+          - head
+          - patch
+          - put
+          - delete
+          - submitForm
+  - pattern: $<BROWSER>->request($<_>, $<URL>$<...>)
+    filters:
+      - variable: BROWSER
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(Buzz\\)?Browser\z
+  - pattern: new $<CLASS>($<URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(SendGrid\\)?Client\z
+  - pattern: $<CLASS>::$<METHOD>($<URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(Unirest\\)?Request\z
+      - variable: METHOD
+        values:
+          - get
+          - head
+          - options
+          - connect
+          - post
+          - put
+          - patch
+          - delete
+          - trace
+  - pattern: $<CLASS>::send($<_>, $<URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(Unirest\\)?Request\z
+  - pattern: $<CLASS>::$<METHOD>($<URL>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+      - variable: METHOD
+        values:
+          - head
+          - get
+          - post
+          - put
+          - patch
+          - delete
+          - withUrlParameters
+  - pattern: $<HTTP>->$<METHOD>($<URL>$<...>)
+    filters:
+      - variable: HTTP
+        detection: php_shared_lang_http_url_laravel_http
+        scope: cursor
+      - variable: METHOD
+        values:
+          - head
+          - get
+          - post
+          - put
+          - patch
+          - delete
+          - withUrlParameters
+  # symfony
+  - pattern: $<_>->request($<_>, $<URL>$<...>);
+auxiliary:
+  - id: php_shared_lang_http_url_soap_options
+    patterns:
+      - pattern: array('location' => $<URL>)
+  - id: php_shared_lang_http_url_guzzle_options
+    patterns:
+      - pattern: array('base_uri' => $<URL>)
+  - id: php_shared_lang_http_url_requests_options
+    patterns:
+      - pattern: array('url' => $<URL>)
+  - id: php_shared_lang_http_url_laravel_http
+    patterns:
+      - pattern: $<CLASS>::$<_>()
+        filters:
+          - variable: CLASS
+            regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+      - pattern: $<HTTP>->$<_>()
+        filters:
+          - variable: HTTP
+            detection: php_shared_lang_http_url_laravel_http
+            scope: cursor
+metadata:
+  description: "PHP HTTP URL."
+  id: php_shared_lang_http_url
