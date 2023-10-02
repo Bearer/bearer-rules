@@ -1,34 +1,16 @@
 patterns:
   - pattern: |
-      cookies[$<_>] = $<DATA_TYPE>
+      $<FUNCTION>($<_>, $<DATA_TYPE>$<...>)
     filters:
-      - variable: DATA_TYPE
-        detection: datatype
-        scope: result
-  - pattern: |
-      cookies.$<METHOD>[$<_>] = $<DATA_TYPE>
-    filters:
-      - variable: METHOD
+      - variable: FUNCTION
         values:
-          - permanent
-          - signed
-      - variable: DATA_TYPE
-        detection: datatype
-        scope: result
-  - pattern: |
-      cookies.permanent.signed[$<_>] = $<DATA_TYPE>
-    filters:
-      - variable: DATA_TYPE
-        detection: datatype
-        scope: result
-  - pattern: |
-      cookies.signed.permanent[$<_>] = $<DATA_TYPE>
-    filters:
+          - setcookie
+          - setrawcookie
       - variable: DATA_TYPE
         detection: datatype
         scope: result
 languages:
-  - ruby
+  - php
 metadata:
   description: "Sensitive data stored in a cookie detected."
   remediation_message: |
@@ -38,24 +20,13 @@ metadata:
 
     ## Remediations
 
-    ❌ Avoid storing sensitive data in unencrypted cookies messages:
+    ❌ Avoid storing sensitive data in unencrypted cookies:
 
-    ```ruby
-    cookies[:user_email] = "john@doe.com"
+    ```php
+    setcookie("user_email", $user->email);
     ```
-
-    ✅ To ensure cookie data stays safe, use encrypted cookies:
-
-    ```ruby
-    cookies.encrypted[:user_email] = "john@doe.com"
-    ```
-
-    ## Resources
-
-    - Cookie object documentation: [ActionDispatch::Cookies](https://edgeapi.rubyonrails.org/classes/ActionDispatch/Cookies.html)
-    - [Demystifying cookie security in rails 6](https://dev.to/ayushn21/demystifying-cookie-security-in-rails-6-1j2f#:~:text=Rails%20provides%20a%20special%20kind,data%20in%20the%20session%20cookie)
   cwe_id:
     - 315
     - 539
-  id: ruby_lang_cookies
-  documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_cookies
+  id: php_lang_cookies
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_cookies
