@@ -1,8 +1,14 @@
 languages:
   - php
 patterns:
-  - pattern: fputcsv($<_>, $<DATA_TYPE>$<..>)
+  - pattern: $<METHOD>($<_>,$<DATA_TYPE>$<...>)
     filters:
+      - variable: METHOD
+        values:
+          - fputcsv
+          - fputs
+          - fwrite
+          - file_put_contents
       - variable: DATA_TYPE
         detection: datatype
         scope: result
@@ -18,6 +24,9 @@ metadata:
     ❌ Avoid code like the following:
 
     ```php
+      foreach ($users as $user) {
+        fputcsv($csvFile, [$user['email'], $user['address']]);
+      }
     ```
 
     In instances where writing sensitive data is intentional, make sure to document its location according to your internal policies.

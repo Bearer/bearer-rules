@@ -17,6 +17,10 @@ foreach ($users as $user) {
   fputcsv($csvFile, [$user['email'], $user['address']]);
 }
 
+foreach ($users as $user) {
+  fputcsv($csvFile, [$user['email'], $user['address']], ';');
+}
+
 fclose($csvFile);
 
 ?>
