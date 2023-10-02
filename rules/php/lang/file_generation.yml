@@ -1,7 +1,7 @@
 languages:
   - php
 patterns:
-  - pattern: fputcsv($<_>, $<DATA_TYPE>)
+  - pattern: fputcsv($<_>, $<DATA_TYPE>$<..>)
     filters:
       - variable: DATA_TYPE
         detection: datatype
