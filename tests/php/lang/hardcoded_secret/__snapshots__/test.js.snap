@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_hardcoded_secret bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "798"
+      ],
+      "id": "php_lang_hardcoded_secret",
+      "title": "Hard-coded secret detected.",
+      "description": "## Description\\n\\nApplications should store secret values securely and not as literal values\\nin the source code.\\n\\n## Remediations\\n\\n✅ Retrieve secrets from a secure location at runtime\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n- [OWASP secrets management cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html#21-high-availability)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_hardcoded_secret",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 19
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 19
+        },
+        "content": "$password = \\"oops\\""
+      },
+      "parent_line_number": 3,
+      "snippet": "$password = \\"oops\\"",
+      "fingerprint": "ba37e9f182eb13db954d2068c1b17529_0",
+      "old_fingerprint": "aa5a00908c71041045b4f43d3f0489f2_0",
+      "code_extract": "$password = \\"oops\\";"
+    },
+    {
+      "cwe_ids": [
+        "798"
+      ],
+      "id": "php_lang_hardcoded_secret",
+      "title": "Hard-coded secret detected.",
+      "description": "## Description\\n\\nApplications should store secret values securely and not as literal values\\nin the source code.\\n\\n## Remediations\\n\\n✅ Retrieve secrets from a secure location at runtime\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n- [OWASP secrets management cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html#21-high-availability)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_hardcoded_secret",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 24
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 24
+        },
+        "content": "const API_KEY = \\"oops\\";"
+      },
+      "parent_line_number": 5,
+      "snippet": "const API_KEY = \\"oops\\";",
+      "fingerprint": "ba37e9f182eb13db954d2068c1b17529_1",
+      "old_fingerprint": "aa5a00908c71041045b4f43d3f0489f2_1",
+      "code_extract": "const API_KEY = \\"oops\\";"
+    },
+    {
+      "cwe_ids": [
+        "798"
+      ],
+      "id": "php_lang_hardcoded_secret",
+      "title": "Hard-coded secret detected.",
+      "description": "## Description\\n\\nApplications should store secret values securely and not as literal values\\nin the source code.\\n\\n## Remediations\\n\\n✅ Retrieve secrets from a secure location at runtime\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n- [OWASP secrets management cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html#21-high-availability)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_hardcoded_secret",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 5,
+          "end": 41
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 5,
+          "end": 41
+        },
+        "content": "[ \\"secret\\" => \\"oops\\", \\"other\\" => 42]"
+      },
+      "parent_line_number": 7,
+      "snippet": "[ \\"secret\\" => \\"oops\\", \\"other\\" => 42]",
+      "fingerprint": "ba37e9f182eb13db954d2068c1b17529_2",
+      "old_fingerprint": "aa5a00908c71041045b4f43d3f0489f2_2",
+      "code_extract": "foo([ \\"secret\\" => \\"oops\\", \\"other\\" => 42]);"
+    },
+    {
+      "cwe_ids": [
+        "798"
+      ],
+      "id": "php_lang_hardcoded_secret",
+      "title": "Hard-coded secret detected.",
+      "description": "## Description\\n\\nApplications should store secret values securely and not as literal values\\nin the source code.\\n\\n## Remediations\\n\\n✅ Retrieve secrets from a secure location at runtime\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n- [OWASP secrets management cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html#21-high-availability)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_hardcoded_secret",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 22
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 22
+        },
+        "content": "define($name, \\"oops\\")"
+      },
+      "parent_line_number": 10,
+      "snippet": "define($name, \\"oops\\")",
+      "fingerprint": "ba37e9f182eb13db954d2068c1b17529_3",
+      "old_fingerprint": "aa5a00908c71041045b4f43d3f0489f2_3",
+      "code_extract": "define($name, \\"oops\\");"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_hardcoded_secret ok 1`] = `"{}"`;
