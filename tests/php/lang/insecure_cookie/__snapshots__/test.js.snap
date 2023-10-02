@@ -1,0 +1,570 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_insecure_cookie bad 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 27
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 27
+        },
+        "content": "setcookie(\\"name\\", \\"value\\")"
+      },
+      "parent_line_number": 3,
+      "snippet": "setcookie(\\"name\\", \\"value\\")",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_0",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_0",
+      "code_extract": "setcookie(\\"name\\", \\"value\\");"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 56
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 56
+        },
+        "content": "setcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", false, false, [])"
+      },
+      "parent_line_number": 4,
+      "snippet": "setcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", false, false, [])",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_1",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_1",
+      "code_extract": "setcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", false, false, []);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 55
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 55
+        },
+        "content": "setcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", true, false, [])"
+      },
+      "parent_line_number": 5,
+      "snippet": "setcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", true, false, [])",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_2",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_2",
+      "code_extract": "setcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", true, false, []);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 55
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 55
+        },
+        "content": "setcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", false, true, [])"
+      },
+      "parent_line_number": 6,
+      "snippet": "setcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", false, true, [])",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_3",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_3",
+      "code_extract": "setcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", false, true, []);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 69
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 69
+        },
+        "content": "setcookie(\\"name\\", \\"value\\", [\\"httponly\\" => false, \\"secure\\" => false])"
+      },
+      "parent_line_number": 7,
+      "snippet": "setcookie(\\"name\\", \\"value\\", [\\"httponly\\" => false, \\"secure\\" => false])",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_4",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_4",
+      "code_extract": "setcookie(\\"name\\", \\"value\\", [\\"httponly\\" => false, \\"secure\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 68
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 68
+        },
+        "content": "setcookie(\\"name\\", \\"value\\", [\\"httponly\\" => true, \\"secure\\" => false])"
+      },
+      "parent_line_number": 8,
+      "snippet": "setcookie(\\"name\\", \\"value\\", [\\"httponly\\" => true, \\"secure\\" => false])",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_5",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_5",
+      "code_extract": "setcookie(\\"name\\", \\"value\\", [\\"httponly\\" => true, \\"secure\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 68
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 68
+        },
+        "content": "setcookie(\\"name\\", \\"value\\", [\\"httponly\\" => false, \\"secure\\" => true])"
+      },
+      "parent_line_number": 9,
+      "snippet": "setcookie(\\"name\\", \\"value\\", [\\"httponly\\" => false, \\"secure\\" => true])",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_6",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_6",
+      "code_extract": "setcookie(\\"name\\", \\"value\\", [\\"httponly\\" => false, \\"secure\\" => true]);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 31
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 31
+        },
+        "content": "setcookie(\\"name\\", \\"value\\", [])"
+      },
+      "parent_line_number": 10,
+      "snippet": "setcookie(\\"name\\", \\"value\\", [])",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_7",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_7",
+      "code_extract": "setcookie(\\"name\\", \\"value\\", []);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 30
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 30
+        },
+        "content": "setrawcookie(\\"name\\", \\"value\\")"
+      },
+      "parent_line_number": 12,
+      "snippet": "setrawcookie(\\"name\\", \\"value\\")",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_8",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_8",
+      "code_extract": "setrawcookie(\\"name\\", \\"value\\");"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 59
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 59
+        },
+        "content": "setrawcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", false, false, [])"
+      },
+      "parent_line_number": 13,
+      "snippet": "setrawcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", false, false, [])",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_9",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_9",
+      "code_extract": "setrawcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", false, false, []);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 58
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 58
+        },
+        "content": "setrawcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", true, false, [])"
+      },
+      "parent_line_number": 14,
+      "snippet": "setrawcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", true, false, [])",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_10",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_10",
+      "code_extract": "setrawcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", true, false, []);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 58
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 58
+        },
+        "content": "setrawcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", false, true, [])"
+      },
+      "parent_line_number": 15,
+      "snippet": "setrawcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", false, true, [])",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_11",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_11",
+      "code_extract": "setrawcookie(\\"name\\", \\"value\\", 0, \\"\\", \\"\\", false, true, []);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 16,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 1,
+          "end": 72
+        }
+      },
+      "sink": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 1,
+          "end": 72
+        },
+        "content": "setrawcookie(\\"name\\", \\"value\\", [\\"httponly\\" => false, \\"secure\\" => false])"
+      },
+      "parent_line_number": 16,
+      "snippet": "setrawcookie(\\"name\\", \\"value\\", [\\"httponly\\" => false, \\"secure\\" => false])",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_12",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_12",
+      "code_extract": "setrawcookie(\\"name\\", \\"value\\", [\\"httponly\\" => false, \\"secure\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 1,
+          "end": 71
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 1,
+          "end": 71
+        },
+        "content": "setrawcookie(\\"name\\", \\"value\\", [\\"httponly\\" => true, \\"secure\\" => false])"
+      },
+      "parent_line_number": 17,
+      "snippet": "setrawcookie(\\"name\\", \\"value\\", [\\"httponly\\" => true, \\"secure\\" => false])",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_13",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_13",
+      "code_extract": "setrawcookie(\\"name\\", \\"value\\", [\\"httponly\\" => true, \\"secure\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 1,
+          "end": 71
+        }
+      },
+      "sink": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 1,
+          "end": 71
+        },
+        "content": "setrawcookie(\\"name\\", \\"value\\", [\\"httponly\\" => false, \\"secure\\" => true])"
+      },
+      "parent_line_number": 18,
+      "snippet": "setrawcookie(\\"name\\", \\"value\\", [\\"httponly\\" => false, \\"secure\\" => true])",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_14",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_14",
+      "code_extract": "setrawcookie(\\"name\\", \\"value\\", [\\"httponly\\" => false, \\"secure\\" => true]);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httponly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_cookie",
+      "line_number": 19,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 34
+        },
+        "content": "setrawcookie(\\"name\\", \\"value\\", [])"
+      },
+      "parent_line_number": 19,
+      "snippet": "setrawcookie(\\"name\\", \\"value\\", [])",
+      "fingerprint": "699c3d18518571a541e7f12bc9617247_15",
+      "old_fingerprint": "dba50e962eb94282c203dc37b760031a_15",
+      "code_extract": "setrawcookie(\\"name\\", \\"value\\", []);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_insecure_cookie ok 1`] = `"{}"`;
