@@ -1,0 +1,397 @@
+imports:
+  - php_shared_lang_instance
+patterns:
+  - pattern: curl_setopt($<_>, $<OPTION>, $<FALSE>)
+    filters:
+      - variable: OPTION
+        values:
+          - CURLOPT_SSL_VERIFYHOST
+          - CURLOPT_SSL_VERIFYPEER
+      - variable: "FALSE"
+        detection: php_lang_ssl_verification_false
+        scope: cursor
+  - pattern: stream_context_create($<OPTIONS>$<...>)
+    filters:
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_stream_context_options
+        scope: cursor
+  - pattern: new $<CLASS>($<_>, $<OPTIONS>)
+    filters:
+      - variable: CLASS
+        regex: \A(Buzz\\Client\\[^\\]+|(Buzz\\Client\\)?(FileGetContents|Curl|MultiCurl))\z
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_verify_options
+        scope: cursor
+  - pattern: $<CLIENT>->sendRequest($<_>, $<OPTIONS>)
+    filters:
+      - variable: CLIENT
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - either:
+              - variable: CLASS
+                regex: \A(Buzz\\Client\\[^\\]+|(Buzz\\Client\\)?(FileGetContents|Curl|MultiCurl))\z
+              - variable: CLASS
+                regex: \A(Buzz\\)?Browser\z
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_verify_options
+        scope: cursor
+  - pattern: new $<CLASS>($<OPTIONS>)
+    filters:
+      - variable: CLASS
+        regex: \A(GuzzleHttp\\)?Client\z
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_verify_options
+        scope: cursor
+  - pattern: $<GUZZLE>->$<METHOD>($<_>, $<_>, $<OPTIONS>)
+    filters:
+      - variable: GUZZLE
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(GuzzleHttp\\)?Client\z
+      - variable: METHOD
+        values:
+          - request
+          - requestAsync
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_verify_options
+        scope: cursor
+  - pattern: $<GUZZLE>->$<METHOD>($<_>, $<OPTIONS>)
+    filters:
+      - variable: GUZZLE
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(GuzzleHttp\\)?Client\z
+      - variable: METHOD
+        values:
+          - get
+          - delete
+          - head
+          - options
+          - patch
+          - post
+          - put
+          - getAsync
+          - deleteAsync
+          - headAsync
+          - optionsAsync
+          - patchAsync
+          - postAsync
+          - putAsync
+          - send
+          - sendAsync
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_verify_options
+        scope: cursor
+  - pattern: new $<CLASS>($<_>, $<OPTIONS>)
+    filters:
+      - variable: CLASS
+        regex: \A(Laminas\\Http\\)?Client\z
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_laminas_options
+        scope: cursor
+  - pattern: $<CLIENT>->setOptions($<OPTIONS>)
+    filters:
+      - variable: CLIENT
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(Laminas\\Http\\)?Client\z
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_laminas_options
+        scope: cursor
+  - pattern: $<CLASS>::withoutVerifying()
+    filters:
+      - variable: CLASS
+        regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+  - pattern: $<HTTP>->withoutVerifying()
+    filters:
+      - variable: HTTP
+        detection: php_lang_ssl_verification_laravel_http
+        scope: cursor
+  - pattern: $<CLASS>::withOptions($<OPTIONS>)
+    filters:
+      - variable: CLASS
+        regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_verify_options
+        scope: cursor
+  - pattern: $<HTTP>->withOptions($<OPTIONS>)
+    filters:
+      - variable: HTTP
+        detection: php_lang_ssl_verification_laravel_http
+        scope: cursor
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_verify_options
+        scope: cursor
+  # pecl_http
+  - pattern: $<PECL_HTTP>->setOptions($<OPTIONS>)
+    filters:
+      - variable: PECL_HTTP
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - either:
+              - variable: CLASS
+                regex: \A(http\\)?Client\z
+              - variable: CLASS
+                regex: \A(http\\Client\\)?Request\z
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_pecl_http_options
+        scope: cursor
+  - pattern: $<PECL_HTTP>->$<METHOD>($<OPTIONS>)
+    filters:
+      - variable: PECL_HTTP
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - either:
+              - variable: CLASS
+                regex: \A(http\\)?Client\z
+              - variable: CLASS
+                regex: \A(http\\Client\\)?Request\z
+      - variable: METHOD
+        values:
+          - setSslOptions
+          - addSslOptions
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_pecl_http_ssl_options
+        scope: cursor
+  - pattern: $<CLASS>::$<METHOD>($<_>, $<_>, $<OPTIONS>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Requests\z
+      - variable: METHOD
+        values:
+          - get
+          - head
+          - delete
+          - trace
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_requests_options
+        scope: cursor
+  - pattern: $<CLASS>::$<METHOD>($<_>, $<_>, $<_>, $<OPTIONS>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Requests\z
+      - variable: METHOD
+        values:
+          - post
+          - put
+          - options
+          - patch
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_requests_options
+        scope: cursor
+  - pattern: $<CLASS>::request($<_>, $<_>, $<_>, $<_>, $<OPTIONS>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Requests\z
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_requests_options
+        scope: cursor
+  - pattern: $<CLASS>::request_multiple($<OPTIONS>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Requests\z
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_requests_options
+        scope: result
+  - pattern: new $<CLASS>($<_>, $<_>, $<_>, $<OPTIONS>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_requests_options
+        scope: cursor
+  - pattern: $<SESSION>->$<METHOD>($<_>, $<_>, $<OPTIONS>$<...>)
+    filters:
+      - variable: SESSION
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: METHOD
+        values:
+          - get
+          - head
+          - trace
+          - delete
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_requests_options
+        scope: cursor
+  - pattern: $<SESSION>->$<METHOD>($<_>, $<_>, $<_>, $<OPTIONS>$<...>)
+    filters:
+      - variable: SESSION
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: METHOD
+        values:
+          - post
+          - put
+          - options
+          - patch
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_requests_options
+        scope: cursor
+  - pattern: $<SESSION>->request($<_>, $<_>, $<_>, $<_>, $<OPTIONS>$<...>)
+    filters:
+      - variable: SESSION
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_requests_options
+        scope: cursor
+  - pattern: $<SESSION>->request_multiple($<OPTIONS>$<...>)
+    filters:
+      - variable: SESSION
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_requests_options
+        scope: result
+  - pattern: new $<CLASS>($<_>, $<_>, $<_>, $<_>, $<_>, $<_>, $<FALSE>)
+    filters:
+      - variable: CLASS
+        regex: \A(SendGrid\\)?Client\z
+      - variable: "FALSE"
+        detection: php_lang_ssl_verification_false
+        scope: cursor
+  # symfony
+  - pattern: $<_>->request($<_>, $<_>, $<OPTIONS>$<...>)
+    filters:
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_symfony_options
+        scope: cursor
+  - pattern: $<CLASS>::$<METHOD>($<FALSE>)
+    filters:
+      - variable: CLASS
+        regex: \A(Unirest\\)?Request\z
+      - variable: METHOD
+        values:
+          - verifyPeer
+          - verifyHost
+      - variable: "FALSE"
+        detection: php_lang_ssl_verification_false
+        scope: cursor
+auxiliary:
+  - id: php_lang_ssl_verification_stream_context_options
+    patterns:
+      - pattern: array('ssl' => $<SSL_OPTIONS>)
+        filters:
+          - variable: SSL_OPTIONS
+            detection: php_lang_ssl_verification_stream_context_ssl_options
+            scope: cursor
+  - id: php_lang_ssl_verification_stream_context_ssl_options
+    patterns:
+      - pattern: array($<NAME> => $<FALSE>)
+        filters:
+          - variable: NAME
+            string_regex: \Averify_peer(_name)?\z
+          - variable: "FALSE"
+            detection: php_lang_ssl_verification_false
+            scope: cursor
+  - id: php_lang_ssl_verification_verify_options
+    patterns:
+      - pattern: array('verify' => $<FALSE>)
+        filters:
+          - variable: "FALSE"
+            detection: php_lang_ssl_verification_false
+            scope: cursor
+  - id: php_lang_ssl_verification_laminas_options
+    patterns:
+      - pattern: array($<NAME> => $<FALSE>)
+        filters:
+          - variable: NAME
+            string_regex: \Asslverifypeer(name)?\z
+          - variable: "FALSE"
+            detection: php_lang_ssl_verification_false
+            scope: cursor
+  - id: php_lang_ssl_verification_laravel_http
+    patterns:
+      - pattern: $<CLASS>::$<_>()
+        filters:
+          - variable: CLASS
+            regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+      - pattern: $<HTTP>->$<_>()
+        filters:
+          - variable: HTTP
+            detection: php_lang_ssl_verification_laravel_http
+            scope: cursor
+  - id: php_lang_ssl_verification_pecl_http_options
+    patterns:
+      - pattern: array('ssl' => $<SSL_OPTIONS>)
+        filters:
+          - variable: SSL_OPTIONS
+            detection: php_lang_ssl_verification_pecl_http_ssl_options
+            scope: cursor
+  - id: php_lang_ssl_verification_pecl_http_ssl_options
+    patterns:
+      - pattern: array($<NAME> => $<FALSE>)
+        filters:
+          - variable: NAME
+            string_regex: \Averify(peer|host)\z
+          - variable: "FALSE"
+            detection: php_lang_ssl_verification_false
+            scope: cursor
+  - id: php_lang_ssl_verification_requests_options
+    patterns:
+      - pattern: array($<NAME> => $<FALSE>)
+        filters:
+          - variable: NAME
+            string_regex: \Averify(name)?\z
+          - variable: "FALSE"
+            detection: php_lang_ssl_verification_false
+            scope: cursor
+  - id: php_lang_ssl_verification_symfony_options
+    patterns:
+      - pattern: array($<NAME> => $<FALSE>)
+        filters:
+          - variable: NAME
+            string_regex: \Averify_(peer|host)?\z
+          - variable: "FALSE"
+            detection: php_lang_ssl_verification_false
+            scope: cursor
+  - id: php_lang_ssl_verification_false
+    patterns:
+      - "false;"
+languages:
+  - php
+severity: medium
+metadata:
+  description: "Missing SSL certificate verification detected."
+  remediation_message: |
+    ## Description
+
+    Applications processing sensitive data should use valid SSL certificates.
+    This rule checks if SSL verification is enabled.
+
+    ## Remediations
+
+    ❌ Do not disable SSL certificate validation in your HTTP client
+
+    ✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:
+
+    ```php
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);
+    ```
+  cwe_id:
+    - 295
+  id: php_lang_ssl_verification
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_ssl_verification

@@ -131,8 +131,10 @@ patterns:
           - get
           - head
           - delete
+          - trace
           - post
           - put
+          - options
           - patch
           - request
   - pattern: $<SESSION>->request_multiple($<OPTIONS>$<...>)

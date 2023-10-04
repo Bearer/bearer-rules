@@ -2,7 +2,7 @@ type: shared
 languages:
   - php
 patterns:
-  - pattern: new $<CLASS>()
+  - pattern: new $<CLASS>;
 metadata:
   description: "PHP instance."
   id: php_shared_lang_instance
