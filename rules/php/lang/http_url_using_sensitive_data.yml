@@ -164,18 +164,6 @@ patterns:
       - variable: DATA_TYPE
         detection: datatype
         scope: result
-  - pattern: $<CLASS>::$<METHOD>($<_>, $<_>, $<DATA_TYPE>$<...>)
-    filters:
-      - variable: CLASS
-        regex: \A(WpOrg\\Requests\\)?Requests\z
-      - variable: METHOD
-        values:
-          - get
-          - head
-          - delete
-      - variable: DATA_TYPE
-        detection: datatype
-        scope: result
   - pattern: $<CLASS>::request($<_>, $<_>, $<DATA_TYPE>)
     filters:
       - variable: CLASS
@@ -193,6 +181,19 @@ patterns:
       - variable: TYPE
         detection: php_lang_http_url_using_sensitive_data_requests_type
         scope: cursor
+  - pattern: $<REQUEST>;
+    filters:
+      - variable: REQUEST
+        detection: php_lang_http_url_using_sensitive_data_requests_request_data
+        scope: cursor
+      - either:
+          - variable: REQUEST
+            detection: php_lang_http_url_using_sensitive_data_requests_request_type
+            scope: cursor
+          - not:
+              variable: REQUEST
+              detection: php_lang_http_url_using_sensitive_data_requests_request_any_type
+              scope: cursor
   - pattern: $<CLASS>::request_multiple($<OPTIONS>$<...>)
     filters:
       - variable: CLASS
@@ -232,6 +233,19 @@ patterns:
       - variable: TYPE
         detection: php_lang_http_url_using_sensitive_data_requests_type
         scope: cursor
+  - pattern: $<REQUEST>;
+    filters:
+      - variable: REQUEST
+        detection: php_lang_http_url_using_sensitive_data_requests_session_request_data
+        scope: cursor
+      - either:
+          - variable: REQUEST
+            detection: php_lang_http_url_using_sensitive_data_requests_session_request_type
+            scope: cursor
+          - not:
+              variable: REQUEST
+              detection: php_lang_http_url_using_sensitive_data_requests_session_request_any_type
+              scope: cursor
   - pattern: $<SESSION>->request_multiple($<OPTIONS>$<...>)
     filters:
       - variable: SESSION
@@ -274,13 +288,31 @@ patterns:
       - variable: DATA_TYPE
         detection: datatype
         scope: result
-  - pattern: $<CLASS>::send($<_>, $<_>, $<_>, $<DATA_TYPE>$<...>)
+  - pattern: |
+      $<CLASS>::get(parameters: $<DATA_TYPE>)
     filters:
       - variable: CLASS
         regex: \A(Unirest\\)?Request\z
       - variable: DATA_TYPE
         detection: datatype
         scope: result
+  - pattern: $<CLASS>::send($<TYPE>, $<_>, $<_>, $<DATA_TYPE>$<...>)
+    filters:
+      - variable: TYPE
+        string_regex: (?i)\Aget\z
+      - variable: CLASS
+        regex: \A(Unirest\\)?Request\z
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
+  - pattern: $<SEND>;
+    filters:
+      - variable: SEND
+        detection: php_lang_http_url_using_sensitive_data_unirest_send_data
+        scope: cursor
+      - variable: SEND
+        detection: php_lang_http_url_using_sensitive_data_unirest_send_type
+        scope: cursor
 auxiliary:
   - id: php_lang_http_url_using_sensitive_data_guzzle_options
     patterns:
@@ -353,6 +385,73 @@ auxiliary:
   - id: php_lang_http_url_using_sensitive_data_requests_options_any_type
     patterns:
       - array('type' => $<_>)
+  - id: php_lang_http_url_using_sensitive_data_requests_request_data
+    patterns:
+      - pattern: |
+          $<CLASS>::request(data: $<DATA_TYPE>)
+        filters:
+          - variable: CLASS
+            regex: \A(WpOrg\\Requests\\)?Requests\z
+          - variable: DATA_TYPE
+            detection: datatype
+            scope: result
+  - id: php_lang_http_url_using_sensitive_data_requests_request_type
+    patterns:
+      - pattern: |
+          $<_>::$<_>(type: $<TYPE>)
+        filters:
+          - variable: TYPE
+            detection: php_lang_http_url_using_sensitive_data_requests_type
+            scope: cursor
+  - id: php_lang_http_url_using_sensitive_data_requests_request_any_type
+    patterns:
+      - pattern: |
+          $<_>::$<_>(type: $<_>)
+  - id: php_lang_http_url_using_sensitive_data_requests_session_request_data
+    patterns:
+      - pattern: |
+          $<SESSION>->request(data: $<DATA_TYPE>)
+        filters:
+          - variable: SESSION
+            detection: php_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: CLASS
+                regex: \A(WpOrg\\Requests\\)?Session\z
+          - variable: DATA_TYPE
+            detection: datatype
+            scope: result
+  - id: php_lang_http_url_using_sensitive_data_requests_session_request_type
+    patterns:
+      - pattern: |
+          $<_>->$<_>(type: $<TYPE>)
+        filters:
+          - variable: TYPE
+            detection: php_lang_http_url_using_sensitive_data_requests_type
+            scope: cursor
+  - id: php_lang_http_url_using_sensitive_data_requests_session_request_any_type
+    patterns:
+      - pattern: |
+          $<_>->$<_>(type: $<_>)
+  - id: php_lang_http_url_using_sensitive_data_unirest_send_data
+    patterns:
+      - pattern: |
+          $<CLASS>::send(parameters: $<DATA_TYPE>)
+        filters:
+          - variable: CLASS
+            regex: \A(Unirest\\)?Request\z
+          - variable: DATA_TYPE
+            detection: datatype
+            scope: result
+  - id: php_lang_http_url_using_sensitive_data_unirest_send_type
+    patterns:
+      - pattern: |
+          $<CLASS>::send($<TYPE>$<...>)
+        filters:
+          - variable: CLASS
+            regex: \A(Unirest\\)?Request\z
+          - variable: TYPE
+            string_regex: (?i)\Aget\z
 metadata:
   description: "Sensitive data detected in HTTP URL."
   remediation_message: |

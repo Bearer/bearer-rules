@@ -2,11 +2,10 @@
 
 use WpOrg\Requests\Requests;
 
-Requests::get($url, $headers, $user->email);
-Requests::head($url, $headers, $user->email);
-Requests::delete($url, $headers, $user->email);
 Requests::request($url, $headers, $user->email);
+Requests::request($url, data: $user->email);
 Requests::request($url, $headers, $user->email, Requests::GET);
+Requests::request($url, data: $user->email, type: Requests::GET);
 
 WpOrg\Requests\Requests::request_multiple([
   "one" => ["headers" => $headers, "url" => $url, "data" => $user->email],
@@ -17,7 +16,9 @@ WpOrg\Requests\Requests::request_multiple([
 $session = new WpOrg\Requests\Session($user_input, $headers, $user->email);
 
 $session->request($user_input, $headers, $user->email);
+$session->request($user_input, data: $user->email);
 $session->request($user_input, $headers, $user->email, Requests::HEAD);
+$session->request($user_input, data: $user->email, type: Requests::HEAD);
 
 $session->request_multiple([
   ["headers" => $headers, "url" => $url, "data" => $user->email],

@@ -6,32 +6,17 @@ patterns:
         scope: cursor
       - not:
           variable: SET_COOKIE
-          detection: php_lang_insecure_cookie_flags_specified
-          scope: cursor
-      - not:
-          variable: SET_COOKIE
           detection: php_lang_insecure_cookie_using_options
           scope: cursor
-  - pattern: $<FUNCTION>($<_>, $<_>, $<_>, $<_>, $<_>, $<SECURE>$<...>)
-    filters:
-      - variable: FUNCTION
-        values:
-          - setcookie
-          - setrawcookie
-      - not:
-          variable: SECURE
-          detection: php_lang_insecure_cookie_true
-          scope: cursor
-  - pattern: $<FUNCTION>($<_>, $<_>, $<_>, $<_>, $<_>, $<_>, $<HTTP_ONLY>$<...>)
-    filters:
-      - variable: FUNCTION
-        values:
-          - setcookie
-          - setrawcookie
-      - not:
-          variable: HTTP_ONLY
-          detection: php_lang_insecure_cookie_true
-          scope: cursor
+      - either:
+          - not:
+              variable: SET_COOKIE
+              detection: php_lang_insecure_cookie_secure
+              scope: cursor
+          - not:
+              variable: SET_COOKIE
+              detection: php_lang_insecure_cookie_httponly
+              scope: cursor
   - pattern: $<FUNCTION>($<_>, $<_>, $<OPTIONS>)
     filters:
       - variable: FUNCTION
@@ -59,10 +44,32 @@ auxiliary:
             values:
               - setcookie
               - setrawcookie
-  - id: php_lang_insecure_cookie_flags_specified
+  - id: php_lang_insecure_cookie_secure
     patterns:
-      # at least up to the `secure` argument passed
-      - pattern: $<_>($<_>, $<_>, $<_>, $<_>, $<_>, $<_>$<...>)
+      - pattern: $<_>($<_>, $<_>, $<_>, $<_>, $<_>, $<SECURE>$<...>)
+        filters:
+          - variable: SECURE
+            detection: php_lang_insecure_cookie_true
+            scope: cursor
+      - pattern: |
+          $<_>(secure: $<TRUE>)
+        filters:
+          - variable: "TRUE"
+            detection: php_lang_insecure_cookie_true
+            scope: cursor
+  - id: php_lang_insecure_cookie_httponly
+    patterns:
+      - pattern: $<_>($<_>, $<_>, $<_>, $<_>, $<_>, $<_>, $<HTTP_ONLY>$<...>)
+        filters:
+          - variable: HTTP_ONLY
+            detection: php_lang_insecure_cookie_true
+            scope: cursor
+      - pattern: |
+          $<_>(httponly: $<TRUE>)
+        filters:
+          - variable: "TRUE"
+            detection: php_lang_insecure_cookie_true
+            scope: cursor
   - id: php_lang_insecure_cookie_using_options
     patterns:
       - pattern: $<_>($<_>, $<_>, $<OPTIONS>)

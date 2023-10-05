@@ -195,6 +195,25 @@ patterns:
       - variable: OPTIONS
         detection: php_lang_ssl_verification_requests_options
         scope: cursor
+  - pattern: |
+      $<CLASS>::$<METHOD>(options: $<OPTIONS>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Requests\z
+      - variable: METHOD
+        values:
+          - get
+          - head
+          - delete
+          - trace
+          - post
+          - put
+          - options
+          - patch
+          - request
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_requests_options
+        scope: cursor
   - pattern: $<CLASS>::request_multiple($<OPTIONS>$<...>)
     filters:
       - variable: CLASS
@@ -203,6 +222,14 @@ patterns:
         detection: php_lang_ssl_verification_requests_options
         scope: result
   - pattern: new $<CLASS>($<_>, $<_>, $<_>, $<OPTIONS>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_requests_options
+        scope: cursor
+  - pattern: |
+      new $<CLASS>(options: $<OPTIONS>)
     filters:
       - variable: CLASS
         regex: \A(WpOrg\\Requests\\)?Session\z
@@ -254,6 +281,29 @@ patterns:
       - variable: OPTIONS
         detection: php_lang_ssl_verification_requests_options
         scope: cursor
+  - pattern: |
+      $<SESSION>->$<METHOD>(options: $<OPTIONS>)
+    filters:
+      - variable: SESSION
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: METHOD
+        values:
+          - get
+          - head
+          - trace
+          - delete
+          - post
+          - put
+          - options
+          - patch
+          - request
+      - variable: OPTIONS
+        detection: php_lang_ssl_verification_requests_options
+        scope: cursor
   - pattern: $<SESSION>->request_multiple($<OPTIONS>$<...>)
     filters:
       - variable: SESSION
@@ -266,6 +316,14 @@ patterns:
         detection: php_lang_ssl_verification_requests_options
         scope: result
   - pattern: new $<CLASS>($<_>, $<_>, $<_>, $<_>, $<_>, $<_>, $<FALSE>)
+    filters:
+      - variable: CLASS
+        regex: \A(SendGrid\\)?Client\z
+      - variable: "FALSE"
+        detection: php_lang_ssl_verification_false
+        scope: cursor
+  - pattern: |
+      new $<CLASS>(verifySSLCerts: $<FALSE>)
     filters:
       - variable: CLASS
         regex: \A(SendGrid\\)?Client\z

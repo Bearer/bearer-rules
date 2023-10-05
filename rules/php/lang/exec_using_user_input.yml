@@ -21,7 +21,19 @@ patterns:
       - variable: WORKING_DIR
         detection: php_shared_lang_user_input
         scope: result
+  - pattern: |
+      proc_open(cwd: $<WORKING_DIR>)
+    filters:
+      - variable: WORKING_DIR
+        detection: php_shared_lang_user_input
+        scope: result
   - pattern: proc_open($<_>, $<_>, $<_>, $<_>, $<ENVIRONMENT>)
+    filters:
+      - variable: ENVIRONMENT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: |
+      proc_open(env_vars: $<ENVIRONMENT>)
     filters:
       - variable: ENVIRONMENT
         detection: php_shared_lang_user_input
@@ -38,6 +50,12 @@ patterns:
           - variable: ENVIRONMENT
             detection: php_shared_lang_user_input
             scope: result
+  - pattern: |
+      pcntl_exec(env_vars: $<ENVIRONMENT>)
+    filters:
+      - variable: ENVIRONMENT
+        detection: php_shared_lang_user_input
+        scope: result
 severity: high
 metadata:
   description: "Execution of OS command formed with user input detected."
