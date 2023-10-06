@@ -278,7 +278,7 @@ languages:
   - ruby
 severity: high
 metadata:
-  description: "Do not use user input to form file paths."
+  description: "Unsanitized user input detected in file path."
   remediation_message: |
     ## Description
     Using raw unsanitized input when forming filenames or file paths is bad practice.

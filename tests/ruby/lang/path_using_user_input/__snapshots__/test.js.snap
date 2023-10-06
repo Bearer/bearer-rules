@@ -11,7 +11,7 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 2,
@@ -46,7 +46,7 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 4,
@@ -81,7 +81,7 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 6,
@@ -116,7 +116,7 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 8,
@@ -151,7 +151,7 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 10,
@@ -186,7 +186,7 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 13,
@@ -221,7 +221,7 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 15,
@@ -256,7 +256,7 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 17,
@@ -291,7 +291,7 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 18,
@@ -326,7 +326,7 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 19,
@@ -361,7 +361,7 @@ exports[`ruby_lang_path_using_user_input unsafe_event 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 20,
@@ -403,7 +403,7 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 1,
@@ -438,7 +438,7 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 3,
@@ -473,7 +473,7 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 5,
@@ -508,7 +508,7 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 7,
@@ -543,7 +543,7 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 9,
@@ -578,7 +578,7 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 12,
@@ -613,7 +613,7 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 14,
@@ -648,7 +648,7 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 16,
@@ -683,7 +683,7 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 17,
@@ -718,7 +718,7 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 18,
@@ -753,7 +753,7 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 19,
@@ -788,7 +788,7 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 21,
@@ -823,7 +823,7 @@ exports[`ruby_lang_path_using_user_input unsafe_params 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 23,
@@ -865,7 +865,7 @@ exports[`ruby_lang_path_using_user_input unsafe_rails 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 1,
@@ -900,7 +900,7 @@ exports[`ruby_lang_path_using_user_input unsafe_rails 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 3,
@@ -935,7 +935,7 @@ exports[`ruby_lang_path_using_user_input unsafe_rails 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 4,
@@ -970,7 +970,7 @@ exports[`ruby_lang_path_using_user_input unsafe_rails 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 5,
@@ -1005,7 +1005,7 @@ exports[`ruby_lang_path_using_user_input unsafe_rails 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 7,
@@ -1047,7 +1047,7 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 1,
@@ -1082,7 +1082,7 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 3,
@@ -1117,7 +1117,7 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 5,
@@ -1152,7 +1152,7 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 7,
@@ -1187,7 +1187,7 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 9,
@@ -1222,7 +1222,7 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 12,
@@ -1257,7 +1257,7 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 14,
@@ -1292,7 +1292,7 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 16,
@@ -1327,7 +1327,7 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 17,
@@ -1362,7 +1362,7 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 18,
@@ -1397,7 +1397,7 @@ exports[`ruby_lang_path_using_user_input unsafe_request 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 19,
@@ -1439,7 +1439,7 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 3,
@@ -1474,7 +1474,7 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 5,
@@ -1509,7 +1509,7 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 7,
@@ -1544,7 +1544,7 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 9,
@@ -1579,7 +1579,7 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 12,
@@ -1614,7 +1614,7 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 15,
@@ -1649,7 +1649,7 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 17,
@@ -1684,7 +1684,7 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 20,
@@ -1719,7 +1719,7 @@ exports[`ruby_lang_path_using_user_input unsafe_shell 1`] = `
         "73"
       ],
       "id": "ruby_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input detected in file path.",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Validate expected file paths using \`File\` methods\\n\\n\`\`\`ruby\\n  path = File.expand(\\"/home/\\" + params[:resource_name])\\n  if path.starts_with?(\\"/home/\\")\\n    Dir.chdir(path)\\n  else\\n    # path is unexpected\\n  end\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input",
       "line_number": 24,
