@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_symfony_open_redirect bad 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "601"
+      ],
+      "id": "php_symfony_open_redirect",
+      "title": "Open redirect detected.",
+      "description": "## Description\\nA redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.\\n\\n## Remediations\\n❌ Do not use unsanitized user input when constructing URLs\\n\\n✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs\\n\\n\`\`\`php\\n  $paths = [\\n    \\"1\\" => \\"/planes\\",\\n    \\"2\\" => \\"/trains\\",\\n    \\"3\\" => \\"/automobiles\\",\\n  ];\\n\\n  $transport = $_GET[\\"transport\\"];\\n  $this->redirect($paths[$transport]\\");\\n\`\`\`\\n## Resources\\n- [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_open_redirect",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 12,
+          "end": 31
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 12,
+          "end": 31
+        },
+        "content": "$this->redirect($x)"
+      },
+      "parent_line_number": 11,
+      "snippet": "$this->redirect($x)",
+      "fingerprint": "d582d9374c5c887f53bc5285ec981b5d_0",
+      "old_fingerprint": "edb8291f0e96f91996f8aaf9a772d55b_0",
+      "code_extract": "    return $this->redirect($x);"
+    },
+    {
+      "cwe_ids": [
+        "601"
+      ],
+      "id": "php_symfony_open_redirect",
+      "title": "Open redirect detected.",
+      "description": "## Description\\nA redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.\\n\\n## Remediations\\n❌ Do not use unsanitized user input when constructing URLs\\n\\n✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs\\n\\n\`\`\`php\\n  $paths = [\\n    \\"1\\" => \\"/planes\\",\\n    \\"2\\" => \\"/trains\\",\\n    \\"3\\" => \\"/automobiles\\",\\n  ];\\n\\n  $transport = $_GET[\\"transport\\"];\\n  $this->redirect($paths[$transport]\\");\\n\`\`\`\\n## Resources\\n- [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_open_redirect",
+      "line_number": 16,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 12,
+          "end": 53
+        }
+      },
+      "sink": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 12,
+          "end": 53
+        },
+        "content": "$this->redirectToRoute($_GET[\\"oops\\"], [])"
+      },
+      "parent_line_number": 16,
+      "snippet": "$this->redirectToRoute($_GET[\\"oops\\"], [])",
+      "fingerprint": "d582d9374c5c887f53bc5285ec981b5d_1",
+      "old_fingerprint": "edb8291f0e96f91996f8aaf9a772d55b_1",
+      "code_extract": "    return $this->redirectToRoute($_GET[\\"oops\\"], []);"
+    }
+  ]
+}"
+`;
+
+exports[`php_symfony_open_redirect ok 1`] = `"{}"`;

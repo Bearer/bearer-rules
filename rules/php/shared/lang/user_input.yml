@@ -1,6 +1,8 @@
 type: shared
 languages:
   - php
+imports:
+  - php_shared_symfony_user_input
 sanitizer: php_shared_lang_user_input_sanitized
 patterns:
   - pattern: $$<METHOD>[$<_>]
@@ -9,7 +11,11 @@ patterns:
         values:
           - _GET
           - _POST
-
+  - pattern: $<SYMFONY_USER_INPUT>;
+    filters:
+      - variable: SYMFONY_USER_INPUT
+        detection: php_shared_symfony_user_input
+        scope: cursor_strict
 auxiliary:
   - id: php_shared_lang_user_input_sanitized
     patterns:
