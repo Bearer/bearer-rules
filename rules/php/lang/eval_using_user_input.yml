@@ -20,6 +20,16 @@ patterns:
       - variable: USER_INPUT
         detection: php_shared_lang_user_input
         scope: result
+  - pattern: assert($<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: array_map($<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
 languages:
   - php
 severity: high
