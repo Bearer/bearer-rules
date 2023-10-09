@@ -5,6 +5,15 @@ patterns:
       - variable: DATA_TYPE
         detection: datatype
         scope: result
+  - pattern: $<FUNCTION>($<DATA_TYPE>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - die
+          - exit
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
 languages:
   - php
 skip_data_types:
