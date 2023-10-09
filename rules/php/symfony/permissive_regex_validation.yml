@@ -1,0 +1,88 @@
+languages:
+  - php
+patterns:
+  - pattern: |
+      class $<_> {
+        #[$<ATTRIBUTE>(pattern: $<PATTERN>)]
+        public $<_>;
+      }
+    focus: ATTRIBUTE
+    filters:
+      - variable: ATTRIBUTE
+        regex: \A((Symfony\\Component\\Validator\\)?Constraints|Assert)\\Regex
+      - not:
+          variable: PATTERN
+          string_regex: \A.\\A.*\\[zZ].\z
+  - pattern: |
+      class $<_> {
+        #[$<ATTRIBUTE>($<PATTERN>$<...>)]
+        public $<_>;
+      }
+    focus: ATTRIBUTE
+    filters:
+      - variable: ATTRIBUTE
+        regex: \A((Symfony\\Component\\Validator\\)?Constraints|Assert)\\Regex
+      - not:
+          variable: PATTERN
+          string_regex: \A.\\A.*\\[zZ].\z
+  - pattern: new $<CLASS>($<OPTIONS>)
+    filters:
+      - variable: CLASS
+        regex: \A((Symfony\\Component\\Validator\\)?Constraints|Assert)\\Regex
+      - variable: OPTIONS
+        detection: php_symfony_permissive_regex_validation_options
+        scope: cursor
+  - pattern: new $<CLASS>($<PATTERN>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A((Symfony\\Component\\Validator\\)?Constraints|Assert)\\Regex
+      - variable: PATTERN
+        string_regex: ""
+      - not:
+          variable: PATTERN
+          string_regex: \A.\\A.*\\[zZ].\z
+auxiliary:
+  - id: php_symfony_permissive_regex_validation_options
+    patterns:
+      - pattern: array('pattern' => $<PATTERN>)
+        filters:
+          - not:
+              variable: PATTERN
+              string_regex: \A.\\A.*\\[zZ].\z
+metadata:
+  description: "Validation using permissive regular expression detected."
+  remediation_message: |
+    ## Description
+
+    Validations using regular expressions should use the start of text (\A) and
+    end of text (\z or \Z) boundaries.
+
+    ## Remediations
+
+    ❌ Avoid matching without start and end boundaries:
+
+    ```php
+    #[Assert\Regex('/foo/')]
+    protected string $attribute;
+    ```
+
+    ❌ Avoid using line-based boundaries:
+
+    ```php
+    #[Assert\Regex('/^foo$/')]
+    protected string $attribute;
+    ```
+
+    ✅ Use whole-text boundaries:
+
+    ```php
+    #[Assert\Regex('/\Afoo\z/')]
+    protected string $attribute;
+    ```
+
+    ## Resources
+    - [Symfony validation](https://symfony.com/doc/current/validation.html)
+  cwe_id:
+    - 625
+  id: php_symfony_permissive_regex_validation
+  documentation_url: https://docs.bearer.com/reference/rules/php_symfony_permissive_regex_validation
