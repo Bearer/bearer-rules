@@ -38,6 +38,8 @@ jobs:
         run: tar -czvf release/ruby.tar.gz --directory ./rules ruby
       - name: Archive JavaScript
         run: tar -czvf release/javascript.tar.gz --directory ./rules javascript
+      - name: Archive PHP
+        run: tar -czvf release/php.tar.gz --directory ./rules php
       - name: Archive Java
         run: tar -czvf release/java.tar.gz --directory ./rules java
       - name: Archive Python
