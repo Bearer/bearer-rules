@@ -1,0 +1,38 @@
+patterns:
+  - pattern: |
+      $<CLASS>::create($<_>, $<DATA_TYPE>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
+  - pattern: |
+      new $<CLASS>($<_>, $<DATA_TYPE>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: result
+languages:
+  - php
+metadata:
+  description: "Sensitive data stored in a cookie detected."
+  remediation_message: |
+    ## Description
+
+    Storing sensitive data in cookies can lead to a data breach. This rule looks for instances where sensitive data is stored in browser cookies.
+
+    ## Remediations
+
+    ❌ Avoid storing sensitive data in unencrypted cookies:
+
+    ```php
+    $cookie = Cookie::create("user_email", $user->email);
+    ```
+  cwe_id:
+    - 315
+    - 539
+  id: php_symfony_cookies
+  documentation_url: https://docs.bearer.com/reference/rules/php_symfony_cookies

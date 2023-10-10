@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_symfony_cookies bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "315",
+        "539"
+      ],
+      "id": "php_symfony_cookies",
+      "title": "Sensitive data stored in a cookie detected.",
+      "description": "## Description\\n\\nStoring sensitive data in cookies can lead to a data breach. This rule looks for instances where sensitive data is stored in browser cookies.\\n\\n## Remediations\\n\\n❌ Avoid storing sensitive data in unencrypted cookies:\\n\\n\`\`\`php\\n$cookie = Cookie::create(\\"user_email\\", $user->email);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_cookies",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 53,
+          "end": 65
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 31,
+          "end": 66
+        },
+        "content": "Cookie::create('foo', $user->email)"
+      },
+      "parent_line_number": 5,
+      "snippet": "Cookie::create('foo', $user->email)",
+      "fingerprint": "535bbb3f15a98ed2e1531ccacf6d0165_0",
+      "old_fingerprint": "52064a029f9879585df19320e29f6653_0",
+      "code_extract": "$response->headers->setCookie(Cookie::create('foo', $user->email));"
+    },
+    {
+      "cwe_ids": [
+        "315",
+        "539"
+      ],
+      "id": "php_symfony_cookies",
+      "title": "Sensitive data stored in a cookie detected.",
+      "description": "## Description\\n\\nStoring sensitive data in cookies can lead to a data breach. This rule looks for instances where sensitive data is stored in browser cookies.\\n\\n## Remediations\\n\\n❌ Avoid storing sensitive data in unencrypted cookies:\\n\\n\`\`\`php\\n$cookie = Cookie::create(\\"user_email\\", $user->email);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_cookies",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 49,
+          "end": 61
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 31,
+          "end": 62
+        },
+        "content": "new Cookie('foo', $user->email)"
+      },
+      "parent_line_number": 6,
+      "snippet": "new Cookie('foo', $user->email)",
+      "fingerprint": "535bbb3f15a98ed2e1531ccacf6d0165_1",
+      "old_fingerprint": "52064a029f9879585df19320e29f6653_1",
+      "code_extract": "$response->headers->setCookie(new Cookie('foo', $user->email));"
+    }
+  ]
+}"
+`;
+
+exports[`php_symfony_cookies ok 1`] = `"{}"`;
