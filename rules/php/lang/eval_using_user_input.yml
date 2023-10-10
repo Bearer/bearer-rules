@@ -17,16 +17,9 @@ patterns:
         values:
           - call_user_func
           - call_user_func_array
-      - variable: USER_INPUT
-        detection: php_shared_lang_user_input
-        scope: result
-  - pattern: assert($<USER_INPUT>$<...>)
-    filters:
-      - variable: USER_INPUT
-        detection: php_shared_lang_user_input
-        scope: result
-  - pattern: array_map($<USER_INPUT>$<...>)
-    filters:
+          - assert
+          - array_map
+          - extract
       - variable: USER_INPUT
         detection: php_shared_lang_user_input
         scope: result

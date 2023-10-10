@@ -1997,6 +1997,41 @@ exports[`php_lang_path_using_user_input bad 1`] = `
       "fingerprint": "ce34aee9a5c3dc3bf9b84d05a65f87ff_56",
       "old_fingerprint": "7e2b852bf59b51143b261566c32c4bbd_56",
       "code_extract": "scandir($oops, SCANDIR_SORT_ASCENDING);"
+    },
+    {
+      "cwe_ids": [
+        "22",
+        "73"
+      ],
+      "id": "php_lang_path_using_user_input",
+      "title": "Do not use user input to form file paths.",
+      "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
+      "line_number": 68,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 68,
+        "end": 68,
+        "column": {
+          "start": 1,
+          "end": 31
+        }
+      },
+      "sink": {
+        "start": 68,
+        "end": 68,
+        "column": {
+          "start": 1,
+          "end": 31
+        },
+        "content": "hash_file($algo, $oops, false)"
+      },
+      "parent_line_number": 68,
+      "snippet": "hash_file($algo, $oops, false)",
+      "fingerprint": "ce34aee9a5c3dc3bf9b84d05a65f87ff_57",
+      "old_fingerprint": "7e2b852bf59b51143b261566c32c4bbd_57",
+      "code_extract": "hash_file($algo, $oops, false);"
     }
   ]
 }"

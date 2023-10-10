@@ -177,6 +177,41 @@ exports[`php_lang_eval_using_user_input bad 1`] = `
       "fingerprint": "43b4511ce098191dea3fa024aa7f66cc_4",
       "old_fingerprint": "2935b68ea0455100c1ee50d53b6d628a_4",
       "code_extract": "array_map($_POST[\\"oops\\"], $array);"
+    },
+    {
+      "cwe_ids": [
+        "94",
+        "95"
+      ],
+      "id": "php_lang_eval_using_user_input",
+      "title": "Potential command injection with user input detected.",
+      "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to command injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_eval_using_user_input",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 27
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 27
+        },
+        "content": "extract($_POST[\\"oops\\"], 0)"
+      },
+      "parent_line_number": 10,
+      "snippet": "extract($_POST[\\"oops\\"], 0)",
+      "fingerprint": "43b4511ce098191dea3fa024aa7f66cc_5",
+      "old_fingerprint": "2935b68ea0455100c1ee50d53b6d628a_5",
+      "code_extract": "extract($_POST[\\"oops\\"], 0);"
     }
   ]
 }"

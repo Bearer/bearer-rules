@@ -77,6 +77,11 @@ patterns:
       - variable: DESTINATION
         detection: php_shared_lang_user_input
         scope: result
+  - pattern: hash_file($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
 languages:
   - php
 severity: high

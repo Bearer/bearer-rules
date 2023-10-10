@@ -61,3 +61,6 @@ chroot($ok);
 dir($ok, null);
 opendir($ok, null);
 scandir($ok, SCANDIR_SORT_ASCENDING);
+
+// hash
+hash_file($algo, $ok, false);
