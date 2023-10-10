@@ -44,6 +44,8 @@ jobs:
         run: tar -czvf release/java.tar.gz --directory ./rules java
       - name: Archive Python
         run: tar -czvf release/python.tar.gz --directory ./rules python
+      - name: Archive Go
+        run: tar -czvf release/go.tar.gz --directory ./rules go
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:

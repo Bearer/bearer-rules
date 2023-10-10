@@ -29,10 +29,11 @@ jobs:
             "ruby/third_parties",
             "java/lang",
             "java/spring",
-            "python/lang",
             "php/lang",
             "php/symfony",
             "php/third_parties",
+            "python/lang",
+            "go/lang",
           ]
     steps:
       - uses: actions/checkout@v3
