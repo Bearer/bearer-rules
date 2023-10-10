@@ -13,7 +13,15 @@
         "languages": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "sql", // built-in
+              "ruby",
+              "java",
+              "javascript",
+              "go",
+              "python"
+            ]
           }
         },
         "trigger": {
