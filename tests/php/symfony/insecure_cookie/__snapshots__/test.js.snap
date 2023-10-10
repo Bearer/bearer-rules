@@ -1,0 +1,430 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_symfony_insecure_cookie bad 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_symfony_insecure_cookie",
+      "title": "Insecure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httpOnly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_insecure_cookie",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 73
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 73
+        },
+        "content": "Cookie::create($name, $value, $expire, $path, $domain, false, $httpOnly)"
+      },
+      "parent_line_number": 5,
+      "snippet": "Cookie::create($name, $value, $expire, $path, $domain, false, $httpOnly)",
+      "fingerprint": "f484c2971d8bbfaf6f441c6ef90da20f_0",
+      "old_fingerprint": "96c5c5872ba704b3d97886248732d0bb_0",
+      "code_extract": "Cookie::create($name, $value, $expire, $path, $domain, false, $httpOnly);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_symfony_insecure_cookie",
+      "title": "Insecure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httpOnly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_insecure_cookie",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 45
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 45
+        },
+        "content": "Cookie::create($name, $value, secure: false)"
+      },
+      "parent_line_number": 6,
+      "snippet": "Cookie::create($name, $value, secure: false)",
+      "fingerprint": "f484c2971d8bbfaf6f441c6ef90da20f_1",
+      "old_fingerprint": "96c5c5872ba704b3d97886248732d0bb_1",
+      "code_extract": "Cookie::create($name, $value, secure: false);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_symfony_insecure_cookie",
+      "title": "Insecure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httpOnly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_insecure_cookie",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 77
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 77
+        },
+        "content": "Cookie::create($name, $value, $expire, $path, $domain, $secure, false, $raw)"
+      },
+      "parent_line_number": 7,
+      "snippet": "Cookie::create($name, $value, $expire, $path, $domain, $secure, false, $raw)",
+      "fingerprint": "f484c2971d8bbfaf6f441c6ef90da20f_2",
+      "old_fingerprint": "96c5c5872ba704b3d97886248732d0bb_2",
+      "code_extract": "Cookie::create($name, $value, $expire, $path, $domain, $secure, false, $raw);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_symfony_insecure_cookie",
+      "title": "Insecure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httpOnly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_insecure_cookie",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 47
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 47
+        },
+        "content": "Cookie::create($name, $value, httpOnly: false)"
+      },
+      "parent_line_number": 8,
+      "snippet": "Cookie::create($name, $value, httpOnly: false)",
+      "fingerprint": "f484c2971d8bbfaf6f441c6ef90da20f_3",
+      "old_fingerprint": "96c5c5872ba704b3d97886248732d0bb_3",
+      "code_extract": "Cookie::create($name, $value, httpOnly: false);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_symfony_insecure_cookie",
+      "title": "Insecure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httpOnly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_insecure_cookie",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 43
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 43
+        },
+        "content": "$cookie->withRaw(false)->withSecure(false)"
+      },
+      "parent_line_number": 11,
+      "snippet": "$cookie->withRaw(false)->withSecure(false)",
+      "fingerprint": "f484c2971d8bbfaf6f441c6ef90da20f_4",
+      "old_fingerprint": "96c5c5872ba704b3d97886248732d0bb_4",
+      "code_extract": "$cookie->withRaw(false)->withSecure(false);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_symfony_insecure_cookie",
+      "title": "Insecure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httpOnly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_insecure_cookie",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 45
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 45
+        },
+        "content": "$cookie->withRaw(false)->withHttpOnly(false)"
+      },
+      "parent_line_number": 12,
+      "snippet": "$cookie->withRaw(false)->withHttpOnly(false)",
+      "fingerprint": "f484c2971d8bbfaf6f441c6ef90da20f_5",
+      "old_fingerprint": "96c5c5872ba704b3d97886248732d0bb_5",
+      "code_extract": "$cookie->withRaw(false)->withHttpOnly(false);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_symfony_insecure_cookie",
+      "title": "Insecure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httpOnly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_insecure_cookie",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 69
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 69
+        },
+        "content": "new Cookie($name, $value, $expire, $path, $domain, false, $httpOnly)"
+      },
+      "parent_line_number": 14,
+      "snippet": "new Cookie($name, $value, $expire, $path, $domain, false, $httpOnly)",
+      "fingerprint": "f484c2971d8bbfaf6f441c6ef90da20f_6",
+      "old_fingerprint": "96c5c5872ba704b3d97886248732d0bb_6",
+      "code_extract": "new Cookie($name, $value, $expire, $path, $domain, false, $httpOnly);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_symfony_insecure_cookie",
+      "title": "Insecure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httpOnly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_insecure_cookie",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 41
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 41
+        },
+        "content": "new Cookie($name, $value, secure: false)"
+      },
+      "parent_line_number": 15,
+      "snippet": "new Cookie($name, $value, secure: false)",
+      "fingerprint": "f484c2971d8bbfaf6f441c6ef90da20f_7",
+      "old_fingerprint": "96c5c5872ba704b3d97886248732d0bb_7",
+      "code_extract": "new Cookie($name, $value, secure: false);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_symfony_insecure_cookie",
+      "title": "Insecure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httpOnly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_insecure_cookie",
+      "line_number": 16,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 1,
+          "end": 73
+        }
+      },
+      "sink": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 1,
+          "end": 73
+        },
+        "content": "new Cookie($name, $value, $expire, $path, $domain, $secure, false, $raw)"
+      },
+      "parent_line_number": 16,
+      "snippet": "new Cookie($name, $value, $expire, $path, $domain, $secure, false, $raw)",
+      "fingerprint": "f484c2971d8bbfaf6f441c6ef90da20f_8",
+      "old_fingerprint": "96c5c5872ba704b3d97886248732d0bb_8",
+      "code_extract": "new Cookie($name, $value, $expire, $path, $domain, $secure, false, $raw);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_symfony_insecure_cookie",
+      "title": "Insecure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httpOnly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_insecure_cookie",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 1,
+          "end": 43
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 1,
+          "end": 43
+        },
+        "content": "new Cookie($name, $value, httpOnly: false)"
+      },
+      "parent_line_number": 17,
+      "snippet": "new Cookie($name, $value, httpOnly: false)",
+      "fingerprint": "f484c2971d8bbfaf6f441c6ef90da20f_9",
+      "old_fingerprint": "96c5c5872ba704b3d97886248732d0bb_9",
+      "code_extract": "new Cookie($name, $value, httpOnly: false);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_symfony_insecure_cookie",
+      "title": "Insecure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httpOnly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_insecure_cookie",
+      "line_number": 20,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 20,
+        "end": 20,
+        "column": {
+          "start": 1,
+          "end": 43
+        }
+      },
+      "sink": {
+        "start": 20,
+        "end": 20,
+        "column": {
+          "start": 1,
+          "end": 43
+        },
+        "content": "$cookie->withRaw(false)->withSecure(false)"
+      },
+      "parent_line_number": 20,
+      "snippet": "$cookie->withRaw(false)->withSecure(false)",
+      "fingerprint": "f484c2971d8bbfaf6f441c6ef90da20f_10",
+      "old_fingerprint": "96c5c5872ba704b3d97886248732d0bb_10",
+      "code_extract": "$cookie->withRaw(false)->withSecure(false);"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "php_symfony_insecure_cookie",
+      "title": "Insecure options for cookie detected.",
+      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or\\nunauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set \`httpOnly\` to \`true\` to avoid the cookie being sent by client-side scripts.\\n\\n✅ Set \`secure\`  to \`true\` to force cookies to only send over HTTPS.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_insecure_cookie",
+      "line_number": 21,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 21,
+        "end": 21,
+        "column": {
+          "start": 1,
+          "end": 45
+        }
+      },
+      "sink": {
+        "start": 21,
+        "end": 21,
+        "column": {
+          "start": 1,
+          "end": 45
+        },
+        "content": "$cookie->withRaw(false)->withHttpOnly(false)"
+      },
+      "parent_line_number": 21,
+      "snippet": "$cookie->withRaw(false)->withHttpOnly(false)",
+      "fingerprint": "f484c2971d8bbfaf6f441c6ef90da20f_11",
+      "old_fingerprint": "96c5c5872ba704b3d97886248732d0bb_11",
+      "code_extract": "$cookie->withRaw(false)->withHttpOnly(false);"
+    }
+  ]
+}"
+`;
+
+exports[`php_symfony_insecure_cookie ok 1`] = `"{}"`;
