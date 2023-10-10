@@ -11,6 +11,7 @@ patterns:
         values:
           - _GET
           - _POST
+          - _REQUEST
   - pattern: $<SYMFONY_USER_INPUT>;
     filters:
       - variable: SYMFONY_USER_INPUT
