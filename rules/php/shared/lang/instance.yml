@@ -4,13 +4,13 @@ languages:
 patterns:
   - new $<CLASS>;
   - |
-      class $<_> {
-        public function $<_>($<...>$<CLASS> $<!>$<_>$<...>) {}
-      }
+    class $<_> {
+      public function $<_>($<...>$<CLASS> $<!>$<_>$<...>) {}
+    }
   - |
-      class $<_> {
-        public function __construct($<...>public $<CLASS> $<!>$<_>$<...>) {}
-      }
+    class $<_> {
+      public function __construct($<...>public $<CLASS> $<!>$<_>$<...>) {}
+    }
 metadata:
   description: "PHP instance."
   id: php_shared_lang_instance
