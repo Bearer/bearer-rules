@@ -5,4 +5,4 @@ for rule_file in $(find $PWD/rules -type f | grep .yml | grep -vE '.snapshots|.g
   args="$args -d $rule_file"
 done
 
-npx ajv-cli -s scripts/rule_schema.json$args --allow-union-types
+npx ajv-cli -s scripts/rule_schema.jsonc$args --allow-union-types
