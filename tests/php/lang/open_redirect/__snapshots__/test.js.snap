@@ -36,6 +36,40 @@ exports[`php_lang_open_redirect bad 1`] = `
       "fingerprint": "0079bcb21ad70e56de6d74c97038f189_0",
       "old_fingerprint": "4d5cd2e7f410e468a194bd34c0ddd54d_0",
       "code_extract": "header(\\"Location: {$_GET['oops']}\\", true, 301);"
+    },
+    {
+      "cwe_ids": [
+        "601"
+      ],
+      "id": "php_lang_open_redirect",
+      "title": "Open redirect detected.",
+      "description": "## Description\\nA redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.\\n\\n## Remediations\\n❌ Do not use unsanitized user input when constructing URLs\\n\\n✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs\\n\\n\`\`\`php\\n  $paths = [\\n    \\"1\\" => \\"/planes\\",\\n    \\"2\\" => \\"/trains\\",\\n    \\"3\\" => \\"/automobiles\\",\\n  ];\\n\\n  $transport = $_GET[\\"transport\\"];\\n  header(\\"Location: {$paths[$transport]}\\", true, 301);\\n\`\`\`\\n## Resources\\n- [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_open_redirect",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 57
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 57
+        },
+        "content": "header(\\"Location: {$_SERVER['REQUEST_URI']}\\", true, 301)"
+      },
+      "parent_line_number": 4,
+      "snippet": "header(\\"Location: {$_SERVER['REQUEST_URI']}\\", true, 301)",
+      "fingerprint": "0079bcb21ad70e56de6d74c97038f189_1",
+      "old_fingerprint": "4d5cd2e7f410e468a194bd34c0ddd54d_1",
+      "code_extract": "header(\\"Location: {$_SERVER['REQUEST_URI']}\\", true, 301);"
     }
   ]
 }"

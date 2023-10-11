@@ -13,6 +13,10 @@ patterns:
           - _POST
           - _REQUEST
           - _COOKIE
+  - pattern: $_SERVER[$<NAME>]
+    filters:
+      - variable: NAME
+        string_regex: \AREQUEST_URI\z
   - pattern: $<SYMFONY_USER_INPUT>;
     filters:
       - variable: SYMFONY_USER_INPUT
