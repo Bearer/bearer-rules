@@ -70,6 +70,74 @@ exports[`php_symfony_ui_redress bad 1`] = `
       "fingerprint": "4d5a73a51bbdc352f240a8a6bb1b8265_1",
       "old_fingerprint": "52c2797ac27fe8998a7c19ea92d0d21f_1",
       "code_extract": "        $response->headers->set('Content-Security-Policy', $userInput);"
+    },
+    {
+      "cwe_ids": [
+        "1021"
+      ],
+      "id": "php_symfony_ui_redress",
+      "title": "User Interface (UI) redress vulnerability (clickjacking) detected.",
+      "description": "## Description\\nUsing unsanitized user input to set X-Frame-Options or Content-Security-Policy\\nHTTP headers puts your application at risk for UI redress attacks (clickjacking).\\n\\n## Remediations\\n✅ Prefer the most secure values when setting these headers\\n\\n\`\`\`php\\n$response->headers->set(\\"X-Frame-Options\\", \\"DENY\\");\\n$response->headers->set(\\"Content-Security-Policy\\", \\"frame-ancestors 'none'\\");\\n\`\`\`\\n\\n## Resources\\n- [OWASP Clickjacking attack explained](https://owasp.org/www-community/attacks/Clickjacking)\\n- [OWASP Clickjacking defense cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_ui_redress",
+      "line_number": 16,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 16,
+        "end": 19,
+        "column": {
+          "start": 21,
+          "end": 11
+        }
+      },
+      "sink": {
+        "start": 16,
+        "end": 19,
+        "column": {
+          "start": 21,
+          "end": 11
+        },
+        "content": "new Response($data, Response::HTTP_OK, [\\n            \\"Other\\" => $ok,\\n            \\"Content-Security-Policy\\" => $userInput\\n        ])"
+      },
+      "parent_line_number": 16,
+      "snippet": "new Response($data, Response::HTTP_OK, [\\n            \\"Other\\" => $ok,\\n            \\"Content-Security-Policy\\" => $userInput\\n        ])",
+      "fingerprint": "4d5a73a51bbdc352f240a8a6bb1b8265_2",
+      "old_fingerprint": "52c2797ac27fe8998a7c19ea92d0d21f_2",
+      "code_extract": "        $response = new Response($data, Response::HTTP_OK, [\\n            \\"Other\\" => $ok,\\n            \\"Content-Security-Policy\\" => $userInput\\n        ]);"
+    },
+    {
+      "cwe_ids": [
+        "1021"
+      ],
+      "id": "php_symfony_ui_redress",
+      "title": "User Interface (UI) redress vulnerability (clickjacking) detected.",
+      "description": "## Description\\nUsing unsanitized user input to set X-Frame-Options or Content-Security-Policy\\nHTTP headers puts your application at risk for UI redress attacks (clickjacking).\\n\\n## Remediations\\n✅ Prefer the most secure values when setting these headers\\n\\n\`\`\`php\\n$response->headers->set(\\"X-Frame-Options\\", \\"DENY\\");\\n$response->headers->set(\\"Content-Security-Policy\\", \\"frame-ancestors 'none'\\");\\n\`\`\`\\n\\n## Resources\\n- [OWASP Clickjacking attack explained](https://owasp.org/www-community/attacks/Clickjacking)\\n- [OWASP Clickjacking defense cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_ui_redress",
+      "line_number": 20,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 20,
+        "end": 23,
+        "column": {
+          "start": 21,
+          "end": 11
+        }
+      },
+      "sink": {
+        "start": 20,
+        "end": 23,
+        "column": {
+          "start": 21,
+          "end": 11
+        },
+        "content": "new Response($data, Response::HTTP_OK, [\\n            \\"X-Frame-Options\\" => $userInput,\\n            \\"Other\\" => $ok,\\n        ])"
+      },
+      "parent_line_number": 20,
+      "snippet": "new Response($data, Response::HTTP_OK, [\\n            \\"X-Frame-Options\\" => $userInput,\\n            \\"Other\\" => $ok,\\n        ])",
+      "fingerprint": "4d5a73a51bbdc352f240a8a6bb1b8265_3",
+      "old_fingerprint": "52c2797ac27fe8998a7c19ea92d0d21f_3",
+      "code_extract": "        $response = new Response($data, Response::HTTP_OK, [\\n            \\"X-Frame-Options\\" => $userInput,\\n            \\"Other\\" => $ok,\\n        ]);"
     }
   ]
 }"

@@ -2,16 +2,29 @@ patterns:
   - pattern: $<HEADERS>->set($<NAME>, $<VALUE>)
     filters:
       - variable: HEADERS
-        detection: php_symfony_insecure_allow_origin_headers
+        detection: php_symfony_permissive_allow_origin_headers
         scope: cursor
       - variable: NAME
         string_regex: (?i)\Aaccess-control-allow-origin\z
       - variable: VALUE
         string_regex: \A\s*\*\z
+  - pattern: new $<CLASS>($<_>, $<_>, $<HEADERS>)
+    filters:
+      - variable: HEADERS
+        detection: php_symfony_permissive_allow_origin_array
+        scope: cursor
 auxiliary:
-  - id: php_symfony_insecure_allow_origin_headers
+  - id: php_symfony_permissive_allow_origin_headers
     patterns:
       - $<_>->headers
+  - id: php_symfony_permissive_allow_origin_array
+    patterns:
+      - pattern: array($<NAME> => $<VALUE>)
+        filters:
+          - variable: NAME
+            string_regex: (?i)\Aaccess-control-allow-origin\z
+          - variable: VALUE
+            string_regex: \A\s*\*\z
 languages:
   - php
 severity: warning

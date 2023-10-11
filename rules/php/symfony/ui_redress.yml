@@ -11,10 +11,24 @@ patterns:
       - variable: VALUE
         detection: php_shared_lang_user_input
         scope: result
+  - pattern: new $<CLASS>($<_>, $<_>, $<HEADERS>)
+    filters:
+      - variable: HEADERS
+        detection: php_symfony_ui_redress_array
+        scope: cursor
 auxiliary:
   - id: php_symfony_ui_redress_headers
     patterns:
       - $<_>->headers
+  - id: php_symfony_ui_redress_array
+    patterns:
+      - pattern: array($<NAME> => $<VALUE>)
+        filters:
+          - variable: NAME
+            string_regex: (?i)\A(x-frame-options|content-security-policy)\z
+          - variable: VALUE
+            detection: php_shared_lang_user_input
+            scope: result
 languages:
   - php
 metadata:

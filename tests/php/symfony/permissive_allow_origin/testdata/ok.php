@@ -9,4 +9,10 @@ class Controller {
         $response->headers->set('Access-Control-Allow-Origin', "foo");
         return $response;
     }
+
+    public function action2() {
+        $response = new Response($data, Response::HTTP_OK, ["Access-Control-Allow-Origin" => $ok]);
+        $response = new Response($data, Response::HTTP_OK, ["Access-Control-Allow-Origin" => "foo"]);
+        return $response;
+    }
 }
