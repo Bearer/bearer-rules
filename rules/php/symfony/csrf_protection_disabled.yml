@@ -1,0 +1,41 @@
+patterns:
+  - pattern: $<CSRF_PROTECTION>->enabled($<FALSE>)
+    filters:
+      - variable: CSRF_PROTECTION
+        detection: php_symfony_csrf_protection_disabled_protection
+        scope: cursor
+      - variable: "FALSE"
+        detection: php_symfony_csrf_protection_disabled_false
+        scope: cursor
+  - pattern: array('csrf_protection' => $<FALSE>)
+    filters:
+      - variable: "FALSE"
+        detection: php_symfony_csrf_protection_disabled_false
+        scope: cursor
+auxiliary:
+  - id: php_symfony_csrf_protection_disabled_protection
+    patterns:
+      - $<_>->csrfProtection()
+  - id: php_symfony_csrf_protection_disabled_false
+    patterns:
+      - "false;"
+languages:
+  - php
+severity: warning
+metadata:
+  description: "Insecure Cross-Site Request Forgery (CSRF) configuration detected."
+  remediation_message: |
+    ## Description
+    Disabling Cross-Site Request Forgery (CSRF) protection allows attackers to
+    trick clients into making unintentional requests to your application.
+
+    ## Remediations
+    ❌ Don't disable CRSF protection
+
+    ## Resources
+    - [Symfony CSRF guide](https://symfony.com/doc/current/security/csrf.html)
+  cwe_id:
+    - 352
+  id: php_symfony_csrf_protection_disabled
+  documentation_url: https://docs.bearer.com/reference/rules/php_symfony_csrf_protection_disabled
+

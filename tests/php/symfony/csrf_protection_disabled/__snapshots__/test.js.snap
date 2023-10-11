@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_symfony_csrf_protection_disabled bad 1`] = `
+"{
+  "warning": [
+    {
+      "cwe_ids": [
+        "352"
+      ],
+      "id": "php_symfony_csrf_protection_disabled",
+      "title": "Insecure Cross-Site Request Forgery (CSRF) configuration detected.",
+      "description": "## Description\\nDisabling Cross-Site Request Forgery (CSRF) protection allows attackers to\\ntrick clients into making unintentional requests to your application.\\n\\n## Remediations\\n❌ Don't disable CRSF protection\\n\\n## Resources\\n- [Symfony CSRF guide](https://symfony.com/doc/current/security/csrf.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_csrf_protection_disabled",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 8,
+        "column": {
+          "start": 5,
+          "end": 25
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 8,
+        "column": {
+          "start": 5,
+          "end": 25
+        },
+        "content": "$framework->csrfProtection()\\n        ->enabled(false)"
+      },
+      "parent_line_number": 7,
+      "snippet": "$framework->csrfProtection()\\n        ->enabled(false)",
+      "fingerprint": "0d9b527c8d6c3ac63f9f86964e27b13c_0",
+      "old_fingerprint": "ee09e7ccd50436c633c4b7414218738f_0",
+      "code_extract": "    $framework->csrfProtection()\\n        ->enabled(false)"
+    },
+    {
+      "cwe_ids": [
+        "352"
+      ],
+      "id": "php_symfony_csrf_protection_disabled",
+      "title": "Insecure Cross-Site Request Forgery (CSRF) configuration detected.",
+      "description": "## Description\\nDisabling Cross-Site Request Forgery (CSRF) protection allows attackers to\\ntrick clients into making unintentional requests to your application.\\n\\n## Remediations\\n❌ Don't disable CRSF protection\\n\\n## Resources\\n- [Symfony CSRF guide](https://symfony.com/doc/current/security/csrf.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_csrf_protection_disabled",
+      "line_number": 16,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 16,
+        "end": 19,
+        "column": {
+          "start": 45,
+          "end": 6
+        }
+      },
+      "sink": {
+        "start": 16,
+        "end": 19,
+        "column": {
+          "start": 45,
+          "end": 6
+        },
+        "content": "[\\n      'csrf_protection' => false,\\n      'other' => false,\\n    ]"
+      },
+      "parent_line_number": 16,
+      "snippet": "[\\n      'csrf_protection' => false,\\n      'other' => false,\\n    ]",
+      "fingerprint": "0d9b527c8d6c3ac63f9f86964e27b13c_1",
+      "old_fingerprint": "ee09e7ccd50436c633c4b7414218738f_1",
+      "code_extract": "    $this->createForm(FooType::class, $foo, [\\n      'csrf_protection' => false,\\n      'other' => false,\\n    ]);"
+    }
+  ]
+}"
+`;
+
+exports[`php_symfony_csrf_protection_disabled ok 1`] = `"{}"`;
