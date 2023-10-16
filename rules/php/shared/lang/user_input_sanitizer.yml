@@ -1,0 +1,9 @@
+type: shared
+languages:
+  - php
+patterns:
+  - count($<_>)
+  - filter_var($<!>$<_>$<...>)
+metadata:
+  description: "PHP user input sanitizer."
+  id: php_shared_lang_user_input_sanitizer

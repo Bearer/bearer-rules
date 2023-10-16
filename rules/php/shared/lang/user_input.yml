@@ -3,7 +3,8 @@ languages:
   - php
 imports:
   - php_shared_symfony_user_input
-sanitizer: php_shared_lang_user_input_sanitized
+  - php_shared_lang_user_input_sanitizer
+sanitizer: php_shared_lang_user_input_sanitizer
 patterns:
   - pattern: $$<METHOD>[$<_>]
     filters:
@@ -22,12 +23,6 @@ patterns:
       - variable: SYMFONY_USER_INPUT
         detection: php_shared_symfony_user_input
         scope: cursor_strict
-auxiliary:
-  - id: php_shared_lang_user_input_sanitized
-    patterns:
-      - count($<_>)
-      - filter_var($<!>$<_>$<...>)
-
 metadata:
   description: "PHP user input."
   id: php_shared_lang_user_input

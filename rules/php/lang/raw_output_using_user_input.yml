@@ -1,20 +1,20 @@
 imports:
-  - php_shared_lang_user_input
+  - php_shared_lang_html_user_input
 patterns:
   - pattern: echo $<USER_INPUT>
     filters:
       - variable: USER_INPUT
-        detection: php_shared_lang_user_input
+        detection: php_shared_lang_html_user_input
         scope: result
   - pattern: print $<USER_INPUT>;
     filters:
       - variable: USER_INPUT
-        detection: php_shared_lang_user_input
+        detection: php_shared_lang_html_user_input
         scope: result
   - pattern: print_r($<USER_INPUT>)
     filters:
       - variable: USER_INPUT
-        detection: php_shared_lang_user_input
+        detection: php_shared_lang_html_user_input
         scope: result
   - pattern: $<METHOD>($<_>, $<...>$<USER_INPUT>$<...>)
     filters:
@@ -23,7 +23,7 @@ patterns:
           - printf
           - vprintf
       - variable: USER_INPUT
-        detection: php_shared_lang_user_input
+        detection: php_shared_lang_html_user_input
         scope: result
 languages:
   - php

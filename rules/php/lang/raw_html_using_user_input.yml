@@ -1,33 +1,15 @@
 languages:
   - php
 imports:
-  - php_shared_lang_user_input
+  - php_shared_lang_html_user_input
 patterns:
   - pattern: $<STRING>;
     filters:
       - variable: STRING
         string_regex: <\w+(\s[^>]*)?>
       - variable: STRING
-        detection: php_lang_raw_html_using_user_input_html_user_input
+        detection: php_shared_lang_html_user_input
         scope: result
-auxiliary:
-  - id: php_lang_raw_html_using_user_input_html_user_input
-    sanitizer: php_lang_raw_html_using_user_input_html_sanitizer
-    patterns:
-      - pattern: $<USER_INPUT>;
-        filters:
-          - variable: USER_INPUT
-            detection: php_shared_lang_user_input
-            scope: cursor
-  - id: php_lang_raw_html_using_user_input_html_sanitizer
-    patterns:
-      - pattern: $<FUNCTION>($<!>$<_>$<...>)
-        filters:
-          - variable: FUNCTION
-            values:
-              - htmlspecialchars
-              - htmlentities
-              - strip_tags
 severity: high
 metadata:
   description: "Unsanitized user input detected in raw HTML string."
