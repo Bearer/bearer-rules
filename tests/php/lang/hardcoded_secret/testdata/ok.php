@@ -1,5 +1,6 @@
 <?php
 
+$password = "low entropy";
 $password = $ok;
 
 const API_KEY = $ok;
