@@ -6,7 +6,7 @@ patterns:
         detection: datatype
         scope: result
   - pattern: |
-      hash($<ALGORITHM>,$<DATATYPE>$<...>)
+      hash($<ALGORITHM>, $<DATA_TYPE>$<...>)
     filters:
       - variable: ALGORITHM
         detection: php_lang_weak_hash_sha1_algo

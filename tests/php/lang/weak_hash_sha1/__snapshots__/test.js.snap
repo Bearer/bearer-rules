@@ -1,5 +1,136 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `"{}"`;
+exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "php_lang_weak_hash_sha1",
+      "title": "Weak hashing library (SHA-1) detected",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/insecure.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "94007e1e-57d8-43e8-90f2-246236dc5dde",
+        "name": "Gender"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 19,
+          "end": 32
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 14,
+          "end": 33
+        },
+        "content": "sha1($user->gender)"
+      },
+      "parent_line_number": 3,
+      "snippet": "sha1($user->gender)",
+      "fingerprint": "84cdb4744f0dfa0a4a190a968b9ffe27_0",
+      "old_fingerprint": "30309e1653f6f235f54d52c14c7673dd_0",
+      "code_extract": "$encrypted = sha1($user->gender);"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "php_lang_weak_hash_sha1",
+      "title": "Weak hashing library (SHA-1) detected",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/insecure.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "94007e1e-57d8-43e8-90f2-246236dc5dde",
+        "name": "Gender"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 27,
+          "end": 40
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 14,
+          "end": 41
+        },
+        "content": "hash('sha1', $user->gender)"
+      },
+      "parent_line_number": 4,
+      "snippet": "hash('sha1', $user->gender)",
+      "fingerprint": "84cdb4744f0dfa0a4a190a968b9ffe27_1",
+      "old_fingerprint": "30309e1653f6f235f54d52c14c7673dd_1",
+      "code_extract": "$encrypted = hash('sha1', $user->gender);"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "php_lang_weak_hash_sha1",
+      "title": "Weak hashing library (SHA-1) detected",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/insecure.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "94007e1e-57d8-43e8-90f2-246236dc5dde",
+        "name": "Gender"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 31,
+          "end": 44
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 14,
+          "end": 45
+        },
+        "content": "hash($algorithm, $user->gender)"
+      },
+      "parent_line_number": 6,
+      "snippet": "hash($algorithm, $user->gender)",
+      "fingerprint": "84cdb4744f0dfa0a4a190a968b9ffe27_2",
+      "old_fingerprint": "30309e1653f6f235f54d52c14c7673dd_2",
+      "code_extract": "$encrypted = hash($algorithm, $user->gender);"
+    }
+  ]
+}"
+`;
 
 exports[`php_lang_weak_hash_sha1 secure_type 1`] = `"{}"`;
