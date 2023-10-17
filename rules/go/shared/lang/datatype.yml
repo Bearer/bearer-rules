@@ -1,0 +1,21 @@
+type: shared
+languages:
+  - go
+sanitizer: go_shared_lang_datatype_sanitizer
+patterns:
+  - pattern: $<DATA_TYPE>
+    filters:
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: cursor_strict
+auxiliary:
+  - id: go_shared_lang_datatype_sanitizer
+    # these patterns correspond to the projections in the built-in object detector
+    patterns:
+      - pattern: $<OBJECT>.$<_>
+        focus: OBJECT
+      - pattern: $<OBJECT>[$<_>]
+        focus: OBJECT
+metadata:
+  description: "Go datatype."
+  id: go_shared_lang_datatype

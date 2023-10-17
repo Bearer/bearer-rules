@@ -1,0 +1,61 @@
+imports:
+  - go_shared_lang_datatype
+patterns:
+  - pattern: $<MD5_INIT>.Sum($<OPTIONAL_DATA_TYPE>)
+    filters:
+      - variable: MD5_INIT
+        detection: go_lang_weak_hash_md5_init
+        scope: cursor
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: go_shared_lang_datatype
+            scope: result
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: go_shared_lang_datatype
+              scope: result
+  - pattern: md5.Sum($<OPTIONAL_DATA_TYPE>)
+    filters:
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: go_shared_lang_datatype
+            scope: result
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: go_shared_lang_datatype
+              scope: result
+auxiliary:
+  - id: go_lang_weak_hash_md5_init
+    patterns:
+      - md5.New()
+languages:
+  - go
+skip_data_types:
+  - "Unique Identifier"
+  - "Passwords" # see go_lang_weak_password_encryption_md5
+metadata:
+  description: "Weak hashing library (MD5) detected."
+  remediation_message: |
+    ## Description
+
+    A weak hashing library can lead to data breaches and greater security risk.
+
+    ## Remediations
+    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 and its predecessors are considered weak hash algorithms and therefore shouldn't be used.
+
+    ❌ Avoid libraries and algorithms with known weaknesses:
+
+    ```go
+    md5.Sum([]byte('password'))
+    ```
+
+    ✅ Instead, we recommend using sha256:
+
+    ```go
+    sha256.Sum256([]byte('string'))
+    ```
+  cwe_id:
+    - 331
+    - 328
+  id: go_lang_weak_hash_md5
+  documentation_url: https://docs.bearer.com/reference/rules/go_lang_weak_hash_md5
