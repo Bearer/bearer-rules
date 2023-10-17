@@ -1,15 +1,17 @@
+imports:
+  - ruby_shared_common_datatype
 patterns:
   - pattern: |
       Sentry::Breadcrumb.new($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.capture_message($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.init do |$<CONFIG:identifier>|
@@ -19,13 +21,13 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.set_context($<_>, $<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.configure_scope do |$<SCOPE:identifier>|
@@ -33,7 +35,7 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.with_scope do |$<SCOPE:identifier>|
@@ -41,7 +43,7 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.configure_scope do |$<SCOPE:identifier>|
@@ -49,7 +51,7 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.with_scope do |$<SCOPE:identifier>|
@@ -57,13 +59,13 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.set_extras($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.configure_scope do |$<SCOPE:identifier>|
@@ -71,7 +73,7 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.with_scope do |$<SCOPE:identifier>|
@@ -79,7 +81,7 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.configure_scope do |$<SCOPE:identifier>|
@@ -87,7 +89,7 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.with_scope do |$<SCOPE:identifier>|
@@ -95,13 +97,13 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.set_tags($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.configure_scope do |$<SCOPE:identifier>|
@@ -109,7 +111,7 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.with_scope do |$<SCOPE:identifier>|
@@ -117,13 +119,13 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.set_user($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.configure_scope do |$<SCOPE:identifier>|
@@ -131,7 +133,7 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Sentry.with_scope do |$<SCOPE:identifier>|
@@ -139,7 +141,7 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
 languages:
   - ruby

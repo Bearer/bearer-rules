@@ -1,5 +1,6 @@
 imports:
   - java_shared_lang_message_digest_sha1_init
+  - java_shared_lang_datatype
 patterns:
   - pattern: |
       $<MESSAGE_DIGEST_SHA1_INIT>.update($<DATA_TYPE>)
@@ -8,7 +9,7 @@ patterns:
         detection: java_shared_lang_message_digest_sha1_init
         scope: cursor
       - variable: DATA_TYPE
-        detection: datatype
+        detection: java_shared_lang_datatype
         scope: result
   - pattern: |
       $<MESSAGE_DIGEST_SHA1_INIT>.update()

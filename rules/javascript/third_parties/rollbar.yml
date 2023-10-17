@@ -1,3 +1,5 @@
+imports:
+  - javascript_shared_common_datatype
 patterns:
   - pattern: |
       $<ROLLBAR>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
@@ -14,7 +16,7 @@ patterns:
           - info
           - debug
       - variable: DATA_TYPE
-        detection: datatype
+        detection: javascript_shared_common_datatype
         scope: result
 languages:
   - javascript

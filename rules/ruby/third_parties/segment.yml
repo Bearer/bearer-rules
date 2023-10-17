@@ -1,3 +1,5 @@
+imports:
+  - ruby_shared_common_datatype
 patterns:
   - pattern: |
       $<SEGMENT_ANALYTICS>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
@@ -13,7 +15,7 @@ patterns:
           - page
           - track
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
 auxiliary:
   - id: segment_init

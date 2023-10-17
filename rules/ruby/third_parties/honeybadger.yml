@@ -1,15 +1,17 @@
+imports:
+  - ruby_shared_common_datatype
 patterns:
   - pattern: |
       Honeybadger.notify($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Honeybadger.context($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       def to_honeybadger_context
@@ -17,13 +19,13 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Honeybadger.add_breadcrumb($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
 languages:
   - ruby

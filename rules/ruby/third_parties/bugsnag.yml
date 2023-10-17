@@ -1,15 +1,17 @@
+imports:
+  - ruby_shared_common_datatype
 patterns:
   - pattern: |
       Bugsnag.leave_breadcrumb($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Bugsnag.notify($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: $<EVENT>.add_metadata($<...>$<DATA_TYPE>$<...>)
     filters:
@@ -17,7 +19,7 @@ patterns:
         detection: ruby_third_parties_bugsnag_event
         scope: cursor
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
 auxiliary:
   - id: ruby_third_parties_bugsnag_event

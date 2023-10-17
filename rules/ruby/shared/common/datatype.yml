@@ -1,0 +1,86 @@
+type: shared
+languages:
+  - ruby
+sanitizer: ruby_shared_common_datatype_sanitizer
+patterns:
+  - pattern: $<DATA_TYPE>;
+    filters:
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: cursor_strict
+auxiliary:
+  - id: ruby_shared_common_datatype_sanitizer
+    # these patterns correspond to the projections in the built-in object detector
+    patterns:
+      - pattern: $<OBJECT>.$<NAME>
+        focus: OBJECT
+        filters:
+          - not:
+              variable: NAME
+              # these correspond to the reflexive methods in the CLI language analyzer
+              values:
+                - to_a
+                - to_ary
+                - to_h
+                - to_hash
+                - to_s
+                - to_str
+                - to_i
+                - to_f
+                - to_c
+                - to_d
+                - to_r
+                - to_sym
+                - to_json
+                # string
+                - bytes
+                - capitalize
+                - capitalize
+                - chars
+                - delete
+                - delete
+                - delete_prefix
+                - delete_prefix
+                - delete_suffix
+                - delete_suffix
+                - downcase
+                - downcase
+                - downcase
+                - encode
+                - encode
+                - force_encoding
+                - gsub
+                - gsub
+                - lines
+                - ljust
+                - lstrip
+                - lstrip
+                - rjust
+                - rstrip
+                - rstrip
+                - scrub
+                - scrub
+                - split
+                - strip
+                - strip
+                - sub
+                - sub
+                - swapcase
+                - swapcase
+                - unicode_normalize
+                - upcase
+                - upcase
+                # hash
+                - fetch
+                - slice
+                # activesupport
+                - classify
+                - presence
+                - html_safe
+                # activerecord
+                - attributes
+      - pattern: $<OBJECT>[$<_>]
+        focus: OBJECT
+metadata:
+  description: "Ruby datatype."
+  id: ruby_shared_common_datatype

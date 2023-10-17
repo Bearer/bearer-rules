@@ -10,6 +10,7 @@ patterns:
         scope: cursor_strict
 auxiliary:
   - id: php_shared_lang_datatype_sanitizer
+    # these patterns correspond to the projections in the built-in object detector
     patterns:
       - pattern: $<ARRAY>[$<_>]
         focus: ARRAY

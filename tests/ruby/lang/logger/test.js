@@ -13,4 +13,9 @@ describe(ruleId, () => {
     const testCase = "ok_no_datatypes.rb"
     expect(invoke(testCase)).toMatchSnapshot()
   })
+
+  test("shared_datatype", () => {
+    const testCase = "shared_datatype.rb"
+    expect(invoke(testCase)).toMatchSnapshot()
+  })
 })

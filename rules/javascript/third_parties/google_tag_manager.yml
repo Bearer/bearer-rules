@@ -1,15 +1,17 @@
+imports:
+  - javascript_shared_common_datatype
 patterns:
   - pattern: |
       dataLayer.push($<DATA_TYPE>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: javascript_shared_common_datatype
         scope: result
   - pattern: |
       window.dataLayer.push($<DATA_TYPE>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: javascript_shared_common_datatype
         scope: result
 languages:
   - javascript

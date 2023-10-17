@@ -1,9 +1,11 @@
+imports:
+  - java_shared_lang_datatype
 patterns:
   - pattern: |
       $<LOG>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: java_shared_lang_datatype
         scope: result
       - variable: METHOD
         values:

@@ -1,11 +1,13 @@
 languages:
   - ruby
+imports:
+  - ruby_shared_common_datatype
 patterns:
   - pattern: |
       Airbrake.$<METHOD>($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
       - variable: METHOD
         values:
@@ -25,7 +27,7 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
       - variable: METHOD
         values:
@@ -43,7 +45,7 @@ patterns:
       Airbrake.merge_context($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       def to_airbrake
@@ -51,7 +53,7 @@ patterns:
       end
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
 skip_data_types:
   - "Unique Identifier"

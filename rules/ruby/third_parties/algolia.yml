@@ -1,3 +1,5 @@
+imports:
+  - ruby_shared_common_datatype
 patterns:
   - pattern: |
       $<INDEX>.$<METHOD>($<DATA_TYPE>$<...>)
@@ -10,7 +12,7 @@ patterns:
           - save_object
           - save_objects
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
 languages:
   - ruby

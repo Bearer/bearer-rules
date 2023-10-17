@@ -1,3 +1,5 @@
+imports:
+  - javascript_shared_common_datatype
 patterns:
   - pattern: |
       $<LOG>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
@@ -14,7 +16,7 @@ patterns:
           - log
           - logger
       - variable: DATA_TYPE
-        detection: datatype
+        detection: javascript_shared_common_datatype
         scope: result
   - pattern: |
       console.$<METHOD>($<...>$<DATA_TYPE>$<...>)
@@ -27,7 +29,7 @@ patterns:
           - log
           - table
       - variable: DATA_TYPE
-        detection: datatype
+        detection: javascript_shared_common_datatype
         scope: result
   - pattern: |
       $<LOG>.child($<...>$<DATA_TYPE>$<...>)
@@ -37,7 +39,7 @@ patterns:
           - log
           - logger
       - variable: DATA_TYPE
-        detection: datatype
+        detection: javascript_shared_common_datatype
         scope: result
   - pattern: |
       $<VAR>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
@@ -53,7 +55,7 @@ patterns:
           - fatal
           - log
       - variable: DATA_TYPE
-        detection: datatype
+        detection: javascript_shared_common_datatype
         scope: result
 auxiliary:
   - id: child_logger
