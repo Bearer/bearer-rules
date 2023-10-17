@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_lang_logger bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "209",
+        "532"
+      ],
+      "id": "go_lang_logger",
+      "title": "Sensitive data in a logger message detected.",
+      "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`go\\nlogger.info(f\\"User is: '{user.email}'\\")\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`go\\nlogger.info(f\\"User is: '{user.uuid}'\\")\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_logger",
+      "line_number": 20,
+      "full_filename": "/tmp/bearer-scan/bad.go",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Fullname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 20,
+        "end": 20,
+        "column": {
+          "start": 3,
+          "end": 7
+        }
+      },
+      "sink": {
+        "start": 29,
+        "end": 29,
+        "column": {
+          "start": 2,
+          "end": 23
+        },
+        "content": "log.Error().Msg(user)"
+      },
+      "parent_line_number": 29,
+      "snippet": "log.Error().Msg(user)",
+      "fingerprint": "3d34def450156dc98ba7c995e89bc3dd_0",
+      "old_fingerprint": "1a0df3e5fa545e7c7c38ca47ea248bbd_0",
+      "code_extract": "\\tlog.Error().Msg(user)  // expect detection"
+    },
+    {
+      "cwe_ids": [
+        "209",
+        "532"
+      ],
+      "id": "go_lang_logger",
+      "title": "Sensitive data in a logger message detected.",
+      "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`go\\nlogger.info(f\\"User is: '{user.email}'\\")\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`go\\nlogger.info(f\\"User is: '{user.uuid}'\\")\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_logger",
+      "line_number": 21,
+      "full_filename": "/tmp/bearer-scan/bad.go",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "94007e1e-57d8-43e8-90f2-246236dc5dde",
+        "name": "Gender"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 21,
+        "end": 21,
+        "column": {
+          "start": 3,
+          "end": 9
+        }
+      },
+      "sink": {
+        "start": 29,
+        "end": 29,
+        "column": {
+          "start": 2,
+          "end": 23
+        },
+        "content": "log.Error().Msg(user)"
+      },
+      "parent_line_number": 29,
+      "snippet": "log.Error().Msg(user)",
+      "fingerprint": "3d34def450156dc98ba7c995e89bc3dd_1",
+      "old_fingerprint": "1a0df3e5fa545e7c7c38ca47ea248bbd_1",
+      "code_extract": "\\tlog.Error().Msg(user)  // expect detection"
+    },
+    {
+      "cwe_ids": [
+        "209",
+        "532"
+      ],
+      "id": "go_lang_logger",
+      "title": "Sensitive data in a logger message detected.",
+      "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`go\\nlogger.info(f\\"User is: '{user.email}'\\")\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`go\\nlogger.info(f\\"User is: '{user.uuid}'\\")\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_logger",
+      "line_number": 24,
+      "full_filename": "/tmp/bearer-scan/bad.go",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Fullname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 24,
+        "end": 24,
+        "column": {
+          "start": 10,
+          "end": 19
+        }
+      },
+      "sink": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 2,
+          "end": 23
+        },
+        "content": "log.Error().Msg(name)"
+      },
+      "parent_line_number": 27,
+      "snippet": "log.Error().Msg(name)",
+      "fingerprint": "3d34def450156dc98ba7c995e89bc3dd_2",
+      "old_fingerprint": "1a0df3e5fa545e7c7c38ca47ea248bbd_2",
+      "code_extract": "\\tlog.Error().Msg(name)  // expect detection"
+    },
+    {
+      "cwe_ids": [
+        "209",
+        "532"
+      ],
+      "id": "go_lang_logger",
+      "title": "Sensitive data in a logger message detected.",
+      "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`go\\nlogger.info(f\\"User is: '{user.email}'\\")\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`go\\nlogger.info(f\\"User is: '{user.uuid}'\\")\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_logger",
+      "line_number": 25,
+      "full_filename": "/tmp/bearer-scan/bad.go",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Fullname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 25,
+        "end": 25,
+        "column": {
+          "start": 14,
+          "end": 27
+        }
+      },
+      "sink": {
+        "start": 28,
+        "end": 28,
+        "column": {
+          "start": 2,
+          "end": 24
+        },
+        "content": "log.Error().Msg(other)"
+      },
+      "parent_line_number": 28,
+      "snippet": "log.Error().Msg(other)",
+      "fingerprint": "3d34def450156dc98ba7c995e89bc3dd_3",
+      "old_fingerprint": "1a0df3e5fa545e7c7c38ca47ea248bbd_3",
+      "code_extract": "\\tlog.Error().Msg(other) // expect detection"
+    }
+  ]
+}"
+`;
+
+exports[`go_lang_logger ok 1`] = `"{}"`;
