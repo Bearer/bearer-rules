@@ -1,3 +1,5 @@
+imports:
+  - php_shared_lang_datatype
 languages:
   - php
 patterns:
@@ -10,7 +12,7 @@ patterns:
           - fwrite
           - file_put_contents
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
 metadata:
   description: "Sensitive data detected as part of a dynamic file generation."

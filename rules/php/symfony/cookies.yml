@@ -1,3 +1,5 @@
+imports:
+  - php_shared_lang_datatype
 patterns:
   - pattern: |
       $<CLASS>::create($<_>, $<DATA_TYPE>$<...>)
@@ -5,7 +7,7 @@ patterns:
       - variable: CLASS
         regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: |
       new $<CLASS>($<_>, $<DATA_TYPE>$<...>)
@@ -13,7 +15,7 @@ patterns:
       - variable: CLASS
         regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
 languages:
   - php

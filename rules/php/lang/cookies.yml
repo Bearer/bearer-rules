@@ -1,3 +1,5 @@
+imports:
+  - php_shared_lang_datatype
 patterns:
   - pattern: |
       $<FUNCTION>($<_>, $<DATA_TYPE>$<...>)
@@ -7,7 +9,7 @@ patterns:
           - setcookie
           - setrawcookie
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
 languages:
   - php

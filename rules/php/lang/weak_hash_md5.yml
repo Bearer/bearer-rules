@@ -1,9 +1,11 @@
+imports:
+  - php_shared_lang_datatype
 patterns:
   - pattern: |
       md5($<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: |
       hash($<ALGORITHM>, $<DATA_TYPE>$<...>)
@@ -11,7 +13,7 @@ patterns:
       - variable: ALGORITHM
         detection: php_lang_weak_hash_md5_algo
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
 auxiliary:
   - id: php_lang_weak_hash_md5_algo

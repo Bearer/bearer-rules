@@ -3,6 +3,7 @@ languages:
 imports:
   - php_shared_lang_instance
   - php_shared_lang_http_url
+  - php_shared_lang_datatype
 patterns:
   - pattern: $<HTTP_URL>;
     filters:
@@ -11,7 +12,7 @@ patterns:
         scope: cursor_strict
         filters:
           - variable: URL
-            detection: datatype
+            detection: php_shared_lang_datatype
             scope: result
   - pattern: $<GUZZLE>->$<METHOD>($<_>, $<_>, $<OPTIONS>)
     filters:
@@ -62,7 +63,7 @@ patterns:
       - variable: CLASS
         regex: \A(Http\\Message\\Authentication\\)?QueryParam\z
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: $<CLIENT>->setParameterGet($<DATA_TYPE>)
     filters:
@@ -73,7 +74,7 @@ patterns:
           - variable: CLASS
             regex: \A((Laminas|Zend)\\Http\\)?Client\z
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: $<QUERY>->$<METHOD>($<...>$<DATA_TYPE>$<...>)
     filters:
@@ -85,7 +86,7 @@ patterns:
           - set
           - offsetSet
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: $<QUERY>->$<_> = $<DATA_TYPE>
     filters:
@@ -93,7 +94,7 @@ patterns:
         detection: php_lang_http_url_using_sensitive_data_laminas_query
         scope: cursor
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: $<CLASS>::$<METHOD>($<_>, $<DATA_TYPE>)
     filters:
@@ -104,7 +105,7 @@ patterns:
           - head
           - get
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: $<HTTP>->$<METHOD>($<_>, $<DATA_TYPE>)
     filters:
@@ -116,14 +117,14 @@ patterns:
           - head
           - get
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: $<CLASS>::withQueryParameters($<DATA_TYPE>)
     filters:
       - variable: CLASS
         regex: \A(Illuminate\\Support\\Facades\\)?Http\z
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: $<HTTP>->withQueryParameters($<DATA_TYPE>)
     filters:
@@ -131,7 +132,7 @@ patterns:
         detection: php_lang_http_url_using_sensitive_data_laravel_http
         scope: cursor
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: $<CLASS>::send($<_>, $<_>, $<OPTIONS>)
     filters:
@@ -162,21 +163,21 @@ patterns:
           - addQuery
           - setQuery
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: $<CLASS>::request($<_>, $<_>, $<DATA_TYPE>)
     filters:
       - variable: CLASS
         regex: \A(WpOrg\\Requests\\)?Requests\z
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: $<CLASS>::request($<_>, $<_>, $<DATA_TYPE>, $<TYPE>$<...>)
     filters:
       - variable: CLASS
         regex: \A(WpOrg\\Requests\\)?Requests\z
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
       - variable: TYPE
         detection: php_lang_http_url_using_sensitive_data_requests_type
@@ -206,7 +207,7 @@ patterns:
       - variable: CLASS
         regex: \A(WpOrg\\Requests\\)?Session\z
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: $<SESSION>->request($<_>, $<_>, $<DATA_TYPE>)
     filters:
@@ -217,7 +218,7 @@ patterns:
           - variable: CLASS
             regex: \A(WpOrg\\Requests\\)?Session\z
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: $<SESSION>->request($<_>, $<_>, $<DATA_TYPE>, $<TYPE>$<...>)
     filters:
@@ -228,7 +229,7 @@ patterns:
           - variable: CLASS
             regex: \A(WpOrg\\Requests\\)?Session\z
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
       - variable: TYPE
         detection: php_lang_http_url_using_sensitive_data_requests_type
@@ -273,7 +274,7 @@ patterns:
           - put
           - delete
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   # symfony
   - pattern: $<_>->request($<_>, $<_>, $<OPTIONS>$<...>)
@@ -286,7 +287,7 @@ patterns:
       - variable: CLASS
         regex: \A(Unirest\\)?Request\z
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: |
       $<CLASS>::get(parameters: $<DATA_TYPE>)
@@ -294,7 +295,7 @@ patterns:
       - variable: CLASS
         regex: \A(Unirest\\)?Request\z
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: $<CLASS>::send($<TYPE>, $<_>, $<_>, $<DATA_TYPE>$<...>)
     filters:
@@ -303,7 +304,7 @@ patterns:
       - variable: CLASS
         regex: \A(Unirest\\)?Request\z
       - variable: DATA_TYPE
-        detection: datatype
+        detection: php_shared_lang_datatype
         scope: result
   - pattern: $<SEND>;
     filters:
@@ -319,7 +320,7 @@ auxiliary:
       - pattern: array('query' => $<DATA_TYPE>)
         filters:
           - variable: DATA_TYPE
-            detection: datatype
+            detection: php_shared_lang_datatype
             scope: result
   - id: php_lang_http_url_using_sensitive_data_laminas_query
     patterns:
@@ -373,7 +374,7 @@ auxiliary:
       - pattern: array('data' => $<DATA_TYPE>)
         filters:
           - variable: DATA_TYPE
-            detection: datatype
+            detection: php_shared_lang_datatype
             scope: result
   - id: php_lang_http_url_using_sensitive_data_requests_options_type
     patterns:
@@ -393,7 +394,7 @@ auxiliary:
           - variable: CLASS
             regex: \A(WpOrg\\Requests\\)?Requests\z
           - variable: DATA_TYPE
-            detection: datatype
+            detection: php_shared_lang_datatype
             scope: result
   - id: php_lang_http_url_using_sensitive_data_requests_request_type
     patterns:
@@ -419,7 +420,7 @@ auxiliary:
               - variable: CLASS
                 regex: \A(WpOrg\\Requests\\)?Session\z
           - variable: DATA_TYPE
-            detection: datatype
+            detection: php_shared_lang_datatype
             scope: result
   - id: php_lang_http_url_using_sensitive_data_requests_session_request_type
     patterns:
@@ -441,7 +442,7 @@ auxiliary:
           - variable: CLASS
             regex: \A(Unirest\\)?Request\z
           - variable: DATA_TYPE
-            detection: datatype
+            detection: php_shared_lang_datatype
             scope: result
   - id: php_lang_http_url_using_sensitive_data_unirest_send_type
     patterns:
