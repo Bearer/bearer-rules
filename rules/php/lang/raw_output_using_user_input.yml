@@ -1,0 +1,58 @@
+imports:
+  - php_shared_lang_html_user_input
+patterns:
+  - pattern: echo $<USER_INPUT>
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_html_user_input
+        scope: result
+  - pattern: print $<USER_INPUT>;
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_html_user_input
+        scope: result
+  - pattern: print_r($<USER_INPUT>)
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_html_user_input
+        scope: result
+  - pattern: $<METHOD>($<_>, $<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: METHOD
+        values:
+          - printf
+          - vprintf
+      - variable: USER_INPUT
+        detection: php_shared_lang_html_user_input
+        scope: result
+languages:
+  - php
+metadata:
+  description: "Unsanitized user input detected in echo."
+  remediation_message: |
+    ## Description
+
+    Applications should not include unsanitized user input in responses. This
+    can allow cross-site scripting (XSS) attacks.
+
+    ## Remediations
+
+    ❌ Avoid including user input directly in the response:
+
+    ```ruby
+    echo "<h1>" . $_GET["title"] . "</h1>"
+    ```
+
+    ✅ Sanitize user input when including it in a response:
+
+    ```ruby
+    echo "<h1>" . filter_var($_GET["title"], FILTER_SANITIZE_STRING). "</h1>"
+    ```
+
+    ## Resources
+
+    - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+  cwe_id:
+    - 79
+  id: php_lang_raw_output_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_raw_output_using_user_input

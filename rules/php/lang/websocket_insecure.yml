@@ -1,0 +1,44 @@
+languages:
+  - php
+imports:
+  - php_shared_lang_insecure_url
+patterns:
+  - pattern: new WebSocket($<INSECURE_URL>$<...>)
+    filters:
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: cursor
+  - pattern: new WebSocket\Client($<INSECURE_URL>$<...>)
+    filters:
+      - variable: INSECURE_URL
+        detection: php_shared_lang_insecure_url
+        scope: cursor
+severity: low
+metadata:
+  description: "Insecure websocket communication detected."
+  remediation_message: |
+    ## Description
+
+    Applications should only connect to APIs using SSL connections. This rule
+    checks that all websocket connections use SSL.
+
+    ## Remediations
+
+    ❌ Avoid using unsecured outgoing websocket communication:
+
+    ```php
+    $client = new Client('ws://insecure-api.com')
+    ```
+
+    ✅ Always connect using SSL:
+
+    ```php
+    $client = new Client('wss://secure-api.com')
+    ```
+
+    ## Resources
+    - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
+  cwe_id:
+    - 319
+  id: php_lang_websocket_insecure
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_websocket_insecure

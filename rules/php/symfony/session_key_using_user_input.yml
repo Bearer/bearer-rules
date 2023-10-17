@@ -1,0 +1,56 @@
+imports:
+  - php_shared_lang_user_input
+  - php_shared_lang_instance
+patterns:
+  - pattern: $<SESSION>->$<METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: SESSION
+        detection: php_symfony_session_key_using_user_input_session
+        scope: cursor
+      - variable: METHOD
+        values:
+          - get
+          - put
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+auxiliary:
+  - id: php_symfony_session_key_using_user_input_session
+    patterns:
+      - pattern: $<REQUEST_STACK>->getSession()
+        filters:
+          - variable: REQUEST_STACK
+            detection: php_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: CLASS
+                regex: \A(Symfony\\Component\\HttpFoundation\\)?RequestStack\z
+      - pattern: $<REQUEST>->getSession()
+        filters:
+          - variable: REQUEST
+            detection: php_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: CLASS
+                regex: \A(Symfony\\Component\\HttpFoundation\\)?Request\z
+      # fallback until we have instance variable support
+      - $<_>->getSession()
+languages:
+  - php
+severity: high
+metadata:
+  description: "User input detected in a session key."
+  remediation_message: |
+    ## Description
+    Using user-defined data in a session key is bad practice and can allow
+    attackers to perform unsafe actions.
+
+    ## Remediations
+    ❌ Avoid using user-defined data in session keys
+
+    ## Resources
+    - [OWASP Session management cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
+  cwe_id:
+    - 276
+  id: php_symfony_session_key_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/php_symfony_session_key_using_user_input

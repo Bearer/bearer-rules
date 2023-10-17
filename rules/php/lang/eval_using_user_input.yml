@@ -1,0 +1,44 @@
+imports:
+  - php_shared_lang_user_input
+patterns:
+  - pattern: eval($<USER_INPUT>)
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: create_function($<_>, $<USER_INPUT>)
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: $<FUNCTION>($<USER_INPUT>$<...>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - call_user_func
+          - call_user_func_array
+          - assert
+          - array_map
+          - extract
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+languages:
+  - php
+severity: high
+metadata:
+  description: "Potential command injection with user input detected."
+  remediation_message: |
+    ## Description
+    It is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to command injection.
+
+    ## Remediations
+    ❌ Avoid using code execution methods with unsanitized user input.
+
+    ## Resources
+    - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
+  cwe_id:
+    - 94
+    - 95
+  id: php_lang_eval_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_eval_using_user_input

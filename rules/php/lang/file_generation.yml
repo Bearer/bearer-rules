@@ -1,0 +1,39 @@
+imports:
+  - php_shared_lang_datatype
+languages:
+  - php
+patterns:
+  - pattern: $<METHOD>($<_>,$<DATA_TYPE>$<...>)
+    filters:
+      - variable: METHOD
+        values:
+          - fputcsv
+          - fputs
+          - fwrite
+          - file_put_contents
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+metadata:
+  description: "Sensitive data detected as part of a dynamic file generation."
+  remediation_message: |
+    ## Description
+
+    It is not uncommon to generate logs, backups, or data exports to static file formats. This rule checks if code exists to write sensitive data to static files.
+
+    ## Remediations
+
+    ❌ Avoid code like the following:
+
+    ```php
+      foreach ($users as $user) {
+        fputcsv($csvFile, [$user['email'], $user['address']]);
+      }
+    ```
+
+    In instances where writing sensitive data is intentional, make sure to document its location according to your internal policies.
+  cwe_id:
+    - 532
+    - 313
+  id: php_lang_file_generation
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_file_generation

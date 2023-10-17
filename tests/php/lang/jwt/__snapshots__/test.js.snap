@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_jwt bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "315"
+      ],
+      "id": "php_lang_jwt",
+      "title": "Sensitive data in a JWT detected.",
+      "description": "## Description\\n\\nJWTs are not a secure place to store sensitive data. This rule looks for any sensitive data types saved to a JWT.\\n\\n## Remediations\\n\\n❌ Avoid storing sensitive data in JWT:\\n\\n\`\`\`php\\n$payload = [\\n  'data' => 'data',\\n  'email' => $user->email\\n];\\n$jwt = JWT::encode($payload, $key, 'HS256');\\n\`\`\`\\n\\n✅ If you need to store user's information, use their unique database identifier instead of personal identifiable information:\\n\\n\`\`\`php\\n$payload = [\\n  'data' => 'data',\\n  'uuid' => $user->uuid\\n];\\n$jwt = JWT::encode($payload, $key, 'HS256');\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_jwt",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 3,
+          "end": 10
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 8,
+          "end": 44
+        },
+        "content": "JWT::encode($payload, $key, 'HS256')"
+      },
+      "parent_line_number": 12,
+      "snippet": "JWT::encode($payload, $key, 'HS256')",
+      "fingerprint": "2c07ccf2e645a51356b454ae9faec789_0",
+      "old_fingerprint": "03117a21af1f99c96c44e30d3b261308_0",
+      "code_extract": "$jwt = JWT::encode($payload, $key, 'HS256');"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_jwt ok 1`] = `"{}"`;

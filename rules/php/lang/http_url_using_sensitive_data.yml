@@ -1,0 +1,498 @@
+languages:
+  - php
+imports:
+  - php_shared_lang_instance
+  - php_shared_lang_http_url
+  - php_shared_lang_datatype
+patterns:
+  - pattern: $<HTTP_URL>;
+    filters:
+      - variable: HTTP_URL
+        detection: php_shared_lang_http_url
+        scope: cursor_strict
+        filters:
+          - variable: URL
+            detection: php_shared_lang_datatype
+            scope: result
+  - pattern: $<GUZZLE>->$<METHOD>($<_>, $<_>, $<OPTIONS>)
+    filters:
+      - variable: GUZZLE
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(GuzzleHttp\\)?Client\z
+      - variable: METHOD
+        values:
+          - request
+          - requestAsync
+      - variable: OPTIONS
+        detection: php_lang_http_url_using_sensitive_data_guzzle_options
+        scope: cursor
+  - pattern: $<GUZZLE>->$<METHOD>($<_>, $<OPTIONS>)
+    filters:
+      - variable: GUZZLE
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(GuzzleHttp\\)?Client\z
+      - variable: METHOD
+        values:
+          - get
+          - delete
+          - head
+          - options
+          - patch
+          - post
+          - put
+          - getAsync
+          - deleteAsync
+          - headAsync
+          - optionsAsync
+          - patchAsync
+          - postAsync
+          - putAsync
+          - send
+          - sendAsync
+      - variable: OPTIONS
+        detection: php_lang_http_url_using_sensitive_data_guzzle_options
+        scope: cursor
+  - pattern: new $<CLASS>($<DATA_TYPE>)
+    filters:
+      - variable: CLASS
+        regex: \A(Http\\Message\\Authentication\\)?QueryParam\z
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<CLIENT>->setParameterGet($<DATA_TYPE>)
+    filters:
+      - variable: CLIENT
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A((Laminas|Zend)\\Http\\)?Client\z
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<QUERY>->$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: QUERY
+        detection: php_lang_http_url_using_sensitive_data_laminas_query
+        scope: cursor
+      - variable: METHOD
+        values:
+          - set
+          - offsetSet
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<QUERY>->$<_> = $<DATA_TYPE>
+    filters:
+      - variable: QUERY
+        detection: php_lang_http_url_using_sensitive_data_laminas_query
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<CLASS>::$<METHOD>($<_>, $<DATA_TYPE>)
+    filters:
+      - variable: CLASS
+        regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+      - variable: METHOD
+        values:
+          - head
+          - get
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<HTTP>->$<METHOD>($<_>, $<DATA_TYPE>)
+    filters:
+      - variable: HTTP
+        detection: php_lang_http_url_using_sensitive_data_laravel_http
+        scope: cursor
+      - variable: METHOD
+        values:
+          - head
+          - get
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<CLASS>::withQueryParameters($<DATA_TYPE>)
+    filters:
+      - variable: CLASS
+        regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<HTTP>->withQueryParameters($<DATA_TYPE>)
+    filters:
+      - variable: HTTP
+        detection: php_lang_http_url_using_sensitive_data_laravel_http
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<CLASS>::send($<_>, $<_>, $<OPTIONS>)
+    filters:
+      - variable: CLASS
+        regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+      - variable: OPTIONS
+        detection: php_lang_http_url_using_sensitive_data_guzzle_options
+        scope: cursor
+  - pattern: $<HTTP>->send($<_>, $<_>, $<OPTIONS>)
+    filters:
+      - variable: HTTP
+        detection: php_lang_http_url_using_sensitive_data_laravel_http
+        scope: cursor
+      - variable: OPTIONS
+        detection: php_lang_http_url_using_sensitive_data_guzzle_options
+        scope: cursor
+  # pecl_http
+  - pattern: $<REQUEST>->$<METHOD>($<DATA_TYPE>)
+    filters:
+      - variable: REQUEST
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(http\\Client\\)?Request\z
+      - variable: METHOD
+        values:
+          - addQuery
+          - setQuery
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<CLASS>::request($<_>, $<_>, $<DATA_TYPE>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Requests\z
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<CLASS>::request($<_>, $<_>, $<DATA_TYPE>, $<TYPE>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Requests\z
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+      - variable: TYPE
+        detection: php_lang_http_url_using_sensitive_data_requests_type
+        scope: cursor
+  - pattern: $<REQUEST>;
+    filters:
+      - variable: REQUEST
+        detection: php_lang_http_url_using_sensitive_data_requests_request_data
+        scope: cursor
+      - either:
+          - variable: REQUEST
+            detection: php_lang_http_url_using_sensitive_data_requests_request_type
+            scope: cursor
+          - not:
+              variable: REQUEST
+              detection: php_lang_http_url_using_sensitive_data_requests_request_any_type
+              scope: cursor
+  - pattern: $<CLASS>::request_multiple($<OPTIONS>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Requests\z
+      - variable: OPTIONS
+        detection: php_lang_http_url_using_sensitive_data_requests_options
+        scope: result
+  - pattern: new $<CLASS>($<_>, $<_>, $<DATA_TYPE>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<SESSION>->request($<_>, $<_>, $<DATA_TYPE>)
+    filters:
+      - variable: SESSION
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<SESSION>->request($<_>, $<_>, $<DATA_TYPE>, $<TYPE>$<...>)
+    filters:
+      - variable: SESSION
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+      - variable: TYPE
+        detection: php_lang_http_url_using_sensitive_data_requests_type
+        scope: cursor
+  - pattern: $<REQUEST>;
+    filters:
+      - variable: REQUEST
+        detection: php_lang_http_url_using_sensitive_data_requests_session_request_data
+        scope: cursor
+      - either:
+          - variable: REQUEST
+            detection: php_lang_http_url_using_sensitive_data_requests_session_request_type
+            scope: cursor
+          - not:
+              variable: REQUEST
+              detection: php_lang_http_url_using_sensitive_data_requests_session_request_any_type
+              scope: cursor
+  - pattern: $<SESSION>->request_multiple($<OPTIONS>$<...>)
+    filters:
+      - variable: SESSION
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(WpOrg\\Requests\\)?Session\z
+      - variable: OPTIONS
+        detection: php_lang_http_url_using_sensitive_data_requests_options
+        scope: result
+  - pattern: $<CLIENT>->$<METHOD>($<_>, $<DATA_TYPE>$<...>)
+    filters:
+      - variable: CLIENT
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A(SendGrid\\)?Client\z
+      - variable: METHOD
+        values:
+          - get
+          - post
+          - patch
+          - put
+          - delete
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  # symfony
+  - pattern: $<_>->request($<_>, $<_>, $<OPTIONS>$<...>)
+    filters:
+      - variable: OPTIONS
+        detection: php_lang_http_url_using_sensitive_data_guzzle_options
+        scope: cursor
+  - pattern: $<CLASS>::get($<_>, $<_>, $<DATA_TYPE>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(Unirest\\)?Request\z
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: |
+      $<CLASS>::get(parameters: $<DATA_TYPE>)
+    filters:
+      - variable: CLASS
+        regex: \A(Unirest\\)?Request\z
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<CLASS>::send($<TYPE>, $<_>, $<_>, $<DATA_TYPE>$<...>)
+    filters:
+      - variable: TYPE
+        string_regex: (?i)\Aget\z
+      - variable: CLASS
+        regex: \A(Unirest\\)?Request\z
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<SEND>;
+    filters:
+      - variable: SEND
+        detection: php_lang_http_url_using_sensitive_data_unirest_send_data
+        scope: cursor
+      - variable: SEND
+        detection: php_lang_http_url_using_sensitive_data_unirest_send_type
+        scope: cursor
+auxiliary:
+  - id: php_lang_http_url_using_sensitive_data_guzzle_options
+    patterns:
+      - pattern: array('query' => $<DATA_TYPE>)
+        filters:
+          - variable: DATA_TYPE
+            detection: php_shared_lang_datatype
+            scope: result
+  - id: php_lang_http_url_using_sensitive_data_laminas_query
+    patterns:
+      - pattern: $<REQUEST>->getQuery()
+        filters:
+          - variable: REQUEST
+            detection: php_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: CLASS
+                regex: \A((Laminas|Zend)\\Http\\)?Request\z
+  - id: php_lang_http_url_using_sensitive_data_laravel_http
+    patterns:
+      - pattern: $<CLASS>::$<_>()
+        filters:
+          - variable: CLASS
+            regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+      - pattern: $<HTTP>->$<_>()
+        filters:
+          - variable: HTTP
+            detection: php_lang_http_url_using_sensitive_data_laravel_http
+            scope: cursor
+  - id: php_lang_http_url_using_sensitive_data_requests_type
+    patterns:
+      - pattern: $<CLASS>::$<CONSTANT>
+        filters:
+          - variable: CLASS
+            regex: \A(WpOrg\\Requests\\)?Requests\z
+          - variable: CONSTANT
+            values:
+              - GET
+              - HEAD
+              - DELETE
+  - id: php_lang_http_url_using_sensitive_data_requests_options
+    patterns:
+      - pattern: $<OPTIONS>;
+        filters:
+          - variable: OPTIONS
+            detection: php_lang_http_url_using_sensitive_data_requests_options_data
+            scope: cursor_strict
+          - either:
+              - variable: OPTIONS
+                detection: php_lang_http_url_using_sensitive_data_requests_options_type
+                scope: cursor_strict
+              - not:
+                  variable: OPTIONS
+                  detection: php_lang_http_url_using_sensitive_data_requests_options_any_type
+                  scope: cursor_strict
+  - id: php_lang_http_url_using_sensitive_data_requests_options_data
+    patterns:
+      - pattern: array('data' => $<DATA_TYPE>)
+        filters:
+          - variable: DATA_TYPE
+            detection: php_shared_lang_datatype
+            scope: result
+  - id: php_lang_http_url_using_sensitive_data_requests_options_type
+    patterns:
+      - pattern: array('type' => $<TYPE>)
+        filters:
+          - variable: TYPE
+            detection: php_lang_http_url_using_sensitive_data_requests_type
+            scope: cursor
+  - id: php_lang_http_url_using_sensitive_data_requests_options_any_type
+    patterns:
+      - array('type' => $<_>)
+  - id: php_lang_http_url_using_sensitive_data_requests_request_data
+    patterns:
+      - pattern: |
+          $<CLASS>::request(data: $<DATA_TYPE>)
+        filters:
+          - variable: CLASS
+            regex: \A(WpOrg\\Requests\\)?Requests\z
+          - variable: DATA_TYPE
+            detection: php_shared_lang_datatype
+            scope: result
+  - id: php_lang_http_url_using_sensitive_data_requests_request_type
+    patterns:
+      - pattern: |
+          $<_>::$<_>(type: $<TYPE>)
+        filters:
+          - variable: TYPE
+            detection: php_lang_http_url_using_sensitive_data_requests_type
+            scope: cursor
+  - id: php_lang_http_url_using_sensitive_data_requests_request_any_type
+    patterns:
+      - pattern: |
+          $<_>::$<_>(type: $<_>)
+  - id: php_lang_http_url_using_sensitive_data_requests_session_request_data
+    patterns:
+      - pattern: |
+          $<SESSION>->request(data: $<DATA_TYPE>)
+        filters:
+          - variable: SESSION
+            detection: php_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: CLASS
+                regex: \A(WpOrg\\Requests\\)?Session\z
+          - variable: DATA_TYPE
+            detection: php_shared_lang_datatype
+            scope: result
+  - id: php_lang_http_url_using_sensitive_data_requests_session_request_type
+    patterns:
+      - pattern: |
+          $<_>->$<_>(type: $<TYPE>)
+        filters:
+          - variable: TYPE
+            detection: php_lang_http_url_using_sensitive_data_requests_type
+            scope: cursor
+  - id: php_lang_http_url_using_sensitive_data_requests_session_request_any_type
+    patterns:
+      - pattern: |
+          $<_>->$<_>(type: $<_>)
+  - id: php_lang_http_url_using_sensitive_data_unirest_send_data
+    patterns:
+      - pattern: |
+          $<CLASS>::send(parameters: $<DATA_TYPE>)
+        filters:
+          - variable: CLASS
+            regex: \A(Unirest\\)?Request\z
+          - variable: DATA_TYPE
+            detection: php_shared_lang_datatype
+            scope: result
+  - id: php_lang_http_url_using_sensitive_data_unirest_send_type
+    patterns:
+      - pattern: |
+          $<CLASS>::send($<TYPE>$<...>)
+        filters:
+          - variable: CLASS
+            regex: \A(Unirest\\)?Request\z
+          - variable: TYPE
+            string_regex: (?i)\Aget\z
+metadata:
+  description: "Sensitive data detected in HTTP URL."
+  remediation_message: |
+    ## Description
+    Sensitive data should never be sent as part of the URL in HTTP requests.
+
+    ## Remediations
+    Avoid sending sensitive data in a URL as they can be seen by intermediaries,
+    or could be logged by applications:
+
+    ❌ Avoid adding sensitive data in paths:
+    ```php
+    $curl = curl_init("https://example.com/users/{$user->email}");
+    ```
+
+    ❌ Avoid adding sensitive data in query parameters:
+    ```php
+    $query = http_build_query(['email' => $user->email]);
+    $curl = curl_init("https://example.com/users?$query");
+    ```
+
+    ✅ Use an HTTP POST body if you need to send sensitive data:
+
+    ```php
+    $query = http_build_query(['email' => $user->email]);
+    $curl = curl_init("https://example.com/users/list");
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $query);
+    ```
+
+    ✅ Or avoid sending sending sensitive data altogether:
+
+    ```php
+    $query = http_build_query(['uuid' => $user->uuid]);
+    $curl = curl_init("https://example.com/users?$query");
+    ```
+
+    <!--
+    ## Resources
+    - [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)
+  cwe_id:
+    - 598
+  id: php_lang_http_url_using_sensitive_data
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data

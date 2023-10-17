@@ -1,0 +1,287 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_raw_output_using_user_input echo_using_user_input 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "php_lang_raw_output_using_user_input",
+      "title": "Unsanitized user input detected in echo.",
+      "description": "## Description\\n\\nApplications should not include unsanitized user input in responses. This\\ncan allow cross-site scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid including user input directly in the response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . $_GET[\\"title\\"] . \\"</h1>\\"\\n\`\`\`\\n\\n✅ Sanitize user input when including it in a response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . filter_var($_GET[\\"title\\"], FILTER_SANITIZE_STRING). \\"</h1>\\"\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_raw_output_using_user_input",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/echo.php",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 20
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 20
+        },
+        "content": "echo $_GET['oops'];"
+      },
+      "parent_line_number": 4,
+      "snippet": "echo $_GET['oops'];",
+      "fingerprint": "125f3c6daadbbe3a386a8481b0762a2f_0",
+      "old_fingerprint": "9ea4827cff2bf80fbb8dc04aa85a3897_0",
+      "code_extract": "echo $_GET['oops'];"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "php_lang_raw_output_using_user_input",
+      "title": "Unsanitized user input detected in echo.",
+      "description": "## Description\\n\\nApplications should not include unsanitized user input in responses. This\\ncan allow cross-site scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid including user input directly in the response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . $_GET[\\"title\\"] . \\"</h1>\\"\\n\`\`\`\\n\\n✅ Sanitize user input when including it in a response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . filter_var($_GET[\\"title\\"], FILTER_SANITIZE_STRING). \\"</h1>\\"\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_raw_output_using_user_input",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/echo.php",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 41
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 41
+        },
+        "content": "echo $_GET['ok'] ? $_GET[\\"oops\\"] : \\"20\\";"
+      },
+      "parent_line_number": 6,
+      "snippet": "echo $_GET['ok'] ? $_GET[\\"oops\\"] : \\"20\\";",
+      "fingerprint": "125f3c6daadbbe3a386a8481b0762a2f_1",
+      "old_fingerprint": "9ea4827cff2bf80fbb8dc04aa85a3897_1",
+      "code_extract": "echo $_GET['ok'] ? $_GET[\\"oops\\"] : \\"20\\";"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "php_lang_raw_output_using_user_input",
+      "title": "Unsanitized user input detected in echo.",
+      "description": "## Description\\n\\nApplications should not include unsanitized user input in responses. This\\ncan allow cross-site scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid including user input directly in the response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . $_GET[\\"title\\"] . \\"</h1>\\"\\n\`\`\`\\n\\n✅ Sanitize user input when including it in a response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . filter_var($_GET[\\"title\\"], FILTER_SANITIZE_STRING). \\"</h1>\\"\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_raw_output_using_user_input",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/echo.php",
+      "filename": ".",
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 23
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 23
+        },
+        "content": "echo($oops), ($oops2);"
+      },
+      "parent_line_number": 12,
+      "snippet": "echo($oops), ($oops2);",
+      "fingerprint": "125f3c6daadbbe3a386a8481b0762a2f_2",
+      "old_fingerprint": "9ea4827cff2bf80fbb8dc04aa85a3897_2",
+      "code_extract": "echo($oops), ($oops2);"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "php_lang_raw_output_using_user_input",
+      "title": "Unsanitized user input detected in echo.",
+      "description": "## Description\\n\\nApplications should not include unsanitized user input in responses. This\\ncan allow cross-site scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid including user input directly in the response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . $_GET[\\"title\\"] . \\"</h1>\\"\\n\`\`\`\\n\\n✅ Sanitize user input when including it in a response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . filter_var($_GET[\\"title\\"], FILTER_SANITIZE_STRING). \\"</h1>\\"\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_raw_output_using_user_input",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/echo.php",
+      "filename": ".",
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 31
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 31
+        },
+        "content": "echo($bar . \\"\\"), (\\"\\". $oops2);"
+      },
+      "parent_line_number": 13,
+      "snippet": "echo($bar . \\"\\"), (\\"\\". $oops2);",
+      "fingerprint": "125f3c6daadbbe3a386a8481b0762a2f_3",
+      "old_fingerprint": "9ea4827cff2bf80fbb8dc04aa85a3897_3",
+      "code_extract": "echo($bar . \\"\\"), (\\"\\". $oops2);"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "php_lang_raw_output_using_user_input",
+      "title": "Unsanitized user input detected in echo.",
+      "description": "## Description\\n\\nApplications should not include unsanitized user input in responses. This\\ncan allow cross-site scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid including user input directly in the response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . $_GET[\\"title\\"] . \\"</h1>\\"\\n\`\`\`\\n\\n✅ Sanitize user input when including it in a response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . filter_var($_GET[\\"title\\"], FILTER_SANITIZE_STRING). \\"</h1>\\"\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_raw_output_using_user_input",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/echo.php",
+      "filename": ".",
+      "source": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 20
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 20
+        },
+        "content": "echo $oops, $oops2;"
+      },
+      "parent_line_number": 14,
+      "snippet": "echo $oops, $oops2;",
+      "fingerprint": "125f3c6daadbbe3a386a8481b0762a2f_4",
+      "old_fingerprint": "9ea4827cff2bf80fbb8dc04aa85a3897_4",
+      "code_extract": "echo $oops, $oops2;"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "php_lang_raw_output_using_user_input",
+      "title": "Unsanitized user input detected in echo.",
+      "description": "## Description\\n\\nApplications should not include unsanitized user input in responses. This\\ncan allow cross-site scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid including user input directly in the response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . $_GET[\\"title\\"] . \\"</h1>\\"\\n\`\`\`\\n\\n✅ Sanitize user input when including it in a response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . filter_var($_GET[\\"title\\"], FILTER_SANITIZE_STRING). \\"</h1>\\"\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_raw_output_using_user_input",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/echo.php",
+      "filename": ".",
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 34
+        },
+        "content": "echo \\"my string $oops is $oops2\\";"
+      },
+      "parent_line_number": 15,
+      "snippet": "echo \\"my string $oops is $oops2\\";",
+      "fingerprint": "125f3c6daadbbe3a386a8481b0762a2f_5",
+      "old_fingerprint": "9ea4827cff2bf80fbb8dc04aa85a3897_5",
+      "code_extract": "echo \\"my string $oops is $oops2\\";"
+    },
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "php_lang_raw_output_using_user_input",
+      "title": "Unsanitized user input detected in echo.",
+      "description": "## Description\\n\\nApplications should not include unsanitized user input in responses. This\\ncan allow cross-site scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid including user input directly in the response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . $_GET[\\"title\\"] . \\"</h1>\\"\\n\`\`\`\\n\\n✅ Sanitize user input when including it in a response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . filter_var($_GET[\\"title\\"], FILTER_SANITIZE_STRING). \\"</h1>\\"\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_raw_output_using_user_input",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/echo.php",
+      "filename": ".",
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 1,
+          "end": 33
+        }
+      },
+      "sink": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 1,
+          "end": 33
+        },
+        "content": "echo implode(\\" and \\", $oopsies);"
+      },
+      "parent_line_number": 18,
+      "snippet": "echo implode(\\" and \\", $oopsies);",
+      "fingerprint": "125f3c6daadbbe3a386a8481b0762a2f_6",
+      "old_fingerprint": "9ea4827cff2bf80fbb8dc04aa85a3897_6",
+      "code_extract": "echo implode(\\" and \\", $oopsies);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_raw_output_using_user_input print_using_user_input 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "php_lang_raw_output_using_user_input",
+      "title": "Unsanitized user input detected in echo.",
+      "description": "## Description\\n\\nApplications should not include unsanitized user input in responses. This\\ncan allow cross-site scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid including user input directly in the response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . $_GET[\\"title\\"] . \\"</h1>\\"\\n\`\`\`\\n\\n✅ Sanitize user input when including it in a response:\\n\\n\`\`\`ruby\\necho \\"<h1>\\" . filter_var($_GET[\\"title\\"], FILTER_SANITIZE_STRING). \\"</h1>\\"\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_raw_output_using_user_input",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/print.php",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 34
+        },
+        "content": "print \\"my string $oops is $oops2\\""
+      },
+      "parent_line_number": 5,
+      "snippet": "print \\"my string $oops is $oops2\\"",
+      "fingerprint": "125f3c6daadbbe3a386a8481b0762a2f_0",
+      "old_fingerprint": "0a8e5c834cb94f8b6061215d0c56601a_0",
+      "code_extract": "print \\"my string $oops is $oops2\\";"
+    }
+  ]
+}"
+`;

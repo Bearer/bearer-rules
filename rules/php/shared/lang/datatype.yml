@@ -1,0 +1,22 @@
+type: shared
+languages:
+  - php
+sanitizer: php_shared_lang_datatype_sanitizer
+patterns:
+  - pattern: $<DATA_TYPE>;
+    filters:
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: cursor_strict
+auxiliary:
+  - id: php_shared_lang_datatype_sanitizer
+    patterns:
+      - pattern: $<ARRAY>[$<_>]
+        focus: ARRAY
+      - pattern: $<OBJECT>->$<_>()
+        focus: OBJECT
+      - pattern: $<OBJECT>->$<_>
+        focus: OBJECT
+metadata:
+  description: "PHP datatype."
+  id: php_shared_lang_datatype

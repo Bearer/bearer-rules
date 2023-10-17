@@ -1,0 +1,16 @@
+type: shared
+languages:
+  - php
+imports:
+  - php_shared_lang_user_input
+  - php_shared_lang_string_user_input_sanitizer
+sanitizer: php_shared_lang_string_user_input_sanitizer
+patterns:
+  - pattern: $<USER_INPUT>;
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: cursor_strict
+metadata:
+  description: "PHP string user input."
+  id: php_shared_lang_string_user_input

@@ -1,0 +1,47 @@
+languages:
+  - php
+patterns:
+  - pattern: $<FUNCTION>($<_>, $<ALGORITHM>, $<_>, $<_>, $<INIT_VECTOR>$<...>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - openssl_decrypt
+          - openssl_encrypt
+      - variable: ALGORITHM
+        string_regex: (?i)-cbc(-|\z)
+      - variable: INIT_VECTOR
+        detection: string_literal
+        scope: cursor
+  - pattern: |
+      $<FUNCTION>($<_>, $<ALGORITHM>, iv: $<INIT_VECTOR>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - openssl_decrypt
+          - openssl_encrypt
+      - variable: ALGORITHM
+        string_regex: (?i)-cbc(-|\z)
+      - variable: INIT_VECTOR
+        detection: string_literal
+        scope: cursor
+severity: high
+metadata:
+  description: "Predictable initialization vector detected."
+  remediation_message: |
+    ## Description
+
+    Applications using encryption with Cipher Block Chaining (CBC) mode must
+    not use a predictable Initialization Vector (IV). Using a predictable IV
+    facilitates dictionary attacks.
+
+    ## Remediations
+
+    ❌ Avoid using a static Initialization Vector:
+
+    ```php
+    openssl_encrypt($data, "aes-256-cbc", iv: "literal-iv");
+    ```
+  cwe_id:
+    - 329
+  id: php_lang_cbc_predictable_iv
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_cbc_predictable_iv

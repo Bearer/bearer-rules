@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_cbc_predictable_iv bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "329"
+      ],
+      "id": "php_lang_cbc_predictable_iv",
+      "title": "Predictable initialization vector detected.",
+      "description": "## Description\\n\\nApplications using encryption with Cipher Block Chaining (CBC) mode must\\nnot use a predictable Initialization Vector (IV). Using a predictable IV\\nfacilitates dictionary attacks.\\n\\n## Remediations\\n\\n❌ Avoid using a static Initialization Vector:\\n\\n\`\`\`php\\nopenssl_encrypt($data, \\"aes-256-cbc\\", iv: \\"literal-iv\\");\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_cbc_predictable_iv",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 65
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 65
+        },
+        "content": "openssl_encrypt($data, $algorithm, $passphrase, 0, \\"oops\\", null)"
+      },
+      "parent_line_number": 5,
+      "snippet": "openssl_encrypt($data, $algorithm, $passphrase, 0, \\"oops\\", null)",
+      "fingerprint": "f791ea248553d443c0e212175d902f8e_0",
+      "old_fingerprint": "278367d279448208b426023ad3289710_0",
+      "code_extract": "openssl_encrypt($data, $algorithm, $passphrase, 0, \\"oops\\", null);"
+    },
+    {
+      "cwe_ids": [
+        "329"
+      ],
+      "id": "php_lang_cbc_predictable_iv",
+      "title": "Predictable initialization vector detected.",
+      "description": "## Description\\n\\nApplications using encryption with Cipher Block Chaining (CBC) mode must\\nnot use a predictable Initialization Vector (IV). Using a predictable IV\\nfacilitates dictionary attacks.\\n\\n## Remediations\\n\\n❌ Avoid using a static Initialization Vector:\\n\\n\`\`\`php\\nopenssl_encrypt($data, \\"aes-256-cbc\\", iv: \\"literal-iv\\");\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_cbc_predictable_iv",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 60
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 60
+        },
+        "content": "openssl_encrypt($data, $algorithm, $passphrase, iv: \\"oops\\")"
+      },
+      "parent_line_number": 6,
+      "snippet": "openssl_encrypt($data, $algorithm, $passphrase, iv: \\"oops\\")",
+      "fingerprint": "f791ea248553d443c0e212175d902f8e_1",
+      "old_fingerprint": "278367d279448208b426023ad3289710_1",
+      "code_extract": "openssl_encrypt($data, $algorithm, $passphrase, iv: \\"oops\\");"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_cbc_predictable_iv ok 1`] = `"{}"`;

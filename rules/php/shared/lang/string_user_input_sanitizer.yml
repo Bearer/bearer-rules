@@ -1,0 +1,18 @@
+type: shared
+languages:
+  - php
+imports:
+  - php_shared_lang_user_input_sanitizer
+patterns:
+  - $<_> + $<_>
+  - $<_> - $<_>
+  - $<_> * $<_>
+  - $<_> / $<_>
+  - pattern: $<BASE_SANITIZER>;
+    filters:
+      - variable: BASE_SANITIZER
+        detection: php_shared_lang_user_input_sanitizer
+        scope: cursor_strict
+metadata:
+  description: "PHP string user input sanitizer."
+  id: php_shared_lang_string_user_input_sanitizer

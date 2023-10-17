@@ -1,0 +1,14 @@
+type: shared
+languages:
+  - php
+patterns:
+  - pattern: $<PHP_SHARED_LANG_INSECURE_URL>;
+    filters:
+      - variable: PHP_SHARED_LANG_INSECURE_URL
+        string_regex: '\A(ws|http):'
+      - not:
+          variable: PHP_SHARED_LANG_INSECURE_URL
+          string_regex: '\A(ws|http)://(localhost|127\.0\.0\.1)'
+metadata:
+  description: "PHP insecure URL."
+  id: php_shared_lang_insecure_url

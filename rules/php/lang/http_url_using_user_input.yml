@@ -1,0 +1,47 @@
+languages:
+  - php
+imports:
+  - php_shared_lang_http_url
+  - php_shared_lang_user_input
+patterns:
+  - pattern: $<HTTP_URL>;
+    filters:
+      - variable: HTTP_URL
+        detection: php_shared_lang_http_url
+        scope: cursor_strict
+        filters:
+          - variable: URL
+            detection: php_shared_lang_user_input
+            scope: result
+severity: high
+metadata:
+  description: "HTTP communication with user-controlled destination detected."
+  remediation_message: |
+    ## Description
+
+    Applications should not connect to locations formed from user input.
+    This rule checks for URLs containing user-supplied data.
+
+    ## Remediations
+
+    ❌ Avoid using user input in HTTP URLs:
+
+    ```php
+    $curl = curl_init("https://{$_GET['host']}');
+    ```
+
+    ✅ Use user input indirectly to form a URL:
+
+    ```php
+    if ($_GET["host"] == "option1") {
+      $host = "api1.com";
+    } else {
+      $host = "api2.com";
+    }
+
+    $curl = curl_init("https://$host');
+    ```
+  cwe_id:
+    - 918
+  id: php_lang_http_url_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_http_url_using_user_input

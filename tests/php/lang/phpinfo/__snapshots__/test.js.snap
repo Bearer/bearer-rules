@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_phpinfo bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "200"
+      ],
+      "id": "php_lang_phpinfo",
+      "title": "Exposure of Sensitive Information to an Unauthorized Actor.",
+      "description": "## Description\\n\\nAvoid exposing sensitive information to an unautorized actor.\\n\\n## Remediations\\n\\n❌ Avoid exposing sensitive information:\\n\\n\`\`\`php\\nphpinfo();\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_phpinfo",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 10
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 10
+        },
+        "content": "phpinfo()"
+      },
+      "parent_line_number": 3,
+      "snippet": "phpinfo()",
+      "fingerprint": "3a68d85ca6a635090e4bc67a95bd12bf_0",
+      "old_fingerprint": "5caed7bf5d7f664fd4ab1db7389c0019_0",
+      "code_extract": "phpinfo();"
+    },
+    {
+      "cwe_ids": [
+        "200"
+      ],
+      "id": "php_lang_phpinfo",
+      "title": "Exposure of Sensitive Information to an Unauthorized Actor.",
+      "description": "## Description\\n\\nAvoid exposing sensitive information to an unautorized actor.\\n\\n## Remediations\\n\\n❌ Avoid exposing sensitive information:\\n\\n\`\`\`php\\nphpinfo();\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_phpinfo",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 12
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 12
+        },
+        "content": "phpinfo(-1)"
+      },
+      "parent_line_number": 4,
+      "snippet": "phpinfo(-1)",
+      "fingerprint": "3a68d85ca6a635090e4bc67a95bd12bf_1",
+      "old_fingerprint": "5caed7bf5d7f664fd4ab1db7389c0019_1",
+      "code_extract": "phpinfo(-1);"
+    }
+  ]
+}"
+`;

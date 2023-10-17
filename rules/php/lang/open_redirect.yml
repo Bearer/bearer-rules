@@ -1,0 +1,40 @@
+imports:
+  - php_shared_lang_user_input
+patterns:
+  - pattern: header($<VALUE>$<...>)
+    filters:
+      - variable: VALUE
+        string_regex: (?i)\Alocation
+      - variable: VALUE
+        detection: php_shared_lang_user_input
+        scope: result
+languages:
+  - php
+severity: medium
+metadata:
+  description: "Open redirect detected."
+  remediation_message: |
+    ## Description
+    A redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.
+
+    ## Remediations
+    ❌ Do not use unsanitized user input when constructing URLs
+
+    ✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs
+
+    ```php
+      $paths = [
+        "1" => "/planes",
+        "2" => "/trains",
+        "3" => "/automobiles",
+      ];
+
+      $transport = $_GET["transport"];
+      header("Location: {$paths[$transport]}", true, 301);
+    ```
+    ## Resources
+    - [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
+  cwe_id:
+    - 601
+  id: "php_lang_open_redirect"
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_open_redirect

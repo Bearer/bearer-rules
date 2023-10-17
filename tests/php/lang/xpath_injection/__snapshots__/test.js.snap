@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_xpath_injection bad 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "643"
+      ],
+      "id": "php_lang_xpath_injection",
+      "title": "XPath injection threat detected",
+      "description": "## Description\\nUsing unsanitized input in an XPath expression could lead to XPath injection\\nif variables are not properly sanitized. XPath injection could lead to\\nunauthorized access to sensitive information in XML documents.\\n\\n## Remediations\\n\\n❌ Avoid using user input in XPath expressions\\n\\n✅ Sanitize user input when it must be included\\n\`\`\`\\n\\n## References\\n- [XPath Injection](https://owasp.org/www-community/attacks/XPATH_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_xpath_injection",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 43
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 43
+        },
+        "content": "$xpath->evaluate($userInput, $contextNode)"
+      },
+      "parent_line_number": 6,
+      "snippet": "$xpath->evaluate($userInput, $contextNode)",
+      "fingerprint": "3360b4377c8a48469d71170bd2ce5298_0",
+      "old_fingerprint": "5255abb1744b9d28b92453ab72fcf603_0",
+      "code_extract": "$xpath->evaluate($userInput, $contextNode);"
+    },
+    {
+      "cwe_ids": [
+        "643"
+      ],
+      "id": "php_lang_xpath_injection",
+      "title": "XPath injection threat detected",
+      "description": "## Description\\nUsing unsanitized input in an XPath expression could lead to XPath injection\\nif variables are not properly sanitized. XPath injection could lead to\\nunauthorized access to sensitive information in XML documents.\\n\\n## Remediations\\n\\n❌ Avoid using user input in XPath expressions\\n\\n✅ Sanitize user input when it must be included\\n\`\`\`\\n\\n## References\\n- [XPath Injection](https://owasp.org/www-community/attacks/XPATH_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_xpath_injection",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 40
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 40
+        },
+        "content": "$xpath->query($userInput, $contextNode)"
+      },
+      "parent_line_number": 7,
+      "snippet": "$xpath->query($userInput, $contextNode)",
+      "fingerprint": "3360b4377c8a48469d71170bd2ce5298_1",
+      "old_fingerprint": "5255abb1744b9d28b92453ab72fcf603_1",
+      "code_extract": "$xpath->query($userInput, $contextNode);"
+    },
+    {
+      "cwe_ids": [
+        "643"
+      ],
+      "id": "php_lang_xpath_injection",
+      "title": "XPath injection threat detected",
+      "description": "## Description\\nUsing unsanitized input in an XPath expression could lead to XPath injection\\nif variables are not properly sanitized. XPath injection could lead to\\nunauthorized access to sensitive information in XML documents.\\n\\n## Remediations\\n\\n❌ Avoid using user input in XPath expressions\\n\\n✅ Sanitize user input when it must be included\\n\`\`\`\\n\\n## References\\n- [XPath Injection](https://owasp.org/www-community/attacks/XPATH_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_xpath_injection",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 28
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 28
+        },
+        "content": "$element->xpath($userInput)"
+      },
+      "parent_line_number": 10,
+      "snippet": "$element->xpath($userInput)",
+      "fingerprint": "3360b4377c8a48469d71170bd2ce5298_2",
+      "old_fingerprint": "5255abb1744b9d28b92453ab72fcf603_2",
+      "code_extract": "$element->xpath($userInput);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_xpath_injection ok 1`] = `"{}"`;

@@ -1,0 +1,55 @@
+imports:
+  - php_shared_lang_user_input
+  - php_shared_lang_instance
+patterns:
+  - pattern: $<XPATH>->$<METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: XPATH
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            values:
+              - DOMXPath
+      - variable: METHOD
+        values:
+          - evaluate
+          - query
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: $<SIMPLE_XML>->xpath($<USER_INPUT>)
+    filters:
+      - variable: SIMPLE_XML
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            values:
+              - SimpleXMLElement
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+languages:
+  - php
+metadata:
+  description: "XPath injection threat detected"
+  remediation_message: |
+    ## Description
+    Using unsanitized input in an XPath expression could lead to XPath injection
+    if variables are not properly sanitized. XPath injection could lead to
+    unauthorized access to sensitive information in XML documents.
+
+    ## Remediations
+
+    ❌ Avoid using user input in XPath expressions
+
+    ✅ Sanitize user input when it must be included
+    ```
+
+    ## References
+    - [XPath Injection](https://owasp.org/www-community/attacks/XPATH_Injection)
+  cwe_id:
+    - 643
+  id: "php_lang_xpath_injection"
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_xpath_injection

@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_deserialization_of_user_input bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "502"
+      ],
+      "id": "php_lang_deserialization_of_user_input",
+      "title": "User input detected in an unsafe deserialization method.",
+      "description": "## Description\\nIt is bad practice to deserialize untrusted data, such as data that comes\\nfrom params or cookies, without sufficient verification. Attackers can\\ntransfer payloads or malicious code via serialized data, and deserializing\\nsuch data puts your application at risk.\\n\\n## Remediations\\n❌ Do not deserialize untrusted data\\n\\n✅ Prefer pure (data-only) and language-agnostic (de)serialization formats\\nsuch as JSON or XML\\n\\nAvoiding language-specific (de)serialization formats reduces the risk of\\nattackers manipulating the deserialization process for malicious purposes.\\n\\n\`\`\`php\\n  $userData = json_decode($_GET[\\"user\\"]);\\n\`\`\`\\n\\n## Resources\\n- [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_deserialization_of_user_input",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 9,
+          "end": 56
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 9,
+          "end": 56
+        },
+        "content": "unserialize($_GET[\\"oops\\"], [\\"max_depth\\" => 10])"
+      },
+      "parent_line_number": 3,
+      "snippet": "unserialize($_GET[\\"oops\\"], [\\"max_depth\\" => 10])",
+      "fingerprint": "bd070b8c2e384c14ebbb99ad89064251_0",
+      "old_fingerprint": "35b3d1e7bccc79fc5b5d4ab1e87efcae_0",
+      "code_extract": "$data = unserialize($_GET[\\"oops\\"], [\\"max_depth\\" => 10]);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_deserialization_of_user_input ok 1`] = `"{}"`;

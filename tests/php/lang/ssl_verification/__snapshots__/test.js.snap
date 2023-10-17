@@ -1,0 +1,2305 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_ssl_verification bad 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 50
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 50
+        },
+        "content": "curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false)"
+      },
+      "parent_line_number": 3,
+      "snippet": "curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_0",
+      "old_fingerprint": "c33fb2870313b0fd2c0910e2efafa40d_0",
+      "code_extract": "curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 50
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 50
+        },
+        "content": "curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false)"
+      },
+      "parent_line_number": 4,
+      "snippet": "curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_1",
+      "old_fingerprint": "c33fb2870313b0fd2c0910e2efafa40d_1",
+      "code_extract": "curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 12,
+        "column": {
+          "start": 12,
+          "end": 7
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 12,
+        "column": {
+          "start": 12,
+          "end": 7
+        },
+        "content": "stream_context_create([\\n  \\"ssl\\" => [\\n    \\"other\\" => false,\\n    \\"verify_peer\\" => false\\n  ],\\n  \\"other\\" => 1\\n], [])"
+      },
+      "parent_line_number": 6,
+      "snippet": "stream_context_create([\\n  \\"ssl\\" => [\\n    \\"other\\" => false,\\n    \\"verify_peer\\" => false\\n  ],\\n  \\"other\\" => 1\\n], [])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_2",
+      "old_fingerprint": "c33fb2870313b0fd2c0910e2efafa40d_2",
+      "code_extract": "$context = stream_context_create([\\n  \\"ssl\\" => [\\n    \\"other\\" => false,\\n    ...omitted (buffer value 3)\\n  ],\\n  \\"other\\" => 1\\n], []);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 14,
+        "end": 20,
+        "column": {
+          "start": 13,
+          "end": 7
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 20,
+        "column": {
+          "start": 13,
+          "end": 7
+        },
+        "content": "stream_context_create([\\n  \\"ssl\\" => [\\n    \\"other\\" => false,\\n    \\"verify_peer_name\\" => false\\n  ],\\n  \\"other\\" => 1\\n], [])"
+      },
+      "parent_line_number": 14,
+      "snippet": "stream_context_create([\\n  \\"ssl\\" => [\\n    \\"other\\" => false,\\n    \\"verify_peer_name\\" => false\\n  ],\\n  \\"other\\" => 1\\n], [])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_3",
+      "old_fingerprint": "c33fb2870313b0fd2c0910e2efafa40d_3",
+      "code_extract": "$context2 = stream_context_create([\\n  \\"ssl\\" => [\\n    \\"other\\" => false,\\n    ...omitted (buffer value 3)\\n  ],\\n  \\"other\\" => 1\\n], []);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_ssl_verification bad_buzz 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/bad_buzz.php",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 11,
+          "end": 60
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 11,
+          "end": 60
+        },
+        "content": "new FileGetContents(new Psr17Factory(), $options)"
+      },
+      "parent_line_number": 7,
+      "snippet": "new FileGetContents(new Psr17Factory(), $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_0",
+      "old_fingerprint": "3973b6dc643e756be5daa5d2252f1ca3_0",
+      "code_extract": "$client = new FileGetContents(new Psr17Factory(), $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/bad_buzz.php",
+      "filename": ".",
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 11,
+          "end": 62
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 11,
+          "end": 62
+        },
+        "content": "new Buzz\\\\Client\\\\Other(new Psr17Factory(), $options)"
+      },
+      "parent_line_number": 8,
+      "snippet": "new Buzz\\\\Client\\\\Other(new Psr17Factory(), $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_1",
+      "old_fingerprint": "3973b6dc643e756be5daa5d2252f1ca3_1",
+      "code_extract": "$client = new Buzz\\\\Client\\\\Other(new Psr17Factory(), $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad_buzz.php",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 41
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 41
+        },
+        "content": "$client->sendRequest($request, $options)"
+      },
+      "parent_line_number": 10,
+      "snippet": "$client->sendRequest($request, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_2",
+      "old_fingerprint": "3973b6dc643e756be5daa5d2252f1ca3_2",
+      "code_extract": "$client->sendRequest($request, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/bad_buzz.php",
+      "filename": ".",
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 42
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 42
+        },
+        "content": "$browser->sendRequest($request, $options)"
+      },
+      "parent_line_number": 13,
+      "snippet": "$browser->sendRequest($request, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_3",
+      "old_fingerprint": "3973b6dc643e756be5daa5d2252f1ca3_3",
+      "code_extract": "$browser->sendRequest($request, $options);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_ssl_verification bad_guzzle 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 5,
+        "end": 8,
+        "column": {
+          "start": 11,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 8,
+        "column": {
+          "start": 11,
+          "end": 3
+        },
+        "content": "new Client([\\n  'timeout'  => 2.0,\\n  'verify' => false\\n])"
+      },
+      "parent_line_number": 5,
+      "snippet": "new Client([\\n  'timeout'  => 2.0,\\n  'verify' => false\\n])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_0",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_0",
+      "code_extract": "$client = new Client([\\n  'timeout'  => 2.0,\\n  'verify' => false\\n]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 13,
+          "end": 52
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 13,
+          "end": 52
+        },
+        "content": "$client->request(\\"GET\\", $url, $options)"
+      },
+      "parent_line_number": 13,
+      "snippet": "$client->request(\\"GET\\", $url, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_1",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_1",
+      "code_extract": "$response = $client->request(\\"GET\\", $url, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 34
+        },
+        "content": "$client->send($request, $options)"
+      },
+      "parent_line_number": 14,
+      "snippet": "$client->send($request, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_2",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_2",
+      "code_extract": "$client->send($request, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 39
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 39
+        },
+        "content": "$client->sendAsync($request, $options)"
+      },
+      "parent_line_number": 15,
+      "snippet": "$client->sendAsync($request, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_3",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_3",
+      "code_extract": "$client->sendAsync($request, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 1,
+          "end": 29
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 1,
+          "end": 29
+        },
+        "content": "$client->get($url, $options)"
+      },
+      "parent_line_number": 17,
+      "snippet": "$client->get($url, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_4",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_4",
+      "code_extract": "$client->get($url, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 1,
+          "end": 32
+        }
+      },
+      "sink": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 1,
+          "end": 32
+        },
+        "content": "$client->delete($url, $options)"
+      },
+      "parent_line_number": 18,
+      "snippet": "$client->delete($url, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_5",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_5",
+      "code_extract": "$client->delete($url, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 19,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 30
+        }
+      },
+      "sink": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 30
+        },
+        "content": "$client->head($url, $options)"
+      },
+      "parent_line_number": 19,
+      "snippet": "$client->head($url, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_6",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_6",
+      "code_extract": "$client->head($url, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 20,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 20,
+        "end": 20,
+        "column": {
+          "start": 1,
+          "end": 33
+        }
+      },
+      "sink": {
+        "start": 20,
+        "end": 20,
+        "column": {
+          "start": 1,
+          "end": 33
+        },
+        "content": "$client->options($url, $options)"
+      },
+      "parent_line_number": 20,
+      "snippet": "$client->options($url, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_7",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_7",
+      "code_extract": "$client->options($url, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 21,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 21,
+        "end": 21,
+        "column": {
+          "start": 1,
+          "end": 31
+        }
+      },
+      "sink": {
+        "start": 21,
+        "end": 21,
+        "column": {
+          "start": 1,
+          "end": 31
+        },
+        "content": "$client->patch($url, $options)"
+      },
+      "parent_line_number": 21,
+      "snippet": "$client->patch($url, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_8",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_8",
+      "code_extract": "$client->patch($url, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 22,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 22,
+        "end": 22,
+        "column": {
+          "start": 1,
+          "end": 30
+        }
+      },
+      "sink": {
+        "start": 22,
+        "end": 22,
+        "column": {
+          "start": 1,
+          "end": 30
+        },
+        "content": "$client->post($url, $options)"
+      },
+      "parent_line_number": 22,
+      "snippet": "$client->post($url, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_9",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_9",
+      "code_extract": "$client->post($url, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 23,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 23,
+        "end": 23,
+        "column": {
+          "start": 1,
+          "end": 29
+        }
+      },
+      "sink": {
+        "start": 23,
+        "end": 23,
+        "column": {
+          "start": 1,
+          "end": 29
+        },
+        "content": "$client->put($url, $options)"
+      },
+      "parent_line_number": 23,
+      "snippet": "$client->put($url, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_10",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_10",
+      "code_extract": "$client->put($url, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 24,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 24,
+        "end": 24,
+        "column": {
+          "start": 1,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 24,
+        "end": 24,
+        "column": {
+          "start": 1,
+          "end": 34
+        },
+        "content": "$client->getAsync($url, $options)"
+      },
+      "parent_line_number": 24,
+      "snippet": "$client->getAsync($url, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_11",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_11",
+      "code_extract": "$client->getAsync($url, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 25,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 25,
+        "end": 25,
+        "column": {
+          "start": 1,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 25,
+        "end": 25,
+        "column": {
+          "start": 1,
+          "end": 37
+        },
+        "content": "$client->deleteAsync($url, $options)"
+      },
+      "parent_line_number": 25,
+      "snippet": "$client->deleteAsync($url, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_12",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_12",
+      "code_extract": "$client->deleteAsync($url, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 26,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 26,
+        "end": 26,
+        "column": {
+          "start": 1,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 26,
+        "end": 26,
+        "column": {
+          "start": 1,
+          "end": 35
+        },
+        "content": "$client->headAsync($url, $options)"
+      },
+      "parent_line_number": 26,
+      "snippet": "$client->headAsync($url, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_13",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_13",
+      "code_extract": "$client->headAsync($url, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 27,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 1,
+          "end": 38
+        }
+      },
+      "sink": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 1,
+          "end": 38
+        },
+        "content": "$client->optionsAsync($url, $options)"
+      },
+      "parent_line_number": 27,
+      "snippet": "$client->optionsAsync($url, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_14",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_14",
+      "code_extract": "$client->optionsAsync($url, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 28,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 28,
+        "end": 28,
+        "column": {
+          "start": 1,
+          "end": 36
+        }
+      },
+      "sink": {
+        "start": 28,
+        "end": 28,
+        "column": {
+          "start": 1,
+          "end": 36
+        },
+        "content": "$client->patchAsync($url, $options)"
+      },
+      "parent_line_number": 28,
+      "snippet": "$client->patchAsync($url, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_15",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_15",
+      "code_extract": "$client->patchAsync($url, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 29,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 29,
+        "end": 29,
+        "column": {
+          "start": 1,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 29,
+        "end": 29,
+        "column": {
+          "start": 1,
+          "end": 35
+        },
+        "content": "$client->postAsync($url, $options)"
+      },
+      "parent_line_number": 29,
+      "snippet": "$client->postAsync($url, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_16",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_16",
+      "code_extract": "$client->postAsync($url, $options);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 30,
+      "full_filename": "/tmp/bearer-scan/bad_guzzle.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 30,
+        "end": 30,
+        "column": {
+          "start": 1,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 30,
+        "end": 30,
+        "column": {
+          "start": 1,
+          "end": 34
+        },
+        "content": "$client->putAsync($url, $options)"
+      },
+      "parent_line_number": 30,
+      "snippet": "$client->putAsync($url, $options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_17",
+      "old_fingerprint": "16edb26a02663b0333938527cc146e9e_17",
+      "code_extract": "$client->putAsync($url, $options);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_ssl_verification bad_laminas 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad_laminas.php",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 9,
+        "column": {
+          "start": 11,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 9,
+        "column": {
+          "start": 11,
+          "end": 3
+        },
+        "content": "new Client(\\"http://example.com\\", [\\n  'maxredirects' => 0,\\n  'timeout'      => 30,\\n  \\"sslverifypeer\\" => false,\\n])"
+      },
+      "parent_line_number": 5,
+      "snippet": "new Client(\\"http://example.com\\", [\\n  'maxredirects' => 0,\\n  'timeout'      => 30,\\n  \\"sslverifypeer\\" => false,\\n])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_0",
+      "old_fingerprint": "9b09c2074d47a696268d2a745d167350_0",
+      "code_extract": "$client = new Client(\\"http://example.com\\", [\\n  'maxredirects' => 0,\\n  'timeout'      => 30,\\n  \\"sslverifypeer\\" => false,\\n]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/bad_laminas.php",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 15,
+        "column": {
+          "start": 11,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 15,
+        "column": {
+          "start": 11,
+          "end": 3
+        },
+        "content": "new Client(\\"http://example.com\\", [\\n  'maxredirects' => 0,\\n  'timeout'      => 30,\\n  \\"sslverifypeername\\" => false,\\n])"
+      },
+      "parent_line_number": 11,
+      "snippet": "new Client(\\"http://example.com\\", [\\n  'maxredirects' => 0,\\n  'timeout'      => 30,\\n  \\"sslverifypeername\\" => false,\\n])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_1",
+      "old_fingerprint": "9b09c2074d47a696268d2a745d167350_1",
+      "code_extract": "$client = new Client(\\"http://example.com\\", [\\n  'maxredirects' => 0,\\n  'timeout'      => 30,\\n  \\"sslverifypeername\\" => false,\\n]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/bad_laminas.php",
+      "filename": ".",
+      "source": {
+        "start": 17,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 3
+        },
+        "content": "$client->setOptions([\\n  \\"sslverifypeer\\" => false,\\n])"
+      },
+      "parent_line_number": 17,
+      "snippet": "$client->setOptions([\\n  \\"sslverifypeer\\" => false,\\n])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_2",
+      "old_fingerprint": "9b09c2074d47a696268d2a745d167350_2",
+      "code_extract": "$client->setOptions([\\n  \\"sslverifypeer\\" => false,\\n]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 21,
+      "full_filename": "/tmp/bearer-scan/bad_laminas.php",
+      "filename": ".",
+      "source": {
+        "start": 21,
+        "end": 23,
+        "column": {
+          "start": 1,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 21,
+        "end": 23,
+        "column": {
+          "start": 1,
+          "end": 3
+        },
+        "content": "$client->setOptions([\\n  \\"sslverifypeername\\" => false,\\n])"
+      },
+      "parent_line_number": 21,
+      "snippet": "$client->setOptions([\\n  \\"sslverifypeername\\" => false,\\n])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_3",
+      "old_fingerprint": "9b09c2074d47a696268d2a745d167350_3",
+      "code_extract": "$client->setOptions([\\n  \\"sslverifypeername\\" => false,\\n]);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_ssl_verification bad_laravel 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad_laravel.php",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 25
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 25
+        },
+        "content": "Http::withoutVerifying()"
+      },
+      "parent_line_number": 5,
+      "snippet": "Http::withoutVerifying()",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_0",
+      "old_fingerprint": "fee1b9513c69bf03e467830776c2b566_0",
+      "code_extract": "Http::withoutVerifying()->get($url);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/bad_laravel.php",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 40
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 40
+        },
+        "content": "Http::retry(3, 100)->withoutVerifying()"
+      },
+      "parent_line_number": 6,
+      "snippet": "Http::retry(3, 100)->withoutVerifying()",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_1",
+      "old_fingerprint": "fee1b9513c69bf03e467830776c2b566_1",
+      "code_extract": "Http::retry(3, 100)->withoutVerifying()->get($url);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad_laravel.php",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 28
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 28
+        },
+        "content": "Http::withOptions($options)"
+      },
+      "parent_line_number": 10,
+      "snippet": "Http::withOptions($options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_2",
+      "old_fingerprint": "fee1b9513c69bf03e467830776c2b566_2",
+      "code_extract": "Http::withOptions($options)->get($url);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/bad_laravel.php",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 43
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 43
+        },
+        "content": "Http::retry(3, 100)->withOptions($options)"
+      },
+      "parent_line_number": 11,
+      "snippet": "Http::retry(3, 100)->withOptions($options)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_3",
+      "old_fingerprint": "fee1b9513c69bf03e467830776c2b566_3",
+      "code_extract": "Http::retry(3, 100)->withOptions($options)->get($url);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_ssl_verification bad_pecl_http 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/bad_pecl_http.php",
+      "filename": ".",
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 41
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 41
+        },
+        "content": "$req->setOptions([\\"ssl\\" => $sslOptions])"
+      },
+      "parent_line_number": 8,
+      "snippet": "$req->setOptions([\\"ssl\\" => $sslOptions])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_0",
+      "old_fingerprint": "ac17f8b6a727746e09eeedcd8af0433a_0",
+      "code_extract": "$req->setOptions([\\"ssl\\" => $sslOptions]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/bad_pecl_http.php",
+      "filename": ".",
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 33
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 33
+        },
+        "content": "$req->setSslOptions($sslOptions)"
+      },
+      "parent_line_number": 9,
+      "snippet": "$req->setSslOptions($sslOptions)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_1",
+      "old_fingerprint": "ac17f8b6a727746e09eeedcd8af0433a_1",
+      "code_extract": "$req->setSslOptions($sslOptions);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad_pecl_http.php",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 33
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 33
+        },
+        "content": "$req->addSslOptions($sslOptions)"
+      },
+      "parent_line_number": 10,
+      "snippet": "$req->addSslOptions($sslOptions)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_2",
+      "old_fingerprint": "ac17f8b6a727746e09eeedcd8af0433a_2",
+      "code_extract": "$req->addSslOptions($sslOptions);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/bad_pecl_http.php",
+      "filename": ".",
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 41
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 41
+        },
+        "content": "$req->setOptions([\\"ssl\\" => $sslOptions])"
+      },
+      "parent_line_number": 13,
+      "snippet": "$req->setOptions([\\"ssl\\" => $sslOptions])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_3",
+      "old_fingerprint": "ac17f8b6a727746e09eeedcd8af0433a_3",
+      "code_extract": "$req->setOptions([\\"ssl\\" => $sslOptions]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/bad_pecl_http.php",
+      "filename": ".",
+      "source": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 33
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 33
+        },
+        "content": "$req->setSslOptions($sslOptions)"
+      },
+      "parent_line_number": 14,
+      "snippet": "$req->setSslOptions($sslOptions)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_4",
+      "old_fingerprint": "ac17f8b6a727746e09eeedcd8af0433a_4",
+      "code_extract": "$req->setSslOptions($sslOptions);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/bad_pecl_http.php",
+      "filename": ".",
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 33
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 33
+        },
+        "content": "$req->addSslOptions($sslOptions)"
+      },
+      "parent_line_number": 15,
+      "snippet": "$req->addSslOptions($sslOptions)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_5",
+      "old_fingerprint": "ac17f8b6a727746e09eeedcd8af0433a_5",
+      "code_extract": "$req->addSslOptions($sslOptions);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/bad_pecl_http.php",
+      "filename": ".",
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 1,
+          "end": 44
+        }
+      },
+      "sink": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 1,
+          "end": 44
+        },
+        "content": "$client->setOptions([\\"ssl\\" => $sslOptions])"
+      },
+      "parent_line_number": 18,
+      "snippet": "$client->setOptions([\\"ssl\\" => $sslOptions])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_6",
+      "old_fingerprint": "ac17f8b6a727746e09eeedcd8af0433a_6",
+      "code_extract": "$client->setOptions([\\"ssl\\" => $sslOptions]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 19,
+      "full_filename": "/tmp/bearer-scan/bad_pecl_http.php",
+      "filename": ".",
+      "source": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 36
+        }
+      },
+      "sink": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 36
+        },
+        "content": "$client->setSslOptions($sslOptions)"
+      },
+      "parent_line_number": 19,
+      "snippet": "$client->setSslOptions($sslOptions)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_7",
+      "old_fingerprint": "ac17f8b6a727746e09eeedcd8af0433a_7",
+      "code_extract": "$client->setSslOptions($sslOptions);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 20,
+      "full_filename": "/tmp/bearer-scan/bad_pecl_http.php",
+      "filename": ".",
+      "source": {
+        "start": 20,
+        "end": 20,
+        "column": {
+          "start": 1,
+          "end": 36
+        }
+      },
+      "sink": {
+        "start": 20,
+        "end": 20,
+        "column": {
+          "start": 1,
+          "end": 36
+        },
+        "content": "$client->addSslOptions($sslOptions)"
+      },
+      "parent_line_number": 20,
+      "snippet": "$client->addSslOptions($sslOptions)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_8",
+      "old_fingerprint": "ac17f8b6a727746e09eeedcd8af0433a_8",
+      "code_extract": "$client->addSslOptions($sslOptions);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_ssl_verification bad_requests 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad_requests.php",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 51
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 51
+        },
+        "content": "Requests::get($url, $headers, [\\"verify\\" => false])"
+      },
+      "parent_line_number": 5,
+      "snippet": "Requests::get($url, $headers, [\\"verify\\" => false])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_0",
+      "old_fingerprint": "392c811f00133d54bd5e2779e7c8917f_0",
+      "code_extract": "Requests::get($url, $headers, [\\"verify\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/bad_requests.php",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 50
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 50
+        },
+        "content": "Requests::get($url, options: [\\"verify\\" => false])"
+      },
+      "parent_line_number": 6,
+      "snippet": "Requests::get($url, options: [\\"verify\\" => false])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_1",
+      "old_fingerprint": "392c811f00133d54bd5e2779e7c8917f_1",
+      "code_extract": "Requests::get($url, options: [\\"verify\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/bad_requests.php",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 63
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 63
+        },
+        "content": "Requests::post($url, $headers, $data, [\\"verifyname\\" => false])"
+      },
+      "parent_line_number": 7,
+      "snippet": "Requests::post($url, $headers, $data, [\\"verifyname\\" => false])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_2",
+      "old_fingerprint": "392c811f00133d54bd5e2779e7c8917f_2",
+      "code_extract": "Requests::post($url, $headers, $data, [\\"verifyname\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/bad_requests.php",
+      "filename": ".",
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 55
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 55
+        },
+        "content": "Requests::post($url, options: [\\"verifyname\\" => false])"
+      },
+      "parent_line_number": 8,
+      "snippet": "Requests::post($url, options: [\\"verifyname\\" => false])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_3",
+      "old_fingerprint": "392c811f00133d54bd5e2779e7c8917f_3",
+      "code_extract": "Requests::post($url, options: [\\"verifyname\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad_requests.php",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 77
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 77
+        },
+        "content": "Requests::request($url, $headers, $data, Requests::GET, [\\"verify\\" => false])"
+      },
+      "parent_line_number": 10,
+      "snippet": "Requests::request($url, $headers, $data, Requests::GET, [\\"verify\\" => false])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_4",
+      "old_fingerprint": "392c811f00133d54bd5e2779e7c8917f_4",
+      "code_extract": "Requests::request($url, $headers, $data, Requests::GET, [\\"verify\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/bad_requests.php",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 54
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 54
+        },
+        "content": "Requests::request($url, options: [\\"verify\\" => false])"
+      },
+      "parent_line_number": 11,
+      "snippet": "Requests::request($url, options: [\\"verify\\" => false])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_5",
+      "old_fingerprint": "392c811f00133d54bd5e2779e7c8917f_5",
+      "code_extract": "Requests::request($url, options: [\\"verify\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/bad_requests.php",
+      "filename": ".",
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 81
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 81
+        },
+        "content": "Requests::request($url, $headers, $data, Requests::GET, [\\"verifyname\\" => false])"
+      },
+      "parent_line_number": 12,
+      "snippet": "Requests::request($url, $headers, $data, Requests::GET, [\\"verifyname\\" => false])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_6",
+      "old_fingerprint": "392c811f00133d54bd5e2779e7c8917f_6",
+      "code_extract": "Requests::request($url, $headers, $data, Requests::GET, [\\"verifyname\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/bad_requests.php",
+      "filename": ".",
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 58
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 58
+        },
+        "content": "Requests::request($url, options: [\\"verifyname\\" => false])"
+      },
+      "parent_line_number": 13,
+      "snippet": "Requests::request($url, options: [\\"verifyname\\" => false])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_7",
+      "old_fingerprint": "392c811f00133d54bd5e2779e7c8917f_7",
+      "code_extract": "Requests::request($url, options: [\\"verifyname\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/bad_requests.php",
+      "filename": ".",
+      "source": {
+        "start": 15,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 7
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 7
+        },
+        "content": "WpOrg\\\\Requests\\\\Requests::request_multiple([\\n  \\"one\\" => [\\"url\\" => $url, \\"verify\\" => false],\\n  \\"two\\" => [\\"url\\" => $url, \\"verifyname\\" => false],\\n  \\"three\\" => [\\"url\\" => $url]\\n], [])"
+      },
+      "parent_line_number": 15,
+      "snippet": "WpOrg\\\\Requests\\\\Requests::request_multiple([\\n  \\"one\\" => [\\"url\\" => $url, \\"verify\\" => false],\\n  \\"two\\" => [\\"url\\" => $url, \\"verifyname\\" => false],\\n  \\"three\\" => [\\"url\\" => $url]\\n], [])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_8",
+      "old_fingerprint": "392c811f00133d54bd5e2779e7c8917f_8",
+      "code_extract": "WpOrg\\\\Requests\\\\Requests::request_multiple([\\n  \\"one\\" => [\\"url\\" => $url, \\"verify\\" => false],\\n  \\"two\\" => [\\"url\\" => $url, \\"verifyname\\" => false],\\n  \\"three\\" => [\\"url\\" => $url]\\n], []);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 21,
+      "full_filename": "/tmp/bearer-scan/bad_requests.php",
+      "filename": ".",
+      "source": {
+        "start": 21,
+        "end": 21,
+        "column": {
+          "start": 12,
+          "end": 89
+        }
+      },
+      "sink": {
+        "start": 21,
+        "end": 21,
+        "column": {
+          "start": 12,
+          "end": 89
+        },
+        "content": "new WpOrg\\\\Requests\\\\Session($user_input, $headers, $data, [\\"verify\\" => false])"
+      },
+      "parent_line_number": 21,
+      "snippet": "new WpOrg\\\\Requests\\\\Session($user_input, $headers, $data, [\\"verify\\" => false])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_9",
+      "old_fingerprint": "392c811f00133d54bd5e2779e7c8917f_9",
+      "code_extract": "$session = new WpOrg\\\\Requests\\\\Session($user_input, $headers, $data, [\\"verify\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 22,
+      "full_filename": "/tmp/bearer-scan/bad_requests.php",
+      "filename": ".",
+      "source": {
+        "start": 22,
+        "end": 22,
+        "column": {
+          "start": 12,
+          "end": 81
+        }
+      },
+      "sink": {
+        "start": 22,
+        "end": 22,
+        "column": {
+          "start": 12,
+          "end": 81
+        },
+        "content": "new WpOrg\\\\Requests\\\\Session($user_input, options: [\\"verify\\" => false])"
+      },
+      "parent_line_number": 22,
+      "snippet": "new WpOrg\\\\Requests\\\\Session($user_input, options: [\\"verify\\" => false])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_10",
+      "old_fingerprint": "392c811f00133d54bd5e2779e7c8917f_10",
+      "code_extract": "$session = new WpOrg\\\\Requests\\\\Session($user_input, options: [\\"verify\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 24,
+      "full_filename": "/tmp/bearer-scan/bad_requests.php",
+      "filename": ".",
+      "source": {
+        "start": 24,
+        "end": 24,
+        "column": {
+          "start": 1,
+          "end": 89
+        }
+      },
+      "sink": {
+        "start": 24,
+        "end": 24,
+        "column": {
+          "start": 1,
+          "end": 89
+        },
+        "content": "$session->request($user_input, $headers, $data, Requests::HEAD, [\\"verifyname\\" => false])"
+      },
+      "parent_line_number": 24,
+      "snippet": "$session->request($user_input, $headers, $data, Requests::HEAD, [\\"verifyname\\" => false])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_11",
+      "old_fingerprint": "392c811f00133d54bd5e2779e7c8917f_11",
+      "code_extract": "$session->request($user_input, $headers, $data, Requests::HEAD, [\\"verifyname\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 25,
+      "full_filename": "/tmp/bearer-scan/bad_requests.php",
+      "filename": ".",
+      "source": {
+        "start": 25,
+        "end": 25,
+        "column": {
+          "start": 1,
+          "end": 65
+        }
+      },
+      "sink": {
+        "start": 25,
+        "end": 25,
+        "column": {
+          "start": 1,
+          "end": 65
+        },
+        "content": "$session->request($user_input, options: [\\"verifyname\\" => false])"
+      },
+      "parent_line_number": 25,
+      "snippet": "$session->request($user_input, options: [\\"verifyname\\" => false])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_12",
+      "old_fingerprint": "392c811f00133d54bd5e2779e7c8917f_12",
+      "code_extract": "$session->request($user_input, options: [\\"verifyname\\" => false]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 27,
+      "full_filename": "/tmp/bearer-scan/bad_requests.php",
+      "filename": ".",
+      "source": {
+        "start": 27,
+        "end": 31,
+        "column": {
+          "start": 1,
+          "end": 7
+        }
+      },
+      "sink": {
+        "start": 27,
+        "end": 31,
+        "column": {
+          "start": 1,
+          "end": 7
+        },
+        "content": "$session->request_multiple([\\n  [\\"url\\" => $url, \\"verify\\" => false],\\n  [\\"url\\" => $url, \\"verifyname\\" => false],\\n  [\\"url\\" => $url]\\n], [])"
+      },
+      "parent_line_number": 27,
+      "snippet": "$session->request_multiple([\\n  [\\"url\\" => $url, \\"verify\\" => false],\\n  [\\"url\\" => $url, \\"verifyname\\" => false],\\n  [\\"url\\" => $url]\\n], [])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_13",
+      "old_fingerprint": "392c811f00133d54bd5e2779e7c8917f_13",
+      "code_extract": "$session->request_multiple([\\n  [\\"url\\" => $url, \\"verify\\" => false],\\n  [\\"url\\" => $url, \\"verifyname\\" => false],\\n  [\\"url\\" => $url]\\n], []);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_ssl_verification bad_sendgrid 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/bad_sendgrid.php",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 11,
+          "end": 92
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 11,
+          "end": 92
+        },
+        "content": "new SendGrid\\\\Client($url, $headers, $version, $path, $curlOptions, $retry, false)"
+      },
+      "parent_line_number": 3,
+      "snippet": "new SendGrid\\\\Client($url, $headers, $version, $path, $curlOptions, $retry, false)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_0",
+      "old_fingerprint": "049775fe1b5f16882746efbe2207cc92_0",
+      "code_extract": "$client = new SendGrid\\\\Client($url, $headers, $version, $path, $curlOptions, $retry, false);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/bad_sendgrid.php",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 11,
+          "end": 59
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 11,
+          "end": 59
+        },
+        "content": "new SendGrid\\\\Client($url, verifySSLCerts: false)"
+      },
+      "parent_line_number": 4,
+      "snippet": "new SendGrid\\\\Client($url, verifySSLCerts: false)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_1",
+      "old_fingerprint": "049775fe1b5f16882746efbe2207cc92_1",
+      "code_extract": "$client = new SendGrid\\\\Client($url, verifySSLCerts: false);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_ssl_verification bad_symfony 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/bad_symfony.php",
+      "filename": ".",
+      "source": {
+        "start": 13,
+        "end": 15,
+        "column": {
+          "start": 7,
+          "end": 9
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 15,
+        "column": {
+          "start": 7,
+          "end": 9
+        },
+        "content": "$this->client->request('GET', $url, [\\n        'verify_peer' => false\\n      ])"
+      },
+      "parent_line_number": 13,
+      "snippet": "$this->client->request('GET', $url, [\\n        'verify_peer' => false\\n      ])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_0",
+      "old_fingerprint": "93601ada3d860a0a613cabd352ba219c_0",
+      "code_extract": "      $this->client->request('GET', $url, [\\n        'verify_peer' => false\\n      ]);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/bad_symfony.php",
+      "filename": ".",
+      "source": {
+        "start": 17,
+        "end": 19,
+        "column": {
+          "start": 7,
+          "end": 9
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 19,
+        "column": {
+          "start": 7,
+          "end": 9
+        },
+        "content": "$this->client->request('GET', $url, [\\n        'verify_host' => false\\n      ])"
+      },
+      "parent_line_number": 17,
+      "snippet": "$this->client->request('GET', $url, [\\n        'verify_host' => false\\n      ])",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_1",
+      "old_fingerprint": "93601ada3d860a0a613cabd352ba219c_1",
+      "code_extract": "      $this->client->request('GET', $url, [\\n        'verify_host' => false\\n      ]);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_ssl_verification bad_unirest 1`] = `
+"{
+  "medium": [
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/bad_unirest.php",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 35
+        },
+        "content": "Unirest\\\\Request::verifyPeer(false)"
+      },
+      "parent_line_number": 3,
+      "snippet": "Unirest\\\\Request::verifyPeer(false)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_0",
+      "old_fingerprint": "c69b129b22bc22d66de8b6f7690a8087_0",
+      "code_extract": "Unirest\\\\Request::verifyPeer(false);"
+    },
+    {
+      "cwe_ids": [
+        "295"
+      ],
+      "id": "php_lang_ssl_verification",
+      "title": "Missing SSL certificate verification detected.",
+      "description": "## Description\\n\\nApplications processing sensitive data should use valid SSL certificates.\\nThis rule checks if SSL verification is enabled.\\n\\n## Remediations\\n\\n❌ Do not disable SSL certificate validation in your HTTP client\\n\\n✅ Ensure verification of both peers and hostnames is enabled in your HTTP client:\\n\\n\`\`\`php\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);\\ncurl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ssl_verification",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/bad_unirest.php",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 35
+        },
+        "content": "Unirest\\\\Request::verifyHost(false)"
+      },
+      "parent_line_number": 4,
+      "snippet": "Unirest\\\\Request::verifyHost(false)",
+      "fingerprint": "c37f3b47ad9def68b11d7c4a3cb4f8c4_1",
+      "old_fingerprint": "c69b129b22bc22d66de8b6f7690a8087_1",
+      "code_extract": "Unirest\\\\Request::verifyHost(false);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_ssl_verification ok 1`] = `"{}"`;
+
+exports[`php_lang_ssl_verification ok_buzz 1`] = `"{}"`;
+
+exports[`php_lang_ssl_verification ok_guzzle 1`] = `"{}"`;
+
+exports[`php_lang_ssl_verification ok_laminas 1`] = `"{}"`;
+
+exports[`php_lang_ssl_verification ok_laravel 1`] = `"{}"`;
+
+exports[`php_lang_ssl_verification ok_pecl_http 1`] = `"{}"`;
+
+exports[`php_lang_ssl_verification ok_requests 1`] = `"{}"`;
+
+exports[`php_lang_ssl_verification ok_sendgrid 1`] = `"{}"`;
+
+exports[`php_lang_ssl_verification ok_symfony 1`] = `"{}"`;
+
+exports[`php_lang_ssl_verification ok_unirest 1`] = `"{}"`;

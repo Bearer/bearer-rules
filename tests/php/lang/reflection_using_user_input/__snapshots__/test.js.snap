@@ -1,0 +1,384 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_reflection_using_user_input bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "94"
+      ],
+      "id": "php_lang_reflection_using_user_input",
+      "title": "Use of reflection influenced by user input detected.",
+      "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
+      "line_number": 5,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 20
+        }
+      },
+      "sink": {
+        "start": 5,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 20
+        },
+        "content": "include $user_input"
+      },
+      "parent_line_number": 5,
+      "snippet": "include $user_input",
+      "fingerprint": "27cb79ce4c189bd470557e55757482bd_0",
+      "old_fingerprint": "5b550ae78726a9e75b191740c64fe891_0",
+      "code_extract": "include $user_input;"
+    },
+    {
+      "cwe_ids": [
+        "94"
+      ],
+      "id": "php_lang_reflection_using_user_input",
+      "title": "Use of reflection influenced by user input detected.",
+      "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 25
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 25
+        },
+        "content": "include_once $user_input"
+      },
+      "parent_line_number": 6,
+      "snippet": "include_once $user_input",
+      "fingerprint": "27cb79ce4c189bd470557e55757482bd_1",
+      "old_fingerprint": "5b550ae78726a9e75b191740c64fe891_1",
+      "code_extract": "include_once $user_input;"
+    },
+    {
+      "cwe_ids": [
+        "94"
+      ],
+      "id": "php_lang_reflection_using_user_input",
+      "title": "Use of reflection influenced by user input detected.",
+      "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 20
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 20
+        },
+        "content": "require $user_input"
+      },
+      "parent_line_number": 7,
+      "snippet": "require $user_input",
+      "fingerprint": "27cb79ce4c189bd470557e55757482bd_2",
+      "old_fingerprint": "5b550ae78726a9e75b191740c64fe891_2",
+      "code_extract": "require $user_input;"
+    },
+    {
+      "cwe_ids": [
+        "94"
+      ],
+      "id": "php_lang_reflection_using_user_input",
+      "title": "Use of reflection influenced by user input detected.",
+      "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 25
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 25
+        },
+        "content": "require_once $user_input"
+      },
+      "parent_line_number": 8,
+      "snippet": "require_once $user_input",
+      "fingerprint": "27cb79ce4c189bd470557e55757482bd_3",
+      "old_fingerprint": "5b550ae78726a9e75b191740c64fe891_3",
+      "code_extract": "require_once $user_input;"
+    },
+    {
+      "cwe_ids": [
+        "94"
+      ],
+      "id": "php_lang_reflection_using_user_input",
+      "title": "Use of reflection influenced by user input detected.",
+      "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 6,
+          "end": 18
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 6,
+          "end": 18
+        },
+        "content": "$$user_input"
+      },
+      "parent_line_number": 10,
+      "snippet": "$$user_input",
+      "fingerprint": "27cb79ce4c189bd470557e55757482bd_4",
+      "old_fingerprint": "5b550ae78726a9e75b191740c64fe891_4",
+      "code_extract": "echo $$user_input;"
+    },
+    {
+      "cwe_ids": [
+        "94"
+      ],
+      "id": "php_lang_reflection_using_user_input",
+      "title": "Use of reflection influenced by user input detected.",
+      "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 16
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 16
+        },
+        "content": "$user_input(42)"
+      },
+      "parent_line_number": 12,
+      "snippet": "$user_input(42)",
+      "fingerprint": "27cb79ce4c189bd470557e55757482bd_5",
+      "old_fingerprint": "5b550ae78726a9e75b191740c64fe891_5",
+      "code_extract": "$user_input(42);"
+    },
+    {
+      "cwe_ids": [
+        "94"
+      ],
+      "id": "php_lang_reflection_using_user_input",
+      "title": "Use of reflection influenced by user input detected.",
+      "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 10,
+          "end": 42
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 10,
+          "end": 42
+        },
+        "content": "new ReflectionClass($user_input)"
+      },
+      "parent_line_number": 14,
+      "snippet": "new ReflectionClass($user_input)",
+      "fingerprint": "27cb79ce4c189bd470557e55757482bd_6",
+      "old_fingerprint": "5b550ae78726a9e75b191740c64fe891_6",
+      "code_extract": "$class = new ReflectionClass($user_input);"
+    },
+    {
+      "cwe_ids": [
+        "94"
+      ],
+      "id": "php_lang_reflection_using_user_input",
+      "title": "Use of reflection influenced by user input detected.",
+      "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 38
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 38
+        },
+        "content": "$class->getAttributes($user_input, 0)"
+      },
+      "parent_line_number": 15,
+      "snippet": "$class->getAttributes($user_input, 0)",
+      "fingerprint": "27cb79ce4c189bd470557e55757482bd_7",
+      "old_fingerprint": "5b550ae78726a9e75b191740c64fe891_7",
+      "code_extract": "$class->getAttributes($user_input, 0);"
+    },
+    {
+      "cwe_ids": [
+        "94"
+      ],
+      "id": "php_lang_reflection_using_user_input",
+      "title": "Use of reflection influenced by user input detected.",
+      "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 1,
+          "end": 46
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 1,
+          "end": 46
+        },
+        "content": "new ReflectionClassConstant($user_input, $ok)"
+      },
+      "parent_line_number": 17,
+      "snippet": "new ReflectionClassConstant($user_input, $ok)",
+      "fingerprint": "27cb79ce4c189bd470557e55757482bd_8",
+      "old_fingerprint": "5b550ae78726a9e75b191740c64fe891_8",
+      "code_extract": "new ReflectionClassConstant($user_input, $ok);"
+    },
+    {
+      "cwe_ids": [
+        "94"
+      ],
+      "id": "php_lang_reflection_using_user_input",
+      "title": "Use of reflection influenced by user input detected.",
+      "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 13,
+          "end": 58
+        }
+      },
+      "sink": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 13,
+          "end": 58
+        },
+        "content": "new ReflectionClassConstant($ok, $user_input)"
+      },
+      "parent_line_number": 18,
+      "snippet": "new ReflectionClassConstant($ok, $user_input)",
+      "fingerprint": "27cb79ce4c189bd470557e55757482bd_9",
+      "old_fingerprint": "5b550ae78726a9e75b191740c64fe891_9",
+      "code_extract": "$constant = new ReflectionClassConstant($ok, $user_input);"
+    },
+    {
+      "cwe_ids": [
+        "94"
+      ],
+      "id": "php_lang_reflection_using_user_input",
+      "title": "Use of reflection influenced by user input detected.",
+      "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
+      "line_number": 19,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 57
+        }
+      },
+      "sink": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 1,
+          "end": 57
+        },
+        "content": "ReflectionClassConstant::export($user_input, $ok, false)"
+      },
+      "parent_line_number": 19,
+      "snippet": "ReflectionClassConstant::export($user_input, $ok, false)",
+      "fingerprint": "27cb79ce4c189bd470557e55757482bd_10",
+      "old_fingerprint": "5b550ae78726a9e75b191740c64fe891_10",
+      "code_extract": "ReflectionClassConstant::export($user_input, $ok, false);"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_reflection_using_user_input ok 1`] = `"{}"`;

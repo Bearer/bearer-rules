@@ -43,6 +43,8 @@ jobs:
         run: tar -czvf release/java.tar.gz --directory ./rules java
       - name: Archive Python
         run: tar -czvf release/python.tar.gz --directory ./rules python
+      - name: Archive PHP
+        run: tar -czvf release/php.tar.gz --directory ./rules php
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:

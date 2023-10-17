@@ -1,0 +1,90 @@
+languages:
+  - php
+imports:
+  - php_shared_lang_user_input
+patterns:
+  - pattern: |
+      include $<USER_INPUT>
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: |
+      include_once $<USER_INPUT>
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: |
+      require $<USER_INPUT>
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: |
+      require_once $<USER_INPUT>
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: ${$<USER_INPUT>}
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: $<USER_INPUT>()
+    filters:
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: $<CLASS>::$<_>($<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \AReflection
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: new $<CLASS>($<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \AReflection
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+  - pattern: $<REFLECTION>->$<_>($<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: REFLECTION
+        detection: php_lang_reflection_using_user_input_reflection_instance
+        scope: cursor
+      - variable: USER_INPUT
+        detection: php_shared_lang_user_input
+        scope: result
+auxiliary:
+  - id: php_lang_reflection_using_user_input_reflection_instance
+    patterns:
+      - pattern: new $<CLASS>()
+        filters:
+          - variable: CLASS
+            regex: \AReflection
+severity: high
+metadata:
+  description: "Use of reflection influenced by user input detected."
+  remediation_message: |
+    ## Description
+
+    Applications should not look up or manipulate code using user-supplied data.
+
+    ## Remediations
+
+    ❌ Avoid using user input when using reflection:
+
+    ```php
+    $class = new ReflectionClass($_GET["class"])
+    ```
+
+    ## Resources
+    - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
+  cwe_id:
+    - 94
+  id: php_lang_reflection_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input

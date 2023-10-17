@@ -1,0 +1,111 @@
+imports:
+  - php_shared_lang_user_input
+patterns:
+  - pattern: $<_>->$<METHOD>($<UNSANITIZED_USER_INPUT>)
+    filters:
+      - variable: METHOD
+        values:
+          - select
+          - addSelect
+          - delete
+          - update
+          - set
+          - from
+          - join
+          - innerJoin
+          - leftJoin
+          - where
+          - andWhere
+          - orWhere
+          - groupBy
+          - addGroupBy
+          - having
+          - andHaving
+          - orHaving
+          - orderBy
+          - addOrderBy
+      - variable: UNSANITIZED_USER_INPUT
+        detection: php_symfony_sql_injection_user_input_unsanitized
+        scope: result
+  - pattern: $<_>->$<METHOD>($<UNSANITIZED_USER_INPUT>)
+    filters:
+      - variable: METHOD
+        values:
+          - prepare
+          - createQuery
+      - either:
+          - variable: UNSANITIZED_USER_INPUT
+            detection: php_symfony_sql_injection_user_input_unsanitized
+            scope: result
+          # - variable: UNSANITIZED_USER_INPUT
+          #   detection: php_symfony_sql_injection_unsanitized_method_argument
+          #   scope: result
+auxiliary:
+  # This will trigger a lot of FPs
+  # We should probably have a separate rule with a lower confidence level
+  # - id: php_symfony_sql_injection_unsanitized_method_argument
+  #   sanitizer: php_symfony_sql_injection_user_input_sanitizer
+  #   patterns:
+  #     - function $<_>($<...>$<!>$<_>$<...>) {}
+  #     - function($<...>$<!>$<_>$<...>) {}
+  #     - pattern: |
+  #         class $<_>$<...>{
+  #           function $<...>$<NAME>($<...>$<!>$<_>$<...>) {}
+  #         }
+  - id: php_symfony_sql_injection_user_input_unsanitized
+    sanitizer: php_symfony_sql_injection_user_input_sanitizer
+    patterns:
+      - pattern: $<USER_INPUT>;
+        filters:
+          - variable: USER_INPUT
+            detection: php_shared_lang_user_input
+            scope: cursor
+  - id: php_symfony_sql_injection_user_input_sanitizer
+    patterns:
+      - pattern: $<_>->quote($<!>$<_>)
+languages:
+  - php
+severity: high
+metadata:
+  description: "Potential SQL injection with user input detected."
+  remediation_message: |
+    ## Description
+    Including unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.
+
+    ## Remediations
+
+    ❌ Avoid raw queries, especially those that contain unsanitized user input
+
+    ```php
+      $sql = "SELECT * FROM foo WHERE foo.bar > " . $_GET['oops']. " ORDER BY foo.bar ASC";
+    ```
+
+    Instead, consider the following approaches when writing SQL queries
+
+    ✅ Validate query input or use prepared statement wherever possible
+
+    ```php
+      $sql = "SELECT * FROM foo WHERE bar = '" . $conn->quote($_GET['bar']) . "'";
+    ```
+
+    ```php
+      $sql = "SELECT * FROM users WHERE username = :user";
+      $stmt = $connection->prepare($sql);
+      $stmt->bindValue("user", $_GET['username']);
+    ```
+
+    ```php
+      $dql = "SELECT * FROM Foo WHERE bar = :bar";
+      $query = $em->createQuery($dql);
+      $query->setParameter("bar", $_GET['bar']);
+    ```
+
+    ## Resources
+    - [Doctrine DBAL Security](https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/security.html)
+    - [Doctrine SQL Query Builder Security](https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/query-builder.html#security-safely-preventing-sql-injection)
+    - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
+    - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+  cwe_id:
+    - 89
+  id: php_symfony_sql_injection
+  documentation_url: https://docs.bearer.com/reference/rules/php_symfony_sql_injection

@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_lang_raw_html_using_user_input bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "79"
+      ],
+      "id": "php_lang_raw_html_using_user_input",
+      "title": "Unsanitized user input detected in raw HTML string.",
+      "description": "## Description\\n\\nApplications should not include unsanitized user input in HTML. This\\ncan allow cross-site scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid including user input directly in HTML strings:\\n\\n\`\`\`php\\n$html = \\"<h1>{$_GET[\\"title\\"]}</h1>\\";\\n\`\`\`\\n\\n✅ Use a templating language such as Twig, and place the template in a separate file.\\n\\n✅ When HTML strings must be used, sanitize user input:\\n\\n\`\`\`php\\n$html = \\"<h1>\${htmlspecialchars($_GET[\\"title\\"])}</h1>\\";\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_raw_html_using_user_input",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 36
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 36
+        },
+        "content": "$html = \\"<h1>{$_GET['title']}</h1>\\""
+      },
+      "parent_line_number": 3,
+      "snippet": "$html = \\"<h1>{$_GET['title']}</h1>\\"",
+      "fingerprint": "7804aa0c200111a69c4f26fb6429429d_0",
+      "old_fingerprint": "ffde275847344753aea9d67164d28200_0",
+      "code_extract": "$html = \\"<h1>{$_GET['title']}</h1>\\";"
+    }
+  ]
+}"
+`;
+
+exports[`php_lang_raw_html_using_user_input ok 1`] = `"{}"`;

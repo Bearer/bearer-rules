@@ -15,12 +15,13 @@
           "items": {
             "type": "string",
             "enum": [
-              "sql", // built-in
-              "ruby",
+              "go",
               "java",
               "javascript",
-              "go",
-              "python"
+              "php",
+              "python",
+              "ruby",
+              "sql" // built-in
             ]
           }
         },
@@ -218,6 +219,9 @@
         "string_regex": {
           "type": "string"
         },
+        "entropy_greater_than": {
+          "type": "number"
+        },
         "detection": {
           "type": "string"
         },
@@ -229,7 +233,7 @@
         },
         "scope": {
           "type": "string",
-          "enum": ["cursor", "nested", "result"]
+          "enum": ["cursor", "cursor_strict", "nested", "result"]
         },
         "imports": {
           "type": "array",

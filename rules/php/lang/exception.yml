@@ -1,0 +1,46 @@
+imports:
+  - php_shared_lang_datatype
+patterns:
+  - pattern: |
+      throw $<DATA_TYPE>;
+    filters:
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<FUNCTION>($<DATA_TYPE>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - die
+          - exit
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+languages:
+  - php
+skip_data_types:
+  - Unique Identifier
+metadata:
+  description: "Sensitive data in a exception message detected."
+  remediation_message: |
+    ## Description
+
+    Leaking sensitive data to an exception is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to exceptions.
+
+    ## Remediations
+
+    ❌ Avoid using sensitive data in logger messages:
+
+    ```php
+    throw new Exception("error for {$user->email}");
+    ```
+
+    ✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:
+
+    ```php
+    throw new Exception("error for {$user->uuid}");
+    ```
+  cwe_id:
+    - 210
+  id: php_lang_exception
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_exception
