@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`python_lang_weak_password_encryption_md5 bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "331",
+        "328"
+      ],
+      "id": "python_lang_weak_password_encryption_md5",
+      "title": "Weak encryption algorithm (MD5) used for password detected.",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 and its predecessors are considered weak hash algorithms and therefore shouldn't be used.\\n\\n❌ Do not use encryption for passwords, wherever possible:\\n\\n\`\`\`python\\nhashlib.md5(user.password).digest()\\n\`\`\`\\n\\n✅ Instead, we recommend using sha256:\\n\\n\`\`\`python\\nhashlib.sha256(user.password).digest()\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/python_lang_weak_password_encryption_md5",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/bad.py",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "dd88aee5-9d40-4ad2-8983-0c791ddec47c",
+        "name": "Passwords"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 15,
+          "end": 28
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 29
+        },
+        "content": "result.update(user.password)"
+      },
+      "parent_line_number": 4,
+      "snippet": "result.update(user.password)",
+      "fingerprint": "31f32b01ee463426bea642b75fa25366_0",
+      "old_fingerprint": "f7ec1ec8f3cb22c75a2f7c5ace4b3b05_0",
+      "code_extract": "result.update(user.password)"
+    },
+    {
+      "cwe_ids": [
+        "331",
+        "328"
+      ],
+      "id": "python_lang_weak_password_encryption_md5",
+      "title": "Weak encryption algorithm (MD5) used for password detected.",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 and its predecessors are considered weak hash algorithms and therefore shouldn't be used.\\n\\n❌ Do not use encryption for passwords, wherever possible:\\n\\n\`\`\`python\\nhashlib.md5(user.password).digest()\\n\`\`\`\\n\\n✅ Instead, we recommend using sha256:\\n\\n\`\`\`python\\nhashlib.sha256(user.password).digest()\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/python_lang_weak_password_encryption_md5",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/bad.py",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "dd88aee5-9d40-4ad2-8983-0c791ddec47c",
+        "name": "Passwords"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 22,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 10,
+          "end": 36
+        },
+        "content": "hashlib.md5(user.password)"
+      },
+      "parent_line_number": 7,
+      "snippet": "hashlib.md5(user.password)",
+      "fingerprint": "31f32b01ee463426bea642b75fa25366_1",
+      "old_fingerprint": "f7ec1ec8f3cb22c75a2f7c5ace4b3b05_1",
+      "code_extract": "result = hashlib.md5(user.password)"
+    },
+    {
+      "cwe_ids": [
+        "331",
+        "328"
+      ],
+      "id": "python_lang_weak_password_encryption_md5",
+      "title": "Weak encryption algorithm (MD5) used for password detected.",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 and its predecessors are considered weak hash algorithms and therefore shouldn't be used.\\n\\n❌ Do not use encryption for passwords, wherever possible:\\n\\n\`\`\`python\\nhashlib.md5(user.password).digest()\\n\`\`\`\\n\\n✅ Instead, we recommend using sha256:\\n\\n\`\`\`python\\nhashlib.sha256(user.password).digest()\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/python_lang_weak_password_encryption_md5",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad.py",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "dd88aee5-9d40-4ad2-8983-0c791ddec47c",
+        "name": "Passwords"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 12,
+          "end": 25
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 10,
+          "end": 40
+        },
+        "content": "hashlib.md5(password.encode())"
+      },
+      "parent_line_number": 11,
+      "snippet": "hashlib.md5(password.encode())",
+      "fingerprint": "31f32b01ee463426bea642b75fa25366_2",
+      "old_fingerprint": "f7ec1ec8f3cb22c75a2f7c5ace4b3b05_2",
+      "code_extract": "result = hashlib.md5(password.encode())"
+    }
+  ]
+}"
+`;
+
+exports[`python_lang_weak_password_encryption_md5 ok 1`] = `"{}"`;

@@ -1,0 +1,59 @@
+patterns:
+  - pattern: hashlib.sha1($<OPTIONAL_DATA_TYPE>)
+    filters:
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: datatype
+            scope: result
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: datatype
+              scope: result
+  - pattern: $<SHA1_INIT>.update($<OPTIONAL_DATA_TYPE>)
+    filters:
+      - variable: SHA1_INIT
+        detection: python_lang_weak_hash_sha1_init
+        scope: cursor
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: datatype
+            scope: result
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: datatype
+              scope: result
+auxiliary:
+  - id: python_lang_weak_hash_sha1_init
+    patterns:
+      - hashlib.sha1()
+languages:
+  - python
+skip_data_types:
+  - "Unique Identifier"
+  - "Passwords" # see python_lang_weak_password_encryption_sha1
+metadata:
+  description: "Weak hashing library (SHA1) detected."
+  remediation_message: |
+    ## Description
+
+    A weak hashing library can lead to data breaches and greater security risk.
+
+    ## Remediations
+    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 and its predecessors are considered weak hash algorithms and therefore shouldn't be used.
+
+    ❌ Avoid libraries and algorithms with known weaknesses:
+
+    ```python
+    hashlib.sha1('password').digest()
+    ```
+
+    ✅ Instead, we recommend using sha256:
+
+    ```python
+    hashlib.sha256('password').digest()
+    ```
+  cwe_id:
+    - 331
+    - 328
+  id: python_lang_weak_hash_sha1
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_weak_hash_sha1
