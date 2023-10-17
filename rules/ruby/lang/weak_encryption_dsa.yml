@@ -1,5 +1,6 @@
 imports:
   - ruby_shared_lang_openssl_digest_dsa_init
+  - ruby_shared_common_datatype
 patterns:
   - pattern: |
       $<VAR>.$<METHOD>($<_>, $<OPTIONAL_DATA_TYPE>)
@@ -14,11 +15,11 @@ patterns:
           - to_s
       - either:
           - variable: OPTIONAL_DATA_TYPE
-            detection: datatype
+            detection: ruby_shared_common_datatype
             scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
-              detection: datatype
+              detection: ruby_shared_common_datatype
               scope: result
 languages:
   - ruby

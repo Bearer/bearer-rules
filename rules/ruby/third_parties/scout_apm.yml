@@ -1,15 +1,17 @@
+imports:
+  - ruby_shared_common_datatype
 patterns:
   - pattern: |
       ScoutApm::Context.add_user($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       ScoutApm::Context.add($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
 languages:
   - ruby

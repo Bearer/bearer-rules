@@ -1,0 +1,30 @@
+type: shared
+languages:
+  - javascript
+sanitizer: javascript_shared_common_datatype_sanitizer
+patterns:
+  - pattern: $<DATA_TYPE>;
+    filters:
+      - variable: DATA_TYPE
+        detection: datatype
+        scope: cursor_strict
+auxiliary:
+  - id: javascript_shared_common_datatype_sanitizer
+    # these patterns correspond to the projections in the built-in object detector
+    patterns:
+      - pattern: $<OBJECT>.$<NAME>
+        focus: OBJECT
+        filters:
+          - not:
+              variable: NAME
+              # these correspond to the reflexive methods in the CLI language analyzer
+              values:
+                - toString
+                # String
+                - replace
+                - replaceAll
+      - pattern: $<OBJECT>[$<_>]
+        focus: OBJECT
+metadata:
+  description: "Javascript datatype."
+  id: javascript_shared_common_datatype

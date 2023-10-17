@@ -1,9 +1,11 @@
+imports:
+  - ruby_shared_common_datatype
 patterns:
   - pattern: |
       $<_>.rollbar_context = $<DATA_TYPE>
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Rollbar.$<METHOD>($<...>$<DATA_TYPE>$<...>)
@@ -18,13 +20,13 @@ patterns:
           - scope
           - scope!
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Rollbar.log($<_>, $<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       $<INSTANCE>.scope($<...>$<DATA_TYPE>$<...>)
@@ -33,13 +35,13 @@ patterns:
         detection: ruby_third_parties_rollbar_scope
         scope: cursor
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       Rollbar.scoped($<...>$<DATA_TYPE>$<...>)$<...>
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
 languages:
   - ruby

@@ -1,3 +1,5 @@
+imports:
+  - javascript_shared_common_datatype
 patterns:
   - pattern: |
       $<SPAN>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
@@ -12,7 +14,7 @@ patterns:
           - setAttribute
           - setStatus
       - variable: DATA_TYPE
-        detection: datatype
+        detection: javascript_shared_common_datatype
         scope: result
 languages:
   - javascript

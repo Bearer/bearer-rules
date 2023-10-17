@@ -1,5 +1,6 @@
 imports:
   - ruby_shared_lang_openssl_digest_sha_init
+  - ruby_shared_common_datatype
 patterns:
   - pattern: Digest::SHA1.$<METHOD>($<OPTIONAL_DATA_TYPE>)
     filters:
@@ -10,11 +11,11 @@ patterns:
           - base64digest
       - either:
           - variable: OPTIONAL_DATA_TYPE
-            detection: datatype
+            detection: ruby_shared_common_datatype
             scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
-              detection: datatype
+              detection: ruby_shared_common_datatype
               scope: result
   - pattern: OpenSSL::Digest.digest($<ALGORITHM>, $<OPTIONAL_DATA_TYPE>)
     filters:
@@ -22,11 +23,11 @@ patterns:
         regex: (?i)['"]SHA1?['"]
       - either:
           - variable: OPTIONAL_DATA_TYPE
-            detection: datatype
+            detection: ruby_shared_common_datatype
             scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
-              detection: datatype
+              detection: ruby_shared_common_datatype
               scope: result
   - pattern: OpenSSL::Digest::$<ALGORITHM>.digest($<OPTIONAL_DATA_TYPE>)
     filters:
@@ -34,11 +35,11 @@ patterns:
         regex: \ASHA1?\z
       - either:
           - variable: OPTIONAL_DATA_TYPE
-            detection: datatype
+            detection: ruby_shared_common_datatype
             scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
-              detection: datatype
+              detection: ruby_shared_common_datatype
               scope: result
   - pattern: |
       $<DIGEST>.update($<OPTIONAL_DATA_TYPE>)
@@ -48,11 +49,11 @@ patterns:
         scope: cursor
       - either:
           - variable: OPTIONAL_DATA_TYPE
-            detection: datatype
+            detection: ruby_shared_common_datatype
             scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
-              detection: datatype
+              detection: ruby_shared_common_datatype
               scope: result
   - pattern: |
       $<DIGEST> << $<OPTIONAL_DATA_TYPE>
@@ -62,11 +63,11 @@ patterns:
         scope: cursor
       - either:
           - variable: OPTIONAL_DATA_TYPE
-            detection: datatype
+            detection: ruby_shared_common_datatype
             scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
-              detection: datatype
+              detection: ruby_shared_common_datatype
               scope: result
   - pattern: $<DIGEST>.$<METHOD>($<OPTIONAL_DATA_TYPE>)
     filters:
@@ -80,11 +81,11 @@ patterns:
           - base64digest
       - either:
           - variable: OPTIONAL_DATA_TYPE
-            detection: datatype
+            detection: ruby_shared_common_datatype
             scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
-              detection: datatype
+              detection: ruby_shared_common_datatype
               scope: result
 languages:
   - ruby

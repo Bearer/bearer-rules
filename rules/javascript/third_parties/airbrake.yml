@@ -1,5 +1,7 @@
 languages:
   - javascript
+imports:
+  - javascript_shared_common_datatype
 patterns:
   - pattern: |
       $<AIRBRAKE>.notify($<...>$<DATA_TYPE>$<...>)
@@ -8,7 +10,7 @@ patterns:
         detection: javascript_airbrake_init
         scope: cursor
       - variable: DATA_TYPE
-        detection: datatype
+        detection: javascript_shared_common_datatype
         scope: result
 auxiliary:
   - id: javascript_airbrake_init

@@ -1,5 +1,6 @@
 imports:
   - ruby_shared_lang_rc4_init
+  - ruby_shared_common_datatype
 patterns:
   - pattern: |
       $<VAR>.$<METHOD>($<OPTIONAL_DATA_TYPE>)
@@ -14,11 +15,11 @@ patterns:
           - decrypt
       - either:
           - variable: OPTIONAL_DATA_TYPE
-            detection: datatype
+            detection: ruby_shared_common_datatype
             scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
-              detection: datatype
+              detection: ruby_shared_common_datatype
               scope: result
 languages:
   - ruby

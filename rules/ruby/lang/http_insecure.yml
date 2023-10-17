@@ -2,6 +2,7 @@ languages:
   - ruby
 imports:
   - ruby_shared_common_insecure_url
+  - ruby_shared_common_datatype
 patterns:
   - pattern: |
       Net::HTTP.$<METHOD>($<INSECURE_URL>$<...>)
@@ -176,7 +177,7 @@ patterns:
         detection: ruby_shared_common_insecure_url
         scope: result
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       $<CLIENT>.post($<INSECURE_URL>, $<...>$<DATA_TYPE>$<...>)
@@ -195,7 +196,7 @@ patterns:
         detection: ruby_shared_common_insecure_url
         scope: result
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
 auxiliary:
   - id: ruby_lang_http_insecure_curb

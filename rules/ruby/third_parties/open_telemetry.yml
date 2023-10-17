@@ -1,3 +1,5 @@
+imports:
+  - ruby_shared_common_datatype
 patterns:
   - pattern: |
       $<VAR>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
@@ -6,7 +8,7 @@ patterns:
         detection: open_telemetry_current_span
         scope: cursor
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
       - variable: METHOD
         values:
@@ -18,7 +20,7 @@ patterns:
       $<_>.in_span($<_>, $<...>$<DATA_TYPE>$<...>)$<...>
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       $<VAR>.status = OpenTelemetry::Trace::Status.error($<...>$<DATA_TYPE>$<...>)
@@ -27,7 +29,7 @@ patterns:
         detection: open_telemetry_current_span
         scope: cursor
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
 languages:
   - ruby

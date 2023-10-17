@@ -11,48 +11,6 @@ exports[`javascript_third_parties_google_tag_manager insecure 1`] = `
       "title": "Sensitive data sent to Google Tag Manager detected.",
       "description": "## Description\\n\\nLeaking sensitive data to third parties is a common cause of data leaks and can lead to data breaches. This rule looks for instances of leaking sensitive data to third parties using google tag manager.\\n\\n❌ Avoid sending sensitive data to third parties:\\n\\n\`\`\`javascript\\ndatalayer.push({\\n  user: {\\n    email: user.email\\n  }\\n})\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`javascript\\ndatalayer.push({\\n  user: {\\n    uuid: user.uuid\\n  }\\n})\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_google_tag_manager",
-      "line_number": 1,
-      "full_filename": "/tmp/bearer-scan/insecure.js",
-      "filename": ".",
-      "data_type": {
-        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
-        "name": "Email Address"
-      },
-      "category_groups": [
-        "PII",
-        "Personal Data"
-      ],
-      "source": {
-        "start": 1,
-        "end": 1,
-        "column": {
-          "start": 16,
-          "end": 39
-        }
-      },
-      "sink": {
-        "start": 3,
-        "end": 5,
-        "column": {
-          "start": 1,
-          "end": 3
-        },
-        "content": "window.dataLayer.push({\\n\\temail: user.email,\\n})"
-      },
-      "parent_line_number": 3,
-      "snippet": "window.dataLayer.push({\\n\\temail: user.email,\\n})",
-      "fingerprint": "da9f822205740bd5ee47f56b7ebccf6e_0",
-      "old_fingerprint": "97bc915b9ebfbb946bad920a01e4def5_0",
-      "code_extract": "window.dataLayer.push({\\n\\temail: user.email,\\n});"
-    },
-    {
-      "cwe_ids": [
-        "201"
-      ],
-      "id": "javascript_third_parties_google_tag_manager",
-      "title": "Sensitive data sent to Google Tag Manager detected.",
-      "description": "## Description\\n\\nLeaking sensitive data to third parties is a common cause of data leaks and can lead to data breaches. This rule looks for instances of leaking sensitive data to third parties using google tag manager.\\n\\n❌ Avoid sending sensitive data to third parties:\\n\\n\`\`\`javascript\\ndatalayer.push({\\n  user: {\\n    email: user.email\\n  }\\n})\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`javascript\\ndatalayer.push({\\n  user: {\\n    uuid: user.uuid\\n  }\\n})\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
-      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_google_tag_manager",
       "line_number": 4,
       "full_filename": "/tmp/bearer-scan/insecure.js",
       "filename": ".",
@@ -83,8 +41,8 @@ exports[`javascript_third_parties_google_tag_manager insecure 1`] = `
       },
       "parent_line_number": 3,
       "snippet": "window.dataLayer.push({\\n\\temail: user.email,\\n})",
-      "fingerprint": "da9f822205740bd5ee47f56b7ebccf6e_1",
-      "old_fingerprint": "97bc915b9ebfbb946bad920a01e4def5_1",
+      "fingerprint": "da9f822205740bd5ee47f56b7ebccf6e_0",
+      "old_fingerprint": "97bc915b9ebfbb946bad920a01e4def5_0",
       "code_extract": "window.dataLayer.push({\\n\\temail: user.email,\\n});"
     }
   ]

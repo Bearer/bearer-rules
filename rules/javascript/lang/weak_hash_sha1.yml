@@ -1,6 +1,7 @@
 imports:
   - javascript_shared_third_parties_cryptojs_init
   - javascript_shared_lang_crypto_init
+  - javascript_shared_common_datatype
 patterns:
   - pattern: |
       $<VAR>.update($<OPTIONAL_DATA_TYPE>)
@@ -10,11 +11,11 @@ patterns:
         scope: cursor
       - either:
           - variable: OPTIONAL_DATA_TYPE
-            detection: datatype
+            detection: javascript_shared_common_datatype
             scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
-              detection: datatype
+              detection: javascript_shared_common_datatype
               scope: result
   - pattern: |
       $<CRYPTOJS_INIT>.SHA1($<OPTIONAL_DATA_TYPE>)
@@ -24,11 +25,11 @@ patterns:
         scope: cursor
       - either:
           - variable: OPTIONAL_DATA_TYPE
-            detection: datatype
+            detection: javascript_shared_common_datatype
             scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
-              detection: datatype
+              detection: javascript_shared_common_datatype
               scope: result
   - pattern: |
       $<CRYPTOJS_INIT>.HmacSHA1($<OPTIONAL_DATA_TYPE>, $<_>)
@@ -38,11 +39,11 @@ patterns:
         scope: cursor
       - either:
           - variable: OPTIONAL_DATA_TYPE
-            detection: datatype
+            detection: javascript_shared_common_datatype
             scope: result
           - not:
               variable: OPTIONAL_DATA_TYPE
-              detection: datatype
+              detection: javascript_shared_common_datatype
               scope: result
 languages:
   - javascript

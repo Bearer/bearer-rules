@@ -1,9 +1,11 @@
+imports:
+  - ruby_shared_common_datatype
 patterns:
   - pattern: |
       cookies[$<_>] = $<DATA_TYPE>
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       cookies.$<METHOD>[$<_>] = $<DATA_TYPE>
@@ -13,19 +15,19 @@ patterns:
           - permanent
           - signed
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       cookies.permanent.signed[$<_>] = $<DATA_TYPE>
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
   - pattern: |
       cookies.signed.permanent[$<_>] = $<DATA_TYPE>
     filters:
       - variable: DATA_TYPE
-        detection: datatype
+        detection: ruby_shared_common_datatype
         scope: result
 languages:
   - ruby
