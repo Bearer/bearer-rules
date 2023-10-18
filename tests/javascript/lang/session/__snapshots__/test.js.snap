@@ -13,7 +13,7 @@ exports[`javascript_lang_session session_leak 1`] = `
       "title": "Sensitive data stored in HTML local storage detected.",
       "description": "## Description\\n\\nSensitive data should not be stored in a \`localStorage\` session. This policy looks for any sensitive data stored within the localstorage.\\n\\n## Remediations\\n\\nIt's best to avoid storing sensitive data in \`localStorage\` whenever possible. To keep session data safe, use a server-based session storage solution instead.\\n\\n❌ If you do need do store data in \`localStorage\`, avoid including sensitive data:\\n\\n\`\`\`javascript\\nlocalStorage.setItem('user', email)\\n\`\`\`\\n\\n✅ Instead, use a unique identifier:\\n\\n\`\`\`javascript\\nlocalStorage.setItem('user', user.uuid)\\n\`\`\`\\n\\n## Resources\\n  - [OWASP sensitive data exposure](https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_session",
-      "line_number": 1,
+      "line_number": 3,
       "full_filename": "/tmp/bearer-scan/session_leak.js",
       "filename": ".",
       "data_type": {

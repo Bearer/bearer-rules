@@ -60,7 +60,7 @@ exports[`javascript_lang_exception reject 1`] = `
       "title": "Sensitive data in a exception message detected.",
       "description": "## Description\\n\\nLeaking sensitive data to an exception is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to exceptions.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in exception messages:\\n\\n\`\`\`javascript\\nthrow new CustomError(\`Error with \${user.email}\`)\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`javascript\\nthrow new CustomError(\`Error with \${user.uuid}\`)\\n\`\`\`\\n<!--\\n## Resources\\nComing soon.\\n-->\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_exception",
-      "line_number": 5,
+      "line_number": 7,
       "full_filename": "/tmp/bearer-scan/reject.js",
       "filename": ".",
       "data_type": {
@@ -102,7 +102,7 @@ exports[`javascript_lang_exception reject 1`] = `
       "title": "Sensitive data in a exception message detected.",
       "description": "## Description\\n\\nLeaking sensitive data to an exception is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to exceptions.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in exception messages:\\n\\n\`\`\`javascript\\nthrow new CustomError(\`Error with \${user.email}\`)\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`javascript\\nthrow new CustomError(\`Error with \${user.uuid}\`)\\n\`\`\`\\n<!--\\n## Resources\\nComing soon.\\n-->\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_exception",
-      "line_number": 14,
+      "line_number": 16,
       "full_filename": "/tmp/bearer-scan/reject.js",
       "filename": ".",
       "data_type": {

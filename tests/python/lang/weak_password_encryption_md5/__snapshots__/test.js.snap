@@ -98,7 +98,7 @@ exports[`python_lang_weak_password_encryption_md5 bad 1`] = `
       "title": "Weak encryption algorithm (MD5) used for password detected.",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 and its predecessors are considered weak hash algorithms and therefore shouldn't be used.\\n\\n❌ Do not use encryption for passwords, wherever possible:\\n\\n\`\`\`python\\nhashlib.md5(user.password).digest()\\n\`\`\`\\n\\n✅ Instead, we recommend using sha256:\\n\\n\`\`\`python\\nhashlib.sha256(user.password).digest()\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/python_lang_weak_password_encryption_md5",
-      "line_number": 10,
+      "line_number": 11,
       "full_filename": "/tmp/bearer-scan/bad.py",
       "filename": ".",
       "data_type": {

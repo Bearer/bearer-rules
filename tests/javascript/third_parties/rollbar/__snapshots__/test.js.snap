@@ -11,7 +11,7 @@ exports[`javascript_third_parties_rollbar browser_insecure 1`] = `
       "title": "Sensitive data sent to Rollbar detected.",
       "description": "## Description\\n\\nLeaking sensitive data to third-party error logging tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen sending data to logging libraries, ensure all sensitive data is removed.\\n\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\n  Rollbar.critical(\\"Connection error from remote Payments API\\", user.uuid);\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_rollbar",
-      "line_number": 1,
+      "line_number": 3,
       "full_filename": "/tmp/bearer-scan/browser_insecure.js",
       "filename": ".",
       "data_type": {

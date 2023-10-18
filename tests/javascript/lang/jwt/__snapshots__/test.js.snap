@@ -11,7 +11,7 @@ exports[`javascript_lang_jwt insecure 1`] = `
       "title": "Sensitive data in a JWT detected.",
       "description": "## Description\\n\\nJWTs are not a secure place to store sensitive data. This rule looks for any sensitive data types saved to a JWT.\\n\\n## Remediations\\n\\n❌ Avoid storing sensitive data in JWTs:\\n\\n\`\`\`javascript\\n  const jwt = require('jsonwebtoken');\\n  const token = jwt.sign({ user: { email: 'jhon@gmail.com' }});\\n\`\`\`\\n\\n✅ If you need to store user's information, use their unique database identifier instead of personal identifiable information:\\n\\n\`\`\`javascript\\n  const jwt = require('jsonwebtoken');\\n  const token = jwt.sign({ user: user.uuid });\\n\`\`\`\\n\\n## Resources\\n  - [OWASP sensitive data exposure](https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_jwt",
-      "line_number": 3,
+      "line_number": 2,
       "full_filename": "/tmp/bearer-scan/insecure.js",
       "filename": ".",
       "data_type": {

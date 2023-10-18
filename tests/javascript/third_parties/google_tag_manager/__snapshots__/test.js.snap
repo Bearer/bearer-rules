@@ -11,7 +11,7 @@ exports[`javascript_third_parties_google_tag_manager insecure 1`] = `
       "title": "Sensitive data sent to Google Tag Manager detected.",
       "description": "## Description\\n\\nLeaking sensitive data to third parties is a common cause of data leaks and can lead to data breaches. This rule looks for instances of leaking sensitive data to third parties using google tag manager.\\n\\n❌ Avoid sending sensitive data to third parties:\\n\\n\`\`\`javascript\\ndatalayer.push({\\n  user: {\\n    email: user.email\\n  }\\n})\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`javascript\\ndatalayer.push({\\n  user: {\\n    uuid: user.uuid\\n  }\\n})\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_google_tag_manager",
-      "line_number": 4,
+      "line_number": 3,
       "full_filename": "/tmp/bearer-scan/insecure.js",
       "filename": ".",
       "data_type": {
