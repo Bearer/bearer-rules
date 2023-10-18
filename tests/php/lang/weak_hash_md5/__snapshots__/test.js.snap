@@ -128,6 +128,48 @@ exports[`php_lang_weak_hash_md5 insecure_library 1`] = `
       "fingerprint": "b16ebf2686eb6bc50d2958902228423e_3",
       "old_fingerprint": "66cbe12b2757dc5d25aa2f07ab536f55_3",
       "code_extract": "$encrypted = hash($algorithm, $user->gender);"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "php_lang_weak_hash_md5",
+      "title": "Weak hashing library (MD5) detected",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = md5($input)\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input)\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md5",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/insecure.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "94007e1e-57d8-43e8-90f2-246236dc5dde",
+        "name": "Gender"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 18,
+          "end": 31
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 38
+        },
+        "content": "hash_hmac(\\"md5\\", $user->gender, $key)"
+      },
+      "parent_line_number": 13,
+      "snippet": "hash_hmac(\\"md5\\", $user->gender, $key)",
+      "fingerprint": "b16ebf2686eb6bc50d2958902228423e_6",
+      "old_fingerprint": "66cbe12b2757dc5d25aa2f07ab536f55_6",
+      "code_extract": "hash_hmac(\\"md5\\", $user->gender, $key);"
     }
   ],
   "medium": [
@@ -244,6 +286,44 @@ exports[`php_lang_weak_hash_md5 insecure_library 1`] = `
       "fingerprint": "b16ebf2686eb6bc50d2958902228423e_5",
       "old_fingerprint": "66cbe12b2757dc5d25aa2f07ab536f55_5",
       "code_extract": "md5_file(\\"foo.txt\\");"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "php_lang_weak_hash_md5",
+      "title": "Weak hashing library (MD5) detected",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = md5($input)\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input)\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md5",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/insecure.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 31
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 31
+        },
+        "content": "hash_hmac(\\"md5\\", $other, $key)"
+      },
+      "parent_line_number": 14,
+      "snippet": "hash_hmac(\\"md5\\", $other, $key)",
+      "fingerprint": "b16ebf2686eb6bc50d2958902228423e_7",
+      "old_fingerprint": "66cbe12b2757dc5d25aa2f07ab536f55_7",
+      "code_extract": "hash_hmac(\\"md5\\", $other, $key);"
     }
   ]
 }"

@@ -10,4 +10,7 @@ $encrypted = hash($algorithm, $other);
 
 md5_file("foo.txt");
 
+hash_hmac("md5", $user->gender, $key);
+hash_hmac("md5", $other, $key);
+
 ?>

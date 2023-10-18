@@ -13,10 +13,14 @@ patterns:
               detection: php_shared_lang_datatype
               scope: result
   - pattern: |
-      hash($<ALGORITHM>, $<DATA_TYPE>$<...>)
+      $<FUNCTION>($<ALGORITHM>, $<DATA_TYPE>$<...>)
     filters:
+      - variable: FUNCTION
+        values:
+          - hash
+          - hash_hmac
       - variable: ALGORITHM
-        detection: php_lang_weak_hash_md5_algo
+        string_regex: md5
       - either:
           - variable: DATA_TYPE
             detection: php_shared_lang_datatype
@@ -26,13 +30,6 @@ patterns:
               detection: php_shared_lang_datatype
               scope: result
   - pattern: md5_file();
-auxiliary:
-  - id: php_lang_weak_hash_md5_algo
-    patterns:
-      - pattern: $<ALGO>;
-        filters:
-          - variable: ALGO
-            string_regex: md5
 languages:
   - php
 skip_data_types:

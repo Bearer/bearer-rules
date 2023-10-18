@@ -131,6 +131,49 @@ exports[`php_lang_weak_password_hash_sha1 insecure_password 1`] = `
       "fingerprint": "93faf6416d8eb395af51cd70032af821_2",
       "old_fingerprint": "756d593428d986d3bc4c072751f89e3a_2",
       "code_extract": "$encrypted_password = hash($algorithm, $user->password);"
+    },
+    {
+      "cwe_ids": [
+        "327",
+        "916"
+      ],
+      "id": "php_lang_weak_password_hash_sha1",
+      "title": "Weak hashing library (SHA-1) detected",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted_password = sha1($user->password);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted_password = password_hash($user->password);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_password_hash_sha1",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/insecure.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "dd88aee5-9d40-4ad2-8983-0c791ddec47c",
+        "name": "Passwords"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 45,
+          "end": 60
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 23,
+          "end": 67
+        },
+        "content": "hash_hmac($algorithm, $user->password, $key)"
+      },
+      "parent_line_number": 7,
+      "snippet": "hash_hmac($algorithm, $user->password, $key)",
+      "fingerprint": "93faf6416d8eb395af51cd70032af821_3",
+      "old_fingerprint": "756d593428d986d3bc4c072751f89e3a_3",
+      "code_extract": "$encrypted_password = hash_hmac($algorithm, $user->password, $key);"
     }
   ]
 }"

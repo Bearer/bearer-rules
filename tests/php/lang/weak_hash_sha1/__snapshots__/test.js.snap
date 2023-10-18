@@ -128,6 +128,48 @@ exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `
       "fingerprint": "84cdb4744f0dfa0a4a190a968b9ffe27_3",
       "old_fingerprint": "30309e1653f6f235f54d52c14c7673dd_3",
       "code_extract": "$encrypted = hash($algorithm, $user->gender);"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "php_lang_weak_hash_sha1",
+      "title": "Weak hashing library (SHA-1) detected",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/insecure.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "94007e1e-57d8-43e8-90f2-246236dc5dde",
+        "name": "Gender"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 19,
+          "end": 32
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 39
+        },
+        "content": "hash_hmac(\\"sha1\\", $user->gender, $key)"
+      },
+      "parent_line_number": 13,
+      "snippet": "hash_hmac(\\"sha1\\", $user->gender, $key)",
+      "fingerprint": "84cdb4744f0dfa0a4a190a968b9ffe27_6",
+      "old_fingerprint": "30309e1653f6f235f54d52c14c7673dd_6",
+      "code_extract": "hash_hmac(\\"sha1\\", $user->gender, $key);"
     }
   ],
   "medium": [
@@ -244,6 +286,44 @@ exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `
       "fingerprint": "84cdb4744f0dfa0a4a190a968b9ffe27_5",
       "old_fingerprint": "30309e1653f6f235f54d52c14c7673dd_5",
       "code_extract": "sha1_file(\\"foo.txt\\");"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "php_lang_weak_hash_sha1",
+      "title": "Weak hashing library (SHA-1) detected",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/insecure.php",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 32
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 32
+        },
+        "content": "hash_hmac(\\"sha1\\", $other, $key)"
+      },
+      "parent_line_number": 14,
+      "snippet": "hash_hmac(\\"sha1\\", $other, $key)",
+      "fingerprint": "84cdb4744f0dfa0a4a190a968b9ffe27_7",
+      "old_fingerprint": "30309e1653f6f235f54d52c14c7673dd_7",
+      "code_extract": "hash_hmac(\\"sha1\\", $other, $key);"
     }
   ]
 }"
