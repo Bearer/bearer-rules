@@ -46,3 +46,48 @@ exports[`ruby_rails_password_length password_too_short 1`] = `
   ]
 }"
 `;
+
+exports[`ruby_rails_password_length password_too_short_devise 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "521"
+      ],
+      "id": "ruby_rails_password_length",
+      "title": "Password length (< 8) requirement is too short.",
+      "description": "## Description\\n\\nMinimum password length should be enforced any time password creation occurs. This rule checks if configurations and validations made for passwords include a minimum length of 8.\\n\\n## Remediations\\n\\n✅ OWASP recommends a password length of at least 8 characters, which is easy to enforce at the model level in Rails using validation constraint:\\n\\n\`\`\`ruby\\nvalidates :password, presence: true, length: { minimum: 8, maximum: 255 }\\n\`\`\`\\n\\n## Resources\\n- [OWASP proper password strength controls](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#implement-proper-password-strength-controls)\\n- [Devise gem](https://github.com/heartcombo/devise)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_password_length",
+      "line_number": 186,
+      "full_filename": "/tmp/bearer-scan/devise.rb",
+      "filename": ".",
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 186,
+        "end": 186,
+        "column": {
+          "start": 3,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 186,
+        "end": 186,
+        "column": {
+          "start": 3,
+          "end": 34
+        },
+        "content": "config.password_length = 6..128"
+      },
+      "parent_line_number": 186,
+      "snippet": "config.password_length = 6..128",
+      "fingerprint": "c8d472edf7f66b5edd8da1e0c87eee3f_0",
+      "old_fingerprint": "c0aac500e32a78c04065c41de3edff3e_0",
+      "code_extract": "  config.password_length = 6..128"
+    }
+  ]
+}"
+`;
