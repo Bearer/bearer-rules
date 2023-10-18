@@ -15,4 +15,10 @@ hash_hmac("md5", $user->gender, $key);
 hash_hmac("md4", $user->gender, $key);
 hash_hmac("md5", $other, $key);
 
+$context = hash_init("md5", 0);
+hash_update($context, $user->gender);
+hash_update($context, $other);
+hash_update_file($context, $filename);
+hash_update_stream($context, $handle);
+
 ?>

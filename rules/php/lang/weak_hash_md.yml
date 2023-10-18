@@ -30,6 +30,35 @@ patterns:
               detection: php_shared_lang_datatype
               scope: result
   - pattern: md5_file();
+  - pattern: hash_update($<CONTEXT>, $<DATA_TYPE>)
+    filters:
+      - variable: CONTEXT
+        detection: php_lang_weak_hash_md_context
+        scope: cursor
+      - either:
+          - variable: DATA_TYPE
+            detection: php_shared_lang_datatype
+            scope: result
+          - not:
+              variable: DATA_TYPE
+              detection: php_shared_lang_datatype
+              scope: result
+  - pattern: $<FUNCTION>($<CONTEXT>$<...>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - hash_update_file
+          - hash_update_stream
+      - variable: CONTEXT
+        detection: php_lang_weak_hash_md_context
+        scope: cursor
+auxiliary:
+  - id: php_lang_weak_hash_md_context
+    patterns:
+      - pattern: hash_init($<ALGORITHM>$<...>)
+        filters:
+          - variable: ALGORITHM
+            string_regex: md\d
 languages:
   - php
 skip_data_types:
