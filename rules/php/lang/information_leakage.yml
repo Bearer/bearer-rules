@@ -1,0 +1,60 @@
+patterns:
+  - pattern: echo $<EXCEPTION_DETAILS>
+    filters:
+      - variable: EXCEPTION_DETAILS
+        detection: php_lang_information_leakage_exception_details
+        scope: result
+  - pattern: print $<EXCEPTION_DETAILS>;
+    filters:
+      - variable: EXCEPTION_DETAILS
+        detection: php_lang_information_leakage_exception_details
+        scope: result
+  - pattern: print_r($<EXCEPTION_DETAILS>)
+    filters:
+      - variable: EXCEPTION_DETAILS
+        detection: php_lang_information_leakage_exception_details
+        scope: result
+  - pattern: $<METHOD>($<_>, $<...>$<EXCEPTION_DETAILS>$<...>)
+    filters:
+      - variable: METHOD
+        values:
+          - printf
+          - vprintf
+      - variable: EXCEPTION_DETAILS
+        detection: php_lang_information_leakage_exception_details
+        scope: result
+auxiliary:
+  - id: php_lang_information_leakage_exception_details
+    patterns:
+      - try {} catch ($<_> $<!>$$<_>) {}
+      - pattern: $<EXCEPTION>->$<_>()
+        filters:
+          - variable: EXCEPTION
+            detection: php_lang_information_leakage_exception_details
+            scope: cursor
+languages:
+  - php
+severity: warning
+metadata:
+  description: Possible information leakage detected.
+  remediation_message: |
+    ## Description
+
+    Printing an exception message to the default output is risky because it may
+    contain sensitive information such as the technical details of your
+    application or environment (which in turn could expose your application to
+    path traversal attacks, for example), or worse, user-specific data.
+
+    ## Remediations
+
+    ❌ Avoid printing the full stack trace
+
+    ✅ Less is more! Only log the minimum required details in error messages
+
+    ## Resources
+
+    - [Web Application Security Consortium: Information Leakage](http://projects.webappsec.org/w/page/13246936/Information%20Leakage)
+  cwe_id:
+    - 209
+  id: php_lang_information_leakage
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_information_leakage
