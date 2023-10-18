@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`php_lang_weak_hash_md5 insecure_library 1`] = `
+exports[`php_lang_weak_hash_md insecure_library 1`] = `
 "{
   "high": [
     {
       "cwe_ids": [
         "327"
       ],
-      "id": "php_lang_weak_hash_md5",
-      "title": "Weak hashing library (MD5) detected",
+      "id": "php_lang_weak_hash_md",
+      "title": "Weak hashing library (MDx) detected",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = md5($input)\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input)\\n\`\`\`\\n",
-      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md5",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md",
       "line_number": 3,
       "full_filename": "/tmp/bearer-scan/insecure.php",
       "filename": ".",
@@ -41,18 +41,18 @@ exports[`php_lang_weak_hash_md5 insecure_library 1`] = `
       },
       "parent_line_number": 3,
       "snippet": "md5($user->gender)",
-      "fingerprint": "b16ebf2686eb6bc50d2958902228423e_0",
-      "old_fingerprint": "66cbe12b2757dc5d25aa2f07ab536f55_0",
+      "fingerprint": "176973121607546016c69eea1f0dc2c5_0",
+      "old_fingerprint": "82c024090a81cb88bcff83f6107449b6_0",
       "code_extract": "$encrypted = md5($user->gender);"
     },
     {
       "cwe_ids": [
         "327"
       ],
-      "id": "php_lang_weak_hash_md5",
-      "title": "Weak hashing library (MD5) detected",
+      "id": "php_lang_weak_hash_md",
+      "title": "Weak hashing library (MDx) detected",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = md5($input)\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input)\\n\`\`\`\\n",
-      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md5",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md",
       "line_number": 6,
       "full_filename": "/tmp/bearer-scan/insecure.php",
       "filename": ".",
@@ -83,19 +83,19 @@ exports[`php_lang_weak_hash_md5 insecure_library 1`] = `
       },
       "parent_line_number": 6,
       "snippet": "hash('md5', $user->gender)",
-      "fingerprint": "b16ebf2686eb6bc50d2958902228423e_2",
-      "old_fingerprint": "66cbe12b2757dc5d25aa2f07ab536f55_2",
+      "fingerprint": "176973121607546016c69eea1f0dc2c5_2",
+      "old_fingerprint": "82c024090a81cb88bcff83f6107449b6_2",
       "code_extract": "$encrypted = hash('md5', $user->gender);"
     },
     {
       "cwe_ids": [
         "327"
       ],
-      "id": "php_lang_weak_hash_md5",
-      "title": "Weak hashing library (MD5) detected",
+      "id": "php_lang_weak_hash_md",
+      "title": "Weak hashing library (MDx) detected",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = md5($input)\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input)\\n\`\`\`\\n",
-      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md5",
-      "line_number": 8,
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md",
+      "line_number": 7,
       "full_filename": "/tmp/bearer-scan/insecure.php",
       "filename": ".",
       "data_type": {
@@ -107,37 +107,79 @@ exports[`php_lang_weak_hash_md5 insecure_library 1`] = `
         "Personal Data"
       ],
       "source": {
-        "start": 8,
-        "end": 8,
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 26,
+          "end": 39
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 14,
+          "end": 40
+        },
+        "content": "hash('md4', $user->gender)"
+      },
+      "parent_line_number": 7,
+      "snippet": "hash('md4', $user->gender)",
+      "fingerprint": "176973121607546016c69eea1f0dc2c5_3",
+      "old_fingerprint": "82c024090a81cb88bcff83f6107449b6_3",
+      "code_extract": "$encrypted = hash('md4', $user->gender);"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "php_lang_weak_hash_md",
+      "title": "Weak hashing library (MDx) detected",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = md5($input)\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input)\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/insecure.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "94007e1e-57d8-43e8-90f2-246236dc5dde",
+        "name": "Gender"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 9,
+        "end": 9,
         "column": {
           "start": 31,
           "end": 44
         }
       },
       "sink": {
-        "start": 8,
-        "end": 8,
+        "start": 9,
+        "end": 9,
         "column": {
           "start": 14,
           "end": 45
         },
         "content": "hash($algorithm, $user->gender)"
       },
-      "parent_line_number": 8,
+      "parent_line_number": 9,
       "snippet": "hash($algorithm, $user->gender)",
-      "fingerprint": "b16ebf2686eb6bc50d2958902228423e_3",
-      "old_fingerprint": "66cbe12b2757dc5d25aa2f07ab536f55_3",
+      "fingerprint": "176973121607546016c69eea1f0dc2c5_4",
+      "old_fingerprint": "82c024090a81cb88bcff83f6107449b6_4",
       "code_extract": "$encrypted = hash($algorithm, $user->gender);"
     },
     {
       "cwe_ids": [
         "327"
       ],
-      "id": "php_lang_weak_hash_md5",
-      "title": "Weak hashing library (MD5) detected",
+      "id": "php_lang_weak_hash_md",
+      "title": "Weak hashing library (MDx) detected",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = md5($input)\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input)\\n\`\`\`\\n",
-      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md5",
-      "line_number": 13,
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md",
+      "line_number": 14,
       "full_filename": "/tmp/bearer-scan/insecure.php",
       "filename": ".",
       "data_type": {
@@ -149,27 +191,69 @@ exports[`php_lang_weak_hash_md5 insecure_library 1`] = `
         "Personal Data"
       ],
       "source": {
-        "start": 13,
-        "end": 13,
+        "start": 14,
+        "end": 14,
         "column": {
           "start": 18,
           "end": 31
         }
       },
       "sink": {
-        "start": 13,
-        "end": 13,
+        "start": 14,
+        "end": 14,
         "column": {
           "start": 1,
           "end": 38
         },
         "content": "hash_hmac(\\"md5\\", $user->gender, $key)"
       },
-      "parent_line_number": 13,
+      "parent_line_number": 14,
       "snippet": "hash_hmac(\\"md5\\", $user->gender, $key)",
-      "fingerprint": "b16ebf2686eb6bc50d2958902228423e_6",
-      "old_fingerprint": "66cbe12b2757dc5d25aa2f07ab536f55_6",
+      "fingerprint": "176973121607546016c69eea1f0dc2c5_7",
+      "old_fingerprint": "82c024090a81cb88bcff83f6107449b6_7",
       "code_extract": "hash_hmac(\\"md5\\", $user->gender, $key);"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "php_lang_weak_hash_md",
+      "title": "Weak hashing library (MDx) detected",
+      "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = md5($input)\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input)\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/insecure.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "94007e1e-57d8-43e8-90f2-246236dc5dde",
+        "name": "Gender"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 18,
+          "end": 31
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 38
+        },
+        "content": "hash_hmac(\\"md4\\", $user->gender, $key)"
+      },
+      "parent_line_number": 15,
+      "snippet": "hash_hmac(\\"md4\\", $user->gender, $key)",
+      "fingerprint": "176973121607546016c69eea1f0dc2c5_8",
+      "old_fingerprint": "82c024090a81cb88bcff83f6107449b6_8",
+      "code_extract": "hash_hmac(\\"md4\\", $user->gender, $key);"
     }
   ],
   "medium": [
@@ -177,10 +261,10 @@ exports[`php_lang_weak_hash_md5 insecure_library 1`] = `
       "cwe_ids": [
         "327"
       ],
-      "id": "php_lang_weak_hash_md5",
-      "title": "Weak hashing library (MD5) detected",
+      "id": "php_lang_weak_hash_md",
+      "title": "Weak hashing library (MDx) detected",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = md5($input)\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input)\\n\`\`\`\\n",
-      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md5",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md",
       "line_number": 4,
       "full_filename": "/tmp/bearer-scan/insecure.php",
       "filename": ".",
@@ -207,19 +291,19 @@ exports[`php_lang_weak_hash_md5 insecure_library 1`] = `
       },
       "parent_line_number": 4,
       "snippet": "md5($other)",
-      "fingerprint": "b16ebf2686eb6bc50d2958902228423e_1",
-      "old_fingerprint": "66cbe12b2757dc5d25aa2f07ab536f55_1",
+      "fingerprint": "176973121607546016c69eea1f0dc2c5_1",
+      "old_fingerprint": "82c024090a81cb88bcff83f6107449b6_1",
       "code_extract": "$encrypted = md5($other);"
     },
     {
       "cwe_ids": [
         "327"
       ],
-      "id": "php_lang_weak_hash_md5",
-      "title": "Weak hashing library (MD5) detected",
+      "id": "php_lang_weak_hash_md",
+      "title": "Weak hashing library (MDx) detected",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = md5($input)\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input)\\n\`\`\`\\n",
-      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md5",
-      "line_number": 9,
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md",
+      "line_number": 10,
       "full_filename": "/tmp/bearer-scan/insecure.php",
       "filename": ".",
       "category_groups": [
@@ -227,37 +311,37 @@ exports[`php_lang_weak_hash_md5 insecure_library 1`] = `
         "Personal Data"
       ],
       "source": {
-        "start": 9,
-        "end": 9,
+        "start": 10,
+        "end": 10,
         "column": {
           "start": 14,
           "end": 38
         }
       },
       "sink": {
-        "start": 9,
-        "end": 9,
+        "start": 10,
+        "end": 10,
         "column": {
           "start": 14,
           "end": 38
         },
         "content": "hash($algorithm, $other)"
       },
-      "parent_line_number": 9,
+      "parent_line_number": 10,
       "snippet": "hash($algorithm, $other)",
-      "fingerprint": "b16ebf2686eb6bc50d2958902228423e_4",
-      "old_fingerprint": "66cbe12b2757dc5d25aa2f07ab536f55_4",
+      "fingerprint": "176973121607546016c69eea1f0dc2c5_5",
+      "old_fingerprint": "82c024090a81cb88bcff83f6107449b6_5",
       "code_extract": "$encrypted = hash($algorithm, $other);"
     },
     {
       "cwe_ids": [
         "327"
       ],
-      "id": "php_lang_weak_hash_md5",
-      "title": "Weak hashing library (MD5) detected",
+      "id": "php_lang_weak_hash_md",
+      "title": "Weak hashing library (MDx) detected",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = md5($input)\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input)\\n\`\`\`\\n",
-      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md5",
-      "line_number": 11,
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md",
+      "line_number": 12,
       "full_filename": "/tmp/bearer-scan/insecure.php",
       "filename": ".",
       "category_groups": [
@@ -265,37 +349,37 @@ exports[`php_lang_weak_hash_md5 insecure_library 1`] = `
         "Personal Data"
       ],
       "source": {
-        "start": 11,
-        "end": 11,
+        "start": 12,
+        "end": 12,
         "column": {
           "start": 1,
           "end": 20
         }
       },
       "sink": {
-        "start": 11,
-        "end": 11,
+        "start": 12,
+        "end": 12,
         "column": {
           "start": 1,
           "end": 20
         },
         "content": "md5_file(\\"foo.txt\\")"
       },
-      "parent_line_number": 11,
+      "parent_line_number": 12,
       "snippet": "md5_file(\\"foo.txt\\")",
-      "fingerprint": "b16ebf2686eb6bc50d2958902228423e_5",
-      "old_fingerprint": "66cbe12b2757dc5d25aa2f07ab536f55_5",
+      "fingerprint": "176973121607546016c69eea1f0dc2c5_6",
+      "old_fingerprint": "82c024090a81cb88bcff83f6107449b6_6",
       "code_extract": "md5_file(\\"foo.txt\\");"
     },
     {
       "cwe_ids": [
         "327"
       ],
-      "id": "php_lang_weak_hash_md5",
-      "title": "Weak hashing library (MD5) detected",
+      "id": "php_lang_weak_hash_md",
+      "title": "Weak hashing library (MDx) detected",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = md5($input)\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input)\\n\`\`\`\\n",
-      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md5",
-      "line_number": 14,
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_md",
+      "line_number": 16,
       "full_filename": "/tmp/bearer-scan/insecure.php",
       "filename": ".",
       "category_groups": [
@@ -303,30 +387,30 @@ exports[`php_lang_weak_hash_md5 insecure_library 1`] = `
         "Personal Data"
       ],
       "source": {
-        "start": 14,
-        "end": 14,
+        "start": 16,
+        "end": 16,
         "column": {
           "start": 1,
           "end": 31
         }
       },
       "sink": {
-        "start": 14,
-        "end": 14,
+        "start": 16,
+        "end": 16,
         "column": {
           "start": 1,
           "end": 31
         },
         "content": "hash_hmac(\\"md5\\", $other, $key)"
       },
-      "parent_line_number": 14,
+      "parent_line_number": 16,
       "snippet": "hash_hmac(\\"md5\\", $other, $key)",
-      "fingerprint": "b16ebf2686eb6bc50d2958902228423e_7",
-      "old_fingerprint": "66cbe12b2757dc5d25aa2f07ab536f55_7",
+      "fingerprint": "176973121607546016c69eea1f0dc2c5_9",
+      "old_fingerprint": "82c024090a81cb88bcff83f6107449b6_9",
       "code_extract": "hash_hmac(\\"md5\\", $other, $key);"
     }
   ]
 }"
 `;
 
-exports[`php_lang_weak_hash_md5 secure_type 1`] = `"{}"`;
+exports[`php_lang_weak_hash_md secure_type 1`] = `"{}"`;
