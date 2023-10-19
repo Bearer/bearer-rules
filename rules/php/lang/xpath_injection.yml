@@ -21,15 +21,26 @@ patterns:
   - pattern: $<SIMPLE_XML>->xpath($<USER_INPUT>)
     filters:
       - variable: SIMPLE_XML
-        detection: php_shared_lang_instance
+        detection: php_lang_xpath_injection_simple_xml
         scope: cursor
-        filters:
-          - variable: CLASS
-            values:
-              - SimpleXMLElement
       - variable: USER_INPUT
         detection: php_shared_lang_user_input
         scope: result
+auxiliary:
+  - id: php_lang_xpath_injection_simple_xml
+    patterns:
+      - pattern: $<INSTANCE>;
+        filters:
+          - variable: INSTANCE
+            detection: php_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                values:
+                  - SimpleXMLElement
+      - simplexml_import_dom()
+      - simplexml_load_file()
+      - simplexml_load_string()
 languages:
   - php
 metadata:
@@ -51,5 +62,5 @@ metadata:
     - [XPath Injection](https://owasp.org/www-community/attacks/XPATH_Injection)
   cwe_id:
     - 643
-  id: "php_lang_xpath_injection"
+  id: php_lang_xpath_injection
   documentation_url: https://docs.bearer.com/reference/rules/php_lang_xpath_injection
