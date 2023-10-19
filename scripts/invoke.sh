@@ -16,9 +16,6 @@ cp -R $test_location $tmp_location
 
 if [ -n "$BEARER_WORKSPACE" ]; then
   cd $BEARER_WORKSPACE
-  BEARER_GOLANG_ENABLED=true \
-  BEARER_PYTHON_ENABLED=true \
-  BEARER_PHP_ENABLED=true \
   go run ./cmd/bearer/main.go scan $tmp_location \
     --only-rule=$rule_id \
     --quiet \
@@ -35,9 +32,6 @@ else
     --rm \
     -v /tmp/bearer-scan:/tmp/bearer-scan \
     -v $rule_loc:/tmp/rules \
-    -e BEARER_PHP_ENABLED=true \
-    -e BEARER_PYTHON_ENABLED=true \
-    -e BEARER_GOLANG_ENABLED=true \
     bearer/bearer:$BEARER_VERSION \
       scan $tmp_location \
       --only-rule=$rule_id \
