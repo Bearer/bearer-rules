@@ -2,7 +2,7 @@ imports:
   - php_shared_lang_datatype
 patterns:
   - pattern: |
-      sha1($<DATA_TYPE>$<...>)
+      md5($<DATA_TYPE>$<...>)
     filters:
       - either:
           - variable: DATA_TYPE
@@ -20,7 +20,7 @@ patterns:
           - hash
           - hash_hmac
       - variable: ALGORITHM
-        string_regex: sha1
+        string_regex: md\d
       - either:
           - variable: DATA_TYPE
             detection: php_shared_lang_datatype
@@ -29,11 +29,11 @@ patterns:
               variable: DATA_TYPE
               detection: php_shared_lang_datatype
               scope: result
-  - pattern: sha1_file()
+  - pattern: md5_file();
   - pattern: hash_update($<CONTEXT>, $<DATA_TYPE>)
     filters:
       - variable: CONTEXT
-        detection: php_lang_weak_hash_sha1_context
+        detection: php_lang_weak_hash_md_context
         scope: cursor
       - either:
           - variable: DATA_TYPE
@@ -50,22 +50,22 @@ patterns:
           - hash_update_file
           - hash_update_stream
       - variable: CONTEXT
-        detection: php_lang_weak_hash_sha1_context
+        detection: php_lang_weak_hash_md_context
         scope: cursor
 auxiliary:
-  - id: php_lang_weak_hash_sha1_context
+  - id: php_lang_weak_hash_md_context
     patterns:
       - pattern: hash_init($<ALGORITHM>$<...>)
         filters:
           - variable: ALGORITHM
-            string_regex: sha1
+            string_regex: md\d
 languages:
   - php
 skip_data_types:
   - "Unique Identifier"
-  - Passwords # see php_lang_weak_password_hash_sha1
+  - Passwords # see php_lang_weak_password_hash_md5
 metadata:
-  description: "Weak hashing library (SHA-1) detected"
+  description: "Weak hashing library (MDx) detected"
   remediation_message: |
     ## Description
 
@@ -73,20 +73,20 @@ metadata:
 
     ## Remediations
 
-    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.
+    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.
 
     ❌ Avoid libraries and algorithms with known weaknesses:
 
     ```php
-      $encrypted = sha1($input);
+      $encrypted = md5($input)
     ```
 
     ✅ Use stronger encryption algorithms when storing data.
 
     ```php
-      $encrypted = hash('sha256', $input);
+      $encrypted = hash('sha256', $input)
     ```
   cwe_id:
     - 327
-  id: php_lang_weak_hash_sha1
-  documentation_url: https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1
+  id: php_lang_weak_hash_md
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_weak_hash_md

@@ -2,12 +2,11 @@ imports:
   - php_shared_lang_datatype
 patterns:
   - pattern: |
-      $$<LOGGER>->$<METHOD>($<...>$<DATA_TYPE>$<...>)
+      $<LOGGER>->$<METHOD>($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: LOGGER
-        values:
-          - logger
-          - log
+        detection: php_third_parties_logger_instance
+        scope: cursor
       - variable: METHOD
         values:
           - info
@@ -18,6 +17,13 @@ patterns:
       - variable: DATA_TYPE
         detection: php_shared_lang_datatype
         scope: result
+auxiliary:
+  - id: php_third_parties_logger_instance
+    patterns:
+      - $logger;
+      - $log;
+      - $this->logger;
+      - $this->log;
 languages:
   - php
 skip_data_types:
