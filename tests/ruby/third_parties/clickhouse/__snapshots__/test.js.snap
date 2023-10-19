@@ -11,7 +11,7 @@ exports[`ruby_third_parties_clickhouse datatype_in_insert_rows 1`] = `
       "title": "Sensitive data sent to ClickHouse detected.",
       "description": "## Description\\nLeaking sensitive data to a third-party service is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to ClickHouse.\\n\\n## Remediations\\n\\nWhen sending data to third-party services, ensure all sensitive data is removed.\\n\\n## Resources\\n- [ClickHouse docs](https://clickhouse.com/docs/en/intro/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_clickhouse",
-      "line_number": 6,
+      "line_number": 3,
       "full_filename": "/tmp/bearer-scan/datatype_in_insert_rows.rb",
       "filename": ".",
       "data_type": {
@@ -43,48 +43,6 @@ exports[`ruby_third_parties_clickhouse datatype_in_insert_rows 1`] = `
       "snippet": "rows << [\\n      \\"123\\",\\n      2022,\\n      customer.email,\\n      customer.address\\n    ]",
       "fingerprint": "fbf7025f3271404ed6d949cda10a0bc5_0",
       "old_fingerprint": "33559d522fb7fda3441e93358816d4f1_0",
-      "code_extract": "    rows << [\\n      \\"123\\",\\n      2022,\\n      customer.email,\\n      customer.address\\n    ]"
-    },
-    {
-      "cwe_ids": [
-        "201"
-      ],
-      "id": "ruby_third_parties_clickhouse",
-      "title": "Sensitive data sent to ClickHouse detected.",
-      "description": "## Description\\nLeaking sensitive data to a third-party service is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to ClickHouse.\\n\\n## Remediations\\n\\nWhen sending data to third-party services, ensure all sensitive data is removed.\\n\\n## Resources\\n- [ClickHouse docs](https://clickhouse.com/docs/en/intro/)\\n",
-      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_clickhouse",
-      "line_number": 7,
-      "full_filename": "/tmp/bearer-scan/datatype_in_insert_rows.rb",
-      "filename": ".",
-      "data_type": {
-        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
-        "name": "Physical Address"
-      },
-      "category_groups": [
-        "PII",
-        "Personal Data"
-      ],
-      "source": {
-        "start": 7,
-        "end": 7,
-        "column": {
-          "start": 7,
-          "end": 23
-        }
-      },
-      "sink": {
-        "start": 3,
-        "end": 8,
-        "column": {
-          "start": 5,
-          "end": 6
-        },
-        "content": "rows << [\\n      \\"123\\",\\n      2022,\\n      customer.email,\\n      customer.address\\n    ]"
-      },
-      "parent_line_number": 3,
-      "snippet": "rows << [\\n      \\"123\\",\\n      2022,\\n      customer.email,\\n      customer.address\\n    ]",
-      "fingerprint": "fbf7025f3271404ed6d949cda10a0bc5_1",
-      "old_fingerprint": "33559d522fb7fda3441e93358816d4f1_1",
       "code_extract": "    rows << [\\n      \\"123\\",\\n      2022,\\n      customer.email,\\n      customer.address\\n    ]"
     }
   ]

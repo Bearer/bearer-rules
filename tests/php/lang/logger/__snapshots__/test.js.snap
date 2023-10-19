@@ -12,7 +12,7 @@ exports[`php_lang_logger datatype_in_logger 1`] = `
       "title": "Sensitive data in a logger message detected.",
       "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`php\\nerror_log('User is: ' . $user.email)\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`php\\nerror_log('User is: ' . $user.uuid)\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_logger",
-      "line_number": 4,
+      "line_number": 5,
       "full_filename": "/tmp/bearer-scan/insecure.php",
       "filename": ".",
       "data_type": {

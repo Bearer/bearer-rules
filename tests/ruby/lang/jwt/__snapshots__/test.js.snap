@@ -60,7 +60,7 @@ exports[`ruby_lang_jwt datatype_object_in_jwt 1`] = `
       "title": "Sensitive data in a JWT detected.",
       "description": "## Description\\n\\nJWTs are not a secure place to store sensitive data. This rule looks for any sensitive data types saved to a JWT.\\n\\n## Remediations\\n\\n❌ Avoid storing sensitive data in JWT:\\n\\n\`\`\`ruby\\npayload = { data: 'data', email: user.email }\\ntoken = JWT.encode payload, hmac_secret, 'HS256'\\n\`\`\`\\n\\n✅ If you need to store user's information, use their unique database identifier instead of personal identifiable information:\\n\\n\`\`\`ruby\\npayload = { data: 'data', user_id: user.uuid }\\ntoken = JWT.encode payload, hmac_secret, 'HS256'\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_jwt",
-      "line_number": 3,
+      "line_number": 6,
       "full_filename": "/tmp/bearer-scan/datatype_object_in_jwt.rb",
       "filename": ".",
       "data_type": {

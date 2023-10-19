@@ -55,7 +55,7 @@ exports[`go_lang_weak_hash_md5 bad 1`] = `
       "title": "Weak hashing library (MD5) detected.",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 and its predecessors are considered weak hash algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`go\\nmd5.Sum([]byte('password'))\\n\`\`\`\\n\\n✅ Instead, we recommend using sha256:\\n\\n\`\`\`go\\nsha256.Sum256([]byte('string'))\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_weak_hash_md5",
-      "line_number": 18,
+      "line_number": 19,
       "full_filename": "/tmp/bearer-scan/bad.go",
       "filename": ".",
       "data_type": {

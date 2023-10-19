@@ -11,7 +11,7 @@ exports[`javascript_third_parties_segment datatype_in_alias 1`] = `
       "title": "Sensitive data sent to Segment detected.",
       "description": "## Description\\nLeaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Segment.\\n\\n## Remediations\\n\\nWhen sending data to analytics libraries, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Segment Node.js docs](https://segment.com/docs/connections/sources/catalog/libraries/server/node/)\\n- [Segment JavaScript docs](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_segment",
-      "line_number": 8,
+      "line_number": 7,
       "full_filename": "/tmp/bearer-scan/datatype_in_alias.js",
       "filename": ".",
       "data_type": {
@@ -60,7 +60,7 @@ exports[`javascript_third_parties_segment datatype_in_group 1`] = `
       "title": "Sensitive data sent to Segment detected.",
       "description": "## Description\\nLeaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Segment.\\n\\n## Remediations\\n\\nWhen sending data to analytics libraries, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Segment Node.js docs](https://segment.com/docs/connections/sources/catalog/libraries/server/node/)\\n- [Segment JavaScript docs](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_segment",
-      "line_number": 8,
+      "line_number": 6,
       "full_filename": "/tmp/bearer-scan/datatype_in_group.js",
       "filename": ".",
       "data_type": {
@@ -109,7 +109,7 @@ exports[`javascript_third_parties_segment datatype_in_identify 1`] = `
       "title": "Sensitive data sent to Segment detected.",
       "description": "## Description\\nLeaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Segment.\\n\\n## Remediations\\n\\nWhen sending data to analytics libraries, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Segment Node.js docs](https://segment.com/docs/connections/sources/catalog/libraries/server/node/)\\n- [Segment JavaScript docs](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_segment",
-      "line_number": 8,
+      "line_number": 5,
       "full_filename": "/tmp/bearer-scan/datatype_in_identify.js",
       "filename": ".",
       "data_type": {
@@ -141,90 +141,6 @@ exports[`javascript_third_parties_segment datatype_in_identify 1`] = `
       "snippet": "analytics.identify({\\n  userId: user.id,\\n  traits: {\\n    name: user.fullName,\\n    email: user.emailAddress,\\n    plan: user.businessPlan,\\n    friends: user.friendCount\\n  }\\n})",
       "fingerprint": "df462286e9e34d817b61a361c26e8720_0",
       "old_fingerprint": "cb032b072d0a7bcaf1ca43e2bdc2b5cb_0",
-      "code_extract": "analytics.identify({\\n  userId: user.id,\\n  traits: {\\n    name: user.fullName,\\n    email: user.emailAddress,\\n    plan: user.businessPlan,\\n    friends: user.friendCount\\n  }\\n});"
-    },
-    {
-      "cwe_ids": [
-        "201"
-      ],
-      "id": "javascript_third_parties_segment",
-      "title": "Sensitive data sent to Segment detected.",
-      "description": "## Description\\nLeaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Segment.\\n\\n## Remediations\\n\\nWhen sending data to analytics libraries, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Segment Node.js docs](https://segment.com/docs/connections/sources/catalog/libraries/server/node/)\\n- [Segment JavaScript docs](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/)\\n",
-      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_segment",
-      "line_number": 9,
-      "full_filename": "/tmp/bearer-scan/datatype_in_identify.js",
-      "filename": ".",
-      "data_type": {
-        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
-        "name": "Email Address"
-      },
-      "category_groups": [
-        "PII",
-        "Personal Data"
-      ],
-      "source": {
-        "start": 9,
-        "end": 9,
-        "column": {
-          "start": 5,
-          "end": 29
-        }
-      },
-      "sink": {
-        "start": 5,
-        "end": 13,
-        "column": {
-          "start": 1,
-          "end": 3
-        },
-        "content": "analytics.identify({\\n  userId: user.id,\\n  traits: {\\n    name: user.fullName,\\n    email: user.emailAddress,\\n    plan: user.businessPlan,\\n    friends: user.friendCount\\n  }\\n})"
-      },
-      "parent_line_number": 5,
-      "snippet": "analytics.identify({\\n  userId: user.id,\\n  traits: {\\n    name: user.fullName,\\n    email: user.emailAddress,\\n    plan: user.businessPlan,\\n    friends: user.friendCount\\n  }\\n})",
-      "fingerprint": "df462286e9e34d817b61a361c26e8720_1",
-      "old_fingerprint": "cb032b072d0a7bcaf1ca43e2bdc2b5cb_1",
-      "code_extract": "analytics.identify({\\n  userId: user.id,\\n  traits: {\\n    name: user.fullName,\\n    email: user.emailAddress,\\n    plan: user.businessPlan,\\n    friends: user.friendCount\\n  }\\n});"
-    },
-    {
-      "cwe_ids": [
-        "201"
-      ],
-      "id": "javascript_third_parties_segment",
-      "title": "Sensitive data sent to Segment detected.",
-      "description": "## Description\\nLeaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Segment.\\n\\n## Remediations\\n\\nWhen sending data to analytics libraries, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Segment Node.js docs](https://segment.com/docs/connections/sources/catalog/libraries/server/node/)\\n- [Segment JavaScript docs](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/)\\n",
-      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_segment",
-      "line_number": 11,
-      "full_filename": "/tmp/bearer-scan/datatype_in_identify.js",
-      "filename": ".",
-      "data_type": {
-        "category_uuid": "68631dba-5696-4cc0-b6a8-0175ca99a7a2",
-        "name": "Friends"
-      },
-      "category_groups": [
-        "PII",
-        "Personal Data"
-      ],
-      "source": {
-        "start": 11,
-        "end": 11,
-        "column": {
-          "start": 5,
-          "end": 30
-        }
-      },
-      "sink": {
-        "start": 5,
-        "end": 13,
-        "column": {
-          "start": 1,
-          "end": 3
-        },
-        "content": "analytics.identify({\\n  userId: user.id,\\n  traits: {\\n    name: user.fullName,\\n    email: user.emailAddress,\\n    plan: user.businessPlan,\\n    friends: user.friendCount\\n  }\\n})"
-      },
-      "parent_line_number": 5,
-      "snippet": "analytics.identify({\\n  userId: user.id,\\n  traits: {\\n    name: user.fullName,\\n    email: user.emailAddress,\\n    plan: user.businessPlan,\\n    friends: user.friendCount\\n  }\\n})",
-      "fingerprint": "df462286e9e34d817b61a361c26e8720_2",
-      "old_fingerprint": "cb032b072d0a7bcaf1ca43e2bdc2b5cb_2",
       "code_extract": "analytics.identify({\\n  userId: user.id,\\n  traits: {\\n    name: user.fullName,\\n    email: user.emailAddress,\\n    plan: user.businessPlan,\\n    friends: user.friendCount\\n  }\\n});"
     },
     {
@@ -284,7 +200,7 @@ exports[`javascript_third_parties_segment datatype_in_page 1`] = `
       "title": "Sensitive data sent to Segment detected.",
       "description": "## Description\\nLeaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Segment.\\n\\n## Remediations\\n\\nWhen sending data to analytics libraries, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Segment Node.js docs](https://segment.com/docs/connections/sources/catalog/libraries/server/node/)\\n- [Segment JavaScript docs](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_segment",
-      "line_number": 10,
+      "line_number": 6,
       "full_filename": "/tmp/bearer-scan/datatype_in_page.js",
       "filename": ".",
       "data_type": {
@@ -333,7 +249,7 @@ exports[`javascript_third_parties_segment datatype_in_track 1`] = `
       "title": "Sensitive data sent to Segment detected.",
       "description": "## Description\\nLeaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Segment.\\n\\n## Remediations\\n\\nWhen sending data to analytics libraries, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Segment Node.js docs](https://segment.com/docs/connections/sources/catalog/libraries/server/node/)\\n- [Segment JavaScript docs](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_segment",
-      "line_number": 8,
+      "line_number": 5,
       "full_filename": "/tmp/bearer-scan/datatype_in_track.js",
       "filename": ".",
       "data_type": {

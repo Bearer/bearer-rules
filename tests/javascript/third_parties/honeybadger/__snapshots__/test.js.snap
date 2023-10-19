@@ -11,7 +11,7 @@ exports[`javascript_third_parties_honeybadger insecure 1`] = `
       "title": "Sensitive data sent to Honeybadger detected.",
       "description": "## Description\\n\\nLeaking sensitive data to third-party error logging tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Honeybadger.\\n\\n## Remediations\\n\\nWhen sending data to logging libraries, ensure all sensitive data is removed.\\n\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\n  const Honeybadger = require(\\"@honeybadger-io/js\\");\\n\\n  let context = { user: { uuid: \\"aacd05fd-8f5b-4bc6-aa8b-35e5fbf37325\\" } };\\n\\n  Honeybadger.setContext(context);\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_honeybadger",
-      "line_number": 3,
+      "line_number": 5,
       "full_filename": "/tmp/bearer-scan/insecure.js",
       "filename": ".",
       "data_type": {

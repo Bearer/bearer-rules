@@ -11,7 +11,7 @@ exports[`javascript_third_parties_datadog insecure 1`] = `
       "title": "Sensitive data sent to Datadog detected.",
       "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\n  const StatsD = require(\\"hot-shots\\");\\n  const client = new StatsD({\\n    port: 8020,\\n    globalTags: { env: process.env.NODE_ENV },\\n    errorHandler: errorHandler,\\n  });\\n\\n  client.event(user.uuid, \\"logged_in\\", {});\\n\`\`\`\\n\\n## Resources\\n- [Datadog docs](https://docs.datadoghq.com)\\n- [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_datadog",
-      "line_number": 3,
+      "line_number": 11,
       "full_filename": "/tmp/bearer-scan/insecure.js",
       "filename": ".",
       "data_type": {
