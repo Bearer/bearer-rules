@@ -3,9 +3,9 @@
 try {
   echo "hello";
 } catch (OneError | OtherError $e) {
-  echo $e->getCode();
+  foo($e->getCode());
 } catch (FooError $f) {
-  echo $f->getCode();
+  foo($f->getCode());
 } finally {
   echo "done";
 }
