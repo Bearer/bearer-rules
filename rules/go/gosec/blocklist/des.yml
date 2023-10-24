@@ -1,0 +1,67 @@
+patterns:
+  - pattern: |
+      import "crypto/des"
+  - pattern: |
+      import (
+        "crypto/des"
+      )
+languages:
+  - go
+metadata:
+  description: "Use of a Broken or Risky Cryptographic Algorithm"
+  remediation_message: |
+    ## Description
+
+    The DES algorithm has not been recommended for over 15 years and was withdrawn from NIST (FIPS 46-3) in 2005.
+
+    ## Remediation
+
+    It is recommended that an algorithm that provides message integrity be used instead.
+
+    ✅ Prefer the usage of `AES-256`:
+
+    ```go
+    // 32 byte keys will configure AES-256
+    key := make([]byte, 32)
+    if _, err := io.ReadFull(rand.Reader, key); err != nil {
+      log.Fatal(err)
+    }
+
+    blockCipher, err := aes.NewCipher(key)
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    aead, err := cipher.NewGCM(blockCipher)
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    var encrypted = []byte{}
+    var nonce = []byte{}
+    // Encryption routine
+    {
+      msg := []byte("Some secret message")
+      // note that the key must be rotated every 2^32 random nonces used otherwise
+      // cipher text could be repeated
+      nonce = make([]byte, 12)
+      if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
+        log.Fatal(err)
+      }
+      encrypted = aead.Seal(nil, nonce, msg, nil)
+    }
+
+    // Decryption routine
+    {
+      msg, err := aead.Open(nil, nonce, encrypted, nil)
+      if err != nil {
+        log.Fatal(err)
+      }
+      fmt.Printf("Decrypted: %s\n", msg)
+    }
+    ```
+
+  cwe_id:
+    - 327
+  id: go_gosec_blocklist_des
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_blocklist_des

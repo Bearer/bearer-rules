@@ -1,0 +1,246 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_crypto_weak_crypto test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_crypto_weak_crypto",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nUsage of a cryptographically insecure algorithm has been detected.\\n\\n## Remediations\\n\\nIt is recommended that alternative algorithms be used instead.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_crypto",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 12,
+          "end": 28
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 12,
+          "end": 28
+        },
+        "content": "rc4.NewCipher(k)"
+      },
+      "parent_line_number": 17,
+      "snippet": "rc4.NewCipher(k)",
+      "fingerprint": "45b48243a6f8f3eba502319efc975ec0_0",
+      "old_fingerprint": "071fb5b2a3758433e529d3c7636d7af7_0",
+      "code_extract": "\\tc, err := rc4.NewCipher(k)"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_crypto_weak_crypto",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nUsage of a cryptographically insecure algorithm has been detected.\\n\\n## Remediations\\n\\nIt is recommended that alternative algorithms be used instead.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_crypto",
+      "line_number": 28,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 28,
+        "end": 28,
+        "column": {
+          "start": 7,
+          "end": 16
+        }
+      },
+      "sink": {
+        "start": 28,
+        "end": 28,
+        "column": {
+          "start": 7,
+          "end": 16
+        },
+        "content": "md5.New()"
+      },
+      "parent_line_number": 28,
+      "snippet": "md5.New()",
+      "fingerprint": "45b48243a6f8f3eba502319efc975ec0_1",
+      "old_fingerprint": "071fb5b2a3758433e529d3c7636d7af7_1",
+      "code_extract": "\\th := md5.New()"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_crypto_weak_crypto",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nUsage of a cryptographically insecure algorithm has been detected.\\n\\n## Remediations\\n\\nIt is recommended that alternative algorithms be used instead.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_crypto",
+      "line_number": 33,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 33,
+        "end": 33,
+        "column": {
+          "start": 9,
+          "end": 33
+        }
+      },
+      "sink": {
+        "start": 33,
+        "end": 33,
+        "column": {
+          "start": 9,
+          "end": 33
+        },
+        "content": "md5.Sum([]byte(\\"stuff\\"))"
+      },
+      "parent_line_number": 33,
+      "snippet": "md5.Sum([]byte(\\"stuff\\"))",
+      "fingerprint": "45b48243a6f8f3eba502319efc975ec0_2",
+      "old_fingerprint": "071fb5b2a3758433e529d3c7636d7af7_2",
+      "code_extract": "\\tout := md5.Sum([]byte(\\"stuff\\"))"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_crypto_weak_crypto",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nUsage of a cryptographically insecure algorithm has been detected.\\n\\n## Remediations\\n\\nIt is recommended that alternative algorithms be used instead.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_crypto",
+      "line_number": 38,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 38,
+        "end": 38,
+        "column": {
+          "start": 7,
+          "end": 17
+        }
+      },
+      "sink": {
+        "start": 38,
+        "end": 38,
+        "column": {
+          "start": 7,
+          "end": 17
+        },
+        "content": "sha1.New()"
+      },
+      "parent_line_number": 38,
+      "snippet": "sha1.New()",
+      "fingerprint": "45b48243a6f8f3eba502319efc975ec0_3",
+      "old_fingerprint": "071fb5b2a3758433e529d3c7636d7af7_3",
+      "code_extract": "\\th := sha1.New()"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_crypto_weak_crypto",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nUsage of a cryptographically insecure algorithm has been detected.\\n\\n## Remediations\\n\\nIt is recommended that alternative algorithms be used instead.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_crypto",
+      "line_number": 43,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 43,
+        "end": 43,
+        "column": {
+          "start": 9,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 43,
+        "end": 43,
+        "column": {
+          "start": 9,
+          "end": 34
+        },
+        "content": "sha1.Sum([]byte(\\"stuff\\"))"
+      },
+      "parent_line_number": 43,
+      "snippet": "sha1.Sum([]byte(\\"stuff\\"))",
+      "fingerprint": "45b48243a6f8f3eba502319efc975ec0_4",
+      "old_fingerprint": "071fb5b2a3758433e529d3c7636d7af7_4",
+      "code_extract": "\\tout := sha1.Sum([]byte(\\"stuff\\"))"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_crypto_weak_crypto",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nUsage of a cryptographically insecure algorithm has been detected.\\n\\n## Remediations\\n\\nIt is recommended that alternative algorithms be used instead.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_crypto",
+      "line_number": 49,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 49,
+        "end": 49,
+        "column": {
+          "start": 16,
+          "end": 32
+        }
+      },
+      "sink": {
+        "start": 49,
+        "end": 49,
+        "column": {
+          "start": 16,
+          "end": 32
+        },
+        "content": "des.NewCipher(k)"
+      },
+      "parent_line_number": 49,
+      "snippet": "des.NewCipher(k)",
+      "fingerprint": "45b48243a6f8f3eba502319efc975ec0_5",
+      "old_fingerprint": "071fb5b2a3758433e529d3c7636d7af7_5",
+      "code_extract": "\\tblock, err := des.NewCipher(k)"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_crypto_weak_crypto",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nUsage of a cryptographically insecure algorithm has been detected.\\n\\n## Remediations\\n\\nIt is recommended that alternative algorithms be used instead.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_crypto",
+      "line_number": 63,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 63,
+        "end": 63,
+        "column": {
+          "start": 16,
+          "end": 41
+        }
+      },
+      "sink": {
+        "start": 63,
+        "end": 63,
+        "column": {
+          "start": 16,
+          "end": 41
+        },
+        "content": "des.NewTripleDESCipher(k)"
+      },
+      "parent_line_number": 63,
+      "snippet": "des.NewTripleDESCipher(k)",
+      "fingerprint": "45b48243a6f8f3eba502319efc975ec0_6",
+      "old_fingerprint": "071fb5b2a3758433e529d3c7636d7af7_6",
+      "code_extract": "\\tblock, err := des.NewTripleDESCipher(k)"
+    }
+  ]
+}"
+`;

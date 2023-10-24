@@ -1,0 +1,65 @@
+patterns:
+  - pattern: |
+      import "crypto/sha1"
+  - pattern: |
+      import (
+        "crypto/sha1"
+      )
+languages:
+  - go
+metadata:
+  description: "Use of a Broken or Risky Cryptographic Algorithm"
+  remediation_message: |
+    ## Description
+
+    The SHA-1 message-digest algorithm has been cryptographically broken and is unsuitable for further use.
+
+    ## Remediations
+
+    It is recommended that the SHA-3, or BLAKE2 family of algorithms be used for non-password based cryptographic hashes instead. For password based cryptographic hashes, consider using the bcrypt or Argon2id family of cryptographic hashes.
+
+    ```go
+    // 32 byte keys will configure AES-256
+    key := make([]byte, 32)
+    if _, err := io.ReadFull(rand.Reader, key); err != nil {
+      log.Fatal(err)
+    }
+
+    blockCipher, err := aes.NewCipher(key)
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    aead, err := cipher.NewGCM(blockCipher)
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    var encrypted = []byte{}
+    var nonce = []byte{}
+    // Encryption routine
+    {
+      msg := []byte("Some secret message")
+      // note that the key must be rotated every 2^32 random nonces used otherwise
+      // cipher text could be repeated
+      nonce = make([]byte, 12)
+      if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
+        log.Fatal(err)
+      }
+      encrypted = aead.Seal(nil, nonce, msg, nil)
+    }
+
+    // Decryption routine
+    {
+      msg, err := aead.Open(nil, nonce, encrypted, nil)
+      if err != nil {
+        log.Fatal(err)
+      }
+      fmt.Printf("Decrypted: %s\n", msg)
+    }
+    ```
+
+  cwe_id:
+    - 327
+  id: go_gosec_blocklist_sha1
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_blocklist_sha1

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_blocklist_md5 test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_blocklist_md5",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nThe MD5 message-digest algorithm has been cryptographically broken and is unsuitable for further use. The MD5 hash algorithm has been found to be vulnerable to producing collisions. This means that two different values, when hashed, can lead to the same hash value.\\n\\n## Remediations\\n\\n✅ It is recommended that the SHA-3 or BLAKE2 family of algorithms be used for non-password based cryptographic hashes instead.\\n\\n\`\`\`go\\nfileContents := []byte(\\"some file contents to create hash for\\")\\nblake2bHasher, err := blake2b.New512(nil)\\nif err != nil {\\n  log.Fatal(err)\\n}\\nhashedValue := blake2bHasher.Sum(fileContents)\\nfmt.Printf(\\"%s\\\\n\\", hex.EncodeToString(hashedValue))\\n\`\`\`\\n\\n✅ For password based cryptographic hashes, consider using the bcrypt or Argon2id family of cryptographic hashes.\\n\\n## Resources\\n- [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_blocklist_md5",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 2
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "import (\\n\\t\\"crypto/md5\\"\\n\\t\\"fmt\\"\\n)"
+      },
+      "parent_line_number": 3,
+      "snippet": "import (\\n\\t\\"crypto/md5\\"\\n\\t\\"fmt\\"\\n)",
+      "fingerprint": "eb186a281342cc12d763fe3c841dfc09_0",
+      "old_fingerprint": "389be4fd1aecab117b4e71d6dc81e0fe_0",
+      "code_extract": "import (\\n\\t\\"crypto/md5\\"\\n\\t\\"fmt\\"\\n)"
+    }
+  ]
+}"
+`;

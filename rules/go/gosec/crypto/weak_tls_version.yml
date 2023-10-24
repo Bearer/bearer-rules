@@ -1,0 +1,39 @@
+patterns:
+  - tls.VersionTLS11
+  - tls.VersionTLS10
+languages:
+  - go
+metadata:
+  description: "Use of deprecated TLS version"
+  remediation_message: |
+    ## Description
+
+    TLS versions 1.1 and 1.0 were deprecated by the IETF in June 2018 due to a number of attacks against the vulnerable versions. Use of a deprecated TLS version may result in the unauthorized retrieval of sensitive information.
+
+    ## Remediations
+
+    ✅ It is strongly recommended that all TLS connections use TLS 1.3.
+
+    Go will automatically choose the most secure cipher when negotiating the TLS handshake with client or servers. TLS 1.3 cipher suites are configured to require Perfect Forward Secrecy (PFS).
+    PFS is an important property as it will ensure that past encrypted transmissions could not be decrypted if the TLS certificate was compromised.
+
+    ```go
+    cert, err := tls.LoadX509KeyPair("server.crt", "server.key")
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    cfg := &tls.Config{Certificates: []tls.Certificate{cert}, MinVersion: tls.VersionTLS13}
+    srv := &http.Server{
+      Addr:         ":8999",
+      TLSConfig:    cfg,
+      ReadTimeout:  time.Minute,
+      WriteTimeout: time.Minute,
+    }
+    log.Fatal(srv.ListenAndServeTLS("", ""))
+    ```
+
+  cwe_id:
+    - 310
+  id: go_gosec_crypto_weak_tls_version
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_tls_version

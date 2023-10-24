@@ -1,0 +1,71 @@
+imports:
+  - go_shared_lang_dynamic_input
+patterns:
+  - pattern: exec.CommandContext($<_>, $<EXE>$<...>)
+    filters:
+      - variable: EXE
+        detection: go_shared_lang_dynamic_input
+  - pattern: exec.Command($<EXE>$<...>)
+    filters:
+      - variable: EXE
+        detection: go_shared_lang_dynamic_input
+  - pattern: syscall.ForkExec($<EXE>$<...>)
+    filters:
+      - variable: EXE
+        detection: go_shared_lang_dynamic_input
+  - pattern: syscall.StartProcess($<EXE>$<...>)
+    filters:
+      - variable: EXE
+        detection: go_shared_lang_dynamic_input
+languages:
+  - go
+metadata:
+  description: "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')"
+  remediation_message: |
+    ## Description
+
+    OS command injection is a critical vulnerability that can lead to a full system compromise as it may allow an adversary to pass in arbitrary commands or arguments to be executed.
+
+    ## Remediations
+
+    ❌ User input should never be used in constructing commands or command arguments to functions which execute OS commands. This includes filenames supplied by user uploads or downloads.
+
+    ✅ Ensure your application does not:
+
+    - Use user-supplied information in the process name to execute.
+    - Use user-supplied information in an OS command execution function which does not escape shell meta-characters.
+    - Use user-supplied information in arguments to OS commands.
+
+    The application should have a hardcoded set of arguments that are to be passed to OS commands. If filenames are being passed to these functions, it is recommended that a hash of the filename be used instead, or some other unique identifier. It is strongly recommended that a native library that implements the same functionality be used instead of using OS system commands, due to the risk of unknown attacks against third party commands.
+
+    ```go
+    userData := []byte("user data")
+    // create a temporary file in the application specific directory
+    f, err := ioutil.TempFile("/var/app/restricted", "temp-*.dat")
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    if _, err := f.Write(userData); err != nil {
+      log.Fatal(err)
+    }
+
+    if err := f.Close(); err != nil {
+      log.Fatal(err)
+    }
+
+    // pass the full path to the binary and the name of the temporary file
+    // instead of any user supplied filename
+    out, err := exec.Command("/bin/cat", f.Name()).Output()
+    if err != nil {
+      log.Fatal(err)
+    }
+    ```
+
+    ## Resources
+
+    - [OWASP OS Command Injection](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
+  cwe_id:
+    - 95
+  id: go_gosec_injection_subproc_injection
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_injection_subproc_injection

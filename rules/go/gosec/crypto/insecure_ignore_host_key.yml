@@ -1,0 +1,40 @@
+patterns:
+  - ssh.InsecureIgnoreHostKey()
+languages:
+  - go
+metadata:
+  description: "Key exchange without entity authentication"
+  remediation_message: |
+    ## Description
+
+    The application was found to ignore host keys. Host keys are important as they provide assurance that the client can prove that the host is trusted.
+    By ignoring these host keys, it is impossible for the client to validate the connection is to a trusted host.
+
+    ## Remediations
+
+    ✅ For the `ssh.ClientConfig` `HostKeyCallback` property, consider using the [knownhosts](https://pkg.go.dev/golang.org/x/crypto/ssh/knownhosts) package that parses OpenSSH's `known_hosts` key database.
+
+    ```go
+    knownHostCallback, err := knownhosts.New("/home/user/.ssh/known_hosts")
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    // Create client config using the knownHost callback function
+    config := &ssh.ClientConfig{
+      ...
+      HostKeyCallback: knownHostCallback,
+    }
+
+    // Connect to ssh server
+    conn, err := ssh.Dial("tcp", "localhost:22", config)
+    if err != nil {
+      log.Fatal("unable to connect: ", err)
+    }
+    defer conn.Close()
+    ```
+
+  cwe_id:
+    - 322
+  id: go_gosec_crypto_insecure_ignore_host_key
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_crypto_insecure_ignore_host_key

@@ -1,0 +1,79 @@
+patterns:
+  - pattern: |
+      io.$<METHOD>($<...>$<READER>$<...>)
+    filters:
+      - variable: METHOD
+        values:
+          - Copy
+          - CopyBuffer
+      - either:
+          - variable: READER
+            detection: go_gosec_filesystem_decompression_bomb_reader
+            scope: result
+          - variable: READER
+            detection: go_gosec_filesystem_decompression_bomb_reader_file_open
+            scope: result
+auxiliary:
+  - id: go_gosec_filesystem_decompression_bomb_reader_file_open
+    patterns:
+      - pattern: $<FILE>.Open()
+        filters:
+          - variable: FILE
+            detection: go_gosec_filesystem_decompression_bomb_reader_file
+            scope: result
+  - id: go_gosec_filesystem_decompression_bomb_reader_file
+    patterns:
+      - pattern: $<READER>.File
+        filters:
+          - variable: READER
+            detection: go_gosec_filesystem_decompression_bomb_reader
+            scope: result
+  - id: go_gosec_filesystem_decompression_bomb_reader
+    patterns:
+      - gzip.NewReader()
+      - zlib.NewReader()
+      - bzip2.NewReader()
+      - flate.NewReader()
+      - lzw.Reader()
+      - tar.NewReader()
+      - zip.NewReader()
+      - zlib.NewReaderDict()
+      - flate.NewReaderDict()
+      - zip.OpenReader()
+languages:
+  - go
+metadata:
+  description: "Use of a Broken or Risky Cryptographic Algorithm"
+  remediation_message: |
+    ## Description
+
+    Directly decompressing files or buffers may lead to a potential Denial of Service (DoS) due to a decompression bomb. Decompression bombs are maliciously compressed files or data that decompresses to extremely large sizes. This can cause the process to run out of memory, or the disk to fill up.
+
+    ## Remediations
+
+    To protect against decompression bombs, an [io.LimitReader(...)](https://pkg.go.dev/io#LimitReader) should be used to limit how much can be read during the decompression routine.
+
+    ```go
+    f, err := os.Open("some.gz")
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    r, err := gzip.NewReader(f)
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    const oneMegabyte = 1024 * 1024
+    limitedReader := io.LimitReader(r, oneMegabyte)
+
+    // use limitedReader to stop copying after 1 MB
+    if _, err := io.Copy(os.Stdout, limitedReader); err != nil {
+      log.Fatal(err)
+    }
+    ```
+
+  cwe_id:
+    - 327
+  id: go_gosec_filesystem_decompression_bomb
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_filesystem_decompression_bomb

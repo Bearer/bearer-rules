@@ -1,0 +1,47 @@
+patterns:
+  - pattern: |
+      ioutil.WriteFile($<...>$<MASK>)
+    filters:
+      - variable: MASK
+        detection: go_gosec_filesystem_poor_write_permissions_mask
+        scope: result
+auxiliary:
+  - id: go_gosec_filesystem_poor_write_permissions_mask
+    patterns:
+      - pattern: $<MASK>
+        filters:
+          - either:
+              - variable: MASK
+                regex: \A07
+              - variable: MASK
+                regex: \A0\d[1-7]
+              - variable: MASK
+                regex: \A0\d\d[1-7]
+languages:
+  - go
+metadata:
+  description: "Incorrect default permissions"
+  remediation_message: |
+    ## Description
+
+    The application was found setting file permissions to overly permissive values.
+
+    ## Remediations
+
+    Consider using the following values if the application user is the only process to access the file:
+
+    - 0400 - read only access to the file
+    - 0200 - write only access to the file
+    - 0600 - read/write access to the file
+
+    ```go
+    dat := []byte("sensitive data")
+    if err := os.WriteFile("file.txt", dat, 0600); err != nil {
+      log.Fatal(err)
+    }
+    ```
+
+  cwe_id:
+    - 276
+  id: go_gosec_filesystem_poor_write_permissions
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_filesystem_poor_write_permissions

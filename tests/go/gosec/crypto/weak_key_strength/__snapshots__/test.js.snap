@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_crypto_weak_key_strength test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "326"
+      ],
+      "id": "go_gosec_crypto_weak_key_strength",
+      "title": "Inadequate encryption strength",
+      "description": "## Description\\n\\nThe application is generating an RSA key that is less than the recommended 2048 bits.\\nThe National Institute of Standards and Technology (NIST) deprecated signing Digital Certificates that contained RSA Public Keys of 1024 bits in December 2010. While 1024-bit RSA keys have not been factored yet, advances in compute may make it possible in the near future.\\n\\n## Remediations\\n\\n✅ Consider using an RSA key of 2048 bits\\n\\nTo generate an RSA key of 2048 pass the number of bits as the second parameter to\\nthe \`rsa.GenerateKey\` function:\\n\\n\`\`\`go\\nimport (\\n  \\"crypto/rand\\"\\n  \\"crypto/rsa\\"\\n)\\n\\nfunc generate() {\\n  key, err := rsa.GenerateKey(rand.Reader, 2048)\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_key_strength",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 14,
+          "end": 48
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 14,
+          "end": 48
+        },
+        "content": "rsa.GenerateKey(rand.Reader, 1024)"
+      },
+      "parent_line_number": 11,
+      "snippet": "rsa.GenerateKey(rand.Reader, 1024)",
+      "fingerprint": "695a0322af8c5cb0665169f1eaca776f_0",
+      "old_fingerprint": "63ff529d2f1ee14097f9417bfa5ffde8_0",
+      "code_extract": "\\tpvk, err := rsa.GenerateKey(rand.Reader, 1024)"
+    }
+  ]
+}"
+`;

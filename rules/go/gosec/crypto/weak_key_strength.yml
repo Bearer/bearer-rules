@@ -1,0 +1,40 @@
+patterns:
+  - pattern: rsa.GenerateKey($<...>$<ARG>)
+    filters:
+      - variable: ARG
+        less_than: 2048
+languages:
+  - go
+metadata:
+  description: "Inadequate encryption strength"
+  remediation_message: |
+    ## Description
+
+    The application is generating an RSA key that is less than the recommended 2048 bits.
+    The National Institute of Standards and Technology (NIST) deprecated signing Digital Certificates that contained RSA Public Keys of 1024 bits in December 2010. While 1024-bit RSA keys have not been factored yet, advances in compute may make it possible in the near future.
+
+    ## Remediations
+
+    ✅ Consider using an RSA key of 2048 bits
+
+    To generate an RSA key of 2048 pass the number of bits as the second parameter to
+    the `rsa.GenerateKey` function:
+
+    ```go
+    import (
+      "crypto/rand"
+      "crypto/rsa"
+    )
+
+    func generate() {
+      key, err := rsa.GenerateKey(rand.Reader, 2048)
+      if err != nil {
+        log.Fatal(err)
+      }
+    }
+    ```
+
+  cwe_id:
+    - 326
+  id: go_gosec_crypto_weak_key_strength
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_key_strength

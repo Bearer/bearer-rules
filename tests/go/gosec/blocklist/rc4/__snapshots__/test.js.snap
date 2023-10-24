@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_blocklist_rc4 test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_blocklist_rc4",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nThe RC4 stream-cipher has been cryptographically broken and is unsuitable for use in production.\\n\\n## Remediations\\n\\nIt is recommended that Advanced Encryption Standard (AES) be used instead.\\n\\n✅ Consider using \`AES-256\`\\n\\n\`\`\`go\\n// 32 byte keys will configure AES-256\\nkey := make([]byte, 32)\\nif _, err := io.ReadFull(rand.Reader, key); err != nil {\\n  log.Fatal(err)\\n}\\n\\nblockCipher, err := aes.NewCipher(key)\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\naead, err := cipher.NewGCM(blockCipher)\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\nvar encrypted = []byte{}\\nvar nonce = []byte{}\\n// Encryption routine\\n{\\n  msg := []byte(\\"Some secret message\\")\\n  // note that the key must be rotated every 2^32 random nonces used otherwise\\n  // cipher text could be repeated\\n  nonce = make([]byte, 12)\\n  if _, err := io.ReadFull(rand.Reader, nonce); err != nil {\\n    log.Fatal(err)\\n  }\\n  encrypted = aead.Seal(nil, nonce, msg, nil)\\n}\\n\\n// Decryption routine\\n{\\n  msg, err := aead.Open(nil, nonce, encrypted, nil)\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  fmt.Printf(\\"Decrypted: %s\\\\n\\", msg)\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_blocklist_rc4",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 2
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "import (\\n\\t\\"crypto/rc4\\"\\n\\t\\"fmt\\"\\n)"
+      },
+      "parent_line_number": 3,
+      "snippet": "import (\\n\\t\\"crypto/rc4\\"\\n\\t\\"fmt\\"\\n)",
+      "fingerprint": "0fec54dd8724cf655550856999eb17fb_0",
+      "old_fingerprint": "67002f96f906da879da606e636c13b8c_0",
+      "code_extract": "import (\\n\\t\\"crypto/rc4\\"\\n\\t\\"fmt\\"\\n)"
+    }
+  ]
+}"
+`;

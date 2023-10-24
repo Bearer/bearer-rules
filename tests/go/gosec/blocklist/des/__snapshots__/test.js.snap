@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_blocklist_des test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_blocklist_des",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nThe DES algorithm has not been recommended for over 15 years and was withdrawn from NIST (FIPS 46-3) in 2005.\\n\\n## Remediation\\n\\nIt is recommended that an algorithm that provides message integrity be used instead.\\n\\n✅ Prefer the usage of \`AES-256\`:\\n\\n\`\`\`go\\n// 32 byte keys will configure AES-256\\nkey := make([]byte, 32)\\nif _, err := io.ReadFull(rand.Reader, key); err != nil {\\n  log.Fatal(err)\\n}\\n\\nblockCipher, err := aes.NewCipher(key)\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\naead, err := cipher.NewGCM(blockCipher)\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\nvar encrypted = []byte{}\\nvar nonce = []byte{}\\n// Encryption routine\\n{\\n  msg := []byte(\\"Some secret message\\")\\n  // note that the key must be rotated every 2^32 random nonces used otherwise\\n  // cipher text could be repeated\\n  nonce = make([]byte, 12)\\n  if _, err := io.ReadFull(rand.Reader, nonce); err != nil {\\n    log.Fatal(err)\\n  }\\n  encrypted = aead.Seal(nil, nonce, msg, nil)\\n}\\n\\n// Decryption routine\\n{\\n  msg, err := aead.Open(nil, nonce, encrypted, nil)\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  fmt.Printf(\\"Decrypted: %s\\\\n\\", msg)\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_blocklist_des",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 2
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "import (\\n\\t\\"crypto/des\\"\\n\\t\\"fmt\\"\\n)"
+      },
+      "parent_line_number": 3,
+      "snippet": "import (\\n\\t\\"crypto/des\\"\\n\\t\\"fmt\\"\\n)",
+      "fingerprint": "5701c2af30f4ca2aaf2cb0bff61be1be_0",
+      "old_fingerprint": "c8850e419b899cc93c57917fbacacbf4_0",
+      "code_extract": "import (\\n\\t\\"crypto/des\\"\\n\\t\\"fmt\\"\\n)"
+    }
+  ]
+}"
+`;

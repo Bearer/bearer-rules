@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_crypto_weak_random test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "338"
+      ],
+      "id": "go_gosec_crypto_weak_random",
+      "title": "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)",
+      "description": "## Description\\n\\nGo's \`math/rand\` is not meant for use in generating random numbers for any cryptographic or security sensitive context.\\nThis includes generating random numbers that could be used in user specific identifiers or where the random number that is generated is considered to be secret.\\n\\n## Remediations\\n\\n✅ Replace all imports of \`math/rand\` with \`crypto/rand\`.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_random",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 9,
+          "end": 19
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 9,
+          "end": 19
+        },
+        "content": "rand.Int()"
+      },
+      "parent_line_number": 9,
+      "snippet": "rand.Int()",
+      "fingerprint": "7b6ec9847cbc39c97fa0639013146ac3_0",
+      "old_fingerprint": "a2f5db50454d53a8f3aa6a3845a5f64b_0",
+      "code_extract": "\\tbad := rand.Int() // detected"
+    },
+    {
+      "cwe_ids": [
+        "338"
+      ],
+      "id": "go_gosec_crypto_weak_random",
+      "title": "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)",
+      "description": "## Description\\n\\nGo's \`math/rand\` is not meant for use in generating random numbers for any cryptographic or security sensitive context.\\nThis includes generating random numbers that could be used in user specific identifiers or where the random number that is generated is considered to be secret.\\n\\n## Remediations\\n\\n✅ Replace all imports of \`math/rand\` with \`crypto/rand\`.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_random",
+      "line_number": 16,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 9,
+          "end": 22
+        }
+      },
+      "sink": {
+        "start": 16,
+        "end": 16,
+        "column": {
+          "start": 9,
+          "end": 22
+        },
+        "content": "mrand.Int31()"
+      },
+      "parent_line_number": 16,
+      "snippet": "mrand.Int31()",
+      "fingerprint": "7b6ec9847cbc39c97fa0639013146ac3_1",
+      "old_fingerprint": "a2f5db50454d53a8f3aa6a3845a5f64b_1",
+      "code_extract": "\\tbad := mrand.Int31() // detected"
+    },
+    {
+      "cwe_ids": [
+        "338"
+      ],
+      "id": "go_gosec_crypto_weak_random",
+      "title": "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)",
+      "description": "## Description\\n\\nGo's \`math/rand\` is not meant for use in generating random numbers for any cryptographic or security sensitive context.\\nThis includes generating random numbers that could be used in user specific identifiers or where the random number that is generated is considered to be secret.\\n\\n## Remediations\\n\\n✅ Replace all imports of \`math/rand\` with \`crypto/rand\`.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_random",
+      "line_number": 22,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 22,
+        "end": 22,
+        "column": {
+          "start": 9,
+          "end": 18
+        }
+      },
+      "sink": {
+        "start": 22,
+        "end": 22,
+        "column": {
+          "start": 9,
+          "end": 18
+        },
+        "content": "gen.Int()"
+      },
+      "parent_line_number": 22,
+      "snippet": "gen.Int()",
+      "fingerprint": "7b6ec9847cbc39c97fa0639013146ac3_2",
+      "old_fingerprint": "a2f5db50454d53a8f3aa6a3845a5f64b_2",
+      "code_extract": "\\tbad := gen.Int() // detected"
+    },
+    {
+      "cwe_ids": [
+        "338"
+      ],
+      "id": "go_gosec_crypto_weak_random",
+      "title": "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)",
+      "description": "## Description\\n\\nGo's \`math/rand\` is not meant for use in generating random numbers for any cryptographic or security sensitive context.\\nThis includes generating random numbers that could be used in user specific identifiers or where the random number that is generated is considered to be secret.\\n\\n## Remediations\\n\\n✅ Replace all imports of \`math/rand\` with \`crypto/rand\`.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_random",
+      "line_number": 27,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 9,
+          "end": 22
+        }
+      },
+      "sink": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 9,
+          "end": 22
+        },
+        "content": "rand.Intn(10)"
+      },
+      "parent_line_number": 27,
+      "snippet": "rand.Intn(10)",
+      "fingerprint": "7b6ec9847cbc39c97fa0639013146ac3_3",
+      "old_fingerprint": "a2f5db50454d53a8f3aa6a3845a5f64b_3",
+      "code_extract": "\\tbad := rand.Intn(10) // detected"
+    }
+  ]
+}"
+`;

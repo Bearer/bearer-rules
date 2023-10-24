@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_injection_ssrf_injection test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "go_gosec_injection_ssrf_injection",
+      "title": "Server Side Request Forgery (SSRF)",
+      "description": "## Description\\n\\nServer-Side-Request-Forgery (SSRF) exploits backend systems that initiate requests to third parties.\\nIf user input is used in constructing or sending these requests, an attacker could supply\\nmalicious data to force the request to other systems or modify request data to cause unwanted actions.\\n\\n## Remediations\\n\\nEnsure user input is not used directly in constructing URLs or URIs when initiating requests to third party\\nsystems from back end systems. Care must also be taken when constructing payloads using user\\ninput. Where possible restrict to known URIs or payloads. Consider using a server side map where key's are\\nused to return URLs such as \`https://site/goto?key=1\` where \`{key: 1, url: 'http://some.url/', key: 2, url:\\n'http://...'}\`.\\n\\nIf you must use user supplied input for requesting URLs, it is strongly recommended that the\\nHTTP client chosen allows you to customize and block certain IP ranges at the network level. By blocking\\nRFC 1918 addresses or other network address ranges, you can limit the severity of a successful SSRF\\nattack. Care must also be taken to block certain protocol or address formatting such as IPv6.\\n\\nIf you can not block address ranges at the client level, you may want to run the HTTP client\\nas a protected\\nuser, or in a protected network where you can apply IP Table or firewall rules to block access\\nto dangerous\\naddresses. Finally, if none of the above protections are available, you could also run a\\ncustom HTTP proxy\\nand force all requests through it to handle blocking dangerous addresses.\\n\\n\`\`\`go\\n// IsDisallowedIP parses the ip to determine if we should allow the HTTP client to continue\\nfunc IsDisallowedIP(hostIP string) bool {\\n  ip := net.ParseIP(hostIP)\\n  return ip.IsMulticast() || ip.IsUnspecified() || ip.IsLoopback() || ip.IsPrivate()\\n}\\n\\n// SafeTransport uses the net.Dial to connect, then if successful check if the resolved\\n// ip address is disallowed. We do this due to hosts such as localhost.lol being resolvable to\\n// potentially malicious URLs. We allow connection only for resolution purposes.\\nfunc SafeTransport(timeout time.Duration) *http.Transport {\\n  return &http.Transport{\\n    DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {\\n      c, err := net.DialTimeout(network, addr, timeout)\\n      if err != nil {\\n        return nil, err\\n      }\\n      ip, _, _ := net.SplitHostPort(c.RemoteAddr().String())\\n      if IsDisallowedIP(ip) {\\n        return nil, errors.New(\\"ip address is not allowed\\")\\n      }\\n      return c, err\\n    },\\n    DialTLS: func(network, addr string) (net.Conn, error) {\\n      dialer := &net.Dialer{Timeout: timeout}\\n      c, err := tls.DialWithDialer(dialer, network, addr, &tls.Config{})\\n      if err != nil {\\n        return nil, err\\n      }\\n\\n      ip, _, _ := net.SplitHostPort(c.RemoteAddr().String())\\n      if IsDisallowedIP(ip) {\\n        return nil, errors.New(\\"ip address is not allowed\\")\\n      }\\n\\n      err = c.Handshake()\\n      if err != nil {\\n        return c, err\\n      }\\n\\n      return c, c.Handshake()\\n    },\\n    TLSHandshakeTimeout: timeout,\\n  }\\n}\\n\\nfunc httpRequest(requestUrl string) {\\n  const clientConnectTimeout = time.Second * 10\\n  httpClient := &http.Client{\\n    Transport: SafeTransport(clientConnectTimeout),\\n  }\\n  resp, err := httpClient.Get(requestUrl)\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  defer resp.Body.Close()\\n  // work with resp\\n}\\n\`\`\`\\n\\n## Resources\\n- [OWASP Server Side Request Forgery](https://owasp.org/www-community/attacks/Server_Side_Request_Forgery)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_injection_ssrf_injection",
+      "line_number": 23,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 23,
+        "end": 23,
+        "column": {
+          "start": 15,
+          "end": 28
+        }
+      },
+      "sink": {
+        "start": 23,
+        "end": 23,
+        "column": {
+          "start": 15,
+          "end": 28
+        },
+        "content": "http.Get(url)"
+      },
+      "parent_line_number": 23,
+      "snippet": "http.Get(url)",
+      "fingerprint": "9be6d64d7285e77ffafc4015fe97ab33_0",
+      "old_fingerprint": "3062d5fa090e29d011c48ba41511badf_0",
+      "code_extract": "\\tresp, err := http.Get(url)"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "go_gosec_injection_ssrf_injection",
+      "title": "Server Side Request Forgery (SSRF)",
+      "description": "## Description\\n\\nServer-Side-Request-Forgery (SSRF) exploits backend systems that initiate requests to third parties.\\nIf user input is used in constructing or sending these requests, an attacker could supply\\nmalicious data to force the request to other systems or modify request data to cause unwanted actions.\\n\\n## Remediations\\n\\nEnsure user input is not used directly in constructing URLs or URIs when initiating requests to third party\\nsystems from back end systems. Care must also be taken when constructing payloads using user\\ninput. Where possible restrict to known URIs or payloads. Consider using a server side map where key's are\\nused to return URLs such as \`https://site/goto?key=1\` where \`{key: 1, url: 'http://some.url/', key: 2, url:\\n'http://...'}\`.\\n\\nIf you must use user supplied input for requesting URLs, it is strongly recommended that the\\nHTTP client chosen allows you to customize and block certain IP ranges at the network level. By blocking\\nRFC 1918 addresses or other network address ranges, you can limit the severity of a successful SSRF\\nattack. Care must also be taken to block certain protocol or address formatting such as IPv6.\\n\\nIf you can not block address ranges at the client level, you may want to run the HTTP client\\nas a protected\\nuser, or in a protected network where you can apply IP Table or firewall rules to block access\\nto dangerous\\naddresses. Finally, if none of the above protections are available, you could also run a\\ncustom HTTP proxy\\nand force all requests through it to handle blocking dangerous addresses.\\n\\n\`\`\`go\\n// IsDisallowedIP parses the ip to determine if we should allow the HTTP client to continue\\nfunc IsDisallowedIP(hostIP string) bool {\\n  ip := net.ParseIP(hostIP)\\n  return ip.IsMulticast() || ip.IsUnspecified() || ip.IsLoopback() || ip.IsPrivate()\\n}\\n\\n// SafeTransport uses the net.Dial to connect, then if successful check if the resolved\\n// ip address is disallowed. We do this due to hosts such as localhost.lol being resolvable to\\n// potentially malicious URLs. We allow connection only for resolution purposes.\\nfunc SafeTransport(timeout time.Duration) *http.Transport {\\n  return &http.Transport{\\n    DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {\\n      c, err := net.DialTimeout(network, addr, timeout)\\n      if err != nil {\\n        return nil, err\\n      }\\n      ip, _, _ := net.SplitHostPort(c.RemoteAddr().String())\\n      if IsDisallowedIP(ip) {\\n        return nil, errors.New(\\"ip address is not allowed\\")\\n      }\\n      return c, err\\n    },\\n    DialTLS: func(network, addr string) (net.Conn, error) {\\n      dialer := &net.Dialer{Timeout: timeout}\\n      c, err := tls.DialWithDialer(dialer, network, addr, &tls.Config{})\\n      if err != nil {\\n        return nil, err\\n      }\\n\\n      ip, _, _ := net.SplitHostPort(c.RemoteAddr().String())\\n      if IsDisallowedIP(ip) {\\n        return nil, errors.New(\\"ip address is not allowed\\")\\n      }\\n\\n      err = c.Handshake()\\n      if err != nil {\\n        return c, err\\n      }\\n\\n      return c, c.Handshake()\\n    },\\n    TLSHandshakeTimeout: timeout,\\n  }\\n}\\n\\nfunc httpRequest(requestUrl string) {\\n  const clientConnectTimeout = time.Second * 10\\n  httpClient := &http.Client{\\n    Transport: SafeTransport(clientConnectTimeout),\\n  }\\n  resp, err := httpClient.Get(requestUrl)\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  defer resp.Body.Close()\\n  // work with resp\\n}\\n\`\`\`\\n\\n## Resources\\n- [OWASP Server Side Request Forgery](https://owasp.org/www-community/attacks/Server_Side_Request_Forgery)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_injection_ssrf_injection",
+      "line_number": 52,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 52,
+        "end": 52,
+        "column": {
+          "start": 15,
+          "end": 28
+        }
+      },
+      "sink": {
+        "start": 52,
+        "end": 52,
+        "column": {
+          "start": 15,
+          "end": 28
+        },
+        "content": "http.Get(url)"
+      },
+      "parent_line_number": 52,
+      "snippet": "http.Get(url)",
+      "fingerprint": "9be6d64d7285e77ffafc4015fe97ab33_1",
+      "old_fingerprint": "3062d5fa090e29d011c48ba41511badf_1",
+      "code_extract": "\\tresp, err := http.Get(url)"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "go_gosec_injection_ssrf_injection",
+      "title": "Server Side Request Forgery (SSRF)",
+      "description": "## Description\\n\\nServer-Side-Request-Forgery (SSRF) exploits backend systems that initiate requests to third parties.\\nIf user input is used in constructing or sending these requests, an attacker could supply\\nmalicious data to force the request to other systems or modify request data to cause unwanted actions.\\n\\n## Remediations\\n\\nEnsure user input is not used directly in constructing URLs or URIs when initiating requests to third party\\nsystems from back end systems. Care must also be taken when constructing payloads using user\\ninput. Where possible restrict to known URIs or payloads. Consider using a server side map where key's are\\nused to return URLs such as \`https://site/goto?key=1\` where \`{key: 1, url: 'http://some.url/', key: 2, url:\\n'http://...'}\`.\\n\\nIf you must use user supplied input for requesting URLs, it is strongly recommended that the\\nHTTP client chosen allows you to customize and block certain IP ranges at the network level. By blocking\\nRFC 1918 addresses or other network address ranges, you can limit the severity of a successful SSRF\\nattack. Care must also be taken to block certain protocol or address formatting such as IPv6.\\n\\nIf you can not block address ranges at the client level, you may want to run the HTTP client\\nas a protected\\nuser, or in a protected network where you can apply IP Table or firewall rules to block access\\nto dangerous\\naddresses. Finally, if none of the above protections are available, you could also run a\\ncustom HTTP proxy\\nand force all requests through it to handle blocking dangerous addresses.\\n\\n\`\`\`go\\n// IsDisallowedIP parses the ip to determine if we should allow the HTTP client to continue\\nfunc IsDisallowedIP(hostIP string) bool {\\n  ip := net.ParseIP(hostIP)\\n  return ip.IsMulticast() || ip.IsUnspecified() || ip.IsLoopback() || ip.IsPrivate()\\n}\\n\\n// SafeTransport uses the net.Dial to connect, then if successful check if the resolved\\n// ip address is disallowed. We do this due to hosts such as localhost.lol being resolvable to\\n// potentially malicious URLs. We allow connection only for resolution purposes.\\nfunc SafeTransport(timeout time.Duration) *http.Transport {\\n  return &http.Transport{\\n    DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {\\n      c, err := net.DialTimeout(network, addr, timeout)\\n      if err != nil {\\n        return nil, err\\n      }\\n      ip, _, _ := net.SplitHostPort(c.RemoteAddr().String())\\n      if IsDisallowedIP(ip) {\\n        return nil, errors.New(\\"ip address is not allowed\\")\\n      }\\n      return c, err\\n    },\\n    DialTLS: func(network, addr string) (net.Conn, error) {\\n      dialer := &net.Dialer{Timeout: timeout}\\n      c, err := tls.DialWithDialer(dialer, network, addr, &tls.Config{})\\n      if err != nil {\\n        return nil, err\\n      }\\n\\n      ip, _, _ := net.SplitHostPort(c.RemoteAddr().String())\\n      if IsDisallowedIP(ip) {\\n        return nil, errors.New(\\"ip address is not allowed\\")\\n      }\\n\\n      err = c.Handshake()\\n      if err != nil {\\n        return c, err\\n      }\\n\\n      return c, c.Handshake()\\n    },\\n    TLSHandshakeTimeout: timeout,\\n  }\\n}\\n\\nfunc httpRequest(requestUrl string) {\\n  const clientConnectTimeout = time.Second * 10\\n  httpClient := &http.Client{\\n    Transport: SafeTransport(clientConnectTimeout),\\n  }\\n  resp, err := httpClient.Get(requestUrl)\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  defer resp.Body.Close()\\n  // work with resp\\n}\\n\`\`\`\\n\\n## Resources\\n- [OWASP Server Side Request Forgery](https://owasp.org/www-community/attacks/Server_Side_Request_Forgery)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_injection_ssrf_injection",
+      "line_number": 114,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 114,
+        "end": 114,
+        "column": {
+          "start": 15,
+          "end": 28
+        }
+      },
+      "sink": {
+        "start": 114,
+        "end": 114,
+        "column": {
+          "start": 15,
+          "end": 28
+        },
+        "content": "http.Get(url)"
+      },
+      "parent_line_number": 114,
+      "snippet": "http.Get(url)",
+      "fingerprint": "9be6d64d7285e77ffafc4015fe97ab33_2",
+      "old_fingerprint": "3062d5fa090e29d011c48ba41511badf_2",
+      "code_extract": "\\tresp, err := http.Get(url)"
+    },
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "go_gosec_injection_ssrf_injection",
+      "title": "Server Side Request Forgery (SSRF)",
+      "description": "## Description\\n\\nServer-Side-Request-Forgery (SSRF) exploits backend systems that initiate requests to third parties.\\nIf user input is used in constructing or sending these requests, an attacker could supply\\nmalicious data to force the request to other systems or modify request data to cause unwanted actions.\\n\\n## Remediations\\n\\nEnsure user input is not used directly in constructing URLs or URIs when initiating requests to third party\\nsystems from back end systems. Care must also be taken when constructing payloads using user\\ninput. Where possible restrict to known URIs or payloads. Consider using a server side map where key's are\\nused to return URLs such as \`https://site/goto?key=1\` where \`{key: 1, url: 'http://some.url/', key: 2, url:\\n'http://...'}\`.\\n\\nIf you must use user supplied input for requesting URLs, it is strongly recommended that the\\nHTTP client chosen allows you to customize and block certain IP ranges at the network level. By blocking\\nRFC 1918 addresses or other network address ranges, you can limit the severity of a successful SSRF\\nattack. Care must also be taken to block certain protocol or address formatting such as IPv6.\\n\\nIf you can not block address ranges at the client level, you may want to run the HTTP client\\nas a protected\\nuser, or in a protected network where you can apply IP Table or firewall rules to block access\\nto dangerous\\naddresses. Finally, if none of the above protections are available, you could also run a\\ncustom HTTP proxy\\nand force all requests through it to handle blocking dangerous addresses.\\n\\n\`\`\`go\\n// IsDisallowedIP parses the ip to determine if we should allow the HTTP client to continue\\nfunc IsDisallowedIP(hostIP string) bool {\\n  ip := net.ParseIP(hostIP)\\n  return ip.IsMulticast() || ip.IsUnspecified() || ip.IsLoopback() || ip.IsPrivate()\\n}\\n\\n// SafeTransport uses the net.Dial to connect, then if successful check if the resolved\\n// ip address is disallowed. We do this due to hosts such as localhost.lol being resolvable to\\n// potentially malicious URLs. We allow connection only for resolution purposes.\\nfunc SafeTransport(timeout time.Duration) *http.Transport {\\n  return &http.Transport{\\n    DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {\\n      c, err := net.DialTimeout(network, addr, timeout)\\n      if err != nil {\\n        return nil, err\\n      }\\n      ip, _, _ := net.SplitHostPort(c.RemoteAddr().String())\\n      if IsDisallowedIP(ip) {\\n        return nil, errors.New(\\"ip address is not allowed\\")\\n      }\\n      return c, err\\n    },\\n    DialTLS: func(network, addr string) (net.Conn, error) {\\n      dialer := &net.Dialer{Timeout: timeout}\\n      c, err := tls.DialWithDialer(dialer, network, addr, &tls.Config{})\\n      if err != nil {\\n        return nil, err\\n      }\\n\\n      ip, _, _ := net.SplitHostPort(c.RemoteAddr().String())\\n      if IsDisallowedIP(ip) {\\n        return nil, errors.New(\\"ip address is not allowed\\")\\n      }\\n\\n      err = c.Handshake()\\n      if err != nil {\\n        return c, err\\n      }\\n\\n      return c, c.Handshake()\\n    },\\n    TLSHandshakeTimeout: timeout,\\n  }\\n}\\n\\nfunc httpRequest(requestUrl string) {\\n  const clientConnectTimeout = time.Second * 10\\n  httpClient := &http.Client{\\n    Transport: SafeTransport(clientConnectTimeout),\\n  }\\n  resp, err := httpClient.Get(requestUrl)\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  defer resp.Body.Close()\\n  // work with resp\\n}\\n\`\`\`\\n\\n## Resources\\n- [OWASP Server Side Request Forgery](https://owasp.org/www-community/attacks/Server_Side_Request_Forgery)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_injection_ssrf_injection",
+      "line_number": 129,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 129,
+        "end": 129,
+        "column": {
+          "start": 14,
+          "end": 62
+        }
+      },
+      "sink": {
+        "start": 129,
+        "end": 129,
+        "column": {
+          "start": 14,
+          "end": 62
+        },
+        "content": "http.NewRequest(\\"POST\\", url, bytes.NewBuffer(q))"
+      },
+      "parent_line_number": 129,
+      "snippet": "http.NewRequest(\\"POST\\", url, bytes.NewBuffer(q))",
+      "fingerprint": "9be6d64d7285e77ffafc4015fe97ab33_3",
+      "old_fingerprint": "3062d5fa090e29d011c48ba41511badf_3",
+      "code_extract": "\\treq, err := http.NewRequest(\\"POST\\", url, bytes.NewBuffer(q))"
+    }
+  ]
+}"
+`;

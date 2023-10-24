@@ -1,0 +1,39 @@
+patterns:
+  - pattern: |
+      import "crypto/md5"
+  - pattern: |
+      import (
+        "crypto/md5"
+      )
+languages:
+  - go
+metadata:
+  description: "Use of a Broken or Risky Cryptographic Algorithm"
+  remediation_message: |
+    ## Description
+
+    The MD5 message-digest algorithm has been cryptographically broken and is unsuitable for further use. The MD5 hash algorithm has been found to be vulnerable to producing collisions. This means that two different values, when hashed, can lead to the same hash value.
+
+    ## Remediations
+
+    ✅ It is recommended that the SHA-3 or BLAKE2 family of algorithms be used for non-password based cryptographic hashes instead.
+
+    ```go
+    fileContents := []byte("some file contents to create hash for")
+    blake2bHasher, err := blake2b.New512(nil)
+    if err != nil {
+      log.Fatal(err)
+    }
+    hashedValue := blake2bHasher.Sum(fileContents)
+    fmt.Printf("%s\n", hex.EncodeToString(hashedValue))
+    ```
+
+    ✅ For password based cryptographic hashes, consider using the bcrypt or Argon2id family of cryptographic hashes.
+
+    ## Resources
+    - [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
+
+  cwe_id:
+    - 327
+  id: go_gosec_blocklist_md5
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_blocklist_md5

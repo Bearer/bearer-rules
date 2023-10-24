@@ -1,0 +1,31 @@
+type: shared
+languages:
+  - go
+patterns:
+  - pattern: $<INPUT>
+    filters:
+      - variable: INPUT
+        detection: go_shared_lang_dymamic_input_input
+        scope: cursor_strict
+  - pattern: $<READER>.ReadString()
+    filters:
+      - variable: READER
+        detection: go_shared_lang_dynamic_input_reader
+        scope: cursor
+auxiliary:
+  - id: go_shared_lang_dynamic_input_reader
+    patterns:
+      - pattern: bufio.NewReader($<INPUT>)
+        filters:
+          - variable: INPUT
+            detection: go_shared_lang_dymamic_input_input
+            scope: result
+  - id: go_shared_lang_dymamic_input_input
+    patterns:
+      - os.Stdin
+      - os.Args
+      - os.Getenv()
+      - func $<_>($<...>$<!>$<ARG> $<_>$<...>)
+metadata:
+  description: "Go dynamic input."
+  id: go_shared_lang_dynamic_input

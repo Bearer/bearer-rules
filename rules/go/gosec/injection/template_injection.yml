@@ -1,0 +1,72 @@
+imports:
+  - go_shared_lang_dynamic_input
+patterns:
+  - pattern: template.HTML($<IN>)
+    filters:
+      - variable: IN
+        detection: go_shared_lang_dynamic_input
+  - pattern: template.JS($<IN>)
+    filters:
+      - variable: IN
+        detection: go_shared_lang_dynamic_input
+  - pattern: template.URL($<IN>)
+    filters:
+      - variable: IN
+        detection: go_shared_lang_dynamic_input
+  - pattern: template.HTMLAttr($<IN>)
+    filters:
+      - variable: IN
+        detection: go_shared_lang_dynamic_input
+languages:
+  - go
+metadata:
+  description: "Improper neutralization of input during web page generation ('Cross-site Scripting')"
+  remediation_message: |
+    ## Description
+
+    Cross Site Scripting (XSS) is an attack which exploits a web application or system to treat user input as markup or script code. It is important to encode the data depending on the specific context it is used in. There are at least six context types:
+
+    - Inside HTML tags `<div>context 1</div>`
+    - Inside attributes: `<div class="context 2"></div>`
+    - Inside event attributes `<button onclick="context 3">button</button>`
+    - Inside script blocks: `<script>var x = "context 4"</script>`
+    - Unsafe element HTML assignment: `element.innerHTML = "context 5"`
+    - Inside URLs: `<iframe src="context 6"></iframe><a href="context 6">link</a>`
+
+    Script blocks alone have multiple ways they need to be encoded. Extra care must be taken if user input is ever output inside of script tags.
+
+    ## Remediations
+
+    User input that is displayed within the application must be encoded, sanitized or validated to ensure it cannot be treated as HTML or executed as Javascript code. Care must also be taken to not mix server-side templating with client-side templating, as the server-side templating will not encode things like {{ 7*7 }} which may execute client-side templating features.
+
+    ❌ It is **not** advised to encode user input prior to inserting into a data store. The data will need to be encoded depending on context of where it is output.
+
+    ✅ It is much safer to force the displaying system to handle the encoding and not attempt to guess how it should be encoded.
+
+    ✅ Use of the following template types with user input denotes a security risk:
+
+    - [template.HTML](https://pkg.go.dev/html/template#HTML)
+    - [template.JS](https://pkg.go.dev/html/template#JS)
+    - [template.URL](https://pkg.go.dev/html/template#URL)
+    - [template.HTMLAttr](https://pkg.go.dev/html/template#HTMLAttr)
+
+    ```go
+    testTemplate, err := template.New("testTemplate").Funcs(template.FuncMap{
+      "SafeHTML": func() template.HTML {
+        const safeHTML = "<div>hardcoded, safe html</div>"
+        return template.HTML(safeHTML)
+      },
+    }).Parse(`<html><body>{{ SafeHTML }}</body>`)
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    if err := testTemplate.Execute(os.Stdout, nil); err != nil {
+      log.Fatal(err)
+    }
+    ```
+
+  cwe_id:
+    - 79
+  id: go_gosec_injection_template_injection
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_injection_template_injection

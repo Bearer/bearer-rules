@@ -1,0 +1,47 @@
+patterns:
+  - pattern: |
+      os.$<METHOD>($<...>$<MASK>)
+    filters:
+      - variable: METHOD
+        values:
+          - Mkdir
+          - MkdirAll
+      - variable: MASK
+        detection: go_gosec_file_permissions_mkdir_mask
+        scope: result
+auxiliary:
+  - id: go_gosec_file_permissions_mkdir_mask
+    patterns:
+      - pattern: $<MASK>
+        filters:
+          - variable: MASK
+            regex: \A077
+languages:
+  - go
+metadata:
+  description: "Incorrect permission assignment for critical resource"
+  remediation_message: |
+    ## Description
+
+    The application was found setting directory permissions to overly permissive values.
+
+    ## Remediations
+
+    Consider using the following values if the application user is the only process to access files in the directory specified:
+
+    - 0700 - read/write access to the files in the directory
+
+    Another common value is `0750` which allows the application user read/write access and group
+    users to read the files contained in the directory.
+
+    ```go
+    err := os.Mkdir("directory", 0700)
+    if err != nil {
+      log.Fatal(err)
+    }
+    ```
+
+  cwe_id:
+    - 732
+  id: go_gosec_file_permissions_mkdir
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_file_permissions_mkdir

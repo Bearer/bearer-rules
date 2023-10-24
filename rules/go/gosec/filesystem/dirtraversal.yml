@@ -1,0 +1,38 @@
+patterns:
+  - pattern: |
+      $<NET>.Dir("/")
+    filters:
+      - variable: NET
+        detection: go_gosec_filesystem_dirtraversal_init
+        scope: cursor
+auxiliary:
+  - id: go_gosec_filesystem_dirtraversal_init
+    patterns:
+      - pattern: import $<!>"net/http"
+      - pattern: |
+          import (
+            $<!>"net/http"
+          )
+languages:
+  - go
+metadata:
+  description: "Relative path traversal"
+  remediation_message: |
+    ## Description
+
+    The application is potentially exposing the entire filesystem by mounting the root directory `/` to an HTTP handler function. Anyone who is able to access this HTTP server may be able to access any file that the HTTP server has access to.
+
+    ## Remediations
+
+    Restrict the `http.Dir` path to only a specific folder instead of the entire filesystem.
+
+    ```go
+    const path = "/var/www/html/public"
+    fs := http.FileServer(http.Dir(path))
+    log.Fatal(http.ListenAndServe(":9000", fs))
+    ```
+
+  cwe_id:
+    - 327
+  id: go_gosec_filesystem_dirtraversal
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_filesystem_dirtraversal

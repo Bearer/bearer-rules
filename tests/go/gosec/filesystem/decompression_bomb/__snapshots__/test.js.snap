@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_filesystem_decompression_bomb test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_filesystem_decompression_bomb",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nDirectly decompressing files or buffers may lead to a potential Denial of Service (DoS) due to a decompression bomb. Decompression bombs are maliciously compressed files or data that decompresses to extremely large sizes. This can cause the process to run out of memory, or the disk to fill up.\\n\\n## Remediations\\n\\nTo protect against decompression bombs, an [io.LimitReader(...)](https://pkg.go.dev/io#LimitReader) should be used to limit how much can be read during the decompression routine.\\n\\n\`\`\`go\\nf, err := os.Open(\\"some.gz\\")\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\nr, err := gzip.NewReader(f)\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\nconst oneMegabyte = 1024 * 1024\\nlimitedReader := io.LimitReader(r, oneMegabyte)\\n\\n// use limitedReader to stop copying after 1 MB\\nif _, err := io.Copy(os.Stdout, limitedReader); err != nil {\\n  log.Fatal(err)\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_decompression_bomb",
+      "line_number": 24,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 24,
+        "end": 24,
+        "column": {
+          "start": 11,
+          "end": 32
+        }
+      },
+      "sink": {
+        "start": 24,
+        "end": 24,
+        "column": {
+          "start": 11,
+          "end": 32
+        },
+        "content": "io.Copy(os.Stdout, r)"
+      },
+      "parent_line_number": 24,
+      "snippet": "io.Copy(os.Stdout, r)",
+      "fingerprint": "2d4190d402514b2a6ed40a15b61c33ea_0",
+      "old_fingerprint": "b56cbf630ceb5b94f25b38725079b469_0",
+      "code_extract": "\\t_, err = io.Copy(os.Stdout, r)"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_filesystem_decompression_bomb",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nDirectly decompressing files or buffers may lead to a potential Denial of Service (DoS) due to a decompression bomb. Decompression bombs are maliciously compressed files or data that decompresses to extremely large sizes. This can cause the process to run out of memory, or the disk to fill up.\\n\\n## Remediations\\n\\nTo protect against decompression bombs, an [io.LimitReader(...)](https://pkg.go.dev/io#LimitReader) should be used to limit how much can be read during the decompression routine.\\n\\n\`\`\`go\\nf, err := os.Open(\\"some.gz\\")\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\nr, err := gzip.NewReader(f)\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\nconst oneMegabyte = 1024 * 1024\\nlimitedReader := io.LimitReader(r, oneMegabyte)\\n\\n// use limitedReader to stop copying after 1 MB\\nif _, err := io.Copy(os.Stdout, limitedReader); err != nil {\\n  log.Fatal(err)\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_decompression_bomb",
+      "line_number": 40,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 40,
+        "end": 40,
+        "column": {
+          "start": 11,
+          "end": 43
+        }
+      },
+      "sink": {
+        "start": 40,
+        "end": 40,
+        "column": {
+          "start": 11,
+          "end": 43
+        },
+        "content": "io.CopyBuffer(os.Stdout, r, buf)"
+      },
+      "parent_line_number": 40,
+      "snippet": "io.CopyBuffer(os.Stdout, r, buf)",
+      "fingerprint": "2d4190d402514b2a6ed40a15b61c33ea_1",
+      "old_fingerprint": "b56cbf630ceb5b94f25b38725079b469_1",
+      "code_extract": "\\t_, err = io.CopyBuffer(os.Stdout, r, buf)"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_filesystem_decompression_bomb",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nDirectly decompressing files or buffers may lead to a potential Denial of Service (DoS) due to a decompression bomb. Decompression bombs are maliciously compressed files or data that decompresses to extremely large sizes. This can cause the process to run out of memory, or the disk to fill up.\\n\\n## Remediations\\n\\nTo protect against decompression bombs, an [io.LimitReader(...)](https://pkg.go.dev/io#LimitReader) should be used to limit how much can be read during the decompression routine.\\n\\n\`\`\`go\\nf, err := os.Open(\\"some.gz\\")\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\nr, err := gzip.NewReader(f)\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\nconst oneMegabyte = 1024 * 1024\\nlimitedReader := io.LimitReader(r, oneMegabyte)\\n\\n// use limitedReader to stop copying after 1 MB\\nif _, err := io.Copy(os.Stdout, limitedReader); err != nil {\\n  log.Fatal(err)\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_decompression_bomb",
+      "line_number": 62,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 62,
+        "end": 62,
+        "column": {
+          "start": 12,
+          "end": 28
+        }
+      },
+      "sink": {
+        "start": 62,
+        "end": 62,
+        "column": {
+          "start": 12,
+          "end": 28
+        },
+        "content": "io.Copy(out, rc)"
+      },
+      "parent_line_number": 62,
+      "snippet": "io.Copy(out, rc)",
+      "fingerprint": "2d4190d402514b2a6ed40a15b61c33ea_2",
+      "old_fingerprint": "b56cbf630ceb5b94f25b38725079b469_2",
+      "code_extract": "\\t\\t_, err = io.Copy(out, rc)"
+    }
+  ]
+}"
+`;

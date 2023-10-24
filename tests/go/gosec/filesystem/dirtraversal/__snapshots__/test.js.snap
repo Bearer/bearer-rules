@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_filesystem_dirtraversal test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_filesystem_dirtraversal",
+      "title": "Relative path traversal",
+      "description": "## Description\\n\\nThe application is potentially exposing the entire filesystem by mounting the root directory \`/\` to an HTTP handler function. Anyone who is able to access this HTTP server may be able to access any file that the HTTP server has access to.\\n\\n## Remediations\\n\\nRestrict the \`http.Dir\` path to only a specific folder instead of the entire filesystem.\\n\\n\`\`\`go\\nconst path = \\"/var/www/html/public\\"\\nfs := http.FileServer(http.Dir(path))\\nlog.Fatal(http.ListenAndServe(\\":9000\\", fs))\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_dirtraversal",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 7,
+          "end": 20
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 7,
+          "end": 20
+        },
+        "content": "net2.Dir(\\"/\\")"
+      },
+      "parent_line_number": 10,
+      "snippet": "net2.Dir(\\"/\\")",
+      "fingerprint": "3a1c1dd6de643ca21a3d5b17af97729a_0",
+      "old_fingerprint": "bb634df7af20e27aa8f7123da072efdc_0",
+      "code_extract": "\\td := net2.Dir(\\"/\\")"
+    }
+  ]
+}"
+`;

@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_file_permissions_mkdir test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "732"
+      ],
+      "id": "go_gosec_file_permissions_mkdir",
+      "title": "Incorrect permission assignment for critical resource",
+      "description": "## Description\\n\\nThe application was found setting directory permissions to overly permissive values.\\n\\n## Remediations\\n\\nConsider using the following values if the application user is the only process to access files in the directory specified:\\n\\n- 0700 - read/write access to the files in the directory\\n\\nAnother common value is \`0750\` which allows the application user read/write access and group\\nusers to read the files contained in the directory.\\n\\n\`\`\`go\\nerr := os.Mkdir(\\"directory\\", 0700)\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_file_permissions_mkdir",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 9,
+          "end": 37
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 9,
+          "end": 37
+        },
+        "content": "os.Mkdir(\\"/tmp/mydir\\", 0777)"
+      },
+      "parent_line_number": 17,
+      "snippet": "os.Mkdir(\\"/tmp/mydir\\", 0777)",
+      "fingerprint": "48915bcd60ffd3454f55db2924e59c62_0",
+      "old_fingerprint": "253074ffb8917f7c68f698b97a6d661b_0",
+      "code_extract": "\\terr := os.Mkdir(\\"/tmp/mydir\\", 0777)"
+    },
+    {
+      "cwe_ids": [
+        "732"
+      ],
+      "id": "go_gosec_file_permissions_mkdir",
+      "title": "Incorrect permission assignment for critical resource",
+      "description": "## Description\\n\\nThe application was found setting directory permissions to overly permissive values.\\n\\n## Remediations\\n\\nConsider using the following values if the application user is the only process to access files in the directory specified:\\n\\n- 0700 - read/write access to the files in the directory\\n\\nAnother common value is \`0750\` which allows the application user read/write access and group\\nusers to read the files contained in the directory.\\n\\n\`\`\`go\\nerr := os.Mkdir(\\"directory\\", 0700)\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_file_permissions_mkdir",
+      "line_number": 25,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 25,
+        "end": 25,
+        "column": {
+          "start": 9,
+          "end": 40
+        }
+      },
+      "sink": {
+        "start": 25,
+        "end": 25,
+        "column": {
+          "start": 9,
+          "end": 40
+        },
+        "content": "os.MkdirAll(\\"/tmp/mydir\\", 0777)"
+      },
+      "parent_line_number": 25,
+      "snippet": "os.MkdirAll(\\"/tmp/mydir\\", 0777)",
+      "fingerprint": "48915bcd60ffd3454f55db2924e59c62_1",
+      "old_fingerprint": "253074ffb8917f7c68f698b97a6d661b_1",
+      "code_extract": "\\terr := os.MkdirAll(\\"/tmp/mydir\\", 0777)"
+    }
+  ]
+}"
+`;

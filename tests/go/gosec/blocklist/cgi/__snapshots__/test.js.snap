@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_blocklist_cgi test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_blocklist_cgi",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nIt's not recommended to use \`net/http/cgi\` package.\\nGo versions < 1.6.3 are vulnerable to Httpoxy attack: (CVE-2016-5386).\\n\\n## Remediations\\n\\n❌ Avoid using \`net/http/cgi\`:\\n\\n\`\`\`go\\nimport \\"net/http/cgi\\"\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_blocklist_cgi",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 22
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 22
+        },
+        "content": "import \\"net/http/cgi\\""
+      },
+      "parent_line_number": 3,
+      "snippet": "import \\"net/http/cgi\\"",
+      "fingerprint": "d44ba4fd1dac6349b308c573d7831ecc_0",
+      "old_fingerprint": "f4afdcd85f5f01a0d80ee3f3337e2888_0",
+      "code_extract": "import \\"net/http/cgi\\""
+    }
+  ]
+}"
+`;
+
+exports[`go_gosec_blocklist_cgi test 2 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_blocklist_cgi",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nIt's not recommended to use \`net/http/cgi\` package.\\nGo versions < 1.6.3 are vulnerable to Httpoxy attack: (CVE-2016-5386).\\n\\n## Remediations\\n\\n❌ Avoid using \`net/http/cgi\`:\\n\\n\`\`\`go\\nimport \\"net/http/cgi\\"\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_blocklist_cgi",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/main2.go",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 2
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 5,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "import (\\n\\tcgi2 \\"net/http/cgi\\"\\n)"
+      },
+      "parent_line_number": 3,
+      "snippet": "import (\\n\\tcgi2 \\"net/http/cgi\\"\\n)",
+      "fingerprint": "d44ba4fd1dac6349b308c573d7831ecc_0",
+      "old_fingerprint": "08ab0d9c254c63555f4b1118aaa6548a_0",
+      "code_extract": "import (\\n\\tcgi2 \\"net/http/cgi\\"\\n)"
+    }
+  ]
+}"
+`;

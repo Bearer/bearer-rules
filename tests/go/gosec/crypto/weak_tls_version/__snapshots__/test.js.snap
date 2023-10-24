@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_crypto_weak_tls_version test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "310"
+      ],
+      "id": "go_gosec_crypto_weak_tls_version",
+      "title": "Use of deprecated TLS version",
+      "description": "## Description\\n\\nTLS versions 1.1 and 1.0 were deprecated by the IETF in June 2018 due to a number of attacks against the vulnerable versions. Use of a deprecated TLS version may result in the unauthorized retrieval of sensitive information.\\n\\n## Remediations\\n\\n✅ It is strongly recommended that all TLS connections use TLS 1.3.\\n\\nGo will automatically choose the most secure cipher when negotiating the TLS handshake with client or servers. TLS 1.3 cipher suites are configured to require Perfect Forward Secrecy (PFS).\\nPFS is an important property as it will ensure that past encrypted transmissions could not be decrypted if the TLS certificate was compromised.\\n\\n\`\`\`go\\ncert, err := tls.LoadX509KeyPair(\\"server.crt\\", \\"server.key\\")\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\ncfg := &tls.Config{Certificates: []tls.Certificate{cert}, MinVersion: tls.VersionTLS13}\\nsrv := &http.Server{\\n  Addr:         \\":8999\\",\\n  TLSConfig:    cfg,\\n  ReadTimeout:  time.Minute,\\n  WriteTimeout: time.Minute,\\n}\\nlog.Fatal(srv.ListenAndServeTLS(\\"\\", \\"\\"))\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_tls_version",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 4,
+          "end": 20
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 4,
+          "end": 20
+        },
+        "content": "tls.VersionTLS11"
+      },
+      "parent_line_number": 12,
+      "snippet": "tls.VersionTLS11",
+      "fingerprint": "764f08ca905f8ac862ad3f7f1aedd81e_0",
+      "old_fingerprint": "e2cbe75a9a29dfc680f083a7d6379e4f_0",
+      "code_extract": "\\t\\t\\ttls.VersionTLS11,"
+    },
+    {
+      "cwe_ids": [
+        "310"
+      ],
+      "id": "go_gosec_crypto_weak_tls_version",
+      "title": "Use of deprecated TLS version",
+      "description": "## Description\\n\\nTLS versions 1.1 and 1.0 were deprecated by the IETF in June 2018 due to a number of attacks against the vulnerable versions. Use of a deprecated TLS version may result in the unauthorized retrieval of sensitive information.\\n\\n## Remediations\\n\\n✅ It is strongly recommended that all TLS connections use TLS 1.3.\\n\\nGo will automatically choose the most secure cipher when negotiating the TLS handshake with client or servers. TLS 1.3 cipher suites are configured to require Perfect Forward Secrecy (PFS).\\nPFS is an important property as it will ensure that past encrypted transmissions could not be decrypted if the TLS certificate was compromised.\\n\\n\`\`\`go\\ncert, err := tls.LoadX509KeyPair(\\"server.crt\\", \\"server.key\\")\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\ncfg := &tls.Config{Certificates: []tls.Certificate{cert}, MinVersion: tls.VersionTLS13}\\nsrv := &http.Server{\\n  Addr:         \\":8999\\",\\n  TLSConfig:    cfg,\\n  ReadTimeout:  time.Minute,\\n  WriteTimeout: time.Minute,\\n}\\nlog.Fatal(srv.ListenAndServeTLS(\\"\\", \\"\\"))\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_tls_version",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 4,
+          "end": 20
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 4,
+          "end": 20
+        },
+        "content": "tls.VersionTLS10"
+      },
+      "parent_line_number": 13,
+      "snippet": "tls.VersionTLS10",
+      "fingerprint": "764f08ca905f8ac862ad3f7f1aedd81e_1",
+      "old_fingerprint": "e2cbe75a9a29dfc680f083a7d6379e4f_1",
+      "code_extract": "\\t\\t\\ttls.VersionTLS10,"
+    }
+  ]
+}"
+`;

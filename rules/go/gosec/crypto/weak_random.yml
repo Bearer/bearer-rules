@@ -1,0 +1,56 @@
+patterns:
+  - pattern: $<RAND>.$<METHOD>()
+    filters:
+      - variable: METHOD
+        values:
+          - Float32
+          - Float64
+          - Int31
+          - Int
+          - Intn
+          - Int31n
+          - Int63
+          - Int63n
+          - NormalFloat64
+          - Uint32
+          - Uint64
+      - either:
+          - variable: RAND
+            detection: go_gosec_crypto_weak_random_init
+            scope: cursor
+          - variable: RAND
+            detection: go_gosec_crypto_weak_random_import
+            scope: cursor
+auxiliary:
+  - id: go_gosec_crypto_weak_random_import
+    patterns:
+      - pattern: import $<!>"math/rand"
+      - pattern: |
+          import (
+            $<!>"math/rand"
+          )
+  - id: go_gosec_crypto_weak_random_init
+    patterns:
+      - pattern: $<RAND>.New()
+        filters:
+          - variable: RAND
+            detection: go_gosec_crypto_weak_random_import
+            scope: cursor
+languages:
+  - go
+metadata:
+  description: "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)"
+  remediation_message: |
+    ## Description
+
+    Go's `math/rand` is not meant for use in generating random numbers for any cryptographic or security sensitive context.
+    This includes generating random numbers that could be used in user specific identifiers or where the random number that is generated is considered to be secret.
+
+    ## Remediations
+
+    ✅ Replace all imports of `math/rand` with `crypto/rand`.
+
+  cwe_id:
+    - 338
+  id: go_gosec_crypto_weak_random
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_random

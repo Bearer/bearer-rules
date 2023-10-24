@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_crypto_insecure_ignore_host_key test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "322"
+      ],
+      "id": "go_gosec_crypto_insecure_ignore_host_key",
+      "title": "Key exchange without entity authentication",
+      "description": "## Description\\n\\nThe application was found to ignore host keys. Host keys are important as they provide assurance that the client can prove that the host is trusted.\\nBy ignoring these host keys, it is impossible for the client to validate the connection is to a trusted host.\\n\\n## Remediations\\n\\n✅ For the \`ssh.ClientConfig\` \`HostKeyCallback\` property, consider using the [knownhosts](https://pkg.go.dev/golang.org/x/crypto/ssh/knownhosts) package that parses OpenSSH's \`known_hosts\` key database.\\n\\n\`\`\`go\\nknownHostCallback, err := knownhosts.New(\\"/home/user/.ssh/known_hosts\\")\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\n// Create client config using the knownHost callback function\\nconfig := &ssh.ClientConfig{\\n  ...\\n  HostKeyCallback: knownHostCallback,\\n}\\n\\n// Connect to ssh server\\nconn, err := ssh.Dial(\\"tcp\\", \\"localhost:22\\", config)\\nif err != nil {\\n  log.Fatal(\\"unable to connect: \\", err)\\n}\\ndefer conn.Close()\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_insecure_ignore_host_key",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 6,
+          "end": 33
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 6,
+          "end": 33
+        },
+        "content": "ssh.InsecureIgnoreHostKey()"
+      },
+      "parent_line_number": 8,
+      "snippet": "ssh.InsecureIgnoreHostKey()",
+      "fingerprint": "dbf696ab5d93618a95e2b8124b7c4c18_0",
+      "old_fingerprint": "736c606334c8f895d0bfe41c1abff8ea_0",
+      "code_extract": "\\t_ = ssh.InsecureIgnoreHostKey()"
+    }
+  ]
+}"
+`;

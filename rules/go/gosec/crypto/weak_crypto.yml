@@ -1,0 +1,25 @@
+patterns:
+  - des.NewCipher()
+  - des.NewTripleDESCipher()
+  - md5.New()
+  - md5.Sum()
+  - rc4.NewCipher()
+  - sha1.New()
+  - sha1.Sum()
+languages:
+  - go
+metadata:
+  description: "Use of a Broken or Risky Cryptographic Algorithm"
+  remediation_message: |
+    ## Description
+
+    Usage of a cryptographically insecure algorithm has been detected.
+
+    ## Remediations
+
+    It is recommended that alternative algorithms be used instead.
+
+  cwe_id:
+    - 327
+  id: go_gosec_crypto_weak_crypto
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_crypto

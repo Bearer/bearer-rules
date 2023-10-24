@@ -1,0 +1,29 @@
+patterns:
+  - pattern: |
+      import "net/http/cgi"
+  - pattern: |
+      import (
+        "net/http/cgi"
+      )
+languages:
+  - go
+metadata:
+  description: "Use of a Broken or Risky Cryptographic Algorithm"
+  remediation_message: |
+    ## Description
+
+    It's not recommended to use `net/http/cgi` package.
+    Go versions < 1.6.3 are vulnerable to Httpoxy attack: (CVE-2016-5386).
+
+    ## Remediations
+
+    ❌ Avoid using `net/http/cgi`:
+
+    ```go
+    import "net/http/cgi"
+    ```
+
+  cwe_id:
+    - 327
+  id: go_gosec_blocklist_cgi
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_blocklist_cgi

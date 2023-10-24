@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_crypto_bad_tls_settings test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_crypto_bad_tls_settings",
+      "title": "Use of a broken or risky cryptographic algorithm",
+      "description": "## Description\\n\\nUsage of a cryptographically insecure cipher suite has been detected.\\n\\n## Remediations\\n\\n✅ It is recommended that alternative ciphers be used instead.\\n\\n✅ It is strongly recommended that all TLS connections use TLS 1.3\\n\\nGo will automatically choose the most secure cipher when negotiating the TLS handshake with client or servers. TLS 1.3 cipher suites are configured to require Perfect\\nForward Secrecy (PFS).\\nPFS is an important property as it will ensure that past encrypted transmissions could not be\\ndecrypted if the TLS certificate was compromised.\\n\\n\`\`\`go\\ncert, err := tls.LoadX509KeyPair(\\"server.crt\\", \\"server.key\\")\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\ncfg := &tls.Config{Certificates: []tls.Certificate{cert}, MinVersion: tls.VersionTLS13}\\nsrv := &http.Server{\\n  Addr:         \\":8999\\",\\n  TLSConfig:    cfg,\\n  ReadTimeout:  time.Minute,\\n  WriteTimeout: time.Minute,\\n}\\nlog.Fatal(srv.ListenAndServeTLS(\\"\\", \\"\\"))\\n\`\`\`\\n\\nIf TLS 1.0-1.2 must be used, then the following list of ciphers should be chosen as they\\nsupport\\nPerfect Forward Secrecy (PFS):\\n\\n- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\\n- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\\n- TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305\\n- TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305\\n\\n\\nExample \`tls.Config\` using the recommended cipher suites:\\n\\n\`\`\`go\\ncfg := &tls.Config{\\n    MinVersion: tls.VersionTLS12,\\n    CipherSuites: []uint16{\\n        tls.TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,\\n        tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,\\n        tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,\\n        tls.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,\\n        tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305,\\n        tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305,\\n    },\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_bad_tls_settings",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 21,
+          "end": 137
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 21,
+          "end": 137
+        },
+        "content": "tls.Config{CipherSuites: []uint16{tls.TLS_RSA_WITH_AES_128_GCM_SHA256, tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256}}"
+      },
+      "parent_line_number": 11,
+      "snippet": "tls.Config{CipherSuites: []uint16{tls.TLS_RSA_WITH_AES_128_GCM_SHA256, tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256}}",
+      "fingerprint": "36c61f9e4fdfaf69e608c2e75308672a_0",
+      "old_fingerprint": "4a972d23a74fe461e2424501cdcbd9d0_0",
+      "code_extract": "\\t\\tTLSClientConfig: &tls.Config{CipherSuites: []uint16{tls.TLS_RSA_WITH_AES_128_GCM_SHA256, tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256}},"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_crypto_bad_tls_settings",
+      "title": "Use of a broken or risky cryptographic algorithm",
+      "description": "## Description\\n\\nUsage of a cryptographically insecure cipher suite has been detected.\\n\\n## Remediations\\n\\n✅ It is recommended that alternative ciphers be used instead.\\n\\n✅ It is strongly recommended that all TLS connections use TLS 1.3\\n\\nGo will automatically choose the most secure cipher when negotiating the TLS handshake with client or servers. TLS 1.3 cipher suites are configured to require Perfect\\nForward Secrecy (PFS).\\nPFS is an important property as it will ensure that past encrypted transmissions could not be\\ndecrypted if the TLS certificate was compromised.\\n\\n\`\`\`go\\ncert, err := tls.LoadX509KeyPair(\\"server.crt\\", \\"server.key\\")\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\ncfg := &tls.Config{Certificates: []tls.Certificate{cert}, MinVersion: tls.VersionTLS13}\\nsrv := &http.Server{\\n  Addr:         \\":8999\\",\\n  TLSConfig:    cfg,\\n  ReadTimeout:  time.Minute,\\n  WriteTimeout: time.Minute,\\n}\\nlog.Fatal(srv.ListenAndServeTLS(\\"\\", \\"\\"))\\n\`\`\`\\n\\nIf TLS 1.0-1.2 must be used, then the following list of ciphers should be chosen as they\\nsupport\\nPerfect Forward Secrecy (PFS):\\n\\n- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\\n- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\\n- TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305\\n- TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305\\n\\n\\nExample \`tls.Config\` using the recommended cipher suites:\\n\\n\`\`\`go\\ncfg := &tls.Config{\\n    MinVersion: tls.VersionTLS12,\\n    CipherSuites: []uint16{\\n        tls.TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,\\n        tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,\\n        tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,\\n        tls.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,\\n        tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305,\\n        tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305,\\n    },\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_bad_tls_settings",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 14,
+        "end": 16,
+        "column": {
+          "start": 12,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 16,
+        "column": {
+          "start": 12,
+          "end": 3
+        },
+        "content": "tls.CipherSuite{\\n\\t\\tID: tls.TLS_AES_128_GCM_SHA256,\\n\\t}"
+      },
+      "parent_line_number": 14,
+      "snippet": "tls.CipherSuite{\\n\\t\\tID: tls.TLS_AES_128_GCM_SHA256,\\n\\t}",
+      "fingerprint": "36c61f9e4fdfaf69e608c2e75308672a_1",
+      "old_fingerprint": "4a972d23a74fe461e2424501cdcbd9d0_1",
+      "code_extract": "\\tcipher := tls.CipherSuite{\\n\\t\\tID: tls.TLS_AES_128_GCM_SHA256,\\n\\t}"
+    }
+  ]
+}"
+`;

@@ -1,0 +1,54 @@
+patterns:
+  - pattern: |
+      os.$<METHOD>($<...>$<MASK>)
+    filters:
+      - variable: METHOD
+        values:
+          - Chmod
+          - OpenFile
+          - WriteFile
+      - variable: MASK
+        detection: go_gosec_file_permissions_file_perm_mask
+        scope: result
+auxiliary:
+  - id: go_gosec_file_permissions_file_perm_mask
+    patterns:
+      - pattern: $<MASK>
+        filters:
+          - either:
+              - variable: MASK
+                regex: \A07
+              - variable: MASK
+                regex: \A0\d[1-7]
+              - variable: MASK
+                regex: \A0\d\d[1-7]
+languages:
+  - go
+metadata:
+  description: "Incorrect permission assignment for critical resource"
+  remediation_message: |
+    ## Description
+
+    The application was found setting file permissions to overly permissive values.
+
+    ## Remediations
+
+    Consider using the following values if the application user is the only process to access the file:
+
+    - 0400 - read only access to the file
+    - 0200 - write only access to the file
+    - 0600 - read/write access to the file
+
+    ```go
+    f, err := os.OpenFile("file.txt", os.O_CREATE, 0600)
+    if err != nil {
+      log.Fatal(err)
+    }
+    defer f.Close()
+    // continue to work with file here
+    ```
+
+  cwe_id:
+    - 732
+  id: go_gosec_file_permissions_file_perm
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_file_permissions_file_perm

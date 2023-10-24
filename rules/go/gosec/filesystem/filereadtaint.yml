@@ -1,0 +1,111 @@
+imports:
+  - go_shared_lang_dynamic_request_input
+patterns:
+  - pattern: |
+      os.OpenFile($<INPUT>$<...>)
+    filters:
+      - variable: INPUT
+        detection: go_gosec_filesystem_filereadtaint_input
+        scope: result
+  - pattern: |
+      os.Open($<INPUT>$<...>)
+    filters:
+      - variable: INPUT
+        detection: go_gosec_filesystem_filereadtaint_input
+        scope: result
+  - pattern: |
+      ioutil.ReadFile($<INPUT>$<...>)
+    filters:
+      - variable: INPUT
+        detection: go_gosec_filesystem_filereadtaint_input
+        scope: result
+  - pattern: |
+      os.ReadFile($<INPUT>$<...>)
+    filters:
+      - variable: INPUT
+        detection: go_gosec_filesystem_filereadtaint_input
+        scope: result
+auxiliary:
+  - id: go_gosec_filesystem_filereadtaint_input
+    sanitizer: go_gosec_filesystem_filereadtaint_input_sanitizer
+    patterns:
+      - pattern: $<INIT>
+        filters:
+          - variable: INIT
+            detection: go_shared_lang_dynamic_request_input
+            scope: cursor
+  - id: go_gosec_filesystem_filereadtaint_input_sanitizer
+    patterns:
+      - pattern: filepath.Clean()
+      - pattern: filepath.Rel()
+      - pattern: strconv.Itoa()
+languages:
+  - go
+metadata:
+  description: "Improper limitation of a pathname to a restricted directory ('Path Traversal')"
+  remediation_message: |
+    ## Description
+
+    The application dynamically constructs file or path information. If the path information comes from user input, it could be abused to read sensitive files, access other users data or aid in exploitation to gain further system access.
+
+    User input should never be used in constructing paths or files for interacting with the filesystem. This includes filenames supplied by user uploads or downloads.
+
+    ## Remediations
+
+    ✅ If possible, consider hashing user input or replacing it with unique values.
+
+    ✅ Additionally, use `filepath.Base` to only use the filename and not path information.
+
+    Always validate the full path prior to opening or writing to any file.
+
+    ```go
+    type userData struct {
+        id           string
+        userFilename string
+    }
+
+    func newUserData(userFilename string) userData {
+        return userData{
+            id:           randomFileID(), // random id as the filename
+            userFilename: userFilename,
+        }
+    }
+
+    // randomFileID generates a random id, to be used as a filename
+    func randomFileID() string {
+        id := make([]byte, 16)
+        if _, err := io.ReadFull(rand.Reader, id); err != nil {
+            log.Fatal(err)
+        }
+        return hex.EncodeToString(id)
+    }
+
+    func main() {
+
+        // user input, saved only as a reference
+        data := newUserData("../../possibly/malicious")
+
+        // restrict all file access to this path
+        const basePath = "/tmp/"
+
+        // resolve the full path, but only use our random generated id
+        resolvedPath, err := filepath.Join(basePath, filepath.Base(data.id))
+        if err != nil {
+            log.Fatal(err)
+        }
+
+        // verify the path is prefixed with our basePath
+        if !strings.HasPrefix(resolvedPath, basePath) {
+            log.Fatal("path does not start with basePath")
+        }
+        // process / work with file
+    }
+    ```
+
+    ## Resources
+    - [OWASP Path Traversal](https://owasp.org/www-community/attacks/Path_Traversal)
+
+  cwe_id:
+    - 327
+  id: go_gosec_filesystem_filereadtaint
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_filesystem_filereadtaint
