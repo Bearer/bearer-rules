@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_third_parties_airbrake bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_airbrake",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Fullname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 36,
+          "end": 47
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 48
+        },
+        "content": "$notice[\\"params\\"] = [\\"username\\" => $user->name]"
+      },
+      "parent_line_number": 11,
+      "snippet": "$notice[\\"params\\"] = [\\"username\\" => $user->name]",
+      "fingerprint": "90ca8ef969b3e035f208a990b6bb0166_0",
+      "old_fingerprint": "d2e1d818778ca293d0cdd79a698718ba_0",
+      "code_extract": "$notice[\\"params\\"] = [\\"username\\" => $user->name];"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_airbrake",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Fullname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 33,
+          "end": 44
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 44
+        },
+        "content": "$notice[\\"params\\"][\\"username\\"] = $user->name"
+      },
+      "parent_line_number": 12,
+      "snippet": "$notice[\\"params\\"][\\"username\\"] = $user->name",
+      "fingerprint": "90ca8ef969b3e035f208a990b6bb0166_1",
+      "old_fingerprint": "d2e1d818778ca293d0cdd79a698718ba_1",
+      "code_extract": "$notice[\\"params\\"][\\"username\\"] = $user->name;"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_airbrake",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Fullname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 34,
+          "end": 45
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 1,
+          "end": 45
+        },
+        "content": "$notice2[\\"params\\"][\\"username\\"] = $user->name"
+      },
+      "parent_line_number": 15,
+      "snippet": "$notice2[\\"params\\"][\\"username\\"] = $user->name",
+      "fingerprint": "90ca8ef969b3e035f208a990b6bb0166_2",
+      "old_fingerprint": "d2e1d818778ca293d0cdd79a698718ba_2",
+      "code_extract": "$notice2[\\"params\\"][\\"username\\"] = $user->name;"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_airbrake",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "14124881-6b92-4fc5-8005-ea7c1c09592e",
+        "name": "Fullname"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 43,
+          "end": 54
+        }
+      },
+      "sink": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 5,
+          "end": 54
+        },
+        "content": "$notice3['context']['user']['name'] = $user->name"
+      },
+      "parent_line_number": 18,
+      "snippet": "$notice3['context']['user']['name'] = $user->name",
+      "fingerprint": "90ca8ef969b3e035f208a990b6bb0166_3",
+      "old_fingerprint": "d2e1d818778ca293d0cdd79a698718ba_3",
+      "code_extract": "    $notice3['context']['user']['name'] = $user->name;"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_airbrake",
+      "title": "Sensitive data sent to Airbrake detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_airbrake",
+      "line_number": 19,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 35,
+          "end": 47
+        }
+      },
+      "sink": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 5,
+          "end": 47
+        },
+        "content": "$notice3['params']['email'] = $user->email"
+      },
+      "parent_line_number": 19,
+      "snippet": "$notice3['params']['email'] = $user->email",
+      "fingerprint": "90ca8ef969b3e035f208a990b6bb0166_4",
+      "old_fingerprint": "d2e1d818778ca293d0cdd79a698718ba_4",
+      "code_extract": "    $notice3['params']['email'] = $user->email;"
+    }
+  ]
+}"
+`;
+
+exports[`php_third_parties_airbrake ok 1`] = `"{}"`;
