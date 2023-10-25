@@ -1,0 +1,67 @@
+imports:
+  - php_shared_lang_datatype
+patterns:
+  - pattern: |
+      $<TABLE>->$<METHOD>($<DATA_TYPE>$<...>)
+    filters:
+      - variable: TABLE
+        detection: php_third_parties_bigquery_table
+        scope: cursor
+      - variable: METHOD
+        values:
+          - insertRow
+          - insertRows
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+languages:
+  - php
+auxiliary:
+  - id: php_third_parties_bigquery_client
+    patterns:
+      - pattern: new $<CLASS>()
+        filters:
+          - variable: CLASS
+            regex: \A(Google\\Cloud\\BigQuery\\)?BigQueryClient\z
+  - id: php_third_parties_bigquery_dataset
+    patterns:
+      - pattern: |
+          $<CLIENT>->dataset()
+        filters:
+          - variable: CLIENT
+            detection: php_third_parties_bigquery_client
+            scope: cursor
+  - id: php_third_parties_bigquery_table
+    patterns:
+      - pattern: |
+          $<DATASET>->table()
+        filters:
+          - variable: DATASET
+            detection: php_third_parties_bigquery_dataset
+            scope: cursor
+      - pattern: |
+          $<DATASET>->createTable()
+        filters:
+          - variable: DATASET
+            detection: php_third_parties_bigquery_dataset
+            scope: cursor
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Sensitive data sent to BigQuery detected."
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party data tools is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to BigQuery.
+
+    ## Remediations
+    When sending data to third-party services, ensure all sensitive data is removed.
+
+    ## Resources
+    - [BigQuery docs](https://cloud.google.com/php/docs)
+  cwe_id:
+    - 201
+  associated_recipe: Google Cloud BigQuery
+  id: php_third_parties_bigquery
+  documentation_url: https://docs.bearer.com/reference/rules/php_third_parties_bigquery
