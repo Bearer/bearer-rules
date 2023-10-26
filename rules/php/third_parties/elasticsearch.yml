@@ -1,0 +1,67 @@
+imports:
+  - php_shared_lang_datatype
+  - php_shared_lang_instance
+patterns:
+  - pattern: |
+      $<CLIENT>->$<METHOD>($<DATA_TYPE>)
+    filters:
+      - variable: CLIENT
+        detection: php_third_parties_elasticsearch_client
+        scope: cursor
+      - variable: METHOD
+        values:
+          - bulk
+          - index
+          - update
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+languages:
+  - php
+auxiliary:
+  - id: php_third_parties_elasticsearch_clientbuilder
+    patterns:
+      - pattern: $<CLASS>::create()
+        filters:
+          - variable: CLASS
+            regex: \A(\\?Elastic\\Elasticsearch\\)?ClientBuilder\z
+      - pattern: $<BUILDER>->$<_>()
+        filters:
+          - variable: BUILDER
+            detection: php_third_parties_elasticsearch_clientbuilder
+            scope: cursor
+  - id: php_third_parties_elasticsearch_client
+    patterns:
+      - pattern: $<BUILDER>->build()
+        filters:
+          - variable: BUILDER
+            detection: php_third_parties_elasticsearch_clientbuilder
+            scope: cursor
+      - pattern: $<INSTANCE>;
+        filters:
+          - variable: INSTANCE
+            detection: php_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                regex: \A(\\?Elastic\\Elasticsearch\\)?Client\z
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Sensitive data sent to Elasticsearch detected."
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party data tools is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Elasticsearch.
+
+    ## Remediations
+    When sending data to third-party services, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Elasticsearch docs](https://www.elastic.co/guide/en/elasticsearch/client/php-api/current/index.html)
+  cwe_id:
+    - 201
+  associated_recipe: Elasticsearch
+  id: php_third_parties_elasticsearch
+  documentation_url: https://docs.bearer.com/reference/rules/php_third_parties_elasticsearch

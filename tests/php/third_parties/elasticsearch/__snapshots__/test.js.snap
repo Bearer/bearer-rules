@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_third_parties_elasticsearch bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_elasticsearch",
+      "title": "Sensitive data sent to Elasticsearch detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party data tools is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Elasticsearch.\\n\\n## Remediations\\nWhen sending data to third-party services, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Elasticsearch docs](https://www.elastic.co/guide/en/elasticsearch/client/php-api/current/index.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_elasticsearch",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 58,
+          "end": 70
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 73
+        },
+        "content": "$client->index([\\"index\\" => 'users', \\"body\\" => [\\"user\\" => $user->email]])"
+      },
+      "parent_line_number": 9,
+      "snippet": "$client->index([\\"index\\" => 'users', \\"body\\" => [\\"user\\" => $user->email]])",
+      "fingerprint": "a1fee39e95df9c17588c02f6bde8494b_0",
+      "old_fingerprint": "b19c68f8b1961fadc294a39e966ff116_0",
+      "code_extract": "$client->index([\\"index\\" => 'users', \\"body\\" => [\\"user\\" => $user->email]]);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_elasticsearch",
+      "title": "Sensitive data sent to Elasticsearch detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party data tools is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Elasticsearch.\\n\\n## Remediations\\nWhen sending data to third-party services, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Elasticsearch docs](https://www.elastic.co/guide/en/elasticsearch/client/php-api/current/index.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_elasticsearch",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 71,
+          "end": 83
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 86
+        },
+        "content": "$client->update([\\"index\\" => 'books', \\"id\\" => 42, \\"body\\" => [\\"user\\" => $user->email]])"
+      },
+      "parent_line_number": 10,
+      "snippet": "$client->update([\\"index\\" => 'books', \\"id\\" => 42, \\"body\\" => [\\"user\\" => $user->email]])",
+      "fingerprint": "a1fee39e95df9c17588c02f6bde8494b_1",
+      "old_fingerprint": "b19c68f8b1961fadc294a39e966ff116_1",
+      "code_extract": "$client->update([\\"index\\" => 'books', \\"id\\" => 42, \\"body\\" => [\\"user\\" => $user->email]]);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_elasticsearch",
+      "title": "Sensitive data sent to Elasticsearch detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party data tools is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Elasticsearch.\\n\\n## Remediations\\nWhen sending data to third-party services, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Elasticsearch docs](https://www.elastic.co/guide/en/elasticsearch/client/php-api/current/index.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_elasticsearch",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 14,
+          "end": 26
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 1,
+          "end": 37
+        },
+        "content": "$client->bulk([\\"body\\" => $bulkBody])"
+      },
+      "parent_line_number": 17,
+      "snippet": "$client->bulk([\\"body\\" => $bulkBody])",
+      "fingerprint": "a1fee39e95df9c17588c02f6bde8494b_2",
+      "old_fingerprint": "b19c68f8b1961fadc294a39e966ff116_2",
+      "code_extract": "$client->bulk([\\"body\\" => $bulkBody]);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_elasticsearch",
+      "title": "Sensitive data sent to Elasticsearch detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party data tools is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Elasticsearch.\\n\\n## Remediations\\nWhen sending data to third-party services, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Elasticsearch docs](https://www.elastic.co/guide/en/elasticsearch/client/php-api/current/index.html)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_elasticsearch",
+      "line_number": 20,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 20,
+        "end": 20,
+        "column": {
+          "start": 59,
+          "end": 71
+        }
+      },
+      "sink": {
+        "start": 20,
+        "end": 20,
+        "column": {
+          "start": 1,
+          "end": 74
+        },
+        "content": "$client2->index([\\"index\\" => 'users', \\"body\\" => [\\"user\\" => $user->email]])"
+      },
+      "parent_line_number": 20,
+      "snippet": "$client2->index([\\"index\\" => 'users', \\"body\\" => [\\"user\\" => $user->email]])",
+      "fingerprint": "a1fee39e95df9c17588c02f6bde8494b_3",
+      "old_fingerprint": "b19c68f8b1961fadc294a39e966ff116_3",
+      "code_extract": "$client2->index([\\"index\\" => 'users', \\"body\\" => [\\"user\\" => $user->email]]);"
+    }
+  ]
+}"
+`;
+
+exports[`php_third_parties_elasticsearch ok 1`] = `"{}"`;
