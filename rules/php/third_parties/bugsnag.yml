@@ -1,0 +1,79 @@
+imports:
+  - php_shared_lang_datatype
+  - php_shared_lang_instance
+patterns:
+  - pattern: $<CLIENT>->$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: CLIENT
+        detection: php_third_parties_bugsnag_client
+        scope: cursor
+      - variable: METHOD
+        values:
+          - leaveBreadcrumb
+          - notifyError
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: Bugsnag\Report::$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<REPORT>->$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: REPORT
+        detection: php_third_parties_bugsnag_report
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: php_third_parties_bugsnag_client
+    patterns:
+      - pattern: $<INSTANCE>;
+        filters:
+          - variable: INSTANCE
+            detection: php_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                regex: \ABugsnag\\Client\z
+      - Bugsnag\Client::make()
+      # fallback
+      - $<_>->bugsnag
+      # symfony
+      - pattern: $<_>->get($<SERVICE>)
+        filters:
+          - variable: SERVICE
+            string_regex: (?i)\Abugsnag\z
+  - id: php_third_parties_bugsnag_report
+    patterns:
+      - pattern: $<CLIENT>->registerCallback(function ($<!>$<_>) {})
+        filters:
+          - variable: CLIENT
+            detection: php_third_parties_bugsnag_client
+            scope: cursor
+      - Bugsnag\Report::$<_>()
+languages:
+  - php
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Sensitive data sent to Bugsnag detected."
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Bugsnag.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Bugsnag Docs](https://docs.bugsnag.com/platforms/php/)
+  cwe_id:
+    - 201
+  associated_recipe: Bugsnag
+  id: php_third_parties_bugsnag
+  documentation_url: https://docs.bearer.com/reference/rules/php_third_parties_bugsnag

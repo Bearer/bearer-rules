@@ -1,5 +1,6 @@
 imports:
   - php_shared_lang_datatype
+  - php_shared_lang_instance
 patterns:
   - pattern: |
       $<TABLE>->$<METHOD>($<DATA_TYPE>$<...>)
@@ -17,20 +18,17 @@ patterns:
 languages:
   - php
 auxiliary:
-  - id: php_third_parties_bigquery_client
-    patterns:
-      - pattern: new $<CLASS>()
-        filters:
-          - variable: CLASS
-            regex: \A(Google\\Cloud\\BigQuery\\)?BigQueryClient\z
   - id: php_third_parties_bigquery_dataset
     patterns:
       - pattern: |
           $<CLIENT>->dataset()
         filters:
           - variable: CLIENT
-            detection: php_third_parties_bigquery_client
-            scope: cursor
+            detection: php_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                regex: \A(Google\\Cloud\\BigQuery\\)?BigQueryClient\z
   - id: php_third_parties_bigquery_table
     patterns:
       - pattern: |
@@ -59,7 +57,7 @@ metadata:
     When sending data to third-party services, ensure all sensitive data is removed.
 
     ## Resources
-    - [BigQuery docs](https://cloud.google.com/php/docs)
+    - [BigQuery docs](https://cloud.google.com/php/docs/reference/cloud-bigquery/latest)
   cwe_id:
     - 201
   associated_recipe: Google Cloud BigQuery

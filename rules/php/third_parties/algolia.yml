@@ -1,5 +1,6 @@
 imports:
   - php_shared_lang_datatype
+  - php_shared_lang_instance
 patterns:
   - pattern: |
       $<INDEX>->$<METHOD>($<DATA_TYPE>$<...>)
@@ -22,6 +23,14 @@ languages:
 auxiliary:
   - id: php_third_parties_algolia_client
     patterns:
+      - pattern: $<CLIENT>;
+        filters:
+          - variable: CLIENT
+            detection: php_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                regex: \A(Algolia\\AlgoliaSearch\\)?SearchClient\z
       - pattern: $<CLASS>::create()
         filters:
           - variable: CLASS
