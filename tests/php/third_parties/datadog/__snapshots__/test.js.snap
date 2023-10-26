@@ -1,0 +1,430 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_third_parties_datadog bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_datadog",
+      "title": "Sensitive data sent to Datadog detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Datadog docs](https://docs.datadoghq.com)\\n- [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_datadog",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 23,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 9,
+          "end": 35
+        },
+        "content": "$span->name = $user->email"
+      },
+      "parent_line_number": 8,
+      "snippet": "$span->name = $user->email",
+      "fingerprint": "b5a0101cf01f75091e545fe2d64b3945_0",
+      "old_fingerprint": "cd928b4207041e9093f2a5ab5ece7e4b_0",
+      "code_extract": "        $span->name = $user->email;"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_datadog",
+      "title": "Sensitive data sent to Datadog detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Datadog docs](https://docs.datadoghq.com)\\n- [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_datadog",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 36,
+          "end": 48
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 9,
+          "end": 48
+        },
+        "content": "$span->meta['something'] = $user->email"
+      },
+      "parent_line_number": 9,
+      "snippet": "$span->meta['something'] = $user->email",
+      "fingerprint": "b5a0101cf01f75091e545fe2d64b3945_1",
+      "old_fingerprint": "cd928b4207041e9093f2a5ab5ece7e4b_1",
+      "code_extract": "        $span->meta['something'] = $user->email;"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_datadog",
+      "title": "Sensitive data sent to Datadog detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Datadog docs](https://docs.datadoghq.com)\\n- [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_datadog",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 36,
+          "end": 48
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 9,
+          "end": 48
+        },
+        "content": "$span->meta['something'] = $user->email"
+      },
+      "parent_line_number": 15,
+      "snippet": "$span->meta['something'] = $user->email",
+      "fingerprint": "b5a0101cf01f75091e545fe2d64b3945_2",
+      "old_fingerprint": "cd928b4207041e9093f2a5ab5ece7e4b_2",
+      "code_extract": "        $span->meta['something'] = $user->email;"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_datadog",
+      "title": "Sensitive data sent to Datadog detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Datadog docs](https://docs.datadoghq.com)\\n- [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_datadog",
+      "line_number": 20,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 20,
+        "end": 20,
+        "column": {
+          "start": 32,
+          "end": 44
+        }
+      },
+      "sink": {
+        "start": 20,
+        "end": 20,
+        "column": {
+          "start": 5,
+          "end": 44
+        },
+        "content": "$span->meta['something'] = $user->email"
+      },
+      "parent_line_number": 20,
+      "snippet": "$span->meta['something'] = $user->email",
+      "fingerprint": "b5a0101cf01f75091e545fe2d64b3945_3",
+      "old_fingerprint": "cd928b4207041e9093f2a5ab5ece7e4b_3",
+      "code_extract": "    $span->meta['something'] = $user->email;"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_datadog",
+      "title": "Sensitive data sent to Datadog detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Datadog docs](https://docs.datadoghq.com)\\n- [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_datadog",
+      "line_number": 27,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 23,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 9,
+          "end": 35
+        },
+        "content": "$span->name = $user->email"
+      },
+      "parent_line_number": 27,
+      "snippet": "$span->name = $user->email",
+      "fingerprint": "b5a0101cf01f75091e545fe2d64b3945_4",
+      "old_fingerprint": "cd928b4207041e9093f2a5ab5ece7e4b_4",
+      "code_extract": "        $span->name = $user->email;"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_datadog",
+      "title": "Sensitive data sent to Datadog detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Datadog docs](https://docs.datadoghq.com)\\n- [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_datadog",
+      "line_number": 28,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 28,
+        "end": 28,
+        "column": {
+          "start": 36,
+          "end": 48
+        }
+      },
+      "sink": {
+        "start": 28,
+        "end": 28,
+        "column": {
+          "start": 9,
+          "end": 48
+        },
+        "content": "$span->meta['something'] = $user->email"
+      },
+      "parent_line_number": 28,
+      "snippet": "$span->meta['something'] = $user->email",
+      "fingerprint": "b5a0101cf01f75091e545fe2d64b3945_5",
+      "old_fingerprint": "cd928b4207041e9093f2a5ab5ece7e4b_5",
+      "code_extract": "        $span->meta['something'] = $user->email;"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_datadog",
+      "title": "Sensitive data sent to Datadog detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Datadog docs](https://docs.datadoghq.com)\\n- [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_datadog",
+      "line_number": 33,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 33,
+        "end": 33,
+        "column": {
+          "start": 45,
+          "end": 57
+        }
+      },
+      "sink": {
+        "start": 33,
+        "end": 33,
+        "column": {
+          "start": 1,
+          "end": 57
+        },
+        "content": "\\\\DDTrace\\\\active_span()->meta['something'] = $user->email"
+      },
+      "parent_line_number": 33,
+      "snippet": "\\\\DDTrace\\\\active_span()->meta['something'] = $user->email",
+      "fingerprint": "b5a0101cf01f75091e545fe2d64b3945_6",
+      "old_fingerprint": "cd928b4207041e9093f2a5ab5ece7e4b_6",
+      "code_extract": "\\\\DDTrace\\\\active_span()->meta['something'] = $user->email;"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_datadog",
+      "title": "Sensitive data sent to Datadog detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Datadog docs](https://docs.datadoghq.com)\\n- [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_datadog",
+      "line_number": 36,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 36,
+        "end": 36,
+        "column": {
+          "start": 40,
+          "end": 52
+        }
+      },
+      "sink": {
+        "start": 36,
+        "end": 36,
+        "column": {
+          "start": 1,
+          "end": 53
+        },
+        "content": "$scope->getSpan()->setTag('something', $user->email)"
+      },
+      "parent_line_number": 36,
+      "snippet": "$scope->getSpan()->setTag('something', $user->email)",
+      "fingerprint": "b5a0101cf01f75091e545fe2d64b3945_7",
+      "old_fingerprint": "cd928b4207041e9093f2a5ab5ece7e4b_7",
+      "code_extract": "$scope->getSpan()->setTag('something', $user->email);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_datadog",
+      "title": "Sensitive data sent to Datadog detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Datadog docs](https://docs.datadoghq.com)\\n- [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_datadog",
+      "line_number": 37,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 37,
+        "end": 37,
+        "column": {
+          "start": 68,
+          "end": 80
+        }
+      },
+      "sink": {
+        "start": 37,
+        "end": 37,
+        "column": {
+          "start": 1,
+          "end": 81
+        },
+        "content": "\\\\DDTrace\\\\GlobalTracer::get()->getActiveSpan()->setTag('something', $user->email)"
+      },
+      "parent_line_number": 37,
+      "snippet": "\\\\DDTrace\\\\GlobalTracer::get()->getActiveSpan()->setTag('something', $user->email)",
+      "fingerprint": "b5a0101cf01f75091e545fe2d64b3945_8",
+      "old_fingerprint": "cd928b4207041e9093f2a5ab5ece7e4b_8",
+      "code_extract": "\\\\DDTrace\\\\GlobalTracer::get()->getActiveSpan()->setTag('something', $user->email);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_datadog",
+      "title": "Sensitive data sent to Datadog detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Datadog docs](https://docs.datadoghq.com)\\n- [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_datadog",
+      "line_number": 39,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 39,
+        "end": 39,
+        "column": {
+          "start": 38,
+          "end": 50
+        }
+      },
+      "sink": {
+        "start": 39,
+        "end": 39,
+        "column": {
+          "start": 1,
+          "end": 51
+        },
+        "content": "\\\\DDTrace\\\\add_global_tag('something', $user->email)"
+      },
+      "parent_line_number": 39,
+      "snippet": "\\\\DDTrace\\\\add_global_tag('something', $user->email)",
+      "fingerprint": "b5a0101cf01f75091e545fe2d64b3945_9",
+      "old_fingerprint": "cd928b4207041e9093f2a5ab5ece7e4b_9",
+      "code_extract": "\\\\DDTrace\\\\add_global_tag('something', $user->email);"
+    }
+  ]
+}"
+`;
+
+exports[`php_third_parties_datadog ok 1`] = `"{}"`;

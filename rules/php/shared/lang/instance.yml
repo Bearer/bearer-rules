@@ -3,6 +3,12 @@ languages:
   - php
 patterns:
   - new $<CLASS>;
+  - function($<...>$<CLASS> $<!>$$<_>$<...>) {}
+  - function $<_>($<...>$<CLASS> $<!>$$<_>$<...>) {}
+  - |
+    class $<_> {
+      public function $<_>($<...>$<CLASS> $<!>$<_>$<...>) {}
+    }
   - |
     class $<_> {
       public function $<_>($<...>$<CLASS> $<!>$<_>$<...>) {}
