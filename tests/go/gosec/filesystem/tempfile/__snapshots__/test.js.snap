@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_filesystem_tempfile test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "378"
+      ],
+      "id": "go_gosec_filesystem_tempfile",
+      "title": "Incorrect default permissions",
+      "description": "## Description\\n\\nThe application was found creating files in shared system temporary directories (\`/tmp\` or \`/var/tmp\`) without using the \`os.CreateTemp\` function.\\nDepending on how the application uses this temporary file, an attacker may be able to create symlinks that point to other files prior to the application creating or writing to the target file, leading to unintended files being created or overwritten.\\n\\n## Remediations\\n\\n✅ Consider using \`os.CreateTemp\` in an application restricted directory\\n\\n\`\`\`go\\n// assumes /opt/appdir/ is chown'd to the running application user\\nif err := os.MkdirAll(\\"/opt/appdir/restricted\\", 0700); err != nil {\\n  log.Fatal(err)\\n}\\n\\n// create a temporary file in the restricted directory in the form of temp-952569059.txt\\nf, err := os.CreateTemp(\\"/opt/appdir/restricted\\", \\"temp-*.txt\\")\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\ndefer f.Close()\\n// clean up on exit\\ndefer os.Remove(f.Name())\\n// work with file\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_tempfile",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 9,
+          "end": 74
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 9,
+          "end": 74
+        },
+        "content": "ioutil.WriteFile(\\"/tmp/demo2\\", []byte(\\"This is some data\\"), 0644)"
+      },
+      "parent_line_number": 11,
+      "snippet": "ioutil.WriteFile(\\"/tmp/demo2\\", []byte(\\"This is some data\\"), 0644)",
+      "fingerprint": "6ecf2eddbc7c43a01ece9577a34e9e61_0",
+      "old_fingerprint": "e8eb39c1772c573d1ca552003803ccbb_0",
+      "code_extract": "\\terr := ioutil.WriteFile(\\"/tmp/demo2\\", []byte(\\"This is some data\\"), 0644)"
+    },
+    {
+      "cwe_ids": [
+        "378"
+      ],
+      "id": "go_gosec_filesystem_tempfile",
+      "title": "Incorrect default permissions",
+      "description": "## Description\\n\\nThe application was found creating files in shared system temporary directories (\`/tmp\` or \`/var/tmp\`) without using the \`os.CreateTemp\` function.\\nDepending on how the application uses this temporary file, an attacker may be able to create symlinks that point to other files prior to the application creating or writing to the target file, leading to unintended files being created or overwritten.\\n\\n## Remediations\\n\\n✅ Consider using \`os.CreateTemp\` in an application restricted directory\\n\\n\`\`\`go\\n// assumes /opt/appdir/ is chown'd to the running application user\\nif err := os.MkdirAll(\\"/opt/appdir/restricted\\", 0700); err != nil {\\n  log.Fatal(err)\\n}\\n\\n// create a temporary file in the restricted directory in the form of temp-952569059.txt\\nf, err := os.CreateTemp(\\"/opt/appdir/restricted\\", \\"temp-*.txt\\")\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\ndefer f.Close()\\n// clean up on exit\\ndefer os.Remove(f.Name())\\n// work with file\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_tempfile",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 9,
+          "end": 70
+        }
+      },
+      "sink": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 9,
+          "end": 70
+        },
+        "content": "os.WriteFile(\\"/tmp/demo2\\", []byte(\\"This is some data\\"), 0644)"
+      },
+      "parent_line_number": 18,
+      "snippet": "os.WriteFile(\\"/tmp/demo2\\", []byte(\\"This is some data\\"), 0644)",
+      "fingerprint": "6ecf2eddbc7c43a01ece9577a34e9e61_1",
+      "old_fingerprint": "e8eb39c1772c573d1ca552003803ccbb_1",
+      "code_extract": "\\terr := os.WriteFile(\\"/tmp/demo2\\", []byte(\\"This is some data\\"), 0644)"
+    },
+    {
+      "cwe_ids": [
+        "378"
+      ],
+      "id": "go_gosec_filesystem_tempfile",
+      "title": "Incorrect default permissions",
+      "description": "## Description\\n\\nThe application was found creating files in shared system temporary directories (\`/tmp\` or \`/var/tmp\`) without using the \`os.CreateTemp\` function.\\nDepending on how the application uses this temporary file, an attacker may be able to create symlinks that point to other files prior to the application creating or writing to the target file, leading to unintended files being created or overwritten.\\n\\n## Remediations\\n\\n✅ Consider using \`os.CreateTemp\` in an application restricted directory\\n\\n\`\`\`go\\n// assumes /opt/appdir/ is chown'd to the running application user\\nif err := os.MkdirAll(\\"/opt/appdir/restricted\\", 0700); err != nil {\\n  log.Fatal(err)\\n}\\n\\n// create a temporary file in the restricted directory in the form of temp-952569059.txt\\nf, err := os.CreateTemp(\\"/opt/appdir/restricted\\", \\"temp-*.txt\\")\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\ndefer f.Close()\\n// clean up on exit\\ndefer os.Remove(f.Name())\\n// work with file\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_tempfile",
+      "line_number": 26,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 26,
+        "end": 26,
+        "column": {
+          "start": 9,
+          "end": 62
+        }
+      },
+      "sink": {
+        "start": 26,
+        "end": 26,
+        "column": {
+          "start": 9,
+          "end": 62
+        },
+        "content": "os.WriteFile(path, []byte(\\"This is some data\\"), 0644)"
+      },
+      "parent_line_number": 26,
+      "snippet": "os.WriteFile(path, []byte(\\"This is some data\\"), 0644)",
+      "fingerprint": "6ecf2eddbc7c43a01ece9577a34e9e61_2",
+      "old_fingerprint": "e8eb39c1772c573d1ca552003803ccbb_2",
+      "code_extract": "\\terr := os.WriteFile(path, []byte(\\"This is some data\\"), 0644)"
+    }
+  ]
+}"
+`;

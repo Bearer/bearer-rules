@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_filesystem_ziparchive test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "22"
+      ],
+      "id": "go_gosec_filesystem_ziparchive",
+      "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
+      "description": "## Description\\n\\nThe application may be vulnerable to a path traversal if it extracts untrusted archive files.\\nThis vulnerability is colloquially known as 'Zip Slip'. Archive files may contain folders which, when extracted, may write outside of the intended directory.\\nThis is exploited by including path traversal characters such as \`../../other/directory\` to overwrite or place files in system or application directories.\\n\\n## Remediations\\n\\n✅ Limit the size of the zip archive as it may contain \\"Zip Bombs\\", files that extract to extremely large sizes.\\n\\n✅ If possible, generate unique filenames instead of using the archives file names, as it may be possible for users to overwrite files if the filenames are the same.\\n\\n✅ Validate file paths are written with a prefixed, known trusted directory.\\n\\n✅ Only process regular files and not symbolic links, as some applications may attempt to read/follow the symbolic link, leading to arbitrary file read / write vulnerabilities.\\n\\n\`\`\`go\\nr, err := zip.OpenReader(\\"trusted.zip\\")\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\n// Ensure archive contains only the expected number of files\\nconst expectedFileCount = 10\\nif len(r.File) > expectedFileCount {\\n  log.Fatalf(\\"too many files in archive: %d\\\\n\\", len(r.File))\\n}\\n\\n// One approach is to sum up all files before attempting to process\\n// them.\\nconst totalAllowedSize = 1024 * 1024 * 10 // 10MB\\nvar totalSize uint64\\nfor _, f := range r.File {\\n  totalSize += f.UncompressedSize64\\n}\\n\\nif totalSize > totalAllowedSize {\\n  log.Fatalf(\\"archive exceeds total allowed size: %d\\\\n\\", totalSize)\\n}\\n\\n// configure a max size per file allowed\\nconst maxFileSize = 1024 * 1024 // 1 MB\\n\\n// set restricted basePath\\nconst basePath = \\"/var/restricted/\\"\\n\\n// iterate over the files in the archive\\nfor _, f := range r.File {\\n\\n  // Ensure uncompressed size does not exceed our allowed file size\\n  if f.UncompressedSize64 > maxFileSize {\\n    log.Printf(\\"skipping file as it exceeds maxFileSize: %s\\\\n\\", f.Name)\\n    continue\\n  }\\n\\n  // Ensure file is a regular file and not a symbolic link or has other mode type\\n  // bits set\\n  if !f.Mode().IsRegular() {\\n    log.Printf(\\"skipping non regular file: %s\\\\n\\", f.Name)\\n    continue\\n  }\\n\\n  // if possible consider not using the name at all, but generating a random id instead.\\n  // If the filename must be used, extract the base name and not folder path information\\n  name := filepath.Base(f.Name)\\n\\n  // Join the file name to the basePath.\\n  resolvedPath, err := filepath.Join(basePath, name)\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n\\n  // Application must still verify the path is prefixed by the basePath\\n  if !strings.HasPrefix(resolvedPath, basePath) {\\n    log.Fatal(\\"path does not start with basePath\\")\\n  }\\n\\n  // process / work with file\\n}\\n\`\`\`\\n\\nIf the application must process directory names as well, use the following code:\\n\`\`\`go\\n// Join the cleaned name to the basePath, note if 'name' starts with \`../../\` it\\n// will still allow for traversal, so you _must_ verify the path prefix below\\nresolvedPath := filepath.Join(basePath, filepath.Clean(name))\\n\\n// Application must still verify the path is prefixed by the basePath\\nif !strings.HasPrefix(resolvedPath, basePath) {\\n  log.Fatal(\\"path does not start with basePath\\")\\n}\\n\\n// process / work with file\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_ziparchive",
+      "line_number": 27,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 11,
+          "end": 43
+        }
+      },
+      "sink": {
+        "start": 27,
+        "end": 27,
+        "column": {
+          "start": 11,
+          "end": 43
+        },
+        "content": "filepath.Join(target, file.Name)"
+      },
+      "parent_line_number": 27,
+      "snippet": "filepath.Join(target, file.Name)",
+      "fingerprint": "704dc7b283b24c0deaaced0816ea502b_0",
+      "old_fingerprint": "1c766cd72bac736b6813d91ff99016c0_0",
+      "code_extract": "\\t\\tpath := filepath.Join(target, file.Name)"
+    },
+    {
+      "cwe_ids": [
+        "22"
+      ],
+      "id": "go_gosec_filesystem_ziparchive",
+      "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
+      "description": "## Description\\n\\nThe application may be vulnerable to a path traversal if it extracts untrusted archive files.\\nThis vulnerability is colloquially known as 'Zip Slip'. Archive files may contain folders which, when extracted, may write outside of the intended directory.\\nThis is exploited by including path traversal characters such as \`../../other/directory\` to overwrite or place files in system or application directories.\\n\\n## Remediations\\n\\n✅ Limit the size of the zip archive as it may contain \\"Zip Bombs\\", files that extract to extremely large sizes.\\n\\n✅ If possible, generate unique filenames instead of using the archives file names, as it may be possible for users to overwrite files if the filenames are the same.\\n\\n✅ Validate file paths are written with a prefixed, known trusted directory.\\n\\n✅ Only process regular files and not symbolic links, as some applications may attempt to read/follow the symbolic link, leading to arbitrary file read / write vulnerabilities.\\n\\n\`\`\`go\\nr, err := zip.OpenReader(\\"trusted.zip\\")\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\n// Ensure archive contains only the expected number of files\\nconst expectedFileCount = 10\\nif len(r.File) > expectedFileCount {\\n  log.Fatalf(\\"too many files in archive: %d\\\\n\\", len(r.File))\\n}\\n\\n// One approach is to sum up all files before attempting to process\\n// them.\\nconst totalAllowedSize = 1024 * 1024 * 10 // 10MB\\nvar totalSize uint64\\nfor _, f := range r.File {\\n  totalSize += f.UncompressedSize64\\n}\\n\\nif totalSize > totalAllowedSize {\\n  log.Fatalf(\\"archive exceeds total allowed size: %d\\\\n\\", totalSize)\\n}\\n\\n// configure a max size per file allowed\\nconst maxFileSize = 1024 * 1024 // 1 MB\\n\\n// set restricted basePath\\nconst basePath = \\"/var/restricted/\\"\\n\\n// iterate over the files in the archive\\nfor _, f := range r.File {\\n\\n  // Ensure uncompressed size does not exceed our allowed file size\\n  if f.UncompressedSize64 > maxFileSize {\\n    log.Printf(\\"skipping file as it exceeds maxFileSize: %s\\\\n\\", f.Name)\\n    continue\\n  }\\n\\n  // Ensure file is a regular file and not a symbolic link or has other mode type\\n  // bits set\\n  if !f.Mode().IsRegular() {\\n    log.Printf(\\"skipping non regular file: %s\\\\n\\", f.Name)\\n    continue\\n  }\\n\\n  // if possible consider not using the name at all, but generating a random id instead.\\n  // If the filename must be used, extract the base name and not folder path information\\n  name := filepath.Base(f.Name)\\n\\n  // Join the file name to the basePath.\\n  resolvedPath, err := filepath.Join(basePath, name)\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n\\n  // Application must still verify the path is prefixed by the basePath\\n  if !strings.HasPrefix(resolvedPath, basePath) {\\n    log.Fatal(\\"path does not start with basePath\\")\\n  }\\n\\n  // process / work with file\\n}\\n\`\`\`\\n\\nIf the application must process directory names as well, use the following code:\\n\`\`\`go\\n// Join the cleaned name to the basePath, note if 'name' starts with \`../../\` it\\n// will still allow for traversal, so you _must_ verify the path prefix below\\nresolvedPath := filepath.Join(basePath, filepath.Clean(name))\\n\\n// Application must still verify the path is prefixed by the basePath\\nif !strings.HasPrefix(resolvedPath, basePath) {\\n  log.Fatal(\\"path does not start with basePath\\")\\n}\\n\\n// process / work with file\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_ziparchive",
+      "line_number": 65,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 65,
+        "end": 65,
+        "column": {
+          "start": 11,
+          "end": 45
+        }
+      },
+      "sink": {
+        "start": 65,
+        "end": 65,
+        "column": {
+          "start": 11,
+          "end": 45
+        },
+        "content": "filepath.Join(target, archiveFile)"
+      },
+      "parent_line_number": 65,
+      "snippet": "filepath.Join(target, archiveFile)",
+      "fingerprint": "704dc7b283b24c0deaaced0816ea502b_1",
+      "old_fingerprint": "1c766cd72bac736b6813d91ff99016c0_1",
+      "code_extract": "\\t\\tpath := filepath.Join(target, archiveFile)"
+    },
+    {
+      "cwe_ids": [
+        "22"
+      ],
+      "id": "go_gosec_filesystem_ziparchive",
+      "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
+      "description": "## Description\\n\\nThe application may be vulnerable to a path traversal if it extracts untrusted archive files.\\nThis vulnerability is colloquially known as 'Zip Slip'. Archive files may contain folders which, when extracted, may write outside of the intended directory.\\nThis is exploited by including path traversal characters such as \`../../other/directory\` to overwrite or place files in system or application directories.\\n\\n## Remediations\\n\\n✅ Limit the size of the zip archive as it may contain \\"Zip Bombs\\", files that extract to extremely large sizes.\\n\\n✅ If possible, generate unique filenames instead of using the archives file names, as it may be possible for users to overwrite files if the filenames are the same.\\n\\n✅ Validate file paths are written with a prefixed, known trusted directory.\\n\\n✅ Only process regular files and not symbolic links, as some applications may attempt to read/follow the symbolic link, leading to arbitrary file read / write vulnerabilities.\\n\\n\`\`\`go\\nr, err := zip.OpenReader(\\"trusted.zip\\")\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\n// Ensure archive contains only the expected number of files\\nconst expectedFileCount = 10\\nif len(r.File) > expectedFileCount {\\n  log.Fatalf(\\"too many files in archive: %d\\\\n\\", len(r.File))\\n}\\n\\n// One approach is to sum up all files before attempting to process\\n// them.\\nconst totalAllowedSize = 1024 * 1024 * 10 // 10MB\\nvar totalSize uint64\\nfor _, f := range r.File {\\n  totalSize += f.UncompressedSize64\\n}\\n\\nif totalSize > totalAllowedSize {\\n  log.Fatalf(\\"archive exceeds total allowed size: %d\\\\n\\", totalSize)\\n}\\n\\n// configure a max size per file allowed\\nconst maxFileSize = 1024 * 1024 // 1 MB\\n\\n// set restricted basePath\\nconst basePath = \\"/var/restricted/\\"\\n\\n// iterate over the files in the archive\\nfor _, f := range r.File {\\n\\n  // Ensure uncompressed size does not exceed our allowed file size\\n  if f.UncompressedSize64 > maxFileSize {\\n    log.Printf(\\"skipping file as it exceeds maxFileSize: %s\\\\n\\", f.Name)\\n    continue\\n  }\\n\\n  // Ensure file is a regular file and not a symbolic link or has other mode type\\n  // bits set\\n  if !f.Mode().IsRegular() {\\n    log.Printf(\\"skipping non regular file: %s\\\\n\\", f.Name)\\n    continue\\n  }\\n\\n  // if possible consider not using the name at all, but generating a random id instead.\\n  // If the filename must be used, extract the base name and not folder path information\\n  name := filepath.Base(f.Name)\\n\\n  // Join the file name to the basePath.\\n  resolvedPath, err := filepath.Join(basePath, name)\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n\\n  // Application must still verify the path is prefixed by the basePath\\n  if !strings.HasPrefix(resolvedPath, basePath) {\\n    log.Fatal(\\"path does not start with basePath\\")\\n  }\\n\\n  // process / work with file\\n}\\n\`\`\`\\n\\nIf the application must process directory names as well, use the following code:\\n\`\`\`go\\n// Join the cleaned name to the basePath, note if 'name' starts with \`../../\` it\\n// will still allow for traversal, so you _must_ verify the path prefix below\\nresolvedPath := filepath.Join(basePath, filepath.Clean(name))\\n\\n// Application must still verify the path is prefixed by the basePath\\nif !strings.HasPrefix(resolvedPath, basePath) {\\n  log.Fatal(\\"path does not start with basePath\\")\\n}\\n\\n// process / work with file\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_ziparchive",
+      "line_number": 92,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 92,
+        "end": 92,
+        "column": {
+          "start": 14,
+          "end": 45
+        }
+      },
+      "sink": {
+        "start": 92,
+        "end": 92,
+        "column": {
+          "start": 14,
+          "end": 45
+        },
+        "content": "filepath.Join(destPath, f.Name)"
+      },
+      "parent_line_number": 92,
+      "snippet": "filepath.Join(destPath, f.Name)",
+      "fingerprint": "704dc7b283b24c0deaaced0816ea502b_2",
+      "old_fingerprint": "1c766cd72bac736b6813d91ff99016c0_2",
+      "code_extract": "\\tfilePath := filepath.Join(destPath, f.Name)"
+    }
+  ]
+}"
+`;

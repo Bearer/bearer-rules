@@ -1,0 +1,60 @@
+patterns:
+  - pattern: |
+      os.Create($<PATH>)
+    filters:
+      - variable: PATH
+        detection: go_gosec_filesystem_tempfile_path
+        scope: result
+  - pattern: |
+      $<PACKAGE>.WriteFile($<PATH>$<...>)
+    filters:
+      - variable: PACKAGE
+        values:
+          - ioutil
+          - os
+      - variable: PATH
+        detection: go_gosec_filesystem_tempfile_path
+        scope: result
+auxiliary:
+  - id: go_gosec_filesystem_tempfile_path
+    patterns:
+      - pattern: $<PATH>
+        filters:
+          - variable: PATH
+            regex: (/tmp/.*|/var/tmp/.*)
+languages:
+  - go
+metadata:
+  description: "Incorrect default permissions"
+  remediation_message: |
+    ## Description
+
+    The application was found creating files in shared system temporary directories (`/tmp` or `/var/tmp`) without using the `os.CreateTemp` function.
+    Depending on how the application uses this temporary file, an attacker may be able to create symlinks that point to other files prior to the application creating or writing to the target file, leading to unintended files being created or overwritten.
+
+    ## Remediations
+
+    ✅ Consider using `os.CreateTemp` in an application restricted directory
+
+    ```go
+    // assumes /opt/appdir/ is chown'd to the running application user
+    if err := os.MkdirAll("/opt/appdir/restricted", 0700); err != nil {
+      log.Fatal(err)
+    }
+
+    // create a temporary file in the restricted directory in the form of temp-952569059.txt
+    f, err := os.CreateTemp("/opt/appdir/restricted", "temp-*.txt")
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    defer f.Close()
+    // clean up on exit
+    defer os.Remove(f.Name())
+    // work with file
+    ```
+
+  cwe_id:
+    - 378
+  id: go_gosec_filesystem_tempfile
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_filesystem_tempfile
