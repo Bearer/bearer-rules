@@ -37,7 +37,7 @@ auxiliary:
             scope: cursor_strict
             filters:
               - variable: CLASS
-                regex: \A(Airbrake\\)?Notifier\z
+                regex: \A(\\?Airbrake\\)?Notifier\z
       # symfony bundle
       - pattern: $<_>->get($<SERVICE>)
         filters:

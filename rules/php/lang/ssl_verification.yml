@@ -18,7 +18,7 @@ patterns:
   - pattern: new $<CLASS>($<_>, $<OPTIONS>)
     filters:
       - variable: CLASS
-        regex: \A(Buzz\\Client\\[^\\]+|(Buzz\\Client\\)?(FileGetContents|Curl|MultiCurl))\z
+        regex: \A(\\?Buzz\\Client\\[^\\]+|(\\?Buzz\\Client\\)?(FileGetContents|Curl|MultiCurl))\z
       - variable: OPTIONS
         detection: php_lang_ssl_verification_verify_options
         scope: cursor
@@ -30,16 +30,16 @@ patterns:
         filters:
           - either:
               - variable: CLASS
-                regex: \A(Buzz\\Client\\[^\\]+|(Buzz\\Client\\)?(FileGetContents|Curl|MultiCurl))\z
+                regex: \A(\\?Buzz\\Client\\[^\\]+|(\\?Buzz\\Client\\)?(FileGetContents|Curl|MultiCurl))\z
               - variable: CLASS
-                regex: \A(Buzz\\)?Browser\z
+                regex: \A(\\?Buzz\\)?Browser\z
       - variable: OPTIONS
         detection: php_lang_ssl_verification_verify_options
         scope: cursor
   - pattern: new $<CLASS>($<OPTIONS>)
     filters:
       - variable: CLASS
-        regex: \A(GuzzleHttp\\)?Client\z
+        regex: \A(\\?GuzzleHttp\\)?Client\z
       - variable: OPTIONS
         detection: php_lang_ssl_verification_verify_options
         scope: cursor
@@ -50,7 +50,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(GuzzleHttp\\)?Client\z
+            regex: \A(\\?GuzzleHttp\\)?Client\z
       - variable: METHOD
         values:
           - request
@@ -65,7 +65,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(GuzzleHttp\\)?Client\z
+            regex: \A(\\?GuzzleHttp\\)?Client\z
       - variable: METHOD
         values:
           - get
@@ -90,7 +90,7 @@ patterns:
   - pattern: new $<CLASS>($<_>, $<OPTIONS>)
     filters:
       - variable: CLASS
-        regex: \A(Laminas\\Http\\)?Client\z
+        regex: \A(\\?Laminas\\Http\\)?Client\z
       - variable: OPTIONS
         detection: php_lang_ssl_verification_laminas_options
         scope: cursor
@@ -101,14 +101,14 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(Laminas\\Http\\)?Client\z
+            regex: \A(\\?Laminas\\Http\\)?Client\z
       - variable: OPTIONS
         detection: php_lang_ssl_verification_laminas_options
         scope: cursor
   - pattern: $<CLASS>::withoutVerifying()
     filters:
       - variable: CLASS
-        regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+        regex: \A(\\?Illuminate\\Support\\Facades\\)?Http\z
   - pattern: $<HTTP>->withoutVerifying()
     filters:
       - variable: HTTP
@@ -117,7 +117,7 @@ patterns:
   - pattern: $<CLASS>::withOptions($<OPTIONS>)
     filters:
       - variable: CLASS
-        regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+        regex: \A(\\?Illuminate\\Support\\Facades\\)?Http\z
       - variable: OPTIONS
         detection: php_lang_ssl_verification_verify_options
         scope: cursor
@@ -138,9 +138,9 @@ patterns:
         filters:
           - either:
               - variable: CLASS
-                regex: \A(http\\)?Client\z
+                regex: \A(\\?http\\)?Client\z
               - variable: CLASS
-                regex: \A(http\\Client\\)?Request\z
+                regex: \A(\\?http\\Client\\)?Request\z
       - variable: OPTIONS
         detection: php_lang_ssl_verification_pecl_http_options
         scope: cursor
@@ -152,9 +152,9 @@ patterns:
         filters:
           - either:
               - variable: CLASS
-                regex: \A(http\\)?Client\z
+                regex: \A(\\?http\\)?Client\z
               - variable: CLASS
-                regex: \A(http\\Client\\)?Request\z
+                regex: \A(\\?http\\Client\\)?Request\z
       - variable: METHOD
         values:
           - setSslOptions
@@ -165,7 +165,7 @@ patterns:
   - pattern: $<CLASS>::$<METHOD>($<_>, $<_>, $<OPTIONS>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(WpOrg\\Requests\\)?Requests\z
+        regex: \A(\\?WpOrg\\Requests\\)?Requests\z
       - variable: METHOD
         values:
           - get
@@ -178,7 +178,7 @@ patterns:
   - pattern: $<CLASS>::$<METHOD>($<_>, $<_>, $<_>, $<OPTIONS>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(WpOrg\\Requests\\)?Requests\z
+        regex: \A(\\?WpOrg\\Requests\\)?Requests\z
       - variable: METHOD
         values:
           - post
@@ -191,7 +191,7 @@ patterns:
   - pattern: $<CLASS>::request($<_>, $<_>, $<_>, $<_>, $<OPTIONS>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(WpOrg\\Requests\\)?Requests\z
+        regex: \A(\\?WpOrg\\Requests\\)?Requests\z
       - variable: OPTIONS
         detection: php_lang_ssl_verification_requests_options
         scope: cursor
@@ -199,7 +199,7 @@ patterns:
       $<CLASS>::$<METHOD>(options: $<OPTIONS>)
     filters:
       - variable: CLASS
-        regex: \A(WpOrg\\Requests\\)?Requests\z
+        regex: \A(\\?WpOrg\\Requests\\)?Requests\z
       - variable: METHOD
         values:
           - get
@@ -217,14 +217,14 @@ patterns:
   - pattern: $<CLASS>::request_multiple($<OPTIONS>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(WpOrg\\Requests\\)?Requests\z
+        regex: \A(\\?WpOrg\\Requests\\)?Requests\z
       - variable: OPTIONS
         detection: php_lang_ssl_verification_requests_options
         scope: result
   - pattern: new $<CLASS>($<_>, $<_>, $<_>, $<OPTIONS>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(WpOrg\\Requests\\)?Session\z
+        regex: \A(\\?WpOrg\\Requests\\)?Session\z
       - variable: OPTIONS
         detection: php_lang_ssl_verification_requests_options
         scope: cursor
@@ -232,7 +232,7 @@ patterns:
       new $<CLASS>(options: $<OPTIONS>)
     filters:
       - variable: CLASS
-        regex: \A(WpOrg\\Requests\\)?Session\z
+        regex: \A(\\?WpOrg\\Requests\\)?Session\z
       - variable: OPTIONS
         detection: php_lang_ssl_verification_requests_options
         scope: cursor
@@ -243,7 +243,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(WpOrg\\Requests\\)?Session\z
+            regex: \A(\\?WpOrg\\Requests\\)?Session\z
       - variable: METHOD
         values:
           - get
@@ -260,7 +260,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(WpOrg\\Requests\\)?Session\z
+            regex: \A(\\?WpOrg\\Requests\\)?Session\z
       - variable: METHOD
         values:
           - post
@@ -277,7 +277,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(WpOrg\\Requests\\)?Session\z
+            regex: \A(\\?WpOrg\\Requests\\)?Session\z
       - variable: OPTIONS
         detection: php_lang_ssl_verification_requests_options
         scope: cursor
@@ -289,7 +289,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(WpOrg\\Requests\\)?Session\z
+            regex: \A(\\?WpOrg\\Requests\\)?Session\z
       - variable: METHOD
         values:
           - get
@@ -311,14 +311,14 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(WpOrg\\Requests\\)?Session\z
+            regex: \A(\\?WpOrg\\Requests\\)?Session\z
       - variable: OPTIONS
         detection: php_lang_ssl_verification_requests_options
         scope: result
   - pattern: new $<CLASS>($<_>, $<_>, $<_>, $<_>, $<_>, $<_>, $<FALSE>)
     filters:
       - variable: CLASS
-        regex: \A(SendGrid\\)?Client\z
+        regex: \A(\\?SendGrid\\)?Client\z
       - variable: "FALSE"
         detection: php_lang_ssl_verification_false
         scope: cursor
@@ -326,7 +326,7 @@ patterns:
       new $<CLASS>(verifySSLCerts: $<FALSE>)
     filters:
       - variable: CLASS
-        regex: \A(SendGrid\\)?Client\z
+        regex: \A(\\?SendGrid\\)?Client\z
       - variable: "FALSE"
         detection: php_lang_ssl_verification_false
         scope: cursor
@@ -339,7 +339,7 @@ patterns:
   - pattern: $<CLASS>::$<METHOD>($<FALSE>)
     filters:
       - variable: CLASS
-        regex: \A(Unirest\\)?Request\z
+        regex: \A(\\?Unirest\\)?Request\z
       - variable: METHOD
         values:
           - verifyPeer
@@ -385,7 +385,7 @@ auxiliary:
       - pattern: $<CLASS>::$<_>()
         filters:
           - variable: CLASS
-            regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+            regex: \A(\\?Illuminate\\Support\\Facades\\)?Http\z
       - pattern: $<HTTP>->$<_>()
         filters:
           - variable: HTTP

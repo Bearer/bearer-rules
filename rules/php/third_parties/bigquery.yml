@@ -28,7 +28,7 @@ auxiliary:
             scope: cursor_strict
             filters:
               - variable: CLASS
-                regex: \A(Google\\Cloud\\BigQuery\\)?BigQueryClient\z
+                regex: \A(\\?Google\\Cloud\\BigQuery\\)?BigQueryClient\z
   - id: php_third_parties_bigquery_table
     patterns:
       - pattern: |

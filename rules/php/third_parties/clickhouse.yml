@@ -10,7 +10,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \AClickHouseDB\\Client\z
+            regex: \A\\?ClickHouseDB\\Client\z
       - variable: DATA_TYPE
         detection: php_shared_lang_datatype
         scope: result

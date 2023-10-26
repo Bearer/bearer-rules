@@ -30,11 +30,11 @@ auxiliary:
             scope: cursor_strict
             filters:
               - variable: CLASS
-                regex: \A(Algolia\\AlgoliaSearch\\)?SearchClient\z
+                regex: \A(\\?Algolia\\AlgoliaSearch\\)?SearchClient\z
       - pattern: $<CLASS>::create()
         filters:
           - variable: CLASS
-            regex: \A(Algolia\\AlgoliaSearch\\)?SearchClient\z
+            regex: \A(\\?Algolia\\AlgoliaSearch\\)?SearchClient\z
   - id: php_third_parties_algolia_index
     patterns:
       - pattern: |
