@@ -25,7 +25,7 @@ auxiliary:
         filters:
           - variable: CLIENT
             detection: php_shared_lang_instance
-            scope: cursor_strict
+            scope: cursor
             filters:
               - variable: CLASS
                 regex: \A(\\?Google\\Cloud\\BigQuery\\)?BigQueryClient\z
