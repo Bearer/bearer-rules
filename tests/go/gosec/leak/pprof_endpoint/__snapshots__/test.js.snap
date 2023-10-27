@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_leak_pprof_endpoint test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "918"
+      ],
+      "id": "go_gosec_leak_pprof_endpoint",
+      "title": "Server Side Request Forgery (SSRF)",
+      "description": "hit\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_leak_pprof_endpoint",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 7,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 2
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "import (\\n\\t\\"fmt\\"\\n\\t\\"log\\"\\n\\t\\"net/http\\"\\n\\t_ \\"net/http/pprof\\"\\n)"
+      },
+      "parent_line_number": 7,
+      "snippet": "import (\\n\\t\\"fmt\\"\\n\\t\\"log\\"\\n\\t\\"net/http\\"\\n\\t_ \\"net/http/pprof\\"\\n)",
+      "fingerprint": "76d7f307921424da0f234602dea9aaa7_0",
+      "old_fingerprint": "402bf06eb23c86740dd7ee778fce3c5f_0",
+      "code_extract": "import (\\n\\t\\"fmt\\"\\n\\t\\"log\\"\\n\\t\\"net/http\\"\\n\\t_ \\"net/http/pprof\\"\\n)"
+    }
+  ]
+}"
+`;

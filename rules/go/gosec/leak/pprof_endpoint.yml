@@ -1,0 +1,23 @@
+patterns:
+  - import "net/http/pprof"
+  - pattern: |
+      import (
+        $<_>"net/http/pprof"
+      )
+languages:
+  - go
+metadata:
+  description: "Active debug code (pprof enabled)"
+  remediation_message: |
+    ## Description
+
+    Go incorporates a native profiling service that can be activated by initiating an HTTP server with the `net/http/pprof` import. The endpoint `/debug/pprof` is devoid of authentication measures, making it accessible to unidentified users. This profiling endpoint can inadvertently expose confidential data and is inadvisable for production use.
+
+    ## Remediations
+
+    ✅ Ensure `net/http/pprof` is import is excluded from your file when deploying to a production environment.
+
+  cwe_id:
+    - 918
+  id: go_gosec_leak_pprof_endpoint
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_leak_pprof_endpoint
