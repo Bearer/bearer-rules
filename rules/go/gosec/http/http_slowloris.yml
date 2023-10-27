@@ -1,36 +1,38 @@
 patterns:
-  - pattern: $<HTTP_INIT>.$<METHOD>()
+  - pattern: $<HTTP_INIT>.ListenAndServe()
     filters:
-      - variable: METHOD
-        values:
-          - ListenAndServe
-          - ListenAndServeTLS
-          - Serve
-          - ServeTLS
       - variable: HTTP_INIT
-        detection: go_gosec_http_http_serve_http_init
-        scope: result
+        detection: go_gosec_http_http_slowloris_http_init
+        scope: cursor
+      - not:
+          either:
+            - variable: HTTP_INIT
+              detection: go_gosec_http_http_slowloris_http_slowloris_read_timeout
+              scope: cursor
+            - variable: HTTP_INIT
+              detection: go_gosec_http_http_slowloris_http_slowloris_read_header_timeout
+              scope: cursor
 auxiliary:
-  - id: go_gosec_http_http_serve_http_init
+  - id: go_gosec_http_http_slowloris_http_slowloris_read_timeout
     patterns:
-      - import $<!>"net"
-      - import $<!>"net/http"
       - pattern: |
-          import (
-            $<!>"net"
-          )
+          &http.Server{$<...>$<!>ReadTimeout: $<_>$<...>}
+  - id: go_gosec_http_http_slowloris_http_slowloris_read_header_timeout
+    patterns:
       - pattern: |
-          import (
-            $<!>"net/http"
-          )
+          &http.Server{$<...>$<!>ReadHeaderTimeout: $<_>$<...>}
+  - id: go_gosec_http_http_slowloris_http_init
+    patterns:
+      - pattern: |
+          &http.Server{}
 languages:
   - go
 metadata:
-  description: "Uncontrolled resource consumption"
+  description: "Uncontrolled resource consumption (Slowloris)"
   remediation_message: |
     ## Description
 
-    The `net/http` serve functions in Go are susceptible to resource consumption attacks if timeouts are not appropriately set before initiating the HTTP server. Malicious actors can exploit this by establishing thousands of connections without completing the data transfer or not closing the connections. As a consequence, the server may be overwhelmed and stop accepting new connections.
+    Potential Slowloris Attack because `ReadHeaderTimeout` is not configured in the `http.Server`.
 
     ## Remediations
 
@@ -68,5 +70,5 @@ metadata:
 
   cwe_id:
     - 400
-  id: go_gosec_http_http_serve
-  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_http_http_serve
+  id: go_gosec_http_http_slowloris
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_http_http_slowloris

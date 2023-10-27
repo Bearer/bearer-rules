@@ -8,7 +8,7 @@ exports[`go_gosec_http_http_serve test 1`] = `
         "400"
       ],
       "id": "go_gosec_http_http_serve",
-      "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
+      "title": "Uncontrolled resource consumption",
       "description": "## Description\\n\\nThe \`net/http\` serve functions in Go are susceptible to resource consumption attacks if timeouts are not appropriately set before initiating the HTTP server. Malicious actors can exploit this by establishing thousands of connections without completing the data transfer or not closing the connections. As a consequence, the server may be overwhelmed and stop accepting new connections.\\n\\n## Remediations\\n\\n❌ Avoid Using Default Serve Functions in Production\\n\\nThe default \`http.ListenAndServe\` and \`http.Serve\` functions should not be utilized in a production environment as they lack the provision to set timeouts.\\n\\n✅ Use Custom \`http.Server\` Object with Configured Timeouts\\n\\nCreate and employ a custom \`http.Server\` object with the necessary timeouts set.\\n\\n  \`\`\`go\\n  srv := &http.Server{\\n      Addr: \\"localhost:8000\\",\\n      ReadHeaderTimeout: 15 * time.Second,\\n      ReadTimeout: 15 * time.Second,\\n      WriteTimeout: 10 * time.Second,\\n      IdleTimeout: 30 * time.Second,\\n  }\\n\\n  if err := srv.ListenAndServe(); err != nil {\\n      log.Fatal(err)\\n  }\\n  \`\`\`\\n\\n✅ Implement Per Request Timeouts\\n\\nFor timeouts on individual requests, wrap all \`http.HandlerFunc(...)\` in \`http.TimeoutHandler\` and set a timeout. Remember, the TimeoutHandler doesn't start ticking until all headers are read.\\n\\n## Resources\\n\\n- [http.Server Timeouts](https://pkg.go.dev/net/http#Server)\\n- [Setting Request Based Timeouts](https://pkg.go.dev/net/http#TimeoutHandler)\\n- [Slowloris Attack Details](https://en.wikipedia.org/wiki/Slowloris_(computer_security))\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_http_http_serve",
       "line_number": 16,
@@ -42,7 +42,7 @@ exports[`go_gosec_http_http_serve test 1`] = `
         "400"
       ],
       "id": "go_gosec_http_http_serve",
-      "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
+      "title": "Uncontrolled resource consumption",
       "description": "## Description\\n\\nThe \`net/http\` serve functions in Go are susceptible to resource consumption attacks if timeouts are not appropriately set before initiating the HTTP server. Malicious actors can exploit this by establishing thousands of connections without completing the data transfer or not closing the connections. As a consequence, the server may be overwhelmed and stop accepting new connections.\\n\\n## Remediations\\n\\n❌ Avoid Using Default Serve Functions in Production\\n\\nThe default \`http.ListenAndServe\` and \`http.Serve\` functions should not be utilized in a production environment as they lack the provision to set timeouts.\\n\\n✅ Use Custom \`http.Server\` Object with Configured Timeouts\\n\\nCreate and employ a custom \`http.Server\` object with the necessary timeouts set.\\n\\n  \`\`\`go\\n  srv := &http.Server{\\n      Addr: \\"localhost:8000\\",\\n      ReadHeaderTimeout: 15 * time.Second,\\n      ReadTimeout: 15 * time.Second,\\n      WriteTimeout: 10 * time.Second,\\n      IdleTimeout: 30 * time.Second,\\n  }\\n\\n  if err := srv.ListenAndServe(); err != nil {\\n      log.Fatal(err)\\n  }\\n  \`\`\`\\n\\n✅ Implement Per Request Timeouts\\n\\nFor timeouts on individual requests, wrap all \`http.HandlerFunc(...)\` in \`http.TimeoutHandler\` and set a timeout. Remember, the TimeoutHandler doesn't start ticking until all headers are read.\\n\\n## Resources\\n\\n- [http.Server Timeouts](https://pkg.go.dev/net/http#Server)\\n- [Setting Request Based Timeouts](https://pkg.go.dev/net/http#TimeoutHandler)\\n- [Slowloris Attack Details](https://en.wikipedia.org/wiki/Slowloris_(computer_security))\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_http_http_serve",
       "line_number": 21,
@@ -76,7 +76,7 @@ exports[`go_gosec_http_http_serve test 1`] = `
         "400"
       ],
       "id": "go_gosec_http_http_serve",
-      "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
+      "title": "Uncontrolled resource consumption",
       "description": "## Description\\n\\nThe \`net/http\` serve functions in Go are susceptible to resource consumption attacks if timeouts are not appropriately set before initiating the HTTP server. Malicious actors can exploit this by establishing thousands of connections without completing the data transfer or not closing the connections. As a consequence, the server may be overwhelmed and stop accepting new connections.\\n\\n## Remediations\\n\\n❌ Avoid Using Default Serve Functions in Production\\n\\nThe default \`http.ListenAndServe\` and \`http.Serve\` functions should not be utilized in a production environment as they lack the provision to set timeouts.\\n\\n✅ Use Custom \`http.Server\` Object with Configured Timeouts\\n\\nCreate and employ a custom \`http.Server\` object with the necessary timeouts set.\\n\\n  \`\`\`go\\n  srv := &http.Server{\\n      Addr: \\"localhost:8000\\",\\n      ReadHeaderTimeout: 15 * time.Second,\\n      ReadTimeout: 15 * time.Second,\\n      WriteTimeout: 10 * time.Second,\\n      IdleTimeout: 30 * time.Second,\\n  }\\n\\n  if err := srv.ListenAndServe(); err != nil {\\n      log.Fatal(err)\\n  }\\n  \`\`\`\\n\\n✅ Implement Per Request Timeouts\\n\\nFor timeouts on individual requests, wrap all \`http.HandlerFunc(...)\` in \`http.TimeoutHandler\` and set a timeout. Remember, the TimeoutHandler doesn't start ticking until all headers are read.\\n\\n## Resources\\n\\n- [http.Server Timeouts](https://pkg.go.dev/net/http#Server)\\n- [Setting Request Based Timeouts](https://pkg.go.dev/net/http#TimeoutHandler)\\n- [Slowloris Attack Details](https://en.wikipedia.org/wiki/Slowloris_(computer_security))\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_http_http_serve",
       "line_number": 31,
@@ -110,7 +110,7 @@ exports[`go_gosec_http_http_serve test 1`] = `
         "400"
       ],
       "id": "go_gosec_http_http_serve",
-      "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
+      "title": "Uncontrolled resource consumption",
       "description": "## Description\\n\\nThe \`net/http\` serve functions in Go are susceptible to resource consumption attacks if timeouts are not appropriately set before initiating the HTTP server. Malicious actors can exploit this by establishing thousands of connections without completing the data transfer or not closing the connections. As a consequence, the server may be overwhelmed and stop accepting new connections.\\n\\n## Remediations\\n\\n❌ Avoid Using Default Serve Functions in Production\\n\\nThe default \`http.ListenAndServe\` and \`http.Serve\` functions should not be utilized in a production environment as they lack the provision to set timeouts.\\n\\n✅ Use Custom \`http.Server\` Object with Configured Timeouts\\n\\nCreate and employ a custom \`http.Server\` object with the necessary timeouts set.\\n\\n  \`\`\`go\\n  srv := &http.Server{\\n      Addr: \\"localhost:8000\\",\\n      ReadHeaderTimeout: 15 * time.Second,\\n      ReadTimeout: 15 * time.Second,\\n      WriteTimeout: 10 * time.Second,\\n      IdleTimeout: 30 * time.Second,\\n  }\\n\\n  if err := srv.ListenAndServe(); err != nil {\\n      log.Fatal(err)\\n  }\\n  \`\`\`\\n\\n✅ Implement Per Request Timeouts\\n\\nFor timeouts on individual requests, wrap all \`http.HandlerFunc(...)\` in \`http.TimeoutHandler\` and set a timeout. Remember, the TimeoutHandler doesn't start ticking until all headers are read.\\n\\n## Resources\\n\\n- [http.Server Timeouts](https://pkg.go.dev/net/http#Server)\\n- [Setting Request Based Timeouts](https://pkg.go.dev/net/http#TimeoutHandler)\\n- [Slowloris Attack Details](https://en.wikipedia.org/wiki/Slowloris_(computer_security))\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_http_http_serve",
       "line_number": 41,
@@ -138,40 +138,6 @@ exports[`go_gosec_http_http_serve test 1`] = `
       "fingerprint": "6f179bc162124459b0090fb499c31d43_3",
       "old_fingerprint": "719e09cb6b2922d8ae44e9968c9c756f_3",
       "code_extract": "\\terr = http.ServeTLS(l, nil, \\"cert.pem\\", \\"key.pem\\")"
-    },
-    {
-      "cwe_ids": [
-        "400"
-      ],
-      "id": "go_gosec_http_http_serve",
-      "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
-      "description": "## Description\\n\\nThe \`net/http\` serve functions in Go are susceptible to resource consumption attacks if timeouts are not appropriately set before initiating the HTTP server. Malicious actors can exploit this by establishing thousands of connections without completing the data transfer or not closing the connections. As a consequence, the server may be overwhelmed and stop accepting new connections.\\n\\n## Remediations\\n\\n❌ Avoid Using Default Serve Functions in Production\\n\\nThe default \`http.ListenAndServe\` and \`http.Serve\` functions should not be utilized in a production environment as they lack the provision to set timeouts.\\n\\n✅ Use Custom \`http.Server\` Object with Configured Timeouts\\n\\nCreate and employ a custom \`http.Server\` object with the necessary timeouts set.\\n\\n  \`\`\`go\\n  srv := &http.Server{\\n      Addr: \\"localhost:8000\\",\\n      ReadHeaderTimeout: 15 * time.Second,\\n      ReadTimeout: 15 * time.Second,\\n      WriteTimeout: 10 * time.Second,\\n      IdleTimeout: 30 * time.Second,\\n  }\\n\\n  if err := srv.ListenAndServe(); err != nil {\\n      log.Fatal(err)\\n  }\\n  \`\`\`\\n\\n✅ Implement Per Request Timeouts\\n\\nFor timeouts on individual requests, wrap all \`http.HandlerFunc(...)\` in \`http.TimeoutHandler\` and set a timeout. Remember, the TimeoutHandler doesn't start ticking until all headers are read.\\n\\n## Resources\\n\\n- [http.Server Timeouts](https://pkg.go.dev/net/http#Server)\\n- [Setting Request Based Timeouts](https://pkg.go.dev/net/http#TimeoutHandler)\\n- [Slowloris Attack Details](https://en.wikipedia.org/wiki/Slowloris_(computer_security))\\n",
-      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_http_http_serve",
-      "line_number": 52,
-      "full_filename": "/tmp/bearer-scan/main.go",
-      "filename": ".",
-      "source": {
-        "start": 52,
-        "end": 52,
-        "column": {
-          "start": 9,
-          "end": 32
-        }
-      },
-      "sink": {
-        "start": 52,
-        "end": 52,
-        "column": {
-          "start": 9,
-          "end": 32
-        },
-        "content": "server.ListenAndServe()"
-      },
-      "parent_line_number": 52,
-      "snippet": "server.ListenAndServe()",
-      "fingerprint": "6f179bc162124459b0090fb499c31d43_4",
-      "old_fingerprint": "719e09cb6b2922d8ae44e9968c9c756f_4",
-      "code_extract": "\\terr := server.ListenAndServe()"
     }
   ]
 }"
