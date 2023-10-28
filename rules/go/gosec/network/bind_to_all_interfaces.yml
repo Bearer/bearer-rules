@@ -1,0 +1,43 @@
+patterns:
+  - pattern: $<PACKAGE>.Listen($<...>$<ADDR>)
+    filters:
+      - variable: PACKAGE
+        values:
+          - net
+          - tls
+      - variable: ADDR
+        regex: 0\.0\.0\.0:[0-9]+
+languages:
+  - go
+metadata:
+  description: "Exposure of sensitive information to an unauthorized actor"
+  remediation_message: |
+    ## Description
+
+    Binding a service to all network interfaces by passing the address "0.0.0.0" to the `Listen` set of functions can inadvertently expose the service to traffic on unintended, possibly unsecured or undocumented interfaces. This poses security risks and might lead to unforeseen vulnerabilities.
+
+    ## Remediations
+
+    ✅ Specify Interface IP Address
+
+    Instead of binding to all interfaces, define the interface IP address to be used. This can be achieved in several ways:
+
+    - Using an environment variable
+    - Referring to a configuration file
+    - Identifying the primary interface(s) IP address programmatically
+
+    ```go
+    addr := os.Getenv("IP_ADDRESS")
+    listener, err := net.Listen("tcp", addr)
+    if err != nil {
+        log.Fatal(err)
+    }
+    ```
+
+    ## Resources
+
+    N/A
+  cwe_id:
+    - 200
+  id: go_gosec_network_bind_to_all_interfaces
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_network_bind_to_all_interfaces

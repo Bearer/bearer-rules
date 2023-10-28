@@ -1,0 +1,21 @@
+patterns:
+  # - pattern: "&$<_>"
+  - pattern: "&$<ARG>"
+    filters:
+      - variable: ARG
+        detection: go_gosec_memory_memory_aliasing_range
+auxiliary:
+  - id: go_gosec_memory_memory_aliasing_range
+    patterns:
+      - pattern: |
+          for $<...>$<!>$<ARG>$<...> := range $<...>$<_>$<...> {}
+languages:
+  - go
+metadata:
+  description: "Incorrect access of indexable resource ('Range Error')"
+  remediation_message: |
+    foo
+  cwe_id:
+    - 118
+  id: go_gosec_memory_memory_aliasing
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_memory_memory_aliasing

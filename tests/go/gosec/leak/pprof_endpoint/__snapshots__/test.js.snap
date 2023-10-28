@@ -8,8 +8,8 @@ exports[`go_gosec_leak_pprof_endpoint test 1`] = `
         "918"
       ],
       "id": "go_gosec_leak_pprof_endpoint",
-      "title": "Server Side Request Forgery (SSRF)",
-      "description": "hit\\n",
+      "title": "Active debug code (pprof enabled)",
+      "description": "## Description\\n\\nGo incorporates a native profiling service that can be activated by initiating an HTTP server with the \`net/http/pprof\` import. The endpoint \`/debug/pprof\` is devoid of authentication measures, making it accessible to unidentified users. This profiling endpoint can inadvertently expose confidential data and is inadvisable for production use.\\n\\n## Remediations\\n\\n✅ Ensure \`net/http/pprof\` is import is excluded from your file when deploying to a production environment.\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_leak_pprof_endpoint",
       "line_number": 7,
       "full_filename": "/tmp/bearer-scan/main.go",

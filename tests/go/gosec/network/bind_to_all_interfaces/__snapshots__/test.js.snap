@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_network_bind_to_all_interfaces test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "200"
+      ],
+      "id": "go_gosec_network_bind_to_all_interfaces",
+      "title": "Exposure of sensitive information to an unauthorized actor",
+      "description": "## Description\\n\\nBinding a service to all network interfaces by passing the address \\"0.0.0.0\\" to the \`Listen\` set of functions can inadvertently expose the service to traffic on unintended, possibly unsecured or undocumented interfaces. This poses security risks and might lead to unforeseen vulnerabilities.\\n\\n## Remediations\\n\\n✅ Specify Interface IP Address\\n\\nInstead of binding to all interfaces, define the interface IP address to be used. This can be achieved in several ways:\\n\\n- Using an environment variable\\n- Referring to a configuration file\\n- Identifying the primary interface(s) IP address programmatically\\n\\n\`\`\`go\\naddr := os.Getenv(\\"IP_ADDRESS\\")\\nlistener, err := net.Listen(\\"tcp\\", addr)\\nif err != nil {\\n    log.Fatal(err)\\n}\\n\`\`\`\\n\\n## Resources\\n\\nN/A\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_network_bind_to_all_interfaces",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 12,
+          "end": 45
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 12,
+          "end": 45
+        },
+        "content": "net.Listen(\\"tcp\\", \\"0.0.0.0:2000\\")"
+      },
+      "parent_line_number": 9,
+      "snippet": "net.Listen(\\"tcp\\", \\"0.0.0.0:2000\\")",
+      "fingerprint": "d05a76cad778494c80db77eefff794f0_0",
+      "old_fingerprint": "88d3e0294f3fbf9ccbfc760132ed18ca_0",
+      "code_extract": "\\tl, err := net.Listen(\\"tcp\\", \\"0.0.0.0:2000\\")"
+    }
+  ]
+}"
+`;
