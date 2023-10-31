@@ -1,0 +1,55 @@
+imports:
+  - php_shared_lang_datatype
+  - php_shared_lang_instance
+patterns:
+  - pattern: $<CLIENT>->$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: CLIENT
+        detection: php_third_parties_honeybadger_client
+        scope: cursor
+      - variable: METHOD
+        values:
+          - addBreadcrumb
+          - context
+          - customNotification
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: php_third_parties_honeybadger_client
+    patterns:
+      - pattern: $<CLASS>::new()
+        filters:
+          - variable: CLASS
+            regex: \A(\\?Honeybadger\\)?Honeybadger\z
+      - pattern: $<INSTANCE>;
+        filters:
+          - variable: INSTANCE
+            detection: php_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                regex: \A(\\?Honeybadger\\)?Honeybadger\z
+languages:
+  - php
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Sensitive data sent to Honeybadger detected."
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Honeybadger.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Honeybadger Docs](https://docs.honeybadger.io/lib/php/)
+  cwe_id:
+    - 201
+  associated_recipe: Honeybadger
+  id: php_third_parties_honeybadger
+  documentation_url: https://docs.bearer.com/reference/rules/php_third_parties_honeybadger
