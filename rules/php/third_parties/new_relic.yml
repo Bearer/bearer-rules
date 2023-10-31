@@ -1,0 +1,40 @@
+imports:
+  - php_shared_lang_datatype
+patterns:
+  - pattern: $<FUNCTION>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - newrelic_name_transaction
+          - newrelic_set_user_id
+          - newrelic_add_custom_parameter
+          - newrelic_add_custom_span_parameter
+          - newrelic_notice_error
+          - newrelic_set_user_attributes
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+languages:
+  - php
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Sensitive data sent to New Relic detected."
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to New Relic.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [New Relic Docs](https://docs.newrelic.com/)
+    - [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)
+  cwe_id:
+    - 201
+  associated_recipe: New Relic
+  id: php_third_parties_new_relic
+  documentation_url: https://docs.bearer.com/reference/rules/php_third_parties_new_relic
