@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_third_parties_rollbar bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/php)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_rollbar",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 54,
+          "end": 66
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 69
+        },
+        "content": "Rollbar::log(Level::WARNING, \\"could not connect for {$user->email}\\")"
+      },
+      "parent_line_number": 7,
+      "snippet": "Rollbar::log(Level::WARNING, \\"could not connect for {$user->email}\\")",
+      "fingerprint": "063810092258936f6c8a5b5893340865_0",
+      "old_fingerprint": "d2ec4572a21c61aca31fe37be8da8bfd_0",
+      "code_extract": "Rollbar::log(Level::WARNING, \\"could not connect for {$user->email}\\");"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/php)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_rollbar",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 48,
+          "end": 60
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 62
+        },
+        "content": "Rollbar::log(Level::INFO, 'Foo', array('id' => $user->email))"
+      },
+      "parent_line_number": 8,
+      "snippet": "Rollbar::log(Level::INFO, 'Foo', array('id' => $user->email))",
+      "fingerprint": "063810092258936f6c8a5b5893340865_1",
+      "old_fingerprint": "d2ec4572a21c61aca31fe37be8da8bfd_1",
+      "code_extract": "Rollbar::log(Level::INFO, 'Foo', array('id' => $user->email));"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/php)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_rollbar",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 41,
+          "end": 53
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 55
+        },
+        "content": "$logger->log($level, $message, ['id' => $user->email])"
+      },
+      "parent_line_number": 11,
+      "snippet": "$logger->log($level, $message, ['id' => $user->email])",
+      "fingerprint": "063810092258936f6c8a5b5893340865_2",
+      "old_fingerprint": "d2ec4572a21c61aca31fe37be8da8bfd_2",
+      "code_extract": "$logger->log($level, $message, ['id' => $user->email]);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_rollbar",
+      "title": "Sensitive data sent to Rollbar detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Rollbar.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Rollbar docs](https://docs.rollbar.com/docs/php)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_rollbar",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 27,
+          "end": 39
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 40
+        },
+        "content": "$logger2->addCustom($key, $user->email)"
+      },
+      "parent_line_number": 14,
+      "snippet": "$logger2->addCustom($key, $user->email)",
+      "fingerprint": "063810092258936f6c8a5b5893340865_3",
+      "old_fingerprint": "d2ec4572a21c61aca31fe37be8da8bfd_3",
+      "code_extract": "$logger2->addCustom($key, $user->email);"
+    }
+  ]
+}"
+`;
+
+exports[`php_third_parties_rollbar ok 1`] = `"{}"`;
