@@ -1,0 +1,75 @@
+imports:
+  - php_shared_lang_datatype
+  - php_shared_lang_instance
+patterns:
+  - pattern: new $<CLASS>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A\\?Sentry\\Breadcrumb\z
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<BREADCRUMB>->$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: BREADCRUMB
+        detection: php_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            regex: \A\\?Sentry\\Breadcrumb\z
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<SCOPE>->$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: SCOPE
+        detection: php_third_parties_sentry_scope
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: \Sentry\$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: php_third_parties_sentry_scope
+    patterns:
+      - pattern: $<INSTANCE>;
+        filters:
+          - variable: INSTANCE
+            detection: php_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                regex: \A(\\?Sentry\\State\\)?Scope\z
+      - pattern: \Sentry\$<FUNCTION>(function ($<!>$$<_>) {})
+        filters:
+          - variable: FUNCTION
+            values:
+              - configureScope
+              - withScope
+languages:
+  - php
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Sensitive data sent to Sentry detected."
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Sentry.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Sentry Docs](https://docs.sentry.io/platforms/php/)
+  cwe_id:
+    - 201
+  associated_recipe: Sentry
+  id: php_third_parties_sentry
+  documentation_url: https://docs.bearer.com/reference/rules/php_third_parties_sentry
