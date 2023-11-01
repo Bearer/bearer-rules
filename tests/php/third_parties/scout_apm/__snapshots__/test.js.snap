@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_third_parties_scout_apm bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_scout_apm",
+      "title": "Sensitive data sent to Scout APM detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Scout APM.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Scout APM docs](https://scoutapm.com/docs/php)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_scout_apm",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 26,
+          "end": 38
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 39
+        },
+        "content": "$agent->addContext(\\"id\\", $user->email)"
+      },
+      "parent_line_number": 7,
+      "snippet": "$agent->addContext(\\"id\\", $user->email)",
+      "fingerprint": "1900cd5d28fed55d8a71b441074ad0cd_0",
+      "old_fingerprint": "ca8c252167c1ce46da829e02a0e66370_0",
+      "code_extract": "$agent->addContext(\\"id\\", $user->email);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_scout_apm",
+      "title": "Sensitive data sent to Scout APM detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Scout APM.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Scout APM docs](https://scoutapm.com/docs/php)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_scout_apm",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 27,
+          "end": 39
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 40
+        },
+        "content": "$agent2->addContext(\\"id\\", $user->email)"
+      },
+      "parent_line_number": 10,
+      "snippet": "$agent2->addContext(\\"id\\", $user->email)",
+      "fingerprint": "1900cd5d28fed55d8a71b441074ad0cd_1",
+      "old_fingerprint": "ca8c252167c1ce46da829e02a0e66370_1",
+      "code_extract": "$agent2->addContext(\\"id\\", $user->email);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_scout_apm",
+      "title": "Sensitive data sent to Scout APM detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Scout APM.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Scout APM docs](https://scoutapm.com/docs/php)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_scout_apm",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 18,
+          "end": 30
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 31
+        },
+        "content": "$span->tag(\\"id\\", $user->email)"
+      },
+      "parent_line_number": 13,
+      "snippet": "$span->tag(\\"id\\", $user->email)",
+      "fingerprint": "1900cd5d28fed55d8a71b441074ad0cd_2",
+      "old_fingerprint": "ca8c252167c1ce46da829e02a0e66370_2",
+      "code_extract": "$span->tag(\\"id\\", $user->email);"
+    }
+  ]
+}"
+`;
+
+exports[`php_third_parties_scout_apm ok 1`] = `"{}"`;

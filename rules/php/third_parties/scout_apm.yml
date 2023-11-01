@@ -1,0 +1,65 @@
+imports:
+  - php_shared_lang_datatype
+  - php_shared_lang_instance
+patterns:
+  - pattern: $<AGENT>->$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: AGENT
+        detection: php_third_parties_scout_apm_agent
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<SPAN>->$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: SPAN
+        detection: php_third_parties_scout_apm_span_ref
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: php_third_parties_scout_apm_agent
+    patterns:
+      - pattern: $<INSTANCE>;
+        filters:
+          - variable: INSTANCE
+            detection: php_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                regex: \A(\\?Scoutapm\\)?(ScoutApm)?Agent\z
+      - pattern: $<CLASS>::fromConfig()
+        filters:
+          - variable: CLASS
+            regex: \A(\\?Scoutapm\\)?Agent\z
+  - id: php_third_parties_scout_apm_span_ref
+    patterns:
+      - pattern: $<AGENT>->startSpan()
+        filters:
+          - variable: AGENT
+            detection: php_third_parties_scout_apm_agent
+            scope: cursor
+languages:
+  - php
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Sensitive data sent to Scout APM detected."
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Scout APM.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Scout APM docs](https://scoutapm.com/docs/php)
+  cwe_id:
+    - 201
+  associated_recipe: Scout APM
+  id: php_third_parties_scout_apm
+  documentation_url: https://docs.bearer.com/reference/rules/php_third_parties_scout_apm
