@@ -12,10 +12,10 @@ patterns:
       - either:
           - variable: DB
             detection: go_gosec_sql_concat_sqli_sql_open
-            scope: result
+            scope: cursor
           - variable: DB
             detection: go_gosec_sql_concat_sqli_sql_db_begin
-            scope: result
+            scope: cursor
   - pattern: |
       $<DB>.QueryContext($<...>$<INPUT>)
     filters:
@@ -24,18 +24,17 @@ patterns:
       - either:
           - variable: DB
             detection: go_gosec_sql_concat_sqli_sql_open
-            scope: result
+            scope: cursor
           - variable: DB
             detection: go_gosec_sql_concat_sqli_sql_db_begin
-            scope: result
+            scope: cursor
 auxiliary:
   - id: go_gosec_sql_concat_sqli_input_sprintf_sanitizer
     patterns:
       - pattern: fmt.Sprintf($<STRING>$<...>)
         filters:
           - variable: STRING
-            regex: (SELECT|DELETE|INSERT|UPDATE|INTO|FROM|WHERE).*%[bdoxXfFp].*
-            scope: result
+            string_regex: (SELECT|DELETE|INSERT|UPDATE|INTO|FROM|WHERE).*%[bdoxXfFp].*
   - id: go_gosec_sql_concat_sqli_input_sanitizer
     patterns:
       - pattern: $<_>.QuoteIdentifier($<!>$<_>)
@@ -46,21 +45,21 @@ auxiliary:
         filters:
           - variable: INPUT
             detection: go_shared_lang_dynamic_request_input
-            scope: result
+            scope: cursor
   - id: go_gosec_sql_concat_sqli_sql_db_begin
     patterns:
       - pattern: $<SQL>.Begin()
         filters:
           - variable: SQL
             detection: go_gosec_sql_concat_sqli_sql_open
-            scope: result
+            scope: cursor
   - id: go_gosec_sql_concat_sqli_sql_open
     patterns:
       - pattern: $<SQL>.Open()
         filters:
           - variable: SQL
             detection: go_gosec_sql_concat_sqli_sql_init
-            scope: result
+            scope: cursor
   - id: go_gosec_sql_concat_sqli_sql_init
     patterns:
       - pattern: import $<!>"database/sql"
