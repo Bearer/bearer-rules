@@ -1,0 +1,129 @@
+imports:
+  - go_shared_lang_dynamic_request_input
+patterns:
+  - pattern: |
+      os.OpenFile($<INPUT>$<...>)
+    filters:
+      - variable: INPUT
+        detection: go_gosec_filesystem_filereadtaint_input
+        scope: result
+  - pattern: |
+      os.Open($<INPUT>$<...>)
+    filters:
+      - variable: INPUT
+        detection: go_gosec_filesystem_filereadtaint_input
+        scope: result
+  - pattern: |
+      ioutil.ReadFile($<INPUT>$<...>)
+    filters:
+      - variable: INPUT
+        detection: go_gosec_filesystem_filereadtaint_input
+        scope: result
+  - pattern: |
+      os.ReadFile($<INPUT>$<...>)
+    filters:
+      - variable: INPUT
+        detection: go_gosec_filesystem_filereadtaint_input
+        scope: result
+auxiliary:
+  - id: go_gosec_filesystem_filereadtaint_input
+    sanitizer: go_gosec_filesystem_filereadtaint_input_sanitizer
+    patterns:
+      - pattern: $<INIT>
+        filters:
+          - variable: INIT
+            detection: go_shared_lang_dynamic_request_input
+            scope: cursor
+  - id: go_gosec_filesystem_filereadtaint_input_sanitizer
+    patterns:
+      - pattern: filepath.Clean()
+      - pattern: filepath.Rel()
+      - pattern: strconv.Itoa()
+languages:
+  - go
+metadata:
+  description: "Improper limitation of a pathname to a restricted directory ('Path Traversal')"
+  remediation_message: |
+    ## Description
+
+    Constructing file or path information dynamically, especially from user input, poses a significant security risk. If not handled correctly, attackers could manipulate these paths to access or manipulate sensitive files, leading to data breaches or system compromise. It is crucial to ensure that user input is not used directly to interact with the file system, as this can be exploited to perform path traversal attacks.
+
+    ## Remediations
+
+    To mitigate the risks associated with dynamic file path construction from user inputs, apply the following best practices:
+
+    ✅ Hash or Replace User Input
+
+    When dealing with user input for file operations, hash the input or replace it with a system-generated unique identifier to prevent path manipulation.
+
+    ✅ Use `filepath.Base`
+
+    Extract only the filename from the path, ignoring any directory information, to avoid directory traversal vulnerabilities.
+
+    ✅ Validate Paths Before Use
+
+    Always perform validation on the resolved paths before accessing files to ensure they are within the expected directory.
+
+    ```go
+    import (
+        "crypto/rand"
+        "encoding/hex"
+        "io"
+        "log"
+        "path/filepath"
+        "strings"
+    )
+
+    // userData struct holds user-related data with a unique ID for file operations
+    type userData struct {
+        id           string // Unique identifier for the filename
+        userFilename string // Original filename from the user, kept for reference
+    }
+
+    // newUserData constructs a new userData instance with a random file ID
+    func newUserData(userFilename string) userData {
+        return userData{
+            id:           randomFileID(), // Use a random ID instead of user-provided filename
+            userFilename: userFilename,
+        }
+    }
+
+    // randomFileID generates a secure random ID to be used as a filename
+    func randomFileID() string {
+        id := make([]byte, 16)
+        if _, err := io.ReadFull(rand.Reader, id); err != nil {
+            log.Fatal(err)
+        }
+        return hex.EncodeToString(id)
+    }
+
+    func main() {
+        // Simulated user input, which may be malicious
+        data := newUserData("../../possibly/malicious")
+
+        // Define a safe base path for file operations
+        const basePath = "/tmp/"
+
+        // Resolve the full path using the safe base path and the random ID
+        resolvedPath, err := filepath.Join(basePath, filepath.Base(data.id))
+        if err != nil {
+            log.Fatal(err)
+        }
+
+        // Ensure the resolved path is within our designated base path
+        if !strings.HasPrefix(resolvedPath, basePath) {
+            log.Fatal("The resolved path does not start with the expected base path")
+        }
+
+        // The file can now be safely accessed using resolvedPath
+        // Further file processing code would go here
+    }
+    ```
+
+    ## Resources
+
+    - [OWASP Guide to Preventing Path Traversal](https://owasp.org/www-community/attacks/Path_Traversal)
+  cwe_id:
+    - 327
+  id: go_gosec_filesystem_filereadtaint
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_filesystem_filereadtaint

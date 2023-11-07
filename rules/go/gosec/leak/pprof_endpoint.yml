@@ -1,0 +1,62 @@
+patterns:
+  - import "net/http/pprof"
+  - pattern: |
+      import (
+        $<_>"net/http/pprof"
+      )
+languages:
+  - go
+metadata:
+  description: "Active debug code (pprof enabled)"
+  remediation_message: |
+    ## Description
+
+    Go's standard library includes a profiling tool that can be enabled by importing `net/http/pprof`. This tool provides a `/debug/pprof` endpoint that exposes runtime profiling data over HTTP. When enabled in a production environment, it can present a significant security risk as it lacks authentication controls and can potentially leak sensitive information about the application's runtime state and environment.
+
+    ## Remediations
+
+    To prevent unintended exposure of profiling information:
+
+    ✅ Remove `net/http/pprof` in Production
+
+    Before deploying your application to a production environment, remove any import statements for `net/http/pprof` from your codebase. Ensure that the profiling endpoint is not available in the live environment.
+
+    ```go
+    // +build !production
+
+    package main
+
+    import (
+        _ "net/http/pprof" // Ensure this line is not present in your production builds
+        "net/http"
+    )
+
+    func main() {
+        // ... your application code ...
+
+        // Start the server (omit the pprof import and handler in production)
+        log.Println(http.ListenAndServe("localhost:6060", nil))
+    }
+    ```
+
+    ✅ Conditional Compilation
+
+    Use build tags to include profiling only in non-production builds.
+
+    ✅ Use Environment Configurations
+
+    Configure environment-specific settings to conditionally enable or disable the profiling endpoints.
+
+    ✅ Implement Authentication
+
+    If profiling is necessary in a controlled production scenario, secure the endpoint with strong authentication mechanisms.
+
+    ## Resources
+
+    - [Go net/http/pprof Package Documentation](https://pkg.go.dev/net/http/pprof)
+    - [Go Build Constraints Documentation](https://pkg.go.dev/go/build#hdr-Build_Constraints)
+    - [OWASP Security by Design Principles](https://owasp.org/www-project-security-by-design/)
+  cwe_id:
+    - 918
+  id: go_gosec_leak_pprof_endpoint
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_leak_pprof_endpoint

@@ -1,0 +1,75 @@
+patterns:
+  - pattern: |
+      ioutil.WriteFile($<...>$<MASK>)
+    filters:
+      - variable: MASK
+        detection: go_gosec_filesystem_poor_write_permissions_mask
+        scope: result
+auxiliary:
+  - id: go_gosec_filesystem_poor_write_permissions_mask
+    patterns:
+      - pattern: $<MASK>
+        filters:
+          - either:
+              - variable: MASK
+                regex: \A07
+              - variable: MASK
+                regex: \A0\d[1-7]
+              - variable: MASK
+                regex: \A0\d\d[1-7]
+languages:
+  - go
+metadata:
+  description: "Incorrect default permissions"
+  remediation_message: |
+    ## Description
+
+    The application has been detected setting file permissions that are too permissive. This configuration could allow unauthorized users to read, write, or execute files, potentially leading to information disclosure or other security vulnerabilities.
+
+    ## Remediations
+
+    To enhance security, file permissions should be set to more restrictive values, especially when the files contain sensitive information:
+
+    ✅ Use Restrictive File Permissions
+
+    Assign file permissions to limit access appropriately based on the application's requirements.
+
+    - `0400`: Grants read-only access to the file for the owner.
+    - `0200`: Grants write-only access to the file for the owner.
+    - `0600`: Grants read and write access to the file for the owner.
+
+    ✅ Apply Permissions During File Creation
+
+    When creating or modifying files, set the appropriate permissions to prevent unauthorized access.
+
+    ```go
+    import (
+        "os"
+        "log"
+    )
+
+    func main() {
+        // Data to be written to the file
+        dat := []byte("sensitive data")
+
+        // Write the data to 'file.txt' with read and write permissions for the owner only
+        if err := os.WriteFile("file.txt", dat, 0600); err != nil {
+            log.Fatalf("failed to write file: %s", err)
+        }
+        // File is now safely written with restricted permissions
+    }
+    ```
+
+    ✅ Review File Permission Settings
+
+    Regularly audit the permissions of files to ensure they conform to the principle of least privilege.
+
+    ## Resources
+
+    - [Go Documentation for os Package](https://pkg.go.dev/os)
+    - [Linux 'chmod' Command](https://linux.die.net/man/1/chmod)
+    - [OWASP File Handling Best Practices](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html)
+  cwe_id:
+    - 276
+  id: go_gosec_filesystem_poor_write_permissions
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_filesystem_poor_write_permissions

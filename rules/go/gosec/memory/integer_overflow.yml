@@ -1,0 +1,71 @@
+patterns:
+  - pattern: $<INT>($<X>)
+    filters:
+      - variable: INT
+        values:
+          - int16
+          - int32
+      - variable: X
+        detection: go_gosec_memory_integer_overflow_source
+auxiliary:
+  - id: go_gosec_memory_integer_overflow_source
+    patterns:
+      - $<!>$<_>$<...> := strconv.Atoi($<...>)
+languages:
+  - go
+metadata:
+  description: "Integer overflow or wraparound"
+  remediation_message: |
+    ## Description
+
+    In Go, the size of the `int` type varies with the system architecture: it's 32 bits on a 32-bit system and 64 bits on a 64-bit system. This variability can lead to integer overflow issues when a value returned from `strconv.Atoi` is cast to a smaller integer type, such as `int32` or `int16`, and the original number exceeds the maximum value that can be stored in the smaller type. Integer overflow can cause erratic behavior and potentially serious bugs.
+
+    ## Remediations
+
+    To prevent integer overflow and ensure safe type conversion:
+
+    ✅ Check Values Before Conversion
+
+    Before casting an `int` to a smaller type, compare it against the maximum values that the target type can hold.
+
+    ```go
+    import (
+        "strconv"
+        "fmt"
+        "log"
+        "math"
+    )
+
+    func main() {
+        // Convert the string to an int
+        bigValue, err := strconv.Atoi("32768")
+        if err != nil {
+            log.Fatal(err)
+        }
+
+        // Ensure the value does not exceed int16's maximum limit
+        if bigValue > math.MaxInt16 {
+            log.Fatal("value too large to fit in int16")
+        }
+
+        // Safely convert to int16
+        value := int16(bigValue)
+        fmt.Println(value)
+    }
+    ```
+
+    ✅ Use Appropriate Types
+
+    Where possible, use fixed-size types like `int32` or `int64` to avoid overflow issues related to architecture-dependent sizes.
+
+    ✅ Handle Errors
+
+    Always handle errors returned from conversion functions like `strconv.Atoi` to detect and manage conversion issues immediately.
+
+    ## Resources
+
+    - [Go math package for integer limits](https://pkg.go.dev/math#pkg-constants)
+  cwe_id:
+    - 190
+  id: go_gosec_memory_integer_overflow
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_memory_integer_overflow

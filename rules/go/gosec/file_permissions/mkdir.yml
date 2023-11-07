@@ -1,0 +1,77 @@
+patterns:
+  - pattern: |
+      os.$<METHOD>($<...>$<MASK>)
+    filters:
+      - variable: METHOD
+        values:
+          - Mkdir
+          - MkdirAll
+      - variable: MASK
+        detection: go_gosec_file_permissions_mkdir_mask
+        scope: result
+auxiliary:
+  - id: go_gosec_file_permissions_mkdir_mask
+    patterns:
+      - pattern: $<MASK>
+        filters:
+          - variable: MASK
+            regex: \A077
+languages:
+  - go
+metadata:
+  description: "Incorrect permission assignment for critical resource"
+  remediation_message: |
+    ## Description
+
+    Setting correct directory permissions is critical to maintaining the security of a system. Directories with overly permissive access rights can become a vector for security breaches, allowing unauthorized users to add, remove, or change files, potentially leading to the execution of malicious code, data leaks, or system compromise.
+
+    ## Remediations
+
+    When creating directories, apply the principle of least privilege to ensure users have only the permissions necessary for their role:
+
+    ✅ Restrict Directory Permissions
+
+    Use permissions that restrict access to what is strictly necessary for the operation of the application. Avoid overly permissive settings such as `0777`, which allow all users to read, write, and execute.
+
+    ✅ Use Go’s `os` Package
+
+    Leverage the `os.Mkdir` or `os.MkdirAll` function with appropriate permission flags to create directories.
+
+    ✅ Recommended Directory Permissions
+
+    - `0700` gives the owner read, write, and execute permissions, with no access for group and others, suitable for private user data.
+    - `0750` gives the owner full permissions, the group read and execute permissions, and no permissions for others, which is commonly used for directories that need to be shared within a group.
+
+    ```go
+    import (
+      "log"
+      "os"
+    )
+
+    func main() {
+      // Use os.Mkdir to create a directory with restricted permissions
+      // 0700 permission: Full control for the owner, no permissions for group and others
+      err := os.Mkdir("secure_directory", 0700)
+      if err != nil {
+        log.Fatalf("failed to create directory: %s", err)
+      }
+      // Continue setting up the directory here
+    }
+    ```
+
+    ✅ Verify Directory Permissions
+
+    After creating a directory, confirm the permissions to ensure they have been set correctly.
+
+    ✅ Set Secure Umask
+
+    Consider setting a secure umask in your application or user profile to ensure that all newly created files and directories have restrictive permissions by default.
+
+    ✅ Regular Auditing
+
+    Implement regular checks of directory permissions as part of your security auditing procedures to identify and correct any permissions that are too broad.
+
+  cwe_id:
+    - 732
+  id: go_gosec_file_permissions_mkdir
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_file_permissions_mkdir

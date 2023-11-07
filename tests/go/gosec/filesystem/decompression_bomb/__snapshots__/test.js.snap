@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_filesystem_decompression_bomb test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_filesystem_decompression_bomb",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nDecompression bombs are a form of attack against an application or service that processes compressed files. The attacker crafts a compressed file that is small in size, but when decompressed, expands to a much larger size that is disproportionate to the original. This can exhaust system resources like CPU, memory, or disk space, leading to a Denial of Service (DoS).\\n\\n## Remediations\\n\\nImplement measures to mitigate the impact of decompression bombs:\\n\\n✅ Limit Decompression Size\\n\\nUse \`io.LimitReader\` to restrict the amount of data that a reader will decompress. This prevents the decompression of large files that could fill up memory or disk space.\\n\\n✅ Monitor Resource Usage\\n\\nImplement resource monitoring to watch for unexpected spikes in CPU, memory, or disk usage, which could indicate an attempted decompression bomb attack.\\n\\n✅ Input Validation\\n\\nValidate the size and type of the input before decompressing. If possible, reject files that do not meet expected criteria.\\n\\n✅ Fail Safely\\n\\nEnsure that your application can handle errors from the decompression process safely, without crashing or becoming unresponsive.\\n\\n✅ Regular Updates\\n\\nKeep compression libraries up to date with the latest security patches to protect against known vulnerabilities.\\n\\n✅ User Education\\n\\nEducate users about the risks of decompression bombs if they are able to upload compressed files.\\n\\n\`\`\`go\\nimport (\\n  \\"compress/gzip\\"\\n  \\"io\\"\\n  \\"log\\"\\n  \\"os\\"\\n)\\n\\nfunc main() {\\n  // Open the gzip file\\n  f, err := os.Open(\\"example.gz\\")\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  defer f.Close()\\n\\n  // Create a gzip reader on the file\\n  r, err := gzip.NewReader(f)\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  defer r.Close()\\n\\n  // Define a limit for decompression\\n  const maxDecompressSize = 10 * 1024 * 1024 // 10 MB\\n\\n  // Limit the size of the reader\\n  limitedReader := io.LimitReader(r, maxDecompressSize)\\n\\n  // Use the limited reader to decompress, preventing the decompression bomb from expanding fully\\n  if _, err := io.Copy(os.Stdout, limitedReader); err != nil {\\n    log.Fatal(err)\\n  }\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_decompression_bomb",
+      "line_number": 24,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 24,
+        "end": 24,
+        "column": {
+          "start": 11,
+          "end": 32
+        }
+      },
+      "sink": {
+        "start": 24,
+        "end": 24,
+        "column": {
+          "start": 11,
+          "end": 32
+        },
+        "content": "io.Copy(os.Stdout, r)"
+      },
+      "parent_line_number": 24,
+      "snippet": "io.Copy(os.Stdout, r)",
+      "fingerprint": "2d4190d402514b2a6ed40a15b61c33ea_0",
+      "old_fingerprint": "b56cbf630ceb5b94f25b38725079b469_0",
+      "code_extract": "\\t_, err = io.Copy(os.Stdout, r)"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_filesystem_decompression_bomb",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nDecompression bombs are a form of attack against an application or service that processes compressed files. The attacker crafts a compressed file that is small in size, but when decompressed, expands to a much larger size that is disproportionate to the original. This can exhaust system resources like CPU, memory, or disk space, leading to a Denial of Service (DoS).\\n\\n## Remediations\\n\\nImplement measures to mitigate the impact of decompression bombs:\\n\\n✅ Limit Decompression Size\\n\\nUse \`io.LimitReader\` to restrict the amount of data that a reader will decompress. This prevents the decompression of large files that could fill up memory or disk space.\\n\\n✅ Monitor Resource Usage\\n\\nImplement resource monitoring to watch for unexpected spikes in CPU, memory, or disk usage, which could indicate an attempted decompression bomb attack.\\n\\n✅ Input Validation\\n\\nValidate the size and type of the input before decompressing. If possible, reject files that do not meet expected criteria.\\n\\n✅ Fail Safely\\n\\nEnsure that your application can handle errors from the decompression process safely, without crashing or becoming unresponsive.\\n\\n✅ Regular Updates\\n\\nKeep compression libraries up to date with the latest security patches to protect against known vulnerabilities.\\n\\n✅ User Education\\n\\nEducate users about the risks of decompression bombs if they are able to upload compressed files.\\n\\n\`\`\`go\\nimport (\\n  \\"compress/gzip\\"\\n  \\"io\\"\\n  \\"log\\"\\n  \\"os\\"\\n)\\n\\nfunc main() {\\n  // Open the gzip file\\n  f, err := os.Open(\\"example.gz\\")\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  defer f.Close()\\n\\n  // Create a gzip reader on the file\\n  r, err := gzip.NewReader(f)\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  defer r.Close()\\n\\n  // Define a limit for decompression\\n  const maxDecompressSize = 10 * 1024 * 1024 // 10 MB\\n\\n  // Limit the size of the reader\\n  limitedReader := io.LimitReader(r, maxDecompressSize)\\n\\n  // Use the limited reader to decompress, preventing the decompression bomb from expanding fully\\n  if _, err := io.Copy(os.Stdout, limitedReader); err != nil {\\n    log.Fatal(err)\\n  }\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_decompression_bomb",
+      "line_number": 40,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 40,
+        "end": 40,
+        "column": {
+          "start": 11,
+          "end": 43
+        }
+      },
+      "sink": {
+        "start": 40,
+        "end": 40,
+        "column": {
+          "start": 11,
+          "end": 43
+        },
+        "content": "io.CopyBuffer(os.Stdout, r, buf)"
+      },
+      "parent_line_number": 40,
+      "snippet": "io.CopyBuffer(os.Stdout, r, buf)",
+      "fingerprint": "2d4190d402514b2a6ed40a15b61c33ea_1",
+      "old_fingerprint": "b56cbf630ceb5b94f25b38725079b469_1",
+      "code_extract": "\\t_, err = io.CopyBuffer(os.Stdout, r, buf)"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_filesystem_decompression_bomb",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nDecompression bombs are a form of attack against an application or service that processes compressed files. The attacker crafts a compressed file that is small in size, but when decompressed, expands to a much larger size that is disproportionate to the original. This can exhaust system resources like CPU, memory, or disk space, leading to a Denial of Service (DoS).\\n\\n## Remediations\\n\\nImplement measures to mitigate the impact of decompression bombs:\\n\\n✅ Limit Decompression Size\\n\\nUse \`io.LimitReader\` to restrict the amount of data that a reader will decompress. This prevents the decompression of large files that could fill up memory or disk space.\\n\\n✅ Monitor Resource Usage\\n\\nImplement resource monitoring to watch for unexpected spikes in CPU, memory, or disk usage, which could indicate an attempted decompression bomb attack.\\n\\n✅ Input Validation\\n\\nValidate the size and type of the input before decompressing. If possible, reject files that do not meet expected criteria.\\n\\n✅ Fail Safely\\n\\nEnsure that your application can handle errors from the decompression process safely, without crashing or becoming unresponsive.\\n\\n✅ Regular Updates\\n\\nKeep compression libraries up to date with the latest security patches to protect against known vulnerabilities.\\n\\n✅ User Education\\n\\nEducate users about the risks of decompression bombs if they are able to upload compressed files.\\n\\n\`\`\`go\\nimport (\\n  \\"compress/gzip\\"\\n  \\"io\\"\\n  \\"log\\"\\n  \\"os\\"\\n)\\n\\nfunc main() {\\n  // Open the gzip file\\n  f, err := os.Open(\\"example.gz\\")\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  defer f.Close()\\n\\n  // Create a gzip reader on the file\\n  r, err := gzip.NewReader(f)\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  defer r.Close()\\n\\n  // Define a limit for decompression\\n  const maxDecompressSize = 10 * 1024 * 1024 // 10 MB\\n\\n  // Limit the size of the reader\\n  limitedReader := io.LimitReader(r, maxDecompressSize)\\n\\n  // Use the limited reader to decompress, preventing the decompression bomb from expanding fully\\n  if _, err := io.Copy(os.Stdout, limitedReader); err != nil {\\n    log.Fatal(err)\\n  }\\n}\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_decompression_bomb",
+      "line_number": 62,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 62,
+        "end": 62,
+        "column": {
+          "start": 12,
+          "end": 28
+        }
+      },
+      "sink": {
+        "start": 62,
+        "end": 62,
+        "column": {
+          "start": 12,
+          "end": 28
+        },
+        "content": "io.Copy(out, rc)"
+      },
+      "parent_line_number": 62,
+      "snippet": "io.Copy(out, rc)",
+      "fingerprint": "2d4190d402514b2a6ed40a15b61c33ea_2",
+      "old_fingerprint": "b56cbf630ceb5b94f25b38725079b469_2",
+      "code_extract": "\\t\\t_, err = io.Copy(out, rc)"
+    }
+  ]
+}"
+`;

@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_crypto_bad_tls_settings test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_crypto_bad_tls_settings",
+      "title": "Use of a broken or risky cryptographic algorithm",
+      "description": "## Description\\n\\nA security concern arises when a cryptographically insecure cipher suite is used in an application. Such cipher suites may be vulnerable to various types of attacks, reducing the security of the communication channel.\\n\\n## Remediation\\n\\nTo enhance the security of TLS connections, it is crucial to use up-to-date and secure cipher suites and protocols. Here are the recommended steps to ensure the use of secure ciphers:\\n\\n✅ Use Modern, Secure Cipher Suites\\n\\nSelect cipher suites that are known to be secure and have properties such as Perfect Forward Secrecy (PFS), which protects past communications even if future private keys are compromised.\\n\\n✅ Adopt TLS 1.3 Where Possible\\n\\nTLS 1.3 should be the preferred protocol as it includes improvements over previous versions, making it more secure against various attacks. Go's standard library will automatically prefer the most secure protocol and cipher suite available during the TLS handshake.\\n\\n✅ Configure TLS Properly If Using TLS 1.0-1.2\\n\\nIn cases where TLS 1.3 is not an option and you must use TLS 1.0-1.2, ensure to configure the cipher suites to use those that support PFS, as listed below.\\n\\n❌ Avoid Using Obsolete or Insecure Cipher Suites\\n\\nAvoid any cipher suites that do not support modern security standards, including those without PFS or with known vulnerabilities.\\n\\nThe provided Go code examples demonstrate how to configure the \`tls.Config\` struct for a Go server to use TLS 1.3 or to specify a list of secure cipher suites when using TLS 1.0-1.2.\\n\\n## Resources\\n\\n- [Mozilla's SSL Configuration Generator](https://ssl-config.mozilla.org/)\\n- [OWASP TLS Cipher String Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/TLS_Cipher_String_Cheat_Sheet.html)\\n- [RFC 8446 - The Transport Layer Security (TLS) Protocol Version 1.3](https://tools.ietf.org/html/rfc8446)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_bad_tls_settings",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 21,
+          "end": 137
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 21,
+          "end": 137
+        },
+        "content": "tls.Config{CipherSuites: []uint16{tls.TLS_RSA_WITH_AES_128_GCM_SHA256, tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256}}"
+      },
+      "parent_line_number": 11,
+      "snippet": "tls.Config{CipherSuites: []uint16{tls.TLS_RSA_WITH_AES_128_GCM_SHA256, tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256}}",
+      "fingerprint": "36c61f9e4fdfaf69e608c2e75308672a_0",
+      "old_fingerprint": "4a972d23a74fe461e2424501cdcbd9d0_0",
+      "code_extract": "\\t\\tTLSClientConfig: &tls.Config{CipherSuites: []uint16{tls.TLS_RSA_WITH_AES_128_GCM_SHA256, tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256}},"
+    },
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_crypto_bad_tls_settings",
+      "title": "Use of a broken or risky cryptographic algorithm",
+      "description": "## Description\\n\\nA security concern arises when a cryptographically insecure cipher suite is used in an application. Such cipher suites may be vulnerable to various types of attacks, reducing the security of the communication channel.\\n\\n## Remediation\\n\\nTo enhance the security of TLS connections, it is crucial to use up-to-date and secure cipher suites and protocols. Here are the recommended steps to ensure the use of secure ciphers:\\n\\n✅ Use Modern, Secure Cipher Suites\\n\\nSelect cipher suites that are known to be secure and have properties such as Perfect Forward Secrecy (PFS), which protects past communications even if future private keys are compromised.\\n\\n✅ Adopt TLS 1.3 Where Possible\\n\\nTLS 1.3 should be the preferred protocol as it includes improvements over previous versions, making it more secure against various attacks. Go's standard library will automatically prefer the most secure protocol and cipher suite available during the TLS handshake.\\n\\n✅ Configure TLS Properly If Using TLS 1.0-1.2\\n\\nIn cases where TLS 1.3 is not an option and you must use TLS 1.0-1.2, ensure to configure the cipher suites to use those that support PFS, as listed below.\\n\\n❌ Avoid Using Obsolete or Insecure Cipher Suites\\n\\nAvoid any cipher suites that do not support modern security standards, including those without PFS or with known vulnerabilities.\\n\\nThe provided Go code examples demonstrate how to configure the \`tls.Config\` struct for a Go server to use TLS 1.3 or to specify a list of secure cipher suites when using TLS 1.0-1.2.\\n\\n## Resources\\n\\n- [Mozilla's SSL Configuration Generator](https://ssl-config.mozilla.org/)\\n- [OWASP TLS Cipher String Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/TLS_Cipher_String_Cheat_Sheet.html)\\n- [RFC 8446 - The Transport Layer Security (TLS) Protocol Version 1.3](https://tools.ietf.org/html/rfc8446)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_bad_tls_settings",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 14,
+        "end": 16,
+        "column": {
+          "start": 12,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 16,
+        "column": {
+          "start": 12,
+          "end": 3
+        },
+        "content": "tls.CipherSuite{\\n\\t\\tID: tls.TLS_AES_128_GCM_SHA256,\\n\\t}"
+      },
+      "parent_line_number": 14,
+      "snippet": "tls.CipherSuite{\\n\\t\\tID: tls.TLS_AES_128_GCM_SHA256,\\n\\t}",
+      "fingerprint": "36c61f9e4fdfaf69e608c2e75308672a_1",
+      "old_fingerprint": "4a972d23a74fe461e2424501cdcbd9d0_1",
+      "code_extract": "\\tcipher := tls.CipherSuite{\\n\\t\\tID: tls.TLS_AES_128_GCM_SHA256,\\n\\t}"
+    }
+  ]
+}"
+`;

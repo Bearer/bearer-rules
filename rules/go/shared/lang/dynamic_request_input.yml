@@ -1,0 +1,61 @@
+type: shared
+imports:
+  - go_shared_lang_dynamic_input
+languages:
+  - go
+patterns:
+  - pattern: $<INPUT>
+    filters:
+      - variable: INPUT
+        detection: go_shared_lang_dynamic_input
+        scope: cursor_strict
+  - pattern: $<INPUT>
+    filters:
+      - variable: INPUT
+        detection: go_shared_lang_dymamic_request_input_input
+        scope: cursor_strict
+  - pattern: $<READER>.ReadString()
+    filters:
+      - variable: READER
+        detection: go_shared_lang_dynamic_request_input_reader
+        scope: cursor
+auxiliary:
+  - id: go_shared_lang_dymamic_request_input_input
+    patterns:
+      - pattern: $<QUERY>.$<_>()
+        filters:
+          - variable: QUERY
+            detection: go_shared_lang_dynamic_request_input_query
+            scope: cursor
+  - id: go_shared_lang_dynamic_request_input_reader
+    patterns:
+      - pattern: bufio.NewReader($<INPUT>)
+        filters:
+          - variable: INPUT
+            detection: go_shared_lang_dymamic_request_input_input
+            scope: result
+  - id: go_shared_lang_dynamic_request_input_query
+    patterns:
+      - pattern: $<REQUEST_URL>.Query()
+        filters:
+          - variable: REQUEST_URL
+            detection: go_shared_lang_dynamic_request_input_request_url
+            scope: cursor
+  - id: go_shared_lang_dynamic_request_input_request_url
+    patterns:
+      - pattern: $<REQUEST>.URL
+        filters:
+          - variable: REQUEST
+            detection: go_shared_lang_dynamic_request_input_request
+            scope: cursor
+  - id: go_shared_lang_dynamic_request_input_request
+    patterns:
+      - func($<...>$<!>$<_> *http.Request$<...>) {}
+      - func ($<...>$<!>$<_> http.Request$<...>) {}
+      - func $<_>($<...>$<!>$<_> *http.Request$<...>) {}
+      - func $<_>($<...>$<!>$<_> http.Request$<...>) {}
+      - var $<!>$<_> *http.Request
+      - var $<!>$<_> http.Request
+metadata:
+  description: "Go dynamic request input."
+  id: go_shared_lang_dynamic_request_input

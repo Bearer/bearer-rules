@@ -1,0 +1,109 @@
+imports:
+  - go_shared_lang_dynamic_request_input
+patterns:
+  - pattern: |
+      $<DB>.Query($<INPUT>)
+    filters:
+      - variable: INPUT
+        detection: go_gosec_sql_concat_sqli_sanitized_input
+      - not:
+          variable: INPUT
+          detection: go_gosec_sql_concat_sqli_input_sprintf_sanitizer
+      - either:
+          - variable: DB
+            detection: go_gosec_sql_concat_sqli_sql_open
+            scope: cursor
+          - variable: DB
+            detection: go_gosec_sql_concat_sqli_sql_db_begin
+            scope: cursor
+  - pattern: |
+      $<DB>.QueryContext($<...>$<INPUT>)
+    filters:
+      - variable: INPUT
+        detection: go_gosec_sql_concat_sqli_sanitized_input
+      - either:
+          - variable: DB
+            detection: go_gosec_sql_concat_sqli_sql_open
+            scope: cursor
+          - variable: DB
+            detection: go_gosec_sql_concat_sqli_sql_db_begin
+            scope: cursor
+auxiliary:
+  - id: go_gosec_sql_concat_sqli_input_sprintf_sanitizer
+    patterns:
+      - pattern: fmt.Sprintf($<STRING>$<...>)
+        filters:
+          - variable: STRING
+            string_regex: (SELECT|DELETE|INSERT|UPDATE|INTO|FROM|WHERE).*%[bdoxXfFp].*
+  - id: go_gosec_sql_concat_sqli_input_sanitizer
+    patterns:
+      - pattern: $<_>.QuoteIdentifier($<!>$<_>)
+  - id: go_gosec_sql_concat_sqli_sanitized_input
+    sanitizer: go_gosec_sql_concat_sqli_input_sanitizer
+    patterns:
+      - pattern: $<INPUT>
+        filters:
+          - variable: INPUT
+            detection: go_shared_lang_dynamic_request_input
+            scope: cursor
+  - id: go_gosec_sql_concat_sqli_sql_db_begin
+    patterns:
+      - pattern: $<SQL>.Begin()
+        filters:
+          - variable: SQL
+            detection: go_gosec_sql_concat_sqli_sql_open
+            scope: cursor
+  - id: go_gosec_sql_concat_sqli_sql_open
+    patterns:
+      - pattern: $<SQL>.Open()
+        filters:
+          - variable: SQL
+            detection: go_gosec_sql_concat_sqli_sql_init
+            scope: cursor
+  - id: go_gosec_sql_concat_sqli_sql_init
+    patterns:
+      - pattern: import $<!>"database/sql"
+      - pattern: |
+          import (
+            $<!>"database/sql"
+          )
+languages:
+  - go
+severity: high
+metadata:
+  description: "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+  remediation_message: |
+    ## Description
+
+    SQL Injection represents a severe vulnerability that can culminate in the compromise of data or entire systems. When SQL query strings are crafted dynamically based on user inputs, there's potential for malicious users to manipulate the logic of the SQL statement. Such tampering could provide adversaries unauthorized access to sensitive data or even allow them to execute system-level operations or code.
+
+    ## Remediations
+
+    ✅ Use Parameterized Queries
+
+    Always opt for parameterized queries over dynamically generated SQL queries to prevent SQL injection.
+
+    ```go
+    rows, err := db.Query("SELECT * FROM users WHERE userName = ?", userName)
+    if err != nil {
+        return nil, err
+    }
+    defer rows.Close()
+    for rows.Next() {
+      // ... process rows
+    }
+    ```
+
+    ✅ Avoid Direct User Input in Dynamic Queries
+
+    If there's an absolute need to formulate dynamic queries, ensure that direct user input is never utilized. Instead, leverage a map or dictionary containing valid values and determine them through a user-provided key.
+
+    For instance, certain database drivers do not support parameterized queries for operators like `>` or `<`. Instead of directly using user-input values, allow users to provide substitutes like `gt` for `>` and `lt` for `<`. Subsequently, use these alphabetical inputs to retrieve the actual operators for your query. Implement a similar approach for queries requiring non-parameterizable column or table names.
+
+    ## Resources
+
+    - [OWASP SQL Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+  cwe_id:
+    - 89
+  id: go_gosec_sql_concat_sqli
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_sql_concat_sqli

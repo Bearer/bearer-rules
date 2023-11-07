@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_filesystem_tempfile test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "378"
+      ],
+      "id": "go_gosec_filesystem_tempfile",
+      "title": "Incorrect default permissions",
+      "description": "## Description\\n\\nThe application has been observed creating files in shared system temporary directories, such as \`/tmp\` or \`/var/tmp\`, without the use of secure functions like \`os.CreateTemp\`. This practice is insecure because it opens up the possibility of symlink attacks, where an attacker could anticipate the temporary file name and create a symlink to a target file, leading to unauthorized file creation or overwriting when the application writes to what it believes is a temporary file.\\n\\n## Remediations\\n\\nTo prevent symlink attacks and other vulnerabilities associated with the use of shared temporary directories:\\n\\n✅ Use Secure Temporary File Creation\\n\\nImplement \`os.CreateTemp\` to safely create temporary files within a directory that's restricted to the application. This reduces the risk of symlink attacks and ensures that temporary files are handled securely.\\n\\n\`\`\`go\\nimport (\\n    \\"os\\"\\n    \\"log\\"\\n)\\n\\nfunc main() {\\n    // Ensure the application-restricted directory exists with appropriate permissions\\n    restrictedDir := \\"/opt/appdir/restricted\\"\\n    if err := os.MkdirAll(restrictedDir, 0700); err != nil {\\n        log.Fatalf(\\"failed to create restricted directory: %s\\", err)\\n    }\\n\\n    // Securely create a temporary file within the restricted directory\\n    f, err := os.CreateTemp(restrictedDir, \\"temp-*.txt\\")\\n    if err != nil {\\n        log.Fatalf(\\"failed to create temporary file: %s\\", err)\\n    }\\n    defer f.Close() // Ensure the file is closed when no longer needed\\n\\n    defer os.Remove(f.Name()) // Clean up the file upon exit\\n    // Continue working with the temporary file\\n}\\n\`\`\`\\n\\n✅ Avoid Shared Temporary Directories for Sensitive Operations\\n\\nDo not use common temporary directories for storing sensitive information or for operations that require secure handling of files.\\n\\n✅ Clean Up After Use\\n\\nAlways remove temporary files after their use to prevent accumulation and potential misuse.\\n\\n## Resources\\n\\n- [Go Documentation: os.CreateTemp](https://pkg.go.dev/os#CreateTemp)\\n- [Secure Coding Guidelines for File I/O](https://wiki.sei.cmu.edu/confluence/display/seccode/TOCTOU+Race+Conditions)\\n- [OWASP Guide to File System Security](https://owasp.org/www-community/controls/Path_Traversal)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_tempfile",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 9,
+          "end": 74
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 9,
+          "end": 74
+        },
+        "content": "ioutil.WriteFile(\\"/tmp/demo2\\", []byte(\\"This is some data\\"), 0644)"
+      },
+      "parent_line_number": 11,
+      "snippet": "ioutil.WriteFile(\\"/tmp/demo2\\", []byte(\\"This is some data\\"), 0644)",
+      "fingerprint": "6ecf2eddbc7c43a01ece9577a34e9e61_0",
+      "old_fingerprint": "e8eb39c1772c573d1ca552003803ccbb_0",
+      "code_extract": "\\terr := ioutil.WriteFile(\\"/tmp/demo2\\", []byte(\\"This is some data\\"), 0644)"
+    },
+    {
+      "cwe_ids": [
+        "378"
+      ],
+      "id": "go_gosec_filesystem_tempfile",
+      "title": "Incorrect default permissions",
+      "description": "## Description\\n\\nThe application has been observed creating files in shared system temporary directories, such as \`/tmp\` or \`/var/tmp\`, without the use of secure functions like \`os.CreateTemp\`. This practice is insecure because it opens up the possibility of symlink attacks, where an attacker could anticipate the temporary file name and create a symlink to a target file, leading to unauthorized file creation or overwriting when the application writes to what it believes is a temporary file.\\n\\n## Remediations\\n\\nTo prevent symlink attacks and other vulnerabilities associated with the use of shared temporary directories:\\n\\n✅ Use Secure Temporary File Creation\\n\\nImplement \`os.CreateTemp\` to safely create temporary files within a directory that's restricted to the application. This reduces the risk of symlink attacks and ensures that temporary files are handled securely.\\n\\n\`\`\`go\\nimport (\\n    \\"os\\"\\n    \\"log\\"\\n)\\n\\nfunc main() {\\n    // Ensure the application-restricted directory exists with appropriate permissions\\n    restrictedDir := \\"/opt/appdir/restricted\\"\\n    if err := os.MkdirAll(restrictedDir, 0700); err != nil {\\n        log.Fatalf(\\"failed to create restricted directory: %s\\", err)\\n    }\\n\\n    // Securely create a temporary file within the restricted directory\\n    f, err := os.CreateTemp(restrictedDir, \\"temp-*.txt\\")\\n    if err != nil {\\n        log.Fatalf(\\"failed to create temporary file: %s\\", err)\\n    }\\n    defer f.Close() // Ensure the file is closed when no longer needed\\n\\n    defer os.Remove(f.Name()) // Clean up the file upon exit\\n    // Continue working with the temporary file\\n}\\n\`\`\`\\n\\n✅ Avoid Shared Temporary Directories for Sensitive Operations\\n\\nDo not use common temporary directories for storing sensitive information or for operations that require secure handling of files.\\n\\n✅ Clean Up After Use\\n\\nAlways remove temporary files after their use to prevent accumulation and potential misuse.\\n\\n## Resources\\n\\n- [Go Documentation: os.CreateTemp](https://pkg.go.dev/os#CreateTemp)\\n- [Secure Coding Guidelines for File I/O](https://wiki.sei.cmu.edu/confluence/display/seccode/TOCTOU+Race+Conditions)\\n- [OWASP Guide to File System Security](https://owasp.org/www-community/controls/Path_Traversal)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_tempfile",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 9,
+          "end": 70
+        }
+      },
+      "sink": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 9,
+          "end": 70
+        },
+        "content": "os.WriteFile(\\"/tmp/demo2\\", []byte(\\"This is some data\\"), 0644)"
+      },
+      "parent_line_number": 18,
+      "snippet": "os.WriteFile(\\"/tmp/demo2\\", []byte(\\"This is some data\\"), 0644)",
+      "fingerprint": "6ecf2eddbc7c43a01ece9577a34e9e61_1",
+      "old_fingerprint": "e8eb39c1772c573d1ca552003803ccbb_1",
+      "code_extract": "\\terr := os.WriteFile(\\"/tmp/demo2\\", []byte(\\"This is some data\\"), 0644)"
+    },
+    {
+      "cwe_ids": [
+        "378"
+      ],
+      "id": "go_gosec_filesystem_tempfile",
+      "title": "Incorrect default permissions",
+      "description": "## Description\\n\\nThe application has been observed creating files in shared system temporary directories, such as \`/tmp\` or \`/var/tmp\`, without the use of secure functions like \`os.CreateTemp\`. This practice is insecure because it opens up the possibility of symlink attacks, where an attacker could anticipate the temporary file name and create a symlink to a target file, leading to unauthorized file creation or overwriting when the application writes to what it believes is a temporary file.\\n\\n## Remediations\\n\\nTo prevent symlink attacks and other vulnerabilities associated with the use of shared temporary directories:\\n\\n✅ Use Secure Temporary File Creation\\n\\nImplement \`os.CreateTemp\` to safely create temporary files within a directory that's restricted to the application. This reduces the risk of symlink attacks and ensures that temporary files are handled securely.\\n\\n\`\`\`go\\nimport (\\n    \\"os\\"\\n    \\"log\\"\\n)\\n\\nfunc main() {\\n    // Ensure the application-restricted directory exists with appropriate permissions\\n    restrictedDir := \\"/opt/appdir/restricted\\"\\n    if err := os.MkdirAll(restrictedDir, 0700); err != nil {\\n        log.Fatalf(\\"failed to create restricted directory: %s\\", err)\\n    }\\n\\n    // Securely create a temporary file within the restricted directory\\n    f, err := os.CreateTemp(restrictedDir, \\"temp-*.txt\\")\\n    if err != nil {\\n        log.Fatalf(\\"failed to create temporary file: %s\\", err)\\n    }\\n    defer f.Close() // Ensure the file is closed when no longer needed\\n\\n    defer os.Remove(f.Name()) // Clean up the file upon exit\\n    // Continue working with the temporary file\\n}\\n\`\`\`\\n\\n✅ Avoid Shared Temporary Directories for Sensitive Operations\\n\\nDo not use common temporary directories for storing sensitive information or for operations that require secure handling of files.\\n\\n✅ Clean Up After Use\\n\\nAlways remove temporary files after their use to prevent accumulation and potential misuse.\\n\\n## Resources\\n\\n- [Go Documentation: os.CreateTemp](https://pkg.go.dev/os#CreateTemp)\\n- [Secure Coding Guidelines for File I/O](https://wiki.sei.cmu.edu/confluence/display/seccode/TOCTOU+Race+Conditions)\\n- [OWASP Guide to File System Security](https://owasp.org/www-community/controls/Path_Traversal)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_tempfile",
+      "line_number": 26,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 26,
+        "end": 26,
+        "column": {
+          "start": 9,
+          "end": 62
+        }
+      },
+      "sink": {
+        "start": 26,
+        "end": 26,
+        "column": {
+          "start": 9,
+          "end": 62
+        },
+        "content": "os.WriteFile(path, []byte(\\"This is some data\\"), 0644)"
+      },
+      "parent_line_number": 26,
+      "snippet": "os.WriteFile(path, []byte(\\"This is some data\\"), 0644)",
+      "fingerprint": "6ecf2eddbc7c43a01ece9577a34e9e61_2",
+      "old_fingerprint": "e8eb39c1772c573d1ca552003803ccbb_2",
+      "code_extract": "\\terr := os.WriteFile(path, []byte(\\"This is some data\\"), 0644)"
+    }
+  ]
+}"
+`;

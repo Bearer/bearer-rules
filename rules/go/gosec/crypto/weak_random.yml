@@ -1,0 +1,92 @@
+patterns:
+  - pattern: $<RAND>.$<METHOD>()
+    filters:
+      - variable: METHOD
+        values:
+          - Float32
+          - Float64
+          - Int31
+          - Int
+          - Intn
+          - Int31n
+          - Int63
+          - Int63n
+          - NormalFloat64
+          - Uint32
+          - Uint64
+      - either:
+          - variable: RAND
+            detection: go_gosec_crypto_weak_random_init
+            scope: cursor
+          - variable: RAND
+            detection: go_gosec_crypto_weak_random_import
+            scope: cursor
+auxiliary:
+  - id: go_gosec_crypto_weak_random_import
+    patterns:
+      - pattern: import $<!>"math/rand"
+      - pattern: |
+          import (
+            $<!>"math/rand"
+          )
+  - id: go_gosec_crypto_weak_random_init
+    patterns:
+      - pattern: $<RAND>.New()
+        filters:
+          - variable: RAND
+            detection: go_gosec_crypto_weak_random_import
+            scope: cursor
+languages:
+  - go
+metadata:
+  description: "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)"
+  remediation_message: |
+    ## Description
+
+    The `math/rand` package in Go is designed for generating pseudorandom numbers, which are not secure for cryptographic purposes. These numbers are predictable if the seed is known, which could compromise the security of applications using them for secrets, tokens, or other security-sensitive features.
+
+    ## Remediations
+
+    To securely generate random numbers in a security-sensitive context, implement the following measures:
+
+    ✅ Use Cryptographically Secure Randomness
+
+    Replace the use of `math/rand` with `crypto/rand` to ensure that the random numbers generated are suitable for cryptographic use and are not predictable.
+
+    ```go
+    import (
+      "crypto/rand"
+      "log"
+      "math/big"
+    )
+
+    func generateSecureRandomNumber() *big.Int {
+      // Generate a cryptographically secure random number
+      randomNumber, err := rand.Int(rand.Reader, big.NewInt(1<<62))
+      if err != nil {
+        log.Fatalf("Failed to generate a secure random number: %v", err)
+      }
+      return randomNumber
+    }
+    ```
+
+    ✅ Audit Existing Code
+
+    Review your codebase for instances where `math/rand` is used in security-sensitive contexts and update them to use `crypto/rand`.
+
+    ❌ Do Not Use Predictable Seeds
+
+    Avoid initializing `math/rand` with predictable seeds, such as timestamps or other easily guessable values, especially in a security context.
+
+    ❌ Don't Use for Security Purposes
+
+    Never rely on `math/rand` for generating random numbers in cryptographic applications, like key generation, authentication tokens, or any form of security challenge.
+
+    ## Resources
+
+    - [crypto/rand package documentation](https://pkg.go.dev/crypto/rand)
+
+  cwe_id:
+    - 338
+  id: go_gosec_crypto_weak_random
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_random

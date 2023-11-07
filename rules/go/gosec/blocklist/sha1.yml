@@ -1,0 +1,43 @@
+patterns:
+  - pattern: |
+      import "crypto/sha1"
+  - pattern: |
+      import (
+        "crypto/sha1"
+      )
+languages:
+  - go
+metadata:
+  description: "Use of a Broken or Risky Cryptographic Algorithm"
+  remediation_message: |
+    ## Description
+
+    The SHA-1 hashing algorithm is no longer considered secure against well-funded attackers. It is vulnerable to collision attacks, which means it's possible to generate two different inputs that result in the same SHA-1 hash, undermining the hash's uniqueness and security. Due to these vulnerabilities, it is advised to discontinue using SHA-1 for cryptographic security.
+
+    ## Remediation
+
+    When choosing a hashing algorithm for cryptographic purposes, it's important to select one that is resistant to collisions and other attack vectors. SHA-3 and BLAKE2 are both excellent choices for non-password-based hashing requirements due to their strong cryptographic properties.
+
+    ✅ For General Hashing Needs, Use SHA-3 or BLAKE2
+
+    Choose SHA-3 or BLAKE2 for their resistance to known hash attack vectors, ensuring the integrity and uniqueness of your data fingerprints.
+
+    ✅ For Password Hashing, Prefer bcrypt or Argon2id
+
+    For password hashing specifically, bcrypt or Argon2id are recommended. These algorithms are designed to be computationally intensive, which helps protect against brute-force attacks.
+
+    ❌ Discontinue Using SHA-1 for Security Purposes
+
+    Given its vulnerabilities, avoid using SHA-1 in any security context to prevent potential collision attacks.
+
+    The code snippet provided is unrelated to the hashing algorithms and seems to be a continuation of the previous examples for encryption with AES-256. Ensure your hashing and encryption strategies are correctly implemented as per their intended use-cases.
+
+    ## Resources
+
+    - [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)
+    - [NIST Policy on Hash Functions](https://csrc.nist.gov/projects/hash-functions)
+
+  cwe_id:
+    - 327
+  id: go_gosec_blocklist_sha1
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_blocklist_sha1

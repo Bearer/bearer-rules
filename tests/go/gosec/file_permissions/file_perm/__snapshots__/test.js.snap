@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_file_permissions_file_perm test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "732"
+      ],
+      "id": "go_gosec_file_permissions_file_perm",
+      "title": "Incorrect permission assignment for critical resource",
+      "description": "## Description\\n\\nWhen creating or updating files, ensuring proper file permissions is crucial to maintain security. Overly permissive file settings can allow unauthorized users to read, modify, or execute files, which could lead to information disclosure, data tampering, or compromise of the system.\\n\\n## Remediations\\n\\nTo prevent unauthorized access, it's important to set restrictive file permissions, particularly when sensitive data is involved. Here's how to manage file permissions in Go:\\n\\n✅ Restrict File Permissions\\n\\nSet file permissions to allow only the necessary access level for the application. Avoid using permissions like \`0777\`, which allows read, write, and execute permissions for all users.\\n\\n✅ Use Go’s \`os\` Package\\n\\nUtilize the \`os.OpenFile\` function with the appropriate file permission flags.\\n\\n✅ Recommended File Permissions\\n\\n- \`0400\` grants read-only access to the file's owner.\\n- \`0200\` grants write-only access to the file's owner.\\n- \`0600\` grants read and write access to the file's owner and is commonly used for files that need to be both read from and written to by the application.\\n\\n\`\`\`go\\nimport (\\n  \\"log\\"\\n  \\"os\\"\\n)\\n\\nfunc main() {\\n  // Use os.OpenFile to create a file with restricted permissions\\n  // 0600 permission: Read and write for the owner, no permissions for others\\n  f, err := os.OpenFile(\\"file.txt\\", os.O_CREATE|os.O_WRONLY, 0600)\\n  if err != nil {\\n    log.Fatalf(\\"failed to create file: %s\\", err)\\n  }\\n  defer f.Close()\\n  // Continue to work with the file here\\n}\\n\`\`\`\\n\\n✅ Verify File Permissions\\n\\nAfter file creation, check the file permissions to ensure they are set correctly.\\n\\n✅ Secure Default Permissions\\n\\nIf you are developing an application that creates multiple files, consider setting umask in your application to a secure default.\\n\\n✅ Review File Permission Settings\\n\\nRegularly audit file permissions to ensure they adhere to the principle of least privilege.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_file_permissions_file_perm",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 9,
+          "end": 40
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 9,
+          "end": 40
+        },
+        "content": "os.Chmod(\\"/tmp/somefile\\", 0777)"
+      },
+      "parent_line_number": 10,
+      "snippet": "os.Chmod(\\"/tmp/somefile\\", 0777)",
+      "fingerprint": "209f59925365847834972fad1f6b8239_0",
+      "old_fingerprint": "d7910697f643b646416f0860cd20d867_0",
+      "code_extract": "\\terr := os.Chmod(\\"/tmp/somefile\\", 0777) // detected"
+    },
+    {
+      "cwe_ids": [
+        "732"
+      ],
+      "id": "go_gosec_file_permissions_file_perm",
+      "title": "Incorrect permission assignment for critical resource",
+      "description": "## Description\\n\\nWhen creating or updating files, ensuring proper file permissions is crucial to maintain security. Overly permissive file settings can allow unauthorized users to read, modify, or execute files, which could lead to information disclosure, data tampering, or compromise of the system.\\n\\n## Remediations\\n\\nTo prevent unauthorized access, it's important to set restrictive file permissions, particularly when sensitive data is involved. Here's how to manage file permissions in Go:\\n\\n✅ Restrict File Permissions\\n\\nSet file permissions to allow only the necessary access level for the application. Avoid using permissions like \`0777\`, which allows read, write, and execute permissions for all users.\\n\\n✅ Use Go’s \`os\` Package\\n\\nUtilize the \`os.OpenFile\` function with the appropriate file permission flags.\\n\\n✅ Recommended File Permissions\\n\\n- \`0400\` grants read-only access to the file's owner.\\n- \`0200\` grants write-only access to the file's owner.\\n- \`0600\` grants read and write access to the file's owner and is commonly used for files that need to be both read from and written to by the application.\\n\\n\`\`\`go\\nimport (\\n  \\"log\\"\\n  \\"os\\"\\n)\\n\\nfunc main() {\\n  // Use os.OpenFile to create a file with restricted permissions\\n  // 0600 permission: Read and write for the owner, no permissions for others\\n  f, err := os.OpenFile(\\"file.txt\\", os.O_CREATE|os.O_WRONLY, 0600)\\n  if err != nil {\\n    log.Fatalf(\\"failed to create file: %s\\", err)\\n  }\\n  defer f.Close()\\n  // Continue to work with the file here\\n}\\n\`\`\`\\n\\n✅ Verify File Permissions\\n\\nAfter file creation, check the file permissions to ensure they are set correctly.\\n\\n✅ Secure Default Permissions\\n\\nIf you are developing an application that creates multiple files, consider setting umask in your application to a secure default.\\n\\n✅ Review File Permission Settings\\n\\nRegularly audit file permissions to ensure they adhere to the principle of least privilege.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_file_permissions_file_perm",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 12,
+          "end": 68
+        }
+      },
+      "sink": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 12,
+          "end": 68
+        },
+        "content": "os.OpenFile(\\"/tmp/thing\\", os.O_CREATE|os.O_WRONLY, 0666)"
+      },
+      "parent_line_number": 18,
+      "snippet": "os.OpenFile(\\"/tmp/thing\\", os.O_CREATE|os.O_WRONLY, 0666)",
+      "fingerprint": "209f59925365847834972fad1f6b8239_1",
+      "old_fingerprint": "d7910697f643b646416f0860cd20d867_1",
+      "code_extract": "\\t_, err := os.OpenFile(\\"/tmp/thing\\", os.O_CREATE|os.O_WRONLY, 0666) // detected"
+    },
+    {
+      "cwe_ids": [
+        "732"
+      ],
+      "id": "go_gosec_file_permissions_file_perm",
+      "title": "Incorrect permission assignment for critical resource",
+      "description": "## Description\\n\\nWhen creating or updating files, ensuring proper file permissions is crucial to maintain security. Overly permissive file settings can allow unauthorized users to read, modify, or execute files, which could lead to information disclosure, data tampering, or compromise of the system.\\n\\n## Remediations\\n\\nTo prevent unauthorized access, it's important to set restrictive file permissions, particularly when sensitive data is involved. Here's how to manage file permissions in Go:\\n\\n✅ Restrict File Permissions\\n\\nSet file permissions to allow only the necessary access level for the application. Avoid using permissions like \`0777\`, which allows read, write, and execute permissions for all users.\\n\\n✅ Use Go’s \`os\` Package\\n\\nUtilize the \`os.OpenFile\` function with the appropriate file permission flags.\\n\\n✅ Recommended File Permissions\\n\\n- \`0400\` grants read-only access to the file's owner.\\n- \`0200\` grants write-only access to the file's owner.\\n- \`0600\` grants read and write access to the file's owner and is commonly used for files that need to be both read from and written to by the application.\\n\\n\`\`\`go\\nimport (\\n  \\"log\\"\\n  \\"os\\"\\n)\\n\\nfunc main() {\\n  // Use os.OpenFile to create a file with restricted permissions\\n  // 0600 permission: Read and write for the owner, no permissions for others\\n  f, err := os.OpenFile(\\"file.txt\\", os.O_CREATE|os.O_WRONLY, 0600)\\n  if err != nil {\\n    log.Fatalf(\\"failed to create file: %s\\", err)\\n  }\\n  defer f.Close()\\n  // Continue to work with the file here\\n}\\n\`\`\`\\n\\n✅ Verify File Permissions\\n\\nAfter file creation, check the file permissions to ensure they are set correctly.\\n\\n✅ Secure Default Permissions\\n\\nIf you are developing an application that creates multiple files, consider setting umask in your application to a secure default.\\n\\n✅ Review File Permission Settings\\n\\nRegularly audit file permissions to ensure they adhere to the principle of least privilege.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_file_permissions_file_perm",
+      "line_number": 43,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 43,
+        "end": 43,
+        "column": {
+          "start": 12,
+          "end": 82
+        }
+      },
+      "sink": {
+        "start": 43,
+        "end": 43,
+        "column": {
+          "start": 12,
+          "end": 82
+        },
+        "content": "os.OpenFile(\\"/tmp/thing\\", os.O_CREATE|os.O_WRONLY, fs.FileMode(perms))"
+      },
+      "parent_line_number": 43,
+      "snippet": "os.OpenFile(\\"/tmp/thing\\", os.O_CREATE|os.O_WRONLY, fs.FileMode(perms))",
+      "fingerprint": "209f59925365847834972fad1f6b8239_2",
+      "old_fingerprint": "d7910697f643b646416f0860cd20d867_2",
+      "code_extract": "\\t_, err := os.OpenFile(\\"/tmp/thing\\", os.O_CREATE|os.O_WRONLY, fs.FileMode(perms)) // detected"
+    },
+    {
+      "cwe_ids": [
+        "732"
+      ],
+      "id": "go_gosec_file_permissions_file_perm",
+      "title": "Incorrect permission assignment for critical resource",
+      "description": "## Description\\n\\nWhen creating or updating files, ensuring proper file permissions is crucial to maintain security. Overly permissive file settings can allow unauthorized users to read, modify, or execute files, which could lead to information disclosure, data tampering, or compromise of the system.\\n\\n## Remediations\\n\\nTo prevent unauthorized access, it's important to set restrictive file permissions, particularly when sensitive data is involved. Here's how to manage file permissions in Go:\\n\\n✅ Restrict File Permissions\\n\\nSet file permissions to allow only the necessary access level for the application. Avoid using permissions like \`0777\`, which allows read, write, and execute permissions for all users.\\n\\n✅ Use Go’s \`os\` Package\\n\\nUtilize the \`os.OpenFile\` function with the appropriate file permission flags.\\n\\n✅ Recommended File Permissions\\n\\n- \`0400\` grants read-only access to the file's owner.\\n- \`0200\` grants write-only access to the file's owner.\\n- \`0600\` grants read and write access to the file's owner and is commonly used for files that need to be both read from and written to by the application.\\n\\n\`\`\`go\\nimport (\\n  \\"log\\"\\n  \\"os\\"\\n)\\n\\nfunc main() {\\n  // Use os.OpenFile to create a file with restricted permissions\\n  // 0600 permission: Read and write for the owner, no permissions for others\\n  f, err := os.OpenFile(\\"file.txt\\", os.O_CREATE|os.O_WRONLY, 0600)\\n  if err != nil {\\n    log.Fatalf(\\"failed to create file: %s\\", err)\\n  }\\n  defer f.Close()\\n  // Continue to work with the file here\\n}\\n\`\`\`\\n\\n✅ Verify File Permissions\\n\\nAfter file creation, check the file permissions to ensure they are set correctly.\\n\\n✅ Secure Default Permissions\\n\\nIf you are developing an application that creates multiple files, consider setting umask in your application to a secure default.\\n\\n✅ Review File Permission Settings\\n\\nRegularly audit file permissions to ensure they adhere to the principle of least privilege.\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_file_permissions_file_perm",
+      "line_number": 51,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 51,
+        "end": 51,
+        "column": {
+          "start": 9,
+          "end": 50
+        }
+      },
+      "sink": {
+        "start": 51,
+        "end": 51,
+        "column": {
+          "start": 9,
+          "end": 50
+        },
+        "content": "os.WriteFile(\\"/tmp/thing\\", content, 0666)"
+      },
+      "parent_line_number": 51,
+      "snippet": "os.WriteFile(\\"/tmp/thing\\", content, 0666)",
+      "fingerprint": "209f59925365847834972fad1f6b8239_3",
+      "old_fingerprint": "d7910697f643b646416f0860cd20d867_3",
+      "code_extract": "\\terr := os.WriteFile(\\"/tmp/thing\\", content, 0666) // detected"
+    }
+  ]
+}"
+`;

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gosec_blocklist_des test 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "327"
+      ],
+      "id": "go_gosec_blocklist_des",
+      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "## Description\\n\\nThe Data Encryption Standard (DES) is an outdated symmetric-key algorithm for encryption. Officially deemed insecure and no longer recommended for use, DES was withdrawn by the National Institute of Standards and Technology (NIST) as a standard in 2005, primarily because of its 56-bit key size, which is vulnerable to brute-force attacks.\\n\\n## Remediation\\n\\nTo ensure the confidentiality and integrity of sensitive data, it is crucial to utilize a modern and secure encryption algorithm. The use of Advanced Encryption Standard (AES) with a key size of 256 bits (AES-256) is recommended for its strong security properties and widespread acceptance as a replacement for DES.\\n\\n✅ Implement AES-256 for Strong Encryption\\n\\n\`\`\`go\\n// Use AES-256 for secure encryption by initializing a 32-byte key for AES-256\\nkey := make([]byte, 32)\\nif _, err := io.ReadFull(rand.Reader, key); err != nil {\\n  log.Fatal(err)\\n}\\n\\n// Create a new cipher block from the key\\nblockCipher, err := aes.NewCipher(key)\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\n// Use Galois/Counter Mode (GCM) for both encryption and decryption\\naead, err := cipher.NewGCM(blockCipher)\\nif err != nil {\\n  log.Fatal(err)\\n}\\n\\nvar encrypted = []byte{}\\nvar nonce = []byte{}\\n\\n// Encrypt a message with AES-256 using GCM\\n{\\n  msg := []byte(\\"Some secret message\\")\\n  // Ensure nonces are unique for each encryption to maintain security\\n  nonce = make([]byte, 12)\\n  if _, err := io.ReadFull(rand.Reader, nonce); err != nil {\\n    log.Fatal(err)\\n  }\\n  encrypted = aead.Seal(nil, nonce, msg, nil)\\n}\\n\\n// Decrypt the message securely\\n{\\n  msg, err := aead.Open(nil, nonce, encrypted, nil)\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  fmt.Printf(\\"Decrypted: %s\\\\n\\", msg)\\n}\\n\`\`\`\\n\\n❌ Do Not Use Deprecated Algorithms\\nAvoid using deprecated cryptographic algorithms such as DES, as they do not provide adequate security against modern threats and attacks.\\n\\n## Resources\\n\\n- [NIST Recommendations](https://csrc.nist.gov/publications/detail/sp/800-131a/rev-2/final)\\n- [AES-256 Encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_blocklist_des",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/main.go",
+      "filename": ".",
+      "source": {
+        "start": 3,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 2
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 2
+        },
+        "content": "import (\\n\\t\\"crypto/des\\"\\n\\t\\"fmt\\"\\n)"
+      },
+      "parent_line_number": 3,
+      "snippet": "import (\\n\\t\\"crypto/des\\"\\n\\t\\"fmt\\"\\n)",
+      "fingerprint": "5701c2af30f4ca2aaf2cb0bff61be1be_0",
+      "old_fingerprint": "c8850e419b899cc93c57917fbacacbf4_0",
+      "code_extract": "import (\\n\\t\\"crypto/des\\"\\n\\t\\"fmt\\"\\n)"
+    }
+  ]
+}"
+`;

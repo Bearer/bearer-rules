@@ -1,0 +1,61 @@
+patterns:
+  - pattern: $<PACKAGE>.Listen($<...>$<ADDR>)
+    filters:
+      - variable: PACKAGE
+        values:
+          - net
+          - tls
+      - variable: ADDR
+        regex: 0\.0\.0\.0:[0-9]+
+languages:
+  - go
+metadata:
+  description: "Exposure of sensitive information to an unauthorized actor"
+  remediation_message: |
+    ## Description
+
+    Binding to "0.0.0.0" allows a service to accept connections on all network interfaces. While this can be useful for services meant to be widely accessible, it can also unintentionally expose the service on network interfaces that are not secure or intended for such traffic, potentially leading to security vulnerabilities.
+
+    ## Remediations
+
+    To mitigate the risks associated with binding to all network interfaces:
+
+    ✅ Bind to a Specific Interface
+
+    Configure your service to listen on a specific IP address or network interface. This can be controlled through:
+
+    - **Environment Variable**: Use an environment variable to specify the IP address, making the configuration more flexible and secure.
+    - **Configuration File**: Define the IP address in a configuration file which the application reads at startup.
+    - **Programmatic Identification**: Programmatically determine the appropriate network interface and bind the service to its IP address.
+
+    ```go
+    import (
+        "net"
+        "os"
+        "log"
+    )
+
+    func main() {
+        // Retrieve the IP address from an environment variable
+        addr := os.Getenv("IP_ADDRESS")
+
+        // Listen on the specified interface
+        listener, err := net.Listen("tcp", addr)
+        if err != nil {
+            log.Fatalf("Failed to listen on %s: %v", addr, err)
+        }
+
+        // Continue to set up your server (e.g., http.Serve(listener, handler))
+    }
+    ```
+
+    ✅ **Security Best Practices**: Always follow security best practices when configuring network services, such as using firewalls to restrict access and encrypting traffic with TLS.
+
+    ## Resources
+
+    - [Go net package](https://pkg.go.dev/net)
+    - [Go os package for environment variables](https://pkg.go.dev/os)
+  cwe_id:
+    - 200
+  id: go_gosec_network_bind_to_all_interfaces
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_network_bind_to_all_interfaces

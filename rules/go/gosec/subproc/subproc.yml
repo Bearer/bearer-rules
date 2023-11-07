@@ -1,0 +1,82 @@
+imports:
+  - go_shared_lang_dynamic_request_input
+patterns:
+  - pattern: |
+      exec.CommandContext($<CTX>, $<INPUT>$<...>)
+    filters:
+      - variable: INPUT
+        detection: go_shared_lang_dynamic_request_input
+  - pattern: |
+      exec.Command($<INPUT>$<...>)
+    filters:
+      - variable: INPUT
+        detection: go_shared_lang_dynamic_request_input
+  - pattern: |
+      syscall.ForkExec($<INPUT>$<...>)
+    filters:
+      - variable: INPUT
+        detection: go_shared_lang_dynamic_request_input
+  - pattern: |
+      syscall.StartProcess($<INPUT>$<...>)
+    filters:
+      - variable: INPUT
+        detection: go_shared_lang_dynamic_request_input
+languages:
+  - go
+severity: high
+metadata:
+  description: "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')"
+  remediation_message: |
+    ## Description
+
+    OS command injection is a perilous vulnerability that has the potential to lead to full system compromise. Adversaries may exploit this flaw by feeding arbitrary commands or arguments intended for execution. This opens the door for unchecked operations, which could wreak havoc on the system or reveal sensitive information.
+
+    ## Remediations
+
+    ✅ Avoid User Input in OS Commands
+
+    Always steer clear of incorporating user input when formulating commands or their arguments, especially for functions responsible for OS command execution. This includes, but is not limited to, filenames provided during user uploads/downloads.
+
+    ✅ Hardcoded Argument Set
+
+    Ensure your application exclusively uses a hardcoded set of arguments for OS command executions. If filenames are being passed to such functions, consider adopting a hash of the filename or another distinctive identifier.
+
+    ✅ Opt for Native Libraries
+
+    Due to the inherent risks associated with third-party commands and the possibility of undisclosed attack vectors, prefer using native libraries that offer the same capabilities as opposed to resorting to OS system commands.
+
+    ✅ Specify Full Path in Windows
+
+    If the environment is Windows-based, always provide the complete path information when denoting the OS command. This circumvents potential vulnerabilities stemming from untrusted search paths (CWE-426).
+
+    ```go
+    userData := []byte("user data")
+    // create a temporary file in the application-specific directory
+    f, err := ioutil.TempFile("/var/app/restricted", "temp-*.dat")
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    if _, err := f.Write(userData); err != nil {
+      log.Fatal(err)
+    }
+
+    if err := f.Close(); err != nil {
+      log.Fatal(err)
+    }
+
+    // use the absolute path to the binary and the name of the temporary file
+    // steering clear of any user-provided filenames
+    out, err := exec.Command("/bin/cat", f.Name()).Output()
+    if err != nil {
+      log.Fatal(err)
+    }
+    ```
+
+    ## Resources
+
+    - [OWASP OS Command Injection Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
+  cwe_id:
+    - 95
+  id: go_gosec_subproc_subproc
+  documentation_url: https://docs.bearer.com/reference/rules/go_gosec_subproc_subproc
