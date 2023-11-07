@@ -13,11 +13,32 @@ metadata:
   remediation_message: |
     ## Description
 
-    Usage of a cryptographically insecure algorithm has been detected.
+    The issue identified indicates the use of a cryptographic algorithm that is no longer considered secure by current standards. Such algorithms can compromise data confidentiality and integrity, making it vulnerable to decryption and tampering by unauthorized parties.
 
-    ## Remediations
+    ## Remediation
 
-    It is recommended that alternative algorithms be used instead.
+    To ensure the security of the data, adhere to the following guidelines:
+
+    ✅ Employ Strong Cryptographic Algorithms
+
+    Replace deprecated or weak algorithms with strong, modern alternatives such as AES (Advanced Encryption Standard) for encryption, and SHA-256 or higher for hashing.
+
+    ✅ Keep Libraries Updated
+
+    Use the latest versions of cryptographic libraries, as they are more likely to default to secure algorithms and settings.
+
+    ❌ Avoid Deprecated Algorithms
+
+    Do not use cryptographic algorithms that have been deprecated due to vulnerabilities, such as MD5, SHA-1, or DES.
+
+    ❌ Do Not Reinvent Cryptography
+
+    Avoid custom cryptographic implementations as they are more susceptible to errors. Instead, rely on well-reviewed and tested standard cryptographic libraries.
+
+    ## Resources
+
+    - [NIST Cryptographic Standards and Guidelines](https://csrc.nist.gov/publications/sp)
+    - [Cryptography Coding Standard](https://cryptocoding.net/index.php/Coding_rules)
 
   cwe_id:
     - 327

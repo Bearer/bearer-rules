@@ -24,47 +24,71 @@ metadata:
   remediation_message: |
     ## Description
 
-    OS command injection is a critical vulnerability that can lead to a full system compromise as it may allow an adversary to pass in arbitrary commands or arguments to be executed.
+    OS command injection is a severe security vulnerability that occurs when an application incorrectly processes user input. This flaw can allow attackers to execute arbitrary commands on the host operating system, potentially leading to a full system compromise.
 
     ## Remediations
 
-    ❌ User input should never be used in constructing commands or command arguments to functions which execute OS commands. This includes filenames supplied by user uploads or downloads.
+    Prevent OS command injection by adhering to the following practices:
 
-    ✅ Ensure your application does not:
+    ❌ Avoid Direct User Input
 
-    - Use user-supplied information in the process name to execute.
-    - Use user-supplied information in an OS command execution function which does not escape shell meta-characters.
-    - Use user-supplied information in arguments to OS commands.
+    Do not use user-supplied information for constructing OS commands or command-line arguments, as this can lead to command injection vulnerabilities.
 
-    The application should have a hardcoded set of arguments that are to be passed to OS commands. If filenames are being passed to these functions, it is recommended that a hash of the filename be used instead, or some other unique identifier. It is strongly recommended that a native library that implements the same functionality be used instead of using OS system commands, due to the risk of unknown attacks against third party commands.
+    ✅ Implement Input Validation
+
+    Ensure that any user input is validated against a set of strict rules to ensure it does not contain malicious characters or patterns.
+
+    ✅ Use Hardcoded Arguments
+
+    When invoking OS commands, use a hardcoded set of arguments to ensure that user input cannot alter the command's behavior.
+
+    ✅ Utilize Temporary Files Securely
+
+    When dealing with files, create temporary files in a restricted directory, avoiding the use of user-supplied filenames.
+
+    ✅ Employ Native Libraries
+
+    Where possible, use native libraries or features of the programming language instead of invoking shell commands, which can be safer and more efficient.
 
     ```go
-    userData := []byte("user data")
-    // create a temporary file in the application specific directory
-    f, err := ioutil.TempFile("/var/app/restricted", "temp-*.dat")
-    if err != nil {
-      log.Fatal(err)
-    }
+    import (
+        "io/ioutil"
+        "os/exec"
+        "log"
+    )
 
-    if _, err := f.Write(userData); err != nil {
-      log.Fatal(err)
-    }
+    func main() {
+        userData := []byte("user data")
 
-    if err := f.Close(); err != nil {
-      log.Fatal(err)
-    }
+        // Create a temporary file in a secure, application-specific directory
+        f, err := ioutil.TempFile("/var/app/restricted", "temp-*.dat")
+        if err != nil {
+            log.Fatal(err)
+        }
 
-    // pass the full path to the binary and the name of the temporary file
-    // instead of any user supplied filename
-    out, err := exec.Command("/bin/cat", f.Name()).Output()
-    if err != nil {
-      log.Fatal(err)
+        // Write user data to the temporary file
+        if _, err := f.Write(userData); err != nil {
+            f.Close()
+            log.Fatal(err)
+        }
+
+        // Close the file handle
+        if err := f.Close(); err != nil {
+            log.Fatal(err)
+        }
+
+        // Execute a command using the temporary file, avoiding direct user input for filenames
+        out, err := exec.Command("/bin/cat", f.Name()).Output()
+        if err != nil {
+            log.Fatal(err)
+        }
+        // Output can be used for further processing
     }
     ```
 
     ## Resources
 
-    - [OWASP OS Command Injection](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
+    - [OWASP OS Command Injection Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
   cwe_id:
     - 95
   id: go_gosec_injection_subproc_injection

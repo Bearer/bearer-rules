@@ -12,52 +12,30 @@ metadata:
   remediation_message: |
     ## Description
 
-    The SHA-1 message-digest algorithm has been cryptographically broken and is unsuitable for further use.
+    The SHA-1 hashing algorithm is no longer considered secure against well-funded attackers. It is vulnerable to collision attacks, which means it's possible to generate two different inputs that result in the same SHA-1 hash, undermining the hash's uniqueness and security. Due to these vulnerabilities, it is advised to discontinue using SHA-1 for cryptographic security.
 
-    ## Remediations
+    ## Remediation
 
-    It is recommended that the SHA-3, or BLAKE2 family of algorithms be used for non-password based cryptographic hashes instead. For password based cryptographic hashes, consider using the bcrypt or Argon2id family of cryptographic hashes.
+    When choosing a hashing algorithm for cryptographic purposes, it's important to select one that is resistant to collisions and other attack vectors. SHA-3 and BLAKE2 are both excellent choices for non-password-based hashing requirements due to their strong cryptographic properties.
 
-    ```go
-    // 32 byte keys will configure AES-256
-    key := make([]byte, 32)
-    if _, err := io.ReadFull(rand.Reader, key); err != nil {
-      log.Fatal(err)
-    }
+    ✅ For General Hashing Needs, Use SHA-3 or BLAKE2
 
-    blockCipher, err := aes.NewCipher(key)
-    if err != nil {
-      log.Fatal(err)
-    }
+    Choose SHA-3 or BLAKE2 for their resistance to known hash attack vectors, ensuring the integrity and uniqueness of your data fingerprints.
 
-    aead, err := cipher.NewGCM(blockCipher)
-    if err != nil {
-      log.Fatal(err)
-    }
+    ✅ For Password Hashing, Prefer bcrypt or Argon2id
 
-    var encrypted = []byte{}
-    var nonce = []byte{}
-    // Encryption routine
-    {
-      msg := []byte("Some secret message")
-      // note that the key must be rotated every 2^32 random nonces used otherwise
-      // cipher text could be repeated
-      nonce = make([]byte, 12)
-      if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
-        log.Fatal(err)
-      }
-      encrypted = aead.Seal(nil, nonce, msg, nil)
-    }
+    For password hashing specifically, bcrypt or Argon2id are recommended. These algorithms are designed to be computationally intensive, which helps protect against brute-force attacks.
 
-    // Decryption routine
-    {
-      msg, err := aead.Open(nil, nonce, encrypted, nil)
-      if err != nil {
-        log.Fatal(err)
-      }
-      fmt.Printf("Decrypted: %s\n", msg)
-    }
-    ```
+    ❌ Discontinue Using SHA-1 for Security Purposes
+
+    Given its vulnerabilities, avoid using SHA-1 in any security context to prevent potential collision attacks.
+
+    The code snippet provided is unrelated to the hashing algorithms and seems to be a continuation of the previous examples for encryption with AES-256. Ensure your hashing and encryption strategies are correctly implemented as per their intended use-cases.
+
+    ## Resources
+
+    - [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)
+    - [NIST Policy on Hash Functions](https://csrc.nist.gov/projects/hash-functions)
 
   cwe_id:
     - 327

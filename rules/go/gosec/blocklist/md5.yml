@@ -12,13 +12,16 @@ metadata:
   remediation_message: |
     ## Description
 
-    The MD5 message-digest algorithm has been cryptographically broken and is unsuitable for further use. The MD5 hash algorithm has been found to be vulnerable to producing collisions. This means that two different values, when hashed, can lead to the same hash value.
+    MD5 is a widely used cryptographic hash function that produces a 128-bit (16-byte) hash value. It's commonly used to check the integrity of files. However, MD5 is not collision-resistant; this means that different inputs may produce the same output hash. MD5's vulnerabilities and the feasibility of collision attacks have rendered it obsolete for security-related purposes, particularly digital signatures, SSL certificates, and cryptographic message authentication.
 
-    ## Remediations
+    ## Remediation
 
-    ✅ It is recommended that the SHA-3 or BLAKE2 family of algorithms be used for non-password based cryptographic hashes instead.
+    Given the vulnerabilities of MD5, it is highly recommended to switch to more secure hashing algorithms. For hashing purposes that do not involve passwords, such as verifying file integrity or generating unique identifiers, SHA-3 or BLAKE2 can be used due to their stronger cryptographic properties.
+
+    ✅ Use SHA-3 or BLAKE2 for General Hashing Needs
 
     ```go
+    // BLAKE2 is a cryptographic hash function faster than MD5, SHA-1, and SHA-2, and as secure as the latest standard SHA-3
     fileContents := []byte("some file contents to create hash for")
     blake2bHasher, err := blake2b.New512(nil)
     if err != nil {
@@ -28,9 +31,14 @@ metadata:
     fmt.Printf("%s\n", hex.EncodeToString(hashedValue))
     ```
 
-    ✅ For password based cryptographic hashes, consider using the bcrypt or Argon2id family of cryptographic hashes.
+    For password hashing, where the hash functions need to be slow to combat brute-force attacks, bcrypt or Argon2id should be used. These algorithms are designed to be computationally intensive to hash and verify, which helps protect against password cracking attempts.
+
+    ✅ Adopt bcrypt or Argon2id for Password Hashing
+
+    The bcrypt algorithm is a good choice for password hashing as it allows you to adjust the cost (computational complexity) and is widely supported. Argon2id is the winner of the Password Hashing Competition and offers a good balance between resistance to GPU cracking attacks and usability.
 
     ## Resources
+
     - [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
 
   cwe_id:

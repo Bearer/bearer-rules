@@ -47,29 +47,69 @@ metadata:
   remediation_message: |
     ## Description
 
-    Directly decompressing files or buffers may lead to a potential Denial of Service (DoS) due to a decompression bomb. Decompression bombs are maliciously compressed files or data that decompresses to extremely large sizes. This can cause the process to run out of memory, or the disk to fill up.
+    Decompression bombs are a form of attack against an application or service that processes compressed files. The attacker crafts a compressed file that is small in size, but when decompressed, expands to a much larger size that is disproportionate to the original. This can exhaust system resources like CPU, memory, or disk space, leading to a Denial of Service (DoS).
 
     ## Remediations
 
-    To protect against decompression bombs, an [io.LimitReader(...)](https://pkg.go.dev/io#LimitReader) should be used to limit how much can be read during the decompression routine.
+    Implement measures to mitigate the impact of decompression bombs:
+
+    ✅ Limit Decompression Size
+
+    Use `io.LimitReader` to restrict the amount of data that a reader will decompress. This prevents the decompression of large files that could fill up memory or disk space.
+
+    ✅ Monitor Resource Usage
+
+    Implement resource monitoring to watch for unexpected spikes in CPU, memory, or disk usage, which could indicate an attempted decompression bomb attack.
+
+    ✅ Input Validation
+
+    Validate the size and type of the input before decompressing. If possible, reject files that do not meet expected criteria.
+
+    ✅ Fail Safely
+
+    Ensure that your application can handle errors from the decompression process safely, without crashing or becoming unresponsive.
+
+    ✅ Regular Updates
+
+    Keep compression libraries up to date with the latest security patches to protect against known vulnerabilities.
+
+    ✅ User Education
+
+    Educate users about the risks of decompression bombs if they are able to upload compressed files.
 
     ```go
-    f, err := os.Open("some.gz")
-    if err != nil {
-      log.Fatal(err)
-    }
+    import (
+      "compress/gzip"
+      "io"
+      "log"
+      "os"
+    )
 
-    r, err := gzip.NewReader(f)
-    if err != nil {
-      log.Fatal(err)
-    }
+    func main() {
+      // Open the gzip file
+      f, err := os.Open("example.gz")
+      if err != nil {
+        log.Fatal(err)
+      }
+      defer f.Close()
 
-    const oneMegabyte = 1024 * 1024
-    limitedReader := io.LimitReader(r, oneMegabyte)
+      // Create a gzip reader on the file
+      r, err := gzip.NewReader(f)
+      if err != nil {
+        log.Fatal(err)
+      }
+      defer r.Close()
 
-    // use limitedReader to stop copying after 1 MB
-    if _, err := io.Copy(os.Stdout, limitedReader); err != nil {
-      log.Fatal(err)
+      // Define a limit for decompression
+      const maxDecompressSize = 10 * 1024 * 1024 // 10 MB
+
+      // Limit the size of the reader
+      limitedReader := io.LimitReader(r, maxDecompressSize)
+
+      // Use the limited reader to decompress, preventing the decompression bomb from expanding fully
+      if _, err := io.Copy(os.Stdout, limitedReader); err != nil {
+        log.Fatal(err)
+      }
     }
     ```
 

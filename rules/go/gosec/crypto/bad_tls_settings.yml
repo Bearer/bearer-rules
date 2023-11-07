@@ -42,62 +42,35 @@ metadata:
   remediation_message: |
     ## Description
 
-    Usage of a cryptographically insecure cipher suite has been detected.
+    A security concern arises when a cryptographically insecure cipher suite is used in an application. Such cipher suites may be vulnerable to various types of attacks, reducing the security of the communication channel.
 
-    ## Remediations
+    ## Remediation
 
-    ✅ It is recommended that alternative ciphers be used instead.
+    To enhance the security of TLS connections, it is crucial to use up-to-date and secure cipher suites and protocols. Here are the recommended steps to ensure the use of secure ciphers:
 
-    ✅ It is strongly recommended that all TLS connections use TLS 1.3
+    ✅ Use Modern, Secure Cipher Suites
 
-    Go will automatically choose the most secure cipher when negotiating the TLS handshake with client or servers. TLS 1.3 cipher suites are configured to require Perfect
-    Forward Secrecy (PFS).
-    PFS is an important property as it will ensure that past encrypted transmissions could not be
-    decrypted if the TLS certificate was compromised.
+    Select cipher suites that are known to be secure and have properties such as Perfect Forward Secrecy (PFS), which protects past communications even if future private keys are compromised.
 
-    ```go
-    cert, err := tls.LoadX509KeyPair("server.crt", "server.key")
-    if err != nil {
-      log.Fatal(err)
-    }
+    ✅ Adopt TLS 1.3 Where Possible
 
-    cfg := &tls.Config{Certificates: []tls.Certificate{cert}, MinVersion: tls.VersionTLS13}
-    srv := &http.Server{
-      Addr:         ":8999",
-      TLSConfig:    cfg,
-      ReadTimeout:  time.Minute,
-      WriteTimeout: time.Minute,
-    }
-    log.Fatal(srv.ListenAndServeTLS("", ""))
-    ```
+    TLS 1.3 should be the preferred protocol as it includes improvements over previous versions, making it more secure against various attacks. Go's standard library will automatically prefer the most secure protocol and cipher suite available during the TLS handshake.
 
-    If TLS 1.0-1.2 must be used, then the following list of ciphers should be chosen as they
-    support
-    Perfect Forward Secrecy (PFS):
+    ✅ Configure TLS Properly If Using TLS 1.0-1.2
 
-    - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-    - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-    - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-    - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-    - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305
-    - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
+    In cases where TLS 1.3 is not an option and you must use TLS 1.0-1.2, ensure to configure the cipher suites to use those that support PFS, as listed below.
 
+    ❌ Avoid Using Obsolete or Insecure Cipher Suites
 
-    Example `tls.Config` using the recommended cipher suites:
+    Avoid any cipher suites that do not support modern security standards, including those without PFS or with known vulnerabilities.
 
-    ```go
-    cfg := &tls.Config{
-        MinVersion: tls.VersionTLS12,
-        CipherSuites: []uint16{
-            tls.TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,
-            tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,
-            tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,
-            tls.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,
-            tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305,
-            tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305,
-        },
-    }
-    ```
+    The provided Go code examples demonstrate how to configure the `tls.Config` struct for a Go server to use TLS 1.3 or to specify a list of secure cipher suites when using TLS 1.0-1.2.
+
+    ## Resources
+
+    - [Mozilla's SSL Configuration Generator](https://ssl-config.mozilla.org/)
+    - [OWASP TLS Cipher String Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/TLS_Cipher_String_Cheat_Sheet.html)
+    - [RFC 8446 - The Transport Layer Security (TLS) Protocol Version 1.3](https://tools.ietf.org/html/rfc8446)
 
   cwe_id:
     - 327

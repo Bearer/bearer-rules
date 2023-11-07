@@ -29,24 +29,55 @@ metadata:
   remediation_message: |
     ## Description
 
-    The application was found setting file permissions to overly permissive values.
+    When creating or updating files, ensuring proper file permissions is crucial to maintain security. Overly permissive file settings can allow unauthorized users to read, modify, or execute files, which could lead to information disclosure, data tampering, or compromise of the system.
 
     ## Remediations
 
-    Consider using the following values if the application user is the only process to access the file:
+    To prevent unauthorized access, it's important to set restrictive file permissions, particularly when sensitive data is involved. Here's how to manage file permissions in Go:
 
-    - 0400 - read only access to the file
-    - 0200 - write only access to the file
-    - 0600 - read/write access to the file
+    ✅ Restrict File Permissions
+
+    Set file permissions to allow only the necessary access level for the application. Avoid using permissions like `0777`, which allows read, write, and execute permissions for all users.
+
+    ✅ Use Go’s `os` Package
+
+    Utilize the `os.OpenFile` function with the appropriate file permission flags.
+
+    ✅ Recommended File Permissions
+
+    - `0400` grants read-only access to the file's owner.
+    - `0200` grants write-only access to the file's owner.
+    - `0600` grants read and write access to the file's owner and is commonly used for files that need to be both read from and written to by the application.
 
     ```go
-    f, err := os.OpenFile("file.txt", os.O_CREATE, 0600)
-    if err != nil {
-      log.Fatal(err)
+    import (
+      "log"
+      "os"
+    )
+
+    func main() {
+      // Use os.OpenFile to create a file with restricted permissions
+      // 0600 permission: Read and write for the owner, no permissions for others
+      f, err := os.OpenFile("file.txt", os.O_CREATE|os.O_WRONLY, 0600)
+      if err != nil {
+        log.Fatalf("failed to create file: %s", err)
+      }
+      defer f.Close()
+      // Continue to work with the file here
     }
-    defer f.Close()
-    // continue to work with file here
     ```
+
+    ✅ Verify File Permissions
+
+    After file creation, check the file permissions to ensure they are set correctly.
+
+    ✅ Secure Default Permissions
+
+    If you are developing an application that creates multiple files, consider setting umask in your application to a secure default.
+
+    ✅ Review File Permission Settings
+
+    Regularly audit file permissions to ensure they adhere to the principle of least privilege.
 
   cwe_id:
     - 732

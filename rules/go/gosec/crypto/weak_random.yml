@@ -43,12 +43,48 @@ metadata:
   remediation_message: |
     ## Description
 
-    Go's `math/rand` is not meant for use in generating random numbers for any cryptographic or security sensitive context.
-    This includes generating random numbers that could be used in user specific identifiers or where the random number that is generated is considered to be secret.
+    The `math/rand` package in Go is designed for generating pseudorandom numbers, which are not secure for cryptographic purposes. These numbers are predictable if the seed is known, which could compromise the security of applications using them for secrets, tokens, or other security-sensitive features.
 
     ## Remediations
 
-    ✅ Replace all imports of `math/rand` with `crypto/rand`.
+    To securely generate random numbers in a security-sensitive context, implement the following measures:
+
+    ✅ Use Cryptographically Secure Randomness
+
+    Replace the use of `math/rand` with `crypto/rand` to ensure that the random numbers generated are suitable for cryptographic use and are not predictable.
+
+    ```go
+    import (
+      "crypto/rand"
+      "log"
+      "math/big"
+    )
+
+    func generateSecureRandomNumber() *big.Int {
+      // Generate a cryptographically secure random number
+      randomNumber, err := rand.Int(rand.Reader, big.NewInt(1<<62))
+      if err != nil {
+        log.Fatalf("Failed to generate a secure random number: %v", err)
+      }
+      return randomNumber
+    }
+    ```
+
+    ✅ Audit Existing Code
+
+    Review your codebase for instances where `math/rand` is used in security-sensitive contexts and update them to use `crypto/rand`.
+
+    ❌ Do Not Use Predictable Seeds
+
+    Avoid initializing `math/rand` with predictable seeds, such as timestamps or other easily guessable values, especially in a security context.
+
+    ❌ Don't Use for Security Purposes
+
+    Never rely on `math/rand` for generating random numbers in cryptographic applications, like key generation, authentication tokens, or any form of security challenge.
+
+    ## Resources
+
+    - [crypto/rand package documentation](https://pkg.go.dev/crypto/rand)
 
   cwe_id:
     - 338

@@ -20,17 +20,60 @@ metadata:
   remediation_message: |
     ## Description
 
-    The application is potentially exposing the entire filesystem by mounting the root directory `/` to an HTTP handler function. Anyone who is able to access this HTTP server may be able to access any file that the HTTP server has access to.
+    Mounting the root directory (`/`) in an HTTP server is a significant security risk. It potentially allows anyone with access to the HTTP service to browse and access system files, which can lead to information disclosure, data breaches, or further exploitation of the system.
 
     ## Remediations
 
-    Restrict the `http.Dir` path to only a specific folder instead of the entire filesystem.
+    Implement the following measures to prevent exposing the entire filesystem through your web server:
+
+    ✅ Serve Specific Directory
+
+    Change the `http.Dir` to serve files from a specific, safe directory intended for public access rather than the root directory. Ensure this directory contains only the files that are meant to be publicly accessible.
+
+    ✅ Access Control
+
+    Apply appropriate permissions to the directory being served to ensure that the server process can only access the files that it's supposed to serve.
+
+    ✅ Use of Configuration Files
+
+    If supported, use configuration files like `.htaccess` (for Apache HTTP Server) or equivalent server configuration to control access to directories.
+
+    ✅ Isolate Environment
+
+    Consider running your server in a containerized or virtualized environment with strict access controls to limit the potential damage in case of a security breach.
+
+    ✅ Regular Audits
+
+    Perform regular audits of the filesystem and the files being served to ensure that no sensitive information is being unintentionally exposed.
 
     ```go
-    const path = "/var/www/html/public"
-    fs := http.FileServer(http.Dir(path))
-    log.Fatal(http.ListenAndServe(":9000", fs))
+    import (
+        "net/http"
+        "log"
+    )
+
+    func main() {
+        // Define the specific path to a directory to be served
+        const safePath = "/var/www/html/public"
+
+        // Create a new file server handler that serves files from the safePath
+        fs := http.FileServer(http.Dir(safePath))
+
+        // Configure the server to handle requests to the root with the file server handler
+        http.Handle("/", http.StripPrefix("/", fs))
+
+        // Start the server
+        log.Fatal(http.ListenAndServe(":9000", nil))
+    }
     ```
+
+    ## Resources
+
+    - [Go Documentation: http package](https://pkg.go.dev/net/http)
+    - [OWASP: Securing File Uploads](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)
+    - [NIST Guidelines on Securing Public Web Servers](https://csrc.nist.gov/publications/detail/sp/800-44/version-2/final)
+    - [Docker Documentation: Use containers for isolation](https://docs.docker.com/get-started/overview/#use-containers-for-isolation)
+    - [Linux man page for chmod (file permissions)](https://linux.die.net/man/1/chmod)
 
   cwe_id:
     - 327

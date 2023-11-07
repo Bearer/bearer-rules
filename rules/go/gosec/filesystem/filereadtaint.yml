@@ -46,32 +46,49 @@ metadata:
   remediation_message: |
     ## Description
 
-    The application dynamically constructs file or path information. If the path information comes from user input, it could be abused to read sensitive files, access other users data or aid in exploitation to gain further system access.
-
-    User input should never be used in constructing paths or files for interacting with the filesystem. This includes filenames supplied by user uploads or downloads.
+    Constructing file or path information dynamically, especially from user input, poses a significant security risk. If not handled correctly, attackers could manipulate these paths to access or manipulate sensitive files, leading to data breaches or system compromise. It is crucial to ensure that user input is not used directly to interact with the file system, as this can be exploited to perform path traversal attacks.
 
     ## Remediations
 
-    ✅ If possible, consider hashing user input or replacing it with unique values.
+    To mitigate the risks associated with dynamic file path construction from user inputs, apply the following best practices:
 
-    ✅ Additionally, use `filepath.Base` to only use the filename and not path information.
+    ✅ Hash or Replace User Input
 
-    Always validate the full path prior to opening or writing to any file.
+    When dealing with user input for file operations, hash the input or replace it with a system-generated unique identifier to prevent path manipulation.
+
+    ✅ Use `filepath.Base`
+
+    Extract only the filename from the path, ignoring any directory information, to avoid directory traversal vulnerabilities.
+
+    ✅ Validate Paths Before Use
+
+    Always perform validation on the resolved paths before accessing files to ensure they are within the expected directory.
 
     ```go
+    import (
+        "crypto/rand"
+        "encoding/hex"
+        "io"
+        "log"
+        "path/filepath"
+        "strings"
+    )
+
+    // userData struct holds user-related data with a unique ID for file operations
     type userData struct {
-        id           string
-        userFilename string
+        id           string // Unique identifier for the filename
+        userFilename string // Original filename from the user, kept for reference
     }
 
+    // newUserData constructs a new userData instance with a random file ID
     func newUserData(userFilename string) userData {
         return userData{
-            id:           randomFileID(), // random id as the filename
+            id:           randomFileID(), // Use a random ID instead of user-provided filename
             userFilename: userFilename,
         }
     }
 
-    // randomFileID generates a random id, to be used as a filename
+    // randomFileID generates a secure random ID to be used as a filename
     func randomFileID() string {
         id := make([]byte, 16)
         if _, err := io.ReadFull(rand.Reader, id); err != nil {
@@ -81,30 +98,31 @@ metadata:
     }
 
     func main() {
-
-        // user input, saved only as a reference
+        // Simulated user input, which may be malicious
         data := newUserData("../../possibly/malicious")
 
-        // restrict all file access to this path
+        // Define a safe base path for file operations
         const basePath = "/tmp/"
 
-        // resolve the full path, but only use our random generated id
+        // Resolve the full path using the safe base path and the random ID
         resolvedPath, err := filepath.Join(basePath, filepath.Base(data.id))
         if err != nil {
             log.Fatal(err)
         }
 
-        // verify the path is prefixed with our basePath
+        // Ensure the resolved path is within our designated base path
         if !strings.HasPrefix(resolvedPath, basePath) {
-            log.Fatal("path does not start with basePath")
+            log.Fatal("The resolved path does not start with the expected base path")
         }
-        // process / work with file
+
+        // The file can now be safely accessed using resolvedPath
+        // Further file processing code would go here
     }
     ```
 
     ## Resources
-    - [OWASP Path Traversal](https://owasp.org/www-community/attacks/Path_Traversal)
 
+    - [OWASP Guide to Preventing Path Traversal](https://owasp.org/www-community/attacks/Path_Traversal)
   cwe_id:
     - 327
   id: go_gosec_filesystem_filereadtaint

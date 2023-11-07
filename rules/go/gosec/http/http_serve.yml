@@ -30,41 +30,51 @@ metadata:
   remediation_message: |
     ## Description
 
-    The `net/http` serve functions in Go are susceptible to resource consumption attacks if timeouts are not appropriately set before initiating the HTTP server. Malicious actors can exploit this by establishing thousands of connections without completing the data transfer or not closing the connections. As a consequence, the server may be overwhelmed and stop accepting new connections.
+    The `net/http` serve functions in Go, when used with default settings, are vulnerable to resource consumption attacks. Attackers can exploit this by creating numerous connections to the server, intentionally not completing data transfers or leaving connections open, which can exhaust the server's resources and prevent it from accepting new legitimate connections.
 
     ## Remediations
 
-    ❌ Avoid Using Default Serve Functions in Production
+    To mitigate such attacks, specific server configurations are necessary:
 
-    The default `http.ListenAndServe` and `http.Serve` functions should not be utilized in a production environment as they lack the provision to set timeouts.
+    ❌ Avoid Default Serve Functions for Production
 
-    ✅ Use Custom `http.Server` Object with Configured Timeouts
+    Functions like `http.ListenAndServe` and `http.Serve` should not be used in a production setting as they do not allow for timeout configurations.
 
-    Create and employ a custom `http.Server` object with the necessary timeouts set.
+    ✅ Configure Timeouts on Custom `http.Server` Object
 
-      ```go
-      srv := &http.Server{
-          Addr: "localhost:8000",
-          ReadHeaderTimeout: 15 * time.Second,
-          ReadTimeout: 15 * time.Second,
-          WriteTimeout: 10 * time.Second,
-          IdleTimeout: 30 * time.Second,
-      }
+    Create a custom `http.Server` object and set appropriate timeouts to prevent resource exhaustion.
 
-      if err := srv.ListenAndServe(); err != nil {
-          log.Fatal(err)
-      }
-      ```
+    ```go
+    import (
+        "net/http"
+        "time"
+        "log"
+    )
 
-    ✅ Implement Per Request Timeouts
+    func main() {
+        srv := &http.Server{
+            Addr:             "localhost:8000",
+            ReadHeaderTimeout: 15 * time.Second,
+            ReadTimeout:      15 * time.Second,
+            WriteTimeout:     10 * time.Second,
+            IdleTimeout:      30 * time.Second,
+        }
 
-    For timeouts on individual requests, wrap all `http.HandlerFunc(...)` in `http.TimeoutHandler` and set a timeout. Remember, the TimeoutHandler doesn't start ticking until all headers are read.
+        if err := srv.ListenAndServe(); err != nil {
+            log.Fatal(err)
+        }
+    }
+    ```
+
+    ✅ Use `http.TimeoutHandler` for Per Request Timeouts
+
+    To set timeouts for individual requests, use the `http.TimeoutHandler` wrapper on your handlers. This ensures that the server does not wait indefinitely for a request to complete.
 
     ## Resources
 
-    - [http.Server Timeouts](https://pkg.go.dev/net/http#Server)
-    - [Setting Request Based Timeouts](https://pkg.go.dev/net/http#TimeoutHandler)
-    - [Slowloris Attack Details](https://en.wikipedia.org/wiki/Slowloris_(computer_security))
+    - [http.Server Timeouts Documentation](https://pkg.go.dev/net/http#Server)
+    - [Guide to Setting Request-Based Timeouts](https://pkg.go.dev/net/http#TimeoutHandler)
+    - [Understanding the Slowloris Attack](https://en.wikipedia.org/wiki/Slowloris_(computer_security))
 
   cwe_id:
     - 400

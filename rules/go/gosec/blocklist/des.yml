@@ -12,26 +12,28 @@ metadata:
   remediation_message: |
     ## Description
 
-    The DES algorithm has not been recommended for over 15 years and was withdrawn from NIST (FIPS 46-3) in 2005.
+    The Data Encryption Standard (DES) is an outdated symmetric-key algorithm for encryption. Officially deemed insecure and no longer recommended for use, DES was withdrawn by the National Institute of Standards and Technology (NIST) as a standard in 2005, primarily because of its 56-bit key size, which is vulnerable to brute-force attacks.
 
     ## Remediation
 
-    It is recommended that an algorithm that provides message integrity be used instead.
+    To ensure the confidentiality and integrity of sensitive data, it is crucial to utilize a modern and secure encryption algorithm. The use of Advanced Encryption Standard (AES) with a key size of 256 bits (AES-256) is recommended for its strong security properties and widespread acceptance as a replacement for DES.
 
-    ✅ Prefer the usage of `AES-256`:
+    ✅ Implement AES-256 for Strong Encryption
 
     ```go
-    // 32 byte keys will configure AES-256
+    // Use AES-256 for secure encryption by initializing a 32-byte key for AES-256
     key := make([]byte, 32)
     if _, err := io.ReadFull(rand.Reader, key); err != nil {
       log.Fatal(err)
     }
 
+    // Create a new cipher block from the key
     blockCipher, err := aes.NewCipher(key)
     if err != nil {
       log.Fatal(err)
     }
 
+    // Use Galois/Counter Mode (GCM) for both encryption and decryption
     aead, err := cipher.NewGCM(blockCipher)
     if err != nil {
       log.Fatal(err)
@@ -39,11 +41,11 @@ metadata:
 
     var encrypted = []byte{}
     var nonce = []byte{}
-    // Encryption routine
+
+    // Encrypt a message with AES-256 using GCM
     {
       msg := []byte("Some secret message")
-      // note that the key must be rotated every 2^32 random nonces used otherwise
-      // cipher text could be repeated
+      // Ensure nonces are unique for each encryption to maintain security
       nonce = make([]byte, 12)
       if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
         log.Fatal(err)
@@ -51,7 +53,7 @@ metadata:
       encrypted = aead.Seal(nil, nonce, msg, nil)
     }
 
-    // Decryption routine
+    // Decrypt the message securely
     {
       msg, err := aead.Open(nil, nonce, encrypted, nil)
       if err != nil {
@@ -60,6 +62,14 @@ metadata:
       fmt.Printf("Decrypted: %s\n", msg)
     }
     ```
+
+    ❌ Do Not Use Deprecated Algorithms
+    Avoid using deprecated cryptographic algorithms such as DES, as they do not provide adequate security against modern threats and attacks.
+
+    ## Resources
+
+    - [NIST Recommendations](https://csrc.nist.gov/publications/detail/sp/800-131a/rev-2/final)
+    - [AES-256 Encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
 
   cwe_id:
     - 327

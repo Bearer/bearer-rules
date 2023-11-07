@@ -28,93 +28,99 @@ metadata:
   remediation_message: |
     ## Description
 
-    Server-Side-Request-Forgery (SSRF) exploits backend systems that initiate requests to third parties.
-    If user input is used in constructing or sending these requests, an attacker could supply
-    malicious data to force the request to other systems or modify request data to cause unwanted actions.
+    Server-Side Request Forgery (SSRF) is a security vulnerability that occurs when a server-side application makes HTTP requests to arbitrary URLs controlled by the user. SSRF can be exploited by attackers to target internal systems behind firewalls that are otherwise inaccessible from the external network, by tricking the server into making requests to these systems.
 
     ## Remediations
 
-    Ensure user input is not used directly in constructing URLs or URIs when initiating requests to third party
-    systems from back end systems. Care must also be taken when constructing payloads using user
-    input. Where possible restrict to known URIs or payloads. Consider using a server side map where key's are
-    used to return URLs such as `https://site/goto?key=1` where `{key: 1, url: 'http://some.url/', key: 2, url:
-    'http://...'}`.
+    To mitigate SSRF vulnerabilities, follow these guidelines:
 
-    If you must use user supplied input for requesting URLs, it is strongly recommended that the
-    HTTP client chosen allows you to customize and block certain IP ranges at the network level. By blocking
-    RFC 1918 addresses or other network address ranges, you can limit the severity of a successful SSRF
-    attack. Care must also be taken to block certain protocol or address formatting such as IPv6.
+    ✅ Validate User Input
 
-    If you can not block address ranges at the client level, you may want to run the HTTP client
-    as a protected
-    user, or in a protected network where you can apply IP Table or firewall rules to block access
-    to dangerous
-    addresses. Finally, if none of the above protections are available, you could also run a
-    custom HTTP proxy
-    and force all requests through it to handle blocking dangerous addresses.
+    Avoid using direct user input to construct URLs for backend requests. If you must use user input, validate or sanitize it rigorously.
+
+    ✅ Restrict URLs to Known Safe Domains
+
+    Where possible, limit requests to a predefined set of safe URLs or domains. This can be done using server-side mapping from user-supplied keys to URLs.
+
+    ✅ Implement IP Safelists and Blocklists
+
+    Use an HTTP client that allows customizing and blocking specific IP ranges, such as private network addresses and other non-routable IP ranges.
+
+    ✅ Use Network-Level Security
+
+    If the HTTP client doesn't support IP range blocking, consider running it with restricted system permissions, or within a secure network where firewall rules can block dangerous addresses.
+
+    ✅ Leverage a Secure HTTP Proxy
+
+    As a last resort, route all backend HTTP requests through a secure proxy that can filter out and block requests to potentially harmful addresses.
 
     ```go
-    // IsDisallowedIP parses the ip to determine if we should allow the HTTP client to continue
+    import (
+        "context"
+        "crypto/tls"
+        "errors"
+        "net"
+        "net/http"
+        "time"
+    )
+
+    // IsDisallowedIP checks if an IP address falls within a range of disallowed IPs.
     func IsDisallowedIP(hostIP string) bool {
-      ip := net.ParseIP(hostIP)
-      return ip.IsMulticast() || ip.IsUnspecified() || ip.IsLoopback() || ip.IsPrivate()
+        ip := net.ParseIP(hostIP)
+        // Add more checks as necessary
+        return ip.IsMulticast() || ip.IsUnspecified() || ip.IsLoopback() || ip.IsPrivate()
     }
 
-    // SafeTransport uses the net.Dial to connect, then if successful check if the resolved
-    // ip address is disallowed. We do this due to hosts such as localhost.lol being resolvable to
-    // potentially malicious URLs. We allow connection only for resolution purposes.
+    // SafeTransport defines a custom transport that filters out disallowed IP addresses.
     func SafeTransport(timeout time.Duration) *http.Transport {
-      return &http.Transport{
-        DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {
-          c, err := net.DialTimeout(network, addr, timeout)
-          if err != nil {
-            return nil, err
-          }
-          ip, _, _ := net.SplitHostPort(c.RemoteAddr().String())
-          if IsDisallowedIP(ip) {
-            return nil, errors.New("ip address is not allowed")
-          }
-          return c, err
-        },
-        DialTLS: func(network, addr string) (net.Conn, error) {
-          dialer := &net.Dialer{Timeout: timeout}
-          c, err := tls.DialWithDialer(dialer, network, addr, &tls.Config{})
-          if err != nil {
-            return nil, err
-          }
-
-          ip, _, _ := net.SplitHostPort(c.RemoteAddr().String())
-          if IsDisallowedIP(ip) {
-            return nil, errors.New("ip address is not allowed")
-          }
-
-          err = c.Handshake()
-          if err != nil {
-            return c, err
-          }
-
-          return c, c.Handshake()
-        },
-        TLSHandshakeTimeout: timeout,
-      }
+        return &http.Transport{
+            DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {
+                c, err := net.DialTimeout(network, addr, timeout)
+                if err != nil {
+                    return nil, err
+                }
+                ip, _, _ := net.SplitHostPort(c.RemoteAddr().String())
+                if IsDisallowedIP(ip) {
+                    c.Close()
+                    return nil, errors.New("ip address is not allowed")
+                }
+                return c, err
+            },
+            DialTLS: func(network, addr string) (net.Conn, error) {
+                dialer := &net.Dialer{Timeout: timeout}
+                c, err := tls.DialWithDialer(dialer, network, addr, &tls.Config{})
+                if err != nil {
+                    return nil, err
+                }
+                ip, _, _ := net.SplitHostPort(c.RemoteAddr().String())
+                if IsDisallowedIP(ip) {
+                    c.Close()
+                    return nil, errors.New("ip address is not allowed")
+                }
+                return c, c.Handshake()
+            },
+            TLSHandshakeTimeout: timeout,
+        }
     }
 
+    // httpRequest performs a secure HTTP request, filtering out disallowed IPs.
     func httpRequest(requestUrl string) {
-      const clientConnectTimeout = time.Second * 10
-      httpClient := &http.Client{
-        Transport: SafeTransport(clientConnectTimeout),
-      }
-      resp, err := httpClient.Get(requestUrl)
-      if err != nil {
-        log.Fatal(err)
-      }
-      defer resp.Body.Close()
-      // work with resp
+        const clientConnectTimeout = time.Second * 10
+        httpClient := &http.Client{
+            Transport: SafeTransport(clientConnectTimeout),
+        }
+        resp, err := httpClient.Get(requestUrl)
+        if err != nil {
+            log.Fatal(err)
+        }
+        defer resp.Body.Close()
+        // Process response
     }
     ```
 
     ## Resources
-    - [OWASP Server Side Request Forgery](https://owasp.org/www-community/attacks/Server_Side_Request_Forgery)
+
+    - [OWASP SSRF Prevention Cheat Sheet](https://owasp.org/www-community/attacks/Server_Side_Request_Forgery)
 
   cwe_id:
     - 918
