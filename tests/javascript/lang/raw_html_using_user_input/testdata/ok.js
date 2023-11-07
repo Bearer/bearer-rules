@@ -1,6 +1,7 @@
 `<h1>#{sanitizeHtml(req.params.ok)}</h1>`
 
 doT.compile(sanitizeHtml(req.params.ok), {})
+doT.compile(sanitizer({ option: true }, req.params.ok), {})
 
 ejs.compile(sanitizeHtml(req.params.ok), {})
 

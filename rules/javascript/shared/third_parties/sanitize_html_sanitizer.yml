@@ -7,6 +7,8 @@ patterns:
   - sanitize($<!>$<_>$<...>)
   # DOMPurifier
   - sanitizeHtml($<!>$<_>$<...>)
+  # fallback
+  - sanitizer($<...>$<!>$<_>$<...>)
 metadata:
   description: "sanitize HTML sanitizer."
   id: javascript_shared_third_parties_sanitize_html_sanitizer
