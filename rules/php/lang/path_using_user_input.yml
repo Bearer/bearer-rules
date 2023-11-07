@@ -54,7 +54,7 @@ patterns:
           - opendir
           - scandir
       - variable: USER_INPUT
-        detection: php_shared_lang_user_input
+        detection: php_lang_path_using_user_input_user_input
         scope: result
   - pattern: $<FUNCTION>($<ONE>, $<TWO>$<...>)
     filters:
@@ -67,21 +67,34 @@ patterns:
           - tempnam
       - either:
           - variable: ONE
-            detection: php_shared_lang_user_input
+            detection: php_lang_path_using_user_input_user_input
             scope: result
           - variable: TWO
-            detection: php_shared_lang_user_input
+            detection: php_lang_path_using_user_input_user_input
             scope: result
   - pattern: move_uploaded_file($<_>, $<DESTINATION>)
     filters:
       - variable: DESTINATION
-        detection: php_shared_lang_user_input
+        detection: php_lang_path_using_user_input_user_input
         scope: result
   - pattern: hash_file($<_>, $<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
-        detection: php_shared_lang_user_input
+        detection: php_lang_path_using_user_input_user_input
         scope: result
+auxiliary:
+  - id: php_lang_path_using_user_input_user_input
+    sanitizer: php_lang_path_using_user_input_sanitizer
+    patterns:
+      - pattern: $<USER_INPUT>;
+        filters:
+          - variable: USER_INPUT
+            detection: php_shared_lang_user_input
+            scope: cursor
+  - id: php_lang_path_using_user_input_sanitizer
+    patterns:
+      - $<_>['basename']
+      - basename($<...>$<!>$<_>$<...>)
 languages:
   - php
 severity: high

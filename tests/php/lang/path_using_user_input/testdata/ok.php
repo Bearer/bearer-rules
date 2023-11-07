@@ -1,5 +1,7 @@
 <?php
 
+$userInput = "/files/" . $_GET["oops"];
+
 // filesystem
 chgrp($ok, 1);
 chmod($ok, 0755);
@@ -64,3 +66,9 @@ scandir($ok, SCANDIR_SORT_ASCENDING);
 
 // hash
 hash_file($algo, $ok, false);
+
+// sanitizer
+$basename1 = $userInput['basename'];
+$basename2 = basename($userInput);
+unlink("/ok/$basename1", null);
+unlink("/ok/$basename2", null);
