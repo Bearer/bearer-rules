@@ -16,7 +16,7 @@ cp -R $test_location $tmp_location
 
 if [ -n "$BEARER_WORKSPACE" ]; then
   cd $BEARER_WORKSPACE
-  go run ./cmd/bearer/main.go scan $tmp_location \
+  asdf exec go run ./cmd/bearer/main.go scan $tmp_location \
     --only-rule=$rule_id \
     --quiet \
     --disable-default-rules=true \

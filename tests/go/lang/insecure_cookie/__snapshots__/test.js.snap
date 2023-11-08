@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_lang_insecure_cookie bad 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "go_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\n\\nCookies without proper security settings can be vulnerable to cross-site scripting (XSS) attacks and potentially provide an avenue for unauthorized access to your application.\\n\\n## Remediations\\n\\nTo enhance cookie security and protect against common web exploits:\\n\\n✅ **Use HttpOnly Flag**: Set the \`HttpOnly\` attribute for cookies to \`true\`. This prevents client-side scripts from accessing the cookie, reducing the risk of client-side attacks.\\n\\n\`\`\`go\\nhttp.SetCookie(w, &http.Cookie{\\n    Name:     \\"session_token\\",\\n    Value:    sessionToken,\\n    HttpOnly: true, // Secure the cookie from client-side scripts\\n    // Additional flags like Secure, SameSite, etc., should be set as needed.\\n})\\n\`\`\`\\n\\n✅ **Additional Cookie Attributes**: Alongside \`HttpOnly\`, consider setting \`Secure\`, \`SameSite\`, and \`Domain\` attributes to further secure cookies based on your application’s requirements.\\n\\n## Resources\\n\\nFor best practices on setting cookies securely, explore:\\n\\n- [OWASP Secure Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)\\n- [MDN Web Docs: HttpOnly Cookie Attribute](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_insecure_cookie",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/bad.go",
+      "filename": ".",
+      "source": {
+        "start": 9,
+        "end": 12,
+        "column": {
+          "start": 12,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 12,
+        "column": {
+          "start": 12,
+          "end": 3
+        },
+        "content": "http.Cookie{\\n\\t\\tName:  name,\\n\\t\\tValue: value,\\n\\t}"
+      },
+      "parent_line_number": 9,
+      "snippet": "http.Cookie{\\n\\t\\tName:  name,\\n\\t\\tValue: value,\\n\\t}",
+      "fingerprint": "4fabca29a47131de5ee4b5b3b942db28_0",
+      "old_fingerprint": "4b4af2e19273ef0a13527aa3c6134b4e_0",
+      "code_extract": "\\tcookie := http.Cookie{\\n\\t\\tName:  name,\\n\\t\\tValue: value,\\n\\t}"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "go_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\n\\nCookies without proper security settings can be vulnerable to cross-site scripting (XSS) attacks and potentially provide an avenue for unauthorized access to your application.\\n\\n## Remediations\\n\\nTo enhance cookie security and protect against common web exploits:\\n\\n✅ **Use HttpOnly Flag**: Set the \`HttpOnly\` attribute for cookies to \`true\`. This prevents client-side scripts from accessing the cookie, reducing the risk of client-side attacks.\\n\\n\`\`\`go\\nhttp.SetCookie(w, &http.Cookie{\\n    Name:     \\"session_token\\",\\n    Value:    sessionToken,\\n    HttpOnly: true, // Secure the cookie from client-side scripts\\n    // Additional flags like Secure, SameSite, etc., should be set as needed.\\n})\\n\`\`\`\\n\\n✅ **Additional Cookie Attributes**: Alongside \`HttpOnly\`, consider setting \`Secure\`, \`SameSite\`, and \`Domain\` attributes to further secure cookies based on your application’s requirements.\\n\\n## Resources\\n\\nFor best practices on setting cookies securely, explore:\\n\\n- [OWASP Secure Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)\\n- [MDN Web Docs: HttpOnly Cookie Attribute](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_insecure_cookie",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/bad.go",
+      "filename": ".",
+      "source": {
+        "start": 17,
+        "end": 22,
+        "column": {
+          "start": 12,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 22,
+        "column": {
+          "start": 12,
+          "end": 3
+        },
+        "content": "http.Cookie{\\n\\t\\tName:     name,\\n\\t\\tValue:    value,\\n\\t\\tHttpOnly: false,\\n\\t\\tSecure:   true,\\n\\t}"
+      },
+      "parent_line_number": 17,
+      "snippet": "http.Cookie{\\n\\t\\tName:     name,\\n\\t\\tValue:    value,\\n\\t\\tHttpOnly: false,\\n\\t\\tSecure:   true,\\n\\t}",
+      "fingerprint": "4fabca29a47131de5ee4b5b3b942db28_1",
+      "old_fingerprint": "4b4af2e19273ef0a13527aa3c6134b4e_1",
+      "code_extract": "\\tcookie := http.Cookie{\\n\\t\\tName:     name,\\n\\t\\tValue:    value,\\n\\t\\tHttpOnly: false,\\n\\t\\tSecure:   true,\\n\\t}"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "go_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\n\\nCookies without proper security settings can be vulnerable to cross-site scripting (XSS) attacks and potentially provide an avenue for unauthorized access to your application.\\n\\n## Remediations\\n\\nTo enhance cookie security and protect against common web exploits:\\n\\n✅ **Use HttpOnly Flag**: Set the \`HttpOnly\` attribute for cookies to \`true\`. This prevents client-side scripts from accessing the cookie, reducing the risk of client-side attacks.\\n\\n\`\`\`go\\nhttp.SetCookie(w, &http.Cookie{\\n    Name:     \\"session_token\\",\\n    Value:    sessionToken,\\n    HttpOnly: true, // Secure the cookie from client-side scripts\\n    // Additional flags like Secure, SameSite, etc., should be set as needed.\\n})\\n\`\`\`\\n\\n✅ **Additional Cookie Attributes**: Alongside \`HttpOnly\`, consider setting \`Secure\`, \`SameSite\`, and \`Domain\` attributes to further secure cookies based on your application’s requirements.\\n\\n## Resources\\n\\nFor best practices on setting cookies securely, explore:\\n\\n- [OWASP Secure Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)\\n- [MDN Web Docs: HttpOnly Cookie Attribute](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_insecure_cookie",
+      "line_number": 27,
+      "full_filename": "/tmp/bearer-scan/bad.go",
+      "filename": ".",
+      "source": {
+        "start": 27,
+        "end": 32,
+        "column": {
+          "start": 12,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 27,
+        "end": 32,
+        "column": {
+          "start": 12,
+          "end": 3
+        },
+        "content": "http.Cookie{\\n\\t\\tName:     name,\\n\\t\\tValue:    value,\\n\\t\\tHttpOnly: true,\\n\\t\\tSecure:   false,\\n\\t}"
+      },
+      "parent_line_number": 27,
+      "snippet": "http.Cookie{\\n\\t\\tName:     name,\\n\\t\\tValue:    value,\\n\\t\\tHttpOnly: true,\\n\\t\\tSecure:   false,\\n\\t}",
+      "fingerprint": "4fabca29a47131de5ee4b5b3b942db28_2",
+      "old_fingerprint": "4b4af2e19273ef0a13527aa3c6134b4e_2",
+      "code_extract": "\\tcookie := http.Cookie{\\n\\t\\tName:     name,\\n\\t\\tValue:    value,\\n\\t\\tHttpOnly: true,\\n\\t\\tSecure:   false,\\n\\t}"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "go_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\n\\nCookies without proper security settings can be vulnerable to cross-site scripting (XSS) attacks and potentially provide an avenue for unauthorized access to your application.\\n\\n## Remediations\\n\\nTo enhance cookie security and protect against common web exploits:\\n\\n✅ **Use HttpOnly Flag**: Set the \`HttpOnly\` attribute for cookies to \`true\`. This prevents client-side scripts from accessing the cookie, reducing the risk of client-side attacks.\\n\\n\`\`\`go\\nhttp.SetCookie(w, &http.Cookie{\\n    Name:     \\"session_token\\",\\n    Value:    sessionToken,\\n    HttpOnly: true, // Secure the cookie from client-side scripts\\n    // Additional flags like Secure, SameSite, etc., should be set as needed.\\n})\\n\`\`\`\\n\\n✅ **Additional Cookie Attributes**: Alongside \`HttpOnly\`, consider setting \`Secure\`, \`SameSite\`, and \`Domain\` attributes to further secure cookies based on your application’s requirements.\\n\\n## Resources\\n\\nFor best practices on setting cookies securely, explore:\\n\\n- [OWASP Secure Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)\\n- [MDN Web Docs: HttpOnly Cookie Attribute](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_insecure_cookie",
+      "line_number": 38,
+      "full_filename": "/tmp/bearer-scan/bad.go",
+      "filename": ".",
+      "source": {
+        "start": 38,
+        "end": 43,
+        "column": {
+          "start": 12,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 38,
+        "end": 43,
+        "column": {
+          "start": 12,
+          "end": 3
+        },
+        "content": "http.Cookie{\\n\\t\\tName:     name,\\n\\t\\tValue:    value,\\n\\t\\tHttpOnly: httpOnly,\\n\\t\\tSecure:   true,\\n\\t}"
+      },
+      "parent_line_number": 38,
+      "snippet": "http.Cookie{\\n\\t\\tName:     name,\\n\\t\\tValue:    value,\\n\\t\\tHttpOnly: httpOnly,\\n\\t\\tSecure:   true,\\n\\t}",
+      "fingerprint": "4fabca29a47131de5ee4b5b3b942db28_3",
+      "old_fingerprint": "4b4af2e19273ef0a13527aa3c6134b4e_3",
+      "code_extract": "\\tcookie := http.Cookie{\\n\\t\\tName:     name,\\n\\t\\tValue:    value,\\n\\t\\tHttpOnly: httpOnly,\\n\\t\\tSecure:   true,\\n\\t}"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "go_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\n\\nCookies without proper security settings can be vulnerable to cross-site scripting (XSS) attacks and potentially provide an avenue for unauthorized access to your application.\\n\\n## Remediations\\n\\nTo enhance cookie security and protect against common web exploits:\\n\\n✅ **Use HttpOnly Flag**: Set the \`HttpOnly\` attribute for cookies to \`true\`. This prevents client-side scripts from accessing the cookie, reducing the risk of client-side attacks.\\n\\n\`\`\`go\\nhttp.SetCookie(w, &http.Cookie{\\n    Name:     \\"session_token\\",\\n    Value:    sessionToken,\\n    HttpOnly: true, // Secure the cookie from client-side scripts\\n    // Additional flags like Secure, SameSite, etc., should be set as needed.\\n})\\n\`\`\`\\n\\n✅ **Additional Cookie Attributes**: Alongside \`HttpOnly\`, consider setting \`Secure\`, \`SameSite\`, and \`Domain\` attributes to further secure cookies based on your application’s requirements.\\n\\n## Resources\\n\\nFor best practices on setting cookies securely, explore:\\n\\n- [OWASP Secure Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)\\n- [MDN Web Docs: HttpOnly Cookie Attribute](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_insecure_cookie",
+      "line_number": 48,
+      "full_filename": "/tmp/bearer-scan/bad.go",
+      "filename": ".",
+      "source": {
+        "start": 48,
+        "end": 53,
+        "column": {
+          "start": 12,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 48,
+        "end": 53,
+        "column": {
+          "start": 12,
+          "end": 3
+        },
+        "content": "http.Cookie{\\n\\t\\tName:     name,\\n\\t\\tValue:    value,\\n\\t\\tHttpOnly: true,\\n\\t\\tSecure:   false,\\n\\t}"
+      },
+      "parent_line_number": 48,
+      "snippet": "http.Cookie{\\n\\t\\tName:     name,\\n\\t\\tValue:    value,\\n\\t\\tHttpOnly: true,\\n\\t\\tSecure:   false,\\n\\t}",
+      "fingerprint": "4fabca29a47131de5ee4b5b3b942db28_4",
+      "old_fingerprint": "4b4af2e19273ef0a13527aa3c6134b4e_4",
+      "code_extract": "\\tcookie := http.Cookie{\\n\\t\\tName:     name,\\n\\t\\tValue:    value,\\n\\t\\tHttpOnly: true,\\n\\t\\tSecure:   false,\\n\\t}"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "go_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\n\\nCookies without proper security settings can be vulnerable to cross-site scripting (XSS) attacks and potentially provide an avenue for unauthorized access to your application.\\n\\n## Remediations\\n\\nTo enhance cookie security and protect against common web exploits:\\n\\n✅ **Use HttpOnly Flag**: Set the \`HttpOnly\` attribute for cookies to \`true\`. This prevents client-side scripts from accessing the cookie, reducing the risk of client-side attacks.\\n\\n\`\`\`go\\nhttp.SetCookie(w, &http.Cookie{\\n    Name:     \\"session_token\\",\\n    Value:    sessionToken,\\n    HttpOnly: true, // Secure the cookie from client-side scripts\\n    // Additional flags like Secure, SameSite, etc., should be set as needed.\\n})\\n\`\`\`\\n\\n✅ **Additional Cookie Attributes**: Alongside \`HttpOnly\`, consider setting \`Secure\`, \`SameSite\`, and \`Domain\` attributes to further secure cookies based on your application’s requirements.\\n\\n## Resources\\n\\nFor best practices on setting cookies securely, explore:\\n\\n- [OWASP Secure Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)\\n- [MDN Web Docs: HttpOnly Cookie Attribute](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_insecure_cookie",
+      "line_number": 58,
+      "full_filename": "/tmp/bearer-scan/bad.go",
+      "filename": ".",
+      "source": {
+        "start": 58,
+        "end": 63,
+        "column": {
+          "start": 12,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 58,
+        "end": 63,
+        "column": {
+          "start": 12,
+          "end": 3
+        },
+        "content": "http.Cookie{\\n\\t\\tName:     name,\\n\\t\\tValue:    value,\\n\\t\\tHttpOnly: true,\\n\\t\\tSecure:   false,\\n\\t}"
+      },
+      "parent_line_number": 58,
+      "snippet": "http.Cookie{\\n\\t\\tName:     name,\\n\\t\\tValue:    value,\\n\\t\\tHttpOnly: true,\\n\\t\\tSecure:   false,\\n\\t}",
+      "fingerprint": "4fabca29a47131de5ee4b5b3b942db28_5",
+      "old_fingerprint": "4b4af2e19273ef0a13527aa3c6134b4e_5",
+      "code_extract": "\\tcookie := http.Cookie{\\n\\t\\tName:     name,\\n\\t\\tValue:    value,\\n\\t\\tHttpOnly: true,\\n\\t\\tSecure:   false,\\n\\t}"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "go_lang_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\n\\nCookies without proper security settings can be vulnerable to cross-site scripting (XSS) attacks and potentially provide an avenue for unauthorized access to your application.\\n\\n## Remediations\\n\\nTo enhance cookie security and protect against common web exploits:\\n\\n✅ **Use HttpOnly Flag**: Set the \`HttpOnly\` attribute for cookies to \`true\`. This prevents client-side scripts from accessing the cookie, reducing the risk of client-side attacks.\\n\\n\`\`\`go\\nhttp.SetCookie(w, &http.Cookie{\\n    Name:     \\"session_token\\",\\n    Value:    sessionToken,\\n    HttpOnly: true, // Secure the cookie from client-side scripts\\n    // Additional flags like Secure, SameSite, etc., should be set as needed.\\n})\\n\`\`\`\\n\\n✅ **Additional Cookie Attributes**: Alongside \`HttpOnly\`, consider setting \`Secure\`, \`SameSite\`, and \`Domain\` attributes to further secure cookies based on your application’s requirements.\\n\\n## Resources\\n\\nFor best practices on setting cookies securely, explore:\\n\\n- [OWASP Secure Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)\\n- [MDN Web Docs: HttpOnly Cookie Attribute](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_insecure_cookie",
+      "line_number": 69,
+      "full_filename": "/tmp/bearer-scan/bad.go",
+      "filename": ".",
+      "source": {
+        "start": 69,
+        "end": 73,
+        "column": {
+          "start": 14,
+          "end": 4
+        }
+      },
+      "sink": {
+        "start": 69,
+        "end": 73,
+        "column": {
+          "start": 14,
+          "end": 4
+        },
+        "content": "http.Cookie{\\n\\t\\t\\tName:    name,\\n\\t\\t\\tValue:   \\"\\",\\n\\t\\t\\tExpires: time.Unix(0, 0),\\n\\t\\t}"
+      },
+      "parent_line_number": 69,
+      "snippet": "http.Cookie{\\n\\t\\t\\tName:    name,\\n\\t\\t\\tValue:   \\"\\",\\n\\t\\t\\tExpires: time.Unix(0, 0),\\n\\t\\t}",
+      "fingerprint": "4fabca29a47131de5ee4b5b3b942db28_6",
+      "old_fingerprint": "4b4af2e19273ef0a13527aa3c6134b4e_6",
+      "code_extract": "\\t\\tcookie := &http.Cookie{\\n\\t\\t\\tName:    name,\\n\\t\\t\\tValue:   \\"\\",\\n\\t\\t\\tExpires: time.Unix(0, 0),\\n\\t\\t}"
+    }
+  ]
+}"
+`;
+
+exports[`go_lang_insecure_cookie ok 1`] = `"{}"`;
