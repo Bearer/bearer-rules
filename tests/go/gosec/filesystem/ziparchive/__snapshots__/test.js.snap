@@ -11,27 +11,27 @@ exports[`go_gosec_filesystem_ziparchive test 1`] = `
       "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "description": "## Description\\n\\nThe application is at risk of a path traversal vulnerability, commonly known as 'Zip Slip', when extracting files from untrusted archives. Maliciously crafted archive files can contain relative path specifications that lead to writing files outside the intended directory when extracted, potentially overwriting system files or placing unauthorized files in critical paths.\\n\\n## Remediations\\n\\nTo safeguard against 'Zip Slip' and related exploitation techniques, follow these security practices:\\n\\n✅ Limit Archive Size\\n\\nImplement checks to ensure the zip archive's size does not exceed a maximum threshold, preventing 'Zip Bombs'—archives that decompress to disproportionately large sizes.\\n\\n✅ Generate Unique Filenames\\n\\nAvoid using the original filenames from the archive. If necessary, use only the base name after sanitizing or, better yet, generate a unique name to prevent intentional overwrites.\\n\\n✅ Validate Extraction Paths\\n\\nConfirm that extracted files are written to a specified, trusted directory and do not traverse outside of this directory.\\n\\n✅ Disallow Symbolic Links\\n\\nOnly process regular files. Exclude symbolic links to prevent indirect file read/write vulnerabilities.\\n\\n\`\`\`go\\nimport (\\n  \\"archive/zip\\"\\n  \\"io\\"\\n  \\"log\\"\\n  \\"os\\"\\n  \\"path/filepath\\"\\n  \\"strings\\"\\n)\\n\\nfunc main() {\\n  // Open the zip file for reading\\n  r, err := zip.OpenReader(\\"trusted.zip\\")\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  defer r.Close()\\n\\n  // Set up restrictions and base path\\n  const (\\n    expectedFileCount = 10\\n    totalAllowedSize  = 10 * 1024 * 1024 // 10MB\\n    maxFileSize       = 1024 * 1024      // 1MB\\n    basePath          = \\"/var/restricted/\\"\\n  )\\n\\n  // Calculate total size of uncompressed files\\n  var totalSize uint64\\n  for _, f := range r.File {\\n    totalSize += f.UncompressedSize64\\n  }\\n\\n  // Check if total size exceeds the limit\\n  if totalSize > totalAllowedSize {\\n    log.Fatalf(\\"archive exceeds total allowed size: %d\\\\n\\", totalSize)\\n  }\\n\\n  // Process files in the archive\\n  for _, f := range r.File {\\n    // Skip overlarge files\\n    if f.UncompressedSize64 > maxFileSize {\\n      log.Printf(\\"skipping file as it exceeds maxFileSize: %s\\\\n\\", f.Name)\\n      continue\\n    }\\n\\n    // Skip if not a regular file\\n    if !f.Mode().IsRegular() {\\n      log.Printf(\\"skipping non-regular file: %s\\\\n\\", f.Name)\\n      continue\\n    }\\n\\n    // Securely resolve the file path\\n    name := filepath.Base(f.Name)\\n    resolvedPath, err := filepath.Join(basePath, name)\\n    if err != nil {\\n      log.Fatal(err)\\n    }\\n\\n    // Ensure the file does not traverse outside the base path\\n    if !strings.HasPrefix(resolvedPath, basePath) {\\n      log.Fatal(\\"path does not start with basePath\\")\\n    }\\n\\n    // Extract and process the file (omitted for brevity)\\n  }\\n}\\n\`\`\`\\n\\nFor processing directories within the zip archive, ensure to clean the path and validate it strictly against the base path.\\n\\n## Resources\\n\\n- [OWASP Cheat Sheet: Zip Slip Vulnerability](https://cheatsheetseries.owasp.org/cheatsheets/Path_Traversal_Cheat_Sheet.html)\\n- [Go Documentation: archive/zip package](https://pkg.go.dev/archive/zip)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_ziparchive",
-      "line_number": 27,
+      "line_number": 23,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 27,
-        "end": 27,
+        "start": 23,
+        "end": 23,
         "column": {
           "start": 11,
           "end": 43
         }
       },
       "sink": {
-        "start": 27,
-        "end": 27,
+        "start": 23,
+        "end": 23,
         "column": {
           "start": 11,
           "end": 43
         },
         "content": "filepath.Join(target, file.Name)"
       },
-      "parent_line_number": 27,
+      "parent_line_number": 23,
       "snippet": "filepath.Join(target, file.Name)",
       "fingerprint": "704dc7b283b24c0deaaced0816ea502b_0",
       "old_fingerprint": "1c766cd72bac736b6813d91ff99016c0_0",
@@ -45,27 +45,27 @@ exports[`go_gosec_filesystem_ziparchive test 1`] = `
       "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "description": "## Description\\n\\nThe application is at risk of a path traversal vulnerability, commonly known as 'Zip Slip', when extracting files from untrusted archives. Maliciously crafted archive files can contain relative path specifications that lead to writing files outside the intended directory when extracted, potentially overwriting system files or placing unauthorized files in critical paths.\\n\\n## Remediations\\n\\nTo safeguard against 'Zip Slip' and related exploitation techniques, follow these security practices:\\n\\n✅ Limit Archive Size\\n\\nImplement checks to ensure the zip archive's size does not exceed a maximum threshold, preventing 'Zip Bombs'—archives that decompress to disproportionately large sizes.\\n\\n✅ Generate Unique Filenames\\n\\nAvoid using the original filenames from the archive. If necessary, use only the base name after sanitizing or, better yet, generate a unique name to prevent intentional overwrites.\\n\\n✅ Validate Extraction Paths\\n\\nConfirm that extracted files are written to a specified, trusted directory and do not traverse outside of this directory.\\n\\n✅ Disallow Symbolic Links\\n\\nOnly process regular files. Exclude symbolic links to prevent indirect file read/write vulnerabilities.\\n\\n\`\`\`go\\nimport (\\n  \\"archive/zip\\"\\n  \\"io\\"\\n  \\"log\\"\\n  \\"os\\"\\n  \\"path/filepath\\"\\n  \\"strings\\"\\n)\\n\\nfunc main() {\\n  // Open the zip file for reading\\n  r, err := zip.OpenReader(\\"trusted.zip\\")\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  defer r.Close()\\n\\n  // Set up restrictions and base path\\n  const (\\n    expectedFileCount = 10\\n    totalAllowedSize  = 10 * 1024 * 1024 // 10MB\\n    maxFileSize       = 1024 * 1024      // 1MB\\n    basePath          = \\"/var/restricted/\\"\\n  )\\n\\n  // Calculate total size of uncompressed files\\n  var totalSize uint64\\n  for _, f := range r.File {\\n    totalSize += f.UncompressedSize64\\n  }\\n\\n  // Check if total size exceeds the limit\\n  if totalSize > totalAllowedSize {\\n    log.Fatalf(\\"archive exceeds total allowed size: %d\\\\n\\", totalSize)\\n  }\\n\\n  // Process files in the archive\\n  for _, f := range r.File {\\n    // Skip overlarge files\\n    if f.UncompressedSize64 > maxFileSize {\\n      log.Printf(\\"skipping file as it exceeds maxFileSize: %s\\\\n\\", f.Name)\\n      continue\\n    }\\n\\n    // Skip if not a regular file\\n    if !f.Mode().IsRegular() {\\n      log.Printf(\\"skipping non-regular file: %s\\\\n\\", f.Name)\\n      continue\\n    }\\n\\n    // Securely resolve the file path\\n    name := filepath.Base(f.Name)\\n    resolvedPath, err := filepath.Join(basePath, name)\\n    if err != nil {\\n      log.Fatal(err)\\n    }\\n\\n    // Ensure the file does not traverse outside the base path\\n    if !strings.HasPrefix(resolvedPath, basePath) {\\n      log.Fatal(\\"path does not start with basePath\\")\\n    }\\n\\n    // Extract and process the file (omitted for brevity)\\n  }\\n}\\n\`\`\`\\n\\nFor processing directories within the zip archive, ensure to clean the path and validate it strictly against the base path.\\n\\n## Resources\\n\\n- [OWASP Cheat Sheet: Zip Slip Vulnerability](https://cheatsheetseries.owasp.org/cheatsheets/Path_Traversal_Cheat_Sheet.html)\\n- [Go Documentation: archive/zip package](https://pkg.go.dev/archive/zip)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_ziparchive",
-      "line_number": 65,
+      "line_number": 61,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 65,
-        "end": 65,
+        "start": 61,
+        "end": 61,
         "column": {
           "start": 11,
           "end": 45
         }
       },
       "sink": {
-        "start": 65,
-        "end": 65,
+        "start": 61,
+        "end": 61,
         "column": {
           "start": 11,
           "end": 45
         },
         "content": "filepath.Join(target, archiveFile)"
       },
-      "parent_line_number": 65,
+      "parent_line_number": 61,
       "snippet": "filepath.Join(target, archiveFile)",
       "fingerprint": "704dc7b283b24c0deaaced0816ea502b_1",
       "old_fingerprint": "1c766cd72bac736b6813d91ff99016c0_1",
@@ -79,27 +79,27 @@ exports[`go_gosec_filesystem_ziparchive test 1`] = `
       "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "description": "## Description\\n\\nThe application is at risk of a path traversal vulnerability, commonly known as 'Zip Slip', when extracting files from untrusted archives. Maliciously crafted archive files can contain relative path specifications that lead to writing files outside the intended directory when extracted, potentially overwriting system files or placing unauthorized files in critical paths.\\n\\n## Remediations\\n\\nTo safeguard against 'Zip Slip' and related exploitation techniques, follow these security practices:\\n\\n✅ Limit Archive Size\\n\\nImplement checks to ensure the zip archive's size does not exceed a maximum threshold, preventing 'Zip Bombs'—archives that decompress to disproportionately large sizes.\\n\\n✅ Generate Unique Filenames\\n\\nAvoid using the original filenames from the archive. If necessary, use only the base name after sanitizing or, better yet, generate a unique name to prevent intentional overwrites.\\n\\n✅ Validate Extraction Paths\\n\\nConfirm that extracted files are written to a specified, trusted directory and do not traverse outside of this directory.\\n\\n✅ Disallow Symbolic Links\\n\\nOnly process regular files. Exclude symbolic links to prevent indirect file read/write vulnerabilities.\\n\\n\`\`\`go\\nimport (\\n  \\"archive/zip\\"\\n  \\"io\\"\\n  \\"log\\"\\n  \\"os\\"\\n  \\"path/filepath\\"\\n  \\"strings\\"\\n)\\n\\nfunc main() {\\n  // Open the zip file for reading\\n  r, err := zip.OpenReader(\\"trusted.zip\\")\\n  if err != nil {\\n    log.Fatal(err)\\n  }\\n  defer r.Close()\\n\\n  // Set up restrictions and base path\\n  const (\\n    expectedFileCount = 10\\n    totalAllowedSize  = 10 * 1024 * 1024 // 10MB\\n    maxFileSize       = 1024 * 1024      // 1MB\\n    basePath          = \\"/var/restricted/\\"\\n  )\\n\\n  // Calculate total size of uncompressed files\\n  var totalSize uint64\\n  for _, f := range r.File {\\n    totalSize += f.UncompressedSize64\\n  }\\n\\n  // Check if total size exceeds the limit\\n  if totalSize > totalAllowedSize {\\n    log.Fatalf(\\"archive exceeds total allowed size: %d\\\\n\\", totalSize)\\n  }\\n\\n  // Process files in the archive\\n  for _, f := range r.File {\\n    // Skip overlarge files\\n    if f.UncompressedSize64 > maxFileSize {\\n      log.Printf(\\"skipping file as it exceeds maxFileSize: %s\\\\n\\", f.Name)\\n      continue\\n    }\\n\\n    // Skip if not a regular file\\n    if !f.Mode().IsRegular() {\\n      log.Printf(\\"skipping non-regular file: %s\\\\n\\", f.Name)\\n      continue\\n    }\\n\\n    // Securely resolve the file path\\n    name := filepath.Base(f.Name)\\n    resolvedPath, err := filepath.Join(basePath, name)\\n    if err != nil {\\n      log.Fatal(err)\\n    }\\n\\n    // Ensure the file does not traverse outside the base path\\n    if !strings.HasPrefix(resolvedPath, basePath) {\\n      log.Fatal(\\"path does not start with basePath\\")\\n    }\\n\\n    // Extract and process the file (omitted for brevity)\\n  }\\n}\\n\`\`\`\\n\\nFor processing directories within the zip archive, ensure to clean the path and validate it strictly against the base path.\\n\\n## Resources\\n\\n- [OWASP Cheat Sheet: Zip Slip Vulnerability](https://cheatsheetseries.owasp.org/cheatsheets/Path_Traversal_Cheat_Sheet.html)\\n- [Go Documentation: archive/zip package](https://pkg.go.dev/archive/zip)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_ziparchive",
-      "line_number": 92,
+      "line_number": 88,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 92,
-        "end": 92,
+        "start": 88,
+        "end": 88,
         "column": {
           "start": 14,
           "end": 45
         }
       },
       "sink": {
-        "start": 92,
-        "end": 92,
+        "start": 88,
+        "end": 88,
         "column": {
           "start": 14,
           "end": 45
         },
         "content": "filepath.Join(destPath, f.Name)"
       },
-      "parent_line_number": 92,
+      "parent_line_number": 88,
       "snippet": "filepath.Join(destPath, f.Name)",
       "fingerprint": "704dc7b283b24c0deaaced0816ea502b_2",
       "old_fingerprint": "1c766cd72bac736b6813d91ff99016c0_2",
