@@ -11,27 +11,27 @@ exports[`go_gosec_filesystem_filereadtaint test 1`] = `
       "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "description": "## Description\\n\\nConstructing file or path information dynamically, especially from user input, poses a significant security risk. If not handled correctly, attackers could manipulate these paths to access or manipulate sensitive files, leading to data breaches or system compromise. It is crucial to ensure that user input is not used directly to interact with the file system, as this can be exploited to perform path traversal attacks.\\n\\n## Remediations\\n\\nTo mitigate the risks associated with dynamic file path construction from user inputs, apply the following best practices:\\n\\n✅ Hash or Replace User Input\\n\\nWhen dealing with user input for file operations, hash the input or replace it with a system-generated unique identifier to prevent path manipulation.\\n\\n✅ Use \`filepath.Base\`\\n\\nExtract only the filename from the path, ignoring any directory information, to avoid directory traversal vulnerabilities.\\n\\n✅ Validate Paths Before Use\\n\\nAlways perform validation on the resolved paths before accessing files to ensure they are within the expected directory.\\n\\n\`\`\`go\\nimport (\\n    \\"crypto/rand\\"\\n    \\"encoding/hex\\"\\n    \\"io\\"\\n    \\"log\\"\\n    \\"path/filepath\\"\\n    \\"strings\\"\\n)\\n\\n// userData struct holds user-related data with a unique ID for file operations\\ntype userData struct {\\n    id           string // Unique identifier for the filename\\n    userFilename string // Original filename from the user, kept for reference\\n}\\n\\n// newUserData constructs a new userData instance with a random file ID\\nfunc newUserData(userFilename string) userData {\\n    return userData{\\n        id:           randomFileID(), // Use a random ID instead of user-provided filename\\n        userFilename: userFilename,\\n    }\\n}\\n\\n// randomFileID generates a secure random ID to be used as a filename\\nfunc randomFileID() string {\\n    id := make([]byte, 16)\\n    if _, err := io.ReadFull(rand.Reader, id); err != nil {\\n        log.Fatal(err)\\n    }\\n    return hex.EncodeToString(id)\\n}\\n\\nfunc main() {\\n    // Simulated user input, which may be malicious\\n    data := newUserData(\\"../../possibly/malicious\\")\\n\\n    // Define a safe base path for file operations\\n    const basePath = \\"/tmp/\\"\\n\\n    // Resolve the full path using the safe base path and the random ID\\n    resolvedPath, err := filepath.Join(basePath, filepath.Base(data.id))\\n    if err != nil {\\n        log.Fatal(err)\\n    }\\n\\n    // Ensure the resolved path is within our designated base path\\n    if !strings.HasPrefix(resolvedPath, basePath) {\\n        log.Fatal(\\"The resolved path does not start with the expected base path\\")\\n    }\\n\\n    // The file can now be safely accessed using resolvedPath\\n    // Further file processing code would go here\\n}\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Guide to Preventing Path Traversal](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_filereadtaint",
-      "line_number": 19,
+      "line_number": 15,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 19,
-        "end": 19,
+        "start": 15,
+        "end": 15,
         "column": {
           "start": 15,
           "end": 33
         }
       },
       "sink": {
-        "start": 19,
-        "end": 19,
+        "start": 15,
+        "end": 15,
         "column": {
           "start": 15,
           "end": 33
         },
         "content": "ioutil.ReadFile(f)"
       },
-      "parent_line_number": 19,
+      "parent_line_number": 15,
       "snippet": "ioutil.ReadFile(f)",
       "fingerprint": "4cbdcba5327691a5836bdf26ca7b0f5d_0",
       "old_fingerprint": "74ca07036b660b9689e4fe7febfbed2b_0",
@@ -45,27 +45,27 @@ exports[`go_gosec_filesystem_filereadtaint test 1`] = `
       "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "description": "## Description\\n\\nConstructing file or path information dynamically, especially from user input, poses a significant security risk. If not handled correctly, attackers could manipulate these paths to access or manipulate sensitive files, leading to data breaches or system compromise. It is crucial to ensure that user input is not used directly to interact with the file system, as this can be exploited to perform path traversal attacks.\\n\\n## Remediations\\n\\nTo mitigate the risks associated with dynamic file path construction from user inputs, apply the following best practices:\\n\\n✅ Hash or Replace User Input\\n\\nWhen dealing with user input for file operations, hash the input or replace it with a system-generated unique identifier to prevent path manipulation.\\n\\n✅ Use \`filepath.Base\`\\n\\nExtract only the filename from the path, ignoring any directory information, to avoid directory traversal vulnerabilities.\\n\\n✅ Validate Paths Before Use\\n\\nAlways perform validation on the resolved paths before accessing files to ensure they are within the expected directory.\\n\\n\`\`\`go\\nimport (\\n    \\"crypto/rand\\"\\n    \\"encoding/hex\\"\\n    \\"io\\"\\n    \\"log\\"\\n    \\"path/filepath\\"\\n    \\"strings\\"\\n)\\n\\n// userData struct holds user-related data with a unique ID for file operations\\ntype userData struct {\\n    id           string // Unique identifier for the filename\\n    userFilename string // Original filename from the user, kept for reference\\n}\\n\\n// newUserData constructs a new userData instance with a random file ID\\nfunc newUserData(userFilename string) userData {\\n    return userData{\\n        id:           randomFileID(), // Use a random ID instead of user-provided filename\\n        userFilename: userFilename,\\n    }\\n}\\n\\n// randomFileID generates a secure random ID to be used as a filename\\nfunc randomFileID() string {\\n    id := make([]byte, 16)\\n    if _, err := io.ReadFull(rand.Reader, id); err != nil {\\n        log.Fatal(err)\\n    }\\n    return hex.EncodeToString(id)\\n}\\n\\nfunc main() {\\n    // Simulated user input, which may be malicious\\n    data := newUserData(\\"../../possibly/malicious\\")\\n\\n    // Define a safe base path for file operations\\n    const basePath = \\"/tmp/\\"\\n\\n    // Resolve the full path using the safe base path and the random ID\\n    resolvedPath, err := filepath.Join(basePath, filepath.Base(data.id))\\n    if err != nil {\\n        log.Fatal(err)\\n    }\\n\\n    // Ensure the resolved path is within our designated base path\\n    if !strings.HasPrefix(resolvedPath, basePath) {\\n        log.Fatal(\\"The resolved path does not start with the expected base path\\")\\n    }\\n\\n    // The file can now be safely accessed using resolvedPath\\n    // Further file processing code would go here\\n}\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Guide to Preventing Path Traversal](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_filereadtaint",
-      "line_number": 30,
+      "line_number": 26,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 30,
-        "end": 30,
+        "start": 26,
+        "end": 26,
         "column": {
           "start": 13,
           "end": 27
         }
       },
       "sink": {
-        "start": 30,
-        "end": 30,
+        "start": 26,
+        "end": 26,
         "column": {
           "start": 13,
           "end": 27
         },
         "content": "os.Open(title)"
       },
-      "parent_line_number": 30,
+      "parent_line_number": 26,
       "snippet": "os.Open(title)",
       "fingerprint": "4cbdcba5327691a5836bdf26ca7b0f5d_1",
       "old_fingerprint": "74ca07036b660b9689e4fe7febfbed2b_1",
@@ -79,27 +79,27 @@ exports[`go_gosec_filesystem_filereadtaint test 1`] = `
       "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "description": "## Description\\n\\nConstructing file or path information dynamically, especially from user input, poses a significant security risk. If not handled correctly, attackers could manipulate these paths to access or manipulate sensitive files, leading to data breaches or system compromise. It is crucial to ensure that user input is not used directly to interact with the file system, as this can be exploited to perform path traversal attacks.\\n\\n## Remediations\\n\\nTo mitigate the risks associated with dynamic file path construction from user inputs, apply the following best practices:\\n\\n✅ Hash or Replace User Input\\n\\nWhen dealing with user input for file operations, hash the input or replace it with a system-generated unique identifier to prevent path manipulation.\\n\\n✅ Use \`filepath.Base\`\\n\\nExtract only the filename from the path, ignoring any directory information, to avoid directory traversal vulnerabilities.\\n\\n✅ Validate Paths Before Use\\n\\nAlways perform validation on the resolved paths before accessing files to ensure they are within the expected directory.\\n\\n\`\`\`go\\nimport (\\n    \\"crypto/rand\\"\\n    \\"encoding/hex\\"\\n    \\"io\\"\\n    \\"log\\"\\n    \\"path/filepath\\"\\n    \\"strings\\"\\n)\\n\\n// userData struct holds user-related data with a unique ID for file operations\\ntype userData struct {\\n    id           string // Unique identifier for the filename\\n    userFilename string // Original filename from the user, kept for reference\\n}\\n\\n// newUserData constructs a new userData instance with a random file ID\\nfunc newUserData(userFilename string) userData {\\n    return userData{\\n        id:           randomFileID(), // Use a random ID instead of user-provided filename\\n        userFilename: userFilename,\\n    }\\n}\\n\\n// randomFileID generates a secure random ID to be used as a filename\\nfunc randomFileID() string {\\n    id := make([]byte, 16)\\n    if _, err := io.ReadFull(rand.Reader, id); err != nil {\\n        log.Fatal(err)\\n    }\\n    return hex.EncodeToString(id)\\n}\\n\\nfunc main() {\\n    // Simulated user input, which may be malicious\\n    data := newUserData(\\"../../possibly/malicious\\")\\n\\n    // Define a safe base path for file operations\\n    const basePath = \\"/tmp/\\"\\n\\n    // Resolve the full path using the safe base path and the random ID\\n    resolvedPath, err := filepath.Join(basePath, filepath.Base(data.id))\\n    if err != nil {\\n        log.Fatal(err)\\n    }\\n\\n    // Ensure the resolved path is within our designated base path\\n    if !strings.HasPrefix(resolvedPath, basePath) {\\n        log.Fatal(\\"The resolved path does not start with the expected base path\\")\\n    }\\n\\n    // The file can now be safely accessed using resolvedPath\\n    // Further file processing code would go here\\n}\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Guide to Preventing Path Traversal](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_filereadtaint",
-      "line_number": 46,
+      "line_number": 42,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 46,
-        "end": 46,
+        "start": 42,
+        "end": 42,
         "column": {
           "start": 13,
           "end": 60
         }
       },
       "sink": {
-        "start": 46,
-        "end": 46,
+        "start": 42,
+        "end": 42,
         "column": {
           "start": 13,
           "end": 60
         },
         "content": "os.OpenFile(title, os.O_RDWR|os.O_CREATE, 0755)"
       },
-      "parent_line_number": 46,
+      "parent_line_number": 42,
       "snippet": "os.OpenFile(title, os.O_RDWR|os.O_CREATE, 0755)",
       "fingerprint": "4cbdcba5327691a5836bdf26ca7b0f5d_2",
       "old_fingerprint": "74ca07036b660b9689e4fe7febfbed2b_2",
@@ -113,27 +113,27 @@ exports[`go_gosec_filesystem_filereadtaint test 1`] = `
       "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "description": "## Description\\n\\nConstructing file or path information dynamically, especially from user input, poses a significant security risk. If not handled correctly, attackers could manipulate these paths to access or manipulate sensitive files, leading to data breaches or system compromise. It is crucial to ensure that user input is not used directly to interact with the file system, as this can be exploited to perform path traversal attacks.\\n\\n## Remediations\\n\\nTo mitigate the risks associated with dynamic file path construction from user inputs, apply the following best practices:\\n\\n✅ Hash or Replace User Input\\n\\nWhen dealing with user input for file operations, hash the input or replace it with a system-generated unique identifier to prevent path manipulation.\\n\\n✅ Use \`filepath.Base\`\\n\\nExtract only the filename from the path, ignoring any directory information, to avoid directory traversal vulnerabilities.\\n\\n✅ Validate Paths Before Use\\n\\nAlways perform validation on the resolved paths before accessing files to ensure they are within the expected directory.\\n\\n\`\`\`go\\nimport (\\n    \\"crypto/rand\\"\\n    \\"encoding/hex\\"\\n    \\"io\\"\\n    \\"log\\"\\n    \\"path/filepath\\"\\n    \\"strings\\"\\n)\\n\\n// userData struct holds user-related data with a unique ID for file operations\\ntype userData struct {\\n    id           string // Unique identifier for the filename\\n    userFilename string // Original filename from the user, kept for reference\\n}\\n\\n// newUserData constructs a new userData instance with a random file ID\\nfunc newUserData(userFilename string) userData {\\n    return userData{\\n        id:           randomFileID(), // Use a random ID instead of user-provided filename\\n        userFilename: userFilename,\\n    }\\n}\\n\\n// randomFileID generates a secure random ID to be used as a filename\\nfunc randomFileID() string {\\n    id := make([]byte, 16)\\n    if _, err := io.ReadFull(rand.Reader, id); err != nil {\\n        log.Fatal(err)\\n    }\\n    return hex.EncodeToString(id)\\n}\\n\\nfunc main() {\\n    // Simulated user input, which may be malicious\\n    data := newUserData(\\"../../possibly/malicious\\")\\n\\n    // Define a safe base path for file operations\\n    const basePath = \\"/tmp/\\"\\n\\n    // Resolve the full path using the safe base path and the random ID\\n    resolvedPath, err := filepath.Join(basePath, filepath.Base(data.id))\\n    if err != nil {\\n        log.Fatal(err)\\n    }\\n\\n    // Ensure the resolved path is within our designated base path\\n    if !strings.HasPrefix(resolvedPath, basePath) {\\n        log.Fatal(\\"The resolved path does not start with the expected base path\\")\\n    }\\n\\n    // The file can now be safely accessed using resolvedPath\\n    // Further file processing code would go here\\n}\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Guide to Preventing Path Traversal](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_filereadtaint",
-      "line_number": 61,
+      "line_number": 57,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 61,
-        "end": 61,
+        "start": 57,
+        "end": 57,
         "column": {
           "start": 15,
           "end": 44
         }
       },
       "sink": {
-        "start": 61,
-        "end": 61,
+        "start": 57,
+        "end": 57,
         "column": {
           "start": 15,
           "end": 44
         },
         "content": "ioutil.ReadFile(\\"/tmp/\\" + f2)"
       },
-      "parent_line_number": 61,
+      "parent_line_number": 57,
       "snippet": "ioutil.ReadFile(\\"/tmp/\\" + f2)",
       "fingerprint": "4cbdcba5327691a5836bdf26ca7b0f5d_3",
       "old_fingerprint": "74ca07036b660b9689e4fe7febfbed2b_3",
@@ -147,27 +147,27 @@ exports[`go_gosec_filesystem_filereadtaint test 1`] = `
       "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "description": "## Description\\n\\nConstructing file or path information dynamically, especially from user input, poses a significant security risk. If not handled correctly, attackers could manipulate these paths to access or manipulate sensitive files, leading to data breaches or system compromise. It is crucial to ensure that user input is not used directly to interact with the file system, as this can be exploited to perform path traversal attacks.\\n\\n## Remediations\\n\\nTo mitigate the risks associated with dynamic file path construction from user inputs, apply the following best practices:\\n\\n✅ Hash or Replace User Input\\n\\nWhen dealing with user input for file operations, hash the input or replace it with a system-generated unique identifier to prevent path manipulation.\\n\\n✅ Use \`filepath.Base\`\\n\\nExtract only the filename from the path, ignoring any directory information, to avoid directory traversal vulnerabilities.\\n\\n✅ Validate Paths Before Use\\n\\nAlways perform validation on the resolved paths before accessing files to ensure they are within the expected directory.\\n\\n\`\`\`go\\nimport (\\n    \\"crypto/rand\\"\\n    \\"encoding/hex\\"\\n    \\"io\\"\\n    \\"log\\"\\n    \\"path/filepath\\"\\n    \\"strings\\"\\n)\\n\\n// userData struct holds user-related data with a unique ID for file operations\\ntype userData struct {\\n    id           string // Unique identifier for the filename\\n    userFilename string // Original filename from the user, kept for reference\\n}\\n\\n// newUserData constructs a new userData instance with a random file ID\\nfunc newUserData(userFilename string) userData {\\n    return userData{\\n        id:           randomFileID(), // Use a random ID instead of user-provided filename\\n        userFilename: userFilename,\\n    }\\n}\\n\\n// randomFileID generates a secure random ID to be used as a filename\\nfunc randomFileID() string {\\n    id := make([]byte, 16)\\n    if _, err := io.ReadFull(rand.Reader, id); err != nil {\\n        log.Fatal(err)\\n    }\\n    return hex.EncodeToString(id)\\n}\\n\\nfunc main() {\\n    // Simulated user input, which may be malicious\\n    data := newUserData(\\"../../possibly/malicious\\")\\n\\n    // Define a safe base path for file operations\\n    const basePath = \\"/tmp/\\"\\n\\n    // Resolve the full path using the safe base path and the random ID\\n    resolvedPath, err := filepath.Join(basePath, filepath.Base(data.id))\\n    if err != nil {\\n        log.Fatal(err)\\n    }\\n\\n    // Ensure the resolved path is within our designated base path\\n    if !strings.HasPrefix(resolvedPath, basePath) {\\n        log.Fatal(\\"The resolved path does not start with the expected base path\\")\\n    }\\n\\n    // The file can now be safely accessed using resolvedPath\\n    // Further file processing code would go here\\n}\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Guide to Preventing Path Traversal](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_filereadtaint",
-      "line_number": 73,
+      "line_number": 69,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 73,
-        "end": 73,
+        "start": 69,
+        "end": 69,
         "column": {
           "start": 12,
           "end": 57
         }
       },
       "sink": {
-        "start": 73,
-        "end": 73,
+        "start": 69,
+        "end": 69,
         "column": {
           "start": 12,
           "end": 57
         },
         "content": "os.Open(filepath.Join(\\"/tmp/service/\\", file))"
       },
-      "parent_line_number": 73,
+      "parent_line_number": 69,
       "snippet": "os.Open(filepath.Join(\\"/tmp/service/\\", file))",
       "fingerprint": "4cbdcba5327691a5836bdf26ca7b0f5d_4",
       "old_fingerprint": "74ca07036b660b9689e4fe7febfbed2b_4",
@@ -181,27 +181,27 @@ exports[`go_gosec_filesystem_filereadtaint test 1`] = `
       "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "description": "## Description\\n\\nConstructing file or path information dynamically, especially from user input, poses a significant security risk. If not handled correctly, attackers could manipulate these paths to access or manipulate sensitive files, leading to data breaches or system compromise. It is crucial to ensure that user input is not used directly to interact with the file system, as this can be exploited to perform path traversal attacks.\\n\\n## Remediations\\n\\nTo mitigate the risks associated with dynamic file path construction from user inputs, apply the following best practices:\\n\\n✅ Hash or Replace User Input\\n\\nWhen dealing with user input for file operations, hash the input or replace it with a system-generated unique identifier to prevent path manipulation.\\n\\n✅ Use \`filepath.Base\`\\n\\nExtract only the filename from the path, ignoring any directory information, to avoid directory traversal vulnerabilities.\\n\\n✅ Validate Paths Before Use\\n\\nAlways perform validation on the resolved paths before accessing files to ensure they are within the expected directory.\\n\\n\`\`\`go\\nimport (\\n    \\"crypto/rand\\"\\n    \\"encoding/hex\\"\\n    \\"io\\"\\n    \\"log\\"\\n    \\"path/filepath\\"\\n    \\"strings\\"\\n)\\n\\n// userData struct holds user-related data with a unique ID for file operations\\ntype userData struct {\\n    id           string // Unique identifier for the filename\\n    userFilename string // Original filename from the user, kept for reference\\n}\\n\\n// newUserData constructs a new userData instance with a random file ID\\nfunc newUserData(userFilename string) userData {\\n    return userData{\\n        id:           randomFileID(), // Use a random ID instead of user-provided filename\\n        userFilename: userFilename,\\n    }\\n}\\n\\n// randomFileID generates a secure random ID to be used as a filename\\nfunc randomFileID() string {\\n    id := make([]byte, 16)\\n    if _, err := io.ReadFull(rand.Reader, id); err != nil {\\n        log.Fatal(err)\\n    }\\n    return hex.EncodeToString(id)\\n}\\n\\nfunc main() {\\n    // Simulated user input, which may be malicious\\n    data := newUserData(\\"../../possibly/malicious\\")\\n\\n    // Define a safe base path for file operations\\n    const basePath = \\"/tmp/\\"\\n\\n    // Resolve the full path using the safe base path and the random ID\\n    resolvedPath, err := filepath.Join(basePath, filepath.Base(data.id))\\n    if err != nil {\\n        log.Fatal(err)\\n    }\\n\\n    // Ensure the resolved path is within our designated base path\\n    if !strings.HasPrefix(resolvedPath, basePath) {\\n        log.Fatal(\\"The resolved path does not start with the expected base path\\")\\n    }\\n\\n    // The file can now be safely accessed using resolvedPath\\n    // Further file processing code would go here\\n}\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP Guide to Preventing Path Traversal](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_filesystem_filereadtaint",
-      "line_number": 88,
+      "line_number": 84,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 88,
-        "end": 88,
+        "start": 84,
+        "end": 84,
         "column": {
           "start": 15,
           "end": 62
         }
       },
       "sink": {
-        "start": 88,
-        "end": 88,
+        "start": 84,
+        "end": 84,
         "column": {
           "start": 15,
           "end": 62
         },
         "content": "ioutil.ReadFile(filepath.Join(\\"/var/\\"+dir, f3))"
       },
-      "parent_line_number": 88,
+      "parent_line_number": 84,
       "snippet": "ioutil.ReadFile(filepath.Join(\\"/var/\\"+dir, f3))",
       "fingerprint": "4cbdcba5327691a5836bdf26ca7b0f5d_5",
       "old_fingerprint": "74ca07036b660b9689e4fe7febfbed2b_5",

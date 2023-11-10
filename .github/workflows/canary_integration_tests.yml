@@ -34,6 +34,8 @@ jobs:
             "php/third_parties",
             "python/lang",
             "go/lang",
+            "go/gosec",
+            "go/gorilla",
           ]
     steps:
       - uses: actions/checkout@v3

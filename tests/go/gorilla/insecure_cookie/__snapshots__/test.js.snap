@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`go_gorilla_insecure_cookie bad 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "go_gorilla_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\n\\nCookies are a critical component of web session management. However, improperly secured cookies can expose your application to attacks, such as session hijacking and cross-site scripting (XSS). It's essential to configure cookie security options properly, especially when using session management libraries like Gorilla Sessions in Go.\\n\\n## Remediations\\n\\nTo ensure that cookies, particularly session cookies, are secure:\\n\\n✅ Configure HttpOnly\\n\\nSet the \`HttpOnly\` attribute to \`true\` within the Gorilla Sessions cookie store. This prevents client-side scripts from accessing the cookie data, reducing XSS attack risks.\\n\\n\`\`\`go\\nimport (\\n    \\"github.com/gorilla/sessions\\"\\n    \\"net/http\\"\\n)\\n\\nvar store = sessions.NewCookieStore([]byte(\\"your-secret-key\\"))\\n\\nfunc MyHandler(w http.ResponseWriter, r *http.Request) {\\n    // Get a session. We're ignoring the error resulted from decoding an\\n    // existing session: Get() always returns a session, even if empty.\\n    session, _ := store.Get(r, \\"session-name\\")\\n    // Set some session values.\\n    session.Values[\\"foo\\"] = \\"bar\\"\\n    // Set the session to be HttpOnly.\\n    session.Options.HttpOnly = true\\n    // Save changes.\\n    session.Save(r, w)\\n}\\n\`\`\`\\n\\n✅ Set Secure Flag\\n\\nIf your site is served over HTTPS, also set the \`Secure\` flag on the cookie to ensure it's transmitted over secure channels only.\\n\\n✅ Leverage Gorilla SecureCookie\\n\\nUtilize the encoding/decoding capabilities of Gorilla's SecureCookie to securely store session data.\\n\\n✅ Implement Strong Session Management\\n\\nUse Gorilla's session management features to create, renew, and expire sessions in a secure manner, preventing session fixation and other session-related attacks.\\n\\n## Resources\\n\\n- [Gorilla Sessions Documentation](http://www.gorillatoolkit.org/pkg/sessions)\\n- [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)\\n- [OWASP Cookies Properties](https://owasp.org/www-community/controls/SecureCookieAttribute)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gorilla_insecure_cookie",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/bad.go",
+      "filename": ".",
+      "source": {
+        "start": 14,
+        "end": 19,
+        "column": {
+          "start": 21,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 19,
+        "column": {
+          "start": 21,
+          "end": 3
+        },
+        "content": "sessions.Options{\\n\\t\\tPath:     \\"/\\",\\n\\t\\tMaxAge:   3600,\\n\\t\\tHttpOnly: false, //set to false for xss :)\\n\\t\\tSecure:   true,\\n\\t}"
+      },
+      "parent_line_number": 14,
+      "snippet": "sessions.Options{\\n\\t\\tPath:     \\"/\\",\\n\\t\\tMaxAge:   3600,\\n\\t\\tHttpOnly: false, //set to false for xss :)\\n\\t\\tSecure:   true,\\n\\t}",
+      "fingerprint": "17a855b37b69128f2d8e512dc6116cd8_0",
+      "old_fingerprint": "476d3b036fbc5873fb2dff0e1fb6888c_0",
+      "code_extract": "\\tsession.Options = &sessions.Options{\\n\\t\\tPath:     \\"/\\",\\n\\t\\tMaxAge:   3600,\\n\\t\\tHttpOnly: false, //set to false for xss :)\\n\\t\\tSecure:   true,\\n\\t}"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "go_gorilla_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\n\\nCookies are a critical component of web session management. However, improperly secured cookies can expose your application to attacks, such as session hijacking and cross-site scripting (XSS). It's essential to configure cookie security options properly, especially when using session management libraries like Gorilla Sessions in Go.\\n\\n## Remediations\\n\\nTo ensure that cookies, particularly session cookies, are secure:\\n\\n✅ Configure HttpOnly\\n\\nSet the \`HttpOnly\` attribute to \`true\` within the Gorilla Sessions cookie store. This prevents client-side scripts from accessing the cookie data, reducing XSS attack risks.\\n\\n\`\`\`go\\nimport (\\n    \\"github.com/gorilla/sessions\\"\\n    \\"net/http\\"\\n)\\n\\nvar store = sessions.NewCookieStore([]byte(\\"your-secret-key\\"))\\n\\nfunc MyHandler(w http.ResponseWriter, r *http.Request) {\\n    // Get a session. We're ignoring the error resulted from decoding an\\n    // existing session: Get() always returns a session, even if empty.\\n    session, _ := store.Get(r, \\"session-name\\")\\n    // Set some session values.\\n    session.Values[\\"foo\\"] = \\"bar\\"\\n    // Set the session to be HttpOnly.\\n    session.Options.HttpOnly = true\\n    // Save changes.\\n    session.Save(r, w)\\n}\\n\`\`\`\\n\\n✅ Set Secure Flag\\n\\nIf your site is served over HTTPS, also set the \`Secure\` flag on the cookie to ensure it's transmitted over secure channels only.\\n\\n✅ Leverage Gorilla SecureCookie\\n\\nUtilize the encoding/decoding capabilities of Gorilla's SecureCookie to securely store session data.\\n\\n✅ Implement Strong Session Management\\n\\nUse Gorilla's session management features to create, renew, and expire sessions in a secure manner, preventing session fixation and other session-related attacks.\\n\\n## Resources\\n\\n- [Gorilla Sessions Documentation](http://www.gorillatoolkit.org/pkg/sessions)\\n- [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)\\n- [OWASP Cookies Properties](https://owasp.org/www-community/controls/SecureCookieAttribute)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gorilla_insecure_cookie",
+      "line_number": 24,
+      "full_filename": "/tmp/bearer-scan/bad.go",
+      "filename": ".",
+      "source": {
+        "start": 24,
+        "end": 29,
+        "column": {
+          "start": 21,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 24,
+        "end": 29,
+        "column": {
+          "start": 21,
+          "end": 3
+        },
+        "content": "sessions.Options{\\n\\t\\tPath:     \\"/\\",\\n\\t\\tMaxAge:   3600,\\n\\t\\tHttpOnly: true, //set to false for xss :)\\n\\t\\tSecure:   false,\\n\\t}"
+      },
+      "parent_line_number": 24,
+      "snippet": "sessions.Options{\\n\\t\\tPath:     \\"/\\",\\n\\t\\tMaxAge:   3600,\\n\\t\\tHttpOnly: true, //set to false for xss :)\\n\\t\\tSecure:   false,\\n\\t}",
+      "fingerprint": "17a855b37b69128f2d8e512dc6116cd8_1",
+      "old_fingerprint": "476d3b036fbc5873fb2dff0e1fb6888c_1",
+      "code_extract": "\\tsession.Options = &sessions.Options{\\n\\t\\tPath:     \\"/\\",\\n\\t\\tMaxAge:   3600,\\n\\t\\tHttpOnly: true, //set to false for xss :)\\n\\t\\tSecure:   false,\\n\\t}"
+    },
+    {
+      "cwe_ids": [
+        "1004",
+        "614"
+      ],
+      "id": "go_gorilla_insecure_cookie",
+      "title": "Missing secure options for cookie detected.",
+      "description": "## Description\\n\\nCookies are a critical component of web session management. However, improperly secured cookies can expose your application to attacks, such as session hijacking and cross-site scripting (XSS). It's essential to configure cookie security options properly, especially when using session management libraries like Gorilla Sessions in Go.\\n\\n## Remediations\\n\\nTo ensure that cookies, particularly session cookies, are secure:\\n\\n✅ Configure HttpOnly\\n\\nSet the \`HttpOnly\` attribute to \`true\` within the Gorilla Sessions cookie store. This prevents client-side scripts from accessing the cookie data, reducing XSS attack risks.\\n\\n\`\`\`go\\nimport (\\n    \\"github.com/gorilla/sessions\\"\\n    \\"net/http\\"\\n)\\n\\nvar store = sessions.NewCookieStore([]byte(\\"your-secret-key\\"))\\n\\nfunc MyHandler(w http.ResponseWriter, r *http.Request) {\\n    // Get a session. We're ignoring the error resulted from decoding an\\n    // existing session: Get() always returns a session, even if empty.\\n    session, _ := store.Get(r, \\"session-name\\")\\n    // Set some session values.\\n    session.Values[\\"foo\\"] = \\"bar\\"\\n    // Set the session to be HttpOnly.\\n    session.Options.HttpOnly = true\\n    // Save changes.\\n    session.Save(r, w)\\n}\\n\`\`\`\\n\\n✅ Set Secure Flag\\n\\nIf your site is served over HTTPS, also set the \`Secure\` flag on the cookie to ensure it's transmitted over secure channels only.\\n\\n✅ Leverage Gorilla SecureCookie\\n\\nUtilize the encoding/decoding capabilities of Gorilla's SecureCookie to securely store session data.\\n\\n✅ Implement Strong Session Management\\n\\nUse Gorilla's session management features to create, renew, and expire sessions in a secure manner, preventing session fixation and other session-related attacks.\\n\\n## Resources\\n\\n- [Gorilla Sessions Documentation](http://www.gorillatoolkit.org/pkg/sessions)\\n- [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)\\n- [OWASP Cookies Properties](https://owasp.org/www-community/controls/SecureCookieAttribute)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/go_gorilla_insecure_cookie",
+      "line_number": 34,
+      "full_filename": "/tmp/bearer-scan/bad.go",
+      "filename": ".",
+      "source": {
+        "start": 34,
+        "end": 38,
+        "column": {
+          "start": 21,
+          "end": 3
+        }
+      },
+      "sink": {
+        "start": 34,
+        "end": 38,
+        "column": {
+          "start": 21,
+          "end": 3
+        },
+        "content": "sessions.Options{\\n\\t\\tMaxAge:   -1,\\n\\t\\tHttpOnly: false,\\n\\t\\tSecure:   true,\\n\\t}"
+      },
+      "parent_line_number": 34,
+      "snippet": "sessions.Options{\\n\\t\\tMaxAge:   -1,\\n\\t\\tHttpOnly: false,\\n\\t\\tSecure:   true,\\n\\t}",
+      "fingerprint": "17a855b37b69128f2d8e512dc6116cd8_2",
+      "old_fingerprint": "476d3b036fbc5873fb2dff0e1fb6888c_2",
+      "code_extract": "\\tsession.Options = &sessions.Options{\\n\\t\\tMaxAge:   -1,\\n\\t\\tHttpOnly: false,\\n\\t\\tSecure:   true,\\n\\t}"
+    }
+  ]
+}"
+`;
+
+exports[`go_gorilla_insecure_cookie ok 1`] = `"{}"`;

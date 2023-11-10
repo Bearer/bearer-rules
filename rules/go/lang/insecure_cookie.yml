@@ -1,0 +1,84 @@
+patterns:
+  - pattern: $<COOKIE>
+    filters:
+      - variable: COOKIE
+        detection: go_lang_insecure_cookie_http_cookie
+        scope: cursor_strict
+      - either:
+          - not:
+              variable: COOKIE
+              detection: go_lang_insecure_cookie_secure_true
+              scope: cursor_strict
+          - not:
+              variable: COOKIE
+              detection: go_lang_insecure_cookie_http_only_true
+              scope: cursor_strict
+auxiliary:
+  - id: go_lang_insecure_cookie_cookie_init
+    patterns:
+      - import $<!>"net/http"
+      - |
+        import (
+          $<!>"net/http"
+        )
+  - id: go_lang_insecure_cookie_true
+    patterns:
+      - "true"
+  - id: go_lang_insecure_cookie_http_cookie
+    patterns:
+      - pattern: $<HTTP>.Cookie{}
+        filters:
+          - variable: HTTP
+            detection: go_lang_insecure_cookie_cookie_init
+            scope: cursor
+  - id: go_lang_insecure_cookie_secure_true
+    patterns:
+      - pattern: "$<_>{ Secure: $<TRUE> }"
+        filters:
+          - variable: "TRUE"
+            detection: go_lang_insecure_cookie_true
+            scope: cursor
+  - id: go_lang_insecure_cookie_http_only_true
+    patterns:
+      - pattern: "$<_>{ HttpOnly: $<TRUE> }"
+        filters:
+          - variable: "TRUE"
+            detection: go_lang_insecure_cookie_true
+            scope: cursor
+languages:
+  - go
+metadata:
+  description: "Missing secure options for cookie detected."
+  remediation_message: |
+    ## Description
+
+    Cookies without proper security settings can be vulnerable to cross-site scripting (XSS) attacks and potentially provide an avenue for unauthorized access to your application.
+
+    ## Remediations
+
+    To enhance cookie security and protect against common web exploits:
+
+    ✅ **Use HttpOnly Flag**: Set the `HttpOnly` attribute for cookies to `true`. This prevents client-side scripts from accessing the cookie, reducing the risk of client-side attacks.
+
+    ```go
+    http.SetCookie(w, &http.Cookie{
+        Name:     "session_token",
+        Value:    sessionToken,
+        HttpOnly: true, // Secure the cookie from client-side scripts
+        // Additional flags like Secure, SameSite, etc., should be set as needed.
+    })
+    ```
+
+    ✅ **Additional Cookie Attributes**: Alongside `HttpOnly`, consider setting `Secure`, `SameSite`, and `Domain` attributes to further secure cookies based on your application’s requirements.
+
+    ## Resources
+
+    For best practices on setting cookies securely, explore:
+
+    - [OWASP Secure Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
+    - [MDN Web Docs: HttpOnly Cookie Attribute](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies)
+  cwe_id:
+    - 1004
+    - 614
+  id: go_lang_insecure_cookie
+  documentation_url: https://docs.bearer.com/reference/rules/go_lang_insecure_cookie

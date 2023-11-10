@@ -11,27 +11,27 @@ exports[`go_gosec_sql_concat_sqli test 1`] = `
       "title": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "description": "## Description\\n\\nSQL Injection represents a severe vulnerability that can culminate in the compromise of data or entire systems. When SQL query strings are crafted dynamically based on user inputs, there's potential for malicious users to manipulate the logic of the SQL statement. Such tampering could provide adversaries unauthorized access to sensitive data or even allow them to execute system-level operations or code.\\n\\n## Remediations\\n\\n✅ Use Parameterized Queries\\n\\nAlways opt for parameterized queries over dynamically generated SQL queries to prevent SQL injection.\\n\\n\`\`\`go\\nrows, err := db.Query(\\"SELECT * FROM users WHERE userName = ?\\", userName)\\nif err != nil {\\n    return nil, err\\n}\\ndefer rows.Close()\\nfor rows.Next() {\\n  // ... process rows\\n}\\n\`\`\`\\n\\n✅ Avoid Direct User Input in Dynamic Queries\\n\\nIf there's an absolute need to formulate dynamic queries, ensure that direct user input is never utilized. Instead, leverage a map or dictionary containing valid values and determine them through a user-provided key.\\n\\nFor instance, certain database drivers do not support parameterized queries for operators like \`>\` or \`<\`. Instead of directly using user-input values, allow users to provide substitutes like \`gt\` for \`>\` and \`lt\` for \`<\`. Subsequently, use these alphabetical inputs to retrieve the actual operators for your query. Implement a similar approach for queries requiring non-parameterizable column or table names.\\n\\n## Resources\\n\\n- [OWASP SQL Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_sql_concat_sqli",
-      "line_number": 18,
+      "line_number": 14,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 18,
-        "end": 18,
+        "start": 14,
+        "end": 14,
         "column": {
           "start": 15,
           "end": 71
         }
       },
       "sink": {
-        "start": 18,
-        "end": 18,
+        "start": 14,
+        "end": 14,
         "column": {
           "start": 15,
           "end": 71
         },
         "content": "db.Query(\\"SELECT * FROM foo WHERE name = \\" + os.Args[1])"
       },
-      "parent_line_number": 18,
+      "parent_line_number": 14,
       "snippet": "db.Query(\\"SELECT * FROM foo WHERE name = \\" + os.Args[1])",
       "fingerprint": "ca1a3415f7df18be8dec85c9d74eb890_0",
       "old_fingerprint": "3350ddd230bfd667e45a89b42b9b1b39_0",
@@ -45,27 +45,27 @@ exports[`go_gosec_sql_concat_sqli test 1`] = `
       "title": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "description": "## Description\\n\\nSQL Injection represents a severe vulnerability that can culminate in the compromise of data or entire systems. When SQL query strings are crafted dynamically based on user inputs, there's potential for malicious users to manipulate the logic of the SQL statement. Such tampering could provide adversaries unauthorized access to sensitive data or even allow them to execute system-level operations or code.\\n\\n## Remediations\\n\\n✅ Use Parameterized Queries\\n\\nAlways opt for parameterized queries over dynamically generated SQL queries to prevent SQL injection.\\n\\n\`\`\`go\\nrows, err := db.Query(\\"SELECT * FROM users WHERE userName = ?\\", userName)\\nif err != nil {\\n    return nil, err\\n}\\ndefer rows.Close()\\nfor rows.Next() {\\n  // ... process rows\\n}\\n\`\`\`\\n\\n✅ Avoid Direct User Input in Dynamic Queries\\n\\nIf there's an absolute need to formulate dynamic queries, ensure that direct user input is never utilized. Instead, leverage a map or dictionary containing valid values and determine them through a user-provided key.\\n\\nFor instance, certain database drivers do not support parameterized queries for operators like \`>\` or \`<\`. Instead of directly using user-input values, allow users to provide substitutes like \`gt\` for \`>\` and \`lt\` for \`<\`. Subsequently, use these alphabetical inputs to retrieve the actual operators for your query. Implement a similar approach for queries requiring non-parameterizable column or table names.\\n\\n## Resources\\n\\n- [OWASP SQL Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_sql_concat_sqli",
-      "line_number": 30,
+      "line_number": 26,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 30,
-        "end": 30,
+        "start": 26,
+        "end": 26,
         "column": {
           "start": 15,
           "end": 71
         }
       },
       "sink": {
-        "start": 30,
-        "end": 30,
+        "start": 26,
+        "end": 26,
         "column": {
           "start": 15,
           "end": 71
         },
         "content": "db.Query(\\"select * from foo where name = \\" + os.Args[1])"
       },
-      "parent_line_number": 30,
+      "parent_line_number": 26,
       "snippet": "db.Query(\\"select * from foo where name = \\" + os.Args[1])",
       "fingerprint": "ca1a3415f7df18be8dec85c9d74eb890_1",
       "old_fingerprint": "3350ddd230bfd667e45a89b42b9b1b39_1",
@@ -79,27 +79,27 @@ exports[`go_gosec_sql_concat_sqli test 1`] = `
       "title": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "description": "## Description\\n\\nSQL Injection represents a severe vulnerability that can culminate in the compromise of data or entire systems. When SQL query strings are crafted dynamically based on user inputs, there's potential for malicious users to manipulate the logic of the SQL statement. Such tampering could provide adversaries unauthorized access to sensitive data or even allow them to execute system-level operations or code.\\n\\n## Remediations\\n\\n✅ Use Parameterized Queries\\n\\nAlways opt for parameterized queries over dynamically generated SQL queries to prevent SQL injection.\\n\\n\`\`\`go\\nrows, err := db.Query(\\"SELECT * FROM users WHERE userName = ?\\", userName)\\nif err != nil {\\n    return nil, err\\n}\\ndefer rows.Close()\\nfor rows.Next() {\\n  // ... process rows\\n}\\n\`\`\`\\n\\n✅ Avoid Direct User Input in Dynamic Queries\\n\\nIf there's an absolute need to formulate dynamic queries, ensure that direct user input is never utilized. Instead, leverage a map or dictionary containing valid values and determine them through a user-provided key.\\n\\nFor instance, certain database drivers do not support parameterized queries for operators like \`>\` or \`<\`. Instead of directly using user-input values, allow users to provide substitutes like \`gt\` for \`>\` and \`lt\` for \`<\`. Subsequently, use these alphabetical inputs to retrieve the actual operators for your query. Implement a similar approach for queries requiring non-parameterizable column or table names.\\n\\n## Resources\\n\\n- [OWASP SQL Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_sql_concat_sqli",
-      "line_number": 42,
+      "line_number": 38,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 42,
-        "end": 42,
+        "start": 38,
+        "end": 38,
         "column": {
           "start": 15,
           "end": 98
         }
       },
       "sink": {
-        "start": 42,
-        "end": 42,
+        "start": 38,
+        "end": 38,
         "column": {
           "start": 15,
           "end": 98
         },
         "content": "db.QueryContext(context.Background(), \\"select * from foo where name = \\"+os.Args[1])"
       },
-      "parent_line_number": 42,
+      "parent_line_number": 38,
       "snippet": "db.QueryContext(context.Background(), \\"select * from foo where name = \\"+os.Args[1])",
       "fingerprint": "ca1a3415f7df18be8dec85c9d74eb890_2",
       "old_fingerprint": "3350ddd230bfd667e45a89b42b9b1b39_2",
@@ -113,27 +113,27 @@ exports[`go_gosec_sql_concat_sqli test 1`] = `
       "title": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "description": "## Description\\n\\nSQL Injection represents a severe vulnerability that can culminate in the compromise of data or entire systems. When SQL query strings are crafted dynamically based on user inputs, there's potential for malicious users to manipulate the logic of the SQL statement. Such tampering could provide adversaries unauthorized access to sensitive data or even allow them to execute system-level operations or code.\\n\\n## Remediations\\n\\n✅ Use Parameterized Queries\\n\\nAlways opt for parameterized queries over dynamically generated SQL queries to prevent SQL injection.\\n\\n\`\`\`go\\nrows, err := db.Query(\\"SELECT * FROM users WHERE userName = ?\\", userName)\\nif err != nil {\\n    return nil, err\\n}\\ndefer rows.Close()\\nfor rows.Next() {\\n  // ... process rows\\n}\\n\`\`\`\\n\\n✅ Avoid Direct User Input in Dynamic Queries\\n\\nIf there's an absolute need to formulate dynamic queries, ensure that direct user input is never utilized. Instead, leverage a map or dictionary containing valid values and determine them through a user-provided key.\\n\\nFor instance, certain database drivers do not support parameterized queries for operators like \`>\` or \`<\`. Instead of directly using user-input values, allow users to provide substitutes like \`gt\` for \`>\` and \`lt\` for \`<\`. Subsequently, use these alphabetical inputs to retrieve the actual operators for your query. Implement a similar approach for queries requiring non-parameterizable column or table names.\\n\\n## Resources\\n\\n- [OWASP SQL Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_sql_concat_sqli",
-      "line_number": 59,
+      "line_number": 55,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 59,
-        "end": 59,
+        "start": 55,
+        "end": 55,
         "column": {
           "start": 15,
           "end": 98
         }
       },
       "sink": {
-        "start": 59,
-        "end": 59,
+        "start": 55,
+        "end": 55,
         "column": {
           "start": 15,
           "end": 98
         },
         "content": "tx.QueryContext(context.Background(), \\"select * from foo where name = \\"+os.Args[1])"
       },
-      "parent_line_number": 59,
+      "parent_line_number": 55,
       "snippet": "tx.QueryContext(context.Background(), \\"select * from foo where name = \\"+os.Args[1])",
       "fingerprint": "ca1a3415f7df18be8dec85c9d74eb890_3",
       "old_fingerprint": "3350ddd230bfd667e45a89b42b9b1b39_3",
@@ -147,27 +147,27 @@ exports[`go_gosec_sql_concat_sqli test 1`] = `
       "title": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "description": "## Description\\n\\nSQL Injection represents a severe vulnerability that can culminate in the compromise of data or entire systems. When SQL query strings are crafted dynamically based on user inputs, there's potential for malicious users to manipulate the logic of the SQL statement. Such tampering could provide adversaries unauthorized access to sensitive data or even allow them to execute system-level operations or code.\\n\\n## Remediations\\n\\n✅ Use Parameterized Queries\\n\\nAlways opt for parameterized queries over dynamically generated SQL queries to prevent SQL injection.\\n\\n\`\`\`go\\nrows, err := db.Query(\\"SELECT * FROM users WHERE userName = ?\\", userName)\\nif err != nil {\\n    return nil, err\\n}\\ndefer rows.Close()\\nfor rows.Next() {\\n  // ... process rows\\n}\\n\`\`\`\\n\\n✅ Avoid Direct User Input in Dynamic Queries\\n\\nIf there's an absolute need to formulate dynamic queries, ensure that direct user input is never utilized. Instead, leverage a map or dictionary containing valid values and determine them through a user-provided key.\\n\\nFor instance, certain database drivers do not support parameterized queries for operators like \`>\` or \`<\`. Instead of directly using user-input values, allow users to provide substitutes like \`gt\` for \`>\` and \`lt\` for \`<\`. Subsequently, use these alphabetical inputs to retrieve the actual operators for your query. Implement a similar approach for queries requiring non-parameterizable column or table names.\\n\\n## Resources\\n\\n- [OWASP SQL Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_sql_concat_sqli",
-      "line_number": 74,
+      "line_number": 70,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 74,
-        "end": 74,
+        "start": 70,
+        "end": 70,
         "column": {
           "start": 15,
           "end": 75
         }
       },
       "sink": {
-        "start": 74,
-        "end": 74,
+        "start": 70,
+        "end": 70,
         "column": {
           "start": 15,
           "end": 75
         },
         "content": "db.Query(\\"SELECT * FROM foo\\" + \\"WHERE name = \\" + os.Args[1])"
       },
-      "parent_line_number": 74,
+      "parent_line_number": 70,
       "snippet": "db.Query(\\"SELECT * FROM foo\\" + \\"WHERE name = \\" + os.Args[1])",
       "fingerprint": "ca1a3415f7df18be8dec85c9d74eb890_4",
       "old_fingerprint": "3350ddd230bfd667e45a89b42b9b1b39_4",

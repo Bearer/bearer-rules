@@ -1,0 +1,43 @@
+patterns:
+  - pattern: $<HTTP>.Error($<_>, $<ERROR_DETAILS>$<...>)
+    filters:
+      - variable: HTTP
+        detection: go_lang_information_leakage_http_init
+        scope: cursor
+      - variable: ERROR_DETAILS
+        detection: go_lang_information_leakage_error_details
+        scope: cursor
+auxiliary:
+  - id: go_lang_information_leakage_error_details
+    patterns:
+      - $<_>.Error()
+  - id: go_lang_information_leakage_http_init
+    patterns:
+      - import $<!>"net/http"
+      - |
+        import (
+          $<!>"net/http"
+        )
+languages:
+  - go
+severity: warning
+metadata:
+  description: Possible information leakage detected.
+  remediation_message: |
+    ## Description
+
+    Exposing an exception message is risky because it may contain sensitive information such as the technical details of your application or environment (which in turn could expose your application to path traversal attacks, for example), or worse, user-specific data.
+
+    ## Remediations
+
+    ❌ Avoid printing the full stack trace
+
+    ✅ Less is more! Only log the minimum required details in error messages
+
+    ## Resources
+
+    - [Web Application Security Consortium: Information Leakage](http://projects.webappsec.org/w/page/13246936/Information%20Leakage)
+  cwe_id:
+    - 209
+  id: go_lang_information_leakage
+  documentation_url: https://docs.bearer.com/reference/rules/go_lang_information_leakage

@@ -11,27 +11,27 @@ exports[`go_gosec_memory_integer_overflow test 1`] = `
       "title": "Integer overflow or wraparound",
       "description": "## Description\\n\\nIn Go, the size of the \`int\` type varies with the system architecture: it's 32 bits on a 32-bit system and 64 bits on a 64-bit system. This variability can lead to integer overflow issues when a value returned from \`strconv.Atoi\` is cast to a smaller integer type, such as \`int32\` or \`int16\`, and the original number exceeds the maximum value that can be stored in the smaller type. Integer overflow can cause erratic behavior and potentially serious bugs.\\n\\n## Remediations\\n\\nTo prevent integer overflow and ensure safe type conversion:\\n\\n✅ Check Values Before Conversion\\n\\nBefore casting an \`int\` to a smaller type, compare it against the maximum values that the target type can hold.\\n\\n\`\`\`go\\nimport (\\n    \\"strconv\\"\\n    \\"fmt\\"\\n    \\"log\\"\\n    \\"math\\"\\n)\\n\\nfunc main() {\\n    // Convert the string to an int\\n    bigValue, err := strconv.Atoi(\\"32768\\")\\n    if err != nil {\\n        log.Fatal(err)\\n    }\\n\\n    // Ensure the value does not exceed int16's maximum limit\\n    if bigValue > math.MaxInt16 {\\n        log.Fatal(\\"value too large to fit in int16\\")\\n    }\\n\\n    // Safely convert to int16\\n    value := int16(bigValue)\\n    fmt.Println(value)\\n}\\n\`\`\`\\n\\n✅ Use Appropriate Types\\n\\nWhere possible, use fixed-size types like \`int32\` or \`int64\` to avoid overflow issues related to architecture-dependent sizes.\\n\\n✅ Handle Errors\\n\\nAlways handle errors returned from conversion functions like \`strconv.Atoi\` to detect and manage conversion issues immediately.\\n\\n## Resources\\n\\n- [Go math package for integer limits](https://pkg.go.dev/math#pkg-constants)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_memory_integer_overflow",
-      "line_number": 14,
+      "line_number": 10,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 14,
-        "end": 14,
+        "start": 10,
+        "end": 10,
         "column": {
           "start": 11,
           "end": 26
         }
       },
       "sink": {
-        "start": 14,
-        "end": 14,
+        "start": 10,
+        "end": 10,
         "column": {
           "start": 11,
           "end": 26
         },
         "content": "int32(bigValue)"
       },
-      "parent_line_number": 14,
+      "parent_line_number": 10,
       "snippet": "int32(bigValue)",
       "fingerprint": "b5f27376bfb10d4674975a3b925e7fa8_0",
       "old_fingerprint": "eb680ca9957c3112000a5ec4865bdca7_0",
@@ -45,27 +45,27 @@ exports[`go_gosec_memory_integer_overflow test 1`] = `
       "title": "Integer overflow or wraparound",
       "description": "## Description\\n\\nIn Go, the size of the \`int\` type varies with the system architecture: it's 32 bits on a 32-bit system and 64 bits on a 64-bit system. This variability can lead to integer overflow issues when a value returned from \`strconv.Atoi\` is cast to a smaller integer type, such as \`int32\` or \`int16\`, and the original number exceeds the maximum value that can be stored in the smaller type. Integer overflow can cause erratic behavior and potentially serious bugs.\\n\\n## Remediations\\n\\nTo prevent integer overflow and ensure safe type conversion:\\n\\n✅ Check Values Before Conversion\\n\\nBefore casting an \`int\` to a smaller type, compare it against the maximum values that the target type can hold.\\n\\n\`\`\`go\\nimport (\\n    \\"strconv\\"\\n    \\"fmt\\"\\n    \\"log\\"\\n    \\"math\\"\\n)\\n\\nfunc main() {\\n    // Convert the string to an int\\n    bigValue, err := strconv.Atoi(\\"32768\\")\\n    if err != nil {\\n        log.Fatal(err)\\n    }\\n\\n    // Ensure the value does not exceed int16's maximum limit\\n    if bigValue > math.MaxInt16 {\\n        log.Fatal(\\"value too large to fit in int16\\")\\n    }\\n\\n    // Safely convert to int16\\n    value := int16(bigValue)\\n    fmt.Println(value)\\n}\\n\`\`\`\\n\\n✅ Use Appropriate Types\\n\\nWhere possible, use fixed-size types like \`int32\` or \`int64\` to avoid overflow issues related to architecture-dependent sizes.\\n\\n✅ Handle Errors\\n\\nAlways handle errors returned from conversion functions like \`strconv.Atoi\` to detect and manage conversion issues immediately.\\n\\n## Resources\\n\\n- [Go math package for integer limits](https://pkg.go.dev/math#pkg-constants)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_memory_integer_overflow",
-      "line_number": 20,
+      "line_number": 16,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 20,
-        "end": 20,
+        "start": 16,
+        "end": 16,
         "column": {
           "start": 5,
           "end": 20
         }
       },
       "sink": {
-        "start": 20,
-        "end": 20,
+        "start": 16,
+        "end": 16,
         "column": {
           "start": 5,
           "end": 20
         },
         "content": "int16(bigValue)"
       },
-      "parent_line_number": 20,
+      "parent_line_number": 16,
       "snippet": "int16(bigValue)",
       "fingerprint": "b5f27376bfb10d4674975a3b925e7fa8_1",
       "old_fingerprint": "eb680ca9957c3112000a5ec4865bdca7_1",

@@ -11,27 +11,27 @@ exports[`go_gosec_http_http_slowloris test 1`] = `
       "title": "Uncontrolled resource consumption (Slowloris)",
       "description": "## Description\\n\\nThe server configuration lacks a \`ReadHeaderTimeout\`, making it vulnerable to a Slowloris attack. This type of attack occurs when an attacker opens multiple connections to the server but sends only partial requests. The server keeps each connection open, waiting for the headers to be completed, ultimately leading to resource exhaustion.\\n\\n## Remediations\\n\\nTo protect against such attacks, the following steps should be taken:\\n\\n❌ Avoid Default Serve Functions for Production\\n\\nDo not use \`http.ListenAndServe\` and \`http.Serve\` in a production environment, as they do not support timeout settings.\\n\\n✅ Configure \`http.Server\` with Timeouts\\n\\nEstablish a custom \`http.Server\` instance with appropriate timeouts to prevent attackers from exploiting the lack of \`ReadHeaderTimeout\`.\\n\\n\`\`\`go\\nimport (\\n    \\"net/http\\"\\n    \\"time\\"\\n    \\"log\\"\\n)\\n\\nfunc main() {\\n    srv := &http.Server{\\n        Addr: \\"localhost:8000\\",\\n        ReadHeaderTimeout: 15 * time.Second,\\n        ReadTimeout: 15 * time.Second,\\n        WriteTimeout: 10 * time.Second,\\n        IdleTimeout: 30 * time.Second,\\n    }\\n\\n    if err := srv.ListenAndServe(); err != nil {\\n        log.Fatal(err)\\n    }\\n}\\n\`\`\`\\n\\n✅ Enforce Request Timeouts\\n\\nImplement \`http.TimeoutHandler\` to apply timeouts to individual HTTP handlers, which starts counting down only after the headers have been read.\\n\\n## Resources\\n\\n- [Configuring Timeouts in http.Server](https://pkg.go.dev/net/http#Server)\\n- [How to Set Request-Based Timeouts](https://pkg.go.dev/net/http#TimeoutHandler)\\n- [Understanding Slowloris Attacks](https://en.wikipedia.org/wiki/Slowloris_(computer_security))\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_http_http_slowloris",
-      "line_number": 33,
+      "line_number": 29,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 33,
-        "end": 33,
+        "start": 29,
+        "end": 29,
         "column": {
           "start": 9,
           "end": 32
         }
       },
       "sink": {
-        "start": 33,
-        "end": 33,
+        "start": 29,
+        "end": 29,
         "column": {
           "start": 9,
           "end": 32
         },
         "content": "server.ListenAndServe()"
       },
-      "parent_line_number": 33,
+      "parent_line_number": 29,
       "snippet": "server.ListenAndServe()",
       "fingerprint": "02c458471df80632680a2bcaf7e424f5_0",
       "old_fingerprint": "16ccd1d3f814b5266924a8d012f4d13a_0",
@@ -45,27 +45,27 @@ exports[`go_gosec_http_http_slowloris test 1`] = `
       "title": "Uncontrolled resource consumption (Slowloris)",
       "description": "## Description\\n\\nThe server configuration lacks a \`ReadHeaderTimeout\`, making it vulnerable to a Slowloris attack. This type of attack occurs when an attacker opens multiple connections to the server but sends only partial requests. The server keeps each connection open, waiting for the headers to be completed, ultimately leading to resource exhaustion.\\n\\n## Remediations\\n\\nTo protect against such attacks, the following steps should be taken:\\n\\n❌ Avoid Default Serve Functions for Production\\n\\nDo not use \`http.ListenAndServe\` and \`http.Serve\` in a production environment, as they do not support timeout settings.\\n\\n✅ Configure \`http.Server\` with Timeouts\\n\\nEstablish a custom \`http.Server\` instance with appropriate timeouts to prevent attackers from exploiting the lack of \`ReadHeaderTimeout\`.\\n\\n\`\`\`go\\nimport (\\n    \\"net/http\\"\\n    \\"time\\"\\n    \\"log\\"\\n)\\n\\nfunc main() {\\n    srv := &http.Server{\\n        Addr: \\"localhost:8000\\",\\n        ReadHeaderTimeout: 15 * time.Second,\\n        ReadTimeout: 15 * time.Second,\\n        WriteTimeout: 10 * time.Second,\\n        IdleTimeout: 30 * time.Second,\\n    }\\n\\n    if err := srv.ListenAndServe(); err != nil {\\n        log.Fatal(err)\\n    }\\n}\\n\`\`\`\\n\\n✅ Enforce Request Timeouts\\n\\nImplement \`http.TimeoutHandler\` to apply timeouts to individual HTTP handlers, which starts counting down only after the headers have been read.\\n\\n## Resources\\n\\n- [Configuring Timeouts in http.Server](https://pkg.go.dev/net/http#Server)\\n- [How to Set Request-Based Timeouts](https://pkg.go.dev/net/http#TimeoutHandler)\\n- [Understanding Slowloris Attacks](https://en.wikipedia.org/wiki/Slowloris_(computer_security))\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_http_http_slowloris",
-      "line_number": 47,
+      "line_number": 43,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 47,
-        "end": 47,
+        "start": 43,
+        "end": 43,
         "column": {
           "start": 9,
           "end": 32
         }
       },
       "sink": {
-        "start": 47,
-        "end": 47,
+        "start": 43,
+        "end": 43,
         "column": {
           "start": 9,
           "end": 32
         },
         "content": "server.ListenAndServe()"
       },
-      "parent_line_number": 47,
+      "parent_line_number": 43,
       "snippet": "server.ListenAndServe()",
       "fingerprint": "02c458471df80632680a2bcaf7e424f5_1",
       "old_fingerprint": "16ccd1d3f814b5266924a8d012f4d13a_1",
@@ -79,27 +79,27 @@ exports[`go_gosec_http_http_slowloris test 1`] = `
       "title": "Uncontrolled resource consumption (Slowloris)",
       "description": "## Description\\n\\nThe server configuration lacks a \`ReadHeaderTimeout\`, making it vulnerable to a Slowloris attack. This type of attack occurs when an attacker opens multiple connections to the server but sends only partial requests. The server keeps each connection open, waiting for the headers to be completed, ultimately leading to resource exhaustion.\\n\\n## Remediations\\n\\nTo protect against such attacks, the following steps should be taken:\\n\\n❌ Avoid Default Serve Functions for Production\\n\\nDo not use \`http.ListenAndServe\` and \`http.Serve\` in a production environment, as they do not support timeout settings.\\n\\n✅ Configure \`http.Server\` with Timeouts\\n\\nEstablish a custom \`http.Server\` instance with appropriate timeouts to prevent attackers from exploiting the lack of \`ReadHeaderTimeout\`.\\n\\n\`\`\`go\\nimport (\\n    \\"net/http\\"\\n    \\"time\\"\\n    \\"log\\"\\n)\\n\\nfunc main() {\\n    srv := &http.Server{\\n        Addr: \\"localhost:8000\\",\\n        ReadHeaderTimeout: 15 * time.Second,\\n        ReadTimeout: 15 * time.Second,\\n        WriteTimeout: 10 * time.Second,\\n        IdleTimeout: 30 * time.Second,\\n    }\\n\\n    if err := srv.ListenAndServe(); err != nil {\\n        log.Fatal(err)\\n    }\\n}\\n\`\`\`\\n\\n✅ Enforce Request Timeouts\\n\\nImplement \`http.TimeoutHandler\` to apply timeouts to individual HTTP handlers, which starts counting down only after the headers have been read.\\n\\n## Resources\\n\\n- [Configuring Timeouts in http.Server](https://pkg.go.dev/net/http#Server)\\n- [How to Set Request-Based Timeouts](https://pkg.go.dev/net/http#TimeoutHandler)\\n- [Understanding Slowloris Attacks](https://en.wikipedia.org/wiki/Slowloris_(computer_security))\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_http_http_slowloris",
-      "line_number": 62,
+      "line_number": 58,
       "full_filename": "/tmp/bearer-scan/main.go",
       "filename": ".",
       "source": {
-        "start": 62,
-        "end": 62,
+        "start": 58,
+        "end": 58,
         "column": {
           "start": 9,
           "end": 32
         }
       },
       "sink": {
-        "start": 62,
-        "end": 62,
+        "start": 58,
+        "end": 58,
         "column": {
           "start": 9,
           "end": 32
         },
         "content": "server.ListenAndServe()"
       },
-      "parent_line_number": 62,
+      "parent_line_number": 58,
       "snippet": "server.ListenAndServe()",
       "fingerprint": "02c458471df80632680a2bcaf7e424f5_2",
       "old_fingerprint": "16ccd1d3f814b5266924a8d012f4d13a_2",
