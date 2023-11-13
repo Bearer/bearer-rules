@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ruby_lang_eval_linter unsafe 1`] = `
+"{
+  "warning": [
+    {
+      "cwe_ids": [
+        "94"
+      ],
+      "id": "ruby_lang_eval_linter",
+      "title": "Use of eval detected.",
+      "description": "## Description\\n\\nThe use of the \`eval\` function, which dynamically executes code represented as strings, poses a significant security risk in any programming environment. This is primarily because it can be exploited to run arbitrary and potentially harmful code, making the application vulnerable to code injection attacks.\\n\\n## Remediations\\n\\nTo maintain the security integrity of your application:\\n\\n❌ Refrain from using \`eval\`\\nAvoid using the \`eval\` function as it executes code that can be manipulated by an attacker. Code execution through \`eval\` can lead to various injection vulnerabilities.\\n\\n✅ Explore safer alternatives to \`eval\`. Depending on the context, these might include:\\n\\n- Parsing and handling data formats (like JSON) using safe libraries.\\n- Using functions or libraries specifically designed for the task you're trying to accomplish with \`eval\`.\\n- Implementing functionality directly in the language itself, rather than executing dynamically generated code.\\n\\n✅ Validate and Sanitize Inputs\\nIf there's an absolute necessity to use a form of dynamic code execution, rigorously validate and sanitize all inputs to reduce the risk of malicious code execution.\\n\\n✅ Use Restricted Execution Environments\\nIn scenarios where dynamic execution is unavoidable, consider running the code in a sandboxed or restricted environment where the potential impact of malicious actions is minimized.\\n\\n## Resources\\n\\n- [OWASP: Eval Injection](https://owasp.org/www-community/attacks/Direct_Dynamic_Code_Evaluation_Eval%20Injection)\\n- [MDN Web Docs: Never use eval!](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_eval!)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_linter",
+      "line_number": 2,
+      "full_filename": "/tmp/bearer-scan/unsafe.rb",
+      "filename": ".",
+      "source": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 3,
+          "end": 26
+        }
+      },
+      "sink": {
+        "start": 2,
+        "end": 2,
+        "column": {
+          "start": 3,
+          "end": 26
+        },
+        "content": "eval(params[\\"my_code\\"])"
+      },
+      "parent_line_number": 2,
+      "snippet": "eval(params[\\"my_code\\"])",
+      "fingerprint": "0c859d45d36946482f464bb83d4fc747_0",
+      "old_fingerprint": "51dcde79985d5c0794fc5649a5ee1c93_0",
+      "code_extract": "  eval(params[\\"my_code\\"])"
+    },
+    {
+      "cwe_ids": [
+        "94"
+      ],
+      "id": "ruby_lang_eval_linter",
+      "title": "Use of eval detected.",
+      "description": "## Description\\n\\nThe use of the \`eval\` function, which dynamically executes code represented as strings, poses a significant security risk in any programming environment. This is primarily because it can be exploited to run arbitrary and potentially harmful code, making the application vulnerable to code injection attacks.\\n\\n## Remediations\\n\\nTo maintain the security integrity of your application:\\n\\n❌ Refrain from using \`eval\`\\nAvoid using the \`eval\` function as it executes code that can be manipulated by an attacker. Code execution through \`eval\` can lead to various injection vulnerabilities.\\n\\n✅ Explore safer alternatives to \`eval\`. Depending on the context, these might include:\\n\\n- Parsing and handling data formats (like JSON) using safe libraries.\\n- Using functions or libraries specifically designed for the task you're trying to accomplish with \`eval\`.\\n- Implementing functionality directly in the language itself, rather than executing dynamically generated code.\\n\\n✅ Validate and Sanitize Inputs\\nIf there's an absolute necessity to use a form of dynamic code execution, rigorously validate and sanitize all inputs to reduce the risk of malicious code execution.\\n\\n✅ Use Restricted Execution Environments\\nIn scenarios where dynamic execution is unavoidable, consider running the code in a sandboxed or restricted environment where the potential impact of malicious actions is minimized.\\n\\n## Resources\\n\\n- [OWASP: Eval Injection](https://owasp.org/www-community/attacks/Direct_Dynamic_Code_Evaluation_Eval%20Injection)\\n- [MDN Web Docs: Never use eval!](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_eval!)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_linter",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/unsafe.rb",
+      "filename": ".",
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 3,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 3,
+          "end": 34
+        },
+        "content": "binding.eval(params[\\"my_code\\"])"
+      },
+      "parent_line_number": 4,
+      "snippet": "binding.eval(params[\\"my_code\\"])",
+      "fingerprint": "0c859d45d36946482f464bb83d4fc747_1",
+      "old_fingerprint": "51dcde79985d5c0794fc5649a5ee1c93_1",
+      "code_extract": "  binding.eval(params[\\"my_code\\"])"
+    }
+  ]
+}"
+`;

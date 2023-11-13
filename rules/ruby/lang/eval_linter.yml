@@ -1,0 +1,40 @@
+patterns:
+  - eval()
+  - binding.eval()
+languages:
+  - ruby
+severity: warning
+metadata:
+  description: "Use of eval detected."
+  remediation_message: |
+    ## Description
+
+    The use of the `eval` function, which dynamically executes code represented as strings, poses a significant security risk in any programming environment. This is primarily because it can be exploited to run arbitrary and potentially harmful code, making the application vulnerable to code injection attacks.
+
+    ## Remediations
+
+    To maintain the security integrity of your application:
+
+    ❌ Refrain from using `eval`
+    Avoid using the `eval` function as it executes code that can be manipulated by an attacker. Code execution through `eval` can lead to various injection vulnerabilities.
+
+    ✅ Explore safer alternatives to `eval`. Depending on the context, these might include:
+
+    - Parsing and handling data formats (like JSON) using safe libraries.
+    - Using functions or libraries specifically designed for the task you're trying to accomplish with `eval`.
+    - Implementing functionality directly in the language itself, rather than executing dynamically generated code.
+
+    ✅ Validate and Sanitize Inputs
+    If there's an absolute necessity to use a form of dynamic code execution, rigorously validate and sanitize all inputs to reduce the risk of malicious code execution.
+
+    ✅ Use Restricted Execution Environments
+    In scenarios where dynamic execution is unavoidable, consider running the code in a sandboxed or restricted environment where the potential impact of malicious actions is minimized.
+
+    ## Resources
+
+    - [OWASP: Eval Injection](https://owasp.org/www-community/attacks/Direct_Dynamic_Code_Evaluation_Eval%20Injection)
+    - [MDN Web Docs: Never use eval!](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_eval!)
+  cwe_id:
+    - 94
+  id: ruby_lang_eval_linter
+  documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_eval_linter
