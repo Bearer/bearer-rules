@@ -1,6 +1,20 @@
+imports:
+  - ruby_shared_common_user_input
 patterns:
-  - eval()
-  - binding.eval()
+  - pattern: |
+      eval($<INPUT>$<...>)
+    filters:
+      - not:
+          variable: INPUT
+          detection: ruby_shared_common_user_input
+          scope: result
+  - pattern: |
+      binding.eval($<INPUT>$<...>)
+    filters:
+      - not:
+          variable: INPUT
+          detection: ruby_shared_common_user_input
+          scope: result
 languages:
   - ruby
 severity: warning

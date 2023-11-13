@@ -1,5 +1,6 @@
 def index
-  eval(params["my_code"])
+  eval("def hello_world; puts 'Hello world!'; end")
 
-  binding.eval(params["my_code"])
+  some_arg = "def test; end"
+  binding.eval(some_arg)
 end
