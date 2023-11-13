@@ -38,7 +38,7 @@ metadata:
   description: "Potential command injection with user input detected."
   remediation_message: |
     ## Description
-    It is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to command injection.
+    It is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.
 
     ## Remediations
     ❌ Avoid using code execution methods with unsanitized user input.
@@ -47,12 +47,12 @@ metadata:
 
     ```ruby
     get_total_str = if params["include_vat"]
-      "def dynamic(a,b,c); a + b + c; end"
+      "def get_total(a,b,c); a + b + c; end"
     else
-      "def dynamic(a,b); a + b; end"
+      "def get_total(a,b); a + b; end"
     end
 
-    get_total = eval(get_total_str)
+    cart.instance_eval(get_total_str)
     ```
 
     ## Resources
