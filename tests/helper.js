@@ -29,7 +29,7 @@ exports.createInvoker = (ruleId, ruleFile, testBase) => {
 
     results = JSON.parse(out)
     let findings = []
-    for (const [key, values] of Object.entries(results)) {
+    for (const [_severity, values] of Object.entries(results)) {
       for (const [value] in values) {
         findings.push({
           // severity: key,
@@ -57,5 +57,39 @@ bearer scan ${testBase} --only-rule ${ruleId} --log-level trace`
     }
 
     return JSON.stringify(results, null, 2)
+  }
+}
+
+function difference(setA, setB) {
+  const diff = new Set(setA)
+
+  for (const elem of setB) {
+    diff.delete(elem)
+  }
+
+  return Array.from(diff)
+}
+
+exports.createNewInvoker = (ruleId, ruleFile, testBase) => {
+  return (testCase) => {
+    const out = execSync(
+      `FORMAT=jsonv2 ./scripts/invoke.sh ${ruleFile} ${testBase}${testCase} ${ruleId}`
+    ).toString()
+
+    results = JSON.parse(out)
+    let findings = []
+    for (const result of results.findings) {
+      findings.push(`${result.id}:${result.source.start}`)
+    }
+
+    let expectedFindings = []
+    for (const result of results.expected_findings) {
+      expectedFindings.push(`${result.rule_id}:${result.location.start}`)
+    }
+
+    return {
+      Extra: difference(new Set(findings), new Set(expectedFindings)),
+      Missing: difference(new Set(expectedFindings), new Set(findings)),
+    }
   }
 }
