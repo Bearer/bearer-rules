@@ -9,7 +9,7 @@ exports[`ruby_rails_open_redirect insecure 1`] = `
       ],
       "id": "ruby_rails_open_redirect",
       "title": "Open redirect detected",
-      "description": "## Description\\nA web application accepts a user-controlled input that specifies a link to an external site, and uses that link in a Redirect. This simplifies phishing attacks.\\n",
+      "description": "## Description\\n\\nA redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.\\n\\n## Remediations\\n\\n❌ Do not use unsanitized user input when constructing redirect URLs\\n\\n✅ Instead, ensure the input is validated by using a safe list or a mapping\\n\\n\`\`\`ruby\\n  transport_path = case params[:transport_type]\\n    when \\"planes\\"\\n      planes_path\\n    when \\"trains\\"\\n      trains_path\\n    when \\"automobiles\\"\\n      automobiles_path\\n    default\\n      root\\n    end\\n\\n  redirect_to transport_path\\n\`\`\`\\n\\n## Resources\\n- [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_open_redirect",
       "line_number": 3,
       "full_filename": "/tmp/bearer-scan/insecure.rb",
