@@ -31,7 +31,32 @@ metadata:
   description: "Open redirect detected"
   remediation_message: |
     ## Description
-    A web application accepts a user-controlled input that specifies a link to an external site, and uses that link in a Redirect. This simplifies phishing attacks.
+
+    A redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.
+
+    ## Remediations
+
+    ❌ Do not use unsanitized user input when constructing redirect URLs
+
+    ✅ Instead, ensure the input is validated by using a safe list or a mapping
+
+    ```ruby
+      transport_path = case params[:transport_type]
+        when "planes"
+          planes_path
+        when "trains"
+          trains_path
+        when "automobiles"
+          automobiles_path
+        default
+          root
+        end
+
+      redirect_to transport_path
+    ```
+
+    ## Resources
+    - [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
   cwe_id:
     - 601
   id: ruby_rails_open_redirect
