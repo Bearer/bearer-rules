@@ -11,6 +11,9 @@ patterns:
         values:
           - save_object
           - save_objects
+          - partial_update_object
+          - partial_update_objects
+          - replace_all_objects
       - variable: DATA_TYPE
         detection: ruby_shared_common_datatype
         scope: result

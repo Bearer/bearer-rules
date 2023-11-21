@@ -3,6 +3,12 @@ languages:
   - php
 patterns:
   - new $<CLASS>;
+  - function($<...>$<CLASS> $<!>$$<_>$<...>) {}
+  - function $<_>($<...>$<CLASS> $<!>$$<_>$<...>) {}
+  - |
+    class $<_> {
+      public function $<_>($<...>$<CLASS> $<!>$<_>$<...>) {}
+    }
   - |
     class $<_> {
       public function $<_>($<...>$<CLASS> $<!>$<_>$<...>) {}
@@ -12,6 +18,8 @@ patterns:
       public function __construct($<...>public $<CLASS> $<!>$<_>$<...>) {}
     }
   - try {} catch ($<CLASS> $<!>$$<_>) {}
+  # DI container
+  - $<_>->get($<CLASS>::class)
 metadata:
   description: "PHP instance."
   id: php_shared_lang_instance

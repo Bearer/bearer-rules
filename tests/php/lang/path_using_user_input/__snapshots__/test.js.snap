@@ -2032,6 +2032,76 @@ exports[`php_lang_path_using_user_input bad 1`] = `
       "fingerprint": "ce34aee9a5c3dc3bf9b84d05a65f87ff_57",
       "old_fingerprint": "7e2b852bf59b51143b261566c32c4bbd_57",
       "code_extract": "hash_file($algo, $oops, false);"
+    },
+    {
+      "cwe_ids": [
+        "22",
+        "73"
+      ],
+      "id": "php_lang_path_using_user_input",
+      "title": "Do not use user input to form file paths.",
+      "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
+      "line_number": 73,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 73,
+        "end": 73,
+        "column": {
+          "start": 1,
+          "end": 32
+        }
+      },
+      "sink": {
+        "start": 73,
+        "end": 73,
+        "column": {
+          "start": 1,
+          "end": 32
+        },
+        "content": "unlink(\\"/oops/$dirname1\\", null)"
+      },
+      "parent_line_number": 73,
+      "snippet": "unlink(\\"/oops/$dirname1\\", null)",
+      "fingerprint": "ce34aee9a5c3dc3bf9b84d05a65f87ff_58",
+      "old_fingerprint": "7e2b852bf59b51143b261566c32c4bbd_58",
+      "code_extract": "unlink(\\"/oops/$dirname1\\", null);"
+    },
+    {
+      "cwe_ids": [
+        "22",
+        "73"
+      ],
+      "id": "php_lang_path_using_user_input",
+      "title": "Do not use user input to form file paths.",
+      "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
+      "line_number": 74,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "source": {
+        "start": 74,
+        "end": 74,
+        "column": {
+          "start": 1,
+          "end": 32
+        }
+      },
+      "sink": {
+        "start": 74,
+        "end": 74,
+        "column": {
+          "start": 1,
+          "end": 32
+        },
+        "content": "unlink(\\"/oops/$dirname2\\", null)"
+      },
+      "parent_line_number": 74,
+      "snippet": "unlink(\\"/oops/$dirname2\\", null)",
+      "fingerprint": "ce34aee9a5c3dc3bf9b84d05a65f87ff_59",
+      "old_fingerprint": "7e2b852bf59b51143b261566c32c4bbd_59",
+      "code_extract": "unlink(\\"/oops/$dirname2\\", null);"
     }
   ]
 }"

@@ -24,7 +24,7 @@ auxiliary:
             scope: cursor
             filters:
               - variable: CLASS
-                regex: \A(Symfony\\Component\\HttpFoundation\\)?RequestStack\z
+                regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?RequestStack\z
       - pattern: $<REQUEST>->getSession()
         filters:
           - variable: REQUEST
@@ -32,7 +32,7 @@ auxiliary:
             scope: cursor
             filters:
               - variable: CLASS
-                regex: \A(Symfony\\Component\\HttpFoundation\\)?Request\z
+                regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Request\z
       # fallback until we have instance variable support
       - $<_>->getSession()
 languages:

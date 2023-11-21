@@ -5,7 +5,7 @@ patterns:
       $<CLASS>::create($<_>, $<_>, $<_>, $<_>, $<_>, $<SECURE>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
+        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
       - variable: SECURE
         detection: php_symfony_insecure_cookie_false
         scope: cursor
@@ -13,7 +13,7 @@ patterns:
       $<CLASS>::create(secure: $<SECURE>)
     filters:
       - variable: CLASS
-        regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
+        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
       - variable: SECURE
         detection: php_symfony_insecure_cookie_false
         scope: cursor
@@ -21,7 +21,7 @@ patterns:
       $<CLASS>::create($<_>, $<_>, $<_>, $<_>, $<_>, $<_>, $<HTTP_ONLY>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
+        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
       - variable: HTTP_ONLY
         detection: php_symfony_insecure_cookie_false
         scope: cursor
@@ -29,7 +29,7 @@ patterns:
       $<CLASS>::create(httpOnly: $<HTTP_ONLY>)
     filters:
       - variable: CLASS
-        regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
+        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
       - variable: HTTP_ONLY
         detection: php_symfony_insecure_cookie_false
         scope: cursor
@@ -37,7 +37,7 @@ patterns:
       new $<CLASS>($<_>, $<_>, $<_>, $<_>, $<_>, $<SECURE>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
+        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
       - variable: SECURE
         detection: php_symfony_insecure_cookie_false
         scope: cursor
@@ -45,7 +45,7 @@ patterns:
       new $<CLASS>(secure: $<SECURE>)
     filters:
       - variable: CLASS
-        regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
+        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
       - variable: SECURE
         detection: php_symfony_insecure_cookie_false
         scope: cursor
@@ -53,7 +53,7 @@ patterns:
       new $<CLASS>($<_>, $<_>, $<_>, $<_>, $<_>, $<_>, $<HTTP_ONLY>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
+        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
       - variable: HTTP_ONLY
         detection: php_symfony_insecure_cookie_false
         scope: cursor
@@ -61,7 +61,7 @@ patterns:
       new $<CLASS>(httpOnly: $<HTTP_ONLY>)
     filters:
       - variable: CLASS
-        regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
+        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
       - variable: HTTP_ONLY
         detection: php_symfony_insecure_cookie_false
         scope: cursor
@@ -94,12 +94,12 @@ auxiliary:
             scope: cursor
             filters:
               - variable: CLASS
-                regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
+                regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
       - pattern: |
           $<CLASS>::create()
         filters:
           - variable: CLASS
-            regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
+            regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
       - pattern: $<COOKIE>->$<_>()
         filters:
           - variable: COOKIE

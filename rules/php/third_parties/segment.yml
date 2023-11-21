@@ -1,0 +1,41 @@
+imports:
+  - php_shared_lang_datatype
+patterns:
+  - pattern: |
+      $<CLASS>::$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(\\?Segment\\)?Segment\z
+      - variable: METHOD
+        values:
+          - identify
+          - track
+          - page
+          - alias
+          - group
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+languages:
+  - php
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Sensitive data sent to Segment detected.."
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party analytics tools is a common cause of
+    data leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Segment.
+
+    ## Remediations
+
+    When sending data to analytics libraries, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Segment docs](https://segment.com/docs/connections/sources/catalog/libraries/server/php/)
+  cwe_id:
+    - 201
+  associated_recipe: Segment
+  id: php_third_parties_segment
+  documentation_url: https://docs.bearer.com/reference/rules/php_third_parties_segment

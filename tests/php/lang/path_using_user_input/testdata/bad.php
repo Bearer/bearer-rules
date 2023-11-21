@@ -66,3 +66,9 @@ scandir($oops, SCANDIR_SORT_ASCENDING);
 
 // hash
 hash_file($algo, $oops, false);
+
+// sanitizer
+$dirname1 = $oops['dirname'];
+$dirname2 = dirname($oops);
+unlink("/oops/$dirname1", null);
+unlink("/oops/$dirname2", null);

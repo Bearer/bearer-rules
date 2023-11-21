@@ -1,0 +1,304 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_third_parties_sentry bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/platforms/php/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_sentry",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 14,
+          "end": 26
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 9,
+        "column": {
+          "start": 15,
+          "end": 2
+        },
+        "content": "new \\\\Sentry\\\\Breadcrumb(\\n    \\\\Sentry\\\\Breadcrumb::LEVEL_INFO,\\n    \\\\Sentry\\\\Breadcrumb::TYPE_DEFAULT,\\n    'auth',\\n    'Authenticated user',\\n    ['id' => $user->email]\\n)"
+      },
+      "parent_line_number": 3,
+      "snippet": "new \\\\Sentry\\\\Breadcrumb(\\n    \\\\Sentry\\\\Breadcrumb::LEVEL_INFO,\\n    \\\\Sentry\\\\Breadcrumb::TYPE_DEFAULT,\\n    'auth',\\n    'Authenticated user',\\n    ['id' => $user->email]\\n)",
+      "fingerprint": "aa02cba1106316e44a6bb8fcbabd6ef0_0",
+      "old_fingerprint": "b45dd392833b2f1f09ad9e1a352e352b_0",
+      "code_extract": "$breadcrumb = new \\\\Sentry\\\\Breadcrumb(\\n    \\\\Sentry\\\\Breadcrumb::LEVEL_INFO,\\n    \\\\Sentry\\\\Breadcrumb::TYPE_DEFAULT,\\n    'auth',\\n    'Authenticated user',\\n    ['id' => $user->email]\\n);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/platforms/php/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_sentry",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 55,
+          "end": 67
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 23,
+          "end": 68
+        },
+        "content": "$breadcrumb->withMetadata(\\"id\\", $user->email)"
+      },
+      "parent_line_number": 11,
+      "snippet": "$breadcrumb->withMetadata(\\"id\\", $user->email)",
+      "fingerprint": "aa02cba1106316e44a6bb8fcbabd6ef0_1",
+      "old_fingerprint": "b45dd392833b2f1f09ad9e1a352e352b_1",
+      "code_extract": "\\\\Sentry\\\\addBreadcrumb($breadcrumb->withMetadata(\\"id\\", $user->email));"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/platforms/php/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_sentry",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 44,
+          "end": 56
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 3,
+          "end": 58
+        },
+        "content": "$scope->setContext('character', ['id' => $user->email])"
+      },
+      "parent_line_number": 14,
+      "snippet": "$scope->setContext('character', ['id' => $user->email])",
+      "fingerprint": "aa02cba1106316e44a6bb8fcbabd6ef0_3",
+      "old_fingerprint": "b45dd392833b2f1f09ad9e1a352e352b_3",
+      "code_extract": "  $scope->setContext('character', ['id' => $user->email]);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/platforms/php/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_sentry",
+      "line_number": 15,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 24,
+          "end": 36
+        }
+      },
+      "sink": {
+        "start": 15,
+        "end": 15,
+        "column": {
+          "start": 3,
+          "end": 37
+        },
+        "content": "$scope->setTag('id', $user->email)"
+      },
+      "parent_line_number": 15,
+      "snippet": "$scope->setTag('id', $user->email)",
+      "fingerprint": "aa02cba1106316e44a6bb8fcbabd6ef0_4",
+      "old_fingerprint": "b45dd392833b2f1f09ad9e1a352e352b_4",
+      "code_extract": "  $scope->setTag('id', $user->email);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/platforms/php/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_sentry",
+      "line_number": 19,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 44,
+          "end": 56
+        }
+      },
+      "sink": {
+        "start": 19,
+        "end": 19,
+        "column": {
+          "start": 3,
+          "end": 58
+        },
+        "content": "$scope->setContext('character', ['id' => $user->email])"
+      },
+      "parent_line_number": 19,
+      "snippet": "$scope->setContext('character', ['id' => $user->email])",
+      "fingerprint": "aa02cba1106316e44a6bb8fcbabd6ef0_5",
+      "old_fingerprint": "b45dd392833b2f1f09ad9e1a352e352b_5",
+      "code_extract": "  $scope->setContext('character', ['id' => $user->email]);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/platforms/php/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_sentry",
+      "line_number": 23,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 23,
+        "end": 23,
+        "column": {
+          "start": 46,
+          "end": 58
+        }
+      },
+      "sink": {
+        "start": 23,
+        "end": 23,
+        "column": {
+          "start": 5,
+          "end": 60
+        },
+        "content": "$scope->setContext('character', ['id' => $user->email])"
+      },
+      "parent_line_number": 23,
+      "snippet": "$scope->setContext('character', ['id' => $user->email])",
+      "fingerprint": "aa02cba1106316e44a6bb8fcbabd6ef0_6",
+      "old_fingerprint": "b45dd392833b2f1f09ad9e1a352e352b_6",
+      "code_extract": "    $scope->setContext('character', ['id' => $user->email]);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_sentry",
+      "title": "Sensitive data sent to Sentry detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Sentry.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Sentry Docs](https://docs.sentry.io/platforms/php/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_sentry",
+      "line_number": 26,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 26,
+        "end": 26,
+        "column": {
+          "start": 24,
+          "end": 36
+        }
+      },
+      "sink": {
+        "start": 26,
+        "end": 26,
+        "column": {
+          "start": 1,
+          "end": 37
+        },
+        "content": "\\\\Sentry\\\\captureMessage($user->email)"
+      },
+      "parent_line_number": 26,
+      "snippet": "\\\\Sentry\\\\captureMessage($user->email)",
+      "fingerprint": "aa02cba1106316e44a6bb8fcbabd6ef0_7",
+      "old_fingerprint": "b45dd392833b2f1f09ad9e1a352e352b_7",
+      "code_extract": "\\\\Sentry\\\\captureMessage($user->email);"
+    }
+  ]
+}"
+`;
+
+exports[`php_third_parties_sentry ok 1`] = `"{}"`;

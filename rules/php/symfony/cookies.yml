@@ -5,7 +5,7 @@ patterns:
       $<CLASS>::create($<_>, $<DATA_TYPE>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
+        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
       - variable: DATA_TYPE
         detection: php_shared_lang_datatype
         scope: result
@@ -13,7 +13,7 @@ patterns:
       new $<CLASS>($<_>, $<DATA_TYPE>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(Symfony\\Component\\HttpFoundation\\)?Cookie\z
+        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
       - variable: DATA_TYPE
         detection: php_shared_lang_datatype
         scope: result

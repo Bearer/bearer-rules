@@ -26,11 +26,11 @@ patterns:
   - pattern: new $<CLASS>($<_>, $<URL>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(http\\Client\\)?Request\z
+        regex: \A(\\?http\\Client\\)?Request\z
   - pattern: new $<CLASS>($<URL>$<...>)
     filters:
       - variable: CLASS
-        regex: \A((Laminas|Zend)\\Http\\)?Client\z
+        regex: \A(\\?(Laminas|Zend)\\Http\\)?Client\z
   - pattern: $<LAMINAS>->setUri($<URL>)
     filters:
       - variable: LAMINAS
@@ -38,11 +38,11 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A((Laminas|Zend)\\Http\\)?(Client|Request)\z
+            regex: \A(\\?(Laminas|Zend)\\Http\\)?(Client|Request)\z
   - pattern: new $<CLASS>($<OPTIONS>)
     filters:
       - variable: CLASS
-        regex: \A(GuzzleHttp\\)?Client\z
+        regex: \A(\\?GuzzleHttp\\)?Client\z
       - variable: OPTIONS
         detection: php_shared_lang_http_url_guzzle_options
         scope: result
@@ -56,7 +56,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(GuzzleHttp\\)?Client\z
+            regex: \A(\\?GuzzleHttp\\)?Client\z
       - variable: METHOD
         values:
           - request
@@ -68,7 +68,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(GuzzleHttp\\)?Client\z
+            regex: \A(\\?GuzzleHttp\\)?Client\z
       - variable: METHOD
         values:
           - get
@@ -88,11 +88,11 @@ patterns:
   - pattern: new $<CLASS>($<_>, $<URL>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(GuzzleHttp\\Psr7\\)?Request\z
+        regex: \A(\\?GuzzleHttp\\Psr7\\)?Request\z
   - pattern: $<CLASS>::$<METHOD>($<URL>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(WpOrg\\Requests\\)?Requests\z
+        regex: \A(\\?WpOrg\\Requests\\)?Requests\z
       - variable: METHOD
         values:
           - get
@@ -107,7 +107,7 @@ patterns:
   - pattern: $<CLASS>::request_multiple($<OPTIONS>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(WpOrg\\Requests\\)?Requests\z
+        regex: \A(\\?WpOrg\\Requests\\)?Requests\z
       - variable: OPTIONS
         detection: php_shared_lang_http_url_requests_options
         scope: result
@@ -117,7 +117,7 @@ patterns:
   - pattern: new $<CLASS>($<URL>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(WpOrg\\Requests\\)?Session\z
+        regex: \A(\\?WpOrg\\Requests\\)?Session\z
   - pattern: $<SESSION>->$<METHOD>($<URL>$<...>)
     filters:
       - variable: SESSION
@@ -125,7 +125,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(WpOrg\\Requests\\)?Session\z
+            regex: \A(\\?WpOrg\\Requests\\)?Session\z
       - variable: METHOD
         values:
           - get
@@ -144,7 +144,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(WpOrg\\Requests\\)?Session\z
+            regex: \A(\\?WpOrg\\Requests\\)?Session\z
       - variable: OPTIONS
         detection: php_shared_lang_http_url_requests_options
         scope: result
@@ -158,7 +158,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(Buzz\\)?Browser\z
+            regex: \A(\\?Buzz\\)?Browser\z
       - variable: METHOD
         values:
           - get
@@ -175,15 +175,15 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(Buzz\\)?Browser\z
+            regex: \A(\\?Buzz\\)?Browser\z
   - pattern: new $<CLASS>($<URL>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(SendGrid\\)?Client\z
+        regex: \A(\\?SendGrid\\)?Client\z
   - pattern: $<CLASS>::$<METHOD>($<URL>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(Unirest\\)?Request\z
+        regex: \A(\\?Unirest\\)?Request\z
       - variable: METHOD
         values:
           - get
@@ -198,11 +198,11 @@ patterns:
   - pattern: $<CLASS>::send($<_>, $<URL>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(Unirest\\)?Request\z
+        regex: \A(\\?Unirest\\)?Request\z
   - pattern: $<CLASS>::$<METHOD>($<URL>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+        regex: \A(\\?Illuminate\\Support\\Facades\\)?Http\z
       - variable: METHOD
         values:
           - head
@@ -243,7 +243,7 @@ auxiliary:
       - pattern: $<CLASS>::$<_>()
         filters:
           - variable: CLASS
-            regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+            regex: \A(\\?Illuminate\\Support\\Facades\\)?Http\z
       - pattern: $<HTTP>->$<_>()
         filters:
           - variable: HTTP

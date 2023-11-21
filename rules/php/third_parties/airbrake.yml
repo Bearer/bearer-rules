@@ -1,0 +1,66 @@
+languages:
+  - php
+imports:
+  - php_shared_lang_datatype
+  - php_shared_lang_instance
+patterns:
+  - pattern: $<NOTICE>[$<_>] = $<DATA_TYPE>
+    filters:
+      - variable: NOTICE
+        detection: php_third_parties_airbrake_notice
+        scope: result
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: php_third_parties_airbrake_notice
+    patterns:
+      - Airbrake\Instance::buildNotice()
+      - pattern: $<NOTIFIER>->buildNotice()
+        filters:
+          - variable: NOTIFIER
+            detection: php_third_parties_airbrake_notifier
+            scope: cursor
+      # FIXME: the function would be best as a separate aux rule, but we can
+      # only focus nodes in the pattern currently (not imported vars)
+      - pattern: $<NOTIFIER>->addFilter(function ($<!>$<_>) {})
+        filters:
+          - variable: NOTIFIER
+            detection: php_third_parties_airbrake_notifier
+            scope: cursor
+  - id: php_third_parties_airbrake_notifier
+    patterns:
+      - pattern: $<INSTANCE>;
+        filters:
+          - variable: INSTANCE
+            detection: php_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                regex: \A(\\?Airbrake\\)?Notifier\z
+      # symfony bundle
+      - pattern: $<_>->get($<SERVICE>)
+        filters:
+          - variable: SERVICE
+            string_regex: (?i)\Aami_airbrake\.notifier\z
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Sensitive data sent to Airbrake detected."
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Airbrake.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Airbrake Docs](https://docs.airbrake.io/)
+  cwe_id:
+    - 201
+  associated_recipe: Airbrake
+  id: php_third_parties_airbrake
+  documentation_url: https://docs.bearer.com/reference/rules/php_third_parties_airbrake

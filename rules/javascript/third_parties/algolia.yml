@@ -11,6 +11,9 @@ patterns:
         values:
           - saveObject
           - saveObjects
+          - partialUpdateObject
+          - partialUpdateObjects
+          - replaceAllObjects
       - variable: DATA_TYPE
         detection: javascript_shared_common_datatype
         scope: result

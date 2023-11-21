@@ -28,14 +28,14 @@ patterns:
   - pattern: new $<CLASS>($<OPTIONS>)
     filters:
       - variable: CLASS
-        regex: \A((Symfony\\Component\\Validator\\)?Constraints|Assert)\\Regex
+        regex: \A(\\?(Symfony\\Component\\Validator\\)?Constraints|Assert)\\Regex
       - variable: OPTIONS
         detection: php_symfony_permissive_regex_validation_options
         scope: cursor
   - pattern: new $<CLASS>($<PATTERN>$<...>)
     filters:
       - variable: CLASS
-        regex: \A((Symfony\\Component\\Validator\\)?Constraints|Assert)\\Regex
+        regex: \A(\\?(Symfony\\Component\\Validator\\)?Constraints|Assert)\\Regex
       - variable: PATTERN
         string_regex: ""
       - not:

@@ -1,0 +1,388 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_third_parties_new_relic bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_new_relic",
+      "title": "Sensitive data sent to New Relic detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to New Relic.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [New Relic Docs](https://docs.newrelic.com/)\\n- [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_new_relic",
+      "line_number": 3,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 40,
+          "end": 52
+        }
+      },
+      "sink": {
+        "start": 3,
+        "end": 3,
+        "column": {
+          "start": 1,
+          "end": 55
+        },
+        "content": "newrelic_name_transaction(\\"Processing {$user->email}\\")"
+      },
+      "parent_line_number": 3,
+      "snippet": "newrelic_name_transaction(\\"Processing {$user->email}\\")",
+      "fingerprint": "e57f47d2ad0a087c7d2ffd1908240d18_0",
+      "old_fingerprint": "0a6ebbf30fab3c607538a1ecc6950e3c_0",
+      "code_extract": "newrelic_name_transaction(\\"Processing {$user->email}\\");"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_new_relic",
+      "title": "Sensitive data sent to New Relic detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to New Relic.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [New Relic Docs](https://docs.newrelic.com/)\\n- [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_new_relic",
+      "line_number": 4,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 22,
+          "end": 34
+        }
+      },
+      "sink": {
+        "start": 4,
+        "end": 4,
+        "column": {
+          "start": 1,
+          "end": 35
+        },
+        "content": "newrelic_set_user_id($user->email)"
+      },
+      "parent_line_number": 4,
+      "snippet": "newrelic_set_user_id($user->email)",
+      "fingerprint": "e57f47d2ad0a087c7d2ffd1908240d18_1",
+      "old_fingerprint": "0a6ebbf30fab3c607538a1ecc6950e3c_1",
+      "code_extract": "newrelic_set_user_id($user->email);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_new_relic",
+      "title": "Sensitive data sent to New Relic detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to New Relic.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [New Relic Docs](https://docs.newrelic.com/)\\n- [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_new_relic",
+      "line_number": 6,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 37,
+          "end": 49
+        }
+      },
+      "sink": {
+        "start": 6,
+        "end": 6,
+        "column": {
+          "start": 1,
+          "end": 50
+        },
+        "content": "newrelic_add_custom_parameter(\\"id\\", $user->email)"
+      },
+      "parent_line_number": 6,
+      "snippet": "newrelic_add_custom_parameter(\\"id\\", $user->email)",
+      "fingerprint": "e57f47d2ad0a087c7d2ffd1908240d18_2",
+      "old_fingerprint": "0a6ebbf30fab3c607538a1ecc6950e3c_2",
+      "code_extract": "newrelic_add_custom_parameter(\\"id\\", $user->email);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_new_relic",
+      "title": "Sensitive data sent to New Relic detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to New Relic.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [New Relic Docs](https://docs.newrelic.com/)\\n- [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_new_relic",
+      "line_number": 7,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 42,
+          "end": 54
+        }
+      },
+      "sink": {
+        "start": 7,
+        "end": 7,
+        "column": {
+          "start": 1,
+          "end": 55
+        },
+        "content": "newrelic_add_custom_span_parameter(\\"id\\", $user->email)"
+      },
+      "parent_line_number": 7,
+      "snippet": "newrelic_add_custom_span_parameter(\\"id\\", $user->email)",
+      "fingerprint": "e57f47d2ad0a087c7d2ffd1908240d18_3",
+      "old_fingerprint": "0a6ebbf30fab3c607538a1ecc6950e3c_3",
+      "code_extract": "newrelic_add_custom_span_parameter(\\"id\\", $user->email);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_new_relic",
+      "title": "Sensitive data sent to New Relic detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to New Relic.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [New Relic Docs](https://docs.newrelic.com/)\\n- [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_new_relic",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 23,
+          "end": 35
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 40
+        },
+        "content": "newrelic_notice_error($user->email, $e)"
+      },
+      "parent_line_number": 9,
+      "snippet": "newrelic_notice_error($user->email, $e)",
+      "fingerprint": "e57f47d2ad0a087c7d2ffd1908240d18_4",
+      "old_fingerprint": "0a6ebbf30fab3c607538a1ecc6950e3c_4",
+      "code_extract": "newrelic_notice_error($user->email, $e);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_new_relic",
+      "title": "Sensitive data sent to New Relic detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to New Relic.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [New Relic Docs](https://docs.newrelic.com/)\\n- [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_new_relic",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 31,
+          "end": 43
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 77
+        },
+        "content": "newrelic_notice_error($errno, $user->email, $errfile, $errline, $errcontext)"
+      },
+      "parent_line_number": 10,
+      "snippet": "newrelic_notice_error($errno, $user->email, $errfile, $errline, $errcontext)",
+      "fingerprint": "e57f47d2ad0a087c7d2ffd1908240d18_5",
+      "old_fingerprint": "0a6ebbf30fab3c607538a1ecc6950e3c_5",
+      "code_extract": "newrelic_notice_error($errno, $user->email, $errfile, $errline, $errcontext);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_new_relic",
+      "title": "Sensitive data sent to New Relic detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to New Relic.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [New Relic Docs](https://docs.newrelic.com/)\\n- [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_new_relic",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 30,
+          "end": 42
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 75
+        },
+        "content": "newrelic_set_user_attributes($user->email, $account_value, $product_value)"
+      },
+      "parent_line_number": 12,
+      "snippet": "newrelic_set_user_attributes($user->email, $account_value, $product_value)",
+      "fingerprint": "e57f47d2ad0a087c7d2ffd1908240d18_6",
+      "old_fingerprint": "0a6ebbf30fab3c607538a1ecc6950e3c_6",
+      "code_extract": "newrelic_set_user_attributes($user->email, $account_value, $product_value);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_new_relic",
+      "title": "Sensitive data sent to New Relic detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to New Relic.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [New Relic Docs](https://docs.newrelic.com/)\\n- [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_new_relic",
+      "line_number": 13,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 43,
+          "end": 55
+        }
+      },
+      "sink": {
+        "start": 13,
+        "end": 13,
+        "column": {
+          "start": 1,
+          "end": 72
+        },
+        "content": "newrelic_set_user_attributes($user_value, $user->email, $product_value)"
+      },
+      "parent_line_number": 13,
+      "snippet": "newrelic_set_user_attributes($user_value, $user->email, $product_value)",
+      "fingerprint": "e57f47d2ad0a087c7d2ffd1908240d18_7",
+      "old_fingerprint": "0a6ebbf30fab3c607538a1ecc6950e3c_7",
+      "code_extract": "newrelic_set_user_attributes($user_value, $user->email, $product_value);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_new_relic",
+      "title": "Sensitive data sent to New Relic detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to New Relic.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\n## Resources\\n- [New Relic Docs](https://docs.newrelic.com/)\\n- [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_new_relic",
+      "line_number": 14,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 59,
+          "end": 71
+        }
+      },
+      "sink": {
+        "start": 14,
+        "end": 14,
+        "column": {
+          "start": 1,
+          "end": 72
+        },
+        "content": "newrelic_set_user_attributes($user_value, $account_value, $user->email)"
+      },
+      "parent_line_number": 14,
+      "snippet": "newrelic_set_user_attributes($user_value, $account_value, $user->email)",
+      "fingerprint": "e57f47d2ad0a087c7d2ffd1908240d18_8",
+      "old_fingerprint": "0a6ebbf30fab3c607538a1ecc6950e3c_8",
+      "code_extract": "newrelic_set_user_attributes($user_value, $account_value, $user->email);"
+    }
+  ]
+}"
+`;
+
+exports[`php_third_parties_new_relic ok 1`] = `"{}"`;

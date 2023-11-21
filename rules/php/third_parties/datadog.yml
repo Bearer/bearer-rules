@@ -1,0 +1,107 @@
+imports:
+  - php_shared_lang_datatype
+  - php_shared_lang_instance
+patterns:
+  - pattern: \DDTrace\$<FUNCTION>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - add_global_tag
+          - add_distributed_tag
+          - set_user
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<SPAN>->$<_> = $<DATA_TYPE>
+    filters:
+      - variable: SPAN
+        detection: php_third_parties_datadog_span
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<SPAN>->$<_>[$<_>] = $<DATA_TYPE>
+    filters:
+      - variable: SPAN
+        detection: php_third_parties_datadog_span
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<SPAN>->setTag($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: SPAN
+        detection: php_third_parties_datadog_span
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+languages:
+  - php
+auxiliary:
+  - id: php_third_parties_datadog_tracer
+    patterns:
+      - \DDTrace\GlobalTracer::get()
+  - id: php_third_parties_datadog_span
+    patterns:
+      - \DDTrace\trace_function($<_>, function($<!>$<SPAN>$<...>) {})
+      - \DDTrace\trace_function($<_>, [$<_> => function($<!>$<SPAN>$<...>) {}])
+      - \DDTrace\trace_method($<_>, $<_>, function($<!>$<SPAN>$<...>) {})
+      - \DDTrace\trace_method($<_>, $<_>, [$<_> => function($<!>$<SPAN>$<...>) {}])
+      - pattern: \DDTrace\$<FUNCTION>()
+        filters:
+          - variable: FUNCTION
+            values:
+              - active_span
+              - root_span
+              - start_span
+              - start_trace_span
+      - pattern: $<TRACER>->$<METHOD>()
+        filters:
+          - variable: METHOD
+            values:
+              - startSpan
+              - getActiveSpan
+          - variable: TRACER
+            detection: php_third_parties_datadog_tracer
+            scope: cursor
+      - pattern: $<SCOPE>->getSpan()
+        filters:
+          - variable: SCOPE
+            detection: php_third_parties_datadog_span_scope
+            scope: cursor
+      - pattern: $<INSTANCE>;
+        filters:
+          - variable: INSTANCE
+            detection: php_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                regex: \A(\\?DDTrace\\)?SpanData\z
+  - id: php_third_parties_datadog_span_scope
+    patterns:
+      - pattern: $<TRACER>->startActiveSpan()
+        filters:
+          - variable: TRACER
+            detection: php_third_parties_datadog_tracer
+            scope: cursor
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Sensitive data sent to Datadog detected."
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Datadog docs](https://docs.datadoghq.com)
+    - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=php#scrub-sensitive-data-from-your-spans)
+  cwe_id:
+    - 201
+  associated_recipe: Datadog
+  id: php_third_parties_datadog
+  documentation_url: https://docs.bearer.com/reference/rules/php_third_parties_datadog

@@ -1,0 +1,57 @@
+imports:
+  - php_shared_lang_datatype
+  - php_shared_lang_instance
+patterns:
+  - pattern: $<CLASS>::$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(\\?Rollbar\\)?Rollbar\z
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+  - pattern: $<ROLLBAR>->$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: ROLLBAR
+        detection: php_third_parties_rollbar_instance
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: php_shared_lang_datatype
+        scope: result
+languages:
+  - php
+auxiliary:
+  - id: php_third_parties_rollbar_instance
+    patterns:
+      - pattern: $<CLASS>::logger()
+        filters:
+          - variable: CLASS
+            regex: \A(\\?Rollbar\\)?Rollbar\z
+      - pattern: $<INSTANCE>;
+        filters:
+          - variable: INSTANCE
+            detection: php_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                regex: \A(\\?Rollbar\\)?RollbarLogger\z
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Sensitive data sent to Rollbar detected."
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Rollbar.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Rollbar docs](https://docs.rollbar.com/docs/php)
+  cwe_id:
+    - 201
+  associated_recipe: Rollbar
+  id: php_third_parties_rollbar
+  documentation_url: https://docs.bearer.com/reference/rules/php_third_parties_rollbar

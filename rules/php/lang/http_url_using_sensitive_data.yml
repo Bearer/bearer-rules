@@ -21,7 +21,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(GuzzleHttp\\)?Client\z
+            regex: \A(\\?GuzzleHttp\\)?Client\z
       - variable: METHOD
         values:
           - request
@@ -36,7 +36,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(GuzzleHttp\\)?Client\z
+            regex: \A(\\?GuzzleHttp\\)?Client\z
       - variable: METHOD
         values:
           - get
@@ -61,7 +61,7 @@ patterns:
   - pattern: new $<CLASS>($<DATA_TYPE>)
     filters:
       - variable: CLASS
-        regex: \A(Http\\Message\\Authentication\\)?QueryParam\z
+        regex: \A(\\?Http\\Message\\Authentication\\)?QueryParam\z
       - variable: DATA_TYPE
         detection: php_shared_lang_datatype
         scope: result
@@ -72,7 +72,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A((Laminas|Zend)\\Http\\)?Client\z
+            regex: \A(\\?(Laminas|Zend)\\Http\\)?Client\z
       - variable: DATA_TYPE
         detection: php_shared_lang_datatype
         scope: result
@@ -99,7 +99,7 @@ patterns:
   - pattern: $<CLASS>::$<METHOD>($<_>, $<DATA_TYPE>)
     filters:
       - variable: CLASS
-        regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+        regex: \A(\\?Illuminate\\Support\\Facades\\)?Http\z
       - variable: METHOD
         values:
           - head
@@ -122,7 +122,7 @@ patterns:
   - pattern: $<CLASS>::withQueryParameters($<DATA_TYPE>)
     filters:
       - variable: CLASS
-        regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+        regex: \A(\\?Illuminate\\Support\\Facades\\)?Http\z
       - variable: DATA_TYPE
         detection: php_shared_lang_datatype
         scope: result
@@ -137,7 +137,7 @@ patterns:
   - pattern: $<CLASS>::send($<_>, $<_>, $<OPTIONS>)
     filters:
       - variable: CLASS
-        regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+        regex: \A(\\?Illuminate\\Support\\Facades\\)?Http\z
       - variable: OPTIONS
         detection: php_lang_http_url_using_sensitive_data_guzzle_options
         scope: cursor
@@ -157,7 +157,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(http\\Client\\)?Request\z
+            regex: \A(\\?http\\Client\\)?Request\z
       - variable: METHOD
         values:
           - addQuery
@@ -168,14 +168,14 @@ patterns:
   - pattern: $<CLASS>::request($<_>, $<_>, $<DATA_TYPE>)
     filters:
       - variable: CLASS
-        regex: \A(WpOrg\\Requests\\)?Requests\z
+        regex: \A(\\?WpOrg\\Requests\\)?Requests\z
       - variable: DATA_TYPE
         detection: php_shared_lang_datatype
         scope: result
   - pattern: $<CLASS>::request($<_>, $<_>, $<DATA_TYPE>, $<TYPE>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(WpOrg\\Requests\\)?Requests\z
+        regex: \A(\\?WpOrg\\Requests\\)?Requests\z
       - variable: DATA_TYPE
         detection: php_shared_lang_datatype
         scope: result
@@ -198,14 +198,14 @@ patterns:
   - pattern: $<CLASS>::request_multiple($<OPTIONS>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(WpOrg\\Requests\\)?Requests\z
+        regex: \A(\\?WpOrg\\Requests\\)?Requests\z
       - variable: OPTIONS
         detection: php_lang_http_url_using_sensitive_data_requests_options
         scope: result
   - pattern: new $<CLASS>($<_>, $<_>, $<DATA_TYPE>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(WpOrg\\Requests\\)?Session\z
+        regex: \A(\\?WpOrg\\Requests\\)?Session\z
       - variable: DATA_TYPE
         detection: php_shared_lang_datatype
         scope: result
@@ -216,7 +216,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(WpOrg\\Requests\\)?Session\z
+            regex: \A(\\?WpOrg\\Requests\\)?Session\z
       - variable: DATA_TYPE
         detection: php_shared_lang_datatype
         scope: result
@@ -227,7 +227,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(WpOrg\\Requests\\)?Session\z
+            regex: \A(\\?WpOrg\\Requests\\)?Session\z
       - variable: DATA_TYPE
         detection: php_shared_lang_datatype
         scope: result
@@ -254,7 +254,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(WpOrg\\Requests\\)?Session\z
+            regex: \A(\\?WpOrg\\Requests\\)?Session\z
       - variable: OPTIONS
         detection: php_lang_http_url_using_sensitive_data_requests_options
         scope: result
@@ -265,7 +265,7 @@ patterns:
         scope: cursor
         filters:
           - variable: CLASS
-            regex: \A(SendGrid\\)?Client\z
+            regex: \A(\\?SendGrid\\)?Client\z
       - variable: METHOD
         values:
           - get
@@ -285,7 +285,7 @@ patterns:
   - pattern: $<CLASS>::get($<_>, $<_>, $<DATA_TYPE>$<...>)
     filters:
       - variable: CLASS
-        regex: \A(Unirest\\)?Request\z
+        regex: \A(\\?Unirest\\)?Request\z
       - variable: DATA_TYPE
         detection: php_shared_lang_datatype
         scope: result
@@ -293,7 +293,7 @@ patterns:
       $<CLASS>::get(parameters: $<DATA_TYPE>)
     filters:
       - variable: CLASS
-        regex: \A(Unirest\\)?Request\z
+        regex: \A(\\?Unirest\\)?Request\z
       - variable: DATA_TYPE
         detection: php_shared_lang_datatype
         scope: result
@@ -302,7 +302,7 @@ patterns:
       - variable: TYPE
         string_regex: (?i)\Aget\z
       - variable: CLASS
-        regex: \A(Unirest\\)?Request\z
+        regex: \A(\\?Unirest\\)?Request\z
       - variable: DATA_TYPE
         detection: php_shared_lang_datatype
         scope: result
@@ -331,13 +331,13 @@ auxiliary:
             scope: cursor
             filters:
               - variable: CLASS
-                regex: \A((Laminas|Zend)\\Http\\)?Request\z
+                regex: \A(\\?(Laminas|Zend)\\Http\\)?Request\z
   - id: php_lang_http_url_using_sensitive_data_laravel_http
     patterns:
       - pattern: $<CLASS>::$<_>()
         filters:
           - variable: CLASS
-            regex: \A(Illuminate\\Support\\Facades\\)?Http\z
+            regex: \A(\\?Illuminate\\Support\\Facades\\)?Http\z
       - pattern: $<HTTP>->$<_>()
         filters:
           - variable: HTTP
@@ -348,7 +348,7 @@ auxiliary:
       - pattern: $<CLASS>::$<CONSTANT>
         filters:
           - variable: CLASS
-            regex: \A(WpOrg\\Requests\\)?Requests\z
+            regex: \A(\\?WpOrg\\Requests\\)?Requests\z
           - variable: CONSTANT
             values:
               - GET
@@ -392,7 +392,7 @@ auxiliary:
           $<CLASS>::request(data: $<DATA_TYPE>)
         filters:
           - variable: CLASS
-            regex: \A(WpOrg\\Requests\\)?Requests\z
+            regex: \A(\\?WpOrg\\Requests\\)?Requests\z
           - variable: DATA_TYPE
             detection: php_shared_lang_datatype
             scope: result
@@ -418,7 +418,7 @@ auxiliary:
             scope: cursor
             filters:
               - variable: CLASS
-                regex: \A(WpOrg\\Requests\\)?Session\z
+                regex: \A(\\?WpOrg\\Requests\\)?Session\z
           - variable: DATA_TYPE
             detection: php_shared_lang_datatype
             scope: result
@@ -440,7 +440,7 @@ auxiliary:
           $<CLASS>::send(parameters: $<DATA_TYPE>)
         filters:
           - variable: CLASS
-            regex: \A(Unirest\\)?Request\z
+            regex: \A(\\?Unirest\\)?Request\z
           - variable: DATA_TYPE
             detection: php_shared_lang_datatype
             scope: result
@@ -450,7 +450,7 @@ auxiliary:
           $<CLASS>::send($<TYPE>$<...>)
         filters:
           - variable: CLASS
-            regex: \A(Unirest\\)?Request\z
+            regex: \A(\\?Unirest\\)?Request\z
           - variable: TYPE
             string_regex: (?i)\Aget\z
 metadata:

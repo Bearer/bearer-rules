@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`php_third_parties_algolia bad 1`] = `
+"{
+  "high": [
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_algolia",
+      "title": "Sensitive data sent to Algolia detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party data tools is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Algolia.\\n\\n## Remediations\\nWhen sending data to third-party services, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Algolia docs](https://www.algolia.com/doc/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_algolia",
+      "line_number": 8,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 33,
+          "end": 45
+        }
+      },
+      "sink": {
+        "start": 8,
+        "end": 8,
+        "column": {
+          "start": 1,
+          "end": 58
+        },
+        "content": "$index->saveObject([ \\"email\\" => $user->email ], $options)"
+      },
+      "parent_line_number": 8,
+      "snippet": "$index->saveObject([ \\"email\\" => $user->email ], $options)",
+      "fingerprint": "75e666056e4c984016a1b2580e1bf16f_0",
+      "old_fingerprint": "8926a984f48d8974bcfef0a66eba3b40_0",
+      "code_extract": "$index->saveObject([ \\"email\\" => $user->email ], $options);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_algolia",
+      "title": "Sensitive data sent to Algolia detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party data tools is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Algolia.\\n\\n## Remediations\\nWhen sending data to third-party services, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Algolia docs](https://www.algolia.com/doc/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_algolia",
+      "line_number": 9,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 35,
+          "end": 47
+        }
+      },
+      "sink": {
+        "start": 9,
+        "end": 9,
+        "column": {
+          "start": 1,
+          "end": 61
+        },
+        "content": "$index->saveObjects([[ \\"email\\" => $user->email ]], $options)"
+      },
+      "parent_line_number": 9,
+      "snippet": "$index->saveObjects([[ \\"email\\" => $user->email ]], $options)",
+      "fingerprint": "75e666056e4c984016a1b2580e1bf16f_1",
+      "old_fingerprint": "8926a984f48d8974bcfef0a66eba3b40_1",
+      "code_extract": "$index->saveObjects([[ \\"email\\" => $user->email ]], $options);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_algolia",
+      "title": "Sensitive data sent to Algolia detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party data tools is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Algolia.\\n\\n## Remediations\\nWhen sending data to third-party services, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Algolia docs](https://www.algolia.com/doc/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_algolia",
+      "line_number": 10,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 42,
+          "end": 54
+        }
+      },
+      "sink": {
+        "start": 10,
+        "end": 10,
+        "column": {
+          "start": 1,
+          "end": 67
+        },
+        "content": "$index->partialUpdateObject([ \\"email\\" => $user->email ], $options)"
+      },
+      "parent_line_number": 10,
+      "snippet": "$index->partialUpdateObject([ \\"email\\" => $user->email ], $options)",
+      "fingerprint": "75e666056e4c984016a1b2580e1bf16f_2",
+      "old_fingerprint": "8926a984f48d8974bcfef0a66eba3b40_2",
+      "code_extract": "$index->partialUpdateObject([ \\"email\\" => $user->email ], $options);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_algolia",
+      "title": "Sensitive data sent to Algolia detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party data tools is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Algolia.\\n\\n## Remediations\\nWhen sending data to third-party services, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Algolia docs](https://www.algolia.com/doc/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_algolia",
+      "line_number": 11,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 44,
+          "end": 56
+        }
+      },
+      "sink": {
+        "start": 11,
+        "end": 11,
+        "column": {
+          "start": 1,
+          "end": 70
+        },
+        "content": "$index->partialUpdateObjects([[ \\"email\\" => $user->email ]], $options)"
+      },
+      "parent_line_number": 11,
+      "snippet": "$index->partialUpdateObjects([[ \\"email\\" => $user->email ]], $options)",
+      "fingerprint": "75e666056e4c984016a1b2580e1bf16f_3",
+      "old_fingerprint": "8926a984f48d8974bcfef0a66eba3b40_3",
+      "code_extract": "$index->partialUpdateObjects([[ \\"email\\" => $user->email ]], $options);"
+    },
+    {
+      "cwe_ids": [
+        "201"
+      ],
+      "id": "php_third_parties_algolia",
+      "title": "Sensitive data sent to Algolia detected.",
+      "description": "## Description\\nLeaking sensitive data to third-party data tools is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to Algolia.\\n\\n## Remediations\\nWhen sending data to third-party services, ensure all sensitive data is removed.\\n\\n## Resources\\n- [Algolia docs](https://www.algolia.com/doc/)\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_algolia",
+      "line_number": 12,
+      "full_filename": "/tmp/bearer-scan/bad.php",
+      "filename": ".",
+      "data_type": {
+        "category_uuid": "cef587dd-76db-430b-9e18-7b031e1a193b",
+        "name": "Email Address"
+      },
+      "category_groups": [
+        "PII",
+        "Personal Data"
+      ],
+      "source": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 41,
+          "end": 53
+        }
+      },
+      "sink": {
+        "start": 12,
+        "end": 12,
+        "column": {
+          "start": 1,
+          "end": 67
+        },
+        "content": "$index->replaceAllObjects([[ \\"email\\" => $user->email ]], $options)"
+      },
+      "parent_line_number": 12,
+      "snippet": "$index->replaceAllObjects([[ \\"email\\" => $user->email ]], $options)",
+      "fingerprint": "75e666056e4c984016a1b2580e1bf16f_4",
+      "old_fingerprint": "8926a984f48d8974bcfef0a66eba3b40_4",
+      "code_extract": "$index->replaceAllObjects([[ \\"email\\" => $user->email ]], $options);"
+    }
+  ]
+}"
+`;
+
+exports[`php_third_parties_algolia ok 1`] = `"{}"`;
