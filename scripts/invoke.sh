@@ -8,6 +8,7 @@ test_location=$2
 rule_id=$3
 rule_loc=$PWD/rules
 BEARER_VERSION=${BEARER_VERSION=latest}
+FORMAT=${FORMAT=json}
 
 filename=$(basename $test_location)
 tmp_location=/tmp/bearer-scan/$filename
@@ -21,7 +22,7 @@ if [ -n "$BEARER_WORKSPACE" ]; then
     --quiet \
     --disable-default-rules=true \
     --external-rule-dir=$rule_loc \
-    --format=json \
+    --format=${FORMAT} \
     --disable-version-check \
     --force \
     --exit-code=0 \
@@ -37,7 +38,7 @@ else
       --only-rule=$rule_id \
       --disable-default-rules=true \
       --external-rule-dir=/tmp/rules \
-      --format=json \
+      --format=${FORMAT} \
       --quiet \
       --disable-version-check \
       --exit-code=0 \
