@@ -1,9 +1,9 @@
 patterns:
   - pattern: |
-      import "crypto/sha1"
+      import $<!>"crypto/sha1"
   - pattern: |
       import (
-        "crypto/sha1"
+        $<!>"crypto/sha1"
       )
 languages:
   - go

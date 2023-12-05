@@ -1,8 +1,8 @@
 patterns:
-  - import "net/http/pprof"
+  - import $<!>"net/http/pprof"
   - pattern: |
       import (
-        $<_>"net/http/pprof"
+        $<!>"net/http/pprof"
       )
 languages:
   - go
