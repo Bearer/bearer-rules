@@ -1,9 +1,9 @@
 patterns:
   - pattern: |
-      import "crypto/des"
+      import $<!>"crypto/des"
   - pattern: |
       import (
-        "crypto/des"
+        $<!>"crypto/des"
       )
 languages:
   - go

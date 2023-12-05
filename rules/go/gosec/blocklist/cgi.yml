@@ -1,9 +1,9 @@
 patterns:
   - pattern: |
-      import "net/http/cgi"
+      import $<!>"net/http/cgi"
   - pattern: |
       import (
-        "net/http/cgi"
+        $<!>"net/http/cgi"
       )
 languages:
   - go

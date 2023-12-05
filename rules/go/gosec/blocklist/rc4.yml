@@ -1,9 +1,9 @@
 patterns:
   - pattern: |
-      import "crypto/rc4"
+      import $<!>"crypto/rc4"
   - pattern: |
       import (
-        "crypto/rc4"
+        $<!>"crypto/rc4"
       )
 languages:
   - go
