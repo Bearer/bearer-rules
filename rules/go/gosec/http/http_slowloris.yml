@@ -4,27 +4,32 @@ patterns:
       - variable: HTTP_INIT
         detection: go_gosec_http_http_slowloris_http_init
         scope: cursor
-      - not:
-          either:
-            - variable: HTTP_INIT
+      - either:
+          - not:
+              variable: HTTP_INIT
               detection: go_gosec_http_http_slowloris_http_slowloris_read_timeout
               scope: cursor
-            - variable: HTTP_INIT
+          - not:
+              variable: HTTP_INIT
               detection: go_gosec_http_http_slowloris_http_slowloris_read_header_timeout
               scope: cursor
 auxiliary:
   - id: go_gosec_http_http_slowloris_http_slowloris_read_timeout
     patterns:
       - pattern: |
+          http.Server{$<...>$<!>ReadTimeout: $<_>$<...>}
+      - pattern: |
           &http.Server{$<...>$<!>ReadTimeout: $<_>$<...>}
   - id: go_gosec_http_http_slowloris_http_slowloris_read_header_timeout
     patterns:
       - pattern: |
+          http.Server{$<...>$<!>ReadHeaderTimeout: $<_>$<...>}
+      - pattern: |
           &http.Server{$<...>$<!>ReadHeaderTimeout: $<_>$<...>}
   - id: go_gosec_http_http_slowloris_http_init
     patterns:
-      - pattern: |
-          &http.Server{}
+      - "&http.Server{}"
+      - "http.Server{}"
 languages:
   - go
 metadata:
