@@ -60,3 +60,17 @@ func ok3() {
 		panic(err)
 	}
 }
+
+func bad2() {
+	router := httprouter.New()
+
+	s := http.Server{
+		Addr:    fmt.Sprintf(":%s", config.Cfg.Webport),
+		Handler: router,
+	}
+
+	err := s.ListenAndServe()
+	if err != nil {
+		panic(err)
+	}
+}
