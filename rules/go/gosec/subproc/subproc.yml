@@ -7,7 +7,7 @@ patterns:
       - variable: INPUT
         detection: go_shared_lang_dynamic_request_input
   - pattern: |
-      exec.Command($<INPUT>$<...>)
+      exec.Command($<...>$<INPUT>$<...>)
     filters:
       - variable: INPUT
         detection: go_shared_lang_dynamic_request_input

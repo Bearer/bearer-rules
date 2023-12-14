@@ -120,3 +120,14 @@ func foo14() {
 	}
 	log.Printf("Command finished with error: %v", err)
 }
+
+func foo15(arg string) (results string, err error) {
+	commandLine := "mysql -h mysql -u root -prootwolf -e 'select adminsid from vulnapp.adminsessions where adminsessionid=\"" + arg + "\";'"
+
+	res, err := exec.Command("sh", "-c", commandLine).Output()
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	return string(res), nil
+}
