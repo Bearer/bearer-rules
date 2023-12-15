@@ -5,11 +5,14 @@ patterns:
       $<DB>.Query($<INPUT>)
     filters:
       - variable: INPUT
-        detection: go_gosec_sql_concat_sqli_sanitized_input
+        detection: go_gosec_sql_concat_sqli_unsanitized_input
       - not:
           variable: INPUT
           detection: go_gosec_sql_concat_sqli_input_sprintf_sanitizer
       - either:
+          - variable: DB
+            detection: go_gosec_sql_concat_sqli_sql_db_init
+            scope: cursor
           - variable: DB
             detection: go_gosec_sql_concat_sqli_sql_open
             scope: cursor
@@ -20,7 +23,7 @@ patterns:
       $<DB>.QueryContext($<...>$<INPUT>)
     filters:
       - variable: INPUT
-        detection: go_gosec_sql_concat_sqli_sanitized_input
+        detection: go_gosec_sql_concat_sqli_unsanitized_input
       - either:
           - variable: DB
             detection: go_gosec_sql_concat_sqli_sql_open
@@ -38,13 +41,25 @@ auxiliary:
   - id: go_gosec_sql_concat_sqli_input_sanitizer
     patterns:
       - pattern: $<_>.QuoteIdentifier($<!>$<_>)
-  - id: go_gosec_sql_concat_sqli_sanitized_input
+  - id: go_gosec_sql_concat_sqli_unsanitized_input
     sanitizer: go_gosec_sql_concat_sqli_input_sanitizer
     patterns:
       - pattern: $<INPUT>
         filters:
           - variable: INPUT
             detection: go_shared_lang_dynamic_request_input
+            scope: cursor
+  - id: go_gosec_sql_concat_sqli_sql_db_init
+    patterns:
+      - pattern: var $<!>$<_> $<SQL>.DB
+        filters:
+          - variable: SQL
+            detection: go_gosec_sql_concat_sqli_sql_init
+            scope: cursor
+      - pattern: var $<!>$<_> *$<SQL>.DB
+        filters:
+          - variable: SQL
+            detection: go_gosec_sql_concat_sqli_sql_init
             scope: cursor
   - id: go_gosec_sql_concat_sqli_sql_db_begin
     patterns:
