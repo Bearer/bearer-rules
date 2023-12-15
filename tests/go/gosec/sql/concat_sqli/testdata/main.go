@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"database/sql"
+	"fmt"
 	"os"
 )
 
@@ -126,4 +127,17 @@ func foo9() {
 		panic(err)
 	}
 	defer rows.Close()
+}
+
+var DB *sql.DB
+var err error
+
+func foo10(uid string) {
+	DB, err = database.Connect()
+
+	getProfileSql := fmt.Sprintf(`SELECT p.user_id, p.full_name, p.city, p.phone_number
+								FROM Profile as p,Users as u
+								where p.user_id = u.id
+								and u.id=%s`, uid) //here is the vulnerable query
+	rows, err := DB.Query(getProfileSql)
 }
