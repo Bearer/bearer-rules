@@ -23,7 +23,7 @@ For example
 Here are the basic steps to adding a new rule.
 
 1. Create a rule YAML file following the guide [here](https://docs.bearer.com/guides/custom-rule/)
-2. Add a directory of test data. This includes example code that should (or for "ok" cases, should not) trigger your new rule. See [here](https://github.com/Bearer/bearer-rules/tests/ruby/lang/logger/testdata) for a simple Ruby example test.
+2. Add a directory of test data. This includes example code that should (or for "ok" cases, should not) trigger your new rule. See [here](/tests/ruby/lang/logger/testdata) for a simple Ruby example test.
 3. Scaffold tests by running
 ```bash
   node ./scripts/gen_tests.js
