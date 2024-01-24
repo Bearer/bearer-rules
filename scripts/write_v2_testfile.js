@@ -1,14 +1,28 @@
 const fs = require("fs");
 const path = require("path");
 
-FILE_MAPPING = {
-  "go/": "test.go",
-  "java/": "test.java",
-  "javascript/": "test.js",
-  "php/": "test.php",
-  "python/": "test.py",
-  "ruby/": "test.rb",
-};
+function testjsContent(filePath, testCase) {
+  testName = filePath.split("/").pop();
+
+  return `const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
+const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
+
+describe(ruleId, () => {
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+
+  test("${testName}", () => {
+    const testCase = "${testCase}"
+
+    const results = invoke(testCase)
+
+    expect(results.Missing).toEqual([])
+    expect(results.Extra).toEqual([])
+  })
+})`;
+}
 
 function writeTestFileIfNotExists(filePath) {
   try {
@@ -21,41 +35,61 @@ function writeTestFileIfNotExists(filePath) {
       content = "# Use bearer:expected <rule_name> to flag expected findings";
     }
 
-    var testFilename = "";
+    var testdataFileName = "";
     if (filePath.includes("go")) {
-      testFilename = "main.go";
+      testdataFileName = "main.go";
     }
     if (filePath.includes("java")) {
-      testFilename = "main.java";
+      testdataFileName = "main.java";
     }
     if (filePath.includes("javascript")) {
       // ordering is important here
       // javascript must come after java
-      testFilename = "app.js";
+      testdataFileName = "app.js";
     }
     if (filePath.includes("php")) {
-      testFilename = "index.php";
+      testdataFileName = "index.php";
     }
     if (filePath.includes("python")) {
-      testFilename = "main.py";
+      testdataFileName = "main.py";
     }
     if (filePath.includes("ruby")) {
-      testFilename = "main.rb";
+      testdataFileName = "main.rb";
     }
 
-    const fullFilePath = path.join(filePath, testFilename);
+    const testdataFilePath = path.join(filePath, testdataFileName);
 
-    if (!fs.existsSync(fullFilePath)) {
-      const directoryPath = path.dirname(fullFilePath);
+    // write testdata file
+    if (!fs.existsSync(testdataFilePath)) {
+      const directoryPath = path.dirname(testdataFilePath);
 
       if (!fs.existsSync(directoryPath)) {
         fs.mkdirSync(directoryPath, { recursive: true });
       }
 
-      fs.writeFileSync(fullFilePath, content, "utf8");
-      console.error(`Test file ${fullFilePath} written successfully.`);
+      fs.writeFileSync(testdataFilePath, content, "utf8");
+      console.error(`testdata file written successfully - ${testdataFilePath}`);
     } else {
-      console.error(`Test file already exists ${fullFilePath}`);
+      console.error(`testdata file already exists - ${testdataFilePath}`);
+    }
+
+    // write test.js file
+    const testFilePath = path.join(filePath, "test.js");
+    if (!fs.existsSync(testFilePath)) {
+      const directoryPath = path.dirname(testFilePath);
+
+      if (!fs.existsSync(directoryPath)) {
+        fs.mkdirSync(directoryPath, { recursive: true });
+      }
+
+      fs.writeFileSync(
+        testFilePath,
+        testjsContent(filePath, testdataFileName),
+        "utf8",
+      );
+      console.error(`test.js file written successfully - ${testFilePath}`);
+    } else {
+      console.error(`test.js file already exists - ${testFilePath}`);
     }
   } catch (err) {
     console.error("Error writing test file:", err);
