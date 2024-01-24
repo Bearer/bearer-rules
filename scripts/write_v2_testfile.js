@@ -57,7 +57,7 @@ function writeTestFileIfNotExists(filePath) {
       testdataFileName = "main.rb";
     }
 
-    const testdataFilePath = path.join(filePath, testdataFileName);
+    const testdataFilePath = path.join(filePath, "testdata", testdataFileName);
 
     // write testdata file
     if (!fs.existsSync(testdataFilePath)) {
