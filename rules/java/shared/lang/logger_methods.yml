@@ -1,0 +1,27 @@
+type: shared
+languages:
+  - java
+patterns:
+  - pattern: $<METHOD>;
+    filters:
+      - variable: METHOD
+        values:
+          - config
+          - debug
+          - entering
+          - error
+          - exiting
+          - fine
+          - finer
+          - finest
+          - info
+          - log
+          - logp
+          - logrb
+          - severe
+          - throwing
+          - trace
+          - warn
+metadata:
+  description: "Java Logger Methods"
+  id: java_shared_lang_logger_methods

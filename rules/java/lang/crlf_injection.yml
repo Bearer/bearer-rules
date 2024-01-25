@@ -1,9 +1,18 @@
+imports:
+  - java_shared_lang_user_input
+  - java_shared_lang_logger_methods
 patterns:
   - pattern: |
       $<LOG>.$<METHOD>($<...>$<UNSANITIZED_USER_INPUT>$<...>)
     filters:
+      - variable: LOG
+        values:
+          - log
+          - logger
+      - variable: METHOD
+        detection: java_shared_lang_logger_methods
       - variable: UNSANITIZED_USER_INPUT
-        detection: java_lang_log_dynamic_input
+        detection: java_shared_lang_user_input
         scope: result
       - not:
           variable: UNSANITIZED_USER_INPUT
@@ -13,57 +22,10 @@ patterns:
           variable: UNSANITIZED_USER_INPUT
           detection: java_lang_log_dynamic_bundle_input
           scope: result
-      - variable: METHOD
-        values:
-          - config
-          - debug
-          - entering
-          - error
-          - exiting
-          - fine
-          - finer
-          - finest
-          - info
-          - log
-          - logp
-          - logrb
-          - severe
-          - throwing
-          - trace
-          - warn
-      - variable: LOG
-        values:
-          - log
-          - logger
 auxiliary:
   - id: java_lang_log_dynamic_bundle_input
     patterns:
       - pattern: $<_> + "bundle"
-  - id: java_lang_log_dynamic_input
-    patterns:
-      - pattern: $<REQUEST>.$<REQUEST_METHOD>()
-        filters:
-          - variable: REQUEST
-            values:
-              - req
-              - request
-          - variable: REQUEST_METHOD
-            values:
-              - getCookies
-              - getHeader
-              - getQueryString
-              - getRequestURI
-              - getRequestURL
-              - getAttribute
-              - getInputStream
-              - getParameter
-              - getParameterMap
-              - getParameterNames
-              - getParameterValues
-              - getReader
-              - getHeaderNames
-              - getPart
-              - getParts
   - id: java_lang_log_sanitized_dynamic_input
     patterns:
       - pattern: $<_>.$<METHOD>($<SOURCE>, $<_>);

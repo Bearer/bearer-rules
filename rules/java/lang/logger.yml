@@ -1,5 +1,6 @@
 imports:
   - java_shared_lang_datatype
+  - java_shared_lang_logger_methods
 patterns:
   - pattern: |
       $<LOG>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
@@ -8,12 +9,7 @@ patterns:
         detection: java_shared_lang_datatype
         scope: result
       - variable: METHOD
-        values:
-          - log
-          - debug
-          - warn
-          - info
-          - error
+        detection: java_shared_lang_logger_methods
       - variable: LOG
         values:
           - log
