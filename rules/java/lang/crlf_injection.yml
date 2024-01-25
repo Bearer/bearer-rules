@@ -1,0 +1,110 @@
+patterns:
+  - pattern: |
+      $<LOG>.$<METHOD>($<...>$<UNSANITIZED_USER_INPUT>$<...>)
+    filters:
+      - variable: UNSANITIZED_USER_INPUT
+        detection: java_lang_log_dynamic_input
+        scope: result
+      - not:
+          variable: UNSANITIZED_USER_INPUT
+          detection: java_lang_log_sanitized_dynamic_input
+          scope: result
+      - not:
+          variable: UNSANITIZED_USER_INPUT
+          detection: java_lang_log_dynamic_bundle_input
+          scope: result
+      - variable: METHOD
+        values:
+          - config
+          - debug
+          - entering
+          - error
+          - exiting
+          - fine
+          - finer
+          - finest
+          - info
+          - log
+          - logp
+          - logrb
+          - severe
+          - throwing
+          - trace
+          - warn
+      - variable: LOG
+        values:
+          - log
+          - logger
+auxiliary:
+  - id: java_lang_log_dynamic_bundle_input
+    patterns:
+      - pattern: $<_> + "bundle"
+  - id: java_lang_log_dynamic_input
+    patterns:
+      - pattern: $<REQUEST>.$<REQUEST_METHOD>()
+        filters:
+          - variable: REQUEST
+            values:
+              - req
+              - request
+          - variable: REQUEST_METHOD
+            values:
+              - getCookies
+              - getHeader
+              - getQueryString
+              - getRequestURI
+              - getRequestURL
+              - getAttribute
+              - getInputStream
+              - getParameter
+              - getParameterMap
+              - getParameterNames
+              - getParameterValues
+              - getReader
+              - getHeaderNames
+              - getPart
+              - getParts
+  - id: java_lang_log_sanitized_dynamic_input
+    patterns:
+      - pattern: $<_>.$<METHOD>($<SOURCE>, $<_>);
+        filters:
+          - variable: METHOD
+            values:
+              - replace
+              - replaceAll
+          - variable: SOURCE
+            string_regex: "\\r\\n|\\\\r\\\\n"
+      - pattern: $<_>.$<METHOD>($<CR>, $<_>).$<METHOD>($<LF>, $<_>);
+        filters:
+          - variable: METHOD
+            values:
+              - replace
+              - replaceAll
+          - variable: CR
+            string_regex: "\\r|\\\\r"
+          - variable: LF
+            string_regex: "\\n|\\\\n"
+languages:
+  - java
+metadata:
+  description: "Possible CLRF injection detected."
+  remediation_message: |
+    ## Description
+
+    A CRLF (Carriage Return Line Feed) injection occurs when an attacker injects a sequence of line termination characters into a log message, allowing them to forge log entries.
+
+    ## Remediations
+
+    ✅ Strip any carriage return and line feed characters from user input data before logging it.
+
+    ```java
+    logger.info(userInput.replaceAll("[\r\n]+", ""));
+    ```
+
+    ## Resources
+    - [OWASP CRLF Injection] (https://owasp.org/www-community/vulnerabilities/CRLF_Injection)
+    - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
+  cwe_id:
+    - 93
+  id: java_lang_crlf_injection
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_crlf_injection
