@@ -19,8 +19,8 @@ public class BadHexConversion {
         }
 
         for (byte b : resultBytes) {
-          // TODO: expected java_lang_bad_hex_conversion
-          stringBuilder.append(Integer.toHexString(b));
+            // bearer:expected java_lang_bad_hex_conversion
+            stringBuilder.append(Integer.toHexString(b));
         }
         return stringBuilder.toString();
     }

@@ -10,7 +10,7 @@ patterns:
 auxiliary:
   - id: java_lang_bad_hex_conversion_digest_buffer_byte
     patterns:
-      - pattern: $<MESSAGE_DIGEST_BUFFER>[$<_>]
+      - pattern: $<MESSAGE_DIGEST_BUFFER>;
         filters:
           - variable: MESSAGE_DIGEST_BUFFER
             detection: java_shared_lang_message_digest_buffer
