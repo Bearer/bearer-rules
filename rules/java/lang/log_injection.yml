@@ -7,12 +7,22 @@ patterns:
         scope: result
       - variable: METHOD
         values:
-          - log
+          - config
           - debug
-          - warn
-          - info
+          - entering
           - error
+          - exiting
+          - fine
+          - finer
+          - finest
+          - info
+          - log
+          - logp
+          - logrb
+          - severe
+          - throwing
           - trace
+          - warn
       - variable: LOG
         values:
           - log
