@@ -1,12 +1,19 @@
-imports:
-  - java_shared_lang_blowfish_key_generator_init
 patterns:
   - pattern: $<BLOWFISH_KEY_GEN>.init($<SIZE>);
     filters:
       - variable: BLOWFISH_KEY_GEN
-        detection: java_shared_lang_blowfish_key_generator_init
+        detection: java_lang_blowfish_key_generator_init
       - variable: SIZE
         less_than: 128
+auxiliary:
+  - id: java_lang_blowfish_key_generator_init
+    patterns:
+      - pattern: $<KEY_GENERATOR>.getInstance($<BLOWFISH_ALGORITHM>$<...>);
+        filters:
+          - variable: KEY_GENERATOR
+            regex: \A(java\.crypto\.)?KeyGenerator\z
+          - variable: BLOWFISH_ALGORITHM
+            string_regex: (?i)\ABlowfish\z
 languages:
   - java
 severity: warning
