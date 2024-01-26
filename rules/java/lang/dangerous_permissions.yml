@@ -1,0 +1,50 @@
+imports:
+  - java_shared_lang_instance
+patterns:
+  - pattern: |
+      $<PERMISSION_COLLECTION>.add($<PERMISSION>);
+    filters:
+      - variable: PERMISSION_COLLECTION
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            values:
+              - PermissionCollection
+      - variable: PERMISSION
+        detection: java_lang_dangerous_permissions_permissions
+auxiliary:
+  - id: java_lang_dangerous_permissions_permissions
+    patterns:
+      - pattern: new RuntimePermission($<CREATE_CLASS_LOADER>);
+        filters:
+          - variable: CREATE_CLASS_LOADER
+            string_regex: \AcreateClassLoader\z
+      - pattern: new ReflectPermission($<SUPPRESS_ACCESS_CHECKS>);
+        filters:
+          - variable: SUPPRESS_ACCESS_CHECKS
+            string_regex: \AsuppressAccessChecks\z
+languages:
+  - java
+severity: warning
+metadata:
+  description: "Granting of dangerous permissions detected."
+  remediation_message: |
+    ## Description
+
+    It is improper privilege management to grant certain permissions, as these can compromise the security of an application.
+
+    In this case, granting RuntimePermission of `createClassLoader` puts the application at risk of the unauthorized class loaders being instantiated to load arbitrary classes.
+    Granting ReflectPermission of `suppressAccessChecks` removes Java language access checks, and risks providing unrestricted access to protected and private class members.
+
+    ## Remediations
+
+    ❌ Do not grant RuntimePermission("createClassLoader") permission
+
+    ❌ Do not grant ReflectPermission("suppressAccessChecks") permission
+
+    ✅ Avoid granting the RuntimePermission of createClassLoader to prevent the instantiation of unauthorized class loaders and the loading of arbitrary classes.
+  cwe_id:
+    - 269
+  id: java_lang_dangerous_permissions
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_dangerous_permissions
