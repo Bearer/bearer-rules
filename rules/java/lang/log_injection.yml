@@ -1,49 +1,19 @@
+imports:
+  - java_shared_lang_user_input
+  - java_shared_lang_logger_methods
 patterns:
   - pattern: |
       $<LOG>.$<METHOD>($<...>$<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
-        detection: java_lang_log_dynamic_input
+        detection: java_shared_lang_user_input
         scope: result
       - variable: METHOD
-        values:
-          - log
-          - debug
-          - warn
-          - info
-          - error
-          - trace
+        detection: java_shared_lang_logger_methods
       - variable: LOG
         values:
           - log
           - logger
-auxiliary:
-  - id: java_lang_log_dynamic_input
-    patterns:
-      - pattern: |
-          $<REQUEST>.$<REQUEST_METHOD>()
-        filters:
-          - variable: REQUEST
-            values:
-              - req
-              - request
-          - variable: REQUEST_METHOD
-            values:
-              - getCookies
-              - getHeader
-              - getQueryString
-              - getRequestURI
-              - getRequestURL
-              - getAttribute
-              - getInputStream
-              - getParameter
-              - getParameterMap
-              - getParameterNames
-              - getParameterValues
-              - getReader
-              - getHeaderNames
-              - getPart
-              - getParts
 languages:
   - java
 
