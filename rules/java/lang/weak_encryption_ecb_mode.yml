@@ -1,0 +1,38 @@
+imports:
+  - java_shared_lang_string
+patterns:
+  - pattern: $<CIPHER>.getInstance($<CIPHER_MODE_ALGORITHM>$<...>)
+    filters:
+      - variable: CIPHER
+        regex: \A(javax\.crypto\.)?Cipher\z
+      - variable: CIPHER_MODE_ALGORITHM
+        detection: java_shared_lang_string
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_STRING_VALUE
+            string_regex: \A(AES|DES)(ede)?/ECB(/|\z)
+languages:
+  - java
+metadata:
+  description: "ECB cipher mode detected."
+  remediation_message: |
+    ## Description
+
+    ECB (electronic cookbook) encryption mode is insecure and not recommended for use in cryptographic protocols.
+    Instead, prefer cryptographic algorithms that have built-in message integrity and that do not require a
+    mode of operation to be configured, such as ChaCha20-Poly1305 or, for older applications that do not support this, AES-256-GCM.
+
+    ## Remediations
+    ✅ Choose ChaCha20Poly1305 or AES-256-GCM for encryption, both of which offer built-in message integrity.
+
+    ```java
+      Cipher chaChaCipher = Cipher.getInstance("ChaCha20-Poly1305/None/NoPadding");
+    ```
+
+    ## Resources
+    - [Java Cipher class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/javax/crypto/Cipher.html)
+  cwe_id:
+    - 327
+  id: java_lang_weak_encryption_ecb_mode
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_weak_encryption_ecb_mode
+  cloud_code_suggestions: true
