@@ -1,0 +1,29 @@
+patterns:
+  - pattern: |
+      class $<...>$<_> extends $<MESSAGE_DIGEST_CLASS> {};
+    filters:
+      - variable: MESSAGE_DIGEST_CLASS
+        regex: \A(java\.security\.)?MessageDigest\z
+languages:
+  - java
+severity: warning
+metadata:
+  description: "Custom implementation of a Digest class detected."
+  remediation_message: |
+    ## Description
+
+    Implementing a custom Digest class manually is not advised as the process could lead to errors.
+    Instead use a standard Digest algorithm such as SHA-256 or SHA-512.
+
+    ## Remediations
+
+    ❌ Do not implement a custom Digest class by hand
+
+    ✅ Choose a standard Digest algorithm as SHA-256, SHA-384, SHA-512, or SHA-512/256.
+
+    ## Resources
+    - [Java MessageDigest class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/MessageDigest.html)
+  cwe_id:
+    - 327
+  id: java_lang_custom_message_digest_class
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_custom_message_digest_class
