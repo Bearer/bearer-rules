@@ -1,0 +1,56 @@
+imports:
+  - java_shared_lang_instance
+  - java_shared_lang_user_input
+patterns:
+  - pattern: $<EXPRESSION_FACTORY>.$<METHOD>($<EL_CONTEXT>, $<STRING_PARAM>$<...>);
+    filters:
+      - variable: EXPRESSION_FACTORY
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(javax\.el\.)?ExpressionFactory\z
+      - variable: METHOD
+        values:
+          - createValueExpression
+          - createMethodExpression
+      - variable: EL_CONTEXT
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(javax\.el\.)?ELContext\z
+      - variable: STRING_PARAM
+        detection: java_lang_expression_language_injection_string_method_arg
+auxiliary:
+  - id: java_lang_expression_language_injection_string_method_arg
+    patterns:
+      - pattern: |
+          class $<...>$<_> $<...>{
+            $<...>$<_> $<_>($<...>$<JAVA_SHARED_LANG_INSTANCE_TYPE> $<JAVA_SHARED_LANG_INSTANCE_VARIABLE>$<...>)$<...>{}
+          }
+        focus: JAVA_SHARED_LANG_INSTANCE_VARIABLE
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(java\.lang\.)?String\z
+languages:
+  - java
+severity: warning
+metadata:
+  description: "Possible expression language (EL) injection detected."
+  remediation_message: |
+    ## Description
+
+    Using external input when building an expression language (EL) statement can lead to EL injection attacks and the evaluation of risky code.
+
+    ## Remediations
+
+    ✅ Always validate the source of external input or dynamic values before using them to construct EL statements
+
+    ## Resources
+    - [OWASP Expression Language Injection](https://owasp.org/www-community/vulnerabilities/Expression_Language_Injection)
+  cwe_id:
+    - 917
+    - 94
+  id: java_lang_expression_language_injection
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_expression_language_injection
