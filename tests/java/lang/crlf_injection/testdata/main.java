@@ -20,6 +20,15 @@ public class CRLFInjection extends HttpServlet {
     // bearer:expected java_lang_crlf_injection
     logger.info(dangerous.replaceAll("\r", ""));
 
+    // logrb cases
+    // - logrb​(Level level, ResourceBundle bundle, String msg, Object... params)
+    // - logrb​(Level level, String sourceClass, String sourceMethod, ResourceBundle bundle, String msg, Object... params)
+
+    // bearer:expected java_lang_crlf_injection
+    logger.logrb(Level.INFO, safe, dangerous, safe, safe);
+    // bearer:expected java_lang_crlf_injection
+    logger.logrb(Level.INFO, safe, safe, ResourceBundle.getBundle("package.ExampleResource", locale), dangerous, safe);
+
     // okay
     logger.config("hello world" + okay);
     logger.info(dangerous.replace('\r', ' ').replace('\n', ' '));

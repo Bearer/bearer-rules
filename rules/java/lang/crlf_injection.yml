@@ -11,6 +11,10 @@ patterns:
           - logger
       - variable: METHOD
         detection: java_shared_lang_logger_methods
+      - not:
+          variable: METHOD
+          values:
+            - logrb
       - variable: UNSANITIZED_USER_INPUT
         detection: java_shared_lang_user_input
         scope: result
@@ -18,14 +22,35 @@ patterns:
           variable: UNSANITIZED_USER_INPUT
           detection: java_lang_log_sanitized_dynamic_input
           scope: result
+  - pattern: |
+      $<LOG>.logrb($<_>, $<_>, $<UNSANITIZED_USER_INPUT>$<...>)
+    filters:
+      - variable: LOG
+        values:
+          - log
+          - logger
+      - variable: UNSANITIZED_USER_INPUT
+        detection: java_shared_lang_user_input
+        scope: result
       - not:
           variable: UNSANITIZED_USER_INPUT
-          detection: java_lang_log_dynamic_bundle_input
+          detection: java_lang_log_sanitized_dynamic_input
+          scope: result
+  - pattern: |
+      $<LOG>.logrb($<_>, $<_>, $<_>, $<_>, $<UNSANITIZED_USER_INPUT>$<...>)
+    filters:
+      - variable: LOG
+        values:
+          - log
+          - logger
+      - variable: UNSANITIZED_USER_INPUT
+        detection: java_shared_lang_user_input
+        scope: result
+      - not:
+          variable: UNSANITIZED_USER_INPUT
+          detection: java_lang_log_sanitized_dynamic_input
           scope: result
 auxiliary:
-  - id: java_lang_log_dynamic_bundle_input
-    patterns:
-      - pattern: $<_> + "bundle"
   - id: java_lang_log_sanitized_dynamic_input
     patterns:
       - pattern: $<_>.$<METHOD>($<SOURCE>, $<_>);
