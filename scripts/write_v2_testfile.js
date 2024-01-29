@@ -29,10 +29,12 @@ function writeTestFileIfNotExists(filePath) {
     filePath = filePath.replace(".yml", "");
     filePath = filePath.replace("/rules/", "/tests/");
 
+    // e.g. ["java", "lang", "log_injection"],join("_")
+    var ruleName = filePath.split("/").slice(-3).join("_")
     var content =
-      "// Use bearer:expected <rule_name> to flag expected findings";
+      `// Use bearer:expected ${ruleName} to flag expected findings`;
     if (filePath.includes("python") || filePath.includes("ruby")) {
-      content = "# Use bearer:expected <rule_name> to flag expected findings";
+      content = `# Use bearer:expected ${ruleName} to flag expected findings`;
     }
 
     var testdataFileName = "";
