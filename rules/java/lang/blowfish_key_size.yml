@@ -1,0 +1,55 @@
+patterns:
+  - pattern: $<BLOWFISH_KEY_GEN>.init($<SIZE>);
+    filters:
+      - variable: BLOWFISH_KEY_GEN
+        detection: java_lang_blowfish_key_generator_init
+      - variable: SIZE
+        less_than: 128
+auxiliary:
+  - id: java_lang_blowfish_key_generator_init
+    patterns:
+      - pattern: $<KEY_GENERATOR>.getInstance($<BLOWFISH_ALGORITHM>$<...>);
+        filters:
+          - variable: KEY_GENERATOR
+            regex: \A(java\.crypto\.)?KeyGenerator\z
+          - variable: BLOWFISH_ALGORITHM
+            string_regex: (?i)\ABlowfish\z
+languages:
+  - java
+severity: warning
+metadata:
+  description: "Blowfish encryption with small key size detected."
+  remediation_message: |
+    ## Description
+
+    When using Blowfish encryption with smaller key sizes (128 bytes or less), the resulting ciphertext is vulnerable to birthday attacks.
+    It is recommended to specify a larger value, such as 256, when initializing the KeyGenerator using the KeyGenerator.init(keySize) method.
+
+    As an alternative to Blowfish, consider using AES through the KeyGenerator instance.
+
+    ## Remediations
+
+    ✅ When using Blowfish, adjust the key size by passing a value like 256 or larger to the KeyGenerator.init(keySize) method.
+
+    ```java
+        // Use the Blowfish algorithm for key generation
+        KeyGenerator keyGenerator = KeyGenerator.getInstance("Blowfish");
+
+        // Set the key size here
+        keyGenerator.init(256);
+    ```
+
+    ✅ Prefer AES as the KeyGenerator instance instead of Blowfish for encryption.
+
+    ```java
+      KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+    ```
+
+    ## Resources
+    - [Java Cryptography Architecture docs](https://docs.oracle.com/en/java/javase/21/security/java-cryptography-architecture-jca-reference-guide.html)
+    - [Birthday Attack](https://en.wikipedia.org/wiki/Birthday_attack)
+  cwe_id:
+    - 326
+  id: java_lang_blowfish_key_size
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_blowfish_key_size
+  cloud_code_suggestions: true
