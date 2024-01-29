@@ -1,6 +1,6 @@
 patterns:
   - pattern: |
-      class $<_> extends $<MESSAGE_DIGEST_CLASS> {};
+      class $<...>$<_> extends $<MESSAGE_DIGEST_CLASS> {};
     filters:
       - variable: MESSAGE_DIGEST_CLASS
         regex: \A(java\.security\.)?MessageDigest\z
