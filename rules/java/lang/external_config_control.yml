@@ -1,0 +1,39 @@
+imports:
+  - java_shared_lang_instance
+  - java_shared_lang_user_input
+patterns:
+  - pattern: |
+      $<SQL_CONN>.setCatalog($<USER_INPUT>);
+    filters:
+      - variable: SQL_CONN
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(java\.sql\.)?Connection\z
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
+        scope: cursor
+languages:
+  - java
+severity: warning
+metadata:
+  description: "User input in SQL Connection setCatalog detected."
+  remediation_message: |
+    ## Description
+
+    It is bad security practice to use unsanitized user input when configuring a SQL Connection's catalog.
+    This could allow an attacker to provide their own catalog name to the setCatalog method call, resulting in unexpected or malicious application behaviour.
+
+    ## Remediations
+
+    ❌ Avoid Direct User Input
+
+    Do not use user-supplied information when setting the catalog for your SQL database
+
+    ## Resources
+    - [Java SQL Connection](https://docs.oracle.com/en/java/javase/21/docs/api/java.sql/java/sql/Connection.html)
+  cwe_id:
+    - 15
+  id: java_lang_external_config_control
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_external_config_control
