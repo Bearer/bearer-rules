@@ -1,6 +1,5 @@
 imports:
   - java_shared_lang_instance
-  - java_shared_lang_user_input
 patterns:
   - pattern: $<EXPRESSION_FACTORY>.$<METHOD>($<EL_CONTEXT>, $<STRING_PARAM>$<...>);
     filters:
@@ -27,11 +26,11 @@ auxiliary:
     patterns:
       - pattern: |
           class $<...>$<_> $<...>{
-            $<...>$<_> $<_>($<...>$<JAVA_SHARED_LANG_INSTANCE_TYPE> $<JAVA_SHARED_LANG_INSTANCE_VARIABLE>$<...>)$<...>{}
+            $<...>$<_> $<_>($<...>$<STRING_TYPE> $<STRING_VAR>$<...>)$<...>{}
           }
-        focus: JAVA_SHARED_LANG_INSTANCE_VARIABLE
+        focus: STRING_VAR
         filters:
-          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+          - variable: STRING_TYPE
             regex: \A(java\.lang\.)?String\z
 languages:
   - java
