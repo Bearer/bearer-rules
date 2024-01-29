@@ -1,0 +1,13 @@
+type: shared
+languages:
+  - java
+imports:
+  - java_shared_lang_message_digest_any_init
+patterns:
+  - pattern: $<JAVA_SHARED_LANG_MESSAGE_DIGEST_INIT>.digest($<...>)
+    filters:
+      - variable: JAVA_SHARED_LANG_MESSAGE_DIGEST_INIT
+        detection: java_shared_lang_message_digest_any_init
+metadata:
+  description: "Java Message Digest Buffer"
+  id: java_shared_lang_message_digest_buffer
