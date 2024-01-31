@@ -20,6 +20,55 @@ patterns:
       - variable: USER_INPUT
         detection: java_lang_http_response_splitting_user_input
         scope: result
+  - pattern: $<HTTP_SERVLET_RES>.$<METHOD>($<_>, $<USER_INPUT>);
+    filters:
+      - variable: HTTP_SERVLET_RES
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(javax\.servlet\.http\.)?HttpServletResponse\z
+      - variable: METHOD
+        values:
+          - setHeader
+          - addHeader
+      - variable: USER_INPUT
+        detection: java_lang_http_response_splitting_user_input
+        scope: result
+  - pattern: $<HTTP_SERVLET_RES>.$<METHOD>($<_>, $<USER_INPUT>);
+    filters:
+      - variable: HTTP_SERVLET_RES
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(javax\.servlet\.http\.)?HttpServletResponseWrapper\z
+      - variable: METHOD
+        values:
+          - setHeader
+          - addHeader
+      - variable: USER_INPUT
+        detection: java_lang_http_response_splitting_user_input
+        scope: result
+  - pattern: $<HTTP_SERVLET_RES>.$<METHOD>($<_>, $<USER_INPUT>);
+    filters:
+      - variable: HTTP_SERVLET_RES
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(javax\.servlet\.http\.)?HttpServletRequest\z
+      - variable: METHOD
+        values:
+          - getParameter
+          - getParameterNames
+          - getParameterValues
+          - getParameterMap
+          - getHeader
+          - getPathInfo
+      - variable: USER_INPUT
+        detection: java_lang_http_response_splitting_user_input
+        scope: result
 auxiliary:
   - id: java_lang_http_response_splitting_user_input
     sanitizer: java_lang_http_response_splitting_sanitizer
