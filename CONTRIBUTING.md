@@ -25,13 +25,13 @@ Here are the basic steps to adding a new rule.
 1. Generate a rule and its associated test folder by running
 
 ```bash
-npm run generate_rule MY_RULE_ID
+yarn generate_rule MY_RULE_ID
 ```
 
 **Example**
 
 ```bash
-npm run generate_rule java_lang_hardcoded_secret
+yarn generate_rule java_lang_hardcoded_secret
 ```
 
 This command will generate:
@@ -41,10 +41,10 @@ This command will generate:
   - a testdata folder containing a `main.java` file
   - a `test.js` file to run the test
 
-  NB: you can run `npm run generate_rule -- --help` for more options
+  NB: you can run `yarn generate_rule --help` for more options
 
 2. Follow the guide [here](https://docs.bearer.com/guides/custom-rule/) to complete the rule
-3. Run the tests `npm test tests/<path-to-test>`
+3. Run the tests `yarn test tests/<path-to-test>`
 4. Run the linter/validator to check your rule passes
 
 ```bash

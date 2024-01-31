@@ -1,8 +1,8 @@
-import fs from 'fs';
-import path from 'path';
-import { program } from 'commander';
-import { testJSContent } from './generate/testJSContent.js';
-import { ruleYAMLContent } from './generate/ruleYAMLContent.js';
+const fs = require('fs');
+const path = require('path');
+const { program } = require('commander');
+const testJSContent = require('./generate/testJSContent.js');
+const ruleYAMLContent = require('./generate/ruleYAMLContent.js');
 
 const languageInPathToFiles = {
   go: 'main.go',

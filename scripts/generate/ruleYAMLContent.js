@@ -1,4 +1,4 @@
-export function ruleYAMLContent(ruleID, language) {
+module.exports = function ruleYAMLContent(ruleID, language) {
   return `imports:
   - <shared_rule1>
 patterns:
@@ -49,4 +49,4 @@ metadata:
   id: ${ruleID}
   documentation_url: https://docs.bearer.com/reference/rules/${ruleID}
 `;
-}
+};

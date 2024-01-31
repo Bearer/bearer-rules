@@ -1,5 +1,5 @@
-export function testJSContent(filePath, testCase) {
-  const testName = filePath.split("/").pop();
+module.exports = function testJSContent(filePath, testCase) {
+  const testName = filePath.split('/').pop();
 
   return `const {
   createNewInvoker,
@@ -19,4 +19,4 @@ describe(ruleId, () => {
     expect(results.Extra).toEqual([])
   })
 })`;
-}
+};
