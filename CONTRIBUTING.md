@@ -22,22 +22,34 @@ For example
 
 Here are the basic steps to adding a new rule.
 
-1. Create a rule YAML file following the guide [here](https://docs.bearer.com/guides/custom-rule/)
-2. Add a directory of test data. This includes example code that should (or for "ok" cases, should not) trigger your new rule. See [here](/tests/ruby/lang/logger/testdata) for a simple Ruby example test.
-3. Scaffold tests by running
+1. Generate a rule and its associated test folder by running
+
 ```bash
-  node ./scripts/gen_tests.js
+yarn generate_rule MY_RULE_ID
 ```
-4. Run the test suite on your new rule, to generate snapshot data
+
+**Example**
+
 ```bash
-  npm test path-to-rule-test-folder
+yarn generate_rule java_lang_hardcoded_secret
 ```
-5. Run the linter/validator to check your rule passes
+
+This command will generate:
+
+- a YAML file in `rules/java/lang/hardcoded_secret.yml` for the rule itself
+- a test folder in `tests/java/lang/hardcoded_secret/` containing:
+  - a testdata folder containing a `main.java` file
+  - a `test.js` file to run the test
+
+2. Follow the guide [here](https://docs.bearer.com/guides/custom-rule/) to complete the rule
+3. Run the linter/validator to check your rule passes
+
 ```bash
   ./scripts/lint.sh
   ./scripts/validate.sh
 ```
-6. Make a pull request containing all of the above
+
+4. Make a pull request containing all of the above
 
 ## Have questions?
 
