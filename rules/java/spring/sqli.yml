@@ -1,38 +1,30 @@
 imports:
-  - java_shared_lang_instance
   - java_shared_lang_user_input
 patterns:
-  - pattern: new $<CLASS>($<USER_INPUT>$<...>);
+  - pattern: new $<CLASS>($<USER_INPUT>$<...>)
     filters:
-      - variable: CLASS
-        regex: \A(org\.springframework\.jdbc\.core\.)?PreparedStatementCreatorFactory\z
+      - type: org.springframework.jdbc.core.PreparedStatementCreatorFactory
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
         scope: result
-  - pattern: $<FACTORY>.newPreparedStatementCreator($<USER_INPUT>$<...>);
+  - pattern: $<FACTORY>.newPreparedStatementCreator($<USER_INPUT>$<...>)
     filters:
       - variable: FACTORY
-        detection: java_shared_lang_instance
-        scope: cursor
-        filters:
-          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-            regex: \A(org\.springframework\.jdbc\.core\.)?PreparedStatementCreatorFactory\z
+        type: org.springframework.jdbc.core.PreparedStatementCreatorFactory
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
         scope: result
-  - pattern: $<JDBC_TEMPLATE>.batchUpdate($<...>$<USER_INPUT>$<...>);
+  - pattern: $<JDBC_TEMPLATE>.batchUpdate($<...>$<USER_INPUT>$<...>)
     filters:
       - variable: JDBC_TEMPLATE
-        detection: java_spring_sqli_jdbc_template
-        scope: cursor
+        type: org.springframework.jdbc.core.JdbcTemplate
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
         scope: result
-  - pattern: $<JDBC_TEMPLATE>.$<METHOD>($<USER_INPUT>$<...>);
+  - pattern: $<JDBC_TEMPLATE>.$<METHOD>($<USER_INPUT>$<...>)
     filters:
       - variable: JDBC_TEMPLATE
-        detection: java_spring_sqli_jdbc_template
-        scope: cursor
+        type: org.springframework.jdbc.core.JdbcTemplate
       - variable: METHOD
         values:
           - execute
@@ -48,22 +40,6 @@ patterns:
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
         scope: result
-auxiliary:
-  - id: java_spring_sqli_jdbc_template
-    patterns:
-      - pattern: $<JDBC_TEMPLATE_INSTANCE>;
-        filters:
-          - variable: JDBC_TEMPLATE_INSTANCE
-            detection: java_shared_lang_instance
-            scope: cursor
-            filters:
-              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-                regex: \A(org\.springframework\.jdbc\.core\.)?JdbcTemplate\z
-      # fallback
-      - pattern: $<FALLBACK>;
-        filters:
-          - variable: FALLBACK
-            regex: (?i)(\A|\.)jdbctemplate\z
 languages:
   - java
 trigger:

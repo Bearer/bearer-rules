@@ -1,9 +1,8 @@
 imports:
-  - java_shared_lang_instance
   - java_shared_lang_user_input
 patterns:
   - pattern: |
-      $<CONNECTION>.$<METHOD>($<USER_INPUT>$<...>);
+      $<CONNECTION>.$<METHOD>($<USER_INPUT>$<...>)
     filters:
       - variable: CONNECTION
         detection: java_lang_sqli_connection
@@ -17,7 +16,7 @@ patterns:
         detection: java_shared_lang_user_input
         scope: result
   - pattern: |
-      $<STATEMENT>.$<METHOD>($<USER_INPUT>$<...>);
+      $<STATEMENT>.$<METHOD>($<USER_INPUT>$<...>)
     filters:
       - variable: STATEMENT
         detection: java_lang_sqli_statement
@@ -33,7 +32,7 @@ patterns:
         detection: java_shared_lang_user_input
         scope: result
   - pattern: |
-      $<ENTITY_MANAGER>.$<METHOD>($<USER_INPUT>$<...>);
+      $<ENTITY_MANAGER>.$<METHOD>($<USER_INPUT>$<...>)
     filters:
       - variable: ENTITY_MANAGER
         detection: java_lang_sqli_entity_manager
@@ -48,51 +47,27 @@ patterns:
 auxiliary:
   - id: java_lang_sqli_connection
     patterns:
-      - pattern: $<CONNECTION_INSTANCE>;
+      - pattern: $<CONNECTION_INSTANCE>
         filters:
           - variable: CONNECTION_INSTANCE
-            detection: java_shared_lang_instance
-            scope: cursor
-            filters:
-              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-                regex: \A(java\.sql\.)?Connection\z
-      - $<_>.getConnection();
-      # fallback
-      - con;
-      - conn;
-      - connection;
+            type: java.sql.Connection
+      - $<_>.getConnection()
   - id: java_lang_sqli_statement
     patterns:
-      - pattern: $<STATEMENT_INSTANCE>;
+      - pattern: $<STATEMENT_INSTANCE>
         filters:
           - variable: STATEMENT_INSTANCE
-            detection: java_shared_lang_instance
-            scope: cursor
-            filters:
-              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-                regex: \A(java\.sql\.)?Statement\z
-      - $<_>.createStatement();
-      # fallback
-      - stmt;
-      - statement;
+            type: java.sql.Statement
+      - $<_>.createStatement()
   - id: java_lang_sqli_entity_manager
     patterns:
-      - pattern: $<ENTITY_INSTANCE>;
+      - pattern: $<ENTITY_INSTANCE>
         filters:
           - variable: ENTITY_INSTANCE
-            detection: java_shared_lang_instance
-            scope: cursor
-            filters:
-              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-                regex: \A(javax\.persistence\.)?EntityManager\z
-      - $<_>.createEntityManager();
-      # fallback
-      - em;
-      - entityManager;
+            type: javax.persistence.EntityManager
+      - $<_>.createEntityManager()
 languages:
   - java
-trigger:
-  match_on: presence
 metadata:
   description: "Unsanitized user input in SQL query detected."
   remediation_message: |
