@@ -8,7 +8,7 @@ patterns:
         scope: cursor
         filters:
           - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-            regex: \A(javax\.servlet\.http\.)?Cookie\z
+            regex: \A((javax|jakarta)\.servlet\.http\.)?Cookie\z
       - variable: "TRUE"
         detection: java_lang_cookie_missing_http_only_true
         scope: cursor
@@ -21,7 +21,7 @@ auxiliary:
       - pattern: new $<COOKIE_TYPE>();
         filters:
           - variable: COOKIE_TYPE
-            regex: \A(javax\.servlet\.http\.)?Cookie\z
+            regex: \A((javax|jakarta)\.servlet\.http\.)?Cookie\z
   - id: java_lang_cookie_missing_http_only_true
     patterns:
       - "true;"
