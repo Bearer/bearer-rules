@@ -112,7 +112,7 @@ function writeTestFileIfNotExists(ruleID) {
         testJSContent(rootTestdataFilePath, testdataFileName),
         'utf8',
       );
-      console.error(`test.js file written successfully - ${testFilePath}`);
+      console.log(`test.js file written successfully - ${testFilePath}`);
     } else {
       console.error(`test.js file already exists - ${testFilePath}`);
     }
