@@ -1,0 +1,86 @@
+imports:
+  - java_shared_lang_instance
+  - java_shared_lang_servlet_request
+patterns:
+  # Version 4.x and greater
+  - pattern: new $<HTTP_GET>($<USER_INPUT>);
+    filters:
+      - variable: HTTP_GET
+        regex: \A(org\.apache\.http\.client\.methods\.)?HttpGet\z
+      - variable: USER_INPUT
+        detection: java_lang_http_parameter_pollution_user_input
+        scope: result
+  # Legacy GetMethod
+  - pattern: new $<GET_METHOD>($<USER_INPUT>);
+    filters:
+      - variable: GET_METHOD
+        regex: \A(org\.apache\.commons\.httpclient\.methods\.)?GetMethod\z
+      - variable: USER_INPUT
+        detection: java_lang_http_parameter_pollution_user_input
+        scope: result
+  - pattern: $<GET_METHOD>.setQueryString($<USER_INPUT>);
+    filters:
+      - variable: GET_METHOD
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(org\.apache\.commons\.httpclient\.methods\.)?GetMethod\z
+      - variable: USER_INPUT
+        detection: java_lang_http_parameter_pollution_user_input
+        scope: result
+auxiliary:
+  - id: java_lang_http_parameter_pollution_user_input
+    sanitizer: java_lang_http_parameter_pollution_sanitizer
+    patterns:
+      - pattern: $<JAVA_SHARED_LANG_USER_INPUT_REQUEST>.getParameter();
+        filters:
+          - variable: JAVA_SHARED_LANG_USER_INPUT_REQUEST
+            detection: java_shared_lang_servlet_request
+            scope: cursor
+  - id: java_lang_http_parameter_pollution_sanitizer
+    patterns:
+      - pattern: $<CLASS>.encode($<!>$<_>);
+        filters:
+          - variable: CLASS
+            regex: \A(java\.net\.)?URLEncoder\z
+      - pattern: $<PATH_SEGMENT_ESCAPER>.escape($<!>$<_>);
+        filters:
+          - variable: PATH_SEGMENT_ESCAPER
+            regex: \A((com\.google\.common\.net\.)?UrlEscapers\.)?urlPathSegmentEscaper\(\)\z
+languages:
+  - java
+metadata:
+  description: "Possible HTTP Parameter Pollution detected."
+  remediation_message: |
+    ## Description
+
+    Unsanitized user input is being used to construct a URL.
+    This can lead to HTTP Parameter Pollution (HPP) attacks, where an attacker overrides the
+    value of a URL or request parameter, to manipulate requests or retrieve otherwise hidden information.
+
+    ## Remediations
+
+    ❌ Never use direct or unsanitized user input when constructing URLs or URL parameters. Seek alternatives instead.
+
+    For example, use a map to convert user input to an appropriate parameter.
+
+    ```java
+      HashMap<String, String> lookupTable = new HashMap<>();
+      // ... populate hash map
+      String rawUserInput = request.getParameter("someParam")
+
+      String value = lookupTable.getOrDefault(rawUserInput, "someDefault") ;
+      HttpGet httpget = new HttpGet("https://example.com/?param="+value);
+    ```
+
+    ✅ Always sanitize user input
+
+    ```java
+      String rawUserInput = request.getParameter("someParam");
+      String encoded = java.net.URLEncoder.encode(rawUserInput, StandardCharsets.UTF_8);
+    ```
+  cwe_id:
+    - 88
+  id: java_lang_http_parameter_pollution
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_http_parameter_pollution
