@@ -39,7 +39,7 @@ jobs:
           ]
     steps:
       - uses: actions/checkout@v3
-      - run: npm ci
+      - run: yarn install --frozen-lockfile
       - name: Test ${{ matrix.group }}
-        run: BEARER_VERSION=${{matrix.version}} npm test tests/${{ matrix.group }}
+        run: BEARER_VERSION=${{matrix.version}} yarn test tests/${{ matrix.group }}
         shell: bash
