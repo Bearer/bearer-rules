@@ -45,7 +45,7 @@ function writeRuleStructure(ruleID) {
         ruleYAMLContent(ruleID, ruleNameParts[0]),
         'utf8',
       );
-      console.error(`${ruleID} file written successfully - ${ruleFilePath}`);
+      console.log(`${ruleID} file written successfully - ${ruleFilePath}`);
     } else {
       console.error(`${ruleID} file already exists - ${ruleFilePath}`);
     }
