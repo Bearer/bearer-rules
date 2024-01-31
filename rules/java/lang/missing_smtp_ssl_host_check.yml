@@ -1,0 +1,59 @@
+imports:
+  - java_shared_lang_instance
+patterns:
+  - pattern: $<EMAIL_CLIENT>.setSSLCheckServerIdentity($<TRUE>);
+    filters:
+      - variable: EMAIL_CLIENT
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(org\.apache\.commons\.mail\.)?(SimpleEmail|Email|MultiPartEmail|HtmlEmail|ImageHtmlEmail)\z
+      - variable: "TRUE"
+        detection: java_lang_missing_smtp_ssl_host_check_true
+        scope: cursor
+trigger:
+  match_on: absence
+  required_detection: java_lang_missing_smtp_ssl_host_check_set_ssl
+auxiliary:
+  - id: java_lang_missing_smtp_ssl_host_check_set_ssl
+    patterns:
+      - pattern: $<EMAIL_CLIENT2>.setSSLOnConnect($<TRUE>);
+        filters:
+          - variable: EMAIL_CLIENT2
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(org\.apache\.commons\.mail\.)?(SimpleEmail|Email|MultiPartEmail|HtmlEmail|ImageHtmlEmail)\z
+          - variable: "TRUE"
+            detection: java_lang_missing_smtp_ssl_host_check_true
+            scope: cursor
+  - id: java_lang_missing_smtp_ssl_host_check_true
+    patterns:
+      - "true;"
+languages:
+  - java
+metadata:
+  description: "Missing SSL host check in SMTP."
+  remediation_message: |
+    ## Description
+
+    SSL certificates must be validated to check that the certificate is from the expected host and the server identity is correct.
+    Without such checks in place, the application is at risk of redirection or spoofing attacks, where an attacker impersonates a trusted host by using a valid SSL certificate from a different host.
+
+    ## Remediation
+
+    ✅ Always configure email client to check server identity
+
+    ```java
+      Email email = new Email();
+
+      email.setSSLOnConnect(true);
+      email.setSSLCheckServerIdentity(true);
+    ```
+  cwe_id:
+    - 297
+  id: java_lang_missing_smtp_ssl_host_check
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_missing_smtp_ssl_host_check
+  cloud_code_suggestions: true
