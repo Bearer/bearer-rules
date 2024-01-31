@@ -44,7 +44,7 @@ metadata:
 
     - []()
 
-    cwe_id:
+  cwe_id:
     - CWE_ID
   id: ${ruleID}
   documentation_url: https://docs.bearer.com/reference/rules/${ruleID}
