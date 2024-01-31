@@ -24,65 +24,47 @@ metadata:
   remediation_message: |
     ## Description
 
-    OS command injection is a severe security vulnerability that occurs when an application incorrectly processes user input. This flaw can allow attackers to execute arbitrary commands on the host operating system, potentially leading to a full system compromise.
+    OS command injection is a perilous vulnerability that has the potential to lead to full system compromise. Adversaries may exploit this flaw by feeding arbitrary commands or arguments intended for execution. This opens the door for unchecked operations, which could wreak havoc on the system or reveal sensitive information.
 
     ## Remediations
 
-    Prevent OS command injection by adhering to the following practices:
+    ✅ Avoid User Input in OS Commands
 
-    ❌ Avoid Direct User Input
+    Always steer clear of incorporating user input when formulating commands or their arguments, especially for functions responsible for OS command execution. This includes, but is not limited to, filenames provided during user uploads/downloads.
 
-    Do not use user-supplied information for constructing OS commands or command-line arguments, as this can lead to command injection vulnerabilities.
+    ✅ Hardcoded Argument Set
 
-    ✅ Implement Input Validation
+    Ensure your application exclusively uses a hardcoded set of arguments for OS command executions. If filenames are being passed to such functions, consider adopting a hash of the filename or another distinctive identifier.
 
-    Ensure that any user input is validated against a set of strict rules to ensure it does not contain malicious characters or patterns.
+    ✅ Opt for Native Libraries
 
-    ✅ Use Hardcoded Arguments
+    Due to the inherent risks associated with third-party commands and the possibility of undisclosed attack vectors, prefer using native libraries that offer the same capabilities as opposed to resorting to OS system commands.
 
-    When invoking OS commands, use a hardcoded set of arguments to ensure that user input cannot alter the command's behavior.
+    ✅ Specify Full Path in Windows
 
-    ✅ Utilize Temporary Files Securely
-
-    When dealing with files, create temporary files in a restricted directory, avoiding the use of user-supplied filenames.
-
-    ✅ Employ Native Libraries
-
-    Where possible, use native libraries or features of the programming language instead of invoking shell commands, which can be safer and more efficient.
+    If the environment is Windows-based, always provide the complete path information when denoting the OS command. This circumvents potential vulnerabilities stemming from untrusted search paths (CWE-426).
 
     ```go
-    import (
-        "io/ioutil"
-        "os/exec"
-        "log"
-    )
+    userData := []byte("user data")
+    // create a temporary file in the application-specific directory
+    f, err := ioutil.TempFile("/var/app/restricted", "temp-*.dat")
+    if err != nil {
+      log.Fatal(err)
+    }
 
-    func main() {
-        userData := []byte("user data")
+    if _, err := f.Write(userData); err != nil {
+      log.Fatal(err)
+    }
 
-        // Create a temporary file in a secure, application-specific directory
-        f, err := ioutil.TempFile("/var/app/restricted", "temp-*.dat")
-        if err != nil {
-            log.Fatal(err)
-        }
+    if err := f.Close(); err != nil {
+      log.Fatal(err)
+    }
 
-        // Write user data to the temporary file
-        if _, err := f.Write(userData); err != nil {
-            f.Close()
-            log.Fatal(err)
-        }
-
-        // Close the file handle
-        if err := f.Close(); err != nil {
-            log.Fatal(err)
-        }
-
-        // Execute a command using the temporary file, avoiding direct user input for filenames
-        out, err := exec.Command("/bin/cat", f.Name()).Output()
-        if err != nil {
-            log.Fatal(err)
-        }
-        // Output can be used for further processing
+    // use the absolute path to the binary and the name of the temporary file
+    // steering clear of any user-provided filenames
+    out, err := exec.Command("/bin/cat", f.Name()).Output()
+    if err != nil {
+      log.Fatal(err)
     }
     ```
 
