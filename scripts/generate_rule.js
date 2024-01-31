@@ -93,7 +93,7 @@ function writeTestFileIfNotExists(ruleID) {
       }
 
       fs.writeFileSync(testdataFilePath, content, 'utf8');
-      console.error(`testdata file written successfully - ${testdataFilePath}`);
+      console.log(`testdata file written successfully - ${testdataFilePath}`);
     } else {
       console.error(`testdata file already exists - ${testdataFilePath}`);
     }
