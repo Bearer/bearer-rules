@@ -29,7 +29,7 @@ function writeRuleStructure(ruleID) {
       }
 
       fs.writeFileSync(rootRuleFilePath, content, 'utf8');
-      console.error(`testdata file written successfully - ${rootRuleFilePath}`);
+      console.log(`testdata file written successfully - ${rootRuleFilePath}`);
     } else {
       console.error(`testdata file already exists - ${rootRuleFilePath}`);
     }
