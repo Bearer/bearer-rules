@@ -47,12 +47,11 @@ exports[`javascript_express_insecure_cookie insecure_cookie 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "1004",
         "614"
       ],
       "id": "javascript_express_insecure_cookie",
       "title": "Missing secure options for cookie detected.",
-      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set cookie security values to use HTTP(S) instead of client-side javascript.\\n\\n✅ Set \`secure\` values to \`true\` to force cookies to only send over HTTPS.\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
+      "description": "## Description\\n\\nA cookie that is configured to be secure ensures that a client will only send the cookie to the server when HTTPS is being used.\\nThis prevents the cookie from being observed by unauthorized third parties.\\n\\n## Remediations\\n\\n✅ Set \`secure\` values to \`true\` to force cookies to only send over HTTPS.\\n  \`\`\`javascript\\n    cookie({{ secure: true }})\\n  \`\`\`\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_insecure_cookie",
       "line_number": 10,
       "full_filename": "/tmp/bearer-scan/insecure_cookie.js",
@@ -89,12 +88,11 @@ exports[`javascript_express_insecure_cookie insecure_cookie_csurf 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "1004",
         "614"
       ],
       "id": "javascript_express_insecure_cookie",
       "title": "Missing secure options for cookie detected.",
-      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set cookie security values to use HTTP(S) instead of client-side javascript.\\n\\n✅ Set \`secure\` values to \`true\` to force cookies to only send over HTTPS.\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
+      "description": "## Description\\n\\nA cookie that is configured to be secure ensures that a client will only send the cookie to the server when HTTPS is being used.\\nThis prevents the cookie from being observed by unauthorized third parties.\\n\\n## Remediations\\n\\n✅ Set \`secure\` values to \`true\` to force cookies to only send over HTTPS.\\n  \`\`\`javascript\\n    cookie({{ secure: true }})\\n  \`\`\`\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_insecure_cookie",
       "line_number": 10,
       "full_filename": "/tmp/bearer-scan/insecure_cookie_csurf.js",
@@ -131,12 +129,11 @@ exports[`javascript_express_insecure_cookie insecure_cookie_session 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "1004",
         "614"
       ],
       "id": "javascript_express_insecure_cookie",
       "title": "Missing secure options for cookie detected.",
-      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set cookie security values to use HTTP(S) instead of client-side javascript.\\n\\n✅ Set \`secure\` values to \`true\` to force cookies to only send over HTTPS.\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
+      "description": "## Description\\n\\nA cookie that is configured to be secure ensures that a client will only send the cookie to the server when HTTPS is being used.\\nThis prevents the cookie from being observed by unauthorized third parties.\\n\\n## Remediations\\n\\n✅ Set \`secure\` values to \`true\` to force cookies to only send over HTTPS.\\n  \`\`\`javascript\\n    cookie({{ secure: true }})\\n  \`\`\`\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_insecure_cookie",
       "line_number": 11,
       "full_filename": "/tmp/bearer-scan/insecure_cookie_session.js",
