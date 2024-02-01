@@ -1,0 +1,89 @@
+patterns:
+  - pattern: $<SET_COOKIE>;
+    filters:
+      - variable: SET_COOKIE
+        detection: php_lang_cookie_missing_http_only_setcookie
+        scope: cursor
+      - not:
+          variable: SET_COOKIE
+          detection: php_lang_cookie_missing_http_only_using_options
+          scope: cursor
+      - not:
+          variable: SET_COOKIE
+          detection: php_lang_cookie_missing_http_only_httponly
+          scope: cursor
+  - pattern: $<FUNCTION>($<_>, $<_>, $<OPTIONS>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - setcookie
+          - setrawcookie
+      - variable: OPTIONS
+        detection: php_lang_cookie_missing_http_only_array
+        scope: cursor
+      - not:
+          variable: OPTIONS
+          detection: php_lang_cookie_missing_http_only_httponly_option
+          scope: cursor
+auxiliary:
+  - id: php_lang_cookie_missing_http_only_setcookie
+    patterns:
+      - pattern: $<FUNCTION>()
+        filters:
+          - variable: FUNCTION
+            values:
+              - setcookie
+              - setrawcookie
+  - id: php_lang_cookie_missing_http_only_httponly
+    patterns:
+      - pattern: $<_>($<_>, $<_>, $<_>, $<_>, $<_>, $<_>, $<HTTP_ONLY>$<...>)
+        filters:
+          - variable: HTTP_ONLY
+            detection: php_lang_cookie_missing_http_only_true
+            scope: cursor
+      - pattern: |
+          $<_>(httponly: $<TRUE>)
+        filters:
+          - variable: "TRUE"
+            detection: php_lang_cookie_missing_http_only_true
+            scope: cursor
+  - id: php_lang_cookie_missing_http_only_using_options
+    patterns:
+      - pattern: $<_>($<_>, $<_>, $<OPTIONS>)
+        filters:
+          - variable: OPTIONS
+            detection: php_lang_cookie_missing_http_only_array
+            scope: cursor
+  - id: php_lang_cookie_missing_http_only_true
+    patterns:
+      - pattern: "true;"
+  - id: php_lang_cookie_missing_http_only_array
+    patterns:
+      - pattern: array();
+  - id: php_lang_cookie_missing_http_only_httponly_option
+    patterns:
+      - pattern: array('httponly' => $<SECURE>)
+        filters:
+          - variable: SECURE
+            detection: php_lang_cookie_missing_http_only_true
+            scope: cursor
+languages:
+  - php
+metadata:
+  description: "Missing 'HTTPOnly' options in cookie configuration."
+  remediation_message: |
+    ## Description
+
+    The "HttpOnly" attribute when set to "true" protects the cookie value from
+    being accessed by client side JavaScript such as reading the "document.cookie"
+    values. By enabling this protection, a website that is vulnerable to Cross-Site
+    Scripting (XSS) will be able to block malicious scripts from accessing the
+    cookie value from JavaScript.
+
+    ## Remediations
+    ✅ Set `httponly` to `true` to avoid the cookie being sent by client-side scripts.
+  cwe_id:
+    - 1004
+  id: php_lang_cookie_missing_http_only
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_cookie_missing_http_only
+  cloud_code_suggestions: true
