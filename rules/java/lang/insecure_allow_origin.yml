@@ -1,6 +1,5 @@
 imports:
   - java_shared_lang_instance
-  - java_shared_lang_servlet_request
   - java_shared_lang_user_input
 patterns:
   - pattern: |
@@ -28,15 +27,6 @@ auxiliary:
           - variable: USER_INPUT
             detection: java_shared_lang_user_input
             scope: cursor
-      - pattern: $<USER_INPUT_REQUEST>.$<REQUEST_GET_METHOD>().getAttribute();
-        filters:
-          - variable: USER_INPUT_REQUEST
-            detection: java_shared_lang_servlet_request
-            scope: cursor
-          - variable: REQUEST_GET_METHOD
-            values:
-              - getSession
-              - getServletContext
 languages:
   - java
 metadata:

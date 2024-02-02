@@ -28,6 +28,8 @@ patterns:
           - getHeaderNames
           - getPart
           - getParts
+          - getSession
+          - getServletContext
   - pattern: $<JAVA_SHARED_LANG_USER_INPUT_COOKIE>.getValue();
     filters:
       - variable: JAVA_SHARED_LANG_USER_INPUT_COOKIE
