@@ -1,0 +1,51 @@
+imports:
+  - java_shared_lang_user_input
+  - java_shared_lang_instance
+patterns:
+  - pattern: |
+      $<INVOCATION>.invokeFunction($<_>, $<USER_INPUT>);
+    filters:
+      - variable: INVOCATION
+        detection: java_lang_code_injection_rule_invocation_instance
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
+        scope: result
+  - pattern: |
+      $<INVOCATION>.invokeMethod($<_>, $<_>, $<USER_INPUT>);
+    filters:
+      - variable: INVOCATION
+        detection: java_lang_code_injection_rule_invocation_instance
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
+        scope: result
+auxiliary:
+  - id: java_lang_code_injection_rule_invocation_instance
+    patterns:
+      - pattern: $<INVOCATION>;
+        filters:
+          - variable: INVOCATION
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(javax\.script\.)?Invocable\z
+languages:
+  - java
+metadata:
+  description: Unsanitized user input in code generation
+  remediation_message: |
+    ## Description
+
+    The use of external input in scripting functions is bad security practice as it could lead to code injection attacks, where an attacker passes malicious code, that is then run by the application with potentially harmful results.
+
+    ## Remediations
+
+    ❌ Never pass raw user input to functions and methods that are dynamically invoked
+
+    ## References
+
+    - [OWASP Code injection](https://owasp.org/www-community/attacks/Code_Injection)
+  cwe_id:
+    - 94
+  id: java_lang_code_injection_rule
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_code_injection_rule
