@@ -1,0 +1,59 @@
+imports:
+  - java_shared_lang_instance
+  - java_shared_lang_servlet_request
+  - java_shared_lang_user_input
+patterns:
+  - pattern: |
+      $<RES>.$<METHOD>($<HEADER>, $<USER_INPUT>);
+    filters:
+      - variable: RES
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(javax\.servlet\.http\.)?HttpServletResponse\z
+      - variable: METHOD
+        values:
+          - setHeader
+          - addHeader
+      - variable: HEADER
+        string_regex: \A(?i)(Access-Control-Allow-Origin)\z
+      - variable: USER_INPUT
+        detection: java_lang_insecure_allow_origin_user_input
+auxiliary:
+  - id: java_lang_insecure_allow_origin_user_input
+    patterns:
+      - pattern: $<USER_INPUT>;
+        filters:
+          - variable: USER_INPUT
+            detection: java_shared_lang_user_input
+            scope: cursor
+      - pattern: $<USER_INPUT_REQUEST>.$<REQUEST_GET_METHOD>().getAttribute();
+        filters:
+          - variable: USER_INPUT_REQUEST
+            detection: java_shared_lang_servlet_request
+            scope: cursor
+          - variable: REQUEST_GET_METHOD
+            values:
+              - getSession
+              - getServletContext
+languages:
+  - java
+metadata:
+  description: Unsanitized user input in Access-Control-Allow-Origin
+  remediation_message: |
+    ## Description
+    Do not use unverified user-defined input to define Access-Control-Allow-Origin.
+    This can lead to unintended user access to sensitive data.
+
+    ## Remediations
+    ❌ Avoid defining origins with user input wherever possible.
+
+    ✅ If unavoidable, be sure to verify the input or to use a safe-list.
+
+    ## Resources
+    - [OWASP Origin & Access-Control-Allow-Origin](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/07-Testing_Cross_Origin_Resource_Sharing)
+  cwe_id:
+    - 942
+  id: java_lang_insecure_allow_origin
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_insecure_allow_origin
