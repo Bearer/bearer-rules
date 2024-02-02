@@ -1,0 +1,49 @@
+imports:
+  - java_shared_lang_instance
+patterns:
+  - pattern: |
+      $<GET_WINDOW>.$<METHOD>($<FLAG_SECURE>$<...>);
+    filters:
+      - variable: GET_WINDOW
+        detection: java_android_prevent_screenshot_get_window
+      - variable: METHOD
+        values:
+          - setFlags
+          - addFlags
+      - variable: FLAG_SECURE
+        detection: java_android_prevent_screenshot_flag_secure
+auxiliary:
+  - id: java_android_prevent_screenshot_get_window
+    patterns:
+      - getWindow()
+      - pattern: $<_>.getWindow()
+  - id: java_android_prevent_screenshot_flag_secure
+    patterns:
+      - WindowManager.LayoutParams.FLAG_SECURE;
+languages:
+  - java
+severity: warning
+metadata:
+  description: Permissive screenshot option set
+  remediation_message: |
+    ## Description
+
+    Android may take screenshots of the current application view for display purposes, for example when an application is sent to the background.
+    Whether or not Android is permitted to take such screenshots is determined by the FLAG_SECURE option.
+
+    By default, the FLAG_SECURE option is not set and no screenshots are taken.
+
+    For best security practices, we should not set the FLAG_SECURE to true and we should never allow Android to take screenshots of the current application activity.
+
+    ## Remediations
+
+    ❌ Do not set the FLAG_SECURE option, to ensure that Android does not take screenshots of potentially sensitive information
+
+    ## References
+
+    - []()
+
+  cwe_id:
+    - 200
+  id: java_android_prevent_screenshot
+  documentation_url: https://docs.bearer.com/reference/rules/java_android_prevent_screenshot
