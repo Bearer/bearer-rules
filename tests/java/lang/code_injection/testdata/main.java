@@ -12,11 +12,11 @@ public class Foo {
 
     var foo = request.getParameter("foo");
 
-    // bearer:expected java_lang_code_injection_rule
+    // bearer:expected java_lang_code_injection
     String badFunc = (String) invocable.invokeFunction("myFunc", foo);
 
     Object obj = engine.get("obj");
-    // bearer:expected java_lang_code_injection_rule
+    // bearer:expected java_lang_code_injection
     Object badMethod = invocable.invokeMethod(obj, "myFunc", foo);
   }
 

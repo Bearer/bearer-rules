@@ -6,7 +6,7 @@ patterns:
       $<INVOCATION>.invokeFunction($<_>, $<USER_INPUT>);
     filters:
       - variable: INVOCATION
-        detection: java_lang_code_injection_rule_invocation_instance
+        detection: java_lang_code_injection_invocation_instance
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
         scope: result
@@ -14,12 +14,12 @@ patterns:
       $<INVOCATION>.invokeMethod($<_>, $<_>, $<USER_INPUT>);
     filters:
       - variable: INVOCATION
-        detection: java_lang_code_injection_rule_invocation_instance
+        detection: java_lang_code_injection_invocation_instance
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
         scope: result
 auxiliary:
-  - id: java_lang_code_injection_rule_invocation_instance
+  - id: java_lang_code_injection_invocation_instance
     patterns:
       - pattern: $<INVOCATION>;
         filters:
@@ -47,5 +47,5 @@ metadata:
     - [OWASP Code injection](https://owasp.org/www-community/attacks/Code_Injection)
   cwe_id:
     - 94
-  id: java_lang_code_injection_rule
-  documentation_url: https://docs.bearer.com/reference/rules/java_lang_code_injection_rule
+  id: java_lang_code_injection
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_code_injection
