@@ -1,6 +1,5 @@
 imports:
   - java_shared_lang_servlet_request
-  - java_shared_lang_instance
 type: shared
 languages:
   - java
@@ -29,6 +28,8 @@ patterns:
           - getHeaderNames
           - getPart
           - getParts
+          - getSession
+          - getServletContext
   - pattern: $<JAVA_SHARED_LANG_USER_INPUT_COOKIE>.getValue();
     filters:
       - variable: JAVA_SHARED_LANG_USER_INPUT_COOKIE
