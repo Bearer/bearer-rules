@@ -7,11 +7,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 2,
@@ -42,11 +41,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 4,
@@ -77,11 +75,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 6,
@@ -112,11 +109,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 8,
@@ -147,11 +143,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 10,
@@ -182,11 +177,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 12,
@@ -217,11 +211,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 14,
@@ -252,11 +245,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 16,
@@ -287,11 +279,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_event 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 18,
@@ -329,11 +320,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 1,
@@ -364,11 +354,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 3,
@@ -399,11 +388,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 5,
@@ -434,11 +422,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 7,
@@ -469,11 +456,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 9,
@@ -504,11 +490,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 11,
@@ -539,11 +524,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 13,
@@ -574,11 +558,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 15,
@@ -609,11 +592,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_params 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 17,
@@ -651,11 +633,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 1,
@@ -686,11 +667,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 3,
@@ -721,11 +701,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 5,
@@ -756,11 +735,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 7,
@@ -791,11 +769,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 9,
@@ -826,11 +803,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 11,
@@ -861,11 +837,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 13,
@@ -896,11 +871,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 15,
@@ -931,11 +905,10 @@ exports[`ruby_lang_eval_using_user_input unsafe_request 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "ruby_lang_eval_using_user_input",
-      "title": "Potential command injection with user input detected.",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nIt is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.\\n\\n## Remediations\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nIt might be possible to use dynamic hardcoded values, instead of user input directly.\\n\\n\`\`\`ruby\\nget_total_str = if params[\\"include_vat\\"]\\n  \\"def get_total(a,b,c); a + b + c; end\\"\\nelse\\n  \\"def get_total(a,b); a + b; end\\"\\nend\\n\\ncart.instance_eval(get_total_str)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input",
       "line_number": 17,

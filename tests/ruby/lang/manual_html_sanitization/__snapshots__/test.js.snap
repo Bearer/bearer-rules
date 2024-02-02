@@ -10,7 +10,7 @@ exports[`ruby_lang_manual_html_sanitization unsafe 1`] = `
         "79"
       ],
       "id": "ruby_lang_manual_html_sanitization",
-      "title": "Manual HTML sanitization detected.",
+      "title": "Usage of manual HTML sanitization (XSS)",
       "description": "## Description\\nSanitizing HTML manually is error prone and can lead to Cross Site\\nScripting (XSS) vulnerabilities.\\n\\n## Remediations\\n\\n❌ Avoid manually escaping HTML:\\n\\n\`\`\`ruby\\nsanitized_user_input = user.Input\\n  .gsub('<', '&lt;')\\n  .gsub('>', '&gt;')\\nhtml = \\"<strong>#{sanitized_user_input}</strong>\\"\\n\`\`\`\\n\\n✅ Use a HTML sanitization library:\\n\\n\`\`\`ruby\\nhtml = sanitize(\\"<strong>#{user.Input}</strong>\\")\\n\`\`\`\\n\\n## Resources\\n- [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_manual_html_sanitization",
       "line_number": 1,

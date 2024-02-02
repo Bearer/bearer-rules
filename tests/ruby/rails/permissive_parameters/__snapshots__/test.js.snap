@@ -5,10 +5,10 @@ exports[`ruby_rails_permissive_parameters bad 1`] = `
   "medium": [
     {
       "cwe_ids": [
-        "915"
+        "913"
       ],
       "id": "ruby_rails_permissive_parameters",
-      "title": "Overly permissive request parameters detected.",
+      "title": "Permissive request parameters",
       "description": "## Description\\n\\nBeing overly permissive with request parameters can allow an attacker to\\nupdate arbitrary model attributes.\\n\\n## Remediations\\n\\n❌ Avoid blanket permitting of parameters:\\n\\n\`\`\`ruby\\nparams.permit!\\n\`\`\`\\n\\n✅ Only permit parameters the user should be able to update:\\n\\n\`\`\`ruby\\nparams.permit(:name, :email)\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_permissive_parameters",
       "line_number": 1,
@@ -39,10 +39,10 @@ exports[`ruby_rails_permissive_parameters bad 1`] = `
     },
     {
       "cwe_ids": [
-        "915"
+        "913"
       ],
       "id": "ruby_rails_permissive_parameters",
-      "title": "Overly permissive request parameters detected.",
+      "title": "Permissive request parameters",
       "description": "## Description\\n\\nBeing overly permissive with request parameters can allow an attacker to\\nupdate arbitrary model attributes.\\n\\n## Remediations\\n\\n❌ Avoid blanket permitting of parameters:\\n\\n\`\`\`ruby\\nparams.permit!\\n\`\`\`\\n\\n✅ Only permit parameters the user should be able to update:\\n\\n\`\`\`ruby\\nparams.permit(:name, :email)\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_permissive_parameters",
       "line_number": 2,
@@ -73,10 +73,10 @@ exports[`ruby_rails_permissive_parameters bad 1`] = `
     },
     {
       "cwe_ids": [
-        "915"
+        "913"
       ],
       "id": "ruby_rails_permissive_parameters",
-      "title": "Overly permissive request parameters detected.",
+      "title": "Permissive request parameters",
       "description": "## Description\\n\\nBeing overly permissive with request parameters can allow an attacker to\\nupdate arbitrary model attributes.\\n\\n## Remediations\\n\\n❌ Avoid blanket permitting of parameters:\\n\\n\`\`\`ruby\\nparams.permit!\\n\`\`\`\\n\\n✅ Only permit parameters the user should be able to update:\\n\\n\`\`\`ruby\\nparams.permit(:name, :email)\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_permissive_parameters",
       "line_number": 4,

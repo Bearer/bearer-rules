@@ -5,12 +5,10 @@ exports[`ruby_lang_weak_password_hash_sha digest_sha1_data 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "331",
-        "328",
-        "916"
+        "326"
       ],
       "id": "ruby_lang_weak_password_hash_sha",
-      "title": "Weak password hashing (SHA) detected.",
+      "title": "Usage of weak hashing library on a password (SHA)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA and SHA1 are considered weak hash algorithms and therefore shouldn't be used.\\n\\n✅ Use a recommended hashing library such as bcrypt or Argon2id for passwords\\n\\n\`\`\`ruby\\nBCrypt::Password.create(\\"password_123\\")\\n\`\`\`\\n\\n\`\`\`ruby\\nhasher = Argon2::Password.new()\\nhasher.create(\\"password_123\\")\\n\`\`\`\\n\\n## Resources\\n- [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)\\n- [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)\\n- [ruby-argon2](https://github.com/technion/ruby-argon2)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_weak_password_hash_sha",
       "line_number": 1,
@@ -49,12 +47,10 @@ exports[`ruby_lang_weak_password_hash_sha digest_sha1_data 1`] = `
     },
     {
       "cwe_ids": [
-        "331",
-        "328",
-        "916"
+        "326"
       ],
       "id": "ruby_lang_weak_password_hash_sha",
-      "title": "Weak password hashing (SHA) detected.",
+      "title": "Usage of weak hashing library on a password (SHA)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA and SHA1 are considered weak hash algorithms and therefore shouldn't be used.\\n\\n✅ Use a recommended hashing library such as bcrypt or Argon2id for passwords\\n\\n\`\`\`ruby\\nBCrypt::Password.create(\\"password_123\\")\\n\`\`\`\\n\\n\`\`\`ruby\\nhasher = Argon2::Password.new()\\nhasher.create(\\"password_123\\")\\n\`\`\`\\n\\n## Resources\\n- [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)\\n- [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)\\n- [ruby-argon2](https://github.com/technion/ruby-argon2)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_weak_password_hash_sha",
       "line_number": 3,
@@ -102,12 +98,10 @@ exports[`ruby_lang_weak_password_hash_sha openssl_sha1_data 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "331",
-        "328",
-        "916"
+        "326"
       ],
       "id": "ruby_lang_weak_password_hash_sha",
-      "title": "Weak password hashing (SHA) detected.",
+      "title": "Usage of weak hashing library on a password (SHA)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA and SHA1 are considered weak hash algorithms and therefore shouldn't be used.\\n\\n✅ Use a recommended hashing library such as bcrypt or Argon2id for passwords\\n\\n\`\`\`ruby\\nBCrypt::Password.create(\\"password_123\\")\\n\`\`\`\\n\\n\`\`\`ruby\\nhasher = Argon2::Password.new()\\nhasher.create(\\"password_123\\")\\n\`\`\`\\n\\n## Resources\\n- [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)\\n- [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)\\n- [ruby-argon2](https://github.com/technion/ruby-argon2)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_weak_password_hash_sha",
       "line_number": 1,
@@ -146,12 +140,10 @@ exports[`ruby_lang_weak_password_hash_sha openssl_sha1_data 1`] = `
     },
     {
       "cwe_ids": [
-        "331",
-        "328",
-        "916"
+        "326"
       ],
       "id": "ruby_lang_weak_password_hash_sha",
-      "title": "Weak password hashing (SHA) detected.",
+      "title": "Usage of weak hashing library on a password (SHA)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA and SHA1 are considered weak hash algorithms and therefore shouldn't be used.\\n\\n✅ Use a recommended hashing library such as bcrypt or Argon2id for passwords\\n\\n\`\`\`ruby\\nBCrypt::Password.create(\\"password_123\\")\\n\`\`\`\\n\\n\`\`\`ruby\\nhasher = Argon2::Password.new()\\nhasher.create(\\"password_123\\")\\n\`\`\`\\n\\n## Resources\\n- [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)\\n- [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)\\n- [ruby-argon2](https://github.com/technion/ruby-argon2)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_weak_password_hash_sha",
       "line_number": 4,

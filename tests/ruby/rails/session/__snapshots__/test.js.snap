@@ -8,7 +8,7 @@ exports[`ruby_rails_session datatype_in_session 1`] = `
         "315"
       ],
       "id": "ruby_rails_session",
-      "title": "Sensitive data stored in a session cookie detected.",
+      "title": "Leakage of sensitive data in session cookie",
       "description": "## Description\\n\\nSensitive data should not be stored in session cookies. This policy looks for any sensitive data stored within the session cookies.\\n\\n## Remediations\\nBy default, [Rails uses a Cookie based session store](https://guides.rubyonrails.org/security.html#session-storage). This makes it unsafe if you use it to store sensitive data in addition of making invalidating cookies difficult as they are stored on the client.\\n\\n✅ To ensure session's data stays safe, ensure to use a database-based session storage, which is easily done though Rails configuration:\\n\\n\`\`\`ruby\\nRails.application.config.session_store :active_record_store\\n\`\`\`\\n\\n## Resources\\n- [Rails guide on configuring Rails applications](https://guides.rubyonrails.org/configuring.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_session",
       "line_number": 1,

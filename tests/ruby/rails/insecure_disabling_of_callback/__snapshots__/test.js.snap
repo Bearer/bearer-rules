@@ -8,7 +8,7 @@ exports[`ruby_rails_insecure_disabling_of_callback insecure 1`] = `
         "284"
       ],
       "id": "ruby_rails_insecure_disabling_of_callback",
-      "title": "Insecure disabling of callback detected.",
+      "title": "Permissive callback disable configuration",
       "description": "## Description\\nWhen using except for disabling a callback, there is a high chance\\nof skipping important access control logic by accident.\\n\\n### Remediations\\n\\n✅ Prefer enumerating all of the actions using \`only\`:\\n\\n\`\`\`ruby\\nskip_before_action :access_control, only: %i[public_action1 public_action2]\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_insecure_disabling_of_callback",
       "line_number": 2,

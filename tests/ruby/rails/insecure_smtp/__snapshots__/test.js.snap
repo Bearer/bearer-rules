@@ -4,13 +4,13 @@ exports[`ruby_rails_insecure_smtp ok_ssl_verify_peer_mode 1`] = `"{}"`;
 
 exports[`ruby_rails_insecure_smtp verify_none 1`] = `
 "{
-  "low": [
+  "medium": [
     {
       "cwe_ids": [
         "319"
       ],
       "id": "ruby_rails_insecure_smtp",
-      "title": "Communication with an insecure SMTP connection detected.",
+      "title": "Usage of insecure SMTP connection",
       "description": "## Description\\n\\nSecure connections using SMTP help prevent unauthorized actors from viewing transmitted data. This policy checks if SMTP mailer settings are set to only allow secure connections.\\n\\n## Remediations\\n✅ When using the SMTP protocol, make sure to enable SSL encryption in ActionMailer configuration:\\n\\n\`\`\`ruby\\nconfig.action_mailer.smtp_settings = {\\n\\t...\\n\\tssl: true\\n}\\n\`\`\`\\n\\n## Resources\\n- [Ruby on Rails configuring Action Mailer](https://guides.rubyonrails.org/configuring.html#configuring-action-mailer)\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_insecure_smtp",
       "line_number": 8,
@@ -55,7 +55,7 @@ exports[`ruby_rails_insecure_smtp verify_none_ssl_var 1`] = `
         "319"
       ],
       "id": "ruby_rails_insecure_smtp",
-      "title": "Communication with an insecure SMTP connection detected.",
+      "title": "Usage of insecure SMTP connection",
       "description": "## Description\\n\\nSecure connections using SMTP help prevent unauthorized actors from viewing transmitted data. This policy checks if SMTP mailer settings are set to only allow secure connections.\\n\\n## Remediations\\n✅ When using the SMTP protocol, make sure to enable SSL encryption in ActionMailer configuration:\\n\\n\`\`\`ruby\\nconfig.action_mailer.smtp_settings = {\\n\\t...\\n\\tssl: true\\n}\\n\`\`\`\\n\\n## Resources\\n- [Ruby on Rails configuring Action Mailer](https://guides.rubyonrails.org/configuring.html#configuring-action-mailer)\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_insecure_smtp",
       "line_number": 3,
