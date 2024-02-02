@@ -1,0 +1,31 @@
+patterns:
+  - MODE_WORLD_READABLE;
+  - Context.MODE_WORLD_READABLE;
+  - MODE_WORLD_WRITEABLE;
+  - Context.MODE_WORLD_WRITEABLE;
+languages:
+  - java
+metadata:
+  description: Permissive context mode for resources
+  remediation_message: |
+    ## Description
+
+    Creating world-readable and -writeable files poses a serious security risk.
+    It is for this reason that the `Context.MODE_WORLD_READABLE` and `Context.MODE_WORLD_WRITEABLE` constants were deprecated and later removed.
+
+    ## Remediations
+
+    ✅ Use Context.MODE_PRIVATE wherever possible
+
+    ✅ Use a `ContentProvider` when sharing content with other applications
+
+    ❌ (For legacy applications) Do not use the deprecated `MODE_WORLD_READABLE` or `MODE_WORLD_WRITEABLE` constants
+
+    ## References
+
+    - [Android Context.MODE_PRIVATE reference](https://developer.android.com/reference/android/content/Context#MODE_PRIVATE)
+    - [Android Content Provider reference](https://developer.android.com/reference/android/content/ContentProvider)
+  cwe_id:
+    - 276
+  id: java_android_world_readable_writable_mode
+  documentation_url: https://docs.bearer.com/reference/rules/java_android_world_readable_writable_mode
