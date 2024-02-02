@@ -8,7 +8,7 @@ exports[`javascript_lang_message_handler_origin bad 1`] = `
         "346"
       ],
       "id": "javascript_lang_message_handler_origin",
-      "title": "Unchecked origin in message handler detected.",
+      "title": "Missing origin check in message handler",
       "description": "## Description\\n\\nApplications should check the origin of \`message\` events. Handling messages\\nfrom untrusted origins could lead to Cross-Site Scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid handling messages from any origin:\\n\\n\`\`\`javascript\\nwindow.addEventListener('message', (event) => {\\n  actOnMessage(event.data)\\n})\\n\`\`\`\\n\\n✅ Validate the origin:\\n\\n\`\`\`javascript\\nwindow.addEventListener('message', (event) => {\\n  if (event.origin != 'https://myapp.example.com') {\\n    throw new Error('invalid origin')\\n  }\\n\\n  actOnMessage(event.data)\\n})\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_message_handler_origin",
       "line_number": 1,
@@ -42,7 +42,7 @@ exports[`javascript_lang_message_handler_origin bad 1`] = `
         "346"
       ],
       "id": "javascript_lang_message_handler_origin",
-      "title": "Unchecked origin in message handler detected.",
+      "title": "Missing origin check in message handler",
       "description": "## Description\\n\\nApplications should check the origin of \`message\` events. Handling messages\\nfrom untrusted origins could lead to Cross-Site Scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid handling messages from any origin:\\n\\n\`\`\`javascript\\nwindow.addEventListener('message', (event) => {\\n  actOnMessage(event.data)\\n})\\n\`\`\`\\n\\n✅ Validate the origin:\\n\\n\`\`\`javascript\\nwindow.addEventListener('message', (event) => {\\n  if (event.origin != 'https://myapp.example.com') {\\n    throw new Error('invalid origin')\\n  }\\n\\n  actOnMessage(event.data)\\n})\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_message_handler_origin",
       "line_number": 5,
@@ -76,7 +76,7 @@ exports[`javascript_lang_message_handler_origin bad 1`] = `
         "346"
       ],
       "id": "javascript_lang_message_handler_origin",
-      "title": "Unchecked origin in message handler detected.",
+      "title": "Missing origin check in message handler",
       "description": "## Description\\n\\nApplications should check the origin of \`message\` events. Handling messages\\nfrom untrusted origins could lead to Cross-Site Scripting (XSS) attacks.\\n\\n## Remediations\\n\\n❌ Avoid handling messages from any origin:\\n\\n\`\`\`javascript\\nwindow.addEventListener('message', (event) => {\\n  actOnMessage(event.data)\\n})\\n\`\`\`\\n\\n✅ Validate the origin:\\n\\n\`\`\`javascript\\nwindow.addEventListener('message', (event) => {\\n  if (event.origin != 'https://myapp.example.com') {\\n    throw new Error('invalid origin')\\n  }\\n\\n  actOnMessage(event.data)\\n})\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_message_handler_origin",
       "line_number": 9,

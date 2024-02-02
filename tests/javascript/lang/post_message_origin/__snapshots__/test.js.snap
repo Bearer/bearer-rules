@@ -5,10 +5,10 @@ exports[`javascript_lang_post_message_origin bad 1`] = `
   "medium": [
     {
       "cwe_ids": [
-        "923"
+        "346"
       ],
       "id": "javascript_lang_post_message_origin",
-      "title": "Permissive origin in postMessage detected.",
+      "title": "Permissive origin in postMessage",
       "description": "## Description\\n\\nUsing \\"*\\" (any) as the target origin of a postMessage call allows\\nthird-parties to read the message.\\n\\n## Remediations\\n\\n❌ Avoid using \\"*\\" as the target origin:\\n\\n\`\`\`javascript\\nwindow.postMessage(message, '*')\\n\`\`\`\\n\\n✅ Specify the origin for your target application:\\n\\n\`\`\`javascript\\nwindow.postMessage(message, 'https://myapp.example.com')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_post_message_origin",
       "line_number": 1,
@@ -39,10 +39,10 @@ exports[`javascript_lang_post_message_origin bad 1`] = `
     },
     {
       "cwe_ids": [
-        "923"
+        "346"
       ],
       "id": "javascript_lang_post_message_origin",
-      "title": "Permissive origin in postMessage detected.",
+      "title": "Permissive origin in postMessage",
       "description": "## Description\\n\\nUsing \\"*\\" (any) as the target origin of a postMessage call allows\\nthird-parties to read the message.\\n\\n## Remediations\\n\\n❌ Avoid using \\"*\\" as the target origin:\\n\\n\`\`\`javascript\\nwindow.postMessage(message, '*')\\n\`\`\`\\n\\n✅ Specify the origin for your target application:\\n\\n\`\`\`javascript\\nwindow.postMessage(message, 'https://myapp.example.com')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_post_message_origin",
       "line_number": 3,

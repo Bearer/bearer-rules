@@ -8,7 +8,7 @@ exports[`php_lang_http_insecure bad 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 5,
@@ -42,7 +42,7 @@ exports[`php_lang_http_insecure bad 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 6,
@@ -76,7 +76,7 @@ exports[`php_lang_http_insecure bad 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 8,
@@ -110,7 +110,7 @@ exports[`php_lang_http_insecure bad 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 9,
@@ -144,7 +144,7 @@ exports[`php_lang_http_insecure bad 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 11,
@@ -178,7 +178,7 @@ exports[`php_lang_http_insecure bad 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 17,
@@ -219,7 +219,7 @@ exports[`php_lang_http_insecure bad_buzz 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 10,
@@ -253,7 +253,7 @@ exports[`php_lang_http_insecure bad_buzz 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 11,
@@ -287,7 +287,7 @@ exports[`php_lang_http_insecure bad_buzz 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 12,
@@ -321,7 +321,7 @@ exports[`php_lang_http_insecure bad_buzz 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 13,
@@ -355,7 +355,7 @@ exports[`php_lang_http_insecure bad_buzz 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 14,
@@ -389,7 +389,7 @@ exports[`php_lang_http_insecure bad_buzz 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 15,
@@ -423,7 +423,7 @@ exports[`php_lang_http_insecure bad_buzz 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 17,
@@ -457,7 +457,7 @@ exports[`php_lang_http_insecure bad_buzz 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 19,
@@ -498,7 +498,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 7,
@@ -536,7 +536,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 12,
@@ -574,7 +574,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 16,
@@ -612,7 +612,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 17,
@@ -650,7 +650,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 18,
@@ -688,7 +688,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 19,
@@ -726,7 +726,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 20,
@@ -764,7 +764,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 21,
@@ -802,7 +802,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 22,
@@ -840,7 +840,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 23,
@@ -878,7 +878,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 24,
@@ -916,7 +916,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 25,
@@ -954,7 +954,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 26,
@@ -992,7 +992,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 27,
@@ -1030,7 +1030,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 28,
@@ -1068,7 +1068,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 29,
@@ -1106,7 +1106,7 @@ exports[`php_lang_http_insecure bad_guzzle 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 31,
@@ -1151,7 +1151,7 @@ exports[`php_lang_http_insecure bad_httplug 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 11,
@@ -1192,7 +1192,7 @@ exports[`php_lang_http_insecure bad_laminas 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 7,
@@ -1226,7 +1226,7 @@ exports[`php_lang_http_insecure bad_laminas 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 13,
@@ -1267,7 +1267,7 @@ exports[`php_lang_http_insecure bad_laravel 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 7,
@@ -1301,7 +1301,7 @@ exports[`php_lang_http_insecure bad_laravel 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 8,
@@ -1335,7 +1335,7 @@ exports[`php_lang_http_insecure bad_laravel 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 9,
@@ -1369,7 +1369,7 @@ exports[`php_lang_http_insecure bad_laravel 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 10,
@@ -1403,7 +1403,7 @@ exports[`php_lang_http_insecure bad_laravel 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 11,
@@ -1437,7 +1437,7 @@ exports[`php_lang_http_insecure bad_laravel 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 12,
@@ -1471,7 +1471,7 @@ exports[`php_lang_http_insecure bad_laravel 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 14,
@@ -1505,7 +1505,7 @@ exports[`php_lang_http_insecure bad_laravel 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 19,
@@ -1546,7 +1546,7 @@ exports[`php_lang_http_insecure bad_pecl_http 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 7,
@@ -1587,7 +1587,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 7,
@@ -1621,7 +1621,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 8,
@@ -1655,7 +1655,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 9,
@@ -1689,7 +1689,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 10,
@@ -1723,7 +1723,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 11,
@@ -1757,7 +1757,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 12,
@@ -1791,7 +1791,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 13,
@@ -1825,7 +1825,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 14,
@@ -1859,7 +1859,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 15,
@@ -1893,7 +1893,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 17,
@@ -1927,7 +1927,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 22,
@@ -1961,7 +1961,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 24,
@@ -1995,7 +1995,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 25,
@@ -2029,7 +2029,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 26,
@@ -2063,7 +2063,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 27,
@@ -2097,7 +2097,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 28,
@@ -2131,7 +2131,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 29,
@@ -2165,7 +2165,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 30,
@@ -2199,7 +2199,7 @@ exports[`php_lang_http_insecure bad_requests 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 32,
@@ -2240,7 +2240,7 @@ exports[`php_lang_http_insecure bad_sendgrid 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 5,
@@ -2281,7 +2281,7 @@ exports[`php_lang_http_insecure bad_symfony 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 15,
@@ -2322,7 +2322,7 @@ exports[`php_lang_http_insecure bad_unirest 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 5,
@@ -2356,7 +2356,7 @@ exports[`php_lang_http_insecure bad_unirest 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 6,
@@ -2390,7 +2390,7 @@ exports[`php_lang_http_insecure bad_unirest 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 7,
@@ -2424,7 +2424,7 @@ exports[`php_lang_http_insecure bad_unirest 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 8,
@@ -2458,7 +2458,7 @@ exports[`php_lang_http_insecure bad_unirest 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 9,
@@ -2492,7 +2492,7 @@ exports[`php_lang_http_insecure bad_unirest 1`] = `
         "319"
       ],
       "id": "php_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`php\\n$curl = curl_init('http://insecure-api.com');\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`php\\n$curl = curl_init('https://secure-api.com');\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_insecure",
       "line_number": 11,

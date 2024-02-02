@@ -8,7 +8,7 @@ exports[`javascript_lang_weak_encryption_rc4 rc4 1`] = `
         "327"
       ],
       "id": "javascript_lang_weak_encryption_rc4",
-      "title": "Weak encryption algorithm (RC4) detected.",
+      "title": "Usage of weak encryption algorithm (RC4)",
       "description": "## Description\\n\\nA weak encryption library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), RC4 (Rivest Cipher 4) is considered a weak encryption algorithm and therefore shouldn't be used.\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`javascript\\nconst crypto = require(\\"crypto\\");\\n\\nconst cipher = crypto.createCipheriv(\\"aes-256-cbc\\", key, iv);\\n\\nconst encrypted = cipher.update(\\"my secret message\\", \\"utf8\\");\\n\`\`\`\\n\\n## Resources\\n- [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_encryption_rc4",
       "line_number": 3,

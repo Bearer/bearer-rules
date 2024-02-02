@@ -5,11 +5,10 @@ exports[`go_lang_weak_password_encryption_sha1 bad 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "331",
-        "328"
+        "326"
       ],
       "id": "go_lang_weak_password_encryption_sha1",
-      "title": "Weak password encryption algorithm (SHA1) used for password detected.",
+      "title": "Usage of weak hashing library on a password (SHA1)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 and its predecessors are considered weak hash algorithms and therefore shouldn't be used.\\n\\n❌ Do not use encryption for passwords, wherever possible:\\n\\n\`\`\`go\\nsha1.Sum([]byte('password'))\\n\`\`\`\\n\\n✅ Instead, we recommend using sha256:\\n\\n\`\`\`go\\nsha256.Sum256([]byte('string'))\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_weak_password_encryption_sha1",
       "line_number": 14,
@@ -48,11 +47,10 @@ exports[`go_lang_weak_password_encryption_sha1 bad 1`] = `
     },
     {
       "cwe_ids": [
-        "331",
-        "328"
+        "326"
       ],
       "id": "go_lang_weak_password_encryption_sha1",
-      "title": "Weak password encryption algorithm (SHA1) used for password detected.",
+      "title": "Usage of weak hashing library on a password (SHA1)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 and its predecessors are considered weak hash algorithms and therefore shouldn't be used.\\n\\n❌ Do not use encryption for passwords, wherever possible:\\n\\n\`\`\`go\\nsha1.Sum([]byte('password'))\\n\`\`\`\\n\\n✅ Instead, we recommend using sha256:\\n\\n\`\`\`go\\nsha256.Sum256([]byte('string'))\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_weak_password_encryption_sha1",
       "line_number": 17,

@@ -5,10 +5,10 @@ exports[`go_gosec_crypto_weak_key_strength test 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "326"
+        "327"
       ],
       "id": "go_gosec_crypto_weak_key_strength",
-      "title": "Inadequate encryption strength",
+      "title": "Usage of inadequate encryption strength",
       "description": "## Description\\n\\nThe application generates an RSA key with a bit length that is shorter than the current recommended minimum of 2048 bits. Keys shorter than 2048 bits are considered insecure due to advancements in computational power which could potentially allow them to be factored, thereby breaking the encryption.\\n\\n## Remediation\\n\\nTo ensure the security of RSA keys, follow these guidelines:\\n\\n✅ Use Sufficient Key Length\\n\\nGenerate RSA keys with a minimum length of 2048 bits to align with NIST recommendations and safeguard against future advancements in computing power that could compromise keys of shorter lengths.\\n\\n\`\`\`go\\n// Example of generating a secure RSA key with 2048 bits\\nimport (\\n  \\"crypto/rand\\"\\n  \\"crypto/rsa\\"\\n  \\"log\\"\\n)\\n\\nfunc generateSecureKey() {\\n  // Use at least 2048 bits for secure RSA keys\\n  privateKey, err := rsa.GenerateKey(rand.Reader, 2048)\\n  if err != nil {\\n    log.Fatalf(\\"Error generating RSA key: %v\\", err)\\n  }\\n  // privateKey can now be used for secure cryptographic operations\\n}\\n\`\`\`\\n\\n❌ Avoid Short Keys\\n\\nDo not use RSA keys that are less than 2048 bits in length, as they do not offer sufficient protection against brute-force attacks.\\n\\n❌ Don't Ignore Industry Standards\\n\\nAlways follow industry standards and guidelines for cryptographic practices to maintain the integrity and confidentiality of data.\\n\\n## Resources\\n\\n- [NIST Special Publication 800-57 Part 1](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_key_strength",
       "line_number": 11,

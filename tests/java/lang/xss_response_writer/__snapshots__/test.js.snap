@@ -10,7 +10,7 @@ exports[`java_lang_xss_response_writer vulnerable 1`] = `
         "79"
       ],
       "id": "java_lang_xss_response_writer",
-      "title": "Possible cross site scripting threat detected.",
+      "title": "Unsanitized user input in output stream (XSS)",
       "description": "## Description\\n\\nMake sure to encode and sanitize any user input before passing it down to \`response.getWriter()\` to avoid cross-site scripting (XSS) attacks.\\n\\n✅ Use an encoder to minimize XSS risk\\n\\n\`\`\`java\\n  String userInput = req.getQueryString(\\"user\\");\\n  String encodedUserInput = Encode.forHtml(userInput)\\n  response.getWriter().write(encodedUserInput)\\n\`\`\`\\n\\n✅ Even better, sanitize user input\\n\\n\`\`\`java\\n  String userInput = req.getQueryString(\\"user\\");\\n  String sanitizedUserInput = sanitize(userInput);\\n  response.getWriter().write(sanitizedUserInput);\\n\`\`\`\\n\\n## Resources\\n\\n- [OWASP XSS Prevention Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n- [OWASP Java Encoder](https://owasp.org/www-project-java-encoder/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_xss_response_writer",
       "line_number": 14,

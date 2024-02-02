@@ -10,7 +10,7 @@ exports[`javascript_express_external_resource render_external_resource 1`] = `
         "706"
       ],
       "id": "javascript_express_external_resource",
-      "title": "Rendering of resources resolved from external name or reference detected.",
+      "title": "Unsanitized user input in resource rendering",
       "description": "## Description\\nUsing raw unsanitized input when rendering resources is bad practice.\\n\\n## Remediations\\n❌ Avoid passing user or request input to res.render().\\n\\n✅ Sanitize the input or use a safelist\\n\\nWhere it is unavoidable to rely on user input, sanitize the input or use a safelist to keep the rendered resources within the expected scope.\\n\\n\`\`\`javascript\\nvar path = req.body.path\\nif (['users', 'posts', 'pages'].includes(path)) {\\n  return res.render(\`\${path}/success\`)\\n}\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_external_resource",
       "line_number": 9,

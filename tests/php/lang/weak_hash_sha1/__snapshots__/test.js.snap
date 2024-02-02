@@ -5,10 +5,10 @@ exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "327"
+        "328"
       ],
       "id": "php_lang_weak_hash_sha1",
-      "title": "Weak hashing library (SHA-1) detected",
+      "title": "Usage of weak hashing library (SHA-1)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
       "line_number": 3,
@@ -47,10 +47,10 @@ exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `
     },
     {
       "cwe_ids": [
-        "327"
+        "328"
       ],
       "id": "php_lang_weak_hash_sha1",
-      "title": "Weak hashing library (SHA-1) detected",
+      "title": "Usage of weak hashing library (SHA-1)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
       "line_number": 6,
@@ -89,10 +89,10 @@ exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `
     },
     {
       "cwe_ids": [
-        "327"
+        "328"
       ],
       "id": "php_lang_weak_hash_sha1",
-      "title": "Weak hashing library (SHA-1) detected",
+      "title": "Usage of weak hashing library (SHA-1)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
       "line_number": 8,
@@ -131,10 +131,10 @@ exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `
     },
     {
       "cwe_ids": [
-        "327"
+        "328"
       ],
       "id": "php_lang_weak_hash_sha1",
-      "title": "Weak hashing library (SHA-1) detected",
+      "title": "Usage of weak hashing library (SHA-1)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
       "line_number": 13,
@@ -173,10 +173,10 @@ exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `
     },
     {
       "cwe_ids": [
-        "327"
+        "328"
       ],
       "id": "php_lang_weak_hash_sha1",
-      "title": "Weak hashing library (SHA-1) detected",
+      "title": "Usage of weak hashing library (SHA-1)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
       "line_number": 17,
@@ -217,10 +217,10 @@ exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "327"
+        "328"
       ],
       "id": "php_lang_weak_hash_sha1",
-      "title": "Weak hashing library (SHA-1) detected",
+      "title": "Usage of weak hashing library (SHA-1)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
       "line_number": 4,
@@ -255,10 +255,10 @@ exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `
     },
     {
       "cwe_ids": [
-        "327"
+        "328"
       ],
       "id": "php_lang_weak_hash_sha1",
-      "title": "Weak hashing library (SHA-1) detected",
+      "title": "Usage of weak hashing library (SHA-1)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
       "line_number": 9,
@@ -293,10 +293,10 @@ exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `
     },
     {
       "cwe_ids": [
-        "327"
+        "328"
       ],
       "id": "php_lang_weak_hash_sha1",
-      "title": "Weak hashing library (SHA-1) detected",
+      "title": "Usage of weak hashing library (SHA-1)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
       "line_number": 11,
@@ -331,10 +331,10 @@ exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `
     },
     {
       "cwe_ids": [
-        "327"
+        "328"
       ],
       "id": "php_lang_weak_hash_sha1",
-      "title": "Weak hashing library (SHA-1) detected",
+      "title": "Usage of weak hashing library (SHA-1)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
       "line_number": 14,
@@ -369,10 +369,10 @@ exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `
     },
     {
       "cwe_ids": [
-        "327"
+        "328"
       ],
       "id": "php_lang_weak_hash_sha1",
-      "title": "Weak hashing library (SHA-1) detected",
+      "title": "Usage of weak hashing library (SHA-1)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
       "line_number": 18,
@@ -407,10 +407,10 @@ exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `
     },
     {
       "cwe_ids": [
-        "327"
+        "328"
       ],
       "id": "php_lang_weak_hash_sha1",
-      "title": "Weak hashing library (SHA-1) detected",
+      "title": "Usage of weak hashing library (SHA-1)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
       "line_number": 19,
@@ -445,10 +445,10 @@ exports[`php_lang_weak_hash_sha1 insecure_library 1`] = `
     },
     {
       "cwe_ids": [
-        "327"
+        "328"
       ],
       "id": "php_lang_weak_hash_sha1",
-      "title": "Weak hashing library (SHA-1) detected",
+      "title": "Usage of weak hashing library (SHA-1)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`php\\n  $encrypted = sha1($input);\\n\`\`\`\\n\\n✅ Use stronger encryption algorithms when storing data.\\n\\n\`\`\`php\\n  $encrypted = hash('sha256', $input);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1",
       "line_number": 20,

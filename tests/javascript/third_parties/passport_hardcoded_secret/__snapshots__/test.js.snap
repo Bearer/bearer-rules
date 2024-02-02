@@ -8,7 +8,7 @@ exports[`javascript_third_parties_passport_hardcoded_secret insecure 1`] = `
         "798"
       ],
       "id": "javascript_third_parties_passport_hardcoded_secret",
-      "title": "Hardcoded passport secret detected",
+      "title": "Usage of hard-coded passport secret",
       "description": "## Description\\n\\nCode is not a safe place to store secrets, use environment variables instead.\\n\\n##  Remediations\\n\\nUse environment variables instead\\n\\n\`\`\`javascript\\n  const strategy = new GoogleStrategy({ clientSecret: process.ENV.GOOGLE_SECRET });\\n  passport.use(strategy);\\n\`\`\`\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_passport_hardcoded_secret",
       "line_number": 5,

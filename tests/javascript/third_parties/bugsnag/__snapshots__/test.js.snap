@@ -8,7 +8,7 @@ exports[`javascript_third_parties_bugsnag datatype_in_breadcrumb 1`] = `
         "201"
       ],
       "id": "javascript_third_parties_bugsnag",
-      "title": "Sensitive data sent to Bugsnag detected.",
+      "title": "Leakage of sensitive data to Bugsnag",
       "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Bugsnag.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\n  import { Bugsnag } from \\"@bugsnag/js\\"\\n\\n  var bugSession = Bugsnag.startSession()\\n  bugSession.notify(user.uuid)\\n\`\`\`\\n\\n## Resources\\n- [Bugsnag Docs](https://docs.bugsnag.com/platforms/javascript/)\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_bugsnag",
       "line_number": 1,
@@ -57,7 +57,7 @@ exports[`javascript_third_parties_bugsnag datatype_in_notify 1`] = `
         "201"
       ],
       "id": "javascript_third_parties_bugsnag",
-      "title": "Sensitive data sent to Bugsnag detected.",
+      "title": "Leakage of sensitive data to Bugsnag",
       "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Bugsnag.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\n  import { Bugsnag } from \\"@bugsnag/js\\"\\n\\n  var bugSession = Bugsnag.startSession()\\n  bugSession.notify(user.uuid)\\n\`\`\`\\n\\n## Resources\\n- [Bugsnag Docs](https://docs.bugsnag.com/platforms/javascript/)\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_bugsnag",
       "line_number": 5,
@@ -105,7 +105,7 @@ exports[`javascript_third_parties_bugsnag datatype_in_session 1`] = `
         "201"
       ],
       "id": "javascript_third_parties_bugsnag",
-      "title": "Sensitive data sent to Bugsnag detected.",
+      "title": "Leakage of sensitive data to Bugsnag",
       "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Bugsnag.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\n  import { Bugsnag } from \\"@bugsnag/js\\"\\n\\n  var bugSession = Bugsnag.startSession()\\n  bugSession.notify(user.uuid)\\n\`\`\`\\n\\n## Resources\\n- [Bugsnag Docs](https://docs.bugsnag.com/platforms/javascript/)\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_bugsnag",
       "line_number": 4,
@@ -154,7 +154,7 @@ exports[`javascript_third_parties_bugsnag datatype_in_start 1`] = `
         "201"
       ],
       "id": "javascript_third_parties_bugsnag",
-      "title": "Sensitive data sent to Bugsnag detected.",
+      "title": "Leakage of sensitive data to Bugsnag",
       "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Bugsnag.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\n  import { Bugsnag } from \\"@bugsnag/js\\"\\n\\n  var bugSession = Bugsnag.startSession()\\n  bugSession.notify(user.uuid)\\n\`\`\`\\n\\n## Resources\\n- [Bugsnag Docs](https://docs.bugsnag.com/platforms/javascript/)\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_bugsnag",
       "line_number": 1,

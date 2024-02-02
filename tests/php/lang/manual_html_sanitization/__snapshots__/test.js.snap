@@ -8,7 +8,7 @@ exports[`php_lang_manual_html_sanitization bad 1`] = `
         "79"
       ],
       "id": "php_lang_manual_html_sanitization",
-      "title": "Manual HTML sanitization detected.",
+      "title": "Usage of manual HTML sanitization (XSS)",
       "description": "## Description\\nSanitizing HTML manually is error prone and can lead to Cross Site\\nScripting (XSS) vulnerabilities.\\n\\n## Remediations\\n\\n❌ Avoid manually escaping HTML:\\n\\n\`\`\`php\\n$html = str_replace(\\"&\\", \\"&amp;\\", $text);\\n\`\`\`\\n\\n✅ Use a HTML sanitizer:\\n\\n\`\`\`php\\n$html = htmlspecialchars($text);\\n\`\`\`\\n\\n## Resources\\n- [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_manual_html_sanitization",
       "line_number": 4,
@@ -42,7 +42,7 @@ exports[`php_lang_manual_html_sanitization bad 1`] = `
         "79"
       ],
       "id": "php_lang_manual_html_sanitization",
-      "title": "Manual HTML sanitization detected.",
+      "title": "Usage of manual HTML sanitization (XSS)",
       "description": "## Description\\nSanitizing HTML manually is error prone and can lead to Cross Site\\nScripting (XSS) vulnerabilities.\\n\\n## Remediations\\n\\n❌ Avoid manually escaping HTML:\\n\\n\`\`\`php\\n$html = str_replace(\\"&\\", \\"&amp;\\", $text);\\n\`\`\`\\n\\n✅ Use a HTML sanitizer:\\n\\n\`\`\`php\\n$html = htmlspecialchars($text);\\n\`\`\`\\n\\n## Resources\\n- [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_manual_html_sanitization",
       "line_number": 5,
@@ -76,7 +76,7 @@ exports[`php_lang_manual_html_sanitization bad 1`] = `
         "79"
       ],
       "id": "php_lang_manual_html_sanitization",
-      "title": "Manual HTML sanitization detected.",
+      "title": "Usage of manual HTML sanitization (XSS)",
       "description": "## Description\\nSanitizing HTML manually is error prone and can lead to Cross Site\\nScripting (XSS) vulnerabilities.\\n\\n## Remediations\\n\\n❌ Avoid manually escaping HTML:\\n\\n\`\`\`php\\n$html = str_replace(\\"&\\", \\"&amp;\\", $text);\\n\`\`\`\\n\\n✅ Use a HTML sanitizer:\\n\\n\`\`\`php\\n$html = htmlspecialchars($text);\\n\`\`\`\\n\\n## Resources\\n- [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_manual_html_sanitization",
       "line_number": 7,

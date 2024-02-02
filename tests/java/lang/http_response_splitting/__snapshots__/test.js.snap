@@ -5,11 +5,10 @@ exports[`java_lang_http_response_splitting bad 1`] = `
   "warning": [
     {
       "cwe_ids": [
-        "79",
-        "113"
+        "79"
       ],
       "id": "java_lang_http_response_splitting",
-      "title": "HTTP response splitting vulnerability detected.",
+      "title": "Unsanitized user input in HTTP response (XSS)",
       "description": "## Description\\n\\nIncluding unsanitized user input in a HTTP response allows an attacker to\\nsplit the response by injecting CRLF characters. An entirely\\nattacker-controlled response can then be returned, creating a cross-site\\nscripting (XSS) vulnerability.\\n\\n## Remediations\\n\\n✅ Avoid using user input in cookies or other headers\\n\\n✅ Remove CRLF sequences from user input:\\n\\n\`\`\`java\\nvar input = request.getParameter(\\"data\\");\\nvar sanitized = input.replaceAll(\\"\\\\r\\\\n\\", \\"\\");\\ncookie.setValue(sanitized);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_http_response_splitting",
       "line_number": 4,
@@ -40,11 +39,10 @@ exports[`java_lang_http_response_splitting bad 1`] = `
     },
     {
       "cwe_ids": [
-        "79",
-        "113"
+        "79"
       ],
       "id": "java_lang_http_response_splitting",
-      "title": "HTTP response splitting vulnerability detected.",
+      "title": "Unsanitized user input in HTTP response (XSS)",
       "description": "## Description\\n\\nIncluding unsanitized user input in a HTTP response allows an attacker to\\nsplit the response by injecting CRLF characters. An entirely\\nattacker-controlled response can then be returned, creating a cross-site\\nscripting (XSS) vulnerability.\\n\\n## Remediations\\n\\n✅ Avoid using user input in cookies or other headers\\n\\n✅ Remove CRLF sequences from user input:\\n\\n\`\`\`java\\nvar input = request.getParameter(\\"data\\");\\nvar sanitized = input.replaceAll(\\"\\\\r\\\\n\\", \\"\\");\\ncookie.setValue(sanitized);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_http_response_splitting",
       "line_number": 8,
@@ -75,11 +73,10 @@ exports[`java_lang_http_response_splitting bad 1`] = `
     },
     {
       "cwe_ids": [
-        "79",
-        "113"
+        "79"
       ],
       "id": "java_lang_http_response_splitting",
-      "title": "HTTP response splitting vulnerability detected.",
+      "title": "Unsanitized user input in HTTP response (XSS)",
       "description": "## Description\\n\\nIncluding unsanitized user input in a HTTP response allows an attacker to\\nsplit the response by injecting CRLF characters. An entirely\\nattacker-controlled response can then be returned, creating a cross-site\\nscripting (XSS) vulnerability.\\n\\n## Remediations\\n\\n✅ Avoid using user input in cookies or other headers\\n\\n✅ Remove CRLF sequences from user input:\\n\\n\`\`\`java\\nvar input = request.getParameter(\\"data\\");\\nvar sanitized = input.replaceAll(\\"\\\\r\\\\n\\", \\"\\");\\ncookie.setValue(sanitized);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_http_response_splitting",
       "line_number": 10,

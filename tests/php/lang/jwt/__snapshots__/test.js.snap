@@ -8,7 +8,7 @@ exports[`php_lang_jwt bad 1`] = `
         "315"
       ],
       "id": "php_lang_jwt",
-      "title": "Sensitive data in a JWT detected.",
+      "title": "Leakage of sensitive data in JWT",
       "description": "## Description\\n\\nJWTs are not a secure place to store sensitive data. This rule looks for any sensitive data types saved to a JWT.\\n\\n## Remediations\\n\\n❌ Avoid storing sensitive data in JWT:\\n\\n\`\`\`php\\n$payload = [\\n  'data' => 'data',\\n  'email' => $user->email\\n];\\n$jwt = JWT::encode($payload, $key, 'HS256');\\n\`\`\`\\n\\n✅ If you need to store user's information, use their unique database identifier instead of personal identifiable information:\\n\\n\`\`\`php\\n$payload = [\\n  'data' => 'data',\\n  'uuid' => $user->uuid\\n];\\n$jwt = JWT::encode($payload, $key, 'HS256');\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_jwt",
       "line_number": 12,

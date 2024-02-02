@@ -8,7 +8,7 @@ exports[`javascript_express_unsafe_deserialization node_serialize 1`] = `
         "502"
       ],
       "id": "javascript_express_unsafe_deserialization",
-      "title": "Deserialization of untrusted data detected.",
+      "title": "Unsanitized user input in deserialization method",
       "description": "## Description\\nIt is bad practice to deserialize (unmarshal) untrusted data, such as data direct from the request object.\\nAttackers can transfer payloads or malicious code via serialized data, and deserializing such data puts your application at risk.\\n\\n## Remediations\\n❌ Do not deserialize untrusted data\\n\\n✅ Prefer pure (data-only) and language-agnostic (de)serialization formats such as JSON or XML\\n\\nAvoiding language-specific (de)serialization formats reduces the risk of attackers manipulating the deserialization process for malicious purposes.\\n\\n\`\`\`javascript\\n  JSON.parse(req.params)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_unsafe_deserialization",
       "line_number": 5,
@@ -51,7 +51,7 @@ exports[`javascript_express_unsafe_deserialization serialize_error 1`] = `
         "502"
       ],
       "id": "javascript_express_unsafe_deserialization",
-      "title": "Deserialization of untrusted data detected.",
+      "title": "Unsanitized user input in deserialization method",
       "description": "## Description\\nIt is bad practice to deserialize (unmarshal) untrusted data, such as data direct from the request object.\\nAttackers can transfer payloads or malicious code via serialized data, and deserializing such data puts your application at risk.\\n\\n## Remediations\\n❌ Do not deserialize untrusted data\\n\\n✅ Prefer pure (data-only) and language-agnostic (de)serialization formats such as JSON or XML\\n\\nAvoiding language-specific (de)serialization formats reduces the risk of attackers manipulating the deserialization process for malicious purposes.\\n\\n\`\`\`javascript\\n  JSON.parse(req.params)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_unsafe_deserialization",
       "line_number": 4,

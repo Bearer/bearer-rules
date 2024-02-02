@@ -8,7 +8,7 @@ exports[`php_lang_exception bad 1`] = `
         "210"
       ],
       "id": "php_lang_exception",
-      "title": "Sensitive data in a exception message detected.",
+      "title": "Leakage of sensitive data in exception message",
       "description": "## Description\\n\\nLeaking sensitive data to an exception is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to exceptions.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`php\\nthrow new Exception(\\"error for {$user->email}\\");\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`php\\nthrow new Exception(\\"error for {$user->uuid}\\");\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exception",
       "line_number": 3,
@@ -50,7 +50,7 @@ exports[`php_lang_exception bad 1`] = `
         "210"
       ],
       "id": "php_lang_exception",
-      "title": "Sensitive data in a exception message detected.",
+      "title": "Leakage of sensitive data in exception message",
       "description": "## Description\\n\\nLeaking sensitive data to an exception is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to exceptions.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`php\\nthrow new Exception(\\"error for {$user->email}\\");\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`php\\nthrow new Exception(\\"error for {$user->uuid}\\");\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exception",
       "line_number": 5,
@@ -92,7 +92,7 @@ exports[`php_lang_exception bad 1`] = `
         "210"
       ],
       "id": "php_lang_exception",
-      "title": "Sensitive data in a exception message detected.",
+      "title": "Leakage of sensitive data in exception message",
       "description": "## Description\\n\\nLeaking sensitive data to an exception is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to exceptions.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`php\\nthrow new Exception(\\"error for {$user->email}\\");\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`php\\nthrow new Exception(\\"error for {$user->uuid}\\");\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exception",
       "line_number": 6,

@@ -5,11 +5,10 @@ exports[`javascript_lang_weak_password_hash_argon2 argon2i 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "327",
-        "916"
+        "326"
       ],
       "id": "javascript_lang_weak_password_hash_argon2",
-      "title": "Insecure Argon2 type used for password hashing.",
+      "title": "Usage of weak hashing library on a password (Argon2)",
       "description": "## Description\\n\\nOut of the three variants of the Argon2 algorithm (Argon2i, Argon2d, Argon2id), Argon2id is the recommended choice because it offers the best protection.\\n\\n## Recommendations\\n\\n❌ Do not override the default type (Argon2id) when using the Argon2 library\\n\\n\`\`\`javascript\\n  const argon2 = require(\\"argon2\\");\\n\\n  const hash = await argon2.hash(req.params.password, { type: argon2.argon2i })\\n\`\`\`\\n\\n## Resources\\n- [Argon2 type options](https://github.com/ranisalt/node-argon2/wiki/Options#type)\\n- [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_password_hash_argon2",
       "line_number": 4,

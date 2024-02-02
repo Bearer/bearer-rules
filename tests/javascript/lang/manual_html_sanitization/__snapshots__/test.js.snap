@@ -10,7 +10,7 @@ exports[`javascript_lang_manual_html_sanitization unsafe 1`] = `
         "79"
       ],
       "id": "javascript_lang_manual_html_sanitization",
-      "title": "Manual HTML sanitization detected.",
+      "title": "Usage of manual HTML sanitization (XSS)",
       "description": "## Description\\nSanitizing HTML manually is error prone and can lead to Cross Site\\nScripting (XSS) vulnerabilities.\\n\\n## Remediations\\n\\n❌ Avoid manually escaping HTML:\\n\\n\`\`\`javascript\\nconst sanitizedUserInput = user.Input\\n  .replaceAll('<', '&lt;')\\n  .replaceAll('>', '&gt;');\\nconst html = \`<strong>\${sanitizedUserInput}</strong>\`;\\n\`\`\`\\n\\n✅ Use a HTML sanitization library:\\n\\n\`\`\`javascript\\nimport sanitizeHtml from 'sanitize-html';\\n\\nconst html = sanitizeHtml(\`<strong>\${user.Input}</strong>\`);\\n\`\`\`\\n\\n## Resources\\n- [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_manual_html_sanitization",
       "line_number": 1,

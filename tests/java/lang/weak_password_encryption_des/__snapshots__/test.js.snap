@@ -5,12 +5,10 @@ exports[`java_lang_weak_password_encryption_des des 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "326",
-        "327",
-        "916"
+        "326"
       ],
       "id": "java_lang_weak_password_encryption_des",
-      "title": "Weak encryption algorithm (DES) used for password detected.",
+      "title": "Usage of weak encryption algorithm on a password (DES)",
       "description": "## Description\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), DES (Data Encryption Standard) is considered a weak encryption algorithm and therefore shouldn't be used.\\n\\nMoreover, since encryption is reversible, it is possible to retrieve the plaintext value. This makes encryption a bad choice for passwords. Instead, passwords should be hashed.\\n\\n## Remediations\\n\\n❌ Do not use encryption for passwords, wherever possible.\\n\\n✅ Use a recommended hashing library for passwords\\n\\n\`\`\`java\\n  MessageDigest md = MessageDigest.getInstance(\\"SHA-256\\");\\n\`\`\`\\n\\n## Resources\\n- [Java MessageDigest class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/MessageDigest.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_weak_password_encryption_des",
       "line_number": 7,

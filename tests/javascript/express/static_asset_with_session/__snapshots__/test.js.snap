@@ -7,11 +7,10 @@ exports[`javascript_express_static_asset_with_session unsafe 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "352",
-        "668"
+        "352"
       ],
       "id": "javascript_express_static_asset_with_session",
-      "title": "Static asset with active session detected.",
+      "title": "Usage of session on static asset (CSRF)",
       "description": "## Description\\nStatic assets are often cached by services in front of the application\\n(eg. CDNs). Serving static assets with sessions enabled may lead to\\nCross-Site Request Forgery (CSRF) attacks that can hijack a user's session.\\n\\n## Remediations\\n\\n✅ Ensure static resources are handled prior to session initialization:\\n\\n\`\`\`javascript\\n  // static middleware should be added before session middleware\\n  app.use(express.static(__dirname + \\"/public\\"))\\n\\n  app.use(session())\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_static_asset_with_session",
       "line_number": 3,

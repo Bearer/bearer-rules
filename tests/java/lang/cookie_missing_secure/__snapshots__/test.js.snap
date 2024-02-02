@@ -8,7 +8,7 @@ exports[`java_lang_cookie_missing_secure bad 1`] = `
         "614"
       ],
       "id": "java_lang_cookie_missing_secure",
-      "title": "Missing secure options for cookie detected.",
+      "title": "Missing 'Secure' attribute in cookie configuration",
       "description": "## Description\\n\\nThe \\"Secure\\" attribute when set to \\"true\\" ensures that a client will only send\\nthe cookie to the server when HTTPS is being used. This prevents the cookie\\nfrom being observed by unauthorized third parties.\\n\\n## Remediations\\n\\n✅ Set \`setSecure\` to \`true\`\\n\\n\`\`\`java\\ncookie.setSecure(true);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_cookie_missing_secure",
       "line_number": 6,

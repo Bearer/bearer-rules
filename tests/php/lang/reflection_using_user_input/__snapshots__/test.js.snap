@@ -5,10 +5,10 @@ exports[`php_lang_reflection_using_user_input bad 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "94"
+        "98"
       ],
       "id": "php_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
       "line_number": 5,
@@ -39,10 +39,10 @@ exports[`php_lang_reflection_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "94"
+        "98"
       ],
       "id": "php_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
       "line_number": 6,
@@ -73,10 +73,10 @@ exports[`php_lang_reflection_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "94"
+        "98"
       ],
       "id": "php_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
       "line_number": 7,
@@ -107,10 +107,10 @@ exports[`php_lang_reflection_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "94"
+        "98"
       ],
       "id": "php_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
       "line_number": 8,
@@ -141,10 +141,10 @@ exports[`php_lang_reflection_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "94"
+        "98"
       ],
       "id": "php_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
       "line_number": 10,
@@ -175,10 +175,10 @@ exports[`php_lang_reflection_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "94"
+        "98"
       ],
       "id": "php_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
       "line_number": 12,
@@ -209,10 +209,10 @@ exports[`php_lang_reflection_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "94"
+        "98"
       ],
       "id": "php_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
       "line_number": 14,
@@ -243,10 +243,10 @@ exports[`php_lang_reflection_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "94"
+        "98"
       ],
       "id": "php_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
       "line_number": 15,
@@ -277,10 +277,10 @@ exports[`php_lang_reflection_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "94"
+        "98"
       ],
       "id": "php_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
       "line_number": 17,
@@ -311,10 +311,10 @@ exports[`php_lang_reflection_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "94"
+        "98"
       ],
       "id": "php_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
       "line_number": 18,
@@ -345,10 +345,10 @@ exports[`php_lang_reflection_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "94"
+        "98"
       ],
       "id": "php_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`php\\n$class = new ReflectionClass($_GET[\\"class\\"])\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input",
       "line_number": 19,

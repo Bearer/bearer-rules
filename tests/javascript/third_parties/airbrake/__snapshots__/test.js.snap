@@ -8,7 +8,7 @@ exports[`javascript_third_parties_airbrake datatype_in_notify 1`] = `
         "201"
       ],
       "id": "javascript_third_parties_airbrake",
-      "title": "Sensitive data sent to Airbrake detected.",
+      "title": "Leakage of sensitive data to Airbrake",
       "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\nairbrake.notify({\\n  error: err,\\n  params: { user: user.uuid },\\n});\\n\`\`\`\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_airbrake",
       "line_number": 9,
@@ -50,7 +50,7 @@ exports[`javascript_third_parties_airbrake datatype_in_notify 1`] = `
         "201"
       ],
       "id": "javascript_third_parties_airbrake",
-      "title": "Sensitive data sent to Airbrake detected.",
+      "title": "Leakage of sensitive data to Airbrake",
       "description": "## Description\\nLeaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.\\n\\n## Remediations\\n\\nWhen logging errors or events, ensure all sensitive data is removed.\\n\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\nairbrake.notify({\\n  error: err,\\n  params: { user: user.uuid },\\n});\\n\`\`\`\\n\\n## Resources\\n- [Airbrake Docs](https://docs.airbrake.io/)\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_airbrake",
       "line_number": 16,

@@ -5,10 +5,10 @@ exports[`java_lang_cookie_missing_http_only bad 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "614"
+        "1004"
       ],
       "id": "java_lang_cookie_missing_http_only",
-      "title": "Missing secure options for cookie detected.",
+      "title": "Missing 'HttpOnly' flag in cookie configuration",
       "description": "## Description\\n\\nThe \\"HttpOnly\\" attribute when set to \\"true\\" protects the cookie value from\\nbeing accessed by client side JavaScript such as reading the \\"document.cookie\\"\\nvalues. By enabling this protection, a website that is vulnerable to Cross-Site\\nScripting (XSS) will be able to block malicious scripts from accessing the\\ncookie value from JavaScript.\\n\\n## Remediations\\n\\n✅ Set \`setHttpOnly\` to \`true\`\\n\\n\`\`\`java\\ncookie.setHttpOnly(true);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_cookie_missing_http_only",
       "line_number": 6,

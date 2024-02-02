@@ -5,11 +5,10 @@ exports[`javascript_lang_weak_password_hash_md5 md5_password 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "327",
-        "328"
+        "326"
       ],
       "id": "javascript_lang_weak_password_hash_md5",
-      "title": "Weak hashing library (MD5) used for password detected.",
+      "title": "Usage of weak hashing library on a password (MD5)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\n✅ Use a recommended hashing library such as Argon2id for passwords\\n\\n\`\`\`javascript\\n  const argon2 = require(\\"argon2\\");\\n\\n  const hash = await argon2.hash(req.params.password, { type: argon2.argon2id })\\n\`\`\`\\n\\n## Resources\\n- [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_password_hash_md5",
       "line_number": 4,
@@ -48,11 +47,10 @@ exports[`javascript_lang_weak_password_hash_md5 md5_password 1`] = `
     },
     {
       "cwe_ids": [
-        "327",
-        "328"
+        "326"
       ],
       "id": "javascript_lang_weak_password_hash_md5",
-      "title": "Weak hashing library (MD5) used for password detected.",
+      "title": "Usage of weak hashing library on a password (MD5)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\n✅ Use a recommended hashing library such as Argon2id for passwords\\n\\n\`\`\`javascript\\n  const argon2 = require(\\"argon2\\");\\n\\n  const hash = await argon2.hash(req.params.password, { type: argon2.argon2id })\\n\`\`\`\\n\\n## Resources\\n- [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_password_hash_md5",
       "line_number": 5,
@@ -91,11 +89,10 @@ exports[`javascript_lang_weak_password_hash_md5 md5_password 1`] = `
     },
     {
       "cwe_ids": [
-        "327",
-        "328"
+        "326"
       ],
       "id": "javascript_lang_weak_password_hash_md5",
-      "title": "Weak hashing library (MD5) used for password detected.",
+      "title": "Usage of weak hashing library on a password (MD5)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\n✅ Use a recommended hashing library such as Argon2id for passwords\\n\\n\`\`\`javascript\\n  const argon2 = require(\\"argon2\\");\\n\\n  const hash = await argon2.hash(req.params.password, { type: argon2.argon2id })\\n\`\`\`\\n\\n## Resources\\n- [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_password_hash_md5",
       "line_number": 9,

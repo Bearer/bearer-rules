@@ -5,10 +5,10 @@ exports[`php_lang_session_key_using_user_input bad 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "276"
+        "1018"
       ],
       "id": "php_lang_session_key_using_user_input",
-      "title": "User input detected in a session key.",
+      "title": "Unsanitized user input in session key",
       "description": "## Description\\nUsing user-defined data in a session key is bad practice and can allow\\nattackers to perform unsafe actions.\\n\\n## Remediations\\n❌ Avoid using user-defined data in session keys\\n\\n## Resources\\n- [OWASP Session management cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_session_key_using_user_input",
       "line_number": 5,

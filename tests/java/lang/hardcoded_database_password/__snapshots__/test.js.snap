@@ -10,7 +10,7 @@ exports[`java_lang_hardcoded_database_password bad 1`] = `
         "259"
       ],
       "id": "java_lang_hardcoded_database_password",
-      "title": "Hardcoded database password detected",
+      "title": "Usage of hard-coded database password",
       "description": "## Description\\n\\nHardcoded password used in database connection string detected. Code is not a safe place to store passwords like this; use environment variables or a key-management system instead.\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_hardcoded_database_password",
       "line_number": 8,

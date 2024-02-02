@@ -5,11 +5,10 @@ exports[`php_symfony_cookies bad 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "315",
-        "539"
+        "315"
       ],
       "id": "php_symfony_cookies",
-      "title": "Sensitive data stored in a cookie detected.",
+      "title": "Leakage of sensitive data in cookie",
       "description": "## Description\\n\\nStoring sensitive data in cookies can lead to a data breach. This rule looks for instances where sensitive data is stored in browser cookies.\\n\\n## Remediations\\n\\n❌ Avoid storing sensitive data in unencrypted cookies:\\n\\n\`\`\`php\\n$cookie = Cookie::create(\\"user_email\\", $user->email);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_cookies",
       "line_number": 5,
@@ -48,11 +47,10 @@ exports[`php_symfony_cookies bad 1`] = `
     },
     {
       "cwe_ids": [
-        "315",
-        "539"
+        "315"
       ],
       "id": "php_symfony_cookies",
-      "title": "Sensitive data stored in a cookie detected.",
+      "title": "Leakage of sensitive data in cookie",
       "description": "## Description\\n\\nStoring sensitive data in cookies can lead to a data breach. This rule looks for instances where sensitive data is stored in browser cookies.\\n\\n## Remediations\\n\\n❌ Avoid storing sensitive data in unencrypted cookies:\\n\\n\`\`\`php\\n$cookie = Cookie::create(\\"user_email\\", $user->email);\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_cookies",
       "line_number": 6,

@@ -8,7 +8,7 @@ exports[`javascript_lang_file_generation file_generation 1`] = `
         "313"
       ],
       "id": "javascript_lang_file_generation",
-      "title": "Sensitive data detected as part of a dynamic file generation.",
+      "title": "Leakage of sensitive data in dynamic file generation",
       "description": "## Description\\n\\nIt is not uncommon to generate logs, backups, or data exports to static file formats. This rule checks if code exists to write sensitive data to static files.\\n\\n## Remediations\\n\\nAvoid writing sensitive data to logs, backups, or exports whenever possible. Instead obfuscate and/or filter the data to exclude sensitive information.\\n\\n<!--\\n## Resources\\nComing soon.\\n-->\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_file_generation",
       "line_number": 15,

@@ -8,7 +8,7 @@ exports[`php_lang_websocket_insecure bad 1`] = `
         "319"
       ],
       "id": "php_lang_websocket_insecure",
-      "title": "Insecure websocket communication detected.",
+      "title": "Usage of insecure websocket connection",
       "description": "## Description\\n\\nApplications should only connect to APIs using SSL connections. This rule\\nchecks that all websocket connections use SSL.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing websocket communication:\\n\\n\`\`\`php\\n$client = new Client('ws://insecure-api.com')\\n\`\`\`\\n\\n✅ Always connect using SSL:\\n\\n\`\`\`php\\n$client = new Client('wss://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_websocket_insecure",
       "line_number": 3,
@@ -42,7 +42,7 @@ exports[`php_lang_websocket_insecure bad 1`] = `
         "319"
       ],
       "id": "php_lang_websocket_insecure",
-      "title": "Insecure websocket communication detected.",
+      "title": "Usage of insecure websocket connection",
       "description": "## Description\\n\\nApplications should only connect to APIs using SSL connections. This rule\\nchecks that all websocket connections use SSL.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing websocket communication:\\n\\n\`\`\`php\\n$client = new Client('ws://insecure-api.com')\\n\`\`\`\\n\\n✅ Always connect using SSL:\\n\\n\`\`\`php\\n$client = new Client('wss://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_websocket_insecure",
       "line_number": 4,

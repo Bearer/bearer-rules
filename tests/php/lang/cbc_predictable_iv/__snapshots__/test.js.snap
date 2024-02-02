@@ -8,7 +8,7 @@ exports[`php_lang_cbc_predictable_iv bad 1`] = `
         "329"
       ],
       "id": "php_lang_cbc_predictable_iv",
-      "title": "Predictable initialization vector detected.",
+      "title": "Usage of CBC (Cipher Block Chaining) with predictable Initialization Vector (IV)",
       "description": "## Description\\n\\nApplications using encryption with Cipher Block Chaining (CBC) mode must\\nnot use a predictable Initialization Vector (IV). Using a predictable IV\\nfacilitates dictionary attacks.\\n\\n## Remediations\\n\\n❌ Avoid using a static Initialization Vector:\\n\\n\`\`\`php\\nopenssl_encrypt($data, \\"aes-256-cbc\\", iv: \\"literal-iv\\");\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_cbc_predictable_iv",
       "line_number": 5,
@@ -42,7 +42,7 @@ exports[`php_lang_cbc_predictable_iv bad 1`] = `
         "329"
       ],
       "id": "php_lang_cbc_predictable_iv",
-      "title": "Predictable initialization vector detected.",
+      "title": "Usage of CBC (Cipher Block Chaining) with predictable Initialization Vector (IV)",
       "description": "## Description\\n\\nApplications using encryption with Cipher Block Chaining (CBC) mode must\\nnot use a predictable Initialization Vector (IV). Using a predictable IV\\nfacilitates dictionary attacks.\\n\\n## Remediations\\n\\n❌ Avoid using a static Initialization Vector:\\n\\n\`\`\`php\\nopenssl_encrypt($data, \\"aes-256-cbc\\", iv: \\"literal-iv\\");\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_cbc_predictable_iv",
       "line_number": 6,

@@ -8,7 +8,7 @@ exports[`javascript_express_server_side_request_forgery axios_ssrf_injection 1`]
         "918"
       ],
       "id": "javascript_express_server_side_request_forgery",
-      "title": "Risk of server-side request forgery detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\nUsing unsanitized URLs from the request object when retrieving data puts your application at risk of server-side request forgery (SSRF) attacks.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in URLs:\\n\\n\`\`\`javascript\\naxios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nvar host = \\"default-api.com\\"\\nif req.params.host == \\"something-else\\" {\\n  host = \\"other-api.com\\"\\n}\\n\\naxios.get(\`https://\${host}\`)\\n\`\`\`\\n\\n## Resources\\n- [OWASP - Server-Side Request Forgery (SSRF) prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_server_side_request_forgery",
       "line_number": 10,
@@ -49,7 +49,7 @@ exports[`javascript_express_server_side_request_forgery node_fetch_ssrf_injectio
         "918"
       ],
       "id": "javascript_express_server_side_request_forgery",
-      "title": "Risk of server-side request forgery detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\nUsing unsanitized URLs from the request object when retrieving data puts your application at risk of server-side request forgery (SSRF) attacks.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in URLs:\\n\\n\`\`\`javascript\\naxios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nvar host = \\"default-api.com\\"\\nif req.params.host == \\"something-else\\" {\\n  host = \\"other-api.com\\"\\n}\\n\\naxios.get(\`https://\${host}\`)\\n\`\`\`\\n\\n## Resources\\n- [OWASP - Server-Side Request Forgery (SSRF) prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_server_side_request_forgery",
       "line_number": 12,
@@ -92,7 +92,7 @@ exports[`javascript_express_server_side_request_forgery puppeteer_ssrf_injection
         "918"
       ],
       "id": "javascript_express_server_side_request_forgery",
-      "title": "Risk of server-side request forgery detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\nUsing unsanitized URLs from the request object when retrieving data puts your application at risk of server-side request forgery (SSRF) attacks.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in URLs:\\n\\n\`\`\`javascript\\naxios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nvar host = \\"default-api.com\\"\\nif req.params.host == \\"something-else\\" {\\n  host = \\"other-api.com\\"\\n}\\n\\naxios.get(\`https://\${host}\`)\\n\`\`\`\\n\\n## Resources\\n- [OWASP - Server-Side Request Forgery (SSRF) prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_server_side_request_forgery",
       "line_number": 15,
@@ -126,7 +126,7 @@ exports[`javascript_express_server_side_request_forgery puppeteer_ssrf_injection
         "918"
       ],
       "id": "javascript_express_server_side_request_forgery",
-      "title": "Risk of server-side request forgery detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\nUsing unsanitized URLs from the request object when retrieving data puts your application at risk of server-side request forgery (SSRF) attacks.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in URLs:\\n\\n\`\`\`javascript\\naxios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nvar host = \\"default-api.com\\"\\nif req.params.host == \\"something-else\\" {\\n  host = \\"other-api.com\\"\\n}\\n\\naxios.get(\`https://\${host}\`)\\n\`\`\`\\n\\n## Resources\\n- [OWASP - Server-Side Request Forgery (SSRF) prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_server_side_request_forgery",
       "line_number": 16,

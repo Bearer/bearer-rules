@@ -8,7 +8,7 @@ exports[`java_lang_information_leakage leak 1`] = `
         "209"
       ],
       "id": "java_lang_information_leakage",
-      "title": "Possible information leakage detected.",
+      "title": "Leakage of sensitive information in exception message",
       "description": "## Description\\n\\nPrinting a stack trace to the default output is risky because it may contain sensitive information such as the technical details of your application or environment (which in turn could expose your application to path traversal attacks, for example), or worse, user-specific data.\\n\\n## Remediations\\n\\n❌ Avoid printing the full stack trace\\n\\n✅ Less is more! Only log the minimum required details in error messages\\n\\n## Resources\\n\\n- [Web Application Security Consortium: Information Leakage](http://projects.webappsec.org/w/page/13246936/Information%20Leakage)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_information_leakage",
       "line_number": 8,

@@ -10,7 +10,7 @@ exports[`javascript_express_open_redirect open_redirect 1`] = `
         "601"
       ],
       "id": "javascript_express_open_redirect",
-      "title": "Open redirect detected.",
+      "title": "Unsanitized user input in redirect",
       "description": "## Description\\nA redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.\\n\\n## Remediations\\n❌ Do not use unsanitized user input when constructing URLs\\n\\n✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs\\n\\n\`\`\`javascript\\n  var map = {\\n    \\"1\\": \\"/planes\\",\\n    \\"2\\": \\"/trains\\",\\n    \\"3\\": \\"/automobiles\\",\\n  }\\n\\n  res.redirect(map[req.body.transport])\\n\`\`\`\\n## Resources\\n- [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_open_redirect",
       "line_number": 2,
@@ -44,7 +44,7 @@ exports[`javascript_express_open_redirect open_redirect 1`] = `
         "601"
       ],
       "id": "javascript_express_open_redirect",
-      "title": "Open redirect detected.",
+      "title": "Unsanitized user input in redirect",
       "description": "## Description\\nA redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.\\n\\n## Remediations\\n❌ Do not use unsanitized user input when constructing URLs\\n\\n✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs\\n\\n\`\`\`javascript\\n  var map = {\\n    \\"1\\": \\"/planes\\",\\n    \\"2\\": \\"/trains\\",\\n    \\"3\\": \\"/automobiles\\",\\n  }\\n\\n  res.redirect(map[req.body.transport])\\n\`\`\`\\n## Resources\\n- [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_open_redirect",
       "line_number": 3,
@@ -78,7 +78,7 @@ exports[`javascript_express_open_redirect open_redirect 1`] = `
         "601"
       ],
       "id": "javascript_express_open_redirect",
-      "title": "Open redirect detected.",
+      "title": "Unsanitized user input in redirect",
       "description": "## Description\\nA redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.\\n\\n## Remediations\\n❌ Do not use unsanitized user input when constructing URLs\\n\\n✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs\\n\\n\`\`\`javascript\\n  var map = {\\n    \\"1\\": \\"/planes\\",\\n    \\"2\\": \\"/trains\\",\\n    \\"3\\": \\"/automobiles\\",\\n  }\\n\\n  res.redirect(map[req.body.transport])\\n\`\`\`\\n## Resources\\n- [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_open_redirect",
       "line_number": 4,
@@ -112,7 +112,7 @@ exports[`javascript_express_open_redirect open_redirect 1`] = `
         "601"
       ],
       "id": "javascript_express_open_redirect",
-      "title": "Open redirect detected.",
+      "title": "Unsanitized user input in redirect",
       "description": "## Description\\nA redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.\\n\\n## Remediations\\n❌ Do not use unsanitized user input when constructing URLs\\n\\n✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs\\n\\n\`\`\`javascript\\n  var map = {\\n    \\"1\\": \\"/planes\\",\\n    \\"2\\": \\"/trains\\",\\n    \\"3\\": \\"/automobiles\\",\\n  }\\n\\n  res.redirect(map[req.body.transport])\\n\`\`\`\\n## Resources\\n- [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_open_redirect",
       "line_number": 5,
