@@ -25,7 +25,7 @@ languages:
   - go
 severity: high
 metadata:
-  description: "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')"
+  description: "Unsanitized user input in OS command"
   remediation_message: |
     ## Description
 
@@ -95,6 +95,6 @@ metadata:
 
     - [OWASP OS Command Injection Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
   cwe_id:
-    - 95
+    - 94
   id: go_gosec_subproc_subproc
   documentation_url: https://docs.bearer.com/reference/rules/go_gosec_subproc_subproc

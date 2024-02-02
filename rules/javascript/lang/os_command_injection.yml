@@ -17,7 +17,7 @@ languages:
   - javascript
 severity: high
 metadata:
-  description: "OS command injection vulnerability detected."
+  description: "Unsanitized user input in OS command"
   remediation_message: |
     ## Description
     Using external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.

@@ -99,7 +99,7 @@ languages:
   - php
 severity: high
 metadata:
-  description: "Do not use user input to form file paths."
+  description: "Unsanitized user input in file path"
   remediation_message: |
     ## Description
     Using raw unsanitized input when forming filenames or file paths is bad practice.
@@ -135,7 +135,6 @@ metadata:
     ## Resources
     - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
   cwe_id:
-    - 22
     - 73
   id: php_lang_path_using_user_input
   documentation_url: https://docs.bearer.com/reference/rules/php_lang_path_using_user_input

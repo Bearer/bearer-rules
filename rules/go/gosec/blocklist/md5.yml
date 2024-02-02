@@ -8,7 +8,7 @@ patterns:
 languages:
   - go
 metadata:
-  description: "Use of a Broken or Risky Cryptographic Algorithm"
+  description: "Import of weak hashing library (MD5)"
   remediation_message: |
     ## Description
 
@@ -42,6 +42,6 @@ metadata:
     - [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
 
   cwe_id:
-    - 327
+    - 328
   id: go_gosec_blocklist_md5
   documentation_url: https://docs.bearer.com/reference/rules/go_gosec_blocklist_md5

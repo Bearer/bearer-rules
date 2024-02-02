@@ -68,7 +68,7 @@ auxiliary:
             regex: \AReflection
 severity: high
 metadata:
-  description: "Use of reflection influenced by user input detected."
+  description: "Unsanitized user input in code generation"
   remediation_message: |
     ## Description
 
@@ -85,6 +85,6 @@ metadata:
     ## Resources
     - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
   cwe_id:
-    - 94
+    - 98
   id: php_lang_reflection_using_user_input
   documentation_url: https://docs.bearer.com/reference/rules/php_lang_reflection_using_user_input

@@ -19,7 +19,7 @@ languages:
   - javascript
 severity: low
 metadata:
-  description: "Manual HTML sanitization detected."
+  description: "Usage of manual HTML sanitization (XSS)"
   remediation_message: |
     ## Description
     Sanitizing HTML manually is error prone and can lead to Cross Site

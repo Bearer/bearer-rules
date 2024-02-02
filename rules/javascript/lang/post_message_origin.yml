@@ -13,7 +13,7 @@ patterns:
         regex: \A["']\*["']\z
 severity: medium
 metadata:
-  description: "Permissive origin in postMessage detected."
+  description: "Permissive origin in postMessage"
   remediation_message: |
     ## Description
 
@@ -34,6 +34,6 @@ metadata:
     window.postMessage(message, 'https://myapp.example.com')
     ```
   cwe_id:
-    - 923
+    - 346
   id: "javascript_lang_post_message_origin"
   documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_post_message_origin

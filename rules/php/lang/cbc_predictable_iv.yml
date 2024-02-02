@@ -26,7 +26,8 @@ patterns:
         scope: cursor
 severity: high
 metadata:
-  description: "Predictable initialization vector detected."
+  description: "Usage of CBC (Cipher Block Chaining) with predictable
+    Initialization Vector (IV)"
   remediation_message: |
     ## Description
 

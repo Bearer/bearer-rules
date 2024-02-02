@@ -24,7 +24,7 @@ trigger:
   match_on: absence
   required_detection: javascript_express_reduce_fingerprint_express_init
 metadata:
-  description: "Security misconfiguration detected (server fingerprinting)."
+  description: "Missing server configuration to reduce server fingerprinting"
   remediation_message: |
     ## Description
 

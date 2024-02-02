@@ -65,7 +65,7 @@ skip_data_types:
   - "Unique Identifier"
   - Passwords # see php_lang_weak_password_hash_sha1
 metadata:
-  description: "Weak hashing library (SHA-1) detected"
+  description: "Usage of weak hashing library (SHA-1)"
   remediation_message: |
     ## Description
 
@@ -87,7 +87,7 @@ metadata:
       $encrypted = hash('sha256', $input);
     ```
   cwe_id:
-    - 327
+    - 328
   id: php_lang_weak_hash_sha1
   documentation_url: https://docs.bearer.com/reference/rules/php_lang_weak_hash_sha1
   cloud_code_suggestions: true

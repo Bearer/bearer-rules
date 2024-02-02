@@ -7,7 +7,7 @@ languages:
   - ruby
 severity: warning
 metadata:
-  description: "Possibly dangerous permitted parameter key detected."
+  description: "Possible dangerous permitted parameter key"
   remediation_message: |
     ## Description
     Safe-listing high-risk param keys makes Rails applications open to mass assignment vulnerability.
@@ -34,6 +34,6 @@ metadata:
     - [OWASP Mass Assignment Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Mass_Assignment_Cheat_Sheet.html)
     - [Ruby on Rails security guide on mass assignment](https://guides.rubyonrails.org/v3.2.9/security.html#mass-assignment)
   cwe_id:
-    - 915
+    - 913
   id: ruby_rails_unsafe_mass_assignment
   documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_unsafe_mass_assignment

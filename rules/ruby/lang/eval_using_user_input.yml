@@ -35,7 +35,7 @@ languages:
   - ruby
 severity: high
 metadata:
-  description: "Potential command injection with user input detected."
+  description: "Unsanitized user input in 'eval' type function"
   remediation_message: |
     ## Description
     It is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.
@@ -58,7 +58,6 @@ metadata:
     ## Resources
     - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
   cwe_id:
-    - 94
     - 95
   id: ruby_lang_eval_using_user_input
   documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_eval_using_user_input

@@ -28,7 +28,7 @@ auxiliary:
 languages:
   - java
 metadata:
-  description: "Missing secure options for cookie detected."
+  description: "Missing 'HttpOnly' flag in cookie configuration"
   remediation_message: |
     ## Description
 
@@ -46,7 +46,7 @@ metadata:
     cookie.setHttpOnly(true);
     ```
   cwe_id:
-    - 614
+    - 1004
   id: java_lang_cookie_missing_http_only
   documentation_url: https://docs.bearer.com/reference/rules/java_lang_cookie_missing_http_only
   cloud_code_suggestions: true

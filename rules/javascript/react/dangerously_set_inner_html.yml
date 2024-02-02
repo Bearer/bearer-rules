@@ -24,7 +24,7 @@ languages:
   - javascript
 severity: high
 metadata:
-  description: "React's dangerously set inner HTML detected."
+  description: "Unsanitized user input in React inner HTML method (XSS)"
   remediation_message: |
     ## Description
     There are Cross-Site Scripting (XSS) vulnerabilites when using React's dangerouslySetInnerHTML with unsanitized data.

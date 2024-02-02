@@ -86,7 +86,7 @@ languages:
   - go
 severity: high
 metadata:
-  description: "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+  description: "Unsanitized user input in SQL query"
   remediation_message: |
     ## Description
 

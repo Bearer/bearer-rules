@@ -25,7 +25,7 @@ auxiliary:
 languages:
   - go
 metadata:
-  description: "Incorrect permission assignment for critical resource"
+  description: "Permissive file assignment"
   remediation_message: |
     ## Description
 
@@ -80,6 +80,6 @@ metadata:
     Regularly audit file permissions to ensure they adhere to the principle of least privilege.
 
   cwe_id:
-    - 732
+    - 276
   id: go_gosec_file_permissions_file_perm
   documentation_url: https://docs.bearer.com/reference/rules/go_gosec_file_permissions_file_perm

@@ -4,7 +4,7 @@ patterns:
 languages:
   - go
 metadata:
-  description: "Use of deprecated TLS version"
+  description: "Usage of deprecated TLS version"
   remediation_message: |
     ## Description
 
@@ -72,6 +72,6 @@ metadata:
     - [Go `crypto/tls` package documentation](https://pkg.go.dev/crypto/tls)
 
   cwe_id:
-    - 310
+    - 327
   id: go_gosec_crypto_weak_tls_version
   documentation_url: https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_tls_version

@@ -38,7 +38,7 @@ languages:
   - javascript
 severity: high
 metadata:
-  description: "Raw user input in data store query detected."
+  description: "Unsanitized user input in DynamoDB query"
   remediation_message: |
     ## Description
     Including unsanitized data, such as user input or request data, in raw queries makes your application vulnerable to injection attacks.
@@ -68,7 +68,7 @@ metadata:
     - [OWASP nosql injection explained](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection)
 
   cwe_id:
-    - 89
+    - 943
   id: "javascript_third_parties_dynamodb_query_injection"
   documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_dynamodb_query_injection
   cloud_code_suggestions: true

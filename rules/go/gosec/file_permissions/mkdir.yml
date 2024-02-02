@@ -19,7 +19,7 @@ auxiliary:
 languages:
   - go
 metadata:
-  description: "Incorrect permission assignment for critical resource"
+  description: "Permissive folder creation"
   remediation_message: |
     ## Description
 
@@ -72,6 +72,6 @@ metadata:
     Implement regular checks of directory permissions as part of your security auditing procedures to identify and correct any permissions that are too broad.
 
   cwe_id:
-    - 732
+    - 276
   id: go_gosec_file_permissions_mkdir
   documentation_url: https://docs.bearer.com/reference/rules/go_gosec_file_permissions_mkdir

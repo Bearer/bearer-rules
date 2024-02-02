@@ -66,7 +66,7 @@ languages:
   - javascript
 severity: high
 metadata:
-  description: "Dangerous dynamic HTML insert detected."
+  description: "Unsanitized user input in dynamic HTML insertion (XSS)"
   remediation_message: |
     ## Description
     There are XSS vulnerabilities when dynamically inserting HTML that contains unsanitized data.

@@ -15,7 +15,7 @@ patterns:
         detection: php_shared_lang_datatype
         scope: result
 metadata:
-  description: "Sensitive data detected as part of a dynamic file generation."
+  description: "Leakage of sensitive data in dynamic file generation"
   remediation_message: |
     ## Description
 
@@ -33,7 +33,6 @@ metadata:
 
     In instances where writing sensitive data is intentional, make sure to document its location according to your internal policies.
   cwe_id:
-    - 532
     - 313
   id: php_lang_file_generation
   documentation_url: https://docs.bearer.com/reference/rules/php_lang_file_generation

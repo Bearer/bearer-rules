@@ -37,7 +37,7 @@ auxiliary:
 languages:
   - go
 metadata:
-  description: "Improper limitation of a pathname to a restricted directory ('Path Traversal')"
+  description: "Missing protection against 'Zip Slip' path traversal"
   remediation_message: |
     ## Description
 

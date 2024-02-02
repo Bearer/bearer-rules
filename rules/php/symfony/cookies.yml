@@ -20,7 +20,7 @@ patterns:
 languages:
   - php
 metadata:
-  description: "Sensitive data stored in a cookie detected."
+  description: "Leakage of sensitive data in cookie"
   remediation_message: |
     ## Description
 
@@ -35,7 +35,6 @@ metadata:
     ```
   cwe_id:
     - 315
-    - 539
   id: php_symfony_cookies
   documentation_url: https://docs.bearer.com/reference/rules/php_symfony_cookies
   cloud_code_suggestions: true

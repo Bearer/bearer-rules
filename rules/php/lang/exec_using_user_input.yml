@@ -58,7 +58,7 @@ patterns:
         scope: result
 severity: high
 metadata:
-  description: "Execution of OS command formed with user input detected."
+  description: "Unsanitized user input in OS command"
   remediation_message: |
     ## Description
 

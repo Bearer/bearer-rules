@@ -64,7 +64,7 @@ skip_data_types:
   - "Unique Identifier"
   - Passwords # see ruby_lang_weak_password_encryption_blowfish
 metadata:
-  description: "Weak encryption library (Blowfish) detected."
+  description: "Usage of weak encryption algorithm (Blowfish)"
   remediation_message: |
     ## Description
 
@@ -88,8 +88,7 @@ metadata:
     ## Resources
     - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
   cwe_id:
-    - 331
-    - 326
+    - 327
   id: ruby_lang_weak_encryption_blowfish
   documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_blowfish
   cloud_code_suggestions: true

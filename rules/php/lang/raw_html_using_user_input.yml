@@ -12,7 +12,7 @@ patterns:
         scope: result
 severity: high
 metadata:
-  description: "Unsanitized user input detected in raw HTML string."
+  description: "Unsanitized user input in raw HTML strings (XSS)"
   remediation_message: |
     ## Description
 

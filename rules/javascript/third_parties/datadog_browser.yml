@@ -10,7 +10,7 @@ patterns:
 languages:
   - javascript
 metadata:
-  description: "Sensitive data sent to Datadog detected."
+  description: "Leakage of sensitive data to Datadog RUM"
   remediation_message: |
     ## Description
     Sensitive and private data contained in your pages may be sent to datatdog to identify elements that a user interacted with.

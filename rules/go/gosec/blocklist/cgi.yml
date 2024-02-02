@@ -8,7 +8,7 @@ patterns:
 languages:
   - go
 metadata:
-  description: "Use of a Broken or Risky Cryptographic Algorithm"
+  description: "Usage of vulnerable 'net/http/cgi' package"
   remediation_message: |
     ## Description
 
@@ -54,6 +54,6 @@ metadata:
     - [Httpoxy.org](https://httpoxy.org/)
 
   cwe_id:
-    - 327
+    - 1395
   id: go_gosec_blocklist_cgi
   documentation_url: https://docs.bearer.com/reference/rules/go_gosec_blocklist_cgi

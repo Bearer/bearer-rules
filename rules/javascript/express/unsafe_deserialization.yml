@@ -42,7 +42,7 @@ languages:
   - javascript
 severity: high
 metadata:
-  description: "Deserialization of untrusted data detected."
+  description: "Unsanitized user input in deserialization method"
   remediation_message: |
     ## Description
     It is bad practice to deserialize (unmarshal) untrusted data, such as data direct from the request object.

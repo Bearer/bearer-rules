@@ -67,7 +67,7 @@ languages:
   - php
 severity: high
 metadata:
-  description: "Potential SQL injection with user input detected."
+  description: "Unsanitized user input in SQL query"
   remediation_message: |
     ## Description
     Including unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.

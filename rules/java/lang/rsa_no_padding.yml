@@ -8,7 +8,7 @@ patterns:
 languages:
   - java
 metadata:
-  description: "RSA algorithm with no padding detected."
+  description: "Missing Optimal Asymmetric Encryption Padding (OAEP)"
   remediation_message: |
     ## Description
 
@@ -25,7 +25,6 @@ metadata:
     ## Resources
     - [Java MessageDigest class](https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html)
   cwe_id:
-    - 327
     - 780
   id: "java_lang_rsa_no_padding"
   documentation_url: https://docs.bearer.com/reference/rules/java_lang_rsa_no_padding

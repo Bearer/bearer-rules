@@ -16,7 +16,7 @@ patterns:
 languages:
   - javascript
 metadata:
-  description: "Loading of resource resolved from external name detected."
+  description: "Usage of externally controlled input to select code"
   remediation_message: |
     ## Description
 
@@ -36,7 +36,6 @@ metadata:
     }
     ```
   cwe_id:
-    - 22
-    - 95
+    - 470
   id: "javascript_lang_import_using_user_input"
   documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_import_using_user_input
