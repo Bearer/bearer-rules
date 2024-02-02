@@ -1,13 +1,16 @@
 {
   "scripts": {
     "test": "jest",
-    "generate_rule": "node scripts/generate_rule.js"
+    "generate_rule": "node scripts/generate_rule.js",
+    "bulk-update": "node scripts/bulk_update.js"
   },
   "devDependencies": {
     "jest": "^29.6.1",
     "prettier": "^3.2.4"
   },
   "dependencies": {
-    "commander": "^11.1.0"
+    "commander": "^11.1.0",
+    "csv-parse": "^5.5.3",
+    "yaml": "^2.3.4"
   }
 }
