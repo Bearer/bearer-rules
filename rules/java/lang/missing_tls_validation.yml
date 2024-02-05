@@ -1,0 +1,47 @@
+imports:
+  - java_shared_lang_instance
+patterns:
+  - pattern: |
+      $<DEFAULT_HTTP_CLIENT>;
+    filters:
+      - variable: DEFAULT_HTTP_CLIENT
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(org\.apache\.http\.impl\.client\.)?DefaultHttpClient\z
+  - pattern: |
+      $<SSL_CONTEXT>.getInstance($<SSL_STRING>);
+    filters:
+      - variable: SSL_CONTEXT
+        regex: \A(javax\.net\.ssl\.)?SSLContext\z
+      - variable: SSL_STRING
+        string_regex: (?i)\ASSL\z
+languages:
+  - java
+severity: warning
+metadata:
+  description: Missing TLS validation
+  remediation_message: |
+    ## Description
+
+    When establishing a connection, it is important to verify the hostname to mitigate man-in-the-middle attacks, data interception and related security risks.
+    `DefaultHttpClient` is deprecated and does not verify hostnames.
+
+    Likewise, the SSL protocol is also deprecated on account of its known security vulnerabilities.
+
+    ## Remediations
+
+    ✅ Use newer HTTP Clients such as `java.net.http.HttpClient` that do this validation automatically
+
+    ✅ Use newer protocols like TLS instead of SSL
+
+    ```java
+    SSLContext.getInstance("TLS")
+    ```
+
+    ❌ Do not use deprecated HTTP Clients such as `DefaultHttpClient`
+  cwe_id:
+    - 295
+  id: java_lang_ssl_verification
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_ssl_verification
