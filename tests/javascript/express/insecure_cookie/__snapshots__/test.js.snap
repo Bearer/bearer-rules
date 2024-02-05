@@ -1,47 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`javascript_express_insecure_cookie http_only 1`] = `
-"{
-  "low": [
-    {
-      "cwe_ids": [
-        "1004",
-        "614"
-      ],
-      "id": "javascript_express_insecure_cookie",
-      "title": "Missing secure options for cookie detected.",
-      "description": "## Description\\nTo make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.\\n\\n## Remediations\\n✅ Set cookie security values to use HTTP(S) instead of client-side javascript.\\n\\n✅ Set \`secure\` values to \`true\` to force cookies to only send over HTTPS.\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
-      "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_insecure_cookie",
-      "line_number": 10,
-      "full_filename": "/tmp/bearer-scan/http_only.js",
-      "filename": ".",
-      "source": {
-        "start": 10,
-        "end": 19,
-        "column": {
-          "start": 11,
-          "end": 4
-        }
-      },
-      "sink": {
-        "start": 10,
-        "end": 19,
-        "column": {
-          "start": 11,
-          "end": 4
-        },
-        "content": "{\\n    cookie: {\\n      domain: \\"example.com\\",\\n      httpOnly: false,\\n      secure: true,\\n      name: \\"my-custom-cookie-name\\",\\n      maxAge: 24 * 60 * 60 * 1000,\\n      path: \\"/some-path\\",\\n    },\\n  }"
-      },
-      "parent_line_number": 10,
-      "snippet": "{\\n    cookie: {\\n      domain: \\"example.com\\",\\n      httpOnly: false,\\n      secure: true,\\n      name: \\"my-custom-cookie-name\\",\\n      maxAge: 24 * 60 * 60 * 1000,\\n      path: \\"/some-path\\",\\n    },\\n  }",
-      "fingerprint": "0b87579d3cc308770141504e6ed4a2a5_0",
-      "old_fingerprint": "e0793e4ce5233244e0eb2357b7c9dd0b_0",
-      "code_extract": "  session({\\n    cookie: {\\n      domain: \\"example.com\\",\\n      ...omitted (buffer value 3)\\n      path: \\"/some-path\\",\\n    },\\n  })"
-    }
-  ]
-}"
-`;
-
 exports[`javascript_express_insecure_cookie insecure_cookie 1`] = `
 "{
   "low": [
