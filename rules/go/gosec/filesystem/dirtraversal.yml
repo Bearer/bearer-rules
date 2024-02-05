@@ -16,7 +16,7 @@ auxiliary:
 languages:
   - go
 metadata:
-  description: "Relative path traversal"
+  description: "Usage of Root directory mounting"
   remediation_message: |
     ## Description
 
@@ -76,6 +76,6 @@ metadata:
     - [Linux man page for chmod (file permissions)](https://linux.die.net/man/1/chmod)
 
   cwe_id:
-    - 327
+    - 22
   id: go_gosec_filesystem_dirtraversal
   documentation_url: https://docs.bearer.com/reference/rules/go_gosec_filesystem_dirtraversal

@@ -93,7 +93,7 @@ skip_data_types:
   - "Unique Identifier"
   - "Passwords" # see ruby_lang_weak_password_hash_sha
 metadata:
-  description: "Weak hashing library (SHA) detected."
+  description: "Usage of weak hashing library (SHA)"
   remediation_message: |
     ## Description
 
@@ -118,7 +118,6 @@ metadata:
     ## Resources
     - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
   cwe_id:
-    - 331
     - 328
   id: ruby_lang_weak_hash_sha
   documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_weak_hash_sha

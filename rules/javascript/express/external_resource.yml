@@ -10,7 +10,7 @@ patterns:
 languages:
   - javascript
 metadata:
-  description: "Rendering of resources resolved from external name or reference detected."
+  description: "Unsanitized user input in resource rendering"
   remediation_message: |
     ## Description
     Using raw unsanitized input when rendering resources is bad practice.

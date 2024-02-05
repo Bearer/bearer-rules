@@ -10,7 +10,7 @@ exports[`javascript_express_external_file_upload send_file_with_external_input 1
         "73"
       ],
       "id": "javascript_express_external_file_upload",
-      "title": "External control of filename or path detected.",
+      "title": "Unsanitized user input in file request",
       "description": "## Description\\nPassing unsanitized user input to the sendFile API is bad practice and can lead to path manipulation, by which attackers can gain access to resources and data outside of the intended scope.\\n\\n## Remediations\\n✅ Set the root option to be an absolute path to a directory\\n\\n\`\`\`javascript\\napp.post(\\"/upload\\", (req, res) => {\\n  var options = {\\n    root: path.join(__dirname, \\"upload\\")\\n  }\\n  res.sendFile(req.params.filename, options)\\n}\\n\`\`\`\\n\\n## Resources\\n- [Express sendFile API reference](http://expressjs.com/en/5x/api.html#res.sendFile)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_external_file_upload",
       "line_number": 12,
@@ -44,7 +44,7 @@ exports[`javascript_express_external_file_upload send_file_with_external_input 1
         "73"
       ],
       "id": "javascript_express_external_file_upload",
-      "title": "External control of filename or path detected.",
+      "title": "Unsanitized user input in file request",
       "description": "## Description\\nPassing unsanitized user input to the sendFile API is bad practice and can lead to path manipulation, by which attackers can gain access to resources and data outside of the intended scope.\\n\\n## Remediations\\n✅ Set the root option to be an absolute path to a directory\\n\\n\`\`\`javascript\\napp.post(\\"/upload\\", (req, res) => {\\n  var options = {\\n    root: path.join(__dirname, \\"upload\\")\\n  }\\n  res.sendFile(req.params.filename, options)\\n}\\n\`\`\`\\n\\n## Resources\\n- [Express sendFile API reference](http://expressjs.com/en/5x/api.html#res.sendFile)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_external_file_upload",
       "line_number": 13,
@@ -78,7 +78,7 @@ exports[`javascript_express_external_file_upload send_file_with_external_input 1
         "73"
       ],
       "id": "javascript_express_external_file_upload",
-      "title": "External control of filename or path detected.",
+      "title": "Unsanitized user input in file request",
       "description": "## Description\\nPassing unsanitized user input to the sendFile API is bad practice and can lead to path manipulation, by which attackers can gain access to resources and data outside of the intended scope.\\n\\n## Remediations\\n✅ Set the root option to be an absolute path to a directory\\n\\n\`\`\`javascript\\napp.post(\\"/upload\\", (req, res) => {\\n  var options = {\\n    root: path.join(__dirname, \\"upload\\")\\n  }\\n  res.sendFile(req.params.filename, options)\\n}\\n\`\`\`\\n\\n## Resources\\n- [Express sendFile API reference](http://expressjs.com/en/5x/api.html#res.sendFile)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_external_file_upload",
       "line_number": 14,
@@ -112,7 +112,7 @@ exports[`javascript_express_external_file_upload send_file_with_external_input 1
         "73"
       ],
       "id": "javascript_express_external_file_upload",
-      "title": "External control of filename or path detected.",
+      "title": "Unsanitized user input in file request",
       "description": "## Description\\nPassing unsanitized user input to the sendFile API is bad practice and can lead to path manipulation, by which attackers can gain access to resources and data outside of the intended scope.\\n\\n## Remediations\\n✅ Set the root option to be an absolute path to a directory\\n\\n\`\`\`javascript\\napp.post(\\"/upload\\", (req, res) => {\\n  var options = {\\n    root: path.join(__dirname, \\"upload\\")\\n  }\\n  res.sendFile(req.params.filename, options)\\n}\\n\`\`\`\\n\\n## Resources\\n- [Express sendFile API reference](http://expressjs.com/en/5x/api.html#res.sendFile)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_external_file_upload",
       "line_number": 15,

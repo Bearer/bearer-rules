@@ -5,10 +5,10 @@ exports[`go_gosec_blocklist_md5 test 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "327"
+        "328"
       ],
       "id": "go_gosec_blocklist_md5",
-      "title": "Use of a Broken or Risky Cryptographic Algorithm",
+      "title": "Import of weak hashing library (MD5)",
       "description": "## Description\\n\\nMD5 is a widely used cryptographic hash function that produces a 128-bit (16-byte) hash value. It's commonly used to check the integrity of files. However, MD5 is not collision-resistant; this means that different inputs may produce the same output hash. MD5's vulnerabilities and the feasibility of collision attacks have rendered it obsolete for security-related purposes, particularly digital signatures, SSL certificates, and cryptographic message authentication.\\n\\n## Remediation\\n\\nGiven the vulnerabilities of MD5, it is highly recommended to switch to more secure hashing algorithms. For hashing purposes that do not involve passwords, such as verifying file integrity or generating unique identifiers, SHA-3 or BLAKE2 can be used due to their stronger cryptographic properties.\\n\\n✅ Use SHA-3 or BLAKE2 for General Hashing Needs\\n\\n\`\`\`go\\n// BLAKE2 is a cryptographic hash function faster than MD5, SHA-1, and SHA-2, and as secure as the latest standard SHA-3\\nfileContents := []byte(\\"some file contents to create hash for\\")\\nblake2bHasher, err := blake2b.New512(nil)\\nif err != nil {\\n  log.Fatal(err)\\n}\\nhashedValue := blake2bHasher.Sum(fileContents)\\nfmt.Printf(\\"%s\\\\n\\", hex.EncodeToString(hashedValue))\\n\`\`\`\\n\\nFor password hashing, where the hash functions need to be slow to combat brute-force attacks, bcrypt or Argon2id should be used. These algorithms are designed to be computationally intensive to hash and verify, which helps protect against password cracking attempts.\\n\\n✅ Adopt bcrypt or Argon2id for Password Hashing\\n\\nThe bcrypt algorithm is a good choice for password hashing as it allows you to adjust the cost (computational complexity) and is widely supported. Argon2id is the winner of the Password Hashing Competition and offers a good balance between resistance to GPU cracking attacks and usability.\\n\\n## Resources\\n\\n- [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_blocklist_md5",
       "line_number": 4,

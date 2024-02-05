@@ -75,7 +75,7 @@ auxiliary:
       - new XMLHttpRequest()
 severity: high
 metadata:
-  description: "HTTP communication with user-controlled destination detected."
+  description: "Unsanitized user input in HTTP request (SSRF)"
   remediation_message: |
     ## Description
 

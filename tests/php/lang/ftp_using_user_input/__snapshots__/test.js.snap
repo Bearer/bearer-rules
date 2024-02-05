@@ -5,10 +5,10 @@ exports[`php_lang_ftp_using_user_input bad 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "22"
+        "73"
       ],
       "id": "php_lang_ftp_using_user_input",
-      "title": "Do not use user input with FTP.",
+      "title": "Unsanitized user input in FTP request",
       "description": "## Description\\nUsing raw unsanitized input with FTP methods is bad practice.\\nIt could put your application at risk for code injection attacks, or lead\\nto path traversal, by which attackers can gain access to resources outside\\nof the intended scope.\\n\\n## Remediations\\n❌ Do not form filenames or file paths for FTP from raw user input\\n\`\`\`php\\n$connection = ftp_ssl_connect(\\"ftp.example.com\\", 21);\\nftp_delete($connection, $_GET[\\"name\\"]);\\n\`\`\`\\n❌ Do not pass raw user input as arguments to FTP methods\\n\\n\`\`\`php\\n$connection = ftp_ssl_connect($_GET[\\"host\\"], 21);\\n\`\`\`\\n\\n## Resources\\n- [OWASP code injection](https://owasp.org/www-community/attacks/Code_Injection)\\n- [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ftp_using_user_input",
       "line_number": 5,
@@ -39,10 +39,10 @@ exports[`php_lang_ftp_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22"
+        "73"
       ],
       "id": "php_lang_ftp_using_user_input",
-      "title": "Do not use user input with FTP.",
+      "title": "Unsanitized user input in FTP request",
       "description": "## Description\\nUsing raw unsanitized input with FTP methods is bad practice.\\nIt could put your application at risk for code injection attacks, or lead\\nto path traversal, by which attackers can gain access to resources outside\\nof the intended scope.\\n\\n## Remediations\\n❌ Do not form filenames or file paths for FTP from raw user input\\n\`\`\`php\\n$connection = ftp_ssl_connect(\\"ftp.example.com\\", 21);\\nftp_delete($connection, $_GET[\\"name\\"]);\\n\`\`\`\\n❌ Do not pass raw user input as arguments to FTP methods\\n\\n\`\`\`php\\n$connection = ftp_ssl_connect($_GET[\\"host\\"], 21);\\n\`\`\`\\n\\n## Resources\\n- [OWASP code injection](https://owasp.org/www-community/attacks/Code_Injection)\\n- [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ftp_using_user_input",
       "line_number": 7,
@@ -73,10 +73,10 @@ exports[`php_lang_ftp_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22"
+        "73"
       ],
       "id": "php_lang_ftp_using_user_input",
-      "title": "Do not use user input with FTP.",
+      "title": "Unsanitized user input in FTP request",
       "description": "## Description\\nUsing raw unsanitized input with FTP methods is bad practice.\\nIt could put your application at risk for code injection attacks, or lead\\nto path traversal, by which attackers can gain access to resources outside\\nof the intended scope.\\n\\n## Remediations\\n❌ Do not form filenames or file paths for FTP from raw user input\\n\`\`\`php\\n$connection = ftp_ssl_connect(\\"ftp.example.com\\", 21);\\nftp_delete($connection, $_GET[\\"name\\"]);\\n\`\`\`\\n❌ Do not pass raw user input as arguments to FTP methods\\n\\n\`\`\`php\\n$connection = ftp_ssl_connect($_GET[\\"host\\"], 21);\\n\`\`\`\\n\\n## Resources\\n- [OWASP code injection](https://owasp.org/www-community/attacks/Code_Injection)\\n- [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_ftp_using_user_input",
       "line_number": 8,

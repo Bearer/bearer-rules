@@ -5,11 +5,10 @@ exports[`go_lang_logger bad 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "209",
         "532"
       ],
       "id": "go_lang_logger",
-      "title": "Sensitive data in a logger message detected.",
+      "title": "Leakage of sensitive data in logger message",
       "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`go\\nlogger.info(f\\"User is: '{user.email}'\\")\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`go\\nlogger.info(f\\"User is: '{user.uuid}'\\")\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_logger",
       "line_number": 27,
@@ -48,11 +47,10 @@ exports[`go_lang_logger bad 1`] = `
     },
     {
       "cwe_ids": [
-        "209",
         "532"
       ],
       "id": "go_lang_logger",
-      "title": "Sensitive data in a logger message detected.",
+      "title": "Leakage of sensitive data in logger message",
       "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`go\\nlogger.info(f\\"User is: '{user.email}'\\")\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`go\\nlogger.info(f\\"User is: '{user.uuid}'\\")\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_logger",
       "line_number": 28,
@@ -91,11 +89,10 @@ exports[`go_lang_logger bad 1`] = `
     },
     {
       "cwe_ids": [
-        "209",
         "532"
       ],
       "id": "go_lang_logger",
-      "title": "Sensitive data in a logger message detected.",
+      "title": "Leakage of sensitive data in logger message",
       "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`go\\nlogger.info(f\\"User is: '{user.email}'\\")\\n\`\`\`\\n\\n✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`go\\nlogger.info(f\\"User is: '{user.uuid}'\\")\\n\`\`\`\\n\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_lang_logger",
       "line_number": 29,

@@ -7,10 +7,10 @@ exports[`ruby_lang_regex_using_user_input unsafe 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "1333"
+        "1287"
       ],
       "id": "ruby_lang_regex_using_user_input",
-      "title": "Regular expression built from user input detected.",
+      "title": "Unsanitized user input in regular expression",
       "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n✅ Specify a timeout when working with regular expressions\\n\\n\`\`\`ruby\\n  Regexp.new(/(a|b)/, timeout: 3)\\n\`\`\`\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_regex_using_user_input",
       "line_number": 1,
@@ -41,10 +41,10 @@ exports[`ruby_lang_regex_using_user_input unsafe 1`] = `
     },
     {
       "cwe_ids": [
-        "1333"
+        "1287"
       ],
       "id": "ruby_lang_regex_using_user_input",
-      "title": "Regular expression built from user input detected.",
+      "title": "Unsanitized user input in regular expression",
       "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n✅ Specify a timeout when working with regular expressions\\n\\n\`\`\`ruby\\n  Regexp.new(/(a|b)/, timeout: 3)\\n\`\`\`\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_regex_using_user_input",
       "line_number": 3,
@@ -75,10 +75,10 @@ exports[`ruby_lang_regex_using_user_input unsafe 1`] = `
     },
     {
       "cwe_ids": [
-        "1333"
+        "1287"
       ],
       "id": "ruby_lang_regex_using_user_input",
-      "title": "Regular expression built from user input detected.",
+      "title": "Unsanitized user input in regular expression",
       "description": "## Description\\n\\nApplications should avoid constructing regular expressions from user input.\\nRegular expressions can have exponential worst-case computational\\ncomplexity, allowing users to trigger this behaviour can result in\\nexcessive CPU consumption causing a regular expression denial of service (ReDoS).\\n\\n## Remediations\\n❌ Avoid using untrusted or user data when building regular expressions\\n\\n✅ Specify a timeout when working with regular expressions\\n\\n\`\`\`ruby\\n  Regexp.new(/(a|b)/, timeout: 3)\\n\`\`\`\\n\\n## Resources\\n- [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_regex_using_user_input",
       "line_number": 5,

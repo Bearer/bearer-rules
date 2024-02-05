@@ -5,10 +5,10 @@ exports[`javascript_express_jwt_not_revoked express_jwt_not_revoked 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "525"
+        "693"
       ],
       "id": "javascript_express_jwt_not_revoked",
-      "title": "Unrevoked JWT detected.",
+      "title": "Missing revoke method on JWT",
       "description": "## Description\\nThe best practice caching policy is to revoke JWTs especially when these contain senstitive information.\\n\\n## Remediations\\n✅ Ensure JWTs are short-lived by revoking them\\n\\n\`\`\`javascript\\nexpressjwt({\\n  ...\\n  isRevoked: this.customRevokeCall(),\\n  ...\\n})\\n\`\`\`\\n\\n## Resources\\n- [ExpressJWT documentation on revoking tokens](https://github.com/auth0/express-jwt#revoked-tokens)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_jwt_not_revoked",
       "line_number": 11,
@@ -39,10 +39,10 @@ exports[`javascript_express_jwt_not_revoked express_jwt_not_revoked 1`] = `
     },
     {
       "cwe_ids": [
-        "525"
+        "693"
       ],
       "id": "javascript_express_jwt_not_revoked",
-      "title": "Unrevoked JWT detected.",
+      "title": "Missing revoke method on JWT",
       "description": "## Description\\nThe best practice caching policy is to revoke JWTs especially when these contain senstitive information.\\n\\n## Remediations\\n✅ Ensure JWTs are short-lived by revoking them\\n\\n\`\`\`javascript\\nexpressjwt({\\n  ...\\n  isRevoked: this.customRevokeCall(),\\n  ...\\n})\\n\`\`\`\\n\\n## Resources\\n- [ExpressJWT documentation on revoking tokens](https://github.com/auth0/express-jwt#revoked-tokens)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_jwt_not_revoked",
       "line_number": 12,
@@ -73,10 +73,10 @@ exports[`javascript_express_jwt_not_revoked express_jwt_not_revoked 1`] = `
     },
     {
       "cwe_ids": [
-        "525"
+        "693"
       ],
       "id": "javascript_express_jwt_not_revoked",
-      "title": "Unrevoked JWT detected.",
+      "title": "Missing revoke method on JWT",
       "description": "## Description\\nThe best practice caching policy is to revoke JWTs especially when these contain senstitive information.\\n\\n## Remediations\\n✅ Ensure JWTs are short-lived by revoking them\\n\\n\`\`\`javascript\\nexpressjwt({\\n  ...\\n  isRevoked: this.customRevokeCall(),\\n  ...\\n})\\n\`\`\`\\n\\n## Resources\\n- [ExpressJWT documentation on revoking tokens](https://github.com/auth0/express-jwt#revoked-tokens)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_jwt_not_revoked",
       "line_number": 13,
@@ -114,10 +114,10 @@ exports[`javascript_express_jwt_not_revoked insecurity_express_jwt_revoked 1`] =
   "low": [
     {
       "cwe_ids": [
-        "525"
+        "693"
       ],
       "id": "javascript_express_jwt_not_revoked",
-      "title": "Unrevoked JWT detected.",
+      "title": "Missing revoke method on JWT",
       "description": "## Description\\nThe best practice caching policy is to revoke JWTs especially when these contain senstitive information.\\n\\n## Remediations\\n✅ Ensure JWTs are short-lived by revoking them\\n\\n\`\`\`javascript\\nexpressjwt({\\n  ...\\n  isRevoked: this.customRevokeCall(),\\n  ...\\n})\\n\`\`\`\\n\\n## Resources\\n- [ExpressJWT documentation on revoking tokens](https://github.com/auth0/express-jwt#revoked-tokens)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_jwt_not_revoked",
       "line_number": 1,
@@ -148,10 +148,10 @@ exports[`javascript_express_jwt_not_revoked insecurity_express_jwt_revoked 1`] =
     },
     {
       "cwe_ids": [
-        "525"
+        "693"
       ],
       "id": "javascript_express_jwt_not_revoked",
-      "title": "Unrevoked JWT detected.",
+      "title": "Missing revoke method on JWT",
       "description": "## Description\\nThe best practice caching policy is to revoke JWTs especially when these contain senstitive information.\\n\\n## Remediations\\n✅ Ensure JWTs are short-lived by revoking them\\n\\n\`\`\`javascript\\nexpressjwt({\\n  ...\\n  isRevoked: this.customRevokeCall(),\\n  ...\\n})\\n\`\`\`\\n\\n## Resources\\n- [ExpressJWT documentation on revoking tokens](https://github.com/auth0/express-jwt#revoked-tokens)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_jwt_not_revoked",
       "line_number": 2,

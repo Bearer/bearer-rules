@@ -58,7 +58,7 @@ languages:
 trigger:
   match_on: presence
 metadata:
-  description: Possible path traversal vulnerability detected
+  description: Unsanitized user input in file path
   remediation_message: |
     ## Description
 
@@ -85,6 +85,6 @@ metadata:
     ## Resources
     - [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)
   cwe_id:
-    - 22
+    - 73
   id: java_lang_path_traversal
   documentation_url: https://docs.bearer.com/reference/rules/java_lang_path_traversal

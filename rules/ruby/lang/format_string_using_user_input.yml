@@ -33,7 +33,7 @@ patterns:
   #   user_input % single_value - could confuse with number mod
 severity: low
 metadata:
-  description: "User input in format string detected."
+  description: "Unsanitized user input in format string"
   remediation_message: |
     ## Description
 

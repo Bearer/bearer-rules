@@ -10,7 +10,7 @@ exports[`ruby_rails_weak_custom_key weak_key 1`] = `
         "326"
       ],
       "id": "ruby_rails_weak_custom_key",
-      "title": "Weak model-specific encryption key detected",
+      "title": "Usage of weak model specific encryption key",
       "description": "## Description\\nTo ensure effective encryption, model-specific encryption keys should be 12 bytes or greater.\\n\\n## Remediations\\n\\n❌ When using model-specific encryption keys, the minimum length you should use is 12 bytes\\n\\n\`\`\`ruby\\nclass User < ApplicationRecord\\n  encrypts :email, key: \\"weak-key\\"\\nend\\n\`\`\`\\n\\n## Resources\\n- [Rails encryption setup and recommended key practice](https://guides.rubyonrails.org/active_record_encryption.html#setup)\\n- [Rails encryption - model-specific keys](https://guides.rubyonrails.org/active_record_encryption.html#model-specific-keys)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_weak_custom_key",
       "line_number": 2,

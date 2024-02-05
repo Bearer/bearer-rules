@@ -19,7 +19,7 @@ languages:
 skip_data_types:
   - "Unique Identifier"
 metadata:
-  description: "Sensitive data sent to ClickHouse detected."
+  description: "Leakage of sensitive data to ClickHouse"
   remediation_message: |
     ## Description
     Leaking sensitive data to a third-party service is a common cause of data

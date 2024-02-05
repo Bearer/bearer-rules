@@ -24,7 +24,7 @@ dependency:
   filename: package.json
 severity: high
 metadata:
-  description: "Insecure use of DOMPurify detected."
+  description: "Usage of vulnerable DOMPurify package (XSS)"
   remediation_message: |
     ## Description
     There are XSS vulnerabilites when using DOMPurify's sanitize without proper configuration

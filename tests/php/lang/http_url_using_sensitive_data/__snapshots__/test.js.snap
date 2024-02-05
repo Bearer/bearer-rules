@@ -8,7 +8,7 @@ exports[`php_lang_http_url_using_sensitive_data bad 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 3,
@@ -57,7 +57,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 11,
@@ -99,7 +99,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 12,
@@ -141,7 +141,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 13,
@@ -183,7 +183,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 15,
@@ -225,7 +225,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 16,
@@ -267,7 +267,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 17,
@@ -309,7 +309,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 18,
@@ -351,7 +351,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 19,
@@ -393,7 +393,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 20,
@@ -435,7 +435,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 21,
@@ -477,7 +477,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 22,
@@ -519,7 +519,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 23,
@@ -561,7 +561,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 24,
@@ -603,7 +603,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 25,
@@ -645,7 +645,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 26,
@@ -687,7 +687,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 27,
@@ -729,7 +729,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_guzzle 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 28,
@@ -778,7 +778,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_httplug 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 5,
@@ -827,7 +827,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_laminas 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 10,
@@ -869,7 +869,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_laminas 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 16,
@@ -911,7 +911,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_laminas 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 17,
@@ -953,7 +953,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_laminas 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 18,
@@ -1002,7 +1002,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_laravel 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 5,
@@ -1044,7 +1044,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_laravel 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 7,
@@ -1086,7 +1086,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_laravel 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 12,
@@ -1128,7 +1128,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_laravel 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 17,
@@ -1170,7 +1170,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_laravel 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 19,
@@ -1212,7 +1212,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_laravel 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 20,
@@ -1261,7 +1261,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_pecl_http 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 6,
@@ -1303,7 +1303,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_pecl_http 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 7,
@@ -1352,7 +1352,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_requests 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 5,
@@ -1394,7 +1394,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_requests 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 6,
@@ -1436,7 +1436,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_requests 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 7,
@@ -1478,7 +1478,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_requests 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 8,
@@ -1520,7 +1520,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_requests 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 10,
@@ -1562,7 +1562,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_requests 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 16,
@@ -1604,7 +1604,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_requests 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 18,
@@ -1646,7 +1646,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_requests 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 19,
@@ -1688,7 +1688,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_requests 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 20,
@@ -1730,7 +1730,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_requests 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 21,
@@ -1772,7 +1772,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_requests 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 23,
@@ -1821,7 +1821,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_sendgrid 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 5,
@@ -1863,7 +1863,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_sendgrid 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 6,
@@ -1905,7 +1905,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_sendgrid 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 7,
@@ -1947,7 +1947,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_sendgrid 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 8,
@@ -1989,7 +1989,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_sendgrid 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 9,
@@ -2038,7 +2038,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_symfony 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 13,
@@ -2087,7 +2087,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_unirest 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 3,
@@ -2129,7 +2129,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_unirest 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 4,
@@ -2171,7 +2171,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_unirest 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 6,
@@ -2213,7 +2213,7 @@ exports[`php_lang_http_url_using_sensitive_data bad_unirest 1`] = `
         "598"
       ],
       "id": "php_lang_http_url_using_sensitive_data",
-      "title": "Sensitive data detected in HTTP URL.",
+      "title": "Leakage of sensitive data in HTTP request",
       "description": "## Description\\nSensitive data should never be sent as part of the URL in HTTP requests.\\n\\n## Remediations\\nAvoid sending sensitive data in a URL as they can be seen by intermediaries,\\nor could be logged by applications:\\n\\n❌ Avoid adding sensitive data in paths:\\n\`\`\`php\\n$curl = curl_init(\\"https://example.com/users/{$user->email}\\");\\n\`\`\`\\n\\n❌ Avoid adding sensitive data in query parameters:\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n✅ Use an HTTP POST body if you need to send sensitive data:\\n\\n\`\`\`php\\n$query = http_build_query(['email' => $user->email]);\\n$curl = curl_init(\\"https://example.com/users/list\\");\\ncurl_setopt($curl, CURLOPT_POSTFIELDS, $query);\\n\`\`\`\\n\\n✅ Or avoid sending sending sensitive data altogether:\\n\\n\`\`\`php\\n$query = http_build_query(['uuid' => $user->uuid]);\\n$curl = curl_init(\\"https://example.com/users?$query\\");\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data",
       "line_number": 7,

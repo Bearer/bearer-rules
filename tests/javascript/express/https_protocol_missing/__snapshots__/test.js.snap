@@ -5,10 +5,10 @@ exports[`javascript_express_https_protocol_missing insecure 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "693"
+        "319"
       ],
       "id": "javascript_express_https_protocol_missing",
-      "title": "Missing https protocol detected.",
+      "title": "Missing secure HTTP server configuration",
       "description": "## Description\\nUse HTTPS wherever possible. HTTPS uses the TLS (Transport Layer Security) protocol to encrypt communication, making it more secure than HTTP.\\n\\n## Remediations\\n✅ Use the \`https\` module when calling \`createServer()\`\\n\\n\`\`\`javascript\\nvar https = require('https');\\nvar express = require('express');\\nvar app = express();\\n\\nvar httpsServer = https.createServer(app)\\nhttpsServer.listen(8080);\\n\`\`\`\\n\\n## Resources\\n- [Express Security Best Practices: use TLS](https://expressjs.com/en/advanced/best-practice-security.html#use-tls)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_https_protocol_missing",
       "line_number": 1,

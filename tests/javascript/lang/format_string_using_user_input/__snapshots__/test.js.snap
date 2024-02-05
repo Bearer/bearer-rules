@@ -8,7 +8,7 @@ exports[`javascript_lang_format_string_using_user_input bad 1`] = `
         "134"
       ],
       "id": "javascript_lang_format_string_using_user_input",
-      "title": "User input in format string detected.",
+      "title": "Unsanitized user input in format string",
       "description": "## Description\\n\\nIf an application includes user input directly in a format string, an\\nattacker can use format specifiers in the user input to produce misleading\\nor fabricated messages.\\n\\n## Remediations\\n\\n❌ Avoid format strings containing user input:\\n\\n\`\`\`javascript\\nconsole.log(\`The value was \${req.params.value}\`)\\n\`\`\`\\n\\n✅ Use a literal format string with additional arguments:\\n\\n\`\`\`javascript\\nconsole.log(\\"The value was %s\\", req.params.value)\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_format_string_using_user_input",
       "line_number": 1,
@@ -42,7 +42,7 @@ exports[`javascript_lang_format_string_using_user_input bad 1`] = `
         "134"
       ],
       "id": "javascript_lang_format_string_using_user_input",
-      "title": "User input in format string detected.",
+      "title": "Unsanitized user input in format string",
       "description": "## Description\\n\\nIf an application includes user input directly in a format string, an\\nattacker can use format specifiers in the user input to produce misleading\\nor fabricated messages.\\n\\n## Remediations\\n\\n❌ Avoid format strings containing user input:\\n\\n\`\`\`javascript\\nconsole.log(\`The value was \${req.params.value}\`)\\n\`\`\`\\n\\n✅ Use a literal format string with additional arguments:\\n\\n\`\`\`javascript\\nconsole.log(\\"The value was %s\\", req.params.value)\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_format_string_using_user_input",
       "line_number": 3,
@@ -76,7 +76,7 @@ exports[`javascript_lang_format_string_using_user_input bad 1`] = `
         "134"
       ],
       "id": "javascript_lang_format_string_using_user_input",
-      "title": "User input in format string detected.",
+      "title": "Unsanitized user input in format string",
       "description": "## Description\\n\\nIf an application includes user input directly in a format string, an\\nattacker can use format specifiers in the user input to produce misleading\\nor fabricated messages.\\n\\n## Remediations\\n\\n❌ Avoid format strings containing user input:\\n\\n\`\`\`javascript\\nconsole.log(\`The value was \${req.params.value}\`)\\n\`\`\`\\n\\n✅ Use a literal format string with additional arguments:\\n\\n\`\`\`javascript\\nconsole.log(\\"The value was %s\\", req.params.value)\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_format_string_using_user_input",
       "line_number": 5,

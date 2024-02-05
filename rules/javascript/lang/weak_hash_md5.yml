@@ -93,7 +93,7 @@ skip_data_types:
   - "Unique Identifier"
   - "Passwords" # see javascript_weak_password_encryption
 metadata:
-  description: "Weak hashing library (MD5) detected."
+  description: "Usage of weak hashing library (MD5)"
   remediation_message: |
     ## Description
 
@@ -115,7 +115,6 @@ metadata:
     ## Resources
     - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)
   cwe_id:
-    - 327
     - 328
   id: javascript_lang_weak_hash_md5
   documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_weak_hash_md5

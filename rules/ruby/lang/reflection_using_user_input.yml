@@ -91,7 +91,7 @@ patterns:
           - safe_constantize
 severity: high
 metadata:
-  description: "Use of reflection influenced by user input detected."
+  description: "Unsanitized user input in code generation"
   remediation_message: |
     ## Description
 

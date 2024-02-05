@@ -57,7 +57,7 @@ languages:
   - javascript
 severity: high
 metadata:
-  description: "Risk of server-side request forgery detected."
+  description: "Unsanitized user input in HTTP request (SSRF)"
   remediation_message: |
     ## Description
     Using unsanitized URLs from the request object when retrieving data puts your application at risk of server-side request forgery (SSRF) attacks.

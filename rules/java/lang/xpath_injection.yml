@@ -32,7 +32,7 @@ auxiliary:
 languages:
   - java
 metadata:
-  description: "XPATH injection threat detected"
+  description: "Unsanitized user input in XPath"
   remediation_message: |
     ## Description
       Unsanitized input going into XPath evaluate detected.

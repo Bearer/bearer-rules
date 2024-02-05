@@ -32,7 +32,7 @@ patterns:
 languages:
   - ruby
 metadata:
-  description: "Sensitive data stored in a cookie detected."
+  description: "Leakage of sensitive data in cookie"
   remediation_message: |
     ## Description
 
@@ -58,7 +58,6 @@ metadata:
     - [Demystifying cookie security in rails 6](https://dev.to/ayushn21/demystifying-cookie-security-in-rails-6-1j2f#:~:text=Rails%20provides%20a%20special%20kind,data%20in%20the%20session%20cookie)
   cwe_id:
     - 315
-    - 539
   id: ruby_lang_cookies
   documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_cookies
   cloud_code_suggestions: true

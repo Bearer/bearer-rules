@@ -33,7 +33,7 @@ auxiliary:
 languages:
   - javascript
 metadata:
-  description: Static asset with active session detected.
+  description: Usage of session on static asset (CSRF)
   remediation_message: |
     ## Description
     Static assets are often cached by services in front of the application
@@ -52,6 +52,5 @@ metadata:
     ```
   cwe_id:
     - 352
-    - 668
   id: javascript_express_static_asset_with_session
   documentation_url: https://docs.bearer.com/reference/rules/javascript_express_static_asset_with_session

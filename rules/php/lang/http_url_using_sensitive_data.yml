@@ -454,7 +454,7 @@ auxiliary:
           - variable: TYPE
             string_regex: (?i)\Aget\z
 metadata:
-  description: "Sensitive data detected in HTTP URL."
+  description: "Leakage of sensitive data in HTTP request"
   remediation_message: |
     ## Description
     Sensitive data should never be sent as part of the URL in HTTP requests.

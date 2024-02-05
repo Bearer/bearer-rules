@@ -8,7 +8,7 @@ exports[`php_symfony_ui_redress bad 1`] = `
         "1021"
       ],
       "id": "php_symfony_ui_redress",
-      "title": "User Interface (UI) redress vulnerability (clickjacking) detected.",
+      "title": "Unsanitized user input in UI",
       "description": "## Description\\nUsing unsanitized user input to set X-Frame-Options or Content-Security-Policy\\nHTTP headers puts your application at risk for UI redress attacks (clickjacking).\\n\\n## Remediations\\n✅ Prefer the most secure values when setting these headers\\n\\n\`\`\`php\\n$response->headers->set(\\"X-Frame-Options\\", \\"DENY\\");\\n$response->headers->set(\\"Content-Security-Policy\\", \\"frame-ancestors 'none'\\");\\n\`\`\`\\n\\n## Resources\\n- [OWASP Clickjacking attack explained](https://owasp.org/www-community/attacks/Clickjacking)\\n- [OWASP Clickjacking defense cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_ui_redress",
       "line_number": 10,
@@ -42,7 +42,7 @@ exports[`php_symfony_ui_redress bad 1`] = `
         "1021"
       ],
       "id": "php_symfony_ui_redress",
-      "title": "User Interface (UI) redress vulnerability (clickjacking) detected.",
+      "title": "Unsanitized user input in UI",
       "description": "## Description\\nUsing unsanitized user input to set X-Frame-Options or Content-Security-Policy\\nHTTP headers puts your application at risk for UI redress attacks (clickjacking).\\n\\n## Remediations\\n✅ Prefer the most secure values when setting these headers\\n\\n\`\`\`php\\n$response->headers->set(\\"X-Frame-Options\\", \\"DENY\\");\\n$response->headers->set(\\"Content-Security-Policy\\", \\"frame-ancestors 'none'\\");\\n\`\`\`\\n\\n## Resources\\n- [OWASP Clickjacking attack explained](https://owasp.org/www-community/attacks/Clickjacking)\\n- [OWASP Clickjacking defense cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_ui_redress",
       "line_number": 11,
@@ -76,7 +76,7 @@ exports[`php_symfony_ui_redress bad 1`] = `
         "1021"
       ],
       "id": "php_symfony_ui_redress",
-      "title": "User Interface (UI) redress vulnerability (clickjacking) detected.",
+      "title": "Unsanitized user input in UI",
       "description": "## Description\\nUsing unsanitized user input to set X-Frame-Options or Content-Security-Policy\\nHTTP headers puts your application at risk for UI redress attacks (clickjacking).\\n\\n## Remediations\\n✅ Prefer the most secure values when setting these headers\\n\\n\`\`\`php\\n$response->headers->set(\\"X-Frame-Options\\", \\"DENY\\");\\n$response->headers->set(\\"Content-Security-Policy\\", \\"frame-ancestors 'none'\\");\\n\`\`\`\\n\\n## Resources\\n- [OWASP Clickjacking attack explained](https://owasp.org/www-community/attacks/Clickjacking)\\n- [OWASP Clickjacking defense cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_ui_redress",
       "line_number": 16,
@@ -110,7 +110,7 @@ exports[`php_symfony_ui_redress bad 1`] = `
         "1021"
       ],
       "id": "php_symfony_ui_redress",
-      "title": "User Interface (UI) redress vulnerability (clickjacking) detected.",
+      "title": "Unsanitized user input in UI",
       "description": "## Description\\nUsing unsanitized user input to set X-Frame-Options or Content-Security-Policy\\nHTTP headers puts your application at risk for UI redress attacks (clickjacking).\\n\\n## Remediations\\n✅ Prefer the most secure values when setting these headers\\n\\n\`\`\`php\\n$response->headers->set(\\"X-Frame-Options\\", \\"DENY\\");\\n$response->headers->set(\\"Content-Security-Policy\\", \\"frame-ancestors 'none'\\");\\n\`\`\`\\n\\n## Resources\\n- [OWASP Clickjacking attack explained](https://owasp.org/www-community/attacks/Clickjacking)\\n- [OWASP Clickjacking defense cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_ui_redress",
       "line_number": 20,

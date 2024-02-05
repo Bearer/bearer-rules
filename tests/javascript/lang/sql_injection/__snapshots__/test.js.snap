@@ -8,7 +8,7 @@ exports[`javascript_lang_sql_injection knex_sql_injection 1`] = `
         "89"
       ],
       "id": "javascript_lang_sql_injection",
-      "title": "SQL injection vulnerability detected.",
+      "title": "Unsanitized user input in SQL query",
       "description": "## Description\\nIncluding unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input\\n\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\"SELECT * FROM users WHERE ID = \\" + req.params.userId);\\n\`\`\`\\n\\nInstead, consider the following approaches when writing SQL queries\\n\\n✅ Validate query input wherever possible\\n\\n\`\`\`javascript\\n  var rawId = req.params.userId\\n  if !(/[0-9]+/.test(rawId)) {\\n    // input is unexpected; don't make the query\\n  }\\n\`\`\`\\n\\n✅ Use prepared (or parameterized) statements when querying\\n\\nSequelize example -\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\n    \\"SELECT * FROM users WHERE ID = ?\\",\\n    { replacements: [req.params.userId] },\\n    type: sequelize.QueryTypes.SELECT\\n  )\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_sql_injection",
       "line_number": 6,
@@ -42,7 +42,7 @@ exports[`javascript_lang_sql_injection knex_sql_injection 1`] = `
         "89"
       ],
       "id": "javascript_lang_sql_injection",
-      "title": "SQL injection vulnerability detected.",
+      "title": "Unsanitized user input in SQL query",
       "description": "## Description\\nIncluding unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input\\n\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\"SELECT * FROM users WHERE ID = \\" + req.params.userId);\\n\`\`\`\\n\\nInstead, consider the following approaches when writing SQL queries\\n\\n✅ Validate query input wherever possible\\n\\n\`\`\`javascript\\n  var rawId = req.params.userId\\n  if !(/[0-9]+/.test(rawId)) {\\n    // input is unexpected; don't make the query\\n  }\\n\`\`\`\\n\\n✅ Use prepared (or parameterized) statements when querying\\n\\nSequelize example -\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\n    \\"SELECT * FROM users WHERE ID = ?\\",\\n    { replacements: [req.params.userId] },\\n    type: sequelize.QueryTypes.SELECT\\n  )\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_sql_injection",
       "line_number": 15,
@@ -83,7 +83,7 @@ exports[`javascript_lang_sql_injection mysql2_sql_injection 1`] = `
         "89"
       ],
       "id": "javascript_lang_sql_injection",
-      "title": "SQL injection vulnerability detected.",
+      "title": "Unsanitized user input in SQL query",
       "description": "## Description\\nIncluding unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input\\n\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\"SELECT * FROM users WHERE ID = \\" + req.params.userId);\\n\`\`\`\\n\\nInstead, consider the following approaches when writing SQL queries\\n\\n✅ Validate query input wherever possible\\n\\n\`\`\`javascript\\n  var rawId = req.params.userId\\n  if !(/[0-9]+/.test(rawId)) {\\n    // input is unexpected; don't make the query\\n  }\\n\`\`\`\\n\\n✅ Use prepared (or parameterized) statements when querying\\n\\nSequelize example -\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\n    \\"SELECT * FROM users WHERE ID = ?\\",\\n    { replacements: [req.params.userId] },\\n    type: sequelize.QueryTypes.SELECT\\n  )\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_sql_injection",
       "line_number": 12,
@@ -117,7 +117,7 @@ exports[`javascript_lang_sql_injection mysql2_sql_injection 1`] = `
         "89"
       ],
       "id": "javascript_lang_sql_injection",
-      "title": "SQL injection vulnerability detected.",
+      "title": "Unsanitized user input in SQL query",
       "description": "## Description\\nIncluding unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input\\n\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\"SELECT * FROM users WHERE ID = \\" + req.params.userId);\\n\`\`\`\\n\\nInstead, consider the following approaches when writing SQL queries\\n\\n✅ Validate query input wherever possible\\n\\n\`\`\`javascript\\n  var rawId = req.params.userId\\n  if !(/[0-9]+/.test(rawId)) {\\n    // input is unexpected; don't make the query\\n  }\\n\`\`\`\\n\\n✅ Use prepared (or parameterized) statements when querying\\n\\nSequelize example -\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\n    \\"SELECT * FROM users WHERE ID = ?\\",\\n    { replacements: [req.params.userId] },\\n    type: sequelize.QueryTypes.SELECT\\n  )\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_sql_injection",
       "line_number": 18,
@@ -151,7 +151,7 @@ exports[`javascript_lang_sql_injection mysql2_sql_injection 1`] = `
         "89"
       ],
       "id": "javascript_lang_sql_injection",
-      "title": "SQL injection vulnerability detected.",
+      "title": "Unsanitized user input in SQL query",
       "description": "## Description\\nIncluding unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input\\n\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\"SELECT * FROM users WHERE ID = \\" + req.params.userId);\\n\`\`\`\\n\\nInstead, consider the following approaches when writing SQL queries\\n\\n✅ Validate query input wherever possible\\n\\n\`\`\`javascript\\n  var rawId = req.params.userId\\n  if !(/[0-9]+/.test(rawId)) {\\n    // input is unexpected; don't make the query\\n  }\\n\`\`\`\\n\\n✅ Use prepared (or parameterized) statements when querying\\n\\nSequelize example -\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\n    \\"SELECT * FROM users WHERE ID = ?\\",\\n    { replacements: [req.params.userId] },\\n    type: sequelize.QueryTypes.SELECT\\n  )\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_sql_injection",
       "line_number": 23,
@@ -194,7 +194,7 @@ exports[`javascript_lang_sql_injection pg_sql_injection 1`] = `
         "89"
       ],
       "id": "javascript_lang_sql_injection",
-      "title": "SQL injection vulnerability detected.",
+      "title": "Unsanitized user input in SQL query",
       "description": "## Description\\nIncluding unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input\\n\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\"SELECT * FROM users WHERE ID = \\" + req.params.userId);\\n\`\`\`\\n\\nInstead, consider the following approaches when writing SQL queries\\n\\n✅ Validate query input wherever possible\\n\\n\`\`\`javascript\\n  var rawId = req.params.userId\\n  if !(/[0-9]+/.test(rawId)) {\\n    // input is unexpected; don't make the query\\n  }\\n\`\`\`\\n\\n✅ Use prepared (or parameterized) statements when querying\\n\\nSequelize example -\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\n    \\"SELECT * FROM users WHERE ID = ?\\",\\n    { replacements: [req.params.userId] },\\n    type: sequelize.QueryTypes.SELECT\\n  )\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_sql_injection",
       "line_number": 8,
@@ -235,7 +235,7 @@ exports[`javascript_lang_sql_injection sequelize_sql_injection 1`] = `
         "89"
       ],
       "id": "javascript_lang_sql_injection",
-      "title": "SQL injection vulnerability detected.",
+      "title": "Unsanitized user input in SQL query",
       "description": "## Description\\nIncluding unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input\\n\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\"SELECT * FROM users WHERE ID = \\" + req.params.userId);\\n\`\`\`\\n\\nInstead, consider the following approaches when writing SQL queries\\n\\n✅ Validate query input wherever possible\\n\\n\`\`\`javascript\\n  var rawId = req.params.userId\\n  if !(/[0-9]+/.test(rawId)) {\\n    // input is unexpected; don't make the query\\n  }\\n\`\`\`\\n\\n✅ Use prepared (or parameterized) statements when querying\\n\\nSequelize example -\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\n    \\"SELECT * FROM users WHERE ID = ?\\",\\n    { replacements: [req.params.userId] },\\n    type: sequelize.QueryTypes.SELECT\\n  )\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_sql_injection",
       "line_number": 7,
@@ -276,7 +276,7 @@ exports[`javascript_lang_sql_injection sql_injection_juice 1`] = `
         "89"
       ],
       "id": "javascript_lang_sql_injection",
-      "title": "SQL injection vulnerability detected.",
+      "title": "Unsanitized user input in SQL query",
       "description": "## Description\\nIncluding unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input\\n\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\"SELECT * FROM users WHERE ID = \\" + req.params.userId);\\n\`\`\`\\n\\nInstead, consider the following approaches when writing SQL queries\\n\\n✅ Validate query input wherever possible\\n\\n\`\`\`javascript\\n  var rawId = req.params.userId\\n  if !(/[0-9]+/.test(rawId)) {\\n    // input is unexpected; don't make the query\\n  }\\n\`\`\`\\n\\n✅ Use prepared (or parameterized) statements when querying\\n\\nSequelize example -\\n\`\`\`javascript\\n  var sqlite = new Sequelize(\\"sqlite::memory:\\");\\n  sqlite.query(\\n    \\"SELECT * FROM users WHERE ID = ?\\",\\n    { replacements: [req.params.userId] },\\n    type: sequelize.QueryTypes.SELECT\\n  )\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_sql_injection",
       "line_number": 4,

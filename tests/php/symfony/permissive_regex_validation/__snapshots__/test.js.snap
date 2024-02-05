@@ -8,7 +8,7 @@ exports[`php_symfony_permissive_regex_validation bad 1`] = `
         "625"
       ],
       "id": "php_symfony_permissive_regex_validation",
-      "title": "Validation using permissive regular expression detected.",
+      "title": "Missing validation for regular expression",
       "description": "## Description\\n\\nValidations using regular expressions should use the start of text (\\\\A) and\\nend of text (\\\\z or \\\\Z) boundaries.\\n\\n## Remediations\\n\\n❌ Avoid matching without start and end boundaries:\\n\\n\`\`\`php\\n#[Assert\\\\Regex('/foo/')]\\nprotected string $attribute;\\n\`\`\`\\n\\n❌ Avoid using line-based boundaries:\\n\\n\`\`\`php\\n#[Assert\\\\Regex('/^foo$/')]\\nprotected string $attribute;\\n\`\`\`\\n\\n✅ Use whole-text boundaries:\\n\\n\`\`\`php\\n#[Assert\\\\Regex('/\\\\Afoo\\\\z/')]\\nprotected string $attribute;\\n\`\`\`\\n\\n## Resources\\n- [Symfony validation](https://symfony.com/doc/current/validation.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_permissive_regex_validation",
       "line_number": 10,
@@ -42,7 +42,7 @@ exports[`php_symfony_permissive_regex_validation bad 1`] = `
         "625"
       ],
       "id": "php_symfony_permissive_regex_validation",
-      "title": "Validation using permissive regular expression detected.",
+      "title": "Missing validation for regular expression",
       "description": "## Description\\n\\nValidations using regular expressions should use the start of text (\\\\A) and\\nend of text (\\\\z or \\\\Z) boundaries.\\n\\n## Remediations\\n\\n❌ Avoid matching without start and end boundaries:\\n\\n\`\`\`php\\n#[Assert\\\\Regex('/foo/')]\\nprotected string $attribute;\\n\`\`\`\\n\\n❌ Avoid using line-based boundaries:\\n\\n\`\`\`php\\n#[Assert\\\\Regex('/^foo$/')]\\nprotected string $attribute;\\n\`\`\`\\n\\n✅ Use whole-text boundaries:\\n\\n\`\`\`php\\n#[Assert\\\\Regex('/\\\\Afoo\\\\z/')]\\nprotected string $attribute;\\n\`\`\`\\n\\n## Resources\\n- [Symfony validation](https://symfony.com/doc/current/validation.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_permissive_regex_validation",
       "line_number": 13,
@@ -76,7 +76,7 @@ exports[`php_symfony_permissive_regex_validation bad 1`] = `
         "625"
       ],
       "id": "php_symfony_permissive_regex_validation",
-      "title": "Validation using permissive regular expression detected.",
+      "title": "Missing validation for regular expression",
       "description": "## Description\\n\\nValidations using regular expressions should use the start of text (\\\\A) and\\nend of text (\\\\z or \\\\Z) boundaries.\\n\\n## Remediations\\n\\n❌ Avoid matching without start and end boundaries:\\n\\n\`\`\`php\\n#[Assert\\\\Regex('/foo/')]\\nprotected string $attribute;\\n\`\`\`\\n\\n❌ Avoid using line-based boundaries:\\n\\n\`\`\`php\\n#[Assert\\\\Regex('/^foo$/')]\\nprotected string $attribute;\\n\`\`\`\\n\\n✅ Use whole-text boundaries:\\n\\n\`\`\`php\\n#[Assert\\\\Regex('/\\\\Afoo\\\\z/')]\\nprotected string $attribute;\\n\`\`\`\\n\\n## Resources\\n- [Symfony validation](https://symfony.com/doc/current/validation.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_permissive_regex_validation",
       "line_number": 21,
@@ -110,7 +110,7 @@ exports[`php_symfony_permissive_regex_validation bad 1`] = `
         "625"
       ],
       "id": "php_symfony_permissive_regex_validation",
-      "title": "Validation using permissive regular expression detected.",
+      "title": "Missing validation for regular expression",
       "description": "## Description\\n\\nValidations using regular expressions should use the start of text (\\\\A) and\\nend of text (\\\\z or \\\\Z) boundaries.\\n\\n## Remediations\\n\\n❌ Avoid matching without start and end boundaries:\\n\\n\`\`\`php\\n#[Assert\\\\Regex('/foo/')]\\nprotected string $attribute;\\n\`\`\`\\n\\n❌ Avoid using line-based boundaries:\\n\\n\`\`\`php\\n#[Assert\\\\Regex('/^foo$/')]\\nprotected string $attribute;\\n\`\`\`\\n\\n✅ Use whole-text boundaries:\\n\\n\`\`\`php\\n#[Assert\\\\Regex('/\\\\Afoo\\\\z/')]\\nprotected string $attribute;\\n\`\`\`\\n\\n## Resources\\n- [Symfony validation](https://symfony.com/doc/current/validation.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_symfony_permissive_regex_validation",
       "line_number": 25,

@@ -30,7 +30,7 @@ auxiliary:
             scope: cursor
 severity: high
 metadata:
-  description: "Cross-site scripting (XSS) vulnerability detected."
+  description: "Unsanitized user input in HTTP response (XSS)"
   remediation_message: |
     ## Description
     Sending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.

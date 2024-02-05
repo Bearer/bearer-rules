@@ -12,7 +12,7 @@ patterns:
 languages:
   - php
 metadata:
-  description: "User Interface (UI) redress vulnerability (clickjacking) detected."
+  description: "Unsanitized user input in UI"
   remediation_message: |
     ## Description
     Using unsanitized user input to set X-Frame-Options or Content-Security-Policy

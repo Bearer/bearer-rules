@@ -8,7 +8,7 @@ exports[`javascript_react_dangerously_set_inner_html insecure-raw_input 1`] = `
         "79"
       ],
       "id": "javascript_react_dangerously_set_inner_html",
-      "title": "React's dangerously set inner HTML detected.",
+      "title": "Unsanitized user input in React inner HTML method (XSS)",
       "description": "## Description\\nThere are Cross-Site Scripting (XSS) vulnerabilites when using React's dangerouslySetInnerHTML with unsanitized data.\\n\\n## Remediations\\n✅ Sanitize data when using dangerouslySetInnerHTML\\n\\n\`\`\`javascript\\n  <div\\n    dangerouslySetInnerHTML={{__html: sanitize(data)}}\\n  />\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_react_dangerously_set_inner_html",
       "line_number": 2,
@@ -49,7 +49,7 @@ exports[`javascript_react_dangerously_set_inner_html insecure-template_string 1`
         "79"
       ],
       "id": "javascript_react_dangerously_set_inner_html",
-      "title": "React's dangerously set inner HTML detected.",
+      "title": "Unsanitized user input in React inner HTML method (XSS)",
       "description": "## Description\\nThere are Cross-Site Scripting (XSS) vulnerabilites when using React's dangerouslySetInnerHTML with unsanitized data.\\n\\n## Remediations\\n✅ Sanitize data when using dangerouslySetInnerHTML\\n\\n\`\`\`javascript\\n  <div\\n    dangerouslySetInnerHTML={{__html: sanitize(data)}}\\n  />\\n\`\`\`\\n\\n## Resources\\n- [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_react_dangerously_set_inner_html",
       "line_number": 4,

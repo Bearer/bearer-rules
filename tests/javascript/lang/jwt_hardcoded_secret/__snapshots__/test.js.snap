@@ -8,7 +8,7 @@ exports[`javascript_lang_jwt_hardcoded_secret insecure 1`] = `
         "798"
       ],
       "id": "javascript_lang_jwt_hardcoded_secret",
-      "title": "Hardcoded JWT secret detected",
+      "title": "Leakage of hard-coded secret in JWT",
       "description": "## Description\\n\\nCode is not a secure place to store secrets, use environment variables instead.\\n\\n## Remediations\\n\\nUse environment variables\\n\\n\`\`\`javascript\\n  var jwt = require(\\"jsonwebtoken\\");\\n\\n  var token = jwt.sign({ foo: \\"bar\\" }, process.env.JWT_SECRET);\\n\`\`\`\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_jwt_hardcoded_secret",
       "line_number": 3,
@@ -49,7 +49,7 @@ exports[`javascript_lang_jwt_hardcoded_secret insecure_jose_jwt 1`] = `
         "798"
       ],
       "id": "javascript_lang_jwt_hardcoded_secret",
-      "title": "Hardcoded JWT secret detected",
+      "title": "Leakage of hard-coded secret in JWT",
       "description": "## Description\\n\\nCode is not a secure place to store secrets, use environment variables instead.\\n\\n## Remediations\\n\\nUse environment variables\\n\\n\`\`\`javascript\\n  var jwt = require(\\"jsonwebtoken\\");\\n\\n  var token = jwt.sign({ foo: \\"bar\\" }, process.env.JWT_SECRET);\\n\`\`\`\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_jwt_hardcoded_secret",
       "line_number": 5,
@@ -83,7 +83,7 @@ exports[`javascript_lang_jwt_hardcoded_secret insecure_jose_jwt 1`] = `
         "798"
       ],
       "id": "javascript_lang_jwt_hardcoded_secret",
-      "title": "Hardcoded JWT secret detected",
+      "title": "Leakage of hard-coded secret in JWT",
       "description": "## Description\\n\\nCode is not a secure place to store secrets, use environment variables instead.\\n\\n## Remediations\\n\\nUse environment variables\\n\\n\`\`\`javascript\\n  var jwt = require(\\"jsonwebtoken\\");\\n\\n  var token = jwt.sign({ foo: \\"bar\\" }, process.env.JWT_SECRET);\\n\`\`\`\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_jwt_hardcoded_secret",
       "line_number": 10,
@@ -124,7 +124,7 @@ exports[`javascript_lang_jwt_hardcoded_secret insecure_jwt 1`] = `
         "798"
       ],
       "id": "javascript_lang_jwt_hardcoded_secret",
-      "title": "Hardcoded JWT secret detected",
+      "title": "Leakage of hard-coded secret in JWT",
       "description": "## Description\\n\\nCode is not a secure place to store secrets, use environment variables instead.\\n\\n## Remediations\\n\\nUse environment variables\\n\\n\`\`\`javascript\\n  var jwt = require(\\"jsonwebtoken\\");\\n\\n  var token = jwt.sign({ foo: \\"bar\\" }, process.env.JWT_SECRET);\\n\`\`\`\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_jwt_hardcoded_secret",
       "line_number": 6,

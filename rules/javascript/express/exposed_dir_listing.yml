@@ -4,7 +4,7 @@ patterns:
 languages:
   - javascript
 metadata:
-  description: "Missing access restriction to directory listing detected."
+  description: "Missing access restriction on directory listing"
   remediation_message: |
     ## Description
     Inappropriate exposure of a directory listing could give attackers access to sensitive data or source code, either directly or through exploitation of an exposed file structure.

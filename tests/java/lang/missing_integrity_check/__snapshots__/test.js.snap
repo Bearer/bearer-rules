@@ -8,7 +8,7 @@ exports[`java_lang_missing_integrity_check missing_integrity_check 1`] = `
         "353"
       ],
       "id": "java_lang_missing_integrity_check",
-      "title": "Missing support for integrity check detected.",
+      "title": "Missing support for integrity check",
       "description": "## Description\\n\\nIf a protocol does not include integrity checks (\\"checksums\\"), we cannot determine whether or not an attacker has interfered or manipulated the transmitted data (man-in-the-middle attack).\\n\\n## Remediations\\n\\n✅ Use encryption schemes that provide integrity\\n\\n\`\`\`java\\n  Cipher c = Cipher.getInstance(\\"AES/GCM/PKCS5Padding\\");\\n\`\`\`\\n\\n## Resources\\n- [Java Cipher class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/javax/crypto/Cipher.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_missing_integrity_check",
       "line_number": 3,

@@ -32,7 +32,7 @@ auxiliary:
 languages:
   - php
 metadata:
-  description: "Insecure Access-Control-Allow-Origin detected."
+  description: "Unsanitized user input in Access-Control-Allow-Origin"
   remediation_message: |
     ## Description
     Do not use unverified user-defined input to define Access-Control-Allow-Origin.

@@ -8,7 +8,7 @@ exports[`ruby_third_parties_clickhouse datatype_in_insert_rows 1`] = `
         "201"
       ],
       "id": "ruby_third_parties_clickhouse",
-      "title": "Sensitive data sent to ClickHouse detected.",
+      "title": "Leakage of sensitive data to ClickHouse",
       "description": "## Description\\nLeaking sensitive data to a third-party service is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to ClickHouse.\\n\\n## Remediations\\n\\nWhen sending data to third-party services, ensure all sensitive data is removed.\\n\\n## Resources\\n- [ClickHouse docs](https://clickhouse.com/docs/en/intro/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_third_parties_clickhouse",
       "line_number": 3,

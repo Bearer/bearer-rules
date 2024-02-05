@@ -11,7 +11,7 @@ trigger:
   match_on: absence
   required_detection: javascript_express_https_protocol_missing_http_server
 metadata:
-  description: "Missing https protocol detected."
+  description: "Missing secure HTTP server configuration"
   remediation_message: |
     ## Description
     Use HTTPS wherever possible. HTTPS uses the TLS (Transport Layer Security) protocol to encrypt communication, making it more secure than HTTP.
@@ -31,7 +31,7 @@ metadata:
     ## Resources
     - [Express Security Best Practices: use TLS](https://expressjs.com/en/advanced/best-practice-security.html#use-tls)
   cwe_id:
-    - 693
+    - 319
   id: javascript_express_https_protocol_missing
   documentation_url: https://docs.bearer.com/reference/rules/javascript_express_https_protocol_missing
   cloud_code_suggestions: true

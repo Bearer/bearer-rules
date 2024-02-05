@@ -15,7 +15,7 @@ auxiliary:
         { name: $<_> }
 severity: medium
 metadata:
-  description: Session cookie with default config detected.
+  description: Usage of session cookie with default configuration
   remediation_message: |
     ## Description
     To make sure session cookies don't open your application up to exploits or unauthorized access, don't use default cookie values.
@@ -26,7 +26,6 @@ metadata:
     ## Resources
     - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
   cwe_id:
-    - 523
-    - 522
+    - 693
   id: javascript_express_default_session_config
   documentation_url: https://docs.bearer.com/reference/rules/javascript_express_default_session_config

@@ -8,7 +8,7 @@ exports[`ruby_lang_http_get_params datatype_in_param_hash 1`] = `
         "598"
       ],
       "id": "ruby_lang_http_get_params",
-      "title": "Sensitive data communicated through GET parameters detected.",
+      "title": "Leakage of sensitive data in HTTP GET parameters",
       "description": "## Description\\nSensitive data should never be sent as part of the query string in HTTP GET requests. This rule checks if sensitive data types are sent as GET parameters.\\n\\n## Remediations\\nAvoid sending sensitive data though HTTP GET parameters since they are passed in plain text even while using HTTPS communication:\\n\\n❌ Avoid code like this:\\n\`\`\`ruby\\nHTTParty.get(\\n  'https://secure-api.com/user',\\n  {\\n    email: user.email\\n  }\\n)\\n\`\`\`\\n\\n✅ Instead, use the HTTP POST method if you need to send data:\\n\\n\`\`\`ruby\\nHTTParty.post(\\n  'https://secure-api.com/user',\\n  body: {\\n    email: user.email,\\n  }\\n)\\n\`\`\`\\n\\n✅ Or keep using HTTP Get but avoid using sending sensitive data:\\n\\n\`\`\`ruby\\nHTTParty.GET(\\n  'https://secure-api.com/user',\\n  {\\n    id: user.uuid\\n  }\\n)\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_get_params",
       "line_number": 1,
@@ -57,7 +57,7 @@ exports[`ruby_lang_http_get_params datatype_in_params 1`] = `
         "598"
       ],
       "id": "ruby_lang_http_get_params",
-      "title": "Sensitive data communicated through GET parameters detected.",
+      "title": "Leakage of sensitive data in HTTP GET parameters",
       "description": "## Description\\nSensitive data should never be sent as part of the query string in HTTP GET requests. This rule checks if sensitive data types are sent as GET parameters.\\n\\n## Remediations\\nAvoid sending sensitive data though HTTP GET parameters since they are passed in plain text even while using HTTPS communication:\\n\\n❌ Avoid code like this:\\n\`\`\`ruby\\nHTTParty.get(\\n  'https://secure-api.com/user',\\n  {\\n    email: user.email\\n  }\\n)\\n\`\`\`\\n\\n✅ Instead, use the HTTP POST method if you need to send data:\\n\\n\`\`\`ruby\\nHTTParty.post(\\n  'https://secure-api.com/user',\\n  body: {\\n    email: user.email,\\n  }\\n)\\n\`\`\`\\n\\n✅ Or keep using HTTP Get but avoid using sending sensitive data:\\n\\n\`\`\`ruby\\nHTTParty.GET(\\n  'https://secure-api.com/user',\\n  {\\n    id: user.uuid\\n  }\\n)\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_get_params",
       "line_number": 1,
@@ -102,7 +102,7 @@ exports[`ruby_lang_http_get_params datatype_in_params 1`] = `
         "598"
       ],
       "id": "ruby_lang_http_get_params",
-      "title": "Sensitive data communicated through GET parameters detected.",
+      "title": "Leakage of sensitive data in HTTP GET parameters",
       "description": "## Description\\nSensitive data should never be sent as part of the query string in HTTP GET requests. This rule checks if sensitive data types are sent as GET parameters.\\n\\n## Remediations\\nAvoid sending sensitive data though HTTP GET parameters since they are passed in plain text even while using HTTPS communication:\\n\\n❌ Avoid code like this:\\n\`\`\`ruby\\nHTTParty.get(\\n  'https://secure-api.com/user',\\n  {\\n    email: user.email\\n  }\\n)\\n\`\`\`\\n\\n✅ Instead, use the HTTP POST method if you need to send data:\\n\\n\`\`\`ruby\\nHTTParty.post(\\n  'https://secure-api.com/user',\\n  body: {\\n    email: user.email,\\n  }\\n)\\n\`\`\`\\n\\n✅ Or keep using HTTP Get but avoid using sending sensitive data:\\n\\n\`\`\`ruby\\nHTTParty.GET(\\n  'https://secure-api.com/user',\\n  {\\n    id: user.uuid\\n  }\\n)\\n\`\`\`\\n\\n<!--\\n## Resources\\n- [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_get_params",
       "line_number": 3,

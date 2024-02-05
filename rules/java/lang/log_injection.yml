@@ -18,7 +18,7 @@ languages:
   - java
 
 metadata:
-  description: "Log injection detected."
+  description: "Unsanitized user input in logger message"
   remediation_message: |
     ## Description
     Writing invalidated user input to log files can allow an attacker to forge log entries or inject malicious content into the logs. This rule looks for instances of user input sent to loggers.

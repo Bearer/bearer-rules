@@ -10,7 +10,7 @@ exports[`javascript_express_reduce_fingerprint insecure 1`] = `
         "693"
       ],
       "id": "javascript_express_reduce_fingerprint",
-      "title": "Security misconfiguration detected (server fingerprinting).",
+      "title": "Missing server configuration to reduce server fingerprinting",
       "description": "## Description\\n\\nIt can help to provide an extra layer of security to reduce server fingerprinting. Though not a security issue itself, a method to improve the overall posture of a web server is to take measures to reduce the ability to fingerprint the software being used on the server. Server software can be fingerprinted by quirks in how they respond to specific requests.\\n\\nBy default, Express.js sends the X-Powered-By response header banner. This can be disabled using the app.disable() method:\\n\\n\`\`\`javascript\\n  app.disable('x-powered-by')\\n\`\`\`\\n\\n## Resources\\n\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_reduce_fingerprint",
       "line_number": 4,

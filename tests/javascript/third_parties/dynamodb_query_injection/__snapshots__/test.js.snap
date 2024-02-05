@@ -5,10 +5,10 @@ exports[`javascript_third_parties_dynamodb_query_injection dynamodb_query_inject
   "high": [
     {
       "cwe_ids": [
-        "89"
+        "943"
       ],
       "id": "javascript_third_parties_dynamodb_query_injection",
-      "title": "Raw user input in data store query detected.",
+      "title": "Unsanitized user input in DynamoDB query",
       "description": "## Description\\nIncluding unsanitized data, such as user input or request data, in raw queries makes your application vulnerable to injection attacks.\\n\\n## Remediations\\n\\nNarrow down your query from the code instead of using unsanitzed user input to define it.\\n\\nExample:\\n\\n\`\`\`javascript\\nexports.handler = async function(event, context) {\\n    var params = {\\n        Key: {\\n         \\"artist\\": {\\"S\\": event.input },\\n         \\"song\\": {\\"S\\": \\"Carrot Eton\\"}\\n        },\\n        TableName: \\"artists\\"\\n    };\\n    var result = await dynamodb.getItem(params).promise()\\n    console.log(JSON.stringify(result))\\n}\\n\`\`\`\\n\\n\\n## Resources\\n- [OWASP nosql injection explained](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_dynamodb_query_injection",
       "line_number": 10,
@@ -39,10 +39,10 @@ exports[`javascript_third_parties_dynamodb_query_injection dynamodb_query_inject
     },
     {
       "cwe_ids": [
-        "89"
+        "943"
       ],
       "id": "javascript_third_parties_dynamodb_query_injection",
-      "title": "Raw user input in data store query detected.",
+      "title": "Unsanitized user input in DynamoDB query",
       "description": "## Description\\nIncluding unsanitized data, such as user input or request data, in raw queries makes your application vulnerable to injection attacks.\\n\\n## Remediations\\n\\nNarrow down your query from the code instead of using unsanitzed user input to define it.\\n\\nExample:\\n\\n\`\`\`javascript\\nexports.handler = async function(event, context) {\\n    var params = {\\n        Key: {\\n         \\"artist\\": {\\"S\\": event.input },\\n         \\"song\\": {\\"S\\": \\"Carrot Eton\\"}\\n        },\\n        TableName: \\"artists\\"\\n    };\\n    var result = await dynamodb.getItem(params).promise()\\n    console.log(JSON.stringify(result))\\n}\\n\`\`\`\\n\\n\\n## Resources\\n- [OWASP nosql injection explained](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_dynamodb_query_injection",
       "line_number": 18,
@@ -73,10 +73,10 @@ exports[`javascript_third_parties_dynamodb_query_injection dynamodb_query_inject
     },
     {
       "cwe_ids": [
-        "89"
+        "943"
       ],
       "id": "javascript_third_parties_dynamodb_query_injection",
-      "title": "Raw user input in data store query detected.",
+      "title": "Unsanitized user input in DynamoDB query",
       "description": "## Description\\nIncluding unsanitized data, such as user input or request data, in raw queries makes your application vulnerable to injection attacks.\\n\\n## Remediations\\n\\nNarrow down your query from the code instead of using unsanitzed user input to define it.\\n\\nExample:\\n\\n\`\`\`javascript\\nexports.handler = async function(event, context) {\\n    var params = {\\n        Key: {\\n         \\"artist\\": {\\"S\\": event.input },\\n         \\"song\\": {\\"S\\": \\"Carrot Eton\\"}\\n        },\\n        TableName: \\"artists\\"\\n    };\\n    var result = await dynamodb.getItem(params).promise()\\n    console.log(JSON.stringify(result))\\n}\\n\`\`\`\\n\\n\\n## Resources\\n- [OWASP nosql injection explained](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_dynamodb_query_injection",
       "line_number": 32,

@@ -8,7 +8,7 @@ exports[`ruby_rails_permissive_regex_validation bad 1`] = `
         "625"
       ],
       "id": "ruby_rails_permissive_regex_validation",
-      "title": "Validation using permissive regular expression detected.",
+      "title": "Missing validation for regular expression",
       "description": "## Description\\n\\nValidations using regular expressions should use the start of text (\\\\A) and\\nend of text (\\\\z or \\\\Z) boundaries.\\n\\n## Remediations\\n\\n❌ Avoid matching without start and end boundaries:\\n\\n\`\`\`ruby\\nvalidates :attribute, format: { with: /foo/}\\n\`\`\`\\n\\n❌ Avoid using line-based boundaries:\\n\\n\`\`\`ruby\\nvalidates :attribute, format: { with: /^foo$/}\\n\`\`\`\\n\\n✅ Use whole-text boundaries:\\n\\n\`\`\`ruby\\nvalidates :attribute1, format: { with: \\"\\\\Afoo\\\\Z\\"}\\nvalidates :attribute2, format: { with: \\"\\\\Afoo\\\\z\\"}\\n\`\`\`\\n<!--\\n## Resources\\n- [Active Record format validation](https://guides.rubyonrails.org/active_record_validations.html#format)\\n-->\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_permissive_regex_validation",
       "line_number": 1,
@@ -42,7 +42,7 @@ exports[`ruby_rails_permissive_regex_validation bad 1`] = `
         "625"
       ],
       "id": "ruby_rails_permissive_regex_validation",
-      "title": "Validation using permissive regular expression detected.",
+      "title": "Missing validation for regular expression",
       "description": "## Description\\n\\nValidations using regular expressions should use the start of text (\\\\A) and\\nend of text (\\\\z or \\\\Z) boundaries.\\n\\n## Remediations\\n\\n❌ Avoid matching without start and end boundaries:\\n\\n\`\`\`ruby\\nvalidates :attribute, format: { with: /foo/}\\n\`\`\`\\n\\n❌ Avoid using line-based boundaries:\\n\\n\`\`\`ruby\\nvalidates :attribute, format: { with: /^foo$/}\\n\`\`\`\\n\\n✅ Use whole-text boundaries:\\n\\n\`\`\`ruby\\nvalidates :attribute1, format: { with: \\"\\\\Afoo\\\\Z\\"}\\nvalidates :attribute2, format: { with: \\"\\\\Afoo\\\\z\\"}\\n\`\`\`\\n<!--\\n## Resources\\n- [Active Record format validation](https://guides.rubyonrails.org/active_record_validations.html#format)\\n-->\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_permissive_regex_validation",
       "line_number": 2,
@@ -76,7 +76,7 @@ exports[`ruby_rails_permissive_regex_validation bad 1`] = `
         "625"
       ],
       "id": "ruby_rails_permissive_regex_validation",
-      "title": "Validation using permissive regular expression detected.",
+      "title": "Missing validation for regular expression",
       "description": "## Description\\n\\nValidations using regular expressions should use the start of text (\\\\A) and\\nend of text (\\\\z or \\\\Z) boundaries.\\n\\n## Remediations\\n\\n❌ Avoid matching without start and end boundaries:\\n\\n\`\`\`ruby\\nvalidates :attribute, format: { with: /foo/}\\n\`\`\`\\n\\n❌ Avoid using line-based boundaries:\\n\\n\`\`\`ruby\\nvalidates :attribute, format: { with: /^foo$/}\\n\`\`\`\\n\\n✅ Use whole-text boundaries:\\n\\n\`\`\`ruby\\nvalidates :attribute1, format: { with: \\"\\\\Afoo\\\\Z\\"}\\nvalidates :attribute2, format: { with: \\"\\\\Afoo\\\\z\\"}\\n\`\`\`\\n<!--\\n## Resources\\n- [Active Record format validation](https://guides.rubyonrails.org/active_record_validations.html#format)\\n-->\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_permissive_regex_validation",
       "line_number": 3,
@@ -110,7 +110,7 @@ exports[`ruby_rails_permissive_regex_validation bad 1`] = `
         "625"
       ],
       "id": "ruby_rails_permissive_regex_validation",
-      "title": "Validation using permissive regular expression detected.",
+      "title": "Missing validation for regular expression",
       "description": "## Description\\n\\nValidations using regular expressions should use the start of text (\\\\A) and\\nend of text (\\\\z or \\\\Z) boundaries.\\n\\n## Remediations\\n\\n❌ Avoid matching without start and end boundaries:\\n\\n\`\`\`ruby\\nvalidates :attribute, format: { with: /foo/}\\n\`\`\`\\n\\n❌ Avoid using line-based boundaries:\\n\\n\`\`\`ruby\\nvalidates :attribute, format: { with: /^foo$/}\\n\`\`\`\\n\\n✅ Use whole-text boundaries:\\n\\n\`\`\`ruby\\nvalidates :attribute1, format: { with: \\"\\\\Afoo\\\\Z\\"}\\nvalidates :attribute2, format: { with: \\"\\\\Afoo\\\\z\\"}\\n\`\`\`\\n<!--\\n## Resources\\n- [Active Record format validation](https://guides.rubyonrails.org/active_record_validations.html#format)\\n-->\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_permissive_regex_validation",
       "line_number": 4,
@@ -144,7 +144,7 @@ exports[`ruby_rails_permissive_regex_validation bad 1`] = `
         "625"
       ],
       "id": "ruby_rails_permissive_regex_validation",
-      "title": "Validation using permissive regular expression detected.",
+      "title": "Missing validation for regular expression",
       "description": "## Description\\n\\nValidations using regular expressions should use the start of text (\\\\A) and\\nend of text (\\\\z or \\\\Z) boundaries.\\n\\n## Remediations\\n\\n❌ Avoid matching without start and end boundaries:\\n\\n\`\`\`ruby\\nvalidates :attribute, format: { with: /foo/}\\n\`\`\`\\n\\n❌ Avoid using line-based boundaries:\\n\\n\`\`\`ruby\\nvalidates :attribute, format: { with: /^foo$/}\\n\`\`\`\\n\\n✅ Use whole-text boundaries:\\n\\n\`\`\`ruby\\nvalidates :attribute1, format: { with: \\"\\\\Afoo\\\\Z\\"}\\nvalidates :attribute2, format: { with: \\"\\\\Afoo\\\\z\\"}\\n\`\`\`\\n<!--\\n## Resources\\n- [Active Record format validation](https://guides.rubyonrails.org/active_record_validations.html#format)\\n-->\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_rails_permissive_regex_validation",
       "line_number": 6,

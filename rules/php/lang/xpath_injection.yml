@@ -44,7 +44,7 @@ auxiliary:
 languages:
   - php
 metadata:
-  description: "XPath injection threat detected"
+  description: "Unsanitized user input in XPath"
   remediation_message: |
     ## Description
     Using unsanitized input in an XPath expression could lead to XPath injection

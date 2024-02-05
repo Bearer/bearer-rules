@@ -8,7 +8,7 @@ exports[`php_lang_exec_using_user_input bad 1`] = `
         "78"
       ],
       "id": "php_lang_exec_using_user_input",
-      "title": "Execution of OS command formed with user input detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`php\\nexec($_GET[\\"command\\"]);\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`php\\nif ($_GET[\\"action\\"] == \\"option1\\") {\\n  $command = \\"command1\\";\\n} else {\\n  $command = \\"command2\\";\\n}\\n\\nexec($command);\\n\`\`\`\\n\\n## Resources\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exec_using_user_input",
       "line_number": 3,
@@ -42,7 +42,7 @@ exports[`php_lang_exec_using_user_input bad 1`] = `
         "78"
       ],
       "id": "php_lang_exec_using_user_input",
-      "title": "Execution of OS command formed with user input detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`php\\nexec($_GET[\\"command\\"]);\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`php\\nif ($_GET[\\"action\\"] == \\"option1\\") {\\n  $command = \\"command1\\";\\n} else {\\n  $command = \\"command2\\";\\n}\\n\\nexec($command);\\n\`\`\`\\n\\n## Resources\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exec_using_user_input",
       "line_number": 6,
@@ -76,7 +76,7 @@ exports[`php_lang_exec_using_user_input bad 1`] = `
         "78"
       ],
       "id": "php_lang_exec_using_user_input",
-      "title": "Execution of OS command formed with user input detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`php\\nexec($_GET[\\"command\\"]);\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`php\\nif ($_GET[\\"action\\"] == \\"option1\\") {\\n  $command = \\"command1\\";\\n} else {\\n  $command = \\"command2\\";\\n}\\n\\nexec($command);\\n\`\`\`\\n\\n## Resources\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exec_using_user_input",
       "line_number": 9,
@@ -110,7 +110,7 @@ exports[`php_lang_exec_using_user_input bad 1`] = `
         "78"
       ],
       "id": "php_lang_exec_using_user_input",
-      "title": "Execution of OS command formed with user input detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`php\\nexec($_GET[\\"command\\"]);\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`php\\nif ($_GET[\\"action\\"] == \\"option1\\") {\\n  $command = \\"command1\\";\\n} else {\\n  $command = \\"command2\\";\\n}\\n\\nexec($command);\\n\`\`\`\\n\\n## Resources\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exec_using_user_input",
       "line_number": 10,
@@ -144,7 +144,7 @@ exports[`php_lang_exec_using_user_input bad 1`] = `
         "78"
       ],
       "id": "php_lang_exec_using_user_input",
-      "title": "Execution of OS command formed with user input detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`php\\nexec($_GET[\\"command\\"]);\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`php\\nif ($_GET[\\"action\\"] == \\"option1\\") {\\n  $command = \\"command1\\";\\n} else {\\n  $command = \\"command2\\";\\n}\\n\\nexec($command);\\n\`\`\`\\n\\n## Resources\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exec_using_user_input",
       "line_number": 12,
@@ -178,7 +178,7 @@ exports[`php_lang_exec_using_user_input bad 1`] = `
         "78"
       ],
       "id": "php_lang_exec_using_user_input",
-      "title": "Execution of OS command formed with user input detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`php\\nexec($_GET[\\"command\\"]);\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`php\\nif ($_GET[\\"action\\"] == \\"option1\\") {\\n  $command = \\"command1\\";\\n} else {\\n  $command = \\"command2\\";\\n}\\n\\nexec($command);\\n\`\`\`\\n\\n## Resources\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exec_using_user_input",
       "line_number": 14,
@@ -212,7 +212,7 @@ exports[`php_lang_exec_using_user_input bad 1`] = `
         "78"
       ],
       "id": "php_lang_exec_using_user_input",
-      "title": "Execution of OS command formed with user input detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`php\\nexec($_GET[\\"command\\"]);\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`php\\nif ($_GET[\\"action\\"] == \\"option1\\") {\\n  $command = \\"command1\\";\\n} else {\\n  $command = \\"command2\\";\\n}\\n\\nexec($command);\\n\`\`\`\\n\\n## Resources\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exec_using_user_input",
       "line_number": 15,
@@ -246,7 +246,7 @@ exports[`php_lang_exec_using_user_input bad 1`] = `
         "78"
       ],
       "id": "php_lang_exec_using_user_input",
-      "title": "Execution of OS command formed with user input detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`php\\nexec($_GET[\\"command\\"]);\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`php\\nif ($_GET[\\"action\\"] == \\"option1\\") {\\n  $command = \\"command1\\";\\n} else {\\n  $command = \\"command2\\";\\n}\\n\\nexec($command);\\n\`\`\`\\n\\n## Resources\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exec_using_user_input",
       "line_number": 16,
@@ -280,7 +280,7 @@ exports[`php_lang_exec_using_user_input bad 1`] = `
         "78"
       ],
       "id": "php_lang_exec_using_user_input",
-      "title": "Execution of OS command formed with user input detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`php\\nexec($_GET[\\"command\\"]);\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`php\\nif ($_GET[\\"action\\"] == \\"option1\\") {\\n  $command = \\"command1\\";\\n} else {\\n  $command = \\"command2\\";\\n}\\n\\nexec($command);\\n\`\`\`\\n\\n## Resources\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exec_using_user_input",
       "line_number": 18,
@@ -314,7 +314,7 @@ exports[`php_lang_exec_using_user_input bad 1`] = `
         "78"
       ],
       "id": "php_lang_exec_using_user_input",
-      "title": "Execution of OS command formed with user input detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`php\\nexec($_GET[\\"command\\"]);\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`php\\nif ($_GET[\\"action\\"] == \\"option1\\") {\\n  $command = \\"command1\\";\\n} else {\\n  $command = \\"command2\\";\\n}\\n\\nexec($command);\\n\`\`\`\\n\\n## Resources\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exec_using_user_input",
       "line_number": 19,
@@ -348,7 +348,7 @@ exports[`php_lang_exec_using_user_input bad 1`] = `
         "78"
       ],
       "id": "php_lang_exec_using_user_input",
-      "title": "Execution of OS command formed with user input detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`php\\nexec($_GET[\\"command\\"]);\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`php\\nif ($_GET[\\"action\\"] == \\"option1\\") {\\n  $command = \\"command1\\";\\n} else {\\n  $command = \\"command2\\";\\n}\\n\\nexec($command);\\n\`\`\`\\n\\n## Resources\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exec_using_user_input",
       "line_number": 20,
@@ -382,7 +382,7 @@ exports[`php_lang_exec_using_user_input bad 1`] = `
         "78"
       ],
       "id": "php_lang_exec_using_user_input",
-      "title": "Execution of OS command formed with user input detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\n\\nApplications should not execute OS commands that are formed from user input.\\nThis rule checks for external commands containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when executing commands:\\n\\n\`\`\`php\\nexec($_GET[\\"command\\"]);\\n\`\`\`\\n\\n✅ Use user input indirectly when executing commands:\\n\\n\`\`\`php\\nif ($_GET[\\"action\\"] == \\"option1\\") {\\n  $command = \\"command1\\";\\n} else {\\n  $command = \\"command2\\";\\n}\\n\\nexec($command);\\n\`\`\`\\n\\n## Resources\\n- [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_exec_using_user_input",
       "line_number": 21,

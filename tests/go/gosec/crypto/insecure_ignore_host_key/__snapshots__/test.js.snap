@@ -5,10 +5,10 @@ exports[`go_gosec_crypto_insecure_ignore_host_key test 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "322"
+        "327"
       ],
       "id": "go_gosec_crypto_insecure_ignore_host_key",
-      "title": "Key exchange without entity authentication",
+      "title": "Missing verification of host keys",
       "description": "## Description\\n\\nThe security vulnerability identified pertains to the application neglecting the verification of host keys during SSH connections. Host keys are crucial for confirming the server's identity, preventing Man-in-the-Middle (MitM) attacks where an attacker could impersonate the server. When these keys are ignored, the client cannot guarantee the authenticity of the server it connects to.\\n\\n## Remediation\\n\\nTo mitigate this risk, it is essential to implement proper host key checking:\\n\\n✅ Implement Host Key Verification\\n\\nUse the \`knownhosts\` package from Go's \`x/crypto/ssh\` to validate server keys against known hosts. This mirrors the functionality found in OpenSSH.\\n\\n✅ Avoid Disabling Host Key Checking\\n\\nNever disable host key checking in production code. While it might be convenient for testing, it opens up security vulnerabilities.\\n\\n❌ Do Not Use \`InsecureIgnoreHostKey\`\\n\\nAlthough available, using \`ssh.InsecureIgnoreHostKey\` as a \`HostKeyCallback\` function should be strictly avoided as it does not offer any form of host validation.\\n\\nBelow is a code snippet showing how to set up an SSH \`ClientConfig\` in Go to use the \`knownhosts\` callback for server verification:\\n\\n## Resources\\n\\n- [GoDoc for x/crypto/ssh](https://pkg.go.dev/golang.org/x/crypto/ssh)\\n- [Secure use of SSH - OpenSSH](https://www.openssh.com/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_crypto_insecure_ignore_host_key",
       "line_number": 8,

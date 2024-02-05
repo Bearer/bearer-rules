@@ -88,7 +88,7 @@ trigger:
   match_on: absence
   required_detection: javascript_express_helmet_missing_express_init
 metadata:
-  description: "Security misconfiguration detected (Helmet missing)."
+  description: "Missing Helmet configuration on HTTP headers"
   remediation_message: |
     ## Description
 

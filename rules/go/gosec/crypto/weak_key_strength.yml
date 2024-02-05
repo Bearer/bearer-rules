@@ -6,7 +6,7 @@ patterns:
 languages:
   - go
 metadata:
-  description: "Inadequate encryption strength"
+  description: "Usage of inadequate encryption strength"
   remediation_message: |
     ## Description
 
@@ -50,6 +50,6 @@ metadata:
 
     - [NIST Special Publication 800-57 Part 1](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final)
   cwe_id:
-    - 326
+    - 327
   id: go_gosec_crypto_weak_key_strength
   documentation_url: https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_key_strength

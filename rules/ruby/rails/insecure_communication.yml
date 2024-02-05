@@ -7,7 +7,7 @@ languages:
   - ruby
 severity: high
 metadata:
-  description: "Missing force SSL configuration for incoming communication detected."
+  description: "Missing secure HTTP server configuration"
   remediation_message: |
     ## Description
     When applications process sensitive data, they should default to always use SSL when available. This rule checks if force SSL is enabled at the application level.

@@ -19,7 +19,7 @@ trigger:
   match_on: stored_data_types
 severity: warning
 metadata:
-  description: "Missing application-level encryption of sensitive data detected."
+  description: "Missing application-level encryption of sensitive data"
   remediation_message: |
     ## Description
     Application-level encryption greatly reduces the risk of a data breach or data leak by making data unreadable. This rule checks if sensitive data types found in records are encrypted.

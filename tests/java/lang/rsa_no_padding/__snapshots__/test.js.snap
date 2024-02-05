@@ -5,11 +5,10 @@ exports[`java_lang_rsa_no_padding bad_no_padding 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "327",
         "780"
       ],
       "id": "java_lang_rsa_no_padding",
-      "title": "RSA algorithm with no padding detected.",
+      "title": "Missing Optimal Asymmetric Encryption Padding (OAEP)",
       "description": "## Description\\n\\nThe RSA encryption algorithm is weak when used without Optimal Asymmetric Encryption Padding (OAEP).\\n\\n## Remediations\\n\\n✅ Always use OAEP when using RSA encryption\\n\\n\`\`\`java\\n  Cipher cipher = Cipher.getInstance(\\"RSA/ECB/OAEPWithMD5AndMGF1Padding\\")\\n\`\`\`\\n\\n## Resources\\n- [Java MessageDigest class](https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_rsa_no_padding",
       "line_number": 2,

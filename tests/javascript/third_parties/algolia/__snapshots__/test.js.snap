@@ -8,7 +8,7 @@ exports[`javascript_third_parties_algolia datatype_in_index 1`] = `
         "201"
       ],
       "id": "javascript_third_parties_algolia",
-      "title": "Sensitive data sent to Algolia detected.",
+      "title": "Leakage of sensitive data to Algolia",
       "description": "## Description\\nLeaking sensitive data to third-party data tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Algolia.\\n\\n## Remediations\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\n  const algoliaSearch = require('algoliasearch')\\n  const myAlgolia = algoliaSearch(\\"123\\", \\"123\\")\\n  const index = myAlgolia.initIndex(user.uuid)\\n\`\`\`\\n\\n## Resources\\n- [Algolia docs](https://www.algolia.com/doc/)\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_algolia",
       "line_number": 4,
@@ -57,7 +57,7 @@ exports[`javascript_third_parties_algolia datatype_in_save_object 1`] = `
         "201"
       ],
       "id": "javascript_third_parties_algolia",
-      "title": "Sensitive data sent to Algolia detected.",
+      "title": "Leakage of sensitive data to Algolia",
       "description": "## Description\\nLeaking sensitive data to third-party data tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Algolia.\\n\\n## Remediations\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\n  const algoliaSearch = require('algoliasearch')\\n  const myAlgolia = algoliaSearch(\\"123\\", \\"123\\")\\n  const index = myAlgolia.initIndex(user.uuid)\\n\`\`\`\\n\\n## Resources\\n- [Algolia docs](https://www.algolia.com/doc/)\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_algolia",
       "line_number": 8,
@@ -98,7 +98,7 @@ exports[`javascript_third_parties_algolia datatype_in_save_object 1`] = `
         "201"
       ],
       "id": "javascript_third_parties_algolia",
-      "title": "Sensitive data sent to Algolia detected.",
+      "title": "Leakage of sensitive data to Algolia",
       "description": "## Description\\nLeaking sensitive data to third-party data tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Algolia.\\n\\n## Remediations\\nIf you really need to identify users, use unique identifiers from the database.\\n\\n\`\`\`javascript\\n  const algoliaSearch = require('algoliasearch')\\n  const myAlgolia = algoliaSearch(\\"123\\", \\"123\\")\\n  const index = myAlgolia.initIndex(user.uuid)\\n\`\`\`\\n\\n## Resources\\n- [Algolia docs](https://www.algolia.com/doc/)\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_algolia",
       "line_number": 12,

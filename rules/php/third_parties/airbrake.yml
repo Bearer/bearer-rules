@@ -46,7 +46,7 @@ auxiliary:
 skip_data_types:
   - "Unique Identifier"
 metadata:
-  description: "Sensitive data sent to Airbrake detected."
+  description: "Leakage of sensitive data to Airbrake"
   remediation_message: |
     ## Description
     Leaking sensitive data to third-party loggers is a common cause of data

@@ -20,7 +20,7 @@ languages:
 skip_data_types:
   - "Unique Identifier"
 metadata:
-  description: "Sensitive data sent to Rails loggers detected."
+  description: "Leakage of sensitive information in logger message"
   remediation_message: |
     ## Description
     Leaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to rails loggers.
@@ -41,7 +41,6 @@ metadata:
     ## Resources
     - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
   cwe_id:
-    - 209
     - 532
   id: ruby_rails_logger
   documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_logger

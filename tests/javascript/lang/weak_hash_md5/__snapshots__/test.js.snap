@@ -5,11 +5,10 @@ exports[`javascript_lang_weak_hash_md5 crypto_md5 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "327",
         "328"
       ],
       "id": "javascript_lang_weak_hash_md5",
-      "title": "Weak hashing library (MD5) detected.",
+      "title": "Usage of weak hashing library (MD5)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hash algorithm and therefore shouldn't be used.\\n\\n✅ Use stronger hashing algorithms when storing data.\\n\\n\`\`\`javascript\\nconst crypto = require(\\"crypto\\");\\n\\nconst key = \\"secret key\\";\\nconst hash = crypto.createHmac(\\"es-256-cbc\\", key).update(user.password);\\n\`\`\`\\n\\n## Resources\\n- [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_hash_md5",
       "line_number": 4,
@@ -48,11 +47,10 @@ exports[`javascript_lang_weak_hash_md5 crypto_md5 1`] = `
     },
     {
       "cwe_ids": [
-        "327",
         "328"
       ],
       "id": "javascript_lang_weak_hash_md5",
-      "title": "Weak hashing library (MD5) detected.",
+      "title": "Usage of weak hashing library (MD5)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hash algorithm and therefore shouldn't be used.\\n\\n✅ Use stronger hashing algorithms when storing data.\\n\\n\`\`\`javascript\\nconst crypto = require(\\"crypto\\");\\n\\nconst key = \\"secret key\\";\\nconst hash = crypto.createHmac(\\"es-256-cbc\\", key).update(user.password);\\n\`\`\`\\n\\n## Resources\\n- [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_hash_md5",
       "line_number": 5,
@@ -98,11 +96,10 @@ exports[`javascript_lang_weak_hash_md5 cryptojs_md5 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "327",
         "328"
       ],
       "id": "javascript_lang_weak_hash_md5",
-      "title": "Weak hashing library (MD5) detected.",
+      "title": "Usage of weak hashing library (MD5)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hash algorithm and therefore shouldn't be used.\\n\\n✅ Use stronger hashing algorithms when storing data.\\n\\n\`\`\`javascript\\nconst crypto = require(\\"crypto\\");\\n\\nconst key = \\"secret key\\";\\nconst hash = crypto.createHmac(\\"es-256-cbc\\", key).update(user.password);\\n\`\`\`\\n\\n## Resources\\n- [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_hash_md5",
       "line_number": 2,
@@ -148,11 +145,10 @@ exports[`javascript_lang_weak_hash_md5 md5 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "327",
         "328"
       ],
       "id": "javascript_lang_weak_hash_md5",
-      "title": "Weak hashing library (MD5) detected.",
+      "title": "Usage of weak hashing library (MD5)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hash algorithm and therefore shouldn't be used.\\n\\n✅ Use stronger hashing algorithms when storing data.\\n\\n\`\`\`javascript\\nconst crypto = require(\\"crypto\\");\\n\\nconst key = \\"secret key\\";\\nconst hash = crypto.createHmac(\\"es-256-cbc\\", key).update(user.password);\\n\`\`\`\\n\\n## Resources\\n- [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_hash_md5",
       "line_number": 4,
@@ -193,11 +189,10 @@ exports[`javascript_lang_weak_hash_md5 md5 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "327",
         "328"
       ],
       "id": "javascript_lang_weak_hash_md5",
-      "title": "Weak hashing library (MD5) detected.",
+      "title": "Usage of weak hashing library (MD5)",
       "description": "## Description\\n\\nA weak hashing library can lead to data breaches and greater security risk.\\n\\n## Remediations\\n\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hash algorithm and therefore shouldn't be used.\\n\\n✅ Use stronger hashing algorithms when storing data.\\n\\n\`\`\`javascript\\nconst crypto = require(\\"crypto\\");\\n\\nconst key = \\"secret key\\";\\nconst hash = crypto.createHmac(\\"es-256-cbc\\", key).update(user.password);\\n\`\`\`\\n\\n## Resources\\n- [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_weak_hash_md5",
       "line_number": 5,

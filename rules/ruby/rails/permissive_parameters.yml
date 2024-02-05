@@ -13,7 +13,7 @@ auxiliary:
       - $<_>.slice()
 severity: medium
 metadata:
-  description: "Overly permissive request parameters detected."
+  description: "Permissive request parameters"
   remediation_message: |
     ## Description
 
@@ -34,6 +34,6 @@ metadata:
     params.permit(:name, :email)
     ```
   cwe_id:
-    - 915
+    - 913
   id: ruby_rails_permissive_parameters
   documentation_url: https://docs.bearer.com/reference/rules/ruby_rails_permissive_parameters

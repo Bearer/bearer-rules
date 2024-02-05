@@ -5,10 +5,10 @@ exports[`java_lang_path_traversal cookie_file_traversal 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "22"
+        "73"
       ],
       "id": "java_lang_path_traversal",
-      "title": "Possible path traversal vulnerability detected",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\n\\nAllowing unsanitized user input in path resolution methods means an attacker could gain access to files and folders outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Sanitize user input when resolving paths, for example:\\nUse \`FilenameUtils.getName()\` to mitigate against unwanted patterns in the path (such as \`\\\\..\\\\..\`)\\n\\n\`\`\`java\\n  public class Cls extends HttpServlet\\n  {\\n\\n      public void handleRequest(HttpServletRequest request, HttpServletResponse response)\\n      {\\n          String image = request.getParameter(\\"user_profile_picture\\");\\n          File file = new File(\\"user/profile/\\" + FilenameUtils.getName(image));\\n      }\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_path_traversal",
       "line_number": 17,
@@ -46,10 +46,10 @@ exports[`java_lang_path_traversal request_file_traversal 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "22"
+        "73"
       ],
       "id": "java_lang_path_traversal",
-      "title": "Possible path traversal vulnerability detected",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\n\\nAllowing unsanitized user input in path resolution methods means an attacker could gain access to files and folders outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Sanitize user input when resolving paths, for example:\\nUse \`FilenameUtils.getName()\` to mitigate against unwanted patterns in the path (such as \`\\\\..\\\\..\`)\\n\\n\`\`\`java\\n  public class Cls extends HttpServlet\\n  {\\n\\n      public void handleRequest(HttpServletRequest request, HttpServletResponse response)\\n      {\\n          String image = request.getParameter(\\"user_profile_picture\\");\\n          File file = new File(\\"user/profile/\\" + FilenameUtils.getName(image));\\n      }\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_path_traversal",
       "line_number": 18,

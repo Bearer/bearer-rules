@@ -10,7 +10,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_curb 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 3,
@@ -44,7 +44,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_curb 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 6,
@@ -78,7 +78,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_curb 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 8,
@@ -112,7 +112,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_curb 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 10,
@@ -146,7 +146,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_curb 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 11,
@@ -180,7 +180,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_curb 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 14,
@@ -214,7 +214,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_curb 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 16,
@@ -248,7 +248,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_curb 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 18,
@@ -289,7 +289,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_excon 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 1,
@@ -323,7 +323,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_excon 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 2,
@@ -357,7 +357,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_excon 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 4,
@@ -391,7 +391,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_excon 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 5,
@@ -425,7 +425,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_excon 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 6,
@@ -459,7 +459,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_excon 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 7,
@@ -493,7 +493,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_excon 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 9,
@@ -527,7 +527,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_excon 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 11,
@@ -561,7 +561,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_excon 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 13,
@@ -595,7 +595,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_excon 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 15,
@@ -629,7 +629,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_excon 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 16,
@@ -670,7 +670,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_get 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 1,
@@ -711,7 +711,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 3,
@@ -745,7 +745,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 5,
@@ -779,7 +779,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 6,
@@ -813,7 +813,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 9,
@@ -847,7 +847,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 11,
@@ -881,7 +881,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 12,
@@ -915,7 +915,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 13,
@@ -949,7 +949,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 15,
@@ -983,7 +983,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 16,
@@ -1017,7 +1017,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_net_http 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 18,
@@ -1058,7 +1058,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_open 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 3,
@@ -1092,7 +1092,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_open 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 5,
@@ -1126,7 +1126,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_open 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 7,
@@ -1167,7 +1167,7 @@ exports[`ruby_lang_http_url_using_user_input unsafe_post 1`] = `
         "918"
       ],
       "id": "ruby_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`ruby\\nFaraday.get(\\"https://#{params[:host]}')\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`ruby\\nhost =\\n  case params[:host]\\n  when \\"option1\\"\\n    \\"api1.com\\"\\n  when \\"option2\\"\\n    \\"api2.com\\"\\n  end\\n\\nFaraday.get(\\"https://#{host}')\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_url_using_user_input",
       "line_number": 1,

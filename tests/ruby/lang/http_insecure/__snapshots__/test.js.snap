@@ -8,7 +8,7 @@ exports[`ruby_lang_http_insecure insecure_curb 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 3,
@@ -42,7 +42,7 @@ exports[`ruby_lang_http_insecure insecure_curb 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 6,
@@ -76,7 +76,7 @@ exports[`ruby_lang_http_insecure insecure_curb 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 8,
@@ -110,7 +110,7 @@ exports[`ruby_lang_http_insecure insecure_curb 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 10,
@@ -144,7 +144,7 @@ exports[`ruby_lang_http_insecure insecure_curb 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 11,
@@ -178,7 +178,7 @@ exports[`ruby_lang_http_insecure insecure_curb 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 14,
@@ -212,7 +212,7 @@ exports[`ruby_lang_http_insecure insecure_curb 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 16,
@@ -246,7 +246,7 @@ exports[`ruby_lang_http_insecure insecure_curb 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 18,
@@ -287,7 +287,7 @@ exports[`ruby_lang_http_insecure insecure_excon 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 1,
@@ -321,7 +321,7 @@ exports[`ruby_lang_http_insecure insecure_excon 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 3,
@@ -362,7 +362,7 @@ exports[`ruby_lang_http_insecure insecure_get 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 1,
@@ -403,7 +403,7 @@ exports[`ruby_lang_http_insecure insecure_net_http 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 3,
@@ -437,7 +437,7 @@ exports[`ruby_lang_http_insecure insecure_net_http 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 5,
@@ -471,7 +471,7 @@ exports[`ruby_lang_http_insecure insecure_net_http 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 8,
@@ -512,7 +512,7 @@ exports[`ruby_lang_http_insecure insecure_post 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 1,
@@ -553,7 +553,7 @@ exports[`ruby_lang_http_insecure insecure_post_form_with_datatype 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 1,
@@ -602,7 +602,7 @@ exports[`ruby_lang_http_insecure insecure_post_with_datatype 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 1,
@@ -653,7 +653,7 @@ exports[`ruby_lang_http_insecure uri_encode_form 1`] = `
         "319"
       ],
       "id": "ruby_lang_http_insecure",
-      "title": "Communication through an insecure HTTP connection detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n## Remediations\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`ruby\\nresponse = HTTParty.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_http_insecure",
       "line_number": 1,

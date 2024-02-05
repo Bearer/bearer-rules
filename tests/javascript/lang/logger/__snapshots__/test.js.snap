@@ -5,11 +5,10 @@ exports[`javascript_lang_logger child 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "1295",
         "532"
       ],
       "id": "javascript_lang_logger",
-      "title": "Sensitive data in a logger message detected.",
+      "title": "Leakage of sensitive information in logger message",
       "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`javascript\\nlogger.info(\`User is: \${user.email}\`)\\n\`\`\`\\n\\n✅ If you need to identify a user, use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`javascript\\nlogger.info(\`User is: \${user.uuid}\`)\\n\`\`\`\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_logger",
       "line_number": 7,
@@ -55,11 +54,10 @@ exports[`javascript_lang_logger child_level 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "1295",
         "532"
       ],
       "id": "javascript_lang_logger",
-      "title": "Sensitive data in a logger message detected.",
+      "title": "Leakage of sensitive information in logger message",
       "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`javascript\\nlogger.info(\`User is: \${user.email}\`)\\n\`\`\`\\n\\n✅ If you need to identify a user, use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`javascript\\nlogger.info(\`User is: \${user.uuid}\`)\\n\`\`\`\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_logger",
       "line_number": 7,
@@ -105,11 +103,10 @@ exports[`javascript_lang_logger console 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "1295",
         "532"
       ],
       "id": "javascript_lang_logger",
-      "title": "Sensitive data in a logger message detected.",
+      "title": "Leakage of sensitive information in logger message",
       "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`javascript\\nlogger.info(\`User is: \${user.email}\`)\\n\`\`\`\\n\\n✅ If you need to identify a user, use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`javascript\\nlogger.info(\`User is: \${user.uuid}\`)\\n\`\`\`\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_logger",
       "line_number": 1,
@@ -148,11 +145,10 @@ exports[`javascript_lang_logger console 1`] = `
     },
     {
       "cwe_ids": [
-        "1295",
         "532"
       ],
       "id": "javascript_lang_logger",
-      "title": "Sensitive data in a logger message detected.",
+      "title": "Leakage of sensitive information in logger message",
       "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`javascript\\nlogger.info(\`User is: \${user.email}\`)\\n\`\`\`\\n\\n✅ If you need to identify a user, use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`javascript\\nlogger.info(\`User is: \${user.uuid}\`)\\n\`\`\`\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_logger",
       "line_number": 2,
@@ -198,11 +194,10 @@ exports[`javascript_lang_logger datatype_leak 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "1295",
         "532"
       ],
       "id": "javascript_lang_logger",
-      "title": "Sensitive data in a logger message detected.",
+      "title": "Leakage of sensitive information in logger message",
       "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`javascript\\nlogger.info(\`User is: \${user.email}\`)\\n\`\`\`\\n\\n✅ If you need to identify a user, use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`javascript\\nlogger.info(\`User is: \${user.uuid}\`)\\n\`\`\`\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_logger",
       "line_number": 1,
@@ -248,11 +243,10 @@ exports[`javascript_lang_logger log 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "1295",
         "532"
       ],
       "id": "javascript_lang_logger",
-      "title": "Sensitive data in a logger message detected.",
+      "title": "Leakage of sensitive information in logger message",
       "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`javascript\\nlogger.info(\`User is: \${user.email}\`)\\n\`\`\`\\n\\n✅ If you need to identify a user, use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`javascript\\nlogger.info(\`User is: \${user.uuid}\`)\\n\`\`\`\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_logger",
       "line_number": 1,

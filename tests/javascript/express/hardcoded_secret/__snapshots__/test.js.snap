@@ -8,7 +8,7 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_jwt 1`] = `
         "798"
       ],
       "id": "javascript_express_hardcoded_secret",
-      "title": "Hard-coded secret detected.",
+      "title": "Usage of hard-coded secret",
       "description": "## Description\\n\\nCode is not a safe place to store secrets. Use environment variables or a secret management system instead.\\n\\n## Remediations\\n\\n❌ Do not store plaintext secrets in your code\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: \\"shh-my-secret\\",\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use environment variables\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: process.env.secret,\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use a secret management system or even better, a key management service (KMS) with encryption\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n- [Google Cloud Key Management Service](https://cloud.google.com/kms/docs)\\n- [AWS Key Management Service](https://aws.amazon.com/kms/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_hardcoded_secret",
       "line_number": 14,
@@ -42,7 +42,7 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_jwt 1`] = `
         "798"
       ],
       "id": "javascript_express_hardcoded_secret",
-      "title": "Hard-coded secret detected.",
+      "title": "Usage of hard-coded secret",
       "description": "## Description\\n\\nCode is not a safe place to store secrets. Use environment variables or a secret management system instead.\\n\\n## Remediations\\n\\n❌ Do not store plaintext secrets in your code\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: \\"shh-my-secret\\",\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use environment variables\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: process.env.secret,\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use a secret management system or even better, a key management service (KMS) with encryption\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n- [Google Cloud Key Management Service](https://cloud.google.com/kms/docs)\\n- [AWS Key Management Service](https://aws.amazon.com/kms/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_hardcoded_secret",
       "line_number": 22,
@@ -76,7 +76,7 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_jwt 1`] = `
         "798"
       ],
       "id": "javascript_express_hardcoded_secret",
-      "title": "Hard-coded secret detected.",
+      "title": "Usage of hard-coded secret",
       "description": "## Description\\n\\nCode is not a safe place to store secrets. Use environment variables or a secret management system instead.\\n\\n## Remediations\\n\\n❌ Do not store plaintext secrets in your code\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: \\"shh-my-secret\\",\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use environment variables\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: process.env.secret,\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use a secret management system or even better, a key management service (KMS) with encryption\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n- [Google Cloud Key Management Service](https://cloud.google.com/kms/docs)\\n- [AWS Key Management Service](https://aws.amazon.com/kms/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_hardcoded_secret",
       "line_number": 24,
@@ -110,7 +110,7 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_jwt 1`] = `
         "798"
       ],
       "id": "javascript_express_hardcoded_secret",
-      "title": "Hard-coded secret detected.",
+      "title": "Usage of hard-coded secret",
       "description": "## Description\\n\\nCode is not a safe place to store secrets. Use environment variables or a secret management system instead.\\n\\n## Remediations\\n\\n❌ Do not store plaintext secrets in your code\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: \\"shh-my-secret\\",\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use environment variables\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: process.env.secret,\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use a secret management system or even better, a key management service (KMS) with encryption\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n- [Google Cloud Key Management Service](https://cloud.google.com/kms/docs)\\n- [AWS Key Management Service](https://aws.amazon.com/kms/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_hardcoded_secret",
       "line_number": 29,
@@ -144,7 +144,7 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_jwt 1`] = `
         "798"
       ],
       "id": "javascript_express_hardcoded_secret",
-      "title": "Hard-coded secret detected.",
+      "title": "Usage of hard-coded secret",
       "description": "## Description\\n\\nCode is not a safe place to store secrets. Use environment variables or a secret management system instead.\\n\\n## Remediations\\n\\n❌ Do not store plaintext secrets in your code\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: \\"shh-my-secret\\",\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use environment variables\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: process.env.secret,\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use a secret management system or even better, a key management service (KMS) with encryption\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n- [Google Cloud Key Management Service](https://cloud.google.com/kms/docs)\\n- [AWS Key Management Service](https://aws.amazon.com/kms/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_hardcoded_secret",
       "line_number": 32,
@@ -178,7 +178,7 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_jwt 1`] = `
         "798"
       ],
       "id": "javascript_express_hardcoded_secret",
-      "title": "Hard-coded secret detected.",
+      "title": "Usage of hard-coded secret",
       "description": "## Description\\n\\nCode is not a safe place to store secrets. Use environment variables or a secret management system instead.\\n\\n## Remediations\\n\\n❌ Do not store plaintext secrets in your code\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: \\"shh-my-secret\\",\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use environment variables\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: process.env.secret,\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use a secret management system or even better, a key management service (KMS) with encryption\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n- [Google Cloud Key Management Service](https://cloud.google.com/kms/docs)\\n- [AWS Key Management Service](https://aws.amazon.com/kms/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_hardcoded_secret",
       "line_number": 37,
@@ -219,7 +219,7 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_session 1`] = `
         "798"
       ],
       "id": "javascript_express_hardcoded_secret",
-      "title": "Hard-coded secret detected.",
+      "title": "Usage of hard-coded secret",
       "description": "## Description\\n\\nCode is not a safe place to store secrets. Use environment variables or a secret management system instead.\\n\\n## Remediations\\n\\n❌ Do not store plaintext secrets in your code\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: \\"shh-my-secret\\",\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use environment variables\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: process.env.secret,\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use a secret management system or even better, a key management service (KMS) with encryption\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n- [Google Cloud Key Management Service](https://cloud.google.com/kms/docs)\\n- [AWS Key Management Service](https://aws.amazon.com/kms/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_hardcoded_secret",
       "line_number": 12,
@@ -253,7 +253,7 @@ exports[`javascript_express_hardcoded_secret hardcoded_secret_in_session 1`] = `
         "798"
       ],
       "id": "javascript_express_hardcoded_secret",
-      "title": "Hard-coded secret detected.",
+      "title": "Usage of hard-coded secret",
       "description": "## Description\\n\\nCode is not a safe place to store secrets. Use environment variables or a secret management system instead.\\n\\n## Remediations\\n\\n❌ Do not store plaintext secrets in your code\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: \\"shh-my-secret\\",\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use environment variables\\n\\n\`\`\`javascript\\n app.use(\\n  session({\\n    secret: process.env.secret,\\n    name: \\"my-custom-session-name\\",\\n  })\\n)\\n\`\`\`\\n\\n✅ Use a secret management system or even better, a key management service (KMS) with encryption\\n\\n## Resources\\n- [OWASP hardcoded passwords](https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password)\\n- [Google Cloud Key Management Service](https://cloud.google.com/kms/docs)\\n- [AWS Key Management Service](https://aws.amazon.com/kms/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_hardcoded_secret",
       "line_number": 23,

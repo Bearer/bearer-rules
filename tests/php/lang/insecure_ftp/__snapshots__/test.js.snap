@@ -8,7 +8,7 @@ exports[`php_lang_insecure_ftp bad 1`] = `
         "319"
       ],
       "id": "php_lang_insecure_ftp",
-      "title": "Communication with an insecure FTP server detected.",
+      "title": "Usage of insecure FTP connection",
       "description": "## Description\\n\\nCommunication with FTP servers should be done securely over SFTP in\\napplications that process sensitive data. This rule checks if all FTP\\nconnections are made using SFTP.\\n\\n## Remediations\\n\\n✅ To ensure secure FTP connections are made, use the ftp_ssl_connect function\\n\\n\`\`\`php\\n$ftp = ftp_ssl_connect(\\"ftp.example.com\\");\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_insecure_ftp",
       "line_number": 3,

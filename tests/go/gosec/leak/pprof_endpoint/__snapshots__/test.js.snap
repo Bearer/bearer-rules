@@ -5,10 +5,10 @@ exports[`go_gosec_leak_pprof_endpoint test 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "918"
+        "200"
       ],
       "id": "go_gosec_leak_pprof_endpoint",
-      "title": "Active debug code (pprof enabled)",
+      "title": "Usage of active debug code (pprof enabled)",
       "description": "## Description\\n\\nGo's standard library includes a profiling tool that can be enabled by importing \`net/http/pprof\`. This tool provides a \`/debug/pprof\` endpoint that exposes runtime profiling data over HTTP. When enabled in a production environment, it can present a significant security risk as it lacks authentication controls and can potentially leak sensitive information about the application's runtime state and environment.\\n\\n## Remediations\\n\\nTo prevent unintended exposure of profiling information:\\n\\n✅ Remove \`net/http/pprof\` in Production\\n\\nBefore deploying your application to a production environment, remove any import statements for \`net/http/pprof\` from your codebase. Ensure that the profiling endpoint is not available in the live environment.\\n\\n\`\`\`go\\n// +build !production\\n\\npackage main\\n\\nimport (\\n    _ \\"net/http/pprof\\" // Ensure this line is not present in your production builds\\n    \\"net/http\\"\\n)\\n\\nfunc main() {\\n    // ... your application code ...\\n\\n    // Start the server (omit the pprof import and handler in production)\\n    log.Println(http.ListenAndServe(\\"localhost:6060\\", nil))\\n}\\n\`\`\`\\n\\n✅ Conditional Compilation\\n\\nUse build tags to include profiling only in non-production builds.\\n\\n✅ Use Environment Configurations\\n\\nConfigure environment-specific settings to conditionally enable or disable the profiling endpoints.\\n\\n✅ Implement Authentication\\n\\nIf profiling is necessary in a controlled production scenario, secure the endpoint with strong authentication mechanisms.\\n\\n## Resources\\n\\n- [Go net/http/pprof Package Documentation](https://pkg.go.dev/net/http/pprof)\\n- [Go Build Constraints Documentation](https://pkg.go.dev/go/build#hdr-Build_Constraints)\\n- [OWASP Security by Design Principles](https://owasp.org/www-project-security-by-design/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/go_gosec_leak_pprof_endpoint",
       "line_number": 7,

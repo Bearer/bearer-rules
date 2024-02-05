@@ -8,7 +8,7 @@ exports[`javascript_third_parties_dom_purify insecure 1`] = `
         "79"
       ],
       "id": "javascript_third_parties_dom_purify",
-      "title": "Insecure use of DOMPurify detected.",
+      "title": "Usage of vulnerable DOMPurify package (XSS)",
       "description": "## Description\\nThere are XSS vulnerabilites when using DOMPurify's sanitize without proper configuration\\n\\n## Remediations\\n\\nSpecify a secure configuration option:\\n\`\`\`\\n  DOMPurify.sanitize(htmlToSanitize, { RETURN_DOM_IMPORT:true })\\n\`\`\`\\n\\nor:\\n\\n\`\`\`\\n  DOMPurify.sanitize(htmlToSanitize, { RETURN_DOM_FRAGMENT: true })\\n\`\`\`\\n\\n## Resources\\n- [Vulnerability explained](https://research.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_dom_purify",
       "line_number": 2,
@@ -42,7 +42,7 @@ exports[`javascript_third_parties_dom_purify insecure 1`] = `
         "79"
       ],
       "id": "javascript_third_parties_dom_purify",
-      "title": "Insecure use of DOMPurify detected.",
+      "title": "Usage of vulnerable DOMPurify package (XSS)",
       "description": "## Description\\nThere are XSS vulnerabilites when using DOMPurify's sanitize without proper configuration\\n\\n## Remediations\\n\\nSpecify a secure configuration option:\\n\`\`\`\\n  DOMPurify.sanitize(htmlToSanitize, { RETURN_DOM_IMPORT:true })\\n\`\`\`\\n\\nor:\\n\\n\`\`\`\\n  DOMPurify.sanitize(htmlToSanitize, { RETURN_DOM_FRAGMENT: true })\\n\`\`\`\\n\\n## Resources\\n- [Vulnerability explained](https://research.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_third_parties_dom_purify",
       "line_number": 5,

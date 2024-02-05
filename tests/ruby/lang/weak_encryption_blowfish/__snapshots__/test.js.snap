@@ -5,11 +5,10 @@ exports[`ruby_lang_weak_encryption_blowfish blowfish 1`] = `
   "low": [
     {
       "cwe_ids": [
-        "331",
-        "326"
+        "327"
       ],
       "id": "ruby_lang_weak_encryption_blowfish",
-      "title": "Weak encryption library (Blowfish) detected.",
+      "title": "Usage of weak encryption algorithm (Blowfish)",
       "description": "## Description\\n\\nA weak encryption library can lead to data breaches and greater security risk.\\n\\n## Remediations\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), Blowfish is considered a weak encryption algorithm and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`ruby\\nCrypt::Blowfish.new(\\"weak password encryption\\")\\n\`\`\`\\n\\n✅ Instead, we recommend using bcrypt:\\n\\n\`\`\`ruby\\nBCrypt::Password.create('iLOVEdogs123')\\n\`\`\`\\n\\n## Resources\\n- [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_blowfish",
       "line_number": 2,
@@ -47,11 +46,10 @@ exports[`ruby_lang_weak_encryption_blowfish blowfish_data 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "331",
-        "326"
+        "327"
       ],
       "id": "ruby_lang_weak_encryption_blowfish",
-      "title": "Weak encryption library (Blowfish) detected.",
+      "title": "Usage of weak encryption algorithm (Blowfish)",
       "description": "## Description\\n\\nA weak encryption library can lead to data breaches and greater security risk.\\n\\n## Remediations\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), Blowfish is considered a weak encryption algorithm and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`ruby\\nCrypt::Blowfish.new(\\"weak password encryption\\")\\n\`\`\`\\n\\n✅ Instead, we recommend using bcrypt:\\n\\n\`\`\`ruby\\nBCrypt::Password.create('iLOVEdogs123')\\n\`\`\`\\n\\n## Resources\\n- [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_blowfish",
       "line_number": 1,
@@ -90,11 +88,10 @@ exports[`ruby_lang_weak_encryption_blowfish blowfish_data 1`] = `
     },
     {
       "cwe_ids": [
-        "331",
-        "326"
+        "327"
       ],
       "id": "ruby_lang_weak_encryption_blowfish",
-      "title": "Weak encryption library (Blowfish) detected.",
+      "title": "Usage of weak encryption algorithm (Blowfish)",
       "description": "## Description\\n\\nA weak encryption library can lead to data breaches and greater security risk.\\n\\n## Remediations\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), Blowfish is considered a weak encryption algorithm and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`ruby\\nCrypt::Blowfish.new(\\"weak password encryption\\")\\n\`\`\`\\n\\n✅ Instead, we recommend using bcrypt:\\n\\n\`\`\`ruby\\nBCrypt::Password.create('iLOVEdogs123')\\n\`\`\`\\n\\n## Resources\\n- [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_blowfish",
       "line_number": 5,
@@ -133,11 +130,10 @@ exports[`ruby_lang_weak_encryption_blowfish blowfish_data 1`] = `
     },
     {
       "cwe_ids": [
-        "331",
-        "326"
+        "327"
       ],
       "id": "ruby_lang_weak_encryption_blowfish",
-      "title": "Weak encryption library (Blowfish) detected.",
+      "title": "Usage of weak encryption algorithm (Blowfish)",
       "description": "## Description\\n\\nA weak encryption library can lead to data breaches and greater security risk.\\n\\n## Remediations\\nAccording to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), Blowfish is considered a weak encryption algorithm and therefore shouldn't be used.\\n\\n❌ Avoid libraries and algorithms with known weaknesses:\\n\\n\`\`\`ruby\\nCrypt::Blowfish.new(\\"weak password encryption\\")\\n\`\`\`\\n\\n✅ Instead, we recommend using bcrypt:\\n\\n\`\`\`ruby\\nBCrypt::Password.create('iLOVEdogs123')\\n\`\`\`\\n\\n## Resources\\n- [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_weak_encryption_blowfish",
       "line_number": 9,

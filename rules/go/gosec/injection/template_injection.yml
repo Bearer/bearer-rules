@@ -20,7 +20,7 @@ patterns:
 languages:
   - go
 metadata:
-  description: "Improper neutralization of input during web page generation ('Cross-site Scripting')"
+  description: "Unsanitized user input in web page generation (XSS)"
   remediation_message: |
     ## Description
 

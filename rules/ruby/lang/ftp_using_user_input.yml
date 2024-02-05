@@ -32,7 +32,7 @@ languages:
   - ruby
 severity: high
 metadata:
-  description: "Do not use user input with FTP."
+  description: "Unsanitized user input in FTP request"
   remediation_message: |
     ## Description
     Using raw unsanitized input with FTP methods is bad practice.
@@ -58,6 +58,6 @@ metadata:
     - [OWASP code injection](https://owasp.org/www-community/attacks/Code_Injection)
     - [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)
   cwe_id:
-    - 22
+    - 73
   id: ruby_lang_ftp_using_user_input
   documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_ftp_using_user_input

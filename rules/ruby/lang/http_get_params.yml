@@ -32,7 +32,7 @@ patterns:
         detection: ruby_shared_common_datatype
         scope: result
 metadata:
-  description: "Sensitive data communicated through GET parameters detected."
+  description: "Leakage of sensitive data in HTTP GET parameters"
   remediation_message: |
     ## Description
     Sensitive data should never be sent as part of the query string in HTTP GET requests. This rule checks if sensitive data types are sent as GET parameters.

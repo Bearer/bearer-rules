@@ -5,11 +5,10 @@ exports[`javascript_express_default_session_config default_session_config 1`] = 
   "medium": [
     {
       "cwe_ids": [
-        "523",
-        "522"
+        "693"
       ],
       "id": "javascript_express_default_session_config",
-      "title": "Session cookie with default config detected.",
+      "title": "Usage of session cookie with default configuration",
       "description": "## Description\\nTo make sure session cookies don't open your application up to exploits or unauthorized access, don't use default cookie values.\\n\\n## Remediations\\n✅ Instead of the default session name, use generic names.\\n\\n## Resources\\n- [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_express_default_session_config",
       "line_number": 9,

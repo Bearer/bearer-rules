@@ -24,7 +24,7 @@ auxiliary:
           { isRevoked: $<_> }
 severity: low
 metadata:
-  description: "Unrevoked JWT detected."
+  description: "Missing revoke method on JWT"
   remediation_message: |
     ## Description
     The best practice caching policy is to revoke JWTs especially when these contain senstitive information.
@@ -43,6 +43,6 @@ metadata:
     ## Resources
     - [ExpressJWT documentation on revoking tokens](https://github.com/auth0/express-jwt#revoked-tokens)
   cwe_id:
-    - 525
+    - 693
   id: "javascript_express_jwt_not_revoked"
   documentation_url: https://docs.bearer.com/reference/rules/javascript_express_jwt_not_revoked

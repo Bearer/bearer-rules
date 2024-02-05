@@ -39,7 +39,7 @@ auxiliary:
 languages:
   - go
 metadata:
-  description: "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)"
+  description: "Usage of weak Pseudo-Random Number Generator (PRNG)"
   remediation_message: |
     ## Description
 
@@ -87,6 +87,6 @@ metadata:
     - [crypto/rand package documentation](https://pkg.go.dev/crypto/rand)
 
   cwe_id:
-    - 338
+    - 327
   id: go_gosec_crypto_weak_random
   documentation_url: https://docs.bearer.com/reference/rules/go_gosec_crypto_weak_random

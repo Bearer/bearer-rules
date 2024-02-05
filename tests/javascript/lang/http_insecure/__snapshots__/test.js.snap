@@ -8,7 +8,7 @@ exports[`javascript_lang_http_insecure axios_insecure 1`] = `
         "319"
       ],
       "id": "javascript_lang_http_insecure",
-      "title": "Connection with an insecure HTTP communication detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`javascript\\nconst response = axios.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`javascript\\nconst response = axios.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_insecure",
       "line_number": 2,
@@ -51,7 +51,7 @@ exports[`javascript_lang_http_insecure axios_with_config_insecure 1`] = `
         "319"
       ],
       "id": "javascript_lang_http_insecure",
-      "title": "Connection with an insecure HTTP communication detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`javascript\\nconst response = axios.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`javascript\\nconst response = axios.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_insecure",
       "line_number": 7,
@@ -92,7 +92,7 @@ exports[`javascript_lang_http_insecure fetch_insecure 1`] = `
         "319"
       ],
       "id": "javascript_lang_http_insecure",
-      "title": "Connection with an insecure HTTP communication detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`javascript\\nconst response = axios.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`javascript\\nconst response = axios.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_insecure",
       "line_number": 3,
@@ -135,7 +135,7 @@ exports[`javascript_lang_http_insecure request_insecure 1`] = `
         "319"
       ],
       "id": "javascript_lang_http_insecure",
-      "title": "Connection with an insecure HTTP communication detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`javascript\\nconst response = axios.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`javascript\\nconst response = axios.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_insecure",
       "line_number": 3,
@@ -178,7 +178,7 @@ exports[`javascript_lang_http_insecure xmlhttp_insecure 1`] = `
         "319"
       ],
       "id": "javascript_lang_http_insecure",
-      "title": "Connection with an insecure HTTP communication detected.",
+      "title": "Usage of insecure HTTP connection",
       "description": "## Description\\n\\nApplications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.\\n\\n❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:\\n\\n\`\`\`javascript\\nconst response = axios.get('http://insecure-api.com')\\n\`\`\`\\n\\n✅ Ensure to always connect though HTTPS:\\n\\n\`\`\`javascript\\nconst response = axios.get('https://secure-api.com')\\n\`\`\`\\n\\n## Resources\\n- [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_insecure",
       "line_number": 5,

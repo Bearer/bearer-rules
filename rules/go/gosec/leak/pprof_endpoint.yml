@@ -7,7 +7,7 @@ patterns:
 languages:
   - go
 metadata:
-  description: "Active debug code (pprof enabled)"
+  description: "Usage of active debug code (pprof enabled)"
   remediation_message: |
     ## Description
 
@@ -57,6 +57,6 @@ metadata:
     - [Go Build Constraints Documentation](https://pkg.go.dev/go/build#hdr-Build_Constraints)
     - [OWASP Security by Design Principles](https://owasp.org/www-project-security-by-design/)
   cwe_id:
-    - 918
+    - 200
   id: go_gosec_leak_pprof_endpoint
   documentation_url: https://docs.bearer.com/reference/rules/go_gosec_leak_pprof_endpoint

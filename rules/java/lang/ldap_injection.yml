@@ -72,7 +72,7 @@ auxiliary:
 languages:
   - java
 metadata:
-  description: "LDAP injection threat detected"
+  description: "Unsanitized user input in LDAP request"
   remediation_message: |
     ## Description
       Unsatized input going into LDAP query detected. This could lead to LDAP injection, which could result in attackers modifying objects in the LDAP tree structure. Ensure data passed to an LDAP query is not controllable or properly sanitize the data.

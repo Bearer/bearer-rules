@@ -34,7 +34,7 @@ auxiliary:
             detection: javascript_shared_common_user_input
             scope: result
 metadata:
-  description: "Insecure Access-Control-Allow-Origin detected."
+  description: "Unsanitized user input in Access-Control-Allow-Origin"
   remediation_message: |
     ## Description
     Do not use unverified user-defined input to define Access-Control-Allow-Origin. This can lead to unintended user access to sensitive data.

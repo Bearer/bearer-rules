@@ -5,11 +5,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 6,
@@ -40,11 +39,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 7,
@@ -75,11 +73,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 8,
@@ -110,11 +107,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 9,
@@ -145,11 +141,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 10,
@@ -180,11 +175,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 11,
@@ -215,11 +209,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 12,
@@ -250,11 +243,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 13,
@@ -285,11 +277,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 14,
@@ -320,11 +311,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 15,
@@ -355,11 +345,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 16,
@@ -390,11 +379,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 17,
@@ -425,11 +413,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 18,
@@ -460,11 +447,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 19,
@@ -495,11 +481,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 20,
@@ -530,11 +515,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 21,
@@ -565,11 +549,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 22,
@@ -600,11 +583,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 23,
@@ -635,11 +617,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 24,
@@ -670,11 +651,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 25,
@@ -705,11 +685,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 26,
@@ -740,11 +719,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 27,
@@ -775,11 +753,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 29,
@@ -810,11 +787,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 30,
@@ -845,11 +821,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 31,
@@ -880,11 +855,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 32,
@@ -915,11 +889,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 33,
@@ -950,11 +923,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 34,
@@ -985,11 +957,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 35,
@@ -1020,11 +991,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 36,
@@ -1055,11 +1025,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 37,
@@ -1090,11 +1059,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 38,
@@ -1125,11 +1093,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 39,
@@ -1160,11 +1127,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 40,
@@ -1195,11 +1161,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 41,
@@ -1230,11 +1195,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 42,
@@ -1265,11 +1229,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 43,
@@ -1300,11 +1263,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 44,
@@ -1335,11 +1297,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 45,
@@ -1370,11 +1331,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 46,
@@ -1405,11 +1365,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 47,
@@ -1440,11 +1399,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 48,
@@ -1475,11 +1433,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 49,
@@ -1510,11 +1467,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 50,
@@ -1545,11 +1501,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 51,
@@ -1580,11 +1535,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 52,
@@ -1615,11 +1569,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 53,
@@ -1650,11 +1603,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 54,
@@ -1685,11 +1637,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 55,
@@ -1720,11 +1671,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 56,
@@ -1755,11 +1705,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 57,
@@ -1790,11 +1739,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 58,
@@ -1825,11 +1773,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 61,
@@ -1860,11 +1807,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 62,
@@ -1895,11 +1841,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 63,
@@ -1930,11 +1875,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 64,
@@ -1965,11 +1909,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 65,
@@ -2000,11 +1943,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 68,
@@ -2035,11 +1977,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 73,
@@ -2070,11 +2011,10 @@ exports[`php_lang_path_using_user_input bad 1`] = `
     },
     {
       "cwe_ids": [
-        "22",
         "73"
       ],
       "id": "php_lang_path_using_user_input",
-      "title": "Do not use user input to form file paths.",
+      "title": "Unsanitized user input in file path",
       "description": "## Description\\nUsing raw unsanitized input when forming filenames or file paths is bad practice.\\nIt can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.\\n\\n## Remediations\\n❌ Avoid wherever possible\\n\\n✅ Restrict the user input to known values\\n\\n\`\`\`php\\n  $allowed_filenames = array(\\"resource-1\\", \\"resource-2\\");\\n  $filename = $_GET[\\"resource_name\\"];\\n\\n  if (in_array($filename, $allowed_filenames)) {\\n    readfile(\\"/files/\${filename}\\");\\n  } else {\\n    // filename is unexpected\\n  }\\n\`\`\`\\n\\n✅ Validate expected file paths\\n\\n\`\`\`php\\n  $path = realpath(\\"/safe/prefix/\\" . $_GET[\\"resource_name\\"]);\\n  if (str_starts_with($path, \\"/safe/prefix/\\")) {\\n    readfile($path);\\n  } else {\\n    // path is unexpected\\n  }\\n\`\`\`\\n\\n## Resources\\n- [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_lang_path_using_user_input",
       "line_number": 74,

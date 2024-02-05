@@ -10,7 +10,7 @@ exports[`ruby_lang_reflection_using_user_input unsafe_rails 1`] = `
         "94"
       ],
       "id": "ruby_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`ruby\\nmethod(params[:method])\\n\`\`\`\\n\\n✅ Use user input indirectly when using reflection:\\n\\n\`\`\`ruby\\nmethod_name =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"method1\\"\\n  when \\"option2\\"\\n    \\"method2\\"\\n  end\\n\\nmethod(method_name)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input",
       "line_number": 1,
@@ -44,7 +44,7 @@ exports[`ruby_lang_reflection_using_user_input unsafe_rails 1`] = `
         "94"
       ],
       "id": "ruby_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`ruby\\nmethod(params[:method])\\n\`\`\`\\n\\n✅ Use user input indirectly when using reflection:\\n\\n\`\`\`ruby\\nmethod_name =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"method1\\"\\n  when \\"option2\\"\\n    \\"method2\\"\\n  end\\n\\nmethod(method_name)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input",
       "line_number": 3,
@@ -85,7 +85,7 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
         "94"
       ],
       "id": "ruby_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`ruby\\nmethod(params[:method])\\n\`\`\`\\n\\n✅ Use user input indirectly when using reflection:\\n\\n\`\`\`ruby\\nmethod_name =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"method1\\"\\n  when \\"option2\\"\\n    \\"method2\\"\\n  end\\n\\nmethod(method_name)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input",
       "line_number": 1,
@@ -119,7 +119,7 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
         "94"
       ],
       "id": "ruby_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`ruby\\nmethod(params[:method])\\n\`\`\`\\n\\n✅ Use user input indirectly when using reflection:\\n\\n\`\`\`ruby\\nmethod_name =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"method1\\"\\n  when \\"option2\\"\\n    \\"method2\\"\\n  end\\n\\nmethod(method_name)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input",
       "line_number": 2,
@@ -153,7 +153,7 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
         "94"
       ],
       "id": "ruby_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`ruby\\nmethod(params[:method])\\n\`\`\`\\n\\n✅ Use user input indirectly when using reflection:\\n\\n\`\`\`ruby\\nmethod_name =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"method1\\"\\n  when \\"option2\\"\\n    \\"method2\\"\\n  end\\n\\nmethod(method_name)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input",
       "line_number": 3,
@@ -187,7 +187,7 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
         "94"
       ],
       "id": "ruby_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`ruby\\nmethod(params[:method])\\n\`\`\`\\n\\n✅ Use user input indirectly when using reflection:\\n\\n\`\`\`ruby\\nmethod_name =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"method1\\"\\n  when \\"option2\\"\\n    \\"method2\\"\\n  end\\n\\nmethod(method_name)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input",
       "line_number": 5,
@@ -221,7 +221,7 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
         "94"
       ],
       "id": "ruby_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`ruby\\nmethod(params[:method])\\n\`\`\`\\n\\n✅ Use user input indirectly when using reflection:\\n\\n\`\`\`ruby\\nmethod_name =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"method1\\"\\n  when \\"option2\\"\\n    \\"method2\\"\\n  end\\n\\nmethod(method_name)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input",
       "line_number": 7,
@@ -255,7 +255,7 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
         "94"
       ],
       "id": "ruby_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`ruby\\nmethod(params[:method])\\n\`\`\`\\n\\n✅ Use user input indirectly when using reflection:\\n\\n\`\`\`ruby\\nmethod_name =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"method1\\"\\n  when \\"option2\\"\\n    \\"method2\\"\\n  end\\n\\nmethod(method_name)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input",
       "line_number": 9,
@@ -289,7 +289,7 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
         "94"
       ],
       "id": "ruby_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`ruby\\nmethod(params[:method])\\n\`\`\`\\n\\n✅ Use user input indirectly when using reflection:\\n\\n\`\`\`ruby\\nmethod_name =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"method1\\"\\n  when \\"option2\\"\\n    \\"method2\\"\\n  end\\n\\nmethod(method_name)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input",
       "line_number": 11,
@@ -323,7 +323,7 @@ exports[`ruby_lang_reflection_using_user_input unsafe_stdlib 1`] = `
         "94"
       ],
       "id": "ruby_lang_reflection_using_user_input",
-      "title": "Use of reflection influenced by user input detected.",
+      "title": "Unsanitized user input in code generation",
       "description": "## Description\\n\\nApplications should not look up or manipulate code using user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input when using reflection:\\n\\n\`\`\`ruby\\nmethod(params[:method])\\n\`\`\`\\n\\n✅ Use user input indirectly when using reflection:\\n\\n\`\`\`ruby\\nmethod_name =\\n  case params[:action]\\n  when \\"option1\\"\\n    \\"method1\\"\\n  when \\"option2\\"\\n    \\"method2\\"\\n  end\\n\\nmethod(method_name)\\n\`\`\`\\n\\n## Resources\\n- [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/ruby_lang_reflection_using_user_input",
       "line_number": 12,

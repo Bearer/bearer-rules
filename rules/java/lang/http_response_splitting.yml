@@ -96,7 +96,7 @@ languages:
   - java
 severity: warning
 metadata:
-  description: "HTTP response splitting vulnerability detected."
+  description: "Unsanitized user input in HTTP response (XSS)"
   remediation_message: |
     ## Description
 
@@ -118,6 +118,5 @@ metadata:
     ```
   cwe_id:
     - 79
-    - 113
   id: java_lang_http_response_splitting
   documentation_url: https://docs.bearer.com/reference/rules/java_lang_http_response_splitting

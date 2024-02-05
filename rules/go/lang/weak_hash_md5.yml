@@ -34,7 +34,7 @@ skip_data_types:
   - "Unique Identifier"
   - "Passwords" # see go_lang_weak_password_encryption_md5
 metadata:
-  description: "Weak hashing library (MD5) detected."
+  description: "Usage of weak hashing library (MD5)"
   remediation_message: |
     ## Description
 
@@ -55,7 +55,6 @@ metadata:
     sha256.Sum256([]byte('string'))
     ```
   cwe_id:
-    - 331
     - 328
   id: go_lang_weak_hash_md5
   documentation_url: https://docs.bearer.com/reference/rules/go_lang_weak_hash_md5

@@ -278,7 +278,7 @@ languages:
   - ruby
 severity: high
 metadata:
-  description: "Unsanitized user input detected in file path."
+  description: "Unsanitized user input in file path"
   remediation_message: |
     ## Description
     Using raw unsanitized input when forming filenames or file paths is bad practice.
@@ -301,7 +301,6 @@ metadata:
     ## Resources
     - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
   cwe_id:
-    - 22
     - 73
   id: ruby_lang_path_using_user_input
   documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_path_using_user_input

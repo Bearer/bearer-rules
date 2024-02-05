@@ -48,7 +48,7 @@ auxiliary:
 skip_data_types:
   - "Unique Identifier"
 metadata:
-  description: "Sensitive data sent to Elasticsearch detected."
+  description: "Leakage of sensitive data to ElasticSearch"
   remediation_message: |
     ## Description
     Leaking sensitive data to third-party data tools is a common cause of data

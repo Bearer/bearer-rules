@@ -44,7 +44,7 @@ languages:
   - ruby
 severity: high
 metadata:
-  description: "User input detected in an unsafe deserialization method."
+  description: "Unsanitized user input in deserialization method"
   remediation_message: |
     ## Description
     It is bad practice to deserialize untrusted data, such as data that comes from params or cookies, without sufficient verification.

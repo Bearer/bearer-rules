@@ -10,7 +10,7 @@ exports[`javascript_lang_os_command_injection os_command_injection 1`] = `
         "78"
       ],
       "id": "javascript_lang_os_command_injection",
-      "title": "OS command injection vulnerability detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\nUsing external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.\\n\\n## Remediations\\n\\nThink twice if user input is really needed there.\\n\\nIt might be possible to use dynamic hardcoded values:\\n\\n\`\`\`javascript\\n  let filePattern = \\"*.js\\"\\n\\n  if req.params.graphql {\\n    filePattern = \\"*.gql\\"\\n  }\\n\\n  cp.exec(\`cp \${filePattern} foo\`, (error, stdout, stderr) => {});\\n\`\`\`\\n\\n## Resources\\n- [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection",
       "line_number": 4,
@@ -44,7 +44,7 @@ exports[`javascript_lang_os_command_injection os_command_injection 1`] = `
         "78"
       ],
       "id": "javascript_lang_os_command_injection",
-      "title": "OS command injection vulnerability detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\nUsing external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.\\n\\n## Remediations\\n\\nThink twice if user input is really needed there.\\n\\nIt might be possible to use dynamic hardcoded values:\\n\\n\`\`\`javascript\\n  let filePattern = \\"*.js\\"\\n\\n  if req.params.graphql {\\n    filePattern = \\"*.gql\\"\\n  }\\n\\n  cp.exec(\`cp \${filePattern} foo\`, (error, stdout, stderr) => {});\\n\`\`\`\\n\\n## Resources\\n- [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection",
       "line_number": 8,
@@ -78,7 +78,7 @@ exports[`javascript_lang_os_command_injection os_command_injection 1`] = `
         "78"
       ],
       "id": "javascript_lang_os_command_injection",
-      "title": "OS command injection vulnerability detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\nUsing external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.\\n\\n## Remediations\\n\\nThink twice if user input is really needed there.\\n\\nIt might be possible to use dynamic hardcoded values:\\n\\n\`\`\`javascript\\n  let filePattern = \\"*.js\\"\\n\\n  if req.params.graphql {\\n    filePattern = \\"*.gql\\"\\n  }\\n\\n  cp.exec(\`cp \${filePattern} foo\`, (error, stdout, stderr) => {});\\n\`\`\`\\n\\n## Resources\\n- [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection",
       "line_number": 12,
@@ -112,7 +112,7 @@ exports[`javascript_lang_os_command_injection os_command_injection 1`] = `
         "78"
       ],
       "id": "javascript_lang_os_command_injection",
-      "title": "OS command injection vulnerability detected.",
+      "title": "Unsanitized user input in OS command",
       "description": "## Description\\nUsing external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.\\n\\n## Remediations\\n\\nThink twice if user input is really needed there.\\n\\nIt might be possible to use dynamic hardcoded values:\\n\\n\`\`\`javascript\\n  let filePattern = \\"*.js\\"\\n\\n  if req.params.graphql {\\n    filePattern = \\"*.gql\\"\\n  }\\n\\n  cp.exec(\`cp \${filePattern} foo\`, (error, stdout, stderr) => {});\\n\`\`\`\\n\\n## Resources\\n- [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection",
       "line_number": 14,

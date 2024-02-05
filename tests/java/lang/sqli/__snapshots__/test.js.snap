@@ -8,7 +8,7 @@ exports[`java_lang_sqli bad 1`] = `
         "89"
       ],
       "id": "java_lang_sqli",
-      "title": "Unsanitized user input in SQL query detected.",
+      "title": "Unsanitized user input in SQL query",
       "description": "## Description\\n\\nIncluding unsanitized data, such as user input or request data, in raw SQL\\nqueries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input:\\n\\n\`\`\`java\\n  Statement stmt = conn.createStatement();\\n  ResultSet rs = stmt.executeQuery(\\"select name from users where id='\\"+ uri.getQueryParameter(\\"user_id\\") \\"'\\")) {\\n\`\`\`\\n\\n✅ Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead\\n\\n\`\`\`java\\nmyStmt = myCon.prepareStatement(\\"select * from students where age > ? and name = ?\\");\\nmyStmt.setInt(1, uri.getQueryParameter(\\"age\\"));\\nmyStmt.setString(2, uri.getQueryParameter(\\"name\\"));\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_sqli",
       "line_number": 19,
@@ -42,7 +42,7 @@ exports[`java_lang_sqli bad 1`] = `
         "89"
       ],
       "id": "java_lang_sqli",
-      "title": "Unsanitized user input in SQL query detected.",
+      "title": "Unsanitized user input in SQL query",
       "description": "## Description\\n\\nIncluding unsanitized data, such as user input or request data, in raw SQL\\nqueries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input:\\n\\n\`\`\`java\\n  Statement stmt = conn.createStatement();\\n  ResultSet rs = stmt.executeQuery(\\"select name from users where id='\\"+ uri.getQueryParameter(\\"user_id\\") \\"'\\")) {\\n\`\`\`\\n\\n✅ Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead\\n\\n\`\`\`java\\nmyStmt = myCon.prepareStatement(\\"select * from students where age > ? and name = ?\\");\\nmyStmt.setInt(1, uri.getQueryParameter(\\"age\\"));\\nmyStmt.setString(2, uri.getQueryParameter(\\"name\\"));\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_sqli",
       "line_number": 26,
@@ -76,7 +76,7 @@ exports[`java_lang_sqli bad 1`] = `
         "89"
       ],
       "id": "java_lang_sqli",
-      "title": "Unsanitized user input in SQL query detected.",
+      "title": "Unsanitized user input in SQL query",
       "description": "## Description\\n\\nIncluding unsanitized data, such as user input or request data, in raw SQL\\nqueries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input:\\n\\n\`\`\`java\\n  Statement stmt = conn.createStatement();\\n  ResultSet rs = stmt.executeQuery(\\"select name from users where id='\\"+ uri.getQueryParameter(\\"user_id\\") \\"'\\")) {\\n\`\`\`\\n\\n✅ Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead\\n\\n\`\`\`java\\nmyStmt = myCon.prepareStatement(\\"select * from students where age > ? and name = ?\\");\\nmyStmt.setInt(1, uri.getQueryParameter(\\"age\\"));\\nmyStmt.setString(2, uri.getQueryParameter(\\"name\\"));\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_sqli",
       "line_number": 32,
@@ -110,7 +110,7 @@ exports[`java_lang_sqli bad 1`] = `
         "89"
       ],
       "id": "java_lang_sqli",
-      "title": "Unsanitized user input in SQL query detected.",
+      "title": "Unsanitized user input in SQL query",
       "description": "## Description\\n\\nIncluding unsanitized data, such as user input or request data, in raw SQL\\nqueries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input:\\n\\n\`\`\`java\\n  Statement stmt = conn.createStatement();\\n  ResultSet rs = stmt.executeQuery(\\"select name from users where id='\\"+ uri.getQueryParameter(\\"user_id\\") \\"'\\")) {\\n\`\`\`\\n\\n✅ Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead\\n\\n\`\`\`java\\nmyStmt = myCon.prepareStatement(\\"select * from students where age > ? and name = ?\\");\\nmyStmt.setInt(1, uri.getQueryParameter(\\"age\\"));\\nmyStmt.setString(2, uri.getQueryParameter(\\"name\\"));\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_sqli",
       "line_number": 36,
@@ -144,7 +144,7 @@ exports[`java_lang_sqli bad 1`] = `
         "89"
       ],
       "id": "java_lang_sqli",
-      "title": "Unsanitized user input in SQL query detected.",
+      "title": "Unsanitized user input in SQL query",
       "description": "## Description\\n\\nIncluding unsanitized data, such as user input or request data, in raw SQL\\nqueries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input:\\n\\n\`\`\`java\\n  Statement stmt = conn.createStatement();\\n  ResultSet rs = stmt.executeQuery(\\"select name from users where id='\\"+ uri.getQueryParameter(\\"user_id\\") \\"'\\")) {\\n\`\`\`\\n\\n✅ Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead\\n\\n\`\`\`java\\nmyStmt = myCon.prepareStatement(\\"select * from students where age > ? and name = ?\\");\\nmyStmt.setInt(1, uri.getQueryParameter(\\"age\\"));\\nmyStmt.setString(2, uri.getQueryParameter(\\"name\\"));\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_sqli",
       "line_number": 40,
@@ -178,7 +178,7 @@ exports[`java_lang_sqli bad 1`] = `
         "89"
       ],
       "id": "java_lang_sqli",
-      "title": "Unsanitized user input in SQL query detected.",
+      "title": "Unsanitized user input in SQL query",
       "description": "## Description\\n\\nIncluding unsanitized data, such as user input or request data, in raw SQL\\nqueries makes your application vulnerable to SQL injection attacks.\\n\\n## Remediations\\n\\n❌ Avoid raw queries, especially those that contain unsanitized user input:\\n\\n\`\`\`java\\n  Statement stmt = conn.createStatement();\\n  ResultSet rs = stmt.executeQuery(\\"select name from users where id='\\"+ uri.getQueryParameter(\\"user_id\\") \\"'\\")) {\\n\`\`\`\\n\\n✅ Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead\\n\\n\`\`\`java\\nmyStmt = myCon.prepareStatement(\\"select * from students where age > ? and name = ?\\");\\nmyStmt.setInt(1, uri.getQueryParameter(\\"age\\"));\\nmyStmt.setString(2, uri.getQueryParameter(\\"name\\"));\\n\`\`\`\\n\\n## Resources\\n- [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)\\n- [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_sqli",
       "line_number": 44,

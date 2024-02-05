@@ -7,11 +7,10 @@ exports[`javascript_lang_import_using_user_input require_destructured_resource 1
   "low": [
     {
       "cwe_ids": [
-        "22",
-        "95"
+        "470"
       ],
       "id": "javascript_lang_import_using_user_input",
-      "title": "Loading of resource resolved from external name detected.",
+      "title": "Usage of externally controlled input to select code",
       "description": "## Description\\n\\nLoading code dynamically from a path formed from user input can allow an\\nattacker to execute arbitrary code.\\n\\n## Remediations\\n\\n❌ Avoid passing user or request input to require().\\n\\n✅ Where it is unavoidable to rely on user input, sanitize the input or use a safelist\\n\\n\`\`\`javascript\\nvar path = req.body.path\\nif (['users', 'posts', 'pages'].includes(path)) {\\n  require(\`\${path}.js\`)\\n}\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_import_using_user_input",
       "line_number": 7,
@@ -49,11 +48,10 @@ exports[`javascript_lang_import_using_user_input require_external_resource 1`] =
   "low": [
     {
       "cwe_ids": [
-        "22",
-        "95"
+        "470"
       ],
       "id": "javascript_lang_import_using_user_input",
-      "title": "Loading of resource resolved from external name detected.",
+      "title": "Usage of externally controlled input to select code",
       "description": "## Description\\n\\nLoading code dynamically from a path formed from user input can allow an\\nattacker to execute arbitrary code.\\n\\n## Remediations\\n\\n❌ Avoid passing user or request input to require().\\n\\n✅ Where it is unavoidable to rely on user input, sanitize the input or use a safelist\\n\\n\`\`\`javascript\\nvar path = req.body.path\\nif (['users', 'posts', 'pages'].includes(path)) {\\n  require(\`\${path}.js\`)\\n}\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_import_using_user_input",
       "line_number": 10,
@@ -84,11 +82,10 @@ exports[`javascript_lang_import_using_user_input require_external_resource 1`] =
     },
     {
       "cwe_ids": [
-        "22",
-        "95"
+        "470"
       ],
       "id": "javascript_lang_import_using_user_input",
-      "title": "Loading of resource resolved from external name detected.",
+      "title": "Usage of externally controlled input to select code",
       "description": "## Description\\n\\nLoading code dynamically from a path formed from user input can allow an\\nattacker to execute arbitrary code.\\n\\n## Remediations\\n\\n❌ Avoid passing user or request input to require().\\n\\n✅ Where it is unavoidable to rely on user input, sanitize the input or use a safelist\\n\\n\`\`\`javascript\\nvar path = req.body.path\\nif (['users', 'posts', 'pages'].includes(path)) {\\n  require(\`\${path}.js\`)\\n}\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_import_using_user_input",
       "line_number": 15,

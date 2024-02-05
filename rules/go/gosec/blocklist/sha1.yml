@@ -8,7 +8,7 @@ patterns:
 languages:
   - go
 metadata:
-  description: "Use of a Broken or Risky Cryptographic Algorithm"
+  description: "Import of weak hashing library (MD5)"
   remediation_message: |
     ## Description
 
@@ -38,6 +38,6 @@ metadata:
     - [NIST Policy on Hash Functions](https://csrc.nist.gov/projects/hash-functions)
 
   cwe_id:
-    - 327
+    - 328
   id: go_gosec_blocklist_sha1
   documentation_url: https://docs.bearer.com/reference/rules/go_gosec_blocklist_sha1

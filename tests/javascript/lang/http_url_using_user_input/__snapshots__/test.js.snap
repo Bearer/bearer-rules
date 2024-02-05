@@ -8,7 +8,7 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
         "918"
       ],
       "id": "javascript_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
       "line_number": 6,
@@ -42,7 +42,7 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
         "918"
       ],
       "id": "javascript_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
       "line_number": 8,
@@ -76,7 +76,7 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
         "918"
       ],
       "id": "javascript_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
       "line_number": 13,
@@ -110,7 +110,7 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
         "918"
       ],
       "id": "javascript_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
       "line_number": 19,
@@ -144,7 +144,7 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
         "918"
       ],
       "id": "javascript_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
       "line_number": 25,
@@ -178,7 +178,7 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
         "918"
       ],
       "id": "javascript_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
       "line_number": 27,
@@ -212,7 +212,7 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
         "918"
       ],
       "id": "javascript_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
       "line_number": 31,
@@ -246,7 +246,7 @@ exports[`javascript_lang_http_url_using_user_input bad 1`] = `
         "918"
       ],
       "id": "javascript_lang_http_url_using_user_input",
-      "title": "HTTP communication with user-controlled destination detected.",
+      "title": "Unsanitized user input in HTTP request (SSRF)",
       "description": "## Description\\n\\nApplications should not connect to locations formed from user input.\\nThis rule checks for URLs containing user-supplied data.\\n\\n## Remediations\\n\\n❌ Avoid using user input in HTTP URLs:\\n\\n\`\`\`javascript\\nconst response = axios.get(\`https://\${req.params.host}\`)\\n\`\`\`\\n\\n✅ Use user input indirectly to form a URL:\\n\\n\`\`\`javascript\\nconst hosts = new Map([\\n  [\\"option1\\", \\"api1.com\\"],\\n  [\\"option2\\", \\"api2.com\\"]\\n])\\n\\nconst host = hosts.get(req.params.host)\\nconst response = axois.get(\`https://\${host}\`)\\n\`\`\`\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_http_url_using_user_input",
       "line_number": 35,

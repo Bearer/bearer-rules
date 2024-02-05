@@ -3,7 +3,7 @@ patterns:
 languages:
   - go
 metadata:
-  description: "Key exchange without entity authentication"
+  description: "Missing verification of host keys"
   remediation_message: |
     ## Description
 
@@ -33,6 +33,6 @@ metadata:
     - [Secure use of SSH - OpenSSH](https://www.openssh.com/)
 
   cwe_id:
-    - 322
+    - 327
   id: go_gosec_crypto_insecure_ignore_host_key
   documentation_url: https://docs.bearer.com/reference/rules/go_gosec_crypto_insecure_ignore_host_key

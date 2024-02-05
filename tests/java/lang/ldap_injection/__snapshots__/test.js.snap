@@ -8,7 +8,7 @@ exports[`java_lang_ldap_injection ldap_injection 1`] = `
         "90"
       ],
       "id": "java_lang_ldap_injection",
-      "title": "LDAP injection threat detected",
+      "title": "Unsanitized user input in LDAP request",
       "description": "## Description\\n  Unsatized input going into LDAP query detected. This could lead to LDAP injection, which could result in attackers modifying objects in the LDAP tree structure. Ensure data passed to an LDAP query is not controllable or properly sanitize the data.\\n\\n## Remediations\\n\\n✅ Sanitize LDAP query data\\n\\n\`\`\`java\\n  public class Cls extends HttpServlet\\n  {\\n\\n      public void handleRequest(HttpServletRequest request, HttpServletResponse response)\\n      {\\n          String userID = request.getParameter(\\"userID\\");\\n          String sanitizedUserID = sanitize(userID);\\n\\n          String filter = \\"(&(objectclass=person))(|(uid=\\" + sanitizedUserID + \\")(street={0}))\\";\\n          String base = \\"ou=users,ou=system\\";\\n          Object[] filters = new Object[] {\\"First avenue\\"};\\n          javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();\\n\\n          dirContext.search(base, filter, filters, sc);\\n      }\\n  }\\n\`\`\`\\n\\n## References\\n- [LDAP Injection](https://owasp.org/www-community/attacks/LDAP_Injection)\\n- [LDAP Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_ldap_injection",
       "line_number": 17,

@@ -42,7 +42,7 @@ auxiliary:
 languages:
   - go
 metadata:
-  description: "Improper limitation of a pathname to a restricted directory ('Path Traversal')"
+  description: "Unsanitized user input in file path"
   remediation_message: |
     ## Description
 
@@ -124,6 +124,6 @@ metadata:
 
     - [OWASP Guide to Preventing Path Traversal](https://owasp.org/www-community/attacks/Path_Traversal)
   cwe_id:
-    - 327
+    - 73
   id: go_gosec_filesystem_filereadtaint
   documentation_url: https://docs.bearer.com/reference/rules/go_gosec_filesystem_filereadtaint

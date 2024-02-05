@@ -8,7 +8,7 @@ exports[`php_third_parties_clickhouse bad 1`] = `
         "201"
       ],
       "id": "php_third_parties_clickhouse",
-      "title": "Sensitive data sent to ClickHouse detected.",
+      "title": "Leakage of sensitive data to ClickHouse",
       "description": "## Description\\nLeaking sensitive data to a third-party service is a common cause of data\\nleaks and can lead to data breaches. This rule looks for instances of\\nsensitive data sent to ClickHouse.\\n\\n## Remediations\\n\\nWhen sending data to third-party services, ensure all sensitive data is removed.\\n\\n## Resources\\n- [ClickHouse docs](https://clickhouse.com/docs/en/intro/)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/php_third_parties_clickhouse",
       "line_number": 5,

@@ -5,11 +5,10 @@ exports[`javascript_lang_eval_user_input eval 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "javascript_lang_eval_user_input",
-      "title": "Dangerous use of eval with user input detected",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nUsing \`eval\` (and similar code execution methods such as \`setTimeout\`) with user input is dangerous and can lead to remote code execution.\\n\\n## Remediation\\n❌ As a general rule, avoid using \`eval\`.\\n\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nInstead, it might be possible to use dynamic hardcoded values:\\n\`\`\`javascript\\n  app.post(\\"/:id\\", (req, res) => {\\n    let myFunc = \\"(a, b) => a + b\\"\\n    if req.params[\\"single_item\\"] {\\n      myFunc = \\"(a) => a\\"\\n    }\\n\\n    setTimeout(myFunc);\\n  };\\n\`\`\`\\nor pass user input to a compiled function, instead of compiling it with user input.\\n\`\`\`javascript\\n  app.post(\\"/:id\\", (req, res) => {\\n    let myFunc = \\"(a, b) => a + b\\"\\n    let compiledFunction = vm.compileFunction(myFunc);\\n    compiledFunction(req.params[\\"pageCount\\"], req.params[\\"appendixPageCount\\"])\\n  };\\n\`\`\`\\n\\n✅ Use JavaScript's strict mode as best practice and to minimize the reach of code execution methods\\n\\n\`\`\`javascript\\n  \\"use strict\\"\\n\\n  app.post(\\"/:id\\", (req, res) => {\\n    ...\\n  })\\n\`\`\`\\n\\n## Resources\\n- [MDN JavaScript strict mode reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_eval_user_input",
       "line_number": 12,
@@ -40,11 +39,10 @@ exports[`javascript_lang_eval_user_input eval 1`] = `
     },
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "javascript_lang_eval_user_input",
-      "title": "Dangerous use of eval with user input detected",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nUsing \`eval\` (and similar code execution methods such as \`setTimeout\`) with user input is dangerous and can lead to remote code execution.\\n\\n## Remediation\\n❌ As a general rule, avoid using \`eval\`.\\n\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nInstead, it might be possible to use dynamic hardcoded values:\\n\`\`\`javascript\\n  app.post(\\"/:id\\", (req, res) => {\\n    let myFunc = \\"(a, b) => a + b\\"\\n    if req.params[\\"single_item\\"] {\\n      myFunc = \\"(a) => a\\"\\n    }\\n\\n    setTimeout(myFunc);\\n  };\\n\`\`\`\\nor pass user input to a compiled function, instead of compiling it with user input.\\n\`\`\`javascript\\n  app.post(\\"/:id\\", (req, res) => {\\n    let myFunc = \\"(a, b) => a + b\\"\\n    let compiledFunction = vm.compileFunction(myFunc);\\n    compiledFunction(req.params[\\"pageCount\\"], req.params[\\"appendixPageCount\\"])\\n  };\\n\`\`\`\\n\\n✅ Use JavaScript's strict mode as best practice and to minimize the reach of code execution methods\\n\\n\`\`\`javascript\\n  \\"use strict\\"\\n\\n  app.post(\\"/:id\\", (req, res) => {\\n    ...\\n  })\\n\`\`\`\\n\\n## Resources\\n- [MDN JavaScript strict mode reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_eval_user_input",
       "line_number": 20,
@@ -82,11 +80,10 @@ exports[`javascript_lang_eval_user_input new_function 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "javascript_lang_eval_user_input",
-      "title": "Dangerous use of eval with user input detected",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nUsing \`eval\` (and similar code execution methods such as \`setTimeout\`) with user input is dangerous and can lead to remote code execution.\\n\\n## Remediation\\n❌ As a general rule, avoid using \`eval\`.\\n\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nInstead, it might be possible to use dynamic hardcoded values:\\n\`\`\`javascript\\n  app.post(\\"/:id\\", (req, res) => {\\n    let myFunc = \\"(a, b) => a + b\\"\\n    if req.params[\\"single_item\\"] {\\n      myFunc = \\"(a) => a\\"\\n    }\\n\\n    setTimeout(myFunc);\\n  };\\n\`\`\`\\nor pass user input to a compiled function, instead of compiling it with user input.\\n\`\`\`javascript\\n  app.post(\\"/:id\\", (req, res) => {\\n    let myFunc = \\"(a, b) => a + b\\"\\n    let compiledFunction = vm.compileFunction(myFunc);\\n    compiledFunction(req.params[\\"pageCount\\"], req.params[\\"appendixPageCount\\"])\\n  };\\n\`\`\`\\n\\n✅ Use JavaScript's strict mode as best practice and to minimize the reach of code execution methods\\n\\n\`\`\`javascript\\n  \\"use strict\\"\\n\\n  app.post(\\"/:id\\", (req, res) => {\\n    ...\\n  })\\n\`\`\`\\n\\n## Resources\\n- [MDN JavaScript strict mode reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_eval_user_input",
       "line_number": 11,
@@ -126,11 +123,10 @@ exports[`javascript_lang_eval_user_input set_interval 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "javascript_lang_eval_user_input",
-      "title": "Dangerous use of eval with user input detected",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nUsing \`eval\` (and similar code execution methods such as \`setTimeout\`) with user input is dangerous and can lead to remote code execution.\\n\\n## Remediation\\n❌ As a general rule, avoid using \`eval\`.\\n\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nInstead, it might be possible to use dynamic hardcoded values:\\n\`\`\`javascript\\n  app.post(\\"/:id\\", (req, res) => {\\n    let myFunc = \\"(a, b) => a + b\\"\\n    if req.params[\\"single_item\\"] {\\n      myFunc = \\"(a) => a\\"\\n    }\\n\\n    setTimeout(myFunc);\\n  };\\n\`\`\`\\nor pass user input to a compiled function, instead of compiling it with user input.\\n\`\`\`javascript\\n  app.post(\\"/:id\\", (req, res) => {\\n    let myFunc = \\"(a, b) => a + b\\"\\n    let compiledFunction = vm.compileFunction(myFunc);\\n    compiledFunction(req.params[\\"pageCount\\"], req.params[\\"appendixPageCount\\"])\\n  };\\n\`\`\`\\n\\n✅ Use JavaScript's strict mode as best practice and to minimize the reach of code execution methods\\n\\n\`\`\`javascript\\n  \\"use strict\\"\\n\\n  app.post(\\"/:id\\", (req, res) => {\\n    ...\\n  })\\n\`\`\`\\n\\n## Resources\\n- [MDN JavaScript strict mode reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_eval_user_input",
       "line_number": 11,
@@ -168,11 +164,10 @@ exports[`javascript_lang_eval_user_input set_timeout 1`] = `
   "high": [
     {
       "cwe_ids": [
-        "94",
         "95"
       ],
       "id": "javascript_lang_eval_user_input",
-      "title": "Dangerous use of eval with user input detected",
+      "title": "Unsanitized user input in 'eval' type function",
       "description": "## Description\\nUsing \`eval\` (and similar code execution methods such as \`setTimeout\`) with user input is dangerous and can lead to remote code execution.\\n\\n## Remediation\\n❌ As a general rule, avoid using \`eval\`.\\n\\n❌ Avoid using code execution methods with unsanitized user input.\\n\\nInstead, it might be possible to use dynamic hardcoded values:\\n\`\`\`javascript\\n  app.post(\\"/:id\\", (req, res) => {\\n    let myFunc = \\"(a, b) => a + b\\"\\n    if req.params[\\"single_item\\"] {\\n      myFunc = \\"(a) => a\\"\\n    }\\n\\n    setTimeout(myFunc);\\n  };\\n\`\`\`\\nor pass user input to a compiled function, instead of compiling it with user input.\\n\`\`\`javascript\\n  app.post(\\"/:id\\", (req, res) => {\\n    let myFunc = \\"(a, b) => a + b\\"\\n    let compiledFunction = vm.compileFunction(myFunc);\\n    compiledFunction(req.params[\\"pageCount\\"], req.params[\\"appendixPageCount\\"])\\n  };\\n\`\`\`\\n\\n✅ Use JavaScript's strict mode as best practice and to minimize the reach of code execution methods\\n\\n\`\`\`javascript\\n  \\"use strict\\"\\n\\n  app.post(\\"/:id\\", (req, res) => {\\n    ...\\n  })\\n\`\`\`\\n\\n## Resources\\n- [MDN JavaScript strict mode reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)\\n",
       "documentation_url": "https://docs.bearer.com/reference/rules/javascript_lang_eval_user_input",
       "line_number": 11,
