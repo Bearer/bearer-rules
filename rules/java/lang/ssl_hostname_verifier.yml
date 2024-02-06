@@ -12,20 +12,20 @@ patterns:
   - pattern: $<CALLER>.$<METHOD>($<ALLOW_ALL_HOSTNAME_VERIFIER>);
     filters:
       - either:
-        - variable: CALLER
-          detection: ssl_hostname_verifier_socket_factory
-        - variable: CALLER
-          detection: ssl_hostname_verifier_https_url_connection
+          - variable: CALLER
+            detection: ssl_hostname_verifier_socket_factory
+          - variable: CALLER
+            detection: ssl_hostname_verifier_https_url_connection
       - variable: METHOD
         values:
           - setHostnameVerifier
           - setDefaultHostnameVerifier
           - setSSLHostnameVerifier
       - either:
-        - variable: ALLOW_ALL_HOSTNAME_VERIFIER
-          detection: ssl_hostname_verifier_allow_all_hostname_verifier
-        - variable: ALLOW_ALL_HOSTNAME_VERIFIER
-          detection: ssl_hostname_verifier_allow_all_hostname_verifier_instance
+          - variable: ALLOW_ALL_HOSTNAME_VERIFIER
+            detection: ssl_hostname_verifier_allow_all_hostname_verifier
+          - variable: ALLOW_ALL_HOSTNAME_VERIFIER
+            detection: ssl_hostname_verifier_allow_all_hostname_verifier_instance
   - pattern: $<SSL_CONTEXT_GET_INSTANCE>.init($<NULL>, $<_>, $<_>)
     filters:
       - variable: SSL_CONTEXT_GET_INSTANCE
@@ -148,10 +148,10 @@ auxiliary:
       - pattern: $<CALLER>.getSocketFactory();
         filters:
           - either:
-            - variable: CALLER
-              regex: \A(javax\.net\.ssl\.)?SSLContext\z
-            - variable: CALLER
-              regex: \A(org\.apache\.http\.conn\.ssl\.)?SSLSocketFactory\z
+              - variable: CALLER
+                regex: \A(javax\.net\.ssl\.)?SSLContext\z
+              - variable: CALLER
+                regex: \A(org\.apache\.http\.conn\.ssl\.)?SSLSocketFactory\z
   - id: ssl_hostname_verifier_https_url_connection
     patterns:
       - pattern: $<HTTPS_URL_CONNECTION>;
