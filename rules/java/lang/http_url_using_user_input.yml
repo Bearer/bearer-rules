@@ -1,0 +1,86 @@
+imports:
+  - java_shared_lang_user_input
+patterns:
+  - pattern: |
+      $<USER_INPUT_URL>.$<METHOD>()
+    filters:
+      - variable: USER_INPUT_URL
+        detection: java_lang_http_url_using_user_input_url
+        scope: cursor
+      - variable: METHOD
+        values:
+          - connect
+          - GetContent
+          - openConnection
+          - openStream
+          - getContent
+  - pattern: |
+      new $<INET_SOCKET_ADDRESS>($<USER_INPUT>$<...>);
+    filters:
+      - variable: INET_SOCKET_ADDRESS
+        regex: \A(java\.net\.)?InetSocketAddress\z
+      - variable: USER_INPUT
+        detection: java_lang_http_url_using_user_input_user_input
+        scope: result
+auxiliary:
+  - id: java_lang_http_url_using_user_input_url
+    patterns:
+      - pattern: new $<URI>($<USER_INPUT>);
+        filters:
+          - variable: URI
+            regex: \A(java\.net\.)?(URL|URI)\z
+          - variable: USER_INPUT
+            detection: java_lang_http_url_using_user_input_user_input
+            scope: result
+  - id: java_lang_http_url_using_user_input_user_input
+    sanitizer: java_lang_http_url_using_user_input_sanitizer
+    patterns:
+      - pattern: $<USER_INPUT>;
+        filters:
+        - variable: USER_INPUT
+          detection: java_shared_lang_user_input
+          scope: cursor
+  - id: java_lang_http_url_using_user_input_sanitizer
+    patterns:
+      - pattern: $<CLASS>.encode($<!>$<_>$<...>);
+        filters:
+          - variable: CLASS
+            regex: \A(java\.net\.)?URLEncoder\z
+      - pattern: $<PATH_SEGMENT_ESCAPER>.escape($<!>$<_>);
+        filters:
+          - variable: PATH_SEGMENT_ESCAPER
+            regex: \A((com\.google\.common\.net\.)?UrlEscapers\.)?urlPathSegmentEscaper\(\)\z
+languages:
+  - java
+metadata:
+  description: "Unsanitized user input in HTTP request (SSRF)"
+  remediation_message: |
+    ## Description
+
+    Applications should not connect to locations formed from user input. This is bad security practice because it can lead to Server-Side-Request-Forgery (SSRF) attacks.
+    This rule checks for URLs containing user-supplied data.
+
+    ## Remediations
+
+    ❌ Avoid using user input in HTTP URLs:
+
+    ```java
+    new URL(request.getParameter("someRandomUrl")).getContent();
+    ```
+
+    ✅ Use user input indirectly to form a URL:
+
+    ```java
+    String url;
+    if (request.getParameter("selectedUrl") == "option1") {
+      url = "api1.com";
+    } else {
+      url = "api2.com";
+    }
+
+    new URL(url).getContent();
+    ```
+  cwe_id:
+    - 918
+  id: java_lang_http_url_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_http_url_using_user_input
