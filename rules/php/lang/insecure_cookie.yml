@@ -8,15 +8,10 @@ patterns:
           variable: SET_COOKIE
           detection: php_lang_insecure_cookie_using_options
           scope: cursor
-      - either:
-          - not:
-              variable: SET_COOKIE
-              detection: php_lang_insecure_cookie_secure
-              scope: cursor
-          - not:
-              variable: SET_COOKIE
-              detection: php_lang_insecure_cookie_httponly
-              scope: cursor
+      - not:
+          variable: SET_COOKIE
+          detection: php_lang_insecure_cookie_secure
+          scope: cursor
   - pattern: $<FUNCTION>($<_>, $<_>, $<OPTIONS>)
     filters:
       - variable: FUNCTION
@@ -26,15 +21,10 @@ patterns:
       - variable: OPTIONS
         detection: php_lang_insecure_cookie_array
         scope: cursor
-      - either:
-          - not:
-              variable: OPTIONS
-              detection: php_lang_insecure_cookie_secure_option
-              scope: cursor
-          - not:
-              variable: OPTIONS
-              detection: php_lang_insecure_cookie_httponly_option
-              scope: cursor
+      - not:
+          variable: OPTIONS
+          detection: php_lang_insecure_cookie_secure_option
+          scope: cursor
 auxiliary:
   - id: php_lang_insecure_cookie_setcookie
     patterns:
@@ -53,19 +43,6 @@ auxiliary:
             scope: cursor
       - pattern: |
           $<_>(secure: $<TRUE>)
-        filters:
-          - variable: "TRUE"
-            detection: php_lang_insecure_cookie_true
-            scope: cursor
-  - id: php_lang_insecure_cookie_httponly
-    patterns:
-      - pattern: $<_>($<_>, $<_>, $<_>, $<_>, $<_>, $<_>, $<HTTP_ONLY>$<...>)
-        filters:
-          - variable: HTTP_ONLY
-            detection: php_lang_insecure_cookie_true
-            scope: cursor
-      - pattern: |
-          $<_>(httponly: $<TRUE>)
         filters:
           - variable: "TRUE"
             detection: php_lang_insecure_cookie_true
@@ -90,28 +67,19 @@ auxiliary:
           - variable: SECURE
             detection: php_lang_insecure_cookie_true
             scope: cursor
-  - id: php_lang_insecure_cookie_httponly_option
-    patterns:
-      - pattern: array('httponly' => $<SECURE>)
-        filters:
-          - variable: SECURE
-            detection: php_lang_insecure_cookie_true
-            scope: cursor
 languages:
   - php
 metadata:
   description: "Missing secure options for cookie detected."
   remediation_message: |
     ## Description
-    To make sure cookies don't open your application up to exploits or
-    unauthorized access, make sure to set security options appropriately.
+    A cookie that is configured to be secure ensures that a client will only send the cookie to the server when HTTPS is being used.
+    This prevents the cookie from being observed by unauthorized third parties.
 
     ## Remediations
-    ✅ Set `httponly` to `true` to avoid the cookie being sent by client-side scripts.
 
     ✅ Set `secure`  to `true` to force cookies to only send over HTTPS.
   cwe_id:
-    - 1004
     - 614
   id: php_lang_insecure_cookie
   documentation_url: https://docs.bearer.com/reference/rules/php_lang_insecure_cookie

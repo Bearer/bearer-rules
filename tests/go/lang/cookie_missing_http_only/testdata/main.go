@@ -1,3 +1,5 @@
+// Use bearer:expected go_lang_cookie_missing_http_only to flag expected findings
+
 package util
 
 import (
@@ -6,6 +8,7 @@ import (
 )
 
 func SetCookie(w http.ResponseWriter, name, value string) {
+	// bearer:expected go_lang_cookie_missing_http_only
 	cookie := http.Cookie{
 		Name:  name,
 		Value: value,
@@ -14,6 +17,7 @@ func SetCookie(w http.ResponseWriter, name, value string) {
 }
 
 func SetCookie2(w http.ResponseWriter, name, value string) {
+	// bearer:expected go_lang_cookie_missing_http_only
 	cookie := http.Cookie{
 		Name:     name,
 		Value:    value,
@@ -23,18 +27,9 @@ func SetCookie2(w http.ResponseWriter, name, value string) {
 	http.SetCookie(w, &cookie)
 }
 
-func SetCookie2_bis(w http.ResponseWriter, name, value string) {
-	cookie := http.Cookie{
-		Name:     name,
-		Value:    value,
-		HttpOnly: true,
-		Secure:   false,
-	}
-	http.SetCookie(w, &cookie)
-}
-
 func SetCookie3(w http.ResponseWriter, name, value string) {
 	httpOnly := false
+	// bearer:expected go_lang_cookie_missing_http_only
 	cookie := http.Cookie{
 		Name:     name,
 		Value:    value,
@@ -44,28 +39,9 @@ func SetCookie3(w http.ResponseWriter, name, value string) {
 	http.SetCookie(w, &cookie)
 }
 
-func SetCookie4(w http.ResponseWriter, name, value string) {
-	cookie := http.Cookie{
-		Name:     name,
-		Value:    value,
-		HttpOnly: true,
-		Secure:   false,
-	}
-	http.SetCookie(w, &cookie)
-}
-
-func SetCookie5(w http.ResponseWriter, name, value string) {
-	cookie := http.Cookie{
-		Name:     name,
-		Value:    value,
-		HttpOnly: true,
-		Secure:   false,
-	}
-	http.SetCookie(w, &cookie)
-}
-
 func DeleteCookie(w http.ResponseWriter, cookies []string) {
 	for _, name := range cookies {
+		// bearer:expected go_lang_cookie_missing_http_only
 		cookie := &http.Cookie{
 			Name:    name,
 			Value:   "",

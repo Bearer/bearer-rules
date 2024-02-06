@@ -5,38 +5,39 @@ patterns:
       }
     filters:
       - variable: INSECURE_COOKIE
-        detection: javascript_express_insecure_cookie_insecure_cookie
+        detection: javascript_express_insecure_cookie_config
         scope: result
   - pattern: |
       cookieSession($<INSECURE_COOKIE>)
     filters:
       - variable: INSECURE_COOKIE
-        detection: javascript_express_insecure_cookie_insecure_cookie
+        detection: javascript_express_insecure_cookie_config
         scope: result
 auxiliary:
-  - id: javascript_express_insecure_cookie_insecure_cookie
+  - id: javascript_express_insecure_cookie_config
     patterns:
       - pattern: |
           { secure: false }
-      - pattern: |
-          { httpOnly: false }
 languages:
   - javascript
 metadata:
   description: "Missing secure options for cookie detected."
   remediation_message: |
     ## Description
-    To make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.
+
+    A cookie that is configured to be secure ensures that a client will only send the cookie to the server when HTTPS is being used.
+    This prevents the cookie from being observed by unauthorized third parties.
 
     ## Remediations
-    ✅ Set cookie security values to use HTTP(S) instead of client-side javascript.
 
     ✅ Set `secure` values to `true` to force cookies to only send over HTTPS.
+      ```javascript
+        cookie({{ secure: true }})
+      ```
 
     ## Resources
     - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
   cwe_id:
-    - 1004
     - 614
   id: javascript_express_insecure_cookie
   documentation_url: https://docs.bearer.com/reference/rules/javascript_express_insecure_cookie

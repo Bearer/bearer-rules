@@ -18,22 +18,6 @@ patterns:
         detection: php_symfony_insecure_cookie_false
         scope: cursor
   - pattern: |
-      $<CLASS>::create($<_>, $<_>, $<_>, $<_>, $<_>, $<_>, $<HTTP_ONLY>$<...>)
-    filters:
-      - variable: CLASS
-        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
-      - variable: HTTP_ONLY
-        detection: php_symfony_insecure_cookie_false
-        scope: cursor
-  - pattern: |
-      $<CLASS>::create(httpOnly: $<HTTP_ONLY>)
-    filters:
-      - variable: CLASS
-        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
-      - variable: HTTP_ONLY
-        detection: php_symfony_insecure_cookie_false
-        scope: cursor
-  - pattern: |
       new $<CLASS>($<_>, $<_>, $<_>, $<_>, $<_>, $<SECURE>$<...>)
     filters:
       - variable: CLASS
@@ -49,36 +33,12 @@ patterns:
       - variable: SECURE
         detection: php_symfony_insecure_cookie_false
         scope: cursor
-  - pattern: |
-      new $<CLASS>($<_>, $<_>, $<_>, $<_>, $<_>, $<_>, $<HTTP_ONLY>$<...>)
-    filters:
-      - variable: CLASS
-        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
-      - variable: HTTP_ONLY
-        detection: php_symfony_insecure_cookie_false
-        scope: cursor
-  - pattern: |
-      new $<CLASS>(httpOnly: $<HTTP_ONLY>)
-    filters:
-      - variable: CLASS
-        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
-      - variable: HTTP_ONLY
-        detection: php_symfony_insecure_cookie_false
-        scope: cursor
   - pattern: $<COOKIE>->withSecure($<SECURE>)
     filters:
       - variable: COOKIE
         detection: php_symfony_insecure_cookie_instance
         scope: cursor
       - variable: SECURE
-        detection: php_symfony_insecure_cookie_false
-        scope: cursor
-  - pattern: $<COOKIE>->withHttpOnly($<HTTP_ONLY>)
-    filters:
-      - variable: COOKIE
-        detection: php_symfony_insecure_cookie_instance
-        scope: cursor
-      - variable: HTTP_ONLY
         detection: php_symfony_insecure_cookie_false
         scope: cursor
 auxiliary:
@@ -108,18 +68,17 @@ auxiliary:
 languages:
   - php
 metadata:
-  description: "Insecure options for cookie detected."
+  description: "Missing secure options for cookie detected."
   remediation_message: |
     ## Description
-    To make sure cookies don't open your application up to exploits or
-    unauthorized access, make sure to set security options appropriately.
+
+    A cookie that is configured to be secure ensures that a client will only send the cookie to the server when HTTPS is being used.
+    This prevents the cookie from being observed by unauthorized third parties.
 
     ## Remediations
-    ✅ Set `httpOnly` to `true` to avoid the cookie being sent by client-side scripts.
 
     ✅ Set `secure`  to `true` to force cookies to only send over HTTPS.
   cwe_id:
-    - 1004
     - 614
   id: php_symfony_insecure_cookie
   documentation_url: https://docs.bearer.com/reference/rules/php_symfony_insecure_cookie

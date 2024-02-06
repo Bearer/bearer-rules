@@ -1,16 +1,18 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
 
-  test("bad", () => {
-    const testCase = "bad.go"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+  test("insecure_cookie", () => {
+    const testCase = "main.go"
 
-  test("ok", () => {
-    const testCase = "ok.go"
-    expect(invoke(testCase)).toMatchSnapshot()
+    const results = invoke(testCase)
+
+    expect(results.Missing).toEqual([])
+    expect(results.Extra).toEqual([])
   })
 })

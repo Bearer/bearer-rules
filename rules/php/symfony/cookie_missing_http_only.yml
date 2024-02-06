@@ -1,0 +1,87 @@
+imports:
+  - php_shared_lang_instance
+patterns:
+  - pattern: |
+      $<CLASS>::create($<_>, $<_>, $<_>, $<_>, $<_>, $<_>, $<HTTP_ONLY>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
+      - variable: HTTP_ONLY
+        detection: php_symfony_cookie_missing_http_only_false
+        scope: cursor
+  - pattern: |
+      $<CLASS>::create(httpOnly: $<HTTP_ONLY>)
+    filters:
+      - variable: CLASS
+        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
+      - variable: HTTP_ONLY
+        detection: php_symfony_cookie_missing_http_only_false
+        scope: cursor
+  - pattern: |
+      new $<CLASS>($<_>, $<_>, $<_>, $<_>, $<_>, $<_>, $<HTTP_ONLY>$<...>)
+    filters:
+      - variable: CLASS
+        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
+      - variable: HTTP_ONLY
+        detection: php_symfony_cookie_missing_http_only_false
+        scope: cursor
+  - pattern: |
+      new $<CLASS>(httpOnly: $<HTTP_ONLY>)
+    filters:
+      - variable: CLASS
+        regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
+      - variable: HTTP_ONLY
+        detection: php_symfony_cookie_missing_http_only_false
+        scope: cursor
+  - pattern: $<COOKIE>->withHttpOnly($<HTTP_ONLY>)
+    filters:
+      - variable: COOKIE
+        detection: php_symfony_cookie_missing_http_only_instance
+        scope: cursor
+      - variable: HTTP_ONLY
+        detection: php_symfony_cookie_missing_http_only_false
+        scope: cursor
+auxiliary:
+  - id: php_symfony_cookie_missing_http_only_false
+    patterns:
+      - "false;"
+  - id: php_symfony_cookie_missing_http_only_instance
+    patterns:
+      - pattern: $<INSTANCE>;
+        filters:
+          - variable: INSTANCE
+            detection: php_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: CLASS
+                regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
+      - pattern: |
+          $<CLASS>::create()
+        filters:
+          - variable: CLASS
+            regex: \A(\\?Symfony\\Component\\HttpFoundation\\)?Cookie\z
+      - pattern: $<COOKIE>->$<_>()
+        filters:
+          - variable: COOKIE
+            detection: php_symfony_cookie_missing_http_only_instance
+            scope: cursor
+languages:
+  - php
+metadata:
+  description: "Missing 'HTTPOnly' options in cookie configuration."
+  remediation_message: |
+    ## Description
+
+    The "HttpOnly" attribute when set to "true" protects the cookie value from
+    being accessed by client side JavaScript such as reading the "document.cookie"
+    values. By enabling this protection, a website that is vulnerable to Cross-Site
+    Scripting (XSS) will be able to block malicious scripts from accessing the
+    cookie value from JavaScript.
+
+    ## Remediations
+    ✅ Set `httpOnly` to `true` to avoid the cookie being sent by client-side scripts.
+  cwe_id:
+    - 1004
+  id: php_symfony_cookie_missing_http_only
+  documentation_url: https://docs.bearer.com/reference/rules/php_symfony_cookie_missing_http_only
+  cloud_code_suggestions: true

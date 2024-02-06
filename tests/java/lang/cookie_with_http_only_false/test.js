@@ -7,8 +7,8 @@ const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 describe(ruleId, () => {
   const invoke = createNewInvoker(ruleId, ruleFile, testBase)
 
-  test("insecure_cookie", () => {
-    const testCase = "main.go"
+  test("cookie_with_http_only_false", () => {
+    const testCase = "main.java"
 
     const results = invoke(testCase)
 
