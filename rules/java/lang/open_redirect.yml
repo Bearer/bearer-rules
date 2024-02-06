@@ -1,0 +1,60 @@
+imports:
+  - java_shared_lang_instance
+  - java_shared_lang_user_input
+patterns:
+  - pattern: |
+      $<SERVLET_RESPONSE>.sendRedirect($<USER_INPUT>);
+    filters:
+      - variable: SERVLET_RESPONSE
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(javax\.servlet\.http\.)?HttpServletResponse\z
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
+  - pattern: |
+      $<SERVLET_RESPONSE>.addHeader($<LOCATION>, $<USER_INPUT>);
+    filters:
+      - variable: SERVLET_RESPONSE
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(javax\.servlet\.http\.)?HttpServletResponse\z
+      - variable: LOCATION
+        string_regex: (?i)\Alocation\z
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
+languages:
+  - java
+severity: medium
+metadata:
+  description: "Unsanitized user input in redirect"
+  remediation_message: |
+    ## Description
+    A redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.
+
+    ## Remediations
+    ❌ Do not use unsanitized user input when constructing URLs
+
+    ✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs
+
+    ```java
+      private static final Map<String, String> URL_MAPPING = new HashMap<>();
+      static {
+        URL_MAPPING.put("google", "https://www.google.com");
+        URL_MAPPING.put("openai", "https://www.openai.com");
+        URL_MAPPING.put("github", "https://www.github.com");
+        URL_MAPPING.put("root", "https://www.example.com");
+      }
+
+      String redirectUrl = URL_MAPPING.getOrDefault(request.getParameter("redirectTo"), "root");
+      response.addHeader("Location", redirectUrl);
+    ```
+    ## Resources
+    - [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
+  cwe_id:
+    - 601
+  id: java_lang_open_redirect
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_open_redirect
