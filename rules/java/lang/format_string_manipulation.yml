@@ -6,8 +6,11 @@ patterns:
     filters:
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
-  - pattern: String.format($<_>, $<USER_INPUT>$<...>);
+  - pattern: String.format($<FORMAT_STRING>, $<USER_INPUT>$<...>);
     filters:
+      - not:
+          variable: FORMAT_STRING
+          detection: java_lang_format_string_manipulation_format_string
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
   - pattern: System.out.$<METHOD>($<USER_INPUT>$<...>);
@@ -18,8 +21,11 @@ patterns:
           - printf
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
-  - pattern: System.out.$<METHOD>($<_>, $<USER_INPUT>$<...>);
+  - pattern: System.out.$<METHOD>($<FORMAT_STRING>, $<USER_INPUT>$<...>);
     filters:
+      - not:
+          variable: FORMAT_STRING
+          detection: java_lang_format_string_manipulation_format_string
       - variable: METHOD
         values:
           - format
@@ -36,8 +42,11 @@ patterns:
             regex: \A(java\.util\.)?Formatter\z
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
-  - pattern: $<JAVA_FORMATTER>.format($<_>, $<USER_INPUT>$<...>);
+  - pattern: $<JAVA_FORMATTER>.format($<FORMAT_STRING>, $<USER_INPUT>$<...>);
     filters:
+      - not:
+          variable: FORMAT_STRING
+          detection: java_lang_format_string_manipulation_format_string
       - variable: JAVA_FORMATTER
         detection: java_shared_lang_instance
         scope: cursor
@@ -60,8 +69,11 @@ patterns:
           - printf
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
-  - pattern: $<JAVA_PRINT_STREAM>.$<METHOD>($<_>, $<USER_INPUT>$<...>);
+  - pattern: $<JAVA_PRINT_STREAM>.$<METHOD>($<FORMAT_STRING>, $<USER_INPUT>$<...>);
     filters:
+      - not:
+          variable: FORMAT_STRING
+          detection: java_lang_format_string_manipulation_format_string
       - variable: JAVA_PRINT_STREAM
         detection: java_shared_lang_instance
         scope: cursor
@@ -74,6 +86,13 @@ patterns:
           - printf
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
+auxiliary:
+  - id: java_lang_format_string_manipulation_format_string
+    patterns:
+      - pattern: $<FORMAT_STRING>;
+        filters:
+          - variable: FORMAT_STRING
+            string_regex: (%s)+
 languages:
   - java
 metadata:

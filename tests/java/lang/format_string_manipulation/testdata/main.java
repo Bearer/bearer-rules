@@ -41,7 +41,9 @@ public class FooBar extends HttpServlet{
     StringBuilder sb = new StringBuilder();
     Formatter formatter = new Formatter(sb);
 
-    // user input is not the first argument to the formatter
+    // user input is not the format string
     formatter.format("Mish", "Bear", request.getParameter("baz"));
+    formatter.format("Name %s", request.getParameter("baz"));
+    String.format(Locale.US, "Name %s", request.getParameter("baz"));
   }
 }
