@@ -1,7 +1,7 @@
 imports:
   - java_shared_lang_instance
 patterns:
-  - pattern: $<COOKIE>.setSecure($<FALSE>)
+  - pattern: $<COOKIE>.setHttpOnly($<FALSE>)
     filters:
       - variable: COOKIE
         detection: java_shared_lang_instance
@@ -10,10 +10,10 @@ patterns:
           - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
             regex: \A(javax\.servlet\.http\.)?Cookie\z
       - variable: "FALSE"
-        detection: java_lang_insecure_cookie_false
+        detection: java_lang_cookie_with_http_only_false_false
         scope: cursor
 auxiliary:
-  - id: java_lang_insecure_cookie_false
+  - id: java_lang_cookie_with_http_only_false_false
     patterns:
       - "false;"
 languages:
@@ -27,13 +27,13 @@ metadata:
 
     ## Remediations
 
-    ✅ Set `Secure` to `true` to force cookies to only be sent over HTTPS
+    ✅ Set `HttpOnly` to `true` to protect the cookie value from being accessed by client side JavaScript
 
     ```java
-    cookie.setSecure(true);
+    cookie.setHttpOnly(true);
     ```
   cwe_id:
-    - 614
-  id: java_lang_insecure_cookie
-  documentation_url: https://docs.bearer.com/reference/rules/java_lang_insecure_cookie
+    - 1004
+  id: java_lang_cookie_with_http_only_false
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_cookie_with_http_only_false
   cloud_code_suggestions: true
