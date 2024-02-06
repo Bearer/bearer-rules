@@ -1,15 +1,11 @@
 imports:
   - java_shared_lang_instance
 patterns:
-  # - pattern: $<TEMP2>;
-  #   filters:
-  #     - variable: TEMP2
-  #       detection: ssl_hostname_verifier_null_x509_cert
   - pattern: $<SSL_SOCKET_FACTORY>.ALLOW_ALL_HOSTNAME_VERIFIER;
     filters:
       - variable: SSL_SOCKET_FACTORY
         regex: \A(org\.apache\.http\.conn\.ssl\.)?SSLSocketFactory\z
-  - pattern: $<CALLER>.$<METHOD>($<ALLOW_ALL_HOSTNAME_VERIFIER>);
+  - pattern: $<CALLER>.$<METHOD>($<...>$<ALLOW_ALL_HOSTNAME_VERIFIER>);
     filters:
       - either:
           - variable: CALLER
@@ -69,8 +65,33 @@ patterns:
       - variable: NULL_X509_CERTIFICATE
         detection: ssl_hostname_verifier_null_x509_cert
   - pattern: |
+      class $<...>$<_> implements $<X509_TRUST_MANAGER> {
+        $<!>$<...>X509Certificate[] getAcceptedIssuers() {
+          return $<NULL_X509_CERTIFICATE>;
+        }
+      };
+    filters:
+      - variable: X509_TRUST_MANAGER
+        regex: \A(javax\.net\.ssl\.)?X509TrustManager\z
+      - variable: NULL_X509_CERTIFICATE
+        detection: ssl_hostname_verifier_null_x509_cert
+  - pattern: |
+      class $<...>$<_> implements $<X509_TRUST_MANAGER> {
+        $<!>$<...>X509Certificate[] getAcceptedIssuers() {
+          $<X509_CERTIFICATE_TYPE>[] $<X509_CERT> = $<NULL_X509_CERTIFICATE>;
+          return $<X509_CERT>;
+        }
+      };
+    filters:
+      - variable: X509_TRUST_MANAGER
+        regex: \A(javax\.net\.ssl\.)?X509TrustManager\z
+      - variable: X509_CERTIFICATE_TYPE
+        regex: \A(java\.security\.cert\.)?X509Certificate\z
+      - variable: NULL_X509_CERTIFICATE
+        detection: ssl_hostname_verifier_null_x509_cert
+  - pattern: |
       new $<HOSTNAME_VERIFIER>() {
-        $<!>$<...>$<_> verify(String $<_>, $<SSL_SESSION> $<_>) {
+        $<!>$<...>$<_> verify($<...>String $<_>, $<...>$<SSL_SESSION> $<_>) {
           return $<TRUE>;
         }
       };
@@ -83,7 +104,7 @@ patterns:
         detection: ssl_hostname_verifier_true
   - pattern: |
       class $<...>$<_> implements $<HOSTNAME_VERIFIER> {
-        $<!>$<...>$<_> verify(String $<_>, $<SSL_SESSION> $<_>) {
+        $<!>$<...>$<_> verify($<...>String $<_>, $<...>$<SSL_SESSION> $<_>) {
           return $<TRUE>;
         }
       }

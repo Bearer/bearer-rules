@@ -26,6 +26,13 @@ public class DummyHostnameVerifier implements HostnameVerifier {
 }
 HttpsURLConnection.setDefaultHostnameVerifier(new DummyHostnameVerifier());
 
+class AllHosts implements HostnameVerifier {
+    // bearer:expected java_lang_ssl_hostname_verifier
+    public boolean verify(final String hostname, final SSLSession session) {
+        return true;
+    }
+}
+
 public void nullKeyManagerForSSLContext(TrustManager[] trustAllCertificates) {
   javax.net.ssl.SSLContext sc = javax.net.ssl.SSLContext.getInstance("SSL");
   // bearer:expected java_lang_ssl_hostname_verifier
