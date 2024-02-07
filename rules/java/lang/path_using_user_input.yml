@@ -62,13 +62,15 @@ metadata:
   remediation_message: |
     ## Description
 
-    Allowing unsanitized user input in path resolution methods means an attacker could gain access to files and folders outside of the intended scope.
+    Allowing unsanitized user input in path resolution methods means an attacker could influence or control the file name or path used by an application, potentially leading to unauthorized access, data disclosure, or other security issues
 
     ## Remediations
+
     ❌ Avoid wherever possible
 
-    ✅ Sanitize user input when resolving paths, for example:
-    Use `FilenameUtils.getName()` to mitigate against unwanted patterns in the path (such as `\..\..`)
+    ✅ Use a safelist to specify which paths or directories can be accessed, and restrict attempts to access directories that are not whitelisted
+
+    ✅ Sanitize user input when resolving paths. For example, use `FilenameUtils.getName()` to extract just the filename from raw input:
 
     ```java
       public class Cls extends HttpServlet
@@ -81,9 +83,6 @@ metadata:
           }
       }
     ```
-
-    ## Resources
-    - [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)
   cwe_id:
     - 73
   id: java_lang_path_using_user_input

@@ -1,74 +1,36 @@
 imports:
   - java_shared_lang_user_input
 patterns:
-  - pattern: |
-      new $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
+  - pattern: $<PATHS_GET>.normalize();
     filters:
-      - variable: METHOD
-        regex: \A(java\.io\.)?(File|FileReader|FileWriter|FileInputStream|FileOutputStream)\z
-      - variable: FILE_USER_INPUT
-        detection: java_lang_path_traversal_user_input
+      - variable: PATHS_GET
+        detection: java_lang_path_traversal_paths_with_user_input
         scope: result
-  - pattern: |
-      new $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
-    filters:
-      - variable: METHOD
-        regex: \A(javax\.activation\.)?FileDataSource\z
-      - variable: FILE_USER_INPUT
-        detection: java_lang_path_traversal_user_input
-        scope: result
-  - pattern: |
-      $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
-    filters:
-      - variable: METHOD
-        regex: \A(java\.io\.File\.)?(createTempFile|createTempDirectory)\z
-      - variable: FILE_USER_INPUT
-        detection: java_lang_path_traversal_user_input
-        scope: result
-  - pattern: |
-      $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
-    filters:
-      - variable: METHOD
-        regex: \A(java\.nio\.file\.Files\.)?(createTempFile|createTempDirectory)\z
-      - variable: FILE_USER_INPUT
-        detection: java_lang_path_traversal_user_input
-        scope: result
-  - pattern: |
-      $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
-    filters:
-      - variable: METHOD
-        regex: \A(java\.nio\.file\.Paths\.)?get\z
-      - variable: FILE_USER_INPUT
-        detection: java_lang_path_traversal_user_input
-        scope: result
+trigger:
+  match_on: absence
+  required_detection: java_lang_path_traversal_paths_with_user_input
 auxiliary:
-  - id: java_lang_path_traversal_user_input
-    sanitizer: java_lang_path_traversal_sanitized_input
+  - id: java_lang_path_traversal_paths_with_user_input
     patterns:
-      - pattern: $<SHARED_USER_INPUT>;
+      - pattern: $<PATHS>.get($<USER_INPUT>);
         filters:
-          - variable: SHARED_USER_INPUT
+          - variable: PATHS
+            regex: \A(java\.nio\.file\.)?Paths\z
+          - variable: USER_INPUT
             detection: java_shared_lang_user_input
-            scope: cursor
-  - id: java_lang_path_traversal_sanitized_input
-    patterns:
-      - pattern: FilenameUtils.getName($<!>$<_>)
 languages:
   - java
-trigger:
-  match_on: presence
 metadata:
-  description: Unsanitized user input in file path
+  description: Missing protection against path traversal
   remediation_message: |
     ## Description
 
-    Allowing unsanitized user input in path resolution methods means an attacker could gain access to files and folders outside of the intended scope.
+    Allowing unsanitized user input in path resolution methods means an attacker could gain access to files and folders outside of the intended scope (path traversal).
 
     ## Remediations
-    ❌ Avoid wherever possible
+    ❌ Wherever possible, avoid constructing filepaths with user input
 
-    ✅ Sanitize user input when resolving paths, for example:
-    Use `FilenameUtils.getName()` to mitigate against unwanted patterns in the path (such as `\..\..`)
+    ✅ Use Paths helpers to normalize filepaths. This removes unwanted patterns in the path such as `\..\..` that could lead to path traversal attacks
 
     ```java
       public class Cls extends HttpServlet
@@ -77,7 +39,10 @@ metadata:
           public void handleRequest(HttpServletRequest request, HttpServletResponse response)
           {
               String image = request.getParameter("user_profile_picture");
-              File file = new File("user/profile/" + FilenameUtils.getName(image));
+
+              // normalize path
+              Path imagePath = Paths.get("user/profile/" + FilenameUtils.getName(image)).normalize();
+              File file = new File(imagePath.toString());
           }
       }
     ```
