@@ -37,9 +37,9 @@ auxiliary:
     patterns:
       - pattern: $<USER_INPUT>;
         filters:
-        - variable: USER_INPUT
-          detection: java_shared_lang_user_input
-          scope: cursor
+          - variable: USER_INPUT
+            detection: java_shared_lang_user_input
+            scope: cursor
   - id: java_lang_http_url_using_user_input_sanitizer
     patterns:
       - pattern: $<CLASS>.encode($<!>$<_>$<...>);
