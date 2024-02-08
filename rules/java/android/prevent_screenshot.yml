@@ -1,5 +1,3 @@
-imports:
-  - java_shared_lang_instance
 patterns:
   - pattern: |
       $<GET_WINDOW>.$<METHOD>($<FLAG_SECURE>$<...>);
