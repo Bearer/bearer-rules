@@ -1,0 +1,75 @@
+imports:
+  - java_shared_lang_instance
+  - java_shared_lang_user_input
+patterns:
+  - pattern: $<AWS_SIMPLE_DB>.select($<SELECT_REQUEST_WITH_USER_INPUT>);
+    filters:
+      - variable: AWS_SIMPLE_DB
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(com\.amazonaws\.services\.simpledb\.)?AmazonSimpleDBClient\z
+      - variable: SELECT_REQUEST_WITH_USER_INPUT
+        detection: java_third_parties_aws_query_injection_select_request
+auxiliary:
+  - id: java_third_parties_aws_query_injection_select_request
+    patterns:
+      - pattern: new $<SELECT_REQUEST>($<...>$<USER_INPUT>$<...>);
+        filters:
+          - variable: SELECT_REQUEST
+            regex: \A(com\.amazonaws\.services\.simpledb\.model\.)?SelectRequest\z
+          - variable: USER_INPUT
+            detection: java_shared_lang_user_input
+            scope: result
+      - pattern: $<SELECT_REQUEST>.withSelectExpression($<USER_INPUT>$<...>);
+        filters:
+          - variable: SELECT_REQUEST
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(com\.amazonaws\.services\.simpledb\.model\.)?SelectRequest\z
+          - variable: USER_INPUT
+            detection: java_shared_lang_user_input
+            scope: result
+languages:
+  - java
+metadata:
+  description: "Unsanitized user input in AWS query"
+  remediation_message: |
+    ## Description
+    Including unsanitized data, such as user input or request data, in raw queries makes your application vulnerable to injection attacks.
+
+    ## Remediations
+
+    ✅ Always sanitize user input, especially if it is to be used in database queries. Where possible, such sanitization should include the removal of special characters (like ' or ") that could be used to alter the semantics of a database query.
+
+    ✅ Where possible, validate user input to ensure it is the expected format and length
+
+    ✅ Use parameterized queries rather than concatenating user input directly into the query string. This separates query logic from user input, which is good practice, and also in the case of AWS SimpleDB, lets us take advantage of the internal parameterization and sanitization of `SelectRequest`.
+
+    Example:
+
+    ```java
+      // query logic
+
+      public static SelectResult executeQuery(String query, String itemName) {
+        AmazonSimpleDB simpleDBClient = AmazonSimpleDBClientBuilder.defaultClient();
+        SelectRequest selectRequest = new SelectRequest(query, true).withNextToken(itemName);
+
+        return simpleDBClient.select(selectRequest);
+      }
+
+      public static void selectItem(String itemName) { // itemName is dynamic and could be malicious
+        // parameterized query string
+        String query = "select * from items where itemName = ?";
+
+        SelectResult result = executeQuery(query, itemName);
+        ...
+      }
+    ```
+  cwe_id:
+    - 943
+  id: java_third_parties_aws_query_injection
+  documentation_url: https://docs.bearer.com/reference/rules/java_third_parties_aws_query_injection
