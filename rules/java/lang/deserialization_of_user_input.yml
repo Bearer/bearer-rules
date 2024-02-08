@@ -1,0 +1,94 @@
+imports:
+  - java_shared_lang_instance
+  - java_shared_lang_user_input
+patterns:
+  - pattern: $<XML_DECODER_WITH_USER_INPUT>.readObject();
+    filters:
+      - variable: XML_DECODER_WITH_USER_INPUT
+        detection: java_lang_deserialization_of_user_input_xml_decoder_with_user_input
+  - pattern: $<XSTREAM>.fromXML($<INPUT>);
+    filters:
+      - variable: XSTREAM
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(com\.thoughtworks\.xstream\.)?(XStream)\z
+      - variable: INPUT
+        detection: java_lang_deserialization_of_user_input_source
+        scope: result
+  - pattern: $<OBJECT_INPUT_STREAM>.read();
+    filters:
+      - variable: OBJECT_INPUT_STREAM
+        detection: java_lang_deserialization_of_user_input_object_input_stream_with_user_input
+auxiliary:
+  - id: java_lang_deserialization_of_user_input_xml_decoder_with_user_input
+    patterns:
+      - pattern: new $<XML_DECODER>($<INPUT>);
+        filters:
+          - variable: XML_DECODER
+            regex: \A(javax\.beans\.)?XMLDecoder\z
+          - variable: INPUT
+            detection: java_lang_deserialization_of_user_input_source
+            scope: result
+  - id: java_lang_deserialization_of_user_input_object_input_stream_with_user_input
+    patterns:
+      - pattern: new $<OBJECT_INPUT_STREAM>($<INPUT>);
+        filters:
+          - variable: OBJECT_INPUT_STREAM
+            regex: \A(java\.io\.)?ObjectInputStream\z
+          - variable: INPUT
+            detection: java_lang_deserialization_of_user_input_source
+            scope: result
+  - id: java_lang_deserialization_of_user_input_source
+    patterns:
+      - pattern: $<USER_INPUT>;
+        filters:
+          - variable: USER_INPUT
+            detection: java_shared_lang_user_input
+            scope: result
+      - pattern: $<INPUT_STREAM>;
+        filters:
+          - variable: INPUT_STREAM
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.io\.)?(FileInputStream|InputStream)\z
+          - not:
+              variable: INPUT_STREAM
+              detection: java_lang_deserialization_of_user_input_known_resource
+  - id: java_lang_deserialization_of_user_input_known_resource
+    patterns:
+      - pattern: XmlDecodeUtil.class.getResourceAsStream()
+languages:
+  - java
+metadata:
+  description: Unsanitized user input in deserialization method
+  remediation_message: |
+    ## Description
+
+    It is bad practice to deserialize untrusted data, such as data that comes
+    from params or cookies, without sufficient verification. Attackers can
+    transfer payloads or malicious code via serialized data, and deserializing
+    such data puts your application at risk.
+
+    ## Remediations
+
+    ❌ Do not deserialize untrusted data
+
+    ❌ Avoid `XMLEncoder` and `XMLDecoder` classes, as these are not recommended
+
+    ✅ Prefer pure (data-only) and language-agnostic (de)serialization formats such as JSON. Avoiding language-specific (de)serialization formats reduces the risk of attackers manipulating the deserialization process for malicious purposes.
+
+    ✅ Prefer (de)serialization methods that allow you to specify the object types that are allowed to be deserialized
+
+    ❌ Never permit the (de)serialization of base object types (like `Object`).
+
+    ## Resources
+    - [OWASP XEE prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html#java)
+    - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
+  cwe_id:
+    - 502
+  id: java_lang_deserialization_of_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_deserialization_of_user_input
