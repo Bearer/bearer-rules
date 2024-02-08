@@ -32,7 +32,7 @@ public class Foo {
   public void ok(HttpServletRequest request, HttpServletResponse response) {
     String safeDirectory = "/safe_dir/";
     String filepath = "/tmp/user/bar.txt";
-    // Path fullPath = Paths.get(request.getParameter("filepath")).normalize();
+    Path fullPath = Paths.get(request.getParameter("filepath")).normalize();
     Path fullPath = Paths.get(filepath).normalize();
 
     if (fullPath.startsWith(Paths.get(safeDirectory))) {

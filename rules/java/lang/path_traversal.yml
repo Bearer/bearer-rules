@@ -1,23 +1,17 @@
 imports:
   - java_shared_lang_user_input
+sanitizer: java_lang_path_traversal_paths_with_user_input_sanitizer
 patterns:
-  - pattern: $<PATHS_GET>.normalize();
+  - pattern: $<PATHS>.get($<USER_INPUT>);
     filters:
-      - variable: PATHS_GET
-        detection: java_lang_path_traversal_paths_with_user_input
-        scope: result
-trigger:
-  match_on: absence
-  required_detection: java_lang_path_traversal_paths_with_user_input
+      - variable: PATHS
+        regex: \A(java\.nio\.file\.)?Paths\z
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
 auxiliary:
-  - id: java_lang_path_traversal_paths_with_user_input
+  - id: java_lang_path_traversal_paths_with_user_input_sanitizer
     patterns:
-      - pattern: $<PATHS>.get($<USER_INPUT>);
-        filters:
-          - variable: PATHS
-            regex: \A(java\.nio\.file\.)?Paths\z
-          - variable: USER_INPUT
-            detection: java_shared_lang_user_input
+      - $<_>.normalize();
 languages:
   - java
 metadata:
