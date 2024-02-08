@@ -1,0 +1,39 @@
+imports:
+  - java_shared_lang_instance
+  - java_shared_lang_user_input
+patterns:
+  - pattern: |
+      $<ENGINE>.eval($<USER_INPUT>$<...>);
+    filters:
+      - variable: ENGINE
+        detection: java_lang_eval_using_user_input_script_engine
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
+auxiliary:
+  - id: java_lang_eval_using_user_input_script_engine
+    patterns:
+      - pattern: $<ENGINE_MANAGER>.getEngineByName();
+        filters:
+          - variable: ENGINE_MANAGER
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(javax\.script\.)?(ScriptEngineManager)\z
+languages:
+  - java
+metadata:
+  description: "Unsanitized user input in 'eval' type function"
+  remediation_message: |
+    ## Description
+    It is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to command injection.
+
+    ## Remediations
+    ❌ Avoid using code execution methods with unsanitized user input.
+
+    ## Resources
+    - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
+  cwe_id:
+    - 95
+  id: java_lang_eval_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_eval_using_user_input
