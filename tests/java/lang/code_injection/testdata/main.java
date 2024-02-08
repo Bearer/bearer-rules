@@ -3,14 +3,14 @@ import javax.script.*;
 
 public class Foo {
 
-  public void bad(String script, HttpServletResponse response) throws Exception {
+  public void bad(String script, HttpServletRequest req, HttpServletResponse res) {
     ScriptEngineManager factory = new ScriptEngineManager();
     ScriptEngine engine = factory.getEngineByName("javascript");
 
     engine.eval(script);
     Invocable invocable = (Invocable) engine;
 
-    var foo = request.getParameter("foo");
+    var foo = req.getParameter("foo");
 
     // bearer:expected java_lang_code_injection
     String badFunc = (String) invocable.invokeFunction("myFunc", foo);
