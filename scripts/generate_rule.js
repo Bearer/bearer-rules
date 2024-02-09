@@ -14,11 +14,11 @@ const languageInPathToFiles = {
 };
 
 function writeRuleStructure(ruleID) {
-  const ruleNameParts = ruleID.split('_');
+  const ruleNameParts = ruleID.replace("third_parties", "thirdparties").split('_');
   const rootRuleFilePath = path.join(
     'rules',
     ruleNameParts[0],
-    ruleNameParts[1],
+    ruleNameParts[1].replace("thirdparties", "third_parties"),
   );
   try {
     if (!fs.existsSync(rootRuleFilePath)) {
@@ -57,7 +57,7 @@ function writeRuleStructure(ruleID) {
 function writeTestFileIfNotExists(ruleID) {
   try {
     // e.g. ["java", "lang", "log_injection"],join("_")
-    const ruleNameParts = ruleID.split('_');
+    const ruleNameParts = ruleID.replace("third_parties", "thirdparties").split('_');
     const content = `// Use bearer:expected ${ruleID} to flag expected findings`;
     if (ruleNameParts[0] == 'python' || ruleNameParts[0].includes('ruby')) {
       content = `# Use bearer:expected ${ruleID} to flag expected findings`;
@@ -74,7 +74,7 @@ function writeTestFileIfNotExists(ruleID) {
     const rootTestdataFilePath = path.join(
       'tests',
       ruleNameParts[0],
-      ruleNameParts[1],
+      ruleNameParts[1].replace("thirdparties", "third_parties"),
       ruleNameParts.slice(2).join('_'),
     );
 
