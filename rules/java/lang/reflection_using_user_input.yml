@@ -1,0 +1,46 @@
+imports:
+  - java_shared_lang_instance
+  - java_shared_lang_user_input
+patterns:
+  - pattern: $<CLASS>.forName($<USER_INPUT>);
+    filters:
+      - variable: CLASS
+        regex: \A(java\.lang\.reflect\.)?Class\z
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
+  - pattern: $<CLASS>.getMethod($<USER_INPUT>);
+    filters:
+      - variable: CLASS
+        detection: java_lang_reflection_using_user_input_class_for_name
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
+auxiliary:
+  - id: java_lang_reflection_using_user_input_class_for_name
+    patterns:
+      - pattern: $<CLASS>.forName($<USER_INPUT>);
+        filters:
+          - variable: CLASS
+            regex: \A(java\.lang\.reflect\.)?Class\z
+          - variable: USER_INPUT
+            detection: java_shared_lang_user_input
+languages:
+  - java
+metadata:
+  description: "Usage of external input in code reflection"
+  remediation_message: |
+    ## Description
+
+    It is bad practice to use external input when dynamically loading classes or executing code using reflection.
+    An attacker could exploit this to load malicious classes or invoke malicious methods, leading to remote code execution and other security risks.
+
+    ## Remediations
+
+    ✅ Limit the allowed class names and method names to a safelist
+
+    ✅ Sanitize external input to remove special and unexpected characters that could lead to code injection (such as single or double quotation marks and backslashes)
+
+    ❌ Wherever possible, avoid using external input with code reflection
+  cwe_id:
+    - 470
+  id: java_lang_reflection_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_reflection_using_user_input
