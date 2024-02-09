@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`java_lang_path_using_user_input cookie_file_traversal 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "73"
+      ],
+      "id": "java_lang_path_using_user_input",
+      "title": "Unsanitized user input in file path",
+      "description": "## Description\\n\\nAllowing unsanitized user input in path resolution methods means an attacker could influence or control the file name or path used by an application, potentially leading to unauthorized access, data disclosure, or other security issues\\n\\n## Remediations\\n\\n❌ Avoid wherever possible\\n\\n✅ Use a safelist to specify which paths or directories can be accessed, and restrict attempts to access directories that are not whitelisted\\n\\n✅ Sanitize user input when resolving paths. For example, use \`FilenameUtils.getName()\` to extract just the filename from raw input:\\n\\n\`\`\`java\\n  public class Cls extends HttpServlet\\n  {\\n\\n      public void handleRequest(HttpServletRequest request, HttpServletResponse response)\\n      {\\n          String image = request.getParameter(\\"user_profile_picture\\");\\n          File file = new File(\\"user/profile/\\" + FilenameUtils.getName(image));\\n      }\\n  }\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_path_using_user_input",
+      "line_number": 17,
+      "full_filename": "/tmp/bearer-scan/cookie_file_traversal.java",
+      "filename": ".",
+      "source": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 21,
+          "end": 59
+        }
+      },
+      "sink": {
+        "start": 17,
+        "end": 17,
+        "column": {
+          "start": 21,
+          "end": 59
+        },
+        "content": "new File(\\"user/profile/\\", userProfile)"
+      },
+      "parent_line_number": 17,
+      "snippet": "new File(\\"user/profile/\\", userProfile)",
+      "fingerprint": "c64e8061668432989c2de7817c85ecd5_0",
+      "old_fingerprint": "03f77be4678a0020db2b83ed56723e78_0",
+      "code_extract": "        File file = new File(\\"user/profile/\\", userProfile);"
+    }
+  ]
+}"
+`;
+
+exports[`java_lang_path_using_user_input request_file_traversal 1`] = `
+"{
+  "low": [
+    {
+      "cwe_ids": [
+        "73"
+      ],
+      "id": "java_lang_path_using_user_input",
+      "title": "Unsanitized user input in file path",
+      "description": "## Description\\n\\nAllowing unsanitized user input in path resolution methods means an attacker could influence or control the file name or path used by an application, potentially leading to unauthorized access, data disclosure, or other security issues\\n\\n## Remediations\\n\\n❌ Avoid wherever possible\\n\\n✅ Use a safelist to specify which paths or directories can be accessed, and restrict attempts to access directories that are not whitelisted\\n\\n✅ Sanitize user input when resolving paths. For example, use \`FilenameUtils.getName()\` to extract just the filename from raw input:\\n\\n\`\`\`java\\n  public class Cls extends HttpServlet\\n  {\\n\\n      public void handleRequest(HttpServletRequest request, HttpServletResponse response)\\n      {\\n          String image = request.getParameter(\\"user_profile_picture\\");\\n          File file = new File(\\"user/profile/\\" + FilenameUtils.getName(image));\\n      }\\n  }\\n\`\`\`\\n",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_path_using_user_input",
+      "line_number": 18,
+      "full_filename": "/tmp/bearer-scan/request_file_traversal.java",
+      "filename": ".",
+      "source": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 21,
+          "end": 53
+        }
+      },
+      "sink": {
+        "start": 18,
+        "end": 18,
+        "column": {
+          "start": 21,
+          "end": 53
+        },
+        "content": "new File(\\"user/profile/\\", image)"
+      },
+      "parent_line_number": 18,
+      "snippet": "new File(\\"user/profile/\\", image)",
+      "fingerprint": "c64e8061668432989c2de7817c85ecd5_0",
+      "old_fingerprint": "302071337c4172df531d4fe99a4784ea_0",
+      "code_extract": "        File file = new File(\\"user/profile/\\", image);"
+    }
+  ]
+}"
+`;
+
+exports[`java_lang_path_using_user_input request_file_traversal_sanitized 1`] = `"{}"`;

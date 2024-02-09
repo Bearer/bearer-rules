@@ -1,0 +1,89 @@
+imports:
+  - java_shared_lang_user_input
+patterns:
+  - pattern: |
+      new $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
+    filters:
+      - variable: METHOD
+        regex: \A(java\.io\.)?(File|FileReader|FileWriter|FileInputStream|FileOutputStream)\z
+      - variable: FILE_USER_INPUT
+        detection: java_lang_path_using_user_input_user_input
+        scope: result
+  - pattern: |
+      new $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
+    filters:
+      - variable: METHOD
+        regex: \A(javax\.activation\.)?FileDataSource\z
+      - variable: FILE_USER_INPUT
+        detection: java_lang_path_using_user_input_user_input
+        scope: result
+  - pattern: |
+      $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
+    filters:
+      - variable: METHOD
+        regex: \A(java\.io\.File\.)?(createTempFile|createTempDirectory)\z
+      - variable: FILE_USER_INPUT
+        detection: java_lang_path_using_user_input_user_input
+        scope: result
+  - pattern: |
+      $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
+    filters:
+      - variable: METHOD
+        regex: \A(java\.nio\.file\.Files\.)?(createTempFile|createTempDirectory)\z
+      - variable: FILE_USER_INPUT
+        detection: java_lang_path_using_user_input_user_input
+        scope: result
+  - pattern: |
+      $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
+    filters:
+      - variable: METHOD
+        regex: \A(java\.nio\.file\.Paths\.)?get\z
+      - variable: FILE_USER_INPUT
+        detection: java_lang_path_using_user_input_user_input
+        scope: result
+auxiliary:
+  - id: java_lang_path_using_user_input_user_input
+    sanitizer: java_lang_path_using_user_input_sanitized_input
+    patterns:
+      - pattern: $<SHARED_USER_INPUT>;
+        filters:
+          - variable: SHARED_USER_INPUT
+            detection: java_shared_lang_user_input
+            scope: cursor
+  - id: java_lang_path_using_user_input_sanitized_input
+    patterns:
+      - pattern: FilenameUtils.getName($<!>$<_>)
+languages:
+  - java
+trigger:
+  match_on: presence
+metadata:
+  description: Unsanitized user input in file path
+  remediation_message: |
+    ## Description
+
+    Allowing unsanitized user input in path resolution methods means an attacker could influence or control the file name or path used by an application, potentially leading to unauthorized access, data disclosure, or other security issues
+
+    ## Remediations
+
+    ❌ Avoid wherever possible
+
+    ✅ Use a safelist to specify which paths or directories can be accessed, and restrict attempts to access directories that are not whitelisted
+
+    ✅ Sanitize user input when resolving paths. For example, use `FilenameUtils.getName()` to extract just the filename from raw input:
+
+    ```java
+      public class Cls extends HttpServlet
+      {
+
+          public void handleRequest(HttpServletRequest request, HttpServletResponse response)
+          {
+              String image = request.getParameter("user_profile_picture");
+              File file = new File("user/profile/" + FilenameUtils.getName(image));
+          }
+      }
+    ```
+  cwe_id:
+    - 73
+  id: java_lang_path_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_path_using_user_input
