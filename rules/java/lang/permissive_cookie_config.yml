@@ -1,0 +1,44 @@
+imports:
+  - java_shared_lang_instance
+patterns:
+  - pattern: $<COOKIE>.setMaxAge(-1)
+    filters:
+      - variable: COOKIE
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(javax\.servlet\.http\.)?Cookie\z
+  - pattern: $<COOKIE>.setPath("/")
+    filters:
+      - variable: COOKIE
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(javax\.servlet\.http\.)?Cookie\z
+languages:
+  - java
+metadata:
+  description: Permissive cookie configuration
+  remediation_message: |
+    ## Description
+    To make sure cookies don't open your application up to exploits or unauthorized access, don't use overly permissive cookie settings.
+
+    ## Remediations
+
+    ❌ Do not set the cookie's max age to -1. This persists the cookie until the browser session ends and is a security risk.
+
+    ❌ Do not set the cookie's path to "\". This makes the cookie accessible to all paths in the domain. Such permissive cookie exposure is a security risk.
+
+    ✅ Set limited max age and restrict the cookie's path
+
+    ```java
+      Cookie cookie = new Cookie("name", "value");
+      cookie.setMaxAge(3000);
+      cookie.setPath("/my-cookie-path");
+    ```
+  cwe_id:
+    - 693
+  id: java_lang_permissive_cookie_config
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_permissive_cookie_config
