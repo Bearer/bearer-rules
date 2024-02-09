@@ -1,0 +1,32 @@
+imports:
+  - java_shared_lang_user_input
+patterns:
+  - pattern: |
+      $<PATTERN>.compile($<USER_INPUT>$<...>)
+    filters:
+      - variable: PATTERN
+        regex: \A(java\.util\.regex\.)?Pattern\z
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
+        scope: cursor
+languages:
+  - java
+metadata:
+  description: "Unsanitized user input in regular expression"
+  remediation_message: |
+    ## Description
+
+    Applications should avoid constructing regular expressions from user input.
+    Regular expressions can have exponential worst-case computational
+    complexity, allowing users to trigger this behaviour can result in
+    excessive CPU consumption causing a regular expression denial of service (ReDoS).
+
+    ## Remediations
+    ❌ Avoid using untrusted or user data when building regular expressions
+
+    ## Resources
+    - [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)
+  cwe_id:
+    - 1287
+  id: java_lang_regex_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_regex_using_user_input
