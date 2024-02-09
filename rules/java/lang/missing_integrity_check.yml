@@ -1,21 +1,16 @@
 patterns:
-  # FIXME: Should only be this one
-  # - pattern: javax.crypto.Cipher.getInstance($<ALGORITHM>)
-  #   filters:
-  #     - variable: ALGORITHM
-  #       string_regex: CBC/PKCS5Padding
   - pattern: $<CIPHER>.getInstance($<ALGORITHM>)
     filters:
       - variable: CIPHER
-        type: javax.crypto.Cipher
+        static_type: javax.crypto.Cipher
       - variable: ALGORITHM
         string_regex: \/CBC\/PKCS5Padding\z
-  # - not:
-  #     variable: ALGORITHM
-  #     string_regex: /(CCM|CWC|OCB|EAX|GCM)/
-  # - not:
-  #     variable: ALGORITHM
-  #     string_regex: \A(RSA|ECIES)
+      # - not:
+      #     variable: ALGORITHM
+      #     string_regex: /(CCM|CWC|OCB|EAX|GCM)/
+      # - not:
+      #     variable: ALGORITHM
+      #     string_regex: \A(RSA|ECIES)
 languages:
   - java
 metadata:
