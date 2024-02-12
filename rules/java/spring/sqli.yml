@@ -3,7 +3,7 @@ imports:
 patterns:
   - pattern: new $<_>($<USER_INPUT>$<...>)
     filters:
-      # - type: org.springframework.jdbc.core.PreparedStatementCreatorFactory
+      - type: org.springframework.jdbc.core.PreparedStatementCreatorFactory
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
         scope: result
