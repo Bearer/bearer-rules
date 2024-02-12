@@ -1,0 +1,49 @@
+imports:
+  - java_shared_lang_datatype
+patterns:
+  - pattern: $<AIRBRAKE>.report($<DATA_TYPE>$<...>);
+    filters:
+      - variable: AIRBRAKE
+        regex: \A(io\.airbrake\.javabrake\.)?Airbrake\z
+      - variable: DATA_TYPE
+        detection: java_shared_lang_datatype
+  - pattern: $<AIRBRAKE_NOTICE>.$<METHOD>($<_>, $<DATA_TYPE>);
+    filters:
+      - variable: AIRBRAKE_NOTICE
+        detection: java_third_parties_airbrake_javabrake_notice
+      - variable: METHOD
+        values:
+          - setContext
+          - setParam
+      - variable: DATA_TYPE
+        detection: java_shared_lang_datatype
+auxiliary:
+  - id: java_third_parties_airbrake_javabrake_notice
+    patterns:
+      - pattern: $<AIRBRAKE>.buildNotice();
+        filters:
+          - variable: AIRBRAKE
+            regex: \A(io\.airbrake\.javabrake\.)?Airbrake\z
+languages:
+  - java
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: Leakage of sensitive data to Airbrake
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Airbrake.
+
+    ## Remediations
+
+    ✅ When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Airbrake Docs](https://docs.airbrake.io/docs/platforms/java/)
+  cwe_id:
+    - 201
+  associated_recipe: Airbrake
+  id: java_third_parties_airbrake_javabrake
+  documentation_url: https://docs.bearer.com/reference/rules/java_third_parties_airbrake_javabrake
