@@ -15,6 +15,7 @@ patterns:
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
         scope: result
+        is_source: true
   - pattern: |
       $<STATEMENT>.$<METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -31,6 +32,7 @@ patterns:
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
         scope: result
+        is_source: true
   - pattern: |
       $<ENTITY_MANAGER>.$<METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -44,27 +46,25 @@ patterns:
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
         scope: result
+        is_source: true
 auxiliary:
   - id: java_lang_sqli_connection
     patterns:
-      - pattern: $<CONNECTION_INSTANCE>
+      - pattern: $<_>
         filters:
-          - variable: CONNECTION_INSTANCE
-            type: java.sql.Connection
+          - type: java.sql.Connection
       - $<_>.getConnection()
   - id: java_lang_sqli_statement
     patterns:
-      - pattern: $<STATEMENT_INSTANCE>
+      - pattern: $<_>
         filters:
-          - variable: STATEMENT_INSTANCE
-            type: java.sql.Statement
+          - type: java.sql.Statement
       - $<_>.createStatement()
   - id: java_lang_sqli_entity_manager
     patterns:
-      - pattern: $<ENTITY_INSTANCE>
+      - pattern: $<_>
         filters:
-          - variable: ENTITY_INSTANCE
-            type: javax.persistence.EntityManager
+          - type: javax.persistence.EntityManager
       - $<_>.createEntityManager()
 languages:
   - java

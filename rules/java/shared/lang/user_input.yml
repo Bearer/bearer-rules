@@ -30,6 +30,7 @@ patterns:
   - pattern: $<COOKIE>.getValue()
     filters:
       - either:
+          # FIXME: remove this, but we need array support to cover the path traversal test cases
           - variable: COOKIE
             detection: java_shared_lang_user_input_cookies
             scope: result

@@ -9,12 +9,16 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FilenameUtils;
 
-public class Cls extends HttpServlet
+public class RequestFileTraversalSanitized extends HttpServlet
 {
 
     public void handleRequest(HttpServletRequest request, HttpServletResponse response)
     {
         String image = request.getParameter("user_profile_picture");
-        File file = new File("user/profile/" + FilenameUtils.getName(image));
+        File file = new File(
+            "user/profile/"
+            +
+            FilenameUtils.getName(image)
+        );
     }
 }

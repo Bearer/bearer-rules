@@ -2,61 +2,78 @@ imports:
   - java_shared_lang_user_input
 patterns:
   - pattern: |
-      new $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
+      new $<_>($<...>$<USER_INPUT>$<...>)
     filters:
-      - variable: METHOD
-        regex: \A(java\.io\.)?(File|FileReader|FileWriter|FileInputStream|FileOutputStream)\z
-      - variable: FILE_USER_INPUT
+      - either:
+          - type: java.io.File
+          - type: java.io.FileReader
+          - type: java.io.FileWriter
+          - type: java.io.FileInputStream
+          - type: java.io.FileOutputStream
+      - variable: USER_INPUT
         detection: java_lang_path_traversal_user_input
         scope: result
+        is_source: true
   - pattern: |
-      new $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
+      new $<_>($<...>$<USER_INPUT>$<...>)
     filters:
-      - variable: METHOD
-        regex: \A(javax\.activation\.)?FileDataSource\z
-      - variable: FILE_USER_INPUT
+      - type: javax.activation.FileDataSource
+      - variable: USER_INPUT
         detection: java_lang_path_traversal_user_input
         scope: result
+        is_source: true
   - pattern: |
-      $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
+      $<CLASS>.$<METHOD>($<...>$<USER_INPUT>$<...>)
     filters:
+      - variable: CLASS
+        static_type: java.io.File
       - variable: METHOD
-        regex: \A(java\.io\.File\.)?(createTempFile|createTempDirectory)\z
-      - variable: FILE_USER_INPUT
+        values:
+          - createTempFile
+          - createTempDirectory
+      - variable: USER_INPUT
         detection: java_lang_path_traversal_user_input
         scope: result
+        is_source: true
   - pattern: |
-      $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
+      $<CLASS>.$<METHOD>($<...>$<USER_INPUT>$<...>)
     filters:
+      - variable: CLASS
+        static_type: java.nio.file.Files
       - variable: METHOD
-        regex: \A(java\.nio\.file\.Files\.)?(createTempFile|createTempDirectory)\z
-      - variable: FILE_USER_INPUT
+        values:
+          - createTempFile
+          - createTempDirectory
+      - variable: USER_INPUT
         detection: java_lang_path_traversal_user_input
         scope: result
+        is_source: true
   - pattern: |
-      $<METHOD>($<...>$<FILE_USER_INPUT>$<...>);
+      $<CLASS>.get($<...>$<USER_INPUT>$<...>)
     filters:
-      - variable: METHOD
-        regex: \A(java\.nio\.file\.Paths\.)?get\z
-      - variable: FILE_USER_INPUT
+      - variable: CLASS
+        static_type: java.nio.file.Paths
+      - variable: USER_INPUT
         detection: java_lang_path_traversal_user_input
         scope: result
+        is_source: true
 auxiliary:
   - id: java_lang_path_traversal_user_input
-    sanitizer: java_lang_path_traversal_sanitized_input
+    sanitizer: java_lang_path_traversal_sanitizer
     patterns:
-      - pattern: $<SHARED_USER_INPUT>;
+      - pattern: $<USER_INPUT>
         filters:
-          - variable: SHARED_USER_INPUT
+          - variable: USER_INPUT
             detection: java_shared_lang_user_input
             scope: cursor
-  - id: java_lang_path_traversal_sanitized_input
+  - id: java_lang_path_traversal_sanitizer
     patterns:
-      - pattern: FilenameUtils.getName($<!>$<_>)
+      - pattern: $<CLASS>.getName($<_>)
+        filters:
+          - variable: CLASS
+            static_type: org.apache.commons.io.FilenameUtils
 languages:
   - java
-trigger:
-  match_on: presence
 metadata:
   description: Possible path traversal vulnerability detected
   remediation_message: |

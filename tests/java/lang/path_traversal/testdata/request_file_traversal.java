@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FilenameUtils;
 
-public class Cls extends HttpServlet
+public class RequestFileTraversal extends HttpServlet
 {
 
     public void handleRequest(HttpServletRequest request, HttpServletResponse response)

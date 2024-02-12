@@ -1,6 +1,7 @@
 package servlets;
 
 import java.sql.*;
+import javax.servlet.http.HttpServletRequest;
 
 public class SQLExample {
    static final String DB_URL = "jdbc:mysql://localhost/bearer";

@@ -7,6 +7,7 @@ patterns:
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
         scope: result
+        is_source: true
   - pattern: $<FACTORY>.newPreparedStatementCreator($<USER_INPUT>$<...>)
     filters:
       - variable: FACTORY
@@ -14,6 +15,7 @@ patterns:
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
         scope: result
+        is_source: true
   - pattern: $<JDBC_TEMPLATE>.batchUpdate($<...>$<USER_INPUT>$<...>)
     filters:
       - variable: JDBC_TEMPLATE
@@ -21,6 +23,7 @@ patterns:
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
         scope: result
+        is_source: true
   - pattern: $<JDBC_TEMPLATE>.$<METHOD>($<USER_INPUT>$<...>)
     filters:
       - variable: JDBC_TEMPLATE
@@ -40,10 +43,9 @@ patterns:
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
         scope: result
+        is_source: true
 languages:
   - java
-trigger:
-  match_on: presence
 metadata:
   description: "Unsanitized user input in SQL query detected."
   remediation_message: |
