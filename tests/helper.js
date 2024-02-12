@@ -93,14 +93,19 @@ FORMAT=jsonv2 bearer scan ${testBase} --only-rule ${ruleId} --log-level trace`
     }
 
     results = JSON.parse(out)
+
     let findings = []
-    for (const result of results.findings) {
-      findings.push(`${result.id}:${result.source.start}`)
+    if (results.findings != null) {
+      for (const result of results.findings) {
+        findings.push(`${result.id}:${result.source.start}`)
+      }
     }
 
     let expectedFindings = []
-    for (const result of results.expected_findings) {
-      expectedFindings.push(`${result.rule_id}:${result.location.start}`)
+    if (results.expected_findings != null) {
+      for (const result of results.expected_findings) {
+        expectedFindings.push(`${result.rule_id}:${result.location.start}`)
+      }
     }
 
     return {

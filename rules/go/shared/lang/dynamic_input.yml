@@ -26,6 +26,7 @@ auxiliary:
       - os.Args
       - os.Getenv()
       - func $<_>($<...>$<!>$<ARG> $<_>$<...>)
+      - func ($<...>) $<_>($<...>$<!>$<_> $<_>$<...>)$<...>
 metadata:
   description: "Go dynamic input."
   id: go_shared_lang_dynamic_input

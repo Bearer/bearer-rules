@@ -1,9 +1,16 @@
 imports:
   - go_shared_lang_dynamic_request_input
+  - go_shared_lang_dynamic_input
 patterns:
   - pattern: |
-      $<DB>.Query($<INPUT>)
+      $<DB>.$<METHOD>($<INPUT>)
     filters:
+      - variable: METHOD
+        values:
+          - Query
+          - QueryRow
+          - Prepare
+          - Exec
       - variable: INPUT
         detection: go_gosec_sql_concat_sqli_unsanitized_input
       - not:
@@ -19,11 +26,21 @@ patterns:
           - variable: DB
             detection: go_gosec_sql_concat_sqli_sql_db_begin
             scope: cursor
+          - variable: DB
+            regex: (?i).*(db|database)
   - pattern: |
-      $<DB>.QueryContext($<...>$<INPUT>)
+      $<DB>.$<METHOD>($<_>, $<INPUT>)
     filters:
+      - variable: METHOD
+        values:
+          - QueryContext
+          - PrepareContext
+          - ExecContext
       - variable: INPUT
         detection: go_gosec_sql_concat_sqli_unsanitized_input
+      - not:
+          variable: INPUT
+          detection: go_gosec_sql_concat_sqli_input_sprintf_sanitizer
       - either:
           - variable: DB
             detection: go_gosec_sql_concat_sqli_sql_open
@@ -31,6 +48,8 @@ patterns:
           - variable: DB
             detection: go_gosec_sql_concat_sqli_sql_db_begin
             scope: cursor
+          - variable: DB
+            string_regex: (?i).*(db|database)
 auxiliary:
   - id: go_gosec_sql_concat_sqli_input_sprintf_sanitizer
     patterns:
@@ -46,6 +65,9 @@ auxiliary:
     patterns:
       - pattern: $<INPUT>
         filters:
+          - variable: INPUT
+            detection: go_shared_lang_dynamic_input
+            scope: cursor
           - variable: INPUT
             detection: go_shared_lang_dynamic_request_input
             scope: cursor
