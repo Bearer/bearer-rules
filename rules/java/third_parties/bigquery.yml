@@ -1,0 +1,59 @@
+imports:
+  - java_shared_lang_datatype
+  - java_shared_lang_instance
+patterns:
+  - pattern: $<BUILDER>.addRow($<HASH_MAP>);
+    filters:
+      - variable: BUILDER
+        detection: java_third_parties_bigquery_builder
+      - variable: HASH_MAP
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(java\.util\.)?HashMap\<\>\z
+trigger:
+  required_detection: java_third_parties_bigquery_row_with_data
+languages:
+  - java
+auxiliary:
+  - id: java_third_parties_bigquery_builder
+    patterns:
+      - pattern: $<INSERT_REQUEST>.newBuilder();
+        filters:
+          - variable: INSERT_REQUEST
+            regex: \A(com\.google\.cloud\.bigquery\.)?InsertAllRequest\z
+  - id: java_third_parties_bigquery_row_with_data
+    patterns:
+      - pattern: |
+          $<HASH_MAP>.put($<_>, $<DATA_TYPE>);
+        filters:
+          - variable: HASH_MAP
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.util\.)?HashMap\<\>\z
+          - variable: DATA_TYPE
+            detection: java_shared_lang_datatype
+            scope: result
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: Leakage of sensitive data to BigQuery
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party data tools is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to BigQuery.
+
+    ## Remediations
+    When sending data to third-party services, ensure all sensitive data is removed.
+
+    ## Resources
+    - [BigQuery docs](https://cloud.google.com/java/docs/reference/cloud-bigquery/latest)
+  cwe_id:
+    - 201
+  associated_recipe: Google Cloud BigQuery
+  id: java_third_parties_bigquery
+  documentation_url: https://docs.bearer.com/reference/rules/java_third_parties_bigquery
