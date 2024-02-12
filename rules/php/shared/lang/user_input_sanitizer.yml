@@ -2,6 +2,7 @@ type: shared
 languages:
   - php
 patterns:
+  - (int)$<_>
   - count($<_>)
   - filter_var($<!>$<_>$<...>)
 metadata:
