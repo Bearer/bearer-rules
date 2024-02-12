@@ -21,6 +21,7 @@ echo implode(" and ", $oopsies);
 echo "<h1>" . filter_var($_GET["ok"], FILTER_SANITIZE_STRING) . "</h1>";
 echo strip_tags($_GET["ok"]);
 echo $_GET["x"] + $_GET["y"];
+echo (int)$_GET["x"];
 
 // FIXME: Add support for $this
 $this->Oops = $_POST["oops"];
