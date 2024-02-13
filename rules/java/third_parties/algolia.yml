@@ -1,0 +1,83 @@
+imports:
+  - java_shared_lang_datatype
+  - java_shared_lang_instance
+patterns:
+  - pattern: $<INDEX>.$<METHOD>($<ENTITY_WITH_DATATYPES>);
+    filters:
+      - variable: INDEX
+        detection: java_third_parties_algolia_index
+      - variable: METHOD
+        values:
+          - saveObject
+          - saveObjectAsync
+          - saveObjects
+          - saveObjectsAsync
+          - partialUpdateObject
+          - partialUpdateObjectAsync
+          - partialUpdateObjects
+          - partialUpdateObjectsAsync
+          - replaceAllObjects
+      - either:
+          - variable: ENTITY_WITH_DATATYPES
+            detection: java_third_parties_algolia_object_with_datatypes
+          - variable: ENTITY_WITH_DATATYPES
+            detection: java_third_parties_algolia_array_with_dataypes
+languages:
+  - java
+auxiliary:
+  - id: java_third_parties_algolia_index
+    patterns:
+      - pattern: |
+          $<CLIENT>.initIndex();
+        filters:
+          - variable: CLIENT
+            detection: java_third_parties_algolia_client
+            scope: cursor
+  - id: java_third_parties_algolia_object_with_datatypes
+    patterns:
+      - pattern: $<_>.$<SETTER_METHOD>($<DATA_TYPE>);
+        filters:
+          - variable: SETTER_METHOD
+            regex: \Aset[a-zA-Z]+\z
+          - variable: DATA_TYPE
+            detection: java_shared_lang_datatype
+      - pattern: new $<_>($<...>$<DATA_TYPE>$<...>);
+        filters:
+          - variable: DATA_TYPE
+            detection: java_shared_lang_datatype
+      - pattern: Arrays.asList($<...>$<DATA_TYPE>$<...>);
+        filters:
+          - variable: DATA_TYPE
+            detection: java_shared_lang_datatype
+  - id: java_third_parties_algolia_array_with_dataypes
+    patterns:
+      - pattern: Arrays.asList($<...>$<OBJ_WITH_DATATYPES>$<...>);
+        filters:
+          - variable: OBJ_WITH_DATATYPES
+            detection: java_third_parties_algolia_object_with_datatypes
+  - id: java_third_parties_algolia_client
+    patterns:
+      - pattern: $<CLIENT>.create();
+        filters:
+          - variable: CLIENT
+            regex: \A(com\.algolia\.search\.)?(SearchClient|DefaultSearchClient)\z
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: Leakage of sensitive data to Algolia
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party data tools is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Algolia.
+
+    ## Remediations
+    When sending data to third-party services, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Algolia docs](https://www.algolia.com/doc/)
+  cwe_id:
+    - 201
+  associated_recipe: Algolia
+  id: java_third_parties_algolia
+  documentation_url: https://docs.bearer.com/reference/rules/java_third_parties_algolia
