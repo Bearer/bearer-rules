@@ -47,8 +47,7 @@ auxiliary:
       - \DDTrace\trace_function($<_>, function($<!>$<SPAN>$<...>) {})
       - \DDTrace\trace_function($<_>, [$<_> => function($<!>$<SPAN>$<...>) {}])
       - \DDTrace\trace_method($<_>, $<_>, function($<!>$<SPAN>$<...>) {})
-      - \DDTrace\trace_method($<_>, $<_>, [$<_> => function($<!>$<SPAN>$<...>)
-        {}])
+      - \DDTrace\trace_method($<_>, $<_>, [$<_> => function($<!>$<SPAN>$<...>) {}])
       - pattern: \DDTrace\$<FUNCTION>()
         filters:
           - variable: FUNCTION

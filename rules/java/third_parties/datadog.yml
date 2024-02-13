@@ -1,0 +1,61 @@
+imports:
+  - java_shared_lang_datatype
+  - java_shared_lang_instance
+patterns:
+  - pattern: $<SPAN>.$<METHOD>($<...>$<DATA_TYPE>$<...>);
+    filters:
+      - variable: SPAN
+        detection: java_third_parties_datadog_span
+      - variable: METHOD
+        values:
+          - setTag
+          - withTag
+      - variable: DATA_TYPE
+        detection: java_shared_lang_datatype
+        scope: result
+  - pattern: $<TRACER>.setUser($<...>$<DATA_TYPE>$<...>);
+    filters:
+      - variable: TRACER
+        detection: java_third_parties_datadog_tracer
+      - variable: DATA_TYPE
+        detection: java_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: java_third_parties_datadog_span
+    patterns:
+      - pattern: $<TRACER>.$<METHOD>();
+        filters:
+          - variable: TRACER
+            detection: java_third_parties_datadog_tracer
+          - variable: METHOD
+            values:
+              - buildSpan
+              - activeSpan
+  - id: java_third_parties_datadog_tracer
+    patterns:
+      - pattern: $<GLOBAL_TRACER>.get();
+        filters:
+          - variable: GLOBAL_TRACER
+            regex: \A(io\.opentracing\.util\.)?GlobalTracer\z
+languages:
+  - java
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: Leakage of sensitive data to Datadog
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Datadog docs](https://docs.datadoghq.com)
+    - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=java#replace-tags)
+  cwe_id:
+    - 201
+  associated_recipe: Datadog
+  id: java_third_parties_datadog
+  documentation_url: https://docs.bearer.com/reference/rules/java_third_parties_datadog
