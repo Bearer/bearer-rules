@@ -4,7 +4,6 @@ imports:
 patterns:
   - pattern: |
       $<CLIENT>.$<CALLER>($<...>new Callback() {
-        @Override
         public void beforeNotify() {
           $<!>$<_>.$<METHOD>($<...>$<DATA_TYPE>$<...>);
         }
