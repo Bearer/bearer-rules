@@ -1,0 +1,115 @@
+imports:
+  - java_shared_lang_datatype
+  - java_shared_lang_instance
+patterns:
+  - pattern: $<CLICKHOUSE_PREPAPRED_STATEMENT>.$<METHOD>($<_>, $<DATA_TYPE>);
+    filters:
+      - variable: CLICKHOUSE_PREPAPRED_STATEMENT
+        detection: java_third_parties_clickhouse_prepared_statement
+      - variable: METHOD
+        values:
+          - setString
+          - setObject
+          - setInt
+      - variable: DATA_TYPE
+        detection: java_shared_lang_datatype
+  - pattern: $<BINARY_STREAM_UTILS>.$<METHOD>($<CLICKHOUSE_OUTPUT_STREAM>, $<DATA_TYPE>);
+    filters:
+      - variable: BINARY_STREAM_UTILS
+        regex: \A(com\.clickhouse\.data\.format\.)?BinaryStreamUtils\z
+      - variable: CLICKHOUSE_OUTPUT_STREAM
+        detection: java_third_parties_clickhouse_output_stream
+      - variable: METHOD
+        values:
+          - writeString
+      - variable: DATA_TYPE
+        detection: java_shared_lang_datatype
+auxiliary:
+  - id: java_third_parties_clickhouse_prepared_statement
+    patterns:
+      - pattern: try ($<PREPARED_STATEMENT_TYPE> $<PS> = $<CLICKHOUSE_CONN>.prepareStatement()) {} catch() {};
+        focus: PS
+        filters:
+          - variable: PREPARED_STATEMENT_TYPE
+            regex: \A(java\.sql\.)?PreparedStatement\z
+          - variable: CLICKHOUSE_CONN
+            detection: java_third_parties_clickhouse_conn
+      - pattern: $<PREPARED_STATEMENT_TYPE> $<PS> = $<CLICKHOUSE_CONN>.prepareStatement();
+        focus: PS
+        filters:
+          - variable: PREPARED_STATEMENT_TYPE
+            regex: \A(java\.sql\.)?PreparedStatement\z
+          - variable: CLICKHOUSE_CONN
+            detection: java_third_parties_clickhouse_conn
+  - id: java_third_parties_clickhouse_output_stream
+    patterns:
+      - pattern: try ($<STREAM_TYPE> $<STREAM> = $<CLICKHOUSE_DATASTREAM_FACTORY>.createPipedOutputStream()) {} catch() {};
+        focus: STREAM
+        filters:
+          - variable: STREAM_TYPE
+            regex: \A(com\.clickhouse\.data\.)?ClickHousePipedOutputStream\z
+          - variable: CLICKHOUSE_DATASTREAM_FACTORY
+            detection: java_third_parties_clickhouse_datastream_factory
+      - pattern: $<STREAM_TYPE> $<STREAM> = $<CLICKHOUSE_DATASTREAM_FACTORY>.createPipedOutputStream();
+        focus: STREAM
+        filters:
+          - variable: STREAM_TYPE
+            regex: \A(com\.clickhouse\.data\.)?ClickHousePipedOutputStream\z
+          - variable: CLICKHOUSE_DATASTREAM_FACTORY
+            detection: java_third_parties_clickhouse_datastream_factory
+  - id: java_third_parties_clickhouse_conn
+    patterns:
+      - pattern: try ($<CONNECTION_CLASS> $<CONN> = $<CLICKHOUSE_DATASOURCE_INSTANCE>.getConnection()) {} catch() {};
+        focus: CONN
+        filters:
+          - variable: CONNECTION_CLASS
+            regex: \A(java\.sql\.)?Connection\z
+          - variable: CLICKHOUSE_DATASOURCE_INSTANCE
+            detection: java_third_parties_clickhouse_datasource
+      - pattern: $<CONNECTION_CLASS> $<CONN> = $<CLICKHOUSE_DATASOURCE_INSTANCE>.getConnection();
+        focus: CONN
+        filters:
+          - variable: CONNECTION_CLASS
+            regex: \A(java\.sql\.)?Connection\z
+          - variable: CLICKHOUSE_DATASOURCE_INSTANCE
+            detection: java_third_parties_clickhouse_datasource
+  - id: java_third_parties_clickhouse_datasource
+    patterns:
+      - pattern: $<CLICKHOUSE_DATASOURCE>;
+        filters:
+          - variable: CLICKHOUSE_DATASOURCE
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(com\.clickhouse\.jdbc\.)?ClickHouseDataSource\z
+  - id: java_third_parties_clickhouse_datastream_factory
+    patterns:
+      - pattern: $<FACTORY>.getInstance();
+        filters:
+          - variable: FACTORY
+            regex: \A(com\.clickhouse\.data\.)?ClickHouseDataStreamFactory\z
+
+languages:
+  - java
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: Leakage of sensitive data to ClickHouse
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to a third-party service is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to ClickHouse.
+
+    ## Remediations
+
+    When sending data to third-party services, ensure all sensitive data is removed.
+
+    ## Resources
+    - [ClickHouse docs](https://clickhouse.com/docs/en/intro/)
+  cwe_id:
+    - 201
+  associated_recipe: ClickHouse
+  id: java_third_parties_clickhouse
+  documentation_url: https://docs.bearer.com/reference/rules/java_third_parties_clickhouse
