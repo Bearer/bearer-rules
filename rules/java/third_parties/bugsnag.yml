@@ -1,0 +1,81 @@
+imports:
+  - java_shared_lang_datatype
+  - java_shared_lang_instance
+patterns:
+  - pattern: |
+      $<CLIENT>.$<CALLER>($<...>new Callback() {
+        public void beforeNotify() {
+          $<!>$<_>.$<METHOD>($<...>$<DATA_TYPE>$<...>);
+        }
+      })
+    filters:
+      - variable: CLIENT
+        detection: java_third_parties_bugsnag_client
+        scope: cursor
+      - variable: CALLER
+        values:
+          - addCallback
+          - notify
+      - variable: METHOD
+        values:
+          - addToTab
+          - setUser
+          - setUserId
+          - setUserName
+          - setUserEmail
+      - variable: DATA_TYPE
+        detection: java_shared_lang_datatype
+        scope: result
+    # java 8 lambda syntax
+  - pattern: |
+      $<CLIENT>.notify($<_>, (report) -> {
+        $<!>$<_>.$<METHOD>($<...>$<DATA_TYPE>$<...>);
+      })
+    filters:
+      - variable: CLIENT
+        detection: java_third_parties_bugsnag_client
+        scope: cursor
+      - variable: METHOD
+        values:
+          - addToTab
+          - setUser
+          - setUserId
+          - setUserName
+          - setUserEmail
+      - variable: DATA_TYPE
+        detection: java_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: java_third_parties_bugsnag_client
+    patterns:
+      - pattern: $<BUGSNAG>;
+        filters:
+          - variable: BUGSNAG
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(com\.bugsnag\/)?Bugsnag\z
+languages:
+  - java
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: Leakage of sensitive data to Bugsnag
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Bugsnag.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Bugsnag Docs](https://docs.bugsnag.com/platforms/java/)
+  cwe_id:
+    - 201
+  associated_recipe: Bugsnag
+  id: java_third_parties_bugsnag
+  documentation_url: https://docs.bearer.com/reference/rules/java_third_parties_bugsnag
