@@ -1,0 +1,54 @@
+patterns:
+  - pattern: |
+      $<FUNCTION>($<ALGORITHM>$<...>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - hash
+      - variable: ALGORITHM
+        string_regex: adler32
+  - pattern: $<FUNCTION>($<CONTEXT>$<...>)
+    filters:
+      - variable: FUNCTION
+        values:
+          - hash_update_file
+          - hash_update_stream
+          - hash_update
+      - variable: CONTEXT
+        detection: php_lang_weak_hash_crc32_context
+        scope: cursor
+auxiliary:
+  - id: php_lang_weak_hash_crc32_context
+    patterns:
+      - pattern: hash_init($<ALGORITHM>$<...>)
+        filters:
+          - variable: ALGORITHM
+            string_regex: adler32
+languages:
+  - php
+metadata:
+  description: "Usage of weak hashing library (Adler-32)"
+  remediation_message: |
+    ## Description
+
+    While Adler-32 can give a quick assurance of integrity it provides little protection against intentional alteration of data.
+
+    ## Remediations
+
+
+    ❌ Avoid algorithms with known weaknesses:
+
+    ```php
+      $myhash = hash('adler32', $input)
+    ```
+
+    ✅ Use stronger hashing algorithms.
+
+    ```php
+      $myhash = hash('sha256', $input)
+    ```
+
+  cwe_id:
+    - 328
+  id: php_lang_weak_hash_adler32
+  documentation_url: https://docs.bearer.com/reference/rules/php_lang_weak_hash_adler32
