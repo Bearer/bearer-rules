@@ -3,6 +3,10 @@ patterns:
     filters:
       - variable: VALUE
         string_regex: (?i)\Aaccess-control-allow-origin:\s+\*\s*\z
+  - pattern: $<_>->header($<VALUE>$<...>)
+    filters:
+      - variable: VALUE
+        string_regex: (?i)\Aaccess-control-allow-origin:\s+\*\s*\z
 languages:
   - php
 severity: warning
