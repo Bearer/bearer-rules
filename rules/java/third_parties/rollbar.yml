@@ -1,0 +1,51 @@
+imports:
+  - java_shared_lang_datatype
+  - java_shared_lang_instance
+patterns:
+  - pattern: |
+      $<ROLLBAR>.$<METHOD>($<...>$<DATA_TYPE>$<...>);
+    filters:
+      - variable: ROLLBAR
+        detection: java_third_parties_rollbar_instance
+      - variable: METHOD
+        values:
+          - debug
+          - error
+          - info
+          - setPersonData
+      - variable: DATA_TYPE
+        detection: java_shared_lang_datatype
+auxiliary:
+  - id: java_third_parties_rollbar_instance
+    patterns:
+      - pattern: $<ROLLBAR>;
+        filters:
+          - variable: ROLLBAR
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(com\.rollbar\.notifier\.)?Rollbar\z
+languages:
+  - java
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: Leakage of sensitive data to RollBar
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Rollbar.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Rollbar docs](https://docs.rollbar.com/docs/java)
+  cwe_id:
+    - 201
+  associated_recipe: Rollbar
+  id: java_third_parties_rollbar
+  documentation_url: https://docs.bearer.com/reference/rules/java_third_parties_rollbar
