@@ -1,0 +1,47 @@
+imports:
+  - java_shared_lang_datatype
+  - java_shared_lang_instance
+patterns:
+  - pattern: |
+      analytics.enqueue($<OBJECT_WITH_DATA_TYPES>);
+    filters:
+      - variable: OBJECT_WITH_DATA_TYPES
+        detection: java_third_parties_segment_object_with_data_types
+auxiliary:
+  - id: java_third_parties_segment_object_with_data_types
+    patterns:
+      - pattern: $<OBJECT>.$<_>($<...>$<DATA_TYPE>$<...>);
+        filters:
+          - variable: OBJECT
+            detection: java_third_parties_segment_object
+          - variable: DATA_TYPE
+            detection: java_shared_lang_datatype
+  - id: java_third_parties_segment_object
+    patterns:
+      - IdentifyMessage.builder();
+      - ImmutableMap.builder();
+      - pattern: $<_> $<MAP> = new HashMap();
+        focus: MAP
+languages:
+  - java
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: Leakage of sensitive data to Segment
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party analytics tools is a common cause of
+    data leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Segment.
+
+    ## Remediations
+
+    When sending data to analytics libraries, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Segment docs](https://segment.com/docs/connections/sources/catalog/libraries/server/java/)
+  cwe_id:
+    - 201
+  associated_recipe: Segment
+  id: java_third_parties_segment
+  documentation_url: https://docs.bearer.com/reference/rules/java_third_parties_segment
