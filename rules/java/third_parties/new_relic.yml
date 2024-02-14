@@ -1,0 +1,44 @@
+imports:
+  - java_shared_lang_datatype
+patterns:
+  - pattern: |
+      $<NEW_RELIC>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: NEW_RELIC
+        regex: \A(com\.newrelic\.api\.agent\.)?NewRelic\z
+      - variable: METHOD
+        values:
+          - addCustomParameter
+          - noticeError
+          - recordMetric
+          - setAccountName
+          - setInstanceName
+          - setProductName
+          - setUserId
+          - setUserName
+      - variable: DATA_TYPE
+        detection: java_shared_lang_datatype
+languages:
+  - java
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Leakage of sensitive data to New Relic"
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to New Relic.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [New Relic Docs](https://docs.newrelic.com/)
+    - [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)
+  cwe_id:
+    - 201
+  associated_recipe: New Relic
+  id: java_third_parties_new_relic
+  documentation_url: https://docs.bearer.com/reference/rules/java_third_parties_new_relic
