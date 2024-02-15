@@ -1,32 +1,28 @@
 imports:
   - java_shared_lang_instance
 patterns:
-  - pattern: $<COOKIE>.setHttpOnly($<FALSE>)
-    filters:
-      - variable: COOKIE
-        detection: java_shared_lang_instance
-        scope: cursor
-        filters:
-          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-            regex: \A(javax\.servlet\.http\.)?Cookie\z
-      - variable: "FALSE"
-        detection: java_lang_insecure_cookie_false
-        scope: cursor
-  - pattern: $<COOKIE>.setSecure($<FALSE>)
-    filters:
-      - variable: COOKIE
-        detection: java_shared_lang_instance
-        scope: cursor
-        filters:
-          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-            regex: \A(javax\.servlet\.http\.)?Cookie\z
-      - variable: "FALSE"
-        detection: java_lang_insecure_cookie_false
-        scope: cursor
-auxiliary:
-  - id: java_lang_insecure_cookie_false
-    patterns:
-      - "false;"
+  - pattern: $<RESPONSE>.addCookie($<INSECURE_COOKIE>)
+    # filters:
+    #   - variable: RESPONSE
+    #     type: javax.servlet.http.HttpServletResponse
+    #   - not:
+    #       - variable: INSECURE_COOKIE
+    #         detection: java_lang_insecure_cookie_secure_cookie
+    #         scope: cursor
+# auxiliary:
+#   - id: java_lang_insecure_cookie_cookie
+#     patterns:
+#       - pattern: $<COOKIE>
+#         filters:
+#           - variable: COOKIE
+#             type: javax.servlet.http.Cookie
+#           - variable: COOKIE
+#             field: httpOnly
+#             detection: java_lang_insecure_cookie_false
+#             scope: cursor
+#   - id: java_lang_insecure_cookie_false
+#     patterns:
+#       - "false;"
 languages:
   - java
 metadata:
@@ -38,11 +34,9 @@ metadata:
 
     ## Remediations
 
-    ✅ Set `Secure` to `true` to force cookies to only be sent over HTTPS
     ✅ Set `HttpOnly` to `true` to protect the cookie value from being accessed by client side JavaScript
 
     ```java
-    cookie.setSecure(true);
     cookie.setHttpOnly(true);
     ```
   cwe_id:

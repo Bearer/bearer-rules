@@ -2,7 +2,9 @@ imports:
   - java_shared_lang_instance
 patterns:
   - pattern: $<COOKIE>.setHttpOnly($<TRUE>);
+    focus: COOKIE
     filters:
+
       - variable: COOKIE
         detection: java_shared_lang_instance
         scope: cursor

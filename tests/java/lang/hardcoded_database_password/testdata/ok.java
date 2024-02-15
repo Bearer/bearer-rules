@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 
 import com.amazonaws.secretsmanager.caching.SecretCache;
 
-public class Foo
+public class Ok
 {
   public static void main() {
     private final SecretCache cache  = new SecretCache();

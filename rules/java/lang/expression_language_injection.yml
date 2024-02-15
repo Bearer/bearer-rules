@@ -4,34 +4,15 @@ patterns:
   - pattern: $<EXPRESSION_FACTORY>.$<METHOD>($<EL_CONTEXT>, $<STRING_PARAM>$<...>);
     filters:
       - variable: EXPRESSION_FACTORY
-        detection: java_shared_lang_instance
-        scope: cursor
-        filters:
-          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-            regex: \A(javax\.el\.)?ExpressionFactory\z
+        type: javax.el.ExpressionFactory
       - variable: METHOD
         values:
           - createValueExpression
           - createMethodExpression
       - variable: EL_CONTEXT
-        detection: java_shared_lang_instance
-        scope: cursor
-        filters:
-          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-            regex: \A(javax\.el\.)?ELContext\z
+        type: javax.el.ELContext
       - variable: STRING_PARAM
-        detection: java_lang_expression_language_injection_string_method_arg
-auxiliary:
-  - id: java_lang_expression_language_injection_string_method_arg
-    patterns:
-      - pattern: |
-          class $<...>$<_> $<...>{
-            $<...>$<_> $<_>($<...>$<STRING_TYPE> $<STRING_VAR>$<...>)$<...>{}
-          }
-        focus: STRING_VAR
-        filters:
-          - variable: STRING_TYPE
-            regex: \A(java\.lang\.)?String\z
+        type: String
 languages:
   - java
 severity: warning

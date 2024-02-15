@@ -1,4 +1,6 @@
-public class Main {
+import javax.servlet.http.HttpServletRequest;
+
+public class Ok {
   private final static String KEY = "foo";
 
   public static void main(HttpServletRequest request) {

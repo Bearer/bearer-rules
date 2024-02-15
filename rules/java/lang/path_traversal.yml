@@ -10,14 +10,7 @@ patterns:
           - type: java.io.FileWriter
           - type: java.io.FileInputStream
           - type: java.io.FileOutputStream
-      - variable: USER_INPUT
-        detection: java_lang_path_traversal_user_input
-        scope: result
-        is_source: true
-  - pattern: |
-      new $<_>($<...>$<USER_INPUT>$<...>)
-    filters:
-      - type: javax.activation.FileDataSource
+          - type: javax.activation.FileDataSource
       - variable: USER_INPUT
         detection: java_lang_path_traversal_user_input
         scope: result
