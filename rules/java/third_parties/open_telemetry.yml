@@ -1,0 +1,42 @@
+imports:
+  - java_shared_lang_datatype
+patterns:
+  - pattern: $<SPAN>.setAttribute($<...>$<DATA_TYPE>$<...>);
+    filters:
+      - variable: SPAN
+        detection: java_third_parties_open_telemetry_span
+      - variable: DATA_TYPE
+        detection: java_shared_lang_datatype
+auxiliary:
+  - id: java_third_parties_open_telemetry_span
+    patterns:
+      - pattern: $<SPAN>;
+        filters:
+          - variable: SPAN
+            regex: \A(io\.opentelemetry\.api\.trace\.)?Span\z
+      - pattern: $<SPAN>.current();
+        filters:
+          - variable: SPAN
+            regex: \A(io\.opentelemetry\.api\.trace\.)?Span\z
+languages:
+  - java
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: Leakage of sensitive data to Open Telemetry
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Open Telemetry.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Open Telemetry Docs](https://opentelemetry.io/docs/)
+  cwe_id:
+    - 201
+  id: java_third_parties_open_telemetry
+  documentation_url: https://docs.bearer.com/reference/rules/java_third_parties_open_telemetry
