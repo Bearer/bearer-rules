@@ -1,0 +1,55 @@
+patterns:
+  - pattern: $<LOGGER>.$<METHOD>($<JNDI_LOOKUP_STRING>);
+    filters:
+      - variable: LOGGER
+        detection: java_lang_log4j_jndi_lookup_logger
+      - variable: METHOD
+        values:
+          - debug
+          - error
+          - info
+          - warn
+      - variable: JNDI_LOOKUP_STRING
+        string_regex: \A\${jndi\:.+}\z
+auxiliary:
+  - id: java_lang_log4j_jndi_lookup_logger
+    patterns:
+      - pattern: $<LOGGER>.$<GET_METHOD>();
+        filters:
+          - variable: LOGGER
+            regex: \A(org\.apache\.logging\.log4j\.)?LogManager\z
+          - variable: GET_METHOD
+            values:
+              - getLogger
+              - getFormatterLogger
+severity: warning
+languages:
+  - java
+metadata:
+  description: Usage of lookup in log4j logger string
+  remediation_message: |
+    ## Description
+
+    In the past, log payloads containing JNDI (Java Naming and Directory Interface) lookups have been used for
+    remote code execution with the Log4j library.
+
+    Such lookups should only be permitted if they are strickly necessary.
+
+    ## Remediations
+
+    ❌ Avoid permitting JNDI lookups for logging purposes
+
+    ✅ Set the `log4j2.formatMsgNoLookups` system property to TRUE to disable lookups
+
+    ```java
+      System.setProperty("log4j2.formatMsgNoLookups", "true");
+    ```
+
+    ## References
+
+    - [Log4j Security](https://logging.apache.org/log4j/2.x/security.html)
+
+  cwe_id:
+    - 917
+  id: java_lang_log4j_jndi_lookup
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_log4j_jndi_lookup
