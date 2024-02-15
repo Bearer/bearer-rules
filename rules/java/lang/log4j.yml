@@ -1,0 +1,42 @@
+patterns:
+  - pattern: $<LOG_MANAGER>.$<GET_METHOD>();
+    filters:
+      - variable: LOG_MANAGER
+        regex: \A(org\.apache\.logging\.log4j\.)?LogManager\z
+      - variable: GET_METHOD
+        values:
+          - getLogger
+          - getFormatterLogger
+dependency_check: true
+dependency:
+  name: log4j-core
+  min_version: 2.17.0
+  filename: maven-dependencies.json
+languages:
+  - java
+metadata:
+  description: Usage of vulnerable Log4j library
+  remediation_message: |
+    ## Description
+
+    Versions of log4j-core older than 2.17.1 (for Java 8) are susceptible to remote code execution attacks,
+    owing to a deserialization vulnerability in the library's JNDI (Java Naming and Directory Interface) lookup feature.
+
+    ## Remediations
+
+    ✅ Upgrade log4j-core to version 2.17.1 or above
+
+    ✅ Set the `log4j2.formatMsgNoLookups` system property to TRUE to disable lookups
+
+    ```java
+      System.setProperty("log4j2.formatMsgNoLookups", "true");
+    ```
+
+    ## References
+
+    - [Log4j Security](https://logging.apache.org/log4j/2.x/security.html)
+
+  cwe_id:
+    - 917
+  id: java_lang_log4j
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_log4j
