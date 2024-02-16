@@ -5,6 +5,7 @@ class User
   attr_reader :name, :email, :password
 end
 
+# bearer:expected ruby_lang_insecure_ftp
 ftp = Net::FTP.new("ftp.ruby-lang.org")
 ftp.login("anonymous", "matz@ruby-lang.org")
 ftp.chdir("/pub/ruby")

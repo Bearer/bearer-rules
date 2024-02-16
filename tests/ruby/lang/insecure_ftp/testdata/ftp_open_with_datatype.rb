@@ -1,5 +1,6 @@
 require "net/ftp"
 
+# bearer:expected ruby_lang_insecure_ftp
 Net::FTP.open("ftp.site.com") do |ftp|
   file = Tempfile.new("user_data")
   begin

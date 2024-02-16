@@ -1,21 +1,40 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
 
-  test("ok", () => {
-    const testCase = "ok.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+  
+    test("ok", () => {
+      const testCase = "ok.rb"
 
-  test("unsafe", () => {
-    const testCase = "unsafe.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      const results = invoke(testCase)
 
-  test("with_user_input", () => {
-    const testCase = "with_user_input.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
+
+    test("unsafe", () => {
+      const testCase = "unsafe.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
+
+    test("with_user_input", () => {
+      const testCase = "with_user_input.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
 })
