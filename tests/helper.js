@@ -97,7 +97,7 @@ FORMAT=jsonv2 bearer scan ${testBase} --only-rule ${ruleId} --log-level trace`
     let findings = []
     if (results.findings != null) {
       for (const result of results.findings) {
-        findings.push(`${result.id}:${result.source.start}`)
+        findings.push(`${result.id}:${result.sink.start}`)
       }
     }
 
