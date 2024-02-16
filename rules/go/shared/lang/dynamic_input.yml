@@ -5,7 +5,7 @@ patterns:
   - pattern: $<INPUT>
     filters:
       - variable: INPUT
-        detection: go_shared_lang_dymamic_input_input
+        detection: go_shared_lang_dynamic_input_input
         scope: cursor_strict
   - pattern: $<READER>.ReadString()
     filters:
@@ -18,9 +18,9 @@ auxiliary:
       - pattern: bufio.NewReader($<INPUT>)
         filters:
           - variable: INPUT
-            detection: go_shared_lang_dymamic_input_input
+            detection: go_shared_lang_dynamic_input_input
             scope: result
-  - id: go_shared_lang_dymamic_input_input
+  - id: go_shared_lang_dynamic_input_input
     patterns:
       - os.Stdin
       - os.Args
