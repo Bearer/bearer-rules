@@ -1,0 +1,151 @@
+imports:
+  - go_shared_lang_dynamic_request_input
+patterns:
+  - pattern: |
+      $<CALLER>.$<METHOD>($<INPUT>);
+    filters:
+      - either:
+          - variable: CALLER
+            detection: go_lang_log_output_neutralization_logger
+          - variable: CALLER
+            detection: go_lang_log_output_neutralization_zerolog
+      - variable: METHOD
+        regex: \A(Fatal|Panic|Print)(f|ln)?\z
+      - variable: INPUT
+        detection: go_lang_log_output_neutralization_input
+  - pattern: |
+      $<ZEROLOG>.$<EVENT>.$<METHOD>($<INPUT>);
+    filters:
+      - variable: ZEROLOG
+        detection: go_lang_log_output_neutralization_zerolog
+      - variable: EVENT
+        regex: \A(Info|Debug|Error|Trace|Fatal|Panic|Warn)\z
+      - variable: METHOD
+        values:
+          - Msg
+          - Msgf
+      - variable: INPUT
+        detection: go_lang_log_output_neutralization_input
+  - pattern: |
+      $<CALLER>.$<METHOD>($<INPUT>);
+    filters:
+      - either:
+          - variable: CALLER
+            detection: go_lang_log_output_neutralization_logrus
+          - variable: CALLER
+            detection: go_lang_log_output_neutralization_seelog
+      - variable: METHOD
+        regex: \A(WithFields\.)?(Info|Debug|Error|Trace|Fatal|Panic|Warn)\z
+      - variable: INPUT
+        detection: go_lang_log_output_neutralization_input
+  - pattern: |
+      $<CALLER>.$<METHOD>($<INPUT>);
+    filters:
+      - variable: CALLER
+        detection: go_lang_log_output_neutralization_glog
+      - variable: METHOD
+        regex: \A(Info|Warning|Error|Fatal)(Contex)?(Depth)?(f)?\z
+      - variable: INPUT
+        detection: go_lang_log_output_neutralization_input
+  - pattern: |
+      $<ZAP>.$<METHOD>($<INPUT>);
+    filters:
+      - variable: ZAP
+        detection: go_lang_log_output_neutralization_zap
+      - variable: METHOD
+        regex: \A(WithFields\.)?(Info|Log|Error|Fatal|DPanic|Warn)\z
+      - variable: INPUT
+        detection: go_lang_log_output_neutralization_input
+auxiliary:
+  - id: go_lang_log_output_neutralization_logger
+    patterns:
+      - log.New();
+      - log.Default();
+  - id: go_lang_log_output_neutralization_zerolog
+    patterns:
+      - import $<!>"github.com/rs/zerolog"
+      - |
+        import (
+          $<!>"github.com/rs/zerolog"
+        )
+  - id: go_lang_log_output_neutralization_logrus
+    patterns:
+      - logrus.New();
+      - import $<!>"github.com/sirupsen/logrus"
+      - |
+        import (
+          $<!>"github.com/sirupsen/logrus"
+        )
+  - id: go_lang_log_output_neutralization_zap
+    patterns:
+      - zap.$<_>().Sugar()
+      - zap.$<_>()
+  - id: go_lang_log_output_neutralization_seelog
+    patterns:
+      - import $<!>"github.com/cihub/seelog"
+      - |
+        import (
+          $<!>"github.com/cihub/seelog"
+        )
+  - id: go_lang_log_output_neutralization_glog
+    patterns:
+      - import $<!>"github.com/golang/glog"
+      - |
+        import (
+          $<!>"github.com/golang/glog"
+        )
+  - id: go_lang_log_output_neutralization_input
+    sanitizer: go_lang_log_output_neutralization_sanitizer
+    patterns:
+      - pattern: $<INPUT>
+        filters:
+          - variable: INPUT
+            detection: go_shared_lang_dynamic_request_input
+            scope: cursor
+      - pattern: $<FORMAT_STRING>$<...>$<INPUT>$<...>;
+        filters:
+          - not:
+              variable: FORMAT_STRING
+              string_regex: /A*?(\%q)*?/z
+          - variable: INPUT
+            detection: go_shared_lang_dynamic_request_input
+            scope: cursor
+  - id: go_lang_log_output_neutralization_sanitizer
+    patterns:
+      - strconv.Quote();
+      - html.EscapeString();
+      - url.QueryEscape();
+      - strings.ReplaceAll();
+languages:
+  - go
+metadata:
+  description: Missing output neutralization for logs
+  remediation_message: |
+    ## Description
+
+    Logging untrusted and unsanitized input could lead to log injection vulnerabilities.
+
+    ## Remediations
+
+    ❌ Do not log unsanitized external input directly
+
+    ✅ Use printf methods with %q format for logging external input
+
+    ```go
+      dangerousInput := os.Args[0]
+
+      logger.Printf("Args: %q", dangerousInput)
+    ```
+
+    ✅ Use manual method to escape external strings before logging
+
+    ```go
+      dangerousInput := os.Args[0]
+      sanitizedInput := strconv.Quote(dangerousInput)
+
+      logger.Print(sanitizedInput)
+    ```
+  cwe_id:
+    - 117
+  id: go_lang_log_output_neutralization
+  documentation_url: https://docs.bearer.com/reference/rules/go_lang_log_output_neutralization
