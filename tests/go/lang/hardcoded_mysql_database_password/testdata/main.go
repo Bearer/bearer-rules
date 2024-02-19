@@ -1,4 +1,4 @@
-// Use bearer:expected go_lang_hardcoded_database_password to flag expected findings
+// Use of bearer:expected go_lang_hardcoded_mysql_database_password to flag expected findings
 package main
 
 import (
@@ -20,7 +20,7 @@ func bad1() {
 	dsn := fmt.Sprintf("%s:%s@tcp(localhost:%d)/%s?charset=utf8", dbUser, dbPassword, port, dbName)
 
 	// Connect to the database
-	// bearer:expected go_lang_hardcoded_database_password
+	// bearer:expected go_lang_hardcoded_mysql_database_password
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
 		panic(err)
@@ -34,7 +34,7 @@ func bad1() {
 func bad1() {
 	cfg := mysql.Config{
 		User: "user",
-		// bearer:expected go_lang_hardcoded_database_password
+		// bearer:expected go_lang_hardcoded_mysql_database_password
 		Passwd: "password",
 		Net:    "tcp",
 		Addr:   "127.0.0.1:3306",
