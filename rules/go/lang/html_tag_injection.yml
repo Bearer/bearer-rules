@@ -1,0 +1,96 @@
+imports:
+  - go_shared_lang_dynamic_request_input
+patterns:
+  - pattern: $<TEMPLATE_INSTANCE>.Parse($<INPUT>)
+    filters:
+      - variable: TEMPLATE_INSTANCE
+        detection: go_lang_html_tag_injection_text_template_instance
+      - variable: INPUT
+        detection: go_lang_html_tag_injection_unsanitized_input
+  - pattern: $<TEMPLATE>.$<TYPE>($<INPUT>)
+    filters:
+      - variable: TYPE
+        values:
+          - HTML
+          - HTMLAttr
+      - variable: TEMPLATE
+        detection: go_lang_html_tag_injection_html_template
+      - variable: INPUT
+        detection: go_lang_html_tag_injection_unsanitized_input
+auxiliary:
+  - id: go_lang_html_tag_injection_text_template_instance
+    patterns:
+      - pattern: $<TEXT_TEMPLATE>.New()
+        filters:
+          - variable: TEXT_TEMPLATE
+            detection: go_lang_html_tag_injection_text_template
+  - id: go_lang_html_tag_injection_text_template
+    patterns:
+      - import $<!>"text/template"
+      - |
+        import (
+          $<!>"text/template"
+        )
+  - id: go_lang_html_tag_injection_html_template
+    patterns:
+      - import $<!>"html/template"
+      - |
+        import (
+          $<!>"html/template"
+        )
+  - id: go_lang_html_tag_injection_unsanitized_input
+    sanitizer: go_lang_html_tag_injection_sanitizer
+    patterns:
+      - pattern: $<INPUT>
+        filters:
+          - variable: INPUT
+            detection: go_shared_lang_dynamic_request_input
+            scope: cursor
+  - id: go_lang_html_tag_injection_sanitizer
+    patterns:
+      - pattern: $<TEMPLATE>.HTMLEscapeString()
+        filters:
+          - either:
+              - variable: TEMPLATE
+                detection: go_lang_html_tag_injection_text_template
+              - variable: TEMPLATE
+                detection: go_lang_html_tag_injection_html_template
+languages:
+  - go
+metadata:
+  description: "Missing sanitization of HTML template tags"
+  remediation_message: |
+    ## Description
+
+    Failing to sanitize user input can allow attackers to inject HTML tags (like `<script>` tags)
+    into the rendered template. This can lead to Cross-Site Scripting (XSS) attacks if the injected
+    scripts are then executed.
+
+    Ensure user input is sanitized and, wherever possible, avoid rendering templates with raw user input.
+
+    ## Remediations
+
+    ✅ Always sanitize user input before using it in a template
+
+    ```
+      safe := template.HTMLEscapeString(r.FormValue("xyz"))
+    ```
+
+    ✅ Prefer html/template to text/template when parsing and rendering a template
+
+    ```go
+      import "html/template"
+
+      func good(w http.ResponseWriter, r *http.Request) {
+        t, _ = := template.New("something").Parse(r.FormValue("xyz"))
+        t.Execute(w, nil)
+      }
+    ```
+
+    ## References
+
+    - [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+  cwe_id:
+    - 80
+  id: go_lang_html_tag_injection
+  documentation_url: https://docs.bearer.com/reference/rules/go_lang_missing_script_tag_sanitization
