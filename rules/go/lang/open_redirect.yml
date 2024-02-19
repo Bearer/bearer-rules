@@ -1,0 +1,68 @@
+imports:
+  - go_shared_lang_dynamic_request_input
+patterns:
+  - pattern: |
+      $<HTTP>.Redirect($<_>, $<_>, $<USER_INPUT>, $<_>)
+    filters:
+      - variable: HTTP
+        detection: go_lang_open_redirect_init
+        scope: cursor
+      - variable: USER_INPUT
+        detection: go_shared_lang_dynamic_request_input
+        scope: result
+auxiliary:
+  - id: go_lang_open_redirect_init
+    patterns:
+      - import $<!>"net/http"
+      - |
+        import (
+          $<!>"net/http"
+        )
+languages:
+  - go
+metadata:
+  description: "Unsanitized user input in redirect"
+  remediation_message: |
+    ## Description
+    A redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.
+
+    ## Remediations
+    ❌ Do not use unsanitized user input when constructing URLs
+
+    ✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs
+
+    ```go
+    var URLMapping = map[string]string{
+      "google": "https://www.google.com",
+      "openai": "https://www.openai.com",
+      "github": "https://www.github.com",
+      "root":   "https://www.example.com",
+    }
+
+    func safeRedirectHandler(w http.ResponseWriter, r *http.Request) {
+      // Get the redirectTo parameter from the query string
+      redirectTo := r.URL.Query().Get("redirectTo")
+
+      // Get the safe URL from the map, default to the URL for "root" if not found
+      redirectURL, ok := URLMapping[redirectTo]
+      if !ok {
+        redirectURL = URLMapping["root"] // Default to a predefined safe URL
+      }
+
+      // Set the Location header to redirect the user
+      http.Redirect(w, r, redirectURL, http.StatusFound)
+    }
+
+    func main() {
+      http.HandleFunc("/", safeRedirectHandler)
+      http.ListenAndServe(":8080", nil)
+    }
+    ```
+
+    ## Resources
+    - [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
+
+  cwe_id:
+    - 601
+  id: go_lang_open_redirect
+  documentation_url: https://docs.bearer.com/reference/rules/go_lang_open_redirect
