@@ -20,57 +20,27 @@ patterns:
 languages:
   - go
 metadata:
-  description: "Unsanitized dynamic input in OS command"
+  description: Unsanitized user input in code generation
   remediation_message: |
     ## Description
 
-    OS command injection is a perilous vulnerability that has the potential to lead to full system compromise. Adversaries may exploit this flaw by feeding arbitrary commands or arguments intended for execution. This opens the door for unchecked operations, which could wreak havoc on the system or reveal sensitive information.
+    Processing unsanitized user-controlled input as code puts your application at risk of Code Injection
+    attacks, whereby attackers execute arbitrary commands or manipulate application behaviour,
+    potentially leading to security breaches or data manipulation.
 
     ## Remediations
 
-    ✅ Avoid User Input in OS Commands
+    ✅ Avoid User Input in Commands
 
-    Always steer clear of incorporating user input when formulating commands or their arguments, especially for functions responsible for OS command execution. This includes, but is not limited to, filenames provided during user uploads/downloads.
+    Always steer clear of incorporating user input when formulating commands or their arguments.
 
     ✅ Hardcoded Argument Set
 
-    Ensure your application exclusively uses a hardcoded set of arguments for OS command executions. If filenames are being passed to such functions, consider adopting a hash of the filename or another distinctive identifier.
-
-    ✅ Opt for Native Libraries
-
-    Due to the inherent risks associated with third-party commands and the possibility of undisclosed attack vectors, prefer using native libraries that offer the same capabilities as opposed to resorting to OS system commands.
-
-    ✅ Specify Full Path in Windows
-
-    If the environment is Windows-based, always provide the complete path information when denoting the OS command. This circumvents potential vulnerabilities stemming from untrusted search paths (CWE-426).
-
-    ```go
-    userData := []byte("user data")
-    // create a temporary file in the application-specific directory
-    f, err := ioutil.TempFile("/var/app/restricted", "temp-*.dat")
-    if err != nil {
-      log.Fatal(err)
-    }
-
-    if _, err := f.Write(userData); err != nil {
-      log.Fatal(err)
-    }
-
-    if err := f.Close(); err != nil {
-      log.Fatal(err)
-    }
-
-    // use the absolute path to the binary and the name of the temporary file
-    // steering clear of any user-provided filenames
-    out, err := exec.Command("/bin/cat", f.Name()).Output()
-    if err != nil {
-      log.Fatal(err)
-    }
-    ```
+    Ensure your application exclusively uses a hardcoded set of arguments when executing code.
 
     ## Resources
 
-    - [OWASP OS Command Injection Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
+    - [OWASP Code injection](https://owasp.org/www-community/attacks/Code_Injection)
   cwe_id:
     - 94
   id: go_gosec_injection_subproc_injection

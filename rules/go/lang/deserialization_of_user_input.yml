@@ -1,18 +1,18 @@
 imports:
-  - go_shared_lang_dynamic_request_input
+  - go_shared_lang_dynamic_input_combined
 patterns:
   - pattern: $<DECODER>.Decode($<USER_INPUT>);
     filters:
       - variable: DECODER
         detection: go_lang_deserialization_of_user_input_decoder
       - variable: USER_INPUT
-        detection: go_shared_lang_dynamic_request_input
+        detection: go_shared_lang_dynamic_input_combined
   - pattern: $<ENCODER>.Encode($<...>$<USER_INPUT>$<...>);
     filters:
       - variable: ENCODER
         detection: go_lang_deserialization_of_user_input_encoder
       - variable: USER_INPUT
-        detection: go_shared_lang_dynamic_request_input
+        detection: go_shared_lang_dynamic_input_combined
   - pattern: $<CALLER>.$<METHOD>($<...>$<USER_INPUT>$<...>);
     filters:
       - variable: CALLER
@@ -25,7 +25,7 @@ patterns:
           - Unmarshal
           - Marshal
       - variable: USER_INPUT
-        detection: go_shared_lang_dynamic_request_input
+        detection: go_shared_lang_dynamic_input_combined
 auxiliary:
   - id: go_lang_deserialization_of_user_input_decoder
     patterns:

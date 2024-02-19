@@ -1,6 +1,5 @@
 imports:
-  - go_shared_lang_dynamic_request_input
-  - go_shared_lang_dynamic_input
+  - go_shared_lang_dynamic_input_combined
 patterns:
   - pattern: |
       $<DB>.$<METHOD>($<INPUT>)
@@ -66,10 +65,7 @@ auxiliary:
       - pattern: $<INPUT>
         filters:
           - variable: INPUT
-            detection: go_shared_lang_dynamic_input
-            scope: cursor
-          - variable: INPUT
-            detection: go_shared_lang_dynamic_request_input
+            detection: go_shared_lang_dynamic_input_combined
             scope: cursor
   - id: go_gosec_sql_concat_sqli_sql_db_init
     patterns:

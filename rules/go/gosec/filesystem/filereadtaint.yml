@@ -1,5 +1,5 @@
 imports:
-  - go_shared_lang_dynamic_request_input
+  - go_shared_lang_dynamic_input_combined
 patterns:
   - pattern: |
       os.OpenFile($<INPUT>$<...>)
@@ -32,7 +32,7 @@ auxiliary:
       - pattern: $<INIT>
         filters:
           - variable: INIT
-            detection: go_shared_lang_dynamic_request_input
+            detection: go_shared_lang_dynamic_input_combined
             scope: cursor
   - id: go_gosec_filesystem_filereadtaint_input_sanitizer
     patterns:
