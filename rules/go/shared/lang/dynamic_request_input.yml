@@ -7,11 +7,6 @@ patterns:
   - pattern: $<INPUT>
     filters:
       - variable: INPUT
-        detection: go_shared_lang_dynamic_input
-        scope: cursor_strict
-  - pattern: $<INPUT>
-    filters:
-      - variable: INPUT
         detection: go_shared_lang_dymamic_request_input_input
         scope: cursor_strict
   - pattern: $<READER>.ReadString()
