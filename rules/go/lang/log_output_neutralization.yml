@@ -1,5 +1,5 @@
 imports:
-  - go_shared_lang_dynamic_request_input
+  - go_shared_lang_dynamic_input_combined
 patterns:
   - pattern: |
       $<CALLER>.$<METHOD>($<INPUT>);
@@ -100,7 +100,7 @@ auxiliary:
       - pattern: $<INPUT>
         filters:
           - variable: INPUT
-            detection: go_shared_lang_dynamic_request_input
+            detection: go_shared_lang_dynamic_input_combined
             scope: cursor
       - pattern: $<FORMAT_STRING>$<...>$<INPUT>$<...>;
         filters:
@@ -108,7 +108,7 @@ auxiliary:
               variable: FORMAT_STRING
               string_regex: /A*?(\%q)*?/z
           - variable: INPUT
-            detection: go_shared_lang_dynamic_request_input
+            detection: go_shared_lang_dynamic_input_combined
             scope: cursor
   - id: go_lang_log_output_neutralization_sanitizer
     patterns:
