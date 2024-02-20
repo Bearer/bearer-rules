@@ -1,0 +1,46 @@
+patterns:
+  - pattern: $<_>.InsecureSkipVerify = $<TRUTHY>
+    filters:
+      - variable: TRUTHY
+        detection: go_lang_ssl_verification_true
+        scope: result
+  - pattern: |
+      $<TLS>.Config{$<...>$<!>InsecureSkipVerify: $<TRUTHY>$<...>}
+    filters:
+      - variable: TLS
+        detection: go_lang_ssl_verification_init
+        scope: cursor
+      - variable: TRUTHY
+        detection: go_lang_ssl_verification_true
+        scope: result
+auxiliary:
+  - id: go_lang_ssl_verification_true
+    patterns:
+      - "true"
+  - id: go_lang_ssl_verification_init
+    patterns:
+      - import $<!>"crypto/tls"
+      - |
+        import (
+          $<!>"crypto/tls"
+        )
+languages:
+  - go
+metadata:
+  description: "Missing SSL certificate verification"
+  remediation_message: |
+    ## Description
+
+    Applications processing sensitive data should use valid SSL certificates.
+    This rule checks if SSL verification is enabled.
+
+    ## Remediations
+
+    ❌ Do not disable SSL certificate validation in your HTTP client
+
+    ✅ Ensure verification of both peers and hostnames is enabled in your HTTP client
+
+  cwe_id:
+    - 295
+  id: go_lang_ssl_verification
+  documentation_url: https://docs.bearer.com/reference/rules/go_lang_ssl_verification
