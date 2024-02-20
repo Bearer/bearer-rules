@@ -1,100 +1,82 @@
 imports:
-  - go_shared_lang_dynamic_request_input
+  - go_shared_lang_dynamic_input_combined
 patterns:
-  - pattern: |
-      exec.CommandContext($<CTX>, $<INPUT>$<...>)
+  - pattern: $<CLIENT>.Call($<...>$<INPUT>$<...>)
     filters:
+      - variable: CLIENT
+        detection: go_gosec_subproc_subproc_net_rpc_client
       - variable: INPUT
-        detection: go_shared_lang_dynamic_request_input
-  - pattern: |
-      exec.Command($<...>$<INPUT>$<...>)
+        detection: go_shared_lang_dynamic_input_combined
+  - pattern: $<VALUE>.$<METHOD>($<...>$<INPUT>$<...>)
     filters:
+      - variable: VALUE
+        detection: go_gosec_subproc_subproc_net_value
+      - variable: METHOD
+        values:
+          - FieldByName
+          - FieldByNameFunc
       - variable: INPUT
-        detection: go_shared_lang_dynamic_request_input
-  - pattern: |
-      syscall.ForkExec($<INPUT>$<...>)
-    filters:
-      - variable: INPUT
-        detection: go_shared_lang_dynamic_request_input
-  - pattern: |
-      syscall.StartProcess($<INPUT>$<...>)
-    filters:
-      - variable: INPUT
-        detection: go_shared_lang_dynamic_request_input
+        detection: go_shared_lang_dynamic_input_combined
+auxiliary:
+  - id: go_gosec_subproc_subproc_net_rpc_client
+    patterns:
+      - pattern: $<NET_RPC>.$<METHOD>()
+        filters:
+          - variable: NET_RPC
+            detection: go_gosec_subproc_subproc_net_rpc_import
+          - variable: METHOD
+            values:
+              - Dial
+              - DialHTTP
+              - DialHTTPPath
+              - NewClient
+              - NewClientWithCodec
+  - id: go_gosec_subproc_subproc_net_rpc_import
+    patterns:
+      - import $<!>"net/rpc"
+      - |
+        import (
+          $<!>"net/rpc"
+        )
+  - id: go_gosec_subproc_subproc_net_value
+    patterns:
+      - pattern: $<VALUE>.ValueOf()
+        filters:
+          - variable: VALUE
+            detection: go_gosec_subproc_subproc_net_rpc_reflect_import
+  - id: go_gosec_subproc_subproc_net_rpc_reflect_import
+    patterns:
+      - import $<!>"reflect"
+      - |
+        import (
+          $<!>"reflect"
+        )
 languages:
   - go
 severity: high
 metadata:
-  description: "Unsanitized user input in OS command"
+  description: Unsanitized external input in code execution
   remediation_message: |
     ## Description
 
-    OS command injection is a severe security vulnerability that occurs when an application incorrectly processes user input. This flaw can allow attackers to execute arbitrary commands on the host operating system, potentially leading to a full system compromise.
+    Code injection is a security vulnerability where untrusted (external or user) data is injected into a program or interpreted as part of its execution flow, leading to unintended and potentially harmful consequences.
 
     ## Remediations
 
-    Prevent OS command injection by adhering to the following practices:
+    Prevent code injection by adhering to the following practices:
 
-    ❌ Avoid Direct User Input
+    ❌ Never pass raw external input to
 
-    Do not use user-supplied information for constructing OS commands or command-line arguments, as this can lead to command injection vulnerabilities.
+    Do not use externally supplied values when executing remote code, as this can lead to code injection vulnerabilities.
 
     ✅ Implement Input Validation
 
-    Ensure that any user input is validated against a set of strict rules to ensure it does not contain malicious characters or patterns.
-
-    ✅ Use Hardcoded Arguments
-
-    When invoking OS commands, use a hardcoded set of arguments to ensure that user input cannot alter the command's behavior.
-
-    ✅ Utilize Temporary Files Securely
-
-    When dealing with files, create temporary files in a restricted directory, avoiding the use of user-supplied filenames.
-
-    ✅ Employ Native Libraries
-
-    Where possible, use native libraries or features of the programming language instead of invoking shell commands, which can be safer and more efficient.
-
-    ```go
-    import (
-        "io/ioutil"
-        "os/exec"
-        "log"
-    )
-
-    func main() {
-        userData := []byte("user data")
-
-        // Create a temporary file in a secure, application-specific directory
-        f, err := ioutil.TempFile("/var/app/restricted", "temp-*.dat")
-        if err != nil {
-            log.Fatal(err)
-        }
-
-        // Write user data to the temporary file
-        if _, err := f.Write(userData); err != nil {
-            f.Close()
-            log.Fatal(err)
-        }
-
-        // Close the file handle
-        if err := f.Close(); err != nil {
-            log.Fatal(err)
-        }
-
-        // Execute a command using the temporary file, avoiding direct user input for filenames
-        out, err := exec.Command("/bin/cat", f.Name()).Output()
-        if err != nil {
-            log.Fatal(err)
-        }
-        // Output can be used for further processing
-    }
-    ```
+    Ensure that any external input is validated against a set of strict rules to ensure it does not contain malicious characters or patterns.
 
     ## Resources
 
-    - [OWASP OS Command Injection Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
+    - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
   cwe_id:
-    - 78
+    - 94
   id: go_gosec_subproc_subproc
   documentation_url: https://docs.bearer.com/reference/rules/go_gosec_subproc_subproc
