@@ -1,0 +1,56 @@
+patterns:
+  - pattern: |
+      $<MATH>.Seed()
+    filters:
+      - variable: MATH
+        detection: go_lang_insufficiently_random_values_init
+        scope: cursor
+auxiliary:
+  - id: go_lang_insufficiently_random_values_init
+    patterns:
+      - import $<!>"math/rand"
+      - |
+        import (
+          $<!>"math/rand"
+        )
+languages:
+  - go
+metadata:
+  description: "Usage of insufficient random value"
+  remediation_message: |
+    ## Description
+
+    Using predictable random values makes our application vulnerable to attacks,
+    especially if these values are used for security purposes.
+
+    ## Remediations
+
+    ✅ Use a stronger library when generating random values
+
+    ```go
+    import (
+      "crypto/rand"
+      "encoding/base64"
+      "fmt"
+    )
+
+    func generateSecureToken(length int) (string, error) {
+      bytes := make([]byte, length)
+      _, err := rand.Read(bytes)
+      if err != nil {
+        return "", err
+      }
+
+      // Encode the binary data to a string for easier use
+      return base64.URLEncoding.EncodeToString(bytes), nil
+    }
+    ```
+
+    ## Resources
+
+    [Use of Insufficiently Random Values](https://cwe.mitre.org/data/definitions/330.html)
+
+  cwe_id:
+    - 330
+  id: go_lang_insufficiently_random_values
+  documentation_url: https://docs.bearer.com/reference/rules/go_lang_insufficiently_random_values
