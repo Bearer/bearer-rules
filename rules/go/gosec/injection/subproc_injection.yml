@@ -1,47 +1,100 @@
 imports:
-  - go_shared_lang_dynamic_input
+  - go_shared_lang_dynamic_input_combined
 patterns:
-  - pattern: exec.CommandContext($<_>, $<EXE>$<...>)
+  - pattern: |
+      exec.CommandContext($<CTX>, $<INPUT>$<...>)
     filters:
-      - variable: EXE
-        detection: go_shared_lang_dynamic_input
-  - pattern: exec.Command($<EXE>$<...>)
+      - variable: INPUT
+        detection: go_shared_lang_dynamic_input_combined
+  - pattern: |
+      exec.Command($<...>$<INPUT>$<...>)
     filters:
-      - variable: EXE
-        detection: go_shared_lang_dynamic_input
-  - pattern: syscall.ForkExec($<EXE>$<...>)
+      - variable: INPUT
+        detection: go_shared_lang_dynamic_input_combined
+  - pattern: |
+      syscall.ForkExec($<INPUT>$<...>)
     filters:
-      - variable: EXE
-        detection: go_shared_lang_dynamic_input
-  - pattern: syscall.StartProcess($<EXE>$<...>)
+      - variable: INPUT
+        detection: go_shared_lang_dynamic_input_combined
+  - pattern: |
+      syscall.StartProcess($<INPUT>$<...>)
     filters:
-      - variable: EXE
-        detection: go_shared_lang_dynamic_input
+      - variable: INPUT
+        detection: go_shared_lang_dynamic_input_combined
 languages:
   - go
+severity: high
 metadata:
-  description: Unsanitized user input in code generation
+  description: Unsanitized dynamic input in OS command
   remediation_message: |
     ## Description
 
-    Processing unsanitized user-controlled input as code puts your application at risk of Code Injection
-    attacks, whereby attackers execute arbitrary commands or manipulate application behaviour,
-    potentially leading to security breaches or data manipulation.
+    OS command injection is a severe security vulnerability that occurs when an application incorrectly processes external input. This flaw can allow attackers to execute arbitrary commands on the host operating system, potentially leading to a full system compromise.
 
     ## Remediations
 
-    ✅ Avoid User Input in Commands
+    Prevent OS command injection by adhering to the following practices:
 
-    Always steer clear of incorporating user input when formulating commands or their arguments.
+    ❌ Avoid Direct External Input
 
-    ✅ Hardcoded Argument Set
+    Do not use externally-supplied information for constructing OS commands or command-line arguments, as this can lead to command injection vulnerabilities.
 
-    Ensure your application exclusively uses a hardcoded set of arguments when executing code.
+    ✅ Implement Input Validation
+
+    Ensure that any external input is validated against a set of strict rules to ensure it does not contain malicious characters or patterns.
+
+    ✅ Use Hardcoded Arguments
+
+    When invoking OS commands, use a hardcoded set of arguments to ensure that external input cannot alter the command's behavior.
+
+    ✅ Utilize Temporary Files Securely
+
+    When dealing with files, create temporary files in a restricted directory, avoiding the use of user-supplied filenames.
+
+    ✅ Employ Native Libraries
+
+    Where possible, use native libraries or features of the programming language instead of invoking shell commands, which can be safer and more efficient.
+
+    ```go
+    import (
+        "io/ioutil"
+        "os/exec"
+        "log"
+    )
+
+    func main() {
+        userData := []byte("user data")
+
+        // Create a temporary file in a secure, application-specific directory
+        f, err := ioutil.TempFile("/var/app/restricted", "temp-*.dat")
+        if err != nil {
+            log.Fatal(err)
+        }
+
+        // Write user data to the temporary file
+        if _, err := f.Write(userData); err != nil {
+            f.Close()
+            log.Fatal(err)
+        }
+
+        // Close the file handle
+        if err := f.Close(); err != nil {
+            log.Fatal(err)
+        }
+
+        // Execute a command using the temporary file, avoiding direct external input for filenames
+        out, err := exec.Command("/bin/cat", f.Name()).Output()
+        if err != nil {
+            log.Fatal(err)
+        }
+        // Output can be used for further processing
+    }
+    ```
 
     ## Resources
 
-    - [OWASP Code injection](https://owasp.org/www-community/attacks/Code_Injection)
+    - [OWASP OS Command Injection Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
   cwe_id:
-    - 94
+    - 78
   id: go_gosec_injection_subproc_injection
   documentation_url: https://docs.bearer.com/reference/rules/go_gosec_injection_subproc_injection
