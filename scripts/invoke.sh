@@ -19,7 +19,7 @@ if [ -n "$BEARER_WORKSPACE" ]; then
   cd $BEARER_WORKSPACE
   $GO_EXEC run ./cmd/bearer/main.go scan $tmp_location \
     --only-rule=$rule_id \
-    --quiet \
+    --debug \
     --disable-default-rules=true \
     --external-rule-dir=$rule_loc \
     --format=${FORMAT} \

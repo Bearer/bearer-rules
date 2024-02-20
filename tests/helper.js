@@ -71,26 +71,26 @@ function difference(setA, setB) {
 }
 
 exports.createNewInvoker = (ruleId, ruleFile, testBase) => {
-  return (testCase) => {
-    const out = execSync(
-      `FORMAT=jsonv2 ./scripts/invoke.sh ${ruleFile} ${testBase}${testCase} ${ruleId}`
-    ).toString()
-
-    if (CI !== "true") {
-      console.log(
-        "[%s]\n\t%s using (%s)\n\n%s",
-        ruleId,
-        ruleFile,
-        testBase,
-        `Run the following command if you need to debug
+  if (CI !== "true") {
+    console.log(
+      "[%s]\n\t%s using (%s)\n\n%s",
+      ruleId,
+      ruleFile,
+      testBase,
+      `Run the following command if you need to debug
 
 (if running bearer develop)
 FORMAT=jsonv2 go run cmd/bearer/main.go scan ${testBase} --only-rule ${ruleId} --log-level trace
 
 (if running binary)
 FORMAT=jsonv2 bearer scan ${testBase} --only-rule ${ruleId} --log-level trace`
-      )
-    }
+    )
+  }
+
+  return (testCase) => {
+    const out = execSync(
+      `FORMAT=jsonv2 ./scripts/invoke.sh ${ruleFile} ${testBase}${testCase} ${ruleId}`
+    ).toString()
 
     results = JSON.parse(out)
 
