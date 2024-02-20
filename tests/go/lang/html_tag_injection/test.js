@@ -8,7 +8,7 @@ describe(ruleId, () => {
   const invoke = createNewInvoker(ruleId, ruleFile, testBase)
 
   test("go_lang_html_tag_injection", () => {
-    const testCase = "main.go"
+    const testCase = "app.go"
 
     const results = invoke(testCase)
 
