@@ -1,0 +1,55 @@
+patterns:
+  - pattern: |
+      $<REGEXP>.$<METHOD>($<PATTERN>$<...>)
+    filters:
+      - variable: REGEXP
+        detection: go_lang_permissive_regex_validation_regexp
+      - variable: METHOD
+        values:
+          - Compile
+          - MustCompile
+      - not:
+          variable: PATTERN
+          string_regex: \A.\\A.*\\[zZ].\z
+auxiliary:
+  - id: go_lang_permissive_regex_validation_regexp
+    patterns:
+      - import $<!>"regexp"
+      - |
+        import (
+          $<!>"regexp"
+        )
+languages:
+  - go
+metadata:
+  description: ""
+  remediation_message: |
+    ## Description
+
+    Validations using regular expressions should use the start of text (\A) and
+    end of text (\z or \Z) boundaries.
+
+    ## Remediations
+
+    ❌ Avoid matching without start and end boundaries:
+
+    ```go
+    regexp.MustCompile("foo")
+    ```
+
+    ❌ Avoid using line-based boundaries:
+
+    ```go
+    regexp.MustCompile("^foo$"}
+    ```
+
+    ✅ Use whole-text boundaries:
+
+    ```go
+    regexp.MustCompile("\Afoo\z")
+    ```
+
+  cwe_id:
+    - 625
+  id: go_lang_permissive_regex_validation
+  documentation_url: https://docs.bearer.com/reference/rules/go_lang_permissive_regex_validation
