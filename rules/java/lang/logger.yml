@@ -1,11 +1,17 @@
 imports:
   - java_shared_lang_logger_methods
+  - java_shared_lang_datatype
 patterns:
-  - pattern: $<LOG>.$<METHOD>($<LOG_MESSAGE>)
+  - pattern: $<LOG>.$<METHOD>($<INPUT>)
     filters:
       - not:
-          variable: LOG_MESSAGE
-          regex: \A("|').*("|')\z
+          variable: INPUT
+          detection: string_literal
+          scope: result
+      - not:
+          variable: INPUT
+          detection: java_shared_lang_datatype
+          scope: result
       - variable: METHOD
         detection: java_shared_lang_logger_methods
       - variable: LOG
