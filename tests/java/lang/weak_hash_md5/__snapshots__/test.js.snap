@@ -2,7 +2,7 @@
 
 exports[`java_lang_weak_hash_md5 md5_hash 1`] = `
 "{
-  "high": [
+  "critical": [
     {
       "cwe_ids": [
         "328"
@@ -46,7 +46,7 @@ exports[`java_lang_weak_hash_md5 md5_hash 1`] = `
       "code_extract": "      md.update(user.fullname.getBytes());"
     }
   ],
-  "low": [
+  "high": [
     {
       "cwe_ids": [
         "328"
