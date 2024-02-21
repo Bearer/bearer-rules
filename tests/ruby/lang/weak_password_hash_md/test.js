@@ -1,25 +1,40 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+
+  
+    test("digest_md5_data", () => {
+      const testCase = "digest_md5_data.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("digest_md5_data", () => {
-    const testCase = "digest_md5_data.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("ok_not_a_password", () => {
+      const testCase = "ok_not_a_password.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("ok_not_a_password", () => {
-    const testCase = "ok_not_a_password.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+    test("openssl_md5_data", () => {
+      const testCase = "openssl_md5_data.rb"
 
-  test("openssl_md5_data", () => {
-    const testCase = "openssl_md5_data.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 })

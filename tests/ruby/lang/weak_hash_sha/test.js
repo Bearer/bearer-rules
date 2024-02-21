@@ -1,31 +1,50 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+
+  
+    test("digest_sha1", () => {
+      const testCase = "digest_sha1.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("digest_sha1", () => {
-    const testCase = "digest_sha1.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("digest_sha1_data", () => {
+      const testCase = "digest_sha1_data.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("digest_sha1_data", () => {
-    const testCase = "digest_sha1_data.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("openssl_sha1", () => {
+      const testCase = "openssl_sha1.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("openssl_sha1", () => {
-    const testCase = "openssl_sha1.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+    test("openssl_sha1_data", () => {
+      const testCase = "openssl_sha1_data.rb"
 
-  test("openssl_sha1_data", () => {
-    const testCase = "openssl_sha1_data.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 })

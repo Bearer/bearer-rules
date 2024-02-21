@@ -1,21 +1,40 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
 
-  test("datatype_leak", () => {
-    const testCase = "datatype_leak.rb"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+  
+    test("datatype_leak", () => {
+      const testCase = "datatype_leak.rb"
 
-  test("ok_no_datatypes", () => {
-    const testCase = "ok_no_datatypes.rb"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+      const results = invoke(testCase)
 
-  test("shared_datatype", () => {
-    const testCase = "shared_datatype.rb"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
+
+    test("ok_no_datatypes", () => {
+      const testCase = "ok_no_datatypes.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
+
+    test("shared_datatype", () => {
+      const testCase = "shared_datatype.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
 })

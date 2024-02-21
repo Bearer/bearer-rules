@@ -1,5 +1,6 @@
 require "net/ftp"
 
+# bearer:expected ruby_lang_insecure_ftp
 Net::FTP.open("example.com") do |ftp|
   ftp.login
   files = ftp.chdir('pub/lang/ruby/contrib')
