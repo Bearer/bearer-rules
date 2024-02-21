@@ -8,4 +8,5 @@ end
 
 user = { "first_name" => "someone" }
 rows = [user]
+# bearer:expected ruby_third_parties_bigquery
 inserter.insert(rows)

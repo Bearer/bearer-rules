@@ -1,9 +1,11 @@
+# bearer:expected ruby_third_parties_airbrake
 Airbrake.notify_request_sync(
   method: 'GET',
   route: "/users/#{user.first_name}",
   status_code: 200,
   timing: 123.45 # ms
 )
+# bearer:expected ruby_third_parties_airbrake
 Airbrake.notify_request(
   method: 'GET',
   route: "/users/#{user.first_name}",
@@ -12,12 +14,14 @@ Airbrake.notify_request(
 )
 
 
+# bearer:expected ruby_third_parties_airbrake
 Airbrake.notify_request_sync(
   {
     current_user: current_user.email
   },
   request_id: 123
 )
+# bearer:expected ruby_third_parties_airbrake
 Airbrake.notify_request(
   {
     current_user: current_user.email
@@ -26,11 +30,13 @@ Airbrake.notify_request(
 )
 
 
+# bearer:expected ruby_third_parties_airbrake
 Airbrake.notify_query_sync(
   method: 'GET',
   route: "/users/#{user.first_name}",
   query: 'SELECT * FROM foos'
 )
+# bearer:expected ruby_third_parties_airbrake
 Airbrake.notify_query(
   method: 'GET',
   route: "/users/#{user.first_name}",
@@ -38,12 +44,14 @@ Airbrake.notify_query(
 )
 
 
+# bearer:expected ruby_third_parties_airbrake
 Airbrake.notify_query_sync(
   {
     user: user.email
   },
   request_id: 123
 )
+# bearer:expected ruby_third_parties_airbrake
 Airbrake.notify_query(
   {
     user: user.email
@@ -52,6 +60,7 @@ Airbrake.notify_query(
 )
 
 
+# bearer:expected ruby_third_parties_airbrake
 Airbrake.notify_performance_breakdown_sync(
   method: 'GET',
   route: "/users/#{user.first_name}",
@@ -59,6 +68,7 @@ Airbrake.notify_performance_breakdown_sync(
   groups: { db: 24.0, view: 0.4 }, # ms
   timing: 123.45 # ms
 )
+# bearer:expected ruby_third_parties_airbrake
 Airbrake.notify_performance_breakdown(
   method: 'GET',
   route: "/users/#{user.first_name}",
@@ -68,12 +78,14 @@ Airbrake.notify_performance_breakdown(
 )
 
 
+# bearer:expected ruby_third_parties_airbrake
 Airbrake.notify_performance_breakdown_sync(
   {
     user: user.email
   },
   request_id: 123
 )
+# bearer:expected ruby_third_parties_airbrake
 Airbrake.notify_performance_breakdown(
   {
     user: user.email
@@ -96,12 +108,14 @@ Airbrake.notify_queue(
 )
 
 
+# bearer:expected ruby_third_parties_airbrake
 Airbrake.notify_queue_sync(
   {
     user: user.email
   },
   job_id: 123
 )
+# bearer:expected ruby_third_parties_airbrake
 Airbrake.notify_queue(
   {
     user: user.email

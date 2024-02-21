@@ -1,25 +1,40 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+
+  
+    test("ok_ssl_verify_peer_mode", () => {
+      const testCase = "ok_ssl_verify_peer_mode.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("ok_ssl_verify_peer_mode", () => {
-    const testCase = "ok_ssl_verify_peer_mode.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("verify_none", () => {
+      const testCase = "verify_none.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("verify_none", () => {
-    const testCase = "verify_none.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+    test("verify_none_ssl_var", () => {
+      const testCase = "verify_none_ssl_var.rb"
 
-  test("verify_none_ssl_var", () => {
-    const testCase = "verify_none_ssl_var.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 })

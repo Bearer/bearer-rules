@@ -7,4 +7,5 @@ body = [
   user
 ]
 
+# bearer:expected ruby_third_parties_elasticsearch
 client.bulk(body: body)

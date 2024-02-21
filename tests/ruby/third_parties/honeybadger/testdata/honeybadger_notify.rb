@@ -25,6 +25,7 @@ parameters = {
 # :session	The Hash HTTP request session. nil
 # :url	The String HTTP request URL. nil
 
+# bearer:expected ruby_third_parties_honeybadger
 Honeybadger.notify(
   "Something is wrong here for " + user.gender,
   class_name: "MyError",

@@ -1,31 +1,50 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+
+  
+    test("honeybadger_breadcrumb", () => {
+      const testCase = "honeybadger_breadcrumb.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("honeybadger_breadcrumb", () => {
-    const testCase = "honeybadger_breadcrumb.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("honeybadger_context", () => {
+      const testCase = "honeybadger_context.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("honeybadger_context", () => {
-    const testCase = "honeybadger_context.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("honeybadger_methods", () => {
+      const testCase = "honeybadger_methods.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("honeybadger_methods", () => {
-    const testCase = "honeybadger_methods.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+    test("honeybadger_notify", () => {
+      const testCase = "honeybadger_notify.rb"
 
-  test("honeybadger_notify", () => {
-    const testCase = "honeybadger_notify.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 })

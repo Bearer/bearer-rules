@@ -1,21 +1,40 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
 
-  test("ok_password_length", () => {
-    const testCase = "ok_password_length.rb"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+  
+    test("devise", () => {
+      const testCase = "devise.rb"
 
-  test("password_too_short", () => {
-    const testCase = "password_too_short.rb"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+      const results = invoke(testCase)
 
-  test("password_too_short_devise", () => {
-    const testCase = "devise.rb"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
+
+    test("ok_password_length", () => {
+      const testCase = "ok_password_length.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
+
+    test("password_too_short", () => {
+      const testCase = "password_too_short.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
 })
