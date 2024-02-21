@@ -6,6 +6,7 @@ class FooRepository extends ServiceEntityRepository
     {
         $conn = $this->getEntityManager()->getConnection();
 
+# bearer:expected php_symfony_sql_injection
         $query = $conn->createQuery("SELECT * FROM foo WHERE bar = '" . $oopsie . "'");
         $data = $query->getResult();
         return $data;
@@ -15,6 +16,7 @@ class FooRepository extends ServiceEntityRepository
     {
         $conn = $this->getEntityManager()->getConnection();
 
+# bearer:expected php_symfony_sql_injection
         $query = $conn->createQuery("SELECT * FROM foo WHERE bar = '" . $oopsie . "'");
         $data = $query->getResult();
         return $data;

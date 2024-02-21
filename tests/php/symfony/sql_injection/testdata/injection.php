@@ -7,6 +7,7 @@ class FooRepository extends ServiceEntityRepository
         $conn = $this->getEntityManager()->getConnection();
 
         $sql = "SELECT * FROM foo WHERE foo.bar > " . $_GET['oops']. " ORDER BY foo.bar ASC";
+# bearer:expected php_symfony_sql_injection
         $stmt = $conn->prepare($sql);
         $stmt->execute();
 
@@ -17,6 +18,7 @@ class FooRepository extends ServiceEntityRepository
     {
         $conn = $this->getEntityManager()->getConnection();
 
+# bearer:expected php_symfony_sql_injection
         $query = $conn->createQuery("SELECT * FROM foo WHERE bar = '" . $_GET['bar'] . "'");
         $data = $query->getResult();
         return $data;

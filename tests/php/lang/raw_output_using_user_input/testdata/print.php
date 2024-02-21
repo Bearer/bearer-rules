@@ -2,6 +2,7 @@
 
 $oops = $_POST['oops'];
 $oops2 = $_POST['oops2'];
+# bearer:expected php_lang_raw_output_using_user_input
 print "my string $oops is $oops2";
 print "my count is.". count($oops2);
 

@@ -12,6 +12,7 @@ class SymfonyDocs
     }
 
     public function fetchSomething(): array {
+# bearer:expected php_lang_http_insecure
       $this->client->request('GET', $insecure_url);
     }
 }
