@@ -2,7 +2,7 @@
 
 exports[`javascript_lang_weak_hash_md5 crypto_md5 1`] = `
 "{
-  "high": [
+  "critical": [
     {
       "cwe_ids": [
         "328"
@@ -93,7 +93,7 @@ exports[`javascript_lang_weak_hash_md5 crypto_md5 1`] = `
 
 exports[`javascript_lang_weak_hash_md5 cryptojs_md5 1`] = `
 "{
-  "high": [
+  "critical": [
     {
       "cwe_ids": [
         "328"
@@ -142,7 +142,7 @@ exports[`javascript_lang_weak_hash_md5 cryptojs_md5 1`] = `
 
 exports[`javascript_lang_weak_hash_md5 md5 1`] = `
 "{
-  "high": [
+  "critical": [
     {
       "cwe_ids": [
         "328"
@@ -186,7 +186,7 @@ exports[`javascript_lang_weak_hash_md5 md5 1`] = `
       "code_extract": "  hashedPw = myMd5(req.query.email)"
     }
   ],
-  "low": [
+  "high": [
     {
       "cwe_ids": [
         "328"

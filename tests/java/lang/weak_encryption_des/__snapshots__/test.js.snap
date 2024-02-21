@@ -2,7 +2,7 @@
 
 exports[`java_lang_weak_encryption_des des 1`] = `
 "{
-  "high": [
+  "critical": [
     {
       "cwe_ids": [
         "327"
@@ -88,7 +88,7 @@ exports[`java_lang_weak_encryption_des des 1`] = `
       "code_extract": "  return c.doFinal(user.lastname);"
     }
   ],
-  "low": [
+  "high": [
     {
       "cwe_ids": [
         "327"

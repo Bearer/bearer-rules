@@ -2,7 +2,7 @@
 
 exports[`python_lang_weak_hash_sha1 bad 1`] = `
 "{
-  "high": [
+  "critical": [
     {
       "cwe_ids": [
         "328"
@@ -46,7 +46,7 @@ exports[`python_lang_weak_hash_sha1 bad 1`] = `
       "code_extract": "result = hashlib.sha1(username.encode())"
     }
   ],
-  "low": [
+  "high": [
     {
       "cwe_ids": [
         "328"

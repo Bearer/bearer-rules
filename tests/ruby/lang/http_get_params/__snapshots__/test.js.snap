@@ -2,7 +2,7 @@
 
 exports[`ruby_lang_http_get_params datatype_in_param_hash 1`] = `
 "{
-  "high": [
+  "critical": [
     {
       "cwe_ids": [
         "598"
@@ -94,9 +94,7 @@ exports[`ruby_lang_http_get_params datatype_in_params 1`] = `
       "fingerprint": "8894dae3b2e5b5fbbe850e0eb0759f58_0",
       "old_fingerprint": "3e9cb6017396c05df43fe1f2dff79bea_0",
       "code_extract": "uri = URI(\\"https://my.api.com/users/search?ethnic_origin=#{user.ethnic_origin}\\")"
-    }
-  ],
-  "high": [
+    },
     {
       "cwe_ids": [
         "598"

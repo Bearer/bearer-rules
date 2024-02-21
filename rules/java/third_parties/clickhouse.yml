@@ -89,7 +89,6 @@ auxiliary:
         filters:
           - variable: FACTORY
             regex: \A(com\.clickhouse\.data\.)?ClickHouseDataStreamFactory\z
-
 languages:
   - java
 skip_data_types:
@@ -113,3 +112,4 @@ metadata:
   associated_recipe: ClickHouse
   id: java_third_parties_clickhouse
   documentation_url: https://docs.bearer.com/reference/rules/java_third_parties_clickhouse
+severity: high

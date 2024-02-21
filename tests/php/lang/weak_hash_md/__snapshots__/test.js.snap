@@ -2,7 +2,7 @@
 
 exports[`php_lang_weak_hash_md insecure_library 1`] = `
 "{
-  "high": [
+  "critical": [
     {
       "cwe_ids": [
         "328"
@@ -298,7 +298,7 @@ exports[`php_lang_weak_hash_md insecure_library 1`] = `
       "code_extract": "hash_update($context, $user->gender);"
     }
   ],
-  "low": [
+  "high": [
     {
       "cwe_ids": [
         "328"
