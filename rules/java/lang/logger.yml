@@ -1,13 +1,11 @@
 imports:
-  - java_shared_lang_datatype
   - java_shared_lang_logger_methods
 patterns:
-  - pattern: |
-      $<LOG>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
+  - pattern: $<LOG>.$<METHOD>($<LOG_MESSAGE>)
     filters:
-      - variable: DATA_TYPE
-        detection: java_shared_lang_datatype
-        scope: result
+      - not:
+          variable: LOG_MESSAGE
+          regex: \A("|').*("|')\z
       - variable: METHOD
         detection: java_shared_lang_logger_methods
       - variable: LOG
@@ -16,27 +14,21 @@ patterns:
           - logger
 languages:
   - java
-skip_data_types:
-  - "Unique Identifier"
+severity: warning
 metadata:
-  description: "Leakage of sensitive information in logger message"
+  description: "Usage of variable in log message"
   remediation_message: |
     ## Description
 
-    Leaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.
+    Variables in log messages are a common cause of data leaks and could lead to data breaches.
+    This rule looks for instances of variables or attributes sent to loggers.
 
     ## Remediations
 
-    ❌ Avoid using sensitive data in logger messages:
+    ❌ Do not log dynamic variables or attributes as this could lead to unintentional information leakage down the line
 
     ```java
-    logger.info(user.email)
-    ```
-
-    ✅ If you need to identify a user, use their unique identifier instead of their personal identifiable information:
-
-    ```java
-    logger.info(user.uuid)
+    logger.info("user signed in: " + user.uuid)
     ```
     ## Resources
     - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
@@ -44,5 +36,3 @@ metadata:
     - 532
   id: "java_lang_logger"
   documentation_url: https://docs.bearer.com/reference/rules/java_lang_logger
-  cloud_code_suggestions: true
-severity: high
