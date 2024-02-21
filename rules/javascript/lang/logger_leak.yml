@@ -1,0 +1,110 @@
+imports:
+  - javascript_shared_common_datatype
+patterns:
+  - pattern: |
+      $<LOG>.$<METHOD>($<...>$<INPUT>$<...>)
+    filters:
+      - variable: METHOD
+        values:
+          - warn
+          - info
+          - error
+          - fatal
+          - log
+      - variable: LOG
+        values:
+          - log
+          - logger
+      - not:
+          variable: INPUT
+          detection: string_literal
+          scope: result
+      - not:
+          variable: INPUT
+          detection: javascript_shared_common_datatype
+          scope: result
+  - pattern: |
+      console.$<METHOD>($<...>$<INPUT>$<...>)
+    filters:
+      - variable: METHOD
+        values:
+          - warn
+          - info
+          - error
+          - log
+          - table
+      - not:
+          variable: INPUT
+          detection: string_literal
+          scope: result
+      - not:
+          variable: INPUT
+          detection: javascript_shared_common_datatype
+          scope: result
+  - pattern: |
+      $<LOG>.child($<...>$<INPUT>$<...>)
+    filters:
+      - variable: LOG
+        values:
+          - log
+          - logger
+      - not:
+          variable: INPUT
+          detection: string_literal
+          scope: result
+      - not:
+          variable: INPUT
+          detection: javascript_shared_common_datatype
+          scope: result
+  - pattern: |
+      $<VAR>.$<METHOD>($<...>$<INPUT>$<...>)
+    filters:
+      - variable: VAR
+        detection: javascript_lang_logger_leak_child_logger
+        scope: cursor
+      - variable: METHOD
+        values:
+          - warn
+          - info
+          - error
+          - fatal
+          - log
+      - not:
+          variable: INPUT
+          detection: string_literal
+          scope: result
+      - not:
+          variable: INPUT
+          detection: javascript_shared_common_datatype
+          scope: result
+auxiliary:
+  - id: javascript_lang_logger_leak_child_logger
+    patterns:
+      - pattern: |
+          $<LOG>.child()
+        filters:
+          - variable: LOG
+            values:
+              - log
+              - logger
+languages:
+  - javascript
+severity: warning
+metadata:
+  description: Leakage of information in logger message
+  remediation_message: |
+    ## Description
+
+    Leaking data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of data sent to loggers.
+
+    ## Remediations
+
+    ❌ Avoid using data in logger messages:
+
+    ```javascript
+    logger.info(`Results: ${data}`)
+    ```
+  cwe_id:
+    - 532
+  id: javascript_lang_logger_leak
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_logger_leak
