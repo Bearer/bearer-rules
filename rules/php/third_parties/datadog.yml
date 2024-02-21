@@ -47,7 +47,8 @@ auxiliary:
       - \DDTrace\trace_function($<_>, function($<!>$<SPAN>$<...>) {})
       - \DDTrace\trace_function($<_>, [$<_> => function($<!>$<SPAN>$<...>) {}])
       - \DDTrace\trace_method($<_>, $<_>, function($<!>$<SPAN>$<...>) {})
-      - \DDTrace\trace_method($<_>, $<_>, [$<_> => function($<!>$<SPAN>$<...>) {}])
+      - \DDTrace\trace_method($<_>, $<_>, [$<_> => function($<!>$<SPAN>$<...>)
+        {}])
       - pattern: \DDTrace\$<FUNCTION>()
         filters:
           - variable: FUNCTION
@@ -105,3 +106,4 @@ metadata:
   associated_recipe: Datadog
   id: php_third_parties_datadog
   documentation_url: https://docs.bearer.com/reference/rules/php_third_parties_datadog
+severity: high
