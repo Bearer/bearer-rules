@@ -1,0 +1,332 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/Rule",
+  "definitions": {
+    "Rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["risk", "shared"]
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "go",
+              "java",
+              "javascript",
+              "php",
+              "python",
+              "ruby",
+              "sql" // built-in
+            ]
+          }
+        },
+        "trigger": {
+          "$ref": "#/definitions/Trigger"
+        },
+        "imports": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sanitizer": {
+          "type": "string"
+        },
+        "patterns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Pattern"
+          }
+        },
+        "auxiliary": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Auxiliary"
+          }
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "detectors": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["schema_rb", "sql_lang_create_table"]
+          }
+        },
+        "processors": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["db_encrypted", "rails_encrypted"]
+          }
+        },
+        "auto_encrypt_prefix": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["warning", "low", "medium", "high", "critical"]
+        },
+        "skip_data_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "only_data_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "disabled": {
+          "type": "boolean"
+        },
+        "dependency_check": {
+          "type": "boolean"
+        },
+        "dependency": {
+          "type": "object"
+        }
+      },
+      "required": ["languages", "metadata", "patterns"],
+      "if": {
+        "required": ["type"],
+        "properties": {
+          "type": { "const": "shared" }
+        }
+      },
+      "then": {
+        "properties": {
+          "metadata": { "$ref": "#/definitions/SharedRuleMetadata" }
+        },
+        "not": { "required": ["severity"] }
+      },
+      "else": {
+        "properties": {
+          "metadata": { "$ref": "#/definitions/Metadata" }
+        }
+      },
+      "title": "Rule"
+    },
+    "Metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string",
+          "pattern": "^(?!.*\\.).*$"
+        },
+        "documentation_url": {
+          "type": "string"
+        },
+        "remediation_message": {
+          "type": "string"
+        },
+        "cwe_id": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 1,
+          "maxItems": 1
+        },
+        "id": {
+          "type": "string"
+        },
+        "associated_recipe": {
+          "type": "string"
+        },
+        "cloud_code_suggestions": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "cwe_id",
+        "description",
+        "id",
+        "remediation_message",
+        "documentation_url"
+      ],
+      "title": "Metadata"
+    },
+    "SharedRuleMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": ["description", "id"],
+      "title": "Metadata"
+    },
+    "Auxiliary": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sanitizer": {
+          "type": "string"
+        },
+        "patterns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Pattern"
+          }
+        }
+      },
+      "required": ["id", "patterns"],
+      "title": "Auxiliary"
+    },
+    "Pattern": {
+      "type": ["object", "string"],
+      "additionalProperties": false,
+      "properties": {
+        "pattern": {
+          "type": "string"
+        },
+        "focus": {
+          "type": "string"
+        },
+        "filters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Filter"
+          }
+        }
+      },
+      "required": ["pattern"],
+      "title": "Pattern"
+    },
+    "Filter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "variable": {
+          "type": "string"
+        },
+        "regex": {
+          "type": "string"
+        },
+        "filename_regex": {
+          "type": "string"
+        },
+        "string_regex": {
+          "type": "string"
+        },
+        "entropy_greater_than": {
+          "type": "number"
+        },
+        "detection": {
+          "type": "string"
+        },
+        "filters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Filter"
+          }
+        },
+        "scope": {
+          "type": "string",
+          "enum": ["cursor", "cursor_strict", "nested", "result"]
+        },
+        "imports": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "variable": {
+                "type": "string"
+              },
+              "as": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "length_less_than": {
+          "type": "number"
+        },
+        "less_than": {
+          "type": "number"
+        },
+        "less_than_or_equal": {
+          "type": "number"
+        },
+        "greater_than": {
+          "type": "number"
+        },
+        "greater_than_or_equal": {
+          "type": "number"
+        },
+        "contains": {
+          "type": "boolean"
+        },
+        "either": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Filter"
+          }
+        },
+        "not": {
+          "$ref": "#/definitions/Filter"
+        }
+      },
+      "minProperties": 1,
+      "title": "Filter"
+    },
+    "Trigger": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "required_detection": {
+          "type": "string"
+        },
+        "data_types_required": {
+          "type": "boolean"
+        },
+        "match_on": {
+          "type": "string",
+          "enum": ["presence", "absence", "stored_data_types"]
+        }
+      },
+      "minProperties": 1,
+      "title": "Filter"
+    },
+    "Dependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "min_version": {
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        }
+      },
+      "required": ["name", "min_version", "filename"],
+      "title": "Dependency"
+    }
+  }
+}
