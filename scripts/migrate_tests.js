@@ -89,6 +89,11 @@ rs.forEach((rule)=>{
       path.join(rule_dir, rule, "test.js"),
       test_template(cases.join("\n"))
     )
+
+    fs.rmdirSync(
+      path.join(rule_dir, rule, "__snapshots__"),
+      {recursive: true}
+    )
   }
   console.log(snap_path,  fs.existsSync(snap_path))
 })
