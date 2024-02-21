@@ -19,7 +19,7 @@ languages:
   - java
 severity: warning
 metadata:
-  description: "Bad hex conversion on digest array detected."
+  description: "Bad hex conversion on digest array detected"
   remediation_message: |
     ## Description
     The application currently utilizes Integer.toHexString on a digest array buffer, potentially resulting in inaccurate values.
