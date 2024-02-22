@@ -18,10 +18,10 @@ patterns:
       $<CALLER>.$<EVENT>().$<METHOD>($<DATA_TYPE>);
     filters:
       - either:
-        - variable: CALLER
-          detection: go_lang_logger_log
-        - variable: CALLER
-          detection: go_lang_logger_zerolog
+          - variable: CALLER
+            detection: go_lang_logger_log
+          - variable: CALLER
+            detection: go_lang_logger_zerolog
       - variable: EVENT
         regex: \A(Info|Debug|Error|Trace|Fatal|Panic|Warn)\z
       - variable: METHOD
