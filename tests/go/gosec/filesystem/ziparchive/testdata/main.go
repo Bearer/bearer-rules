@@ -20,6 +20,7 @@ func unzip(archive, target string) error {
 	}
 
 	for _, file := range reader.File {
+// bearer:expected go_gosec_filesystem_ziparchive
 		path := filepath.Join(target, file.Name)
 		if file.FileInfo().IsDir() {
 			os.MkdirAll(path, file.Mode()) // #nosec
@@ -58,6 +59,7 @@ func unzipIndirectFilename(archive, target string) error {
 
 	for _, file := range reader.File {
 		archiveFile := file.Name
+// bearer:expected go_gosec_filesystem_ziparchive
 		path := filepath.Join(target, archiveFile)
 		if file.FileInfo().IsDir() {
 			os.MkdirAll(path, file.Mode()) // #nosec
@@ -85,6 +87,7 @@ func unzipIndirectFilename(archive, target string) error {
 }
 
 func extractFile(f *zip.File, destPath string) error {
+// bearer:expected go_gosec_filesystem_ziparchive
 	filePath := filepath.Join(destPath, f.Name)
 	os.MkdirAll(path.Dir(filePath), os.ModePerm)
 

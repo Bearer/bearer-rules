@@ -26,6 +26,7 @@ func ok() {
 		Addr:              ":1234",
 		ReadHeaderTimeout: 3 * time.Second,
 	}
+// bearer:expected go_gosec_http_http_slowloris
 	err := server.ListenAndServe()
 	if err != nil {
 		panic(err)
@@ -40,6 +41,7 @@ func ok2() {
 		Addr:        ":1234",
 		ReadTimeout: 1 * time.Second,
 	}
+// bearer:expected go_gosec_http_http_slowloris
 	err := server.ListenAndServe()
 	if err != nil {
 		panic(err)
@@ -55,6 +57,7 @@ func ok3() {
 	}
 	// FIXME: unsupported for now
 	server.ReadHeaderTimeout = 1 * time.Second
+// bearer:expected go_gosec_http_http_slowloris
 	err := server.ListenAndServe()
 	if err != nil {
 		panic(err)
@@ -69,6 +72,7 @@ func bad2() {
 		Handler: router,
 	}
 
+// bearer:expected go_gosec_http_http_slowloris
 	err := s.ListenAndServe()
 	if err != nil {
 		panic(err)

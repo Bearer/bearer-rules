@@ -10,6 +10,7 @@ import (
 
 func mainrc4() {
 	k := []byte("super secret key")
+// bearer:expected go_gosec_crypto_weak_crypto
 	c, err := rc4.NewCipher(k)
 	if err != nil {
 		return
@@ -21,27 +22,32 @@ func mainrc4() {
 }
 
 func mainMD55() {
+// bearer:expected go_gosec_crypto_weak_crypto
 	h := md5.New()
 	h.Write([]byte("stuff"))
 }
 
 func mainMD5Sum() {
+// bearer:expected go_gosec_crypto_weak_crypto
 	out := md5.Sum([]byte("stuff"))
 	fmt.Println(out)
 }
 
 func mainSHA1() {
+// bearer:expected go_gosec_crypto_weak_crypto
 	h := sha1.New()
 	h.Write([]byte("stuff"))
 }
 
 func mainSHA1Sum() {
+// bearer:expected go_gosec_crypto_weak_crypto
 	out := sha1.Sum([]byte("stuff"))
 	fmt.Println(out)
 }
 
 func maindes() {
 	k := []byte("super secret key")
+// bearer:expected go_gosec_crypto_weak_crypto
 	block, err := des.NewCipher(k)
 	if err != nil {
 		return
@@ -56,6 +62,7 @@ func maindes() {
 
 func main3des() {
 	k := []byte("super secret key")
+// bearer:expected go_gosec_crypto_weak_crypto
 	block, err := des.NewTripleDESCipher(k)
 	if err != nil {
 		return

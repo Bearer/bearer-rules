@@ -15,6 +15,7 @@ func foo1() {
 		panic(err)
 	}
 	q := fmt.Sprintf("SELECT * FROM foo where name = '%s'", os.Args[1])
+// bearer:expected go_gosec_sql_concat_sqli
 	rows, err := db.Query(q)
 	if err != nil {
 		panic(err)
@@ -28,6 +29,7 @@ func foo2() {
 		panic(err)
 	}
 	q := fmt.Sprintf("select * from foo where name = '%s'", os.Args[1])
+// bearer:expected go_gosec_sql_concat_sqli
 	rows, err := db.Query(q)
 	if err != nil {
 		panic(err)
@@ -41,6 +43,7 @@ func foo3() {
 		panic(err)
 	}
 	q := fmt.Sprintf("select * from foo where name = '%s'", os.Args[1])
+// bearer:expected go_gosec_sql_concat_sqli
 	rows, err := db.QueryContext(context.Background(), q)
 	if err != nil {
 		panic(err)
@@ -59,6 +62,7 @@ func foo4() {
 	}
 	defer tx.Rollback()
 	q := fmt.Sprintf("select * from foo where name = '%s'", os.Args[1])
+// bearer:expected go_gosec_sql_concat_sqli
 	rows, err := tx.QueryContext(context.Background(), q)
 	if err != nil {
 		panic(err)

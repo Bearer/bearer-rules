@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+// bearer:expected go_gosec_leak_pprof_endpoint
 	_ "net/http/pprof"
 )
 

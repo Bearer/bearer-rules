@@ -16,6 +16,7 @@ func foo1() {
 	if err != nil {
 		panic(err)
 	}
+// bearer:expected go_gosec_injection_ssrf_injection
 	resp, err := http.Get(url)
 	if err != nil {
 		panic(err)
@@ -45,6 +46,7 @@ func foo2() {
 
 func foo3() {
 	url := os.Getenv("tainted_url")
+// bearer:expected go_gosec_injection_ssrf_injection
 	resp, err := http.Get(url)
 	if err != nil {
 		panic(err)
@@ -107,6 +109,7 @@ func foo8() {
 }
 
 func get(url string) {
+// bearer:expected go_gosec_injection_ssrf_injection
 	resp, err := http.Get(url)
 	if err != nil {
 		fmt.Println(err)
@@ -122,6 +125,7 @@ func foo9() {
 func foo10() {
 	url := os.Args[0]
 	var q = []byte(`your query`)
+// bearer:expected go_gosec_injection_ssrf_injection
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(q))
 	req.Header.Set("X-Custom-Header", "myvalue")
 	req.Header.Set("Content-Type", "text/plain")

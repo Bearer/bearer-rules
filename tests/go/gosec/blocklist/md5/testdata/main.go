@@ -1,6 +1,7 @@
 package main
 
 import (
+// bearer:expected go_gosec_blocklist_md5
 	"crypto/md5"
 	"fmt"
 )

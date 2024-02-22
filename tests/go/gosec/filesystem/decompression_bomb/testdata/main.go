@@ -17,6 +17,7 @@ func foo1() {
 	if err != nil {
 		panic(err)
 	}
+// bearer:expected go_gosec_filesystem_decompression_bomb
 	_, err = io.Copy(os.Stdout, r)
 	if err != nil {
 		panic(err)
@@ -33,6 +34,7 @@ func foo2() {
 		panic(err)
 	}
 	buf := make([]byte, 8)
+// bearer:expected go_gosec_filesystem_decompression_bomb
 	_, err = io.CopyBuffer(os.Stdout, r, buf)
 	if err != nil {
 		panic(err)
@@ -55,6 +57,7 @@ func foo3() {
 		if err != nil {
 			panic(err)
 		}
+// bearer:expected go_gosec_filesystem_decompression_bomb
 		_, err = io.Copy(out, rc)
 		out.Close()
 		rc.Close()
