@@ -1,0 +1,62 @@
+imports:
+  - javascript_shared_import_library
+patterns:
+  - pattern: |
+      $<MODULE>.$<FUNCTION>($<_>, $<MASK>)
+    filters:
+      - variable: MODULE
+        detection: javascript_lang_file_permissions_init
+        scope: cursor
+      - variable: FUNCTION
+        values:
+          - chmodSync
+          - chmod
+      - variable: MASK
+        detection: javascript_lang_file_permissions_mask
+        scope: result
+auxiliary:
+  - id: javascript_lang_file_permissions_init
+    patterns:
+      - pattern: $<LIBRARY>
+        filters:
+          - variable: LIBRARY
+            detection: javascript_shared_import_library
+            scope: cursor
+            filters:
+              - variable: JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME
+                string_regex: \Afs(\/promises)?\z
+  - id: javascript_lang_file_permissions_mask
+    patterns:
+      - pattern: $<MASK>
+        filters:
+          - either:
+              - variable: MASK
+                regex: \A0o7
+              - variable: MASK
+                regex: \A0o\d[1-7]
+              - variable: MASK
+                regex: \A0o\d\d[1-7]
+languages:
+  - javascript
+severity: high
+metadata:
+  description: "Permissive file assignment"
+  remediation_message: |
+    ## Description
+
+    Having overly permissive file permissions, such as extending read, write, or execute privileges to 'other', is risky and could lead to accidental exposure of sensitive information.
+
+    ## Remediations
+
+    ✅ Keep file permissions as restrictive as possible. With the Posix enum, for example, prefer 'groups' to 'other', when extending privileges to users without owner privileges.
+
+    ```javascript
+    fs.chmod(path, 0o600);
+    ```
+
+    ## Resources
+
+  cwe_id:
+    - 276
+  id: javascript_lang_file_permissions
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_file_permissions
