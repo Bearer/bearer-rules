@@ -1,0 +1,157 @@
+imports:
+  - go_shared_lang_datatype
+patterns:
+  - pattern: |
+      $<CALLER>.$<METHOD>($<INPUT>);
+    filters:
+      - either:
+          - variable: CALLER
+            detection: go_lang_logger_leak_logger
+          - variable: CALLER
+            detection: go_lang_logger_leak_zerolog
+      - variable: METHOD
+        regex: \A(Fatal|Panic|Print)(f|ln)?\z
+      - not:
+          variable: INPUT
+          detection: string_literal
+          scope: result
+      - not:
+          variable: INPUT
+          detection: go_shared_lang_datatype
+          scope: result
+  - pattern: |
+      $<CALLER>.$<EVENT>().$<METHOD>($<INPUT>);
+    filters:
+      - either:
+        - variable: CALLER
+          detection: go_lang_logger_leak_logger
+        - variable: CALLER
+          detection: go_lang_logger_leak_zerolog
+      - variable: EVENT
+        regex: \A(Info|Debug|Error|Trace|Fatal|Panic|Warn)\z
+      - variable: METHOD
+        values:
+          - Msg
+          - Msgf
+      - not:
+          variable: INPUT
+          detection: string_literal
+          scope: result
+      - not:
+          variable: INPUT
+          detection: go_shared_lang_datatype
+          scope: result
+  - pattern: |
+      $<CALLER>.$<METHOD>($<INPUT>);
+    filters:
+      - either:
+          - variable: CALLER
+            detection: go_lang_logger_leak_logrus
+          - variable: CALLER
+            detection: go_lang_logger_leak_seelog
+      - variable: METHOD
+        regex: \A(WithFields\.)?(Info|Debug|Error|Trace|Fatal|Panic|Warn)\z
+      - not:
+          variable: INPUT
+          detection: string_literal
+          scope: result
+      - not:
+          variable: INPUT
+          detection: go_shared_lang_datatype
+          scope: result
+  - pattern: |
+      $<CALLER>.$<METHOD>($<INPUT>);
+    filters:
+      - variable: CALLER
+        detection: go_lang_logger_leak_glog
+      - variable: METHOD
+        regex: \A(Info|Warning|Error|Fatal)(Contex)?(Depth)?(f)?\z
+      - not:
+          variable: INPUT
+          detection: string_literal
+          scope: result
+      - not:
+          variable: INPUT
+          detection: go_shared_lang_datatype
+          scope: result
+  - pattern: |
+      $<ZAP>.$<METHOD>($<INPUT>);
+    filters:
+      - variable: ZAP
+        detection: go_lang_logger_leak_zap
+      - variable: METHOD
+        regex: \A(WithFields\.)?(Info|Log|Error|Fatal|DPanic|Warn)\z
+      - not:
+          variable: INPUT
+          detection: string_literal
+          scope: result
+      - not:
+          variable: INPUT
+          detection: go_shared_lang_datatype
+          scope: result
+auxiliary:
+  - id: go_lang_logger_leak_logger
+    patterns:
+      - log
+      - log.New();
+      - log.Default();
+      - import $<!>"log"
+      - |
+        import (
+          $<!>"log"
+        )
+  - id: go_lang_logger_leak_zerolog
+    patterns:
+      - import $<!>"github.com/rs/zerolog"
+      - |
+        import (
+          $<!>"github.com/rs/zerolog"
+        )
+  - id: go_lang_logger_leak_logrus
+    patterns:
+      - logrus.New();
+      - import $<!>"github.com/sirupsen/logrus"
+      - |
+        import (
+          $<!>"github.com/sirupsen/logrus"
+        )
+  - id: go_lang_logger_leak_zap
+    patterns:
+      - zap.$<_>().Sugar()
+      - zap.$<_>()
+  - id: go_lang_logger_leak_seelog
+    patterns:
+      - import $<!>"github.com/cihub/seelog"
+      - |
+        import (
+          $<!>"github.com/cihub/seelog"
+        )
+  - id: go_lang_logger_leak_glog
+    patterns:
+      - import $<!>"github.com/golang/glog"
+      - |
+        import (
+          $<!>"github.com/golang/glog"
+        )
+languages:
+  - go
+severity: warning
+metadata:
+  description: "Leakage of information in logger message"
+  remediation_message: |
+    ## Description
+
+    Leaking data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of dynamic data or variables sent to loggers.
+
+    ## Remediations
+
+    ❌ Avoid using variables or dynamic data in logger messages:
+
+    ```go
+    logger.info(f"User is: '{user.email}'")
+    ```
+  cwe_id:
+    - 532
+  id: go_lang_logger_leak
+  documentation_url: https://docs.bearer.com/reference/rules/go_lang_logger_leak
+  cloud_code_suggestions: true
