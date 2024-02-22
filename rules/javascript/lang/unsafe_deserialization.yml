@@ -1,0 +1,46 @@
+imports:
+  - javascript_shared_common_user_input
+patterns:
+  - pattern: |
+      $<YAML>.$<METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: YAML
+        regex: \A(?i)yaml\z
+      - variable: METHOD
+        values:
+          # yaml
+          - parse
+          - parseDocument
+          - parseAllDocuments
+          # yaml-js
+          - load
+          - loadAll
+      - variable: USER_INPUT
+        detection: javascript_shared_common_user_input
+        scope: result
+languages:
+  - javascript
+metadata:
+  description: Unsanitized user input in deserialization method
+  remediation_message: |
+    ## Description
+    It is bad practice to deserialize (unmarshal) untrusted data, such as data direct from the request object.
+    Attackers can transfer payloads or malicious code via serialized data, and deserializing such data puts your application at risk.
+
+    ## Remediations
+    ❌ Do not deserialize untrusted data
+
+    ✅ Prefer pure (data-only) and language-agnostic (de)serialization formats such as JSON or XML
+
+    Avoiding language-specific (de)serialization formats reduces the risk of attackers manipulating the deserialization process for malicious purposes.
+
+    ```javascript
+      JSON.parse(req.params)
+    ```
+
+    ## Resources
+    - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
+  cwe_id:
+    - 502
+  id: javascript_lang_unsafe_deserialization
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_unsafe_deserialization
