@@ -24,7 +24,10 @@ func main() {
 	name := user.Name
 	other, _ := user.FullName()
 
+// bearer:expected go_lang_logger
 	log.Error().Msg(name)  // expect detection
+// bearer:expected go_lang_logger
 	log.Error().Msg(other) // expect detection
+// bearer:expected go_lang_logger
 	log.Error().Msg(user)  // expect detection
 }
