@@ -27,7 +27,7 @@ func bad() {
 
 func bad2() {
 	// bearer:expected go_lang_log_output_neutralization
-	zerolog.Info.Msg(os.Args[0])
+	zerolog.Info().Msg(os.Args[0])
 	// bearer:expected go_lang_log_output_neutralization
 	zerolog.Print(os.Args[0])
 }
