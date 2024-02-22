@@ -1,19 +1,30 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+
+  
+    test("ok_sha_256", () => {
+      const testCase = "ok_sha_256.java"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("ok_sha_256", () => {
-    const testCase = "ok_sha_256.java"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+    test("sha1_hash", () => {
+      const testCase = "sha1_hash.java"
 
-  test("sha1_hash", () => {
-    const testCase = "sha1_hash.java"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 })

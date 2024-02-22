@@ -13,6 +13,7 @@ public class Cls extends HttpServlet
     public void handleRequest(HttpServletRequest request, HttpServletResponse response)
     {
             User user;
+// bearer:expected java_lang_logger
             logger.error(user.name);
             logger.error(user.name ? "ok": "ok");
     }

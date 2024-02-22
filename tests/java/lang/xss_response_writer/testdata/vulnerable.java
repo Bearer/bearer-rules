@@ -11,6 +11,7 @@ public class HelloWorld extends HttpServlet {
       // Actual logic goes here.
       PrintWriter out = response.getWriter();
       String user = request.getQueryString("user");
+// bearer:expected java_lang_xss_response_writer
       out.println(user);
    }
 

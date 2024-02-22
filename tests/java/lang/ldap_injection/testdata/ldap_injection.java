@@ -14,6 +14,7 @@ public class Cls extends HttpServlet
 
         DirContext dirContext = new InitialDirContext(env);
 
+// bearer:expected java_lang_ldap_injection
         dirContext.search(base, filter, filters, sc);
     }
 }
