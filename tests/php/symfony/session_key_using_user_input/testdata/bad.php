@@ -10,14 +10,18 @@ class SomeService
         private RequestStack $requestStack,
     ) {
         $session = $requestStack->getSession();
+# bearer:expected php_symfony_session_key_using_user_input
         $session->get($userInput, []);
+# bearer:expected php_symfony_session_key_using_user_input
         $session->put($userInput, $data);
     }
 
     public function someMethod(): void
     {
         $session = $this->requestStack->getSession();
+# bearer:expected php_symfony_session_key_using_user_input
         $session->get($userInput, []);
+# bearer:expected php_symfony_session_key_using_user_input
         $session->put($userInput, $data);
     }
 }
@@ -30,7 +34,9 @@ class FooController {
   #[Route('/foo')]
   public function foo(Request $request): Response {
     $session = $request->getSession();
+# bearer:expected php_symfony_session_key_using_user_input
     $session->get($userInput, []);
+# bearer:expected php_symfony_session_key_using_user_input
     $session->put($userInput, $data);
   }
 }

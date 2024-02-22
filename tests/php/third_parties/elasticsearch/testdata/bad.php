@@ -6,7 +6,9 @@ $client = ClientBuilder::create()
    ->setApiKey('<api-key>')
    ->build();
 
+# bearer:expected php_third_parties_elasticsearch
 $client->index(["index" => 'users', "body" => ["user" => $user->email]]);
+# bearer:expected php_third_parties_elasticsearch
 $client->update(["index" => 'books', "id" => 42, "body" => ["user" => $user->email]]);
 
 $bulkBody = [
@@ -14,7 +16,9 @@ $bulkBody = [
   ["user" => $user->email]
 ];
 
+# bearer:expected php_third_parties_elasticsearch
 $client->bulk(["body" => $bulkBody]);
 
 $client2 = new \Elastic\Elasticsearch\Client($transport, $logger);
+# bearer:expected php_third_parties_elasticsearch
 $client2->index(["index" => 'users', "body" => ["user" => $user->email]]);

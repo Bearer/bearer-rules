@@ -6,6 +6,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 return static function (ContainerConfigurator $container): void {
     $container->extension('framework', [
         'mailer' => [
+# bearer:expected php_symfony_insecure_smtp
             'dsn' => "foo+smtp://wherever?verify_peer=0",
         ],
     ]);

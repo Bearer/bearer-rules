@@ -1,26 +1,50 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
 
-  test("sql_injection", () => {
-    const testCase = "injection.php"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
 
-  test("no_sql_injection", () => {
-    const testCase = "safe.php"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+    test.skip("injection-function-arguments", () => {
+      const testCase = "injection-function-arguments.php"
 
-  test("sql_injection_query_builder", () => {
-    const testCase = "injection-query-builder.php"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+      const results = invoke(testCase)
 
-  test.skip("sql_injection_function_arguments", () => {
-    const testCase = "injection-function-arguments.php"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+
+
+    test("injection-query-builder", () => {
+      const testCase = "injection-query-builder.php"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+
+
+    test("injection", () => {
+      const testCase = "injection.php"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+
+
+    test("safe", () => {
+      const testCase = "safe.php"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+
 })

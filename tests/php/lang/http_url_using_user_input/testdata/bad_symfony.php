@@ -12,6 +12,7 @@ class SymfonyDocs
     }
 
     public function fetchSomething(): array {
+# bearer:expected php_lang_http_url_using_user_input
       $this->client->request('GET', $user_input);
     }
 }

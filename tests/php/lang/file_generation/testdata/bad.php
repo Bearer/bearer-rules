@@ -14,10 +14,12 @@ if ($csvFile === false) {
 fputcsv($csvFile, ['Email', 'Address']);
 
 foreach ($users as $user) {
+# bearer:expected php_lang_file_generation
   fputcsv($csvFile, [$user['email'], $user['address']]);
 }
 
 foreach ($users as $user) {
+# bearer:expected php_lang_file_generation
   fputcsv($csvFile, [$user['email'], $user['address']], ';');
 }
 
