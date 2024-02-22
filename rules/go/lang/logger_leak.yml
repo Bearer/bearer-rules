@@ -54,7 +54,7 @@ patterns:
       - not:
           variable: INPUT
           detection: string_literal
-          scope: result
+          scope: cursor
       - not:
           variable: INPUT
           detection: go_shared_lang_datatype
