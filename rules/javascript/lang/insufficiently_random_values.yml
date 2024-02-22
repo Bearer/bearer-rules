@@ -1,0 +1,43 @@
+imports:
+  - javascript_shared_import_library
+patterns:
+  - Math.random()
+  - pattern: $<MODULE>.pseudoRandomBytes()
+    filters:
+      - variable: MODULE
+        detection: javascript_lang_insufficiently_random_values_init
+        scope: cursor
+auxiliary:
+  - id: javascript_lang_insufficiently_random_values_init
+    patterns:
+      - pattern: $<LIBRARY>
+        filters:
+          - variable: LIBRARY
+            detection: javascript_shared_import_library
+            scope: cursor
+            filters:
+              - variable: JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME
+                string_regex: \Acrypto\z
+severity: warning
+languages:
+  - javascript
+metadata:
+  description: Usage of insufficient random value
+  remediation_message: |
+    ## Description
+
+    Using predictable random values makes our application vulnerable to attacks,
+    especially if these values are used for security purposes.
+
+    ## Remediations
+
+    ✅ Use a stronger library when generating random values
+
+    ```javascript
+    const crypto = require('crypto');
+    crypto.randomBytes(16).toString('hex');
+    ```
+  cwe_id:
+    - 330
+  id: javascript_lang_insufficiently_random_values
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_insufficiently_random_values
