@@ -1,6 +1,7 @@
 package main
 
 import (
+// bearer:expected go_gosec_blocklist_sha1
 	"crypto/sha1"
 	"fmt"
 )

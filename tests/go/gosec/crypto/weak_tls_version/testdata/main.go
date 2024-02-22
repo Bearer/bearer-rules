@@ -9,7 +9,9 @@ import (
 func mainbadciphersuites() {
 	tr := &http.Transport{
 		TLSClientConfig: &tls.Config{CipherSuites: []uint16{
+// bearer:expected go_gosec_crypto_weak_tls_version
 			tls.VersionTLS11,
+// bearer:expected go_gosec_crypto_weak_tls_version
 			tls.VersionTLS10,
 		}},
 	}

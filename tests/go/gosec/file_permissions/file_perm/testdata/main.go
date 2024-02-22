@@ -7,6 +7,7 @@ import (
 )
 
 func foo1() {
+// bearer:expected go_gosec_file_permissions_file_perm
 	err := os.Chmod("/tmp/somefile", 0777) // detected
 	if err != nil {
 		fmt.Println("Error when changing file permissions!")
@@ -15,6 +16,7 @@ func foo1() {
 }
 
 func foo2() {
+// bearer:expected go_gosec_file_permissions_file_perm
 	_, err := os.OpenFile("/tmp/thing", os.O_CREATE|os.O_WRONLY, 0666) // detected
 	if err != nil {
 		fmt.Println("Error opening a file!")
@@ -40,6 +42,7 @@ func foo4() {
 
 func foo5() {
 	perms := 0402
+// bearer:expected go_gosec_file_permissions_file_perm
 	_, err := os.OpenFile("/tmp/thing", os.O_CREATE|os.O_WRONLY, fs.FileMode(perms)) // detected
 	if err != nil {
 		fmt.Println("Error opening a file!")
@@ -48,6 +51,7 @@ func foo5() {
 }
 
 func foo6(content []byte) {
+// bearer:expected go_gosec_file_permissions_file_perm
 	err := os.WriteFile("/tmp/thing", content, 0666) // detected
 	if err != nil {
 		fmt.Println("Error opening a file!")

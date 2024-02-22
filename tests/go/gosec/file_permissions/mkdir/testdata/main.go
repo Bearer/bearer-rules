@@ -14,6 +14,7 @@ func foo0() {
 }
 
 func foo1() {
+// bearer:expected go_gosec_file_permissions_mkdir
 	err := os.Mkdir("/tmp/mydir", 0777)
 	if err != nil {
 		fmt.Println("Error when creating a directory!")
@@ -22,6 +23,7 @@ func foo1() {
 }
 
 func foo2() {
+// bearer:expected go_gosec_file_permissions_mkdir
 	err := os.MkdirAll("/tmp/mydir", 0777)
 	if err != nil {
 		fmt.Println("Error when creating a directory!")

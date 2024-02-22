@@ -8,6 +8,7 @@ import (
 )
 
 func foo1() {
+// bearer:expected go_gosec_filesystem_tempfile
 	err := ioutil.WriteFile("/tmp/demo2", []byte("This is some data"), 0644)
 	if err != nil {
 		fmt.Println("Error while writing!")
@@ -15,6 +16,7 @@ func foo1() {
 }
 
 func foo2() {
+// bearer:expected go_gosec_filesystem_tempfile
 	err := os.WriteFile("/tmp/demo2", []byte("This is some data"), 0644)
 	if err != nil {
 		fmt.Println("Error while writing!")
@@ -23,6 +25,7 @@ func foo2() {
 
 func foo3() {
 	path := "/tmp/demo"
+// bearer:expected go_gosec_filesystem_tempfile
 	err := os.WriteFile(path, []byte("This is some data"), 0644)
 	if err != nil {
 		fmt.Println("Error while writing!")

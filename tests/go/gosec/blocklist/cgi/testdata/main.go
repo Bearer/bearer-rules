@@ -1,5 +1,6 @@
 package main
 
+// bearer:expected go_gosec_blocklist_cgi
 import "net/http/cgi"
 
 func maincgi() {

@@ -16,6 +16,7 @@ func check(e error) {
 func mainwriteperms() {
 
 	d1 := []byte("hello\ngo\n")
+// bearer:expected go_gosec_filesystem_poor_write_permissions
 	err := ioutil.WriteFile("/tmp/dat1", d1, 0744)
 	check(err)
 

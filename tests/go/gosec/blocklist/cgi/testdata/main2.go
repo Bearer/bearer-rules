@@ -1,6 +1,7 @@
 package main
 
 import (
+// bearer:expected go_gosec_blocklist_cgi
 	cgi2 "net/http/cgi"
 )
 

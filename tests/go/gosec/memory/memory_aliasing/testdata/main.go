@@ -24,6 +24,7 @@ func foo() (int, **string, *string) {
 
 func appendrange() {
 	for _, item := range []string{"A", "B", "C"} {
+// bearer:expected go_gosec_memory_memory_aliasing
 		appendVector(&item)
 	}
 
@@ -51,6 +52,7 @@ func shouldNotBeReported() {
 func shouldBeReported() {
 	array := []string{"a", "b"}
 	for i, s := range array {
+// bearer:expected go_gosec_memory_memory_aliasing
 		fmt.Println("%d %p", i, &s)
 	}
 }

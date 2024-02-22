@@ -12,6 +12,7 @@ func foo1() {
 	if err != nil {
 		panic(err)
 	}
+// bearer:expected go_gosec_sql_concat_sqli
 	rows, err := db.Query("SELECT * FROM foo WHERE name = " + os.Args[1])
 	if err != nil {
 		panic(err)
@@ -24,6 +25,7 @@ func foo2() {
 	if err != nil {
 		panic(err)
 	}
+// bearer:expected go_gosec_sql_concat_sqli
 	rows, err := db.Query("select * from foo where name = " + os.Args[1])
 	if err != nil {
 		panic(err)
@@ -36,6 +38,7 @@ func foo3() {
 	if err != nil {
 		panic(err)
 	}
+// bearer:expected go_gosec_sql_concat_sqli
 	rows, err := db.QueryContext(context.Background(), "select * from foo where name = "+os.Args[1])
 	if err != nil {
 		panic(err)
@@ -53,6 +56,7 @@ func foo4() {
 		panic(err)
 	}
 	defer tx.Rollback()
+// bearer:expected go_gosec_sql_concat_sqli
 	rows, err := tx.QueryContext(context.Background(), "select * from foo where name = "+os.Args[1])
 	if err != nil {
 		panic(err)
@@ -68,6 +72,7 @@ func foo5() {
 	if err != nil {
 		panic(err)
 	}
+// bearer:expected go_gosec_sql_concat_sqli
 	rows, err := db.Query("SELECT * FROM foo" + "WHERE name = " + os.Args[1])
 	if err != nil {
 		panic(err)
@@ -139,5 +144,6 @@ func foo10(uid string) {
 								FROM Profile as p,Users as u
 								where p.user_id = u.id
 								and u.id=%s`, uid) //here is the vulnerable query
+// bearer:expected go_gosec_sql_concat_sqli
 	rows, err := DB.Query(getProfileSql)
 }

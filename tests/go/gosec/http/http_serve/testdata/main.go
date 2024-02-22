@@ -9,11 +9,13 @@ import (
 )
 
 func bad() {
+// bearer:expected go_gosec_http_http_serve
 	err := http.ListenAndServe(":8443", nil)
 	log.Fatal(err)
 }
 
 func bad2() {
+// bearer:expected go_gosec_http_http_serve
 	err := http.ListenAndServeTLS(":8443", "cert.pem", "key.pem", nil)
 	log.Fatal(err)
 }
@@ -24,6 +26,7 @@ func bad3() {
 		log.Fatal(err)
 	}
 	defer l.Close()
+// bearer:expected go_gosec_http_http_serve
 	err = http.Serve(l, nil)
 	log.Fatal(err)
 }
@@ -34,6 +37,7 @@ func bad4() {
 		log.Fatal(err)
 	}
 	defer l.Close()
+// bearer:expected go_gosec_http_http_serve
 	err = http.ServeTLS(l, nil, "cert.pem", "key.pem")
 	log.Fatal(err)
 }
