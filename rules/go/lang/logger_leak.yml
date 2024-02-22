@@ -2,7 +2,7 @@ imports:
   - go_shared_lang_datatype
 patterns:
   - pattern: |
-      $<CALLER>.$<METHOD>($<INPUT>);
+      $<CALLER>.$<METHOD>($<...>$<INPUT>$<...>)
     filters:
       - either:
           - variable: CALLER
@@ -20,7 +20,7 @@ patterns:
           detection: go_shared_lang_datatype
           scope: result
   - pattern: |
-      $<CALLER>.$<EVENT>().$<METHOD>($<INPUT>);
+      $<CALLER>.$<EVENT>().$<METHOD>($<...>$<INPUT>$<...>);
     filters:
       - either:
           - variable: CALLER
@@ -42,7 +42,7 @@ patterns:
           detection: go_shared_lang_datatype
           scope: result
   - pattern: |
-      $<CALLER>.$<METHOD>($<INPUT>);
+      $<CALLER>.$<METHOD>($<...>$<INPUT>$<...>);
     filters:
       - either:
           - variable: CALLER
@@ -60,7 +60,7 @@ patterns:
           detection: go_shared_lang_datatype
           scope: result
   - pattern: |
-      $<CALLER>.$<METHOD>($<INPUT>);
+      $<CALLER>.$<METHOD>($<...>$<INPUT>$<...>);
     filters:
       - variable: CALLER
         detection: go_lang_logger_leak_glog
@@ -75,7 +75,7 @@ patterns:
           detection: go_shared_lang_datatype
           scope: result
   - pattern: |
-      $<ZAP>.$<METHOD>($<INPUT>);
+      $<ZAP>.$<METHOD>($<...>$<INPUT>$<...>);
     filters:
       - variable: ZAP
         detection: go_lang_logger_leak_zap
