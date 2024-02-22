@@ -12,6 +12,7 @@ const users = [{
 }]
 
 fs.writeFile("data.csv", JSON.stringify(users), callback)
+// bearer:expected javascript_lang_file_generation
 fs.writeFile("data.csv", JSON.stringify(users), "utf-8", (err) => {
   if (err) console.log(err)
   else console.log("Data saved")

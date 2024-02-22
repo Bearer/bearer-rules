@@ -4,4 +4,5 @@ const config = {
 	headers: { "content-type": "application/json" },
 	url: insecure_url,
 };
+// bearer:expected javascript_lang_http_insecure
 axios(config);

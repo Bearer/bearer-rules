@@ -1,19 +1,30 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+
+  
+    test("dynamodb_query_injection", () => {
+      const testCase = "dynamodb_query_injection.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("dynamodb_query_injection", () => {
-    const testCase = "dynamodb_query_injection.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+    test("ok_no_injection", () => {
+      const testCase = "ok_no_injection.js"
 
-  test("ok_no_injection", () => {
-    const testCase = "ok_no_injection.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 })

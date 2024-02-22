@@ -9,6 +9,7 @@ app.use(helmet.hidePoweredBy())
 const app = express()
 
 app.get("/inject", async (req, res) => {
+// bearer:expected javascript_express_server_side_request_forgery
   response = await fetch("https://" + req.query.path)
   res.json(response.data)
 })

@@ -41,7 +41,7 @@ const determine_annotations = (rule, outputs) => {
 
 const write_annoation = (filePath, result) => {
   let lines = fs.readFileSync(filePath, 'utf8').split('\n');
-  lines.splice(result.line_number - 1, 0, `# bearer:expected ${result.id}`);
+  lines.splice(result.line_number - 1, 0, `// bearer:expected ${result.id}`);
   fs.writeFileSync(filePath, lines.join('\n'));
 }
 

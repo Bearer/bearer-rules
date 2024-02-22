@@ -1,3 +1,4 @@
+// bearer:expected javascript_third_parties_bugsnag
 Bugsnag.start({
   onError: function (e) {
     e.setUser(user.id, user.email, user.name)

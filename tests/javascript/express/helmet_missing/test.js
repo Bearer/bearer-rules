@@ -1,31 +1,50 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+
+  
+    test("index", () => {
+      const testCase = "index.ts"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("index", () => {
-    const testCase = "index.ts"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("insecure", () => {
+      const testCase = "insecure.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("insecure", () => {
-    const testCase = "insecure.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("secure", () => {
+      const testCase = "secure.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("secure", () => {
-    const testCase = "secure.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+    test("secure_part", () => {
+      const testCase = "secure_part.js"
 
-  test("secure_part", () => {
-    const testCase = "secure_part.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 })

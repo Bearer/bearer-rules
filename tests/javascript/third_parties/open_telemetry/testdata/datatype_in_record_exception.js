@@ -6,5 +6,6 @@ try {
   // something
 } catch (err) {
   span.recordException(err)
+// bearer:expected javascript_third_parties_open_telemetry
   span.recordException(currentUser.ipAddress)
 }

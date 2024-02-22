@@ -1,19 +1,30 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+
+  
+    test("default_session_config", () => {
+      const testCase = "default_session_config.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("default_session_config", () => {
-    const testCase = "default_session_config.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+    test("ok_session_configured", () => {
+      const testCase = "ok_session_configured.js"
 
-  test("ok_session_configured", () => {
-    const testCase = "ok_session_configured.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 })

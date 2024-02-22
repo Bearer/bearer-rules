@@ -8,4 +8,5 @@ const client = new StatsD({
 	errorHandler: errorHandler,
 });
 
+// bearer:expected javascript_third_parties_datadog
 client.event("user", "logged_in", {}, user);

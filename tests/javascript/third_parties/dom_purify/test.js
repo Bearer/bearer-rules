@@ -1,25 +1,36 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
-  
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
 
-  test("insecure", () => {
-    const testCase = "insecure"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+    test("insecure", () => {
+      const testCase = "insecure"
 
-  test("secure", () => {
-    const testCase = "secure"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+      const results = invoke(testCase)
 
-  test("secure_dependency", () => {
-    const testCase = "secure_dependency"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+
+    test("secure", () => {
+      const testCase = "secure"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+
+    test("secure_dependency", () => {
+      const testCase = "secure_dependency"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
 })

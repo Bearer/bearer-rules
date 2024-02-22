@@ -7,6 +7,7 @@ app.use(helmet())
 app.use(helmet.hidePoweredBy())
 
 app.use(
+// bearer:expected javascript_express_insecure_cookie
   session({
     cookie: {
       domain: "example.com",

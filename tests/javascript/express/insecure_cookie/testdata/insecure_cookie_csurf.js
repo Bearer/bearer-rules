@@ -7,6 +7,7 @@ export const csrfOptions = {
 }
 
 export default function getCsurf() {
+// bearer:expected javascript_express_insecure_cookie
   const protection = csurf({
     cookie: { ...csrfOptions, httpOnly: true },
     // cookie: { secure: false, httpOnly: true },
