@@ -7,7 +7,7 @@ patterns:
       - not:
           variable: INPUT
           detection: string_literal
-          scope: result
+          scope: cursor
       - not:
           variable: INPUT
           detection: java_shared_lang_datatype
