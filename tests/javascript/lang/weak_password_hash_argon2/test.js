@@ -1,25 +1,40 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+
+  
+    test("argon2i", () => {
+      const testCase = "argon2i.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("argon2i", () => {
-    const testCase = "argon2i.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("ok_encryption", () => {
+      const testCase = "ok_encryption.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("ok_encryption", () => {
-    const testCase = "ok_encryption.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+    test("ok_not_a_password", () => {
+      const testCase = "ok_not_a_password.js"
 
-  test("ok_not_a_password", () => {
-    const testCase = "ok_not_a_password.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 })

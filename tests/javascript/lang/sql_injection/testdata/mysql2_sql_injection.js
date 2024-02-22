@@ -9,17 +9,20 @@ module.exports.asyncFooBar = async function (req, res) {
 };
 
 module.exports.fooBar = function (req, _res) {
+// bearer:expected javascript_lang_sql_injection
 	connection.query(
 		"SELECT * FROM `user` WHERE name = " + req.params.customer.name
 	);
 
 	// pool query
 	var pool = mysql.createPool();
+// bearer:expected javascript_lang_sql_injection
 	pool.query(
 		"SELECT * FROM users WHERE name = " + req.params.user_name,
 		function () {}
 	);
 	pool.getConnection(function (_err, conn) {
+// bearer:expected javascript_lang_sql_injection
 		conn.query("SELECT * FROM users WHERE name = " + req.params.user_name, function () {});
 		pool.releaseConnection(conn);
 	});

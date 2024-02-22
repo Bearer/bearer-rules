@@ -1,49 +1,80 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+
+  
+    test("datatype_in_alias", () => {
+      const testCase = "datatype_in_alias.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("datatype_in_alias", () => {
-    const testCase = "datatype_in_alias.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("datatype_in_group", () => {
+      const testCase = "datatype_in_group.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("datatype_in_group", () => {
-    const testCase = "datatype_in_group.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("datatype_in_identify", () => {
+      const testCase = "datatype_in_identify.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("datatype_in_identify", () => {
-    const testCase = "datatype_in_identify.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("datatype_in_page", () => {
+      const testCase = "datatype_in_page.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("datatype_in_page", () => {
-    const testCase = "datatype_in_page.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("datatype_in_track", () => {
+      const testCase = "datatype_in_track.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("datatype_in_track", () => {
-    const testCase = "datatype_in_track.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("ok_ignored_datatypes", () => {
+      const testCase = "ok_ignored_datatypes.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("ok_ignored_datatypes", () => {
-    const testCase = "ok_ignored_datatypes.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+    test("ok_no_datatypes", () => {
+      const testCase = "ok_no_datatypes.js"
 
-  test("ok_no_datatypes", () => {
-    const testCase = "ok_no_datatypes.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 })

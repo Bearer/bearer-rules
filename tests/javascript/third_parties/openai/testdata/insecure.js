@@ -5,6 +5,7 @@ const configuration = new Configuration({
 })
 const openai = new OpenAIApi(configuration)
 
+// bearer:expected javascript_third_parties_openai
 const completion = await openai.createCompletion({
   model: "text-davinci-003",
   prompt: `Hello world ${user.email}`,

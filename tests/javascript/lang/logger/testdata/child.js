@@ -4,4 +4,5 @@ const ctx = {
 	},
 };
 
+// bearer:expected javascript_lang_logger
 logger.child(ctx);

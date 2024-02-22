@@ -12,7 +12,9 @@ app.get("/inject", async (req, res) => {
   const page = await browser.newPage()
 
   var content = req.body.content
+// bearer:expected javascript_express_server_side_request_forgery
   await page.setContent(content)
+// bearer:expected javascript_express_server_side_request_forgery
   await page.goto("https://" + req.query.path)
 
   res.send("success")

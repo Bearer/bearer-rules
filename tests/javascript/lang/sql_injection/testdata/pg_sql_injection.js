@@ -5,6 +5,7 @@ const client = new Client({
 });
 
 module.exports.fooBar = function (req, _res) {
+// bearer:expected javascript_lang_sql_injection
 	var user = client.query(
 		"SELECT * FROM users WHERE user.name = " + req.params.user.name
 	);

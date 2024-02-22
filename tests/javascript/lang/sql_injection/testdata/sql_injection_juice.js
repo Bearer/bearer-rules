@@ -1,6 +1,7 @@
 module.exports = function login() {
   function afterLogin(user, res, next) {
     return (req, _res, next) => {
+// bearer:expected javascript_lang_sql_injection
       models.sequelize
         .query(
           `SELECT * FROM Users WHERE email = '${

@@ -1,19 +1,30 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+
+  
+    test("ok_no_os_command_injection", () => {
+      const testCase = "ok_no_os_command_injection.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("ok_no_os_command_injection", () => {
-    const testCase = "ok_no_os_command_injection.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+    test("os_command_injection", () => {
+      const testCase = "os_command_injection.js"
 
-  test("os_command_injection", () => {
-    const testCase = "os_command_injection.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 })

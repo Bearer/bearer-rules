@@ -9,6 +9,7 @@ app.use(helmet.hidePoweredBy())
 app = express.app()
 
 app.use(
+// bearer:expected javascript_express_hardcoded_secret
   session({
     name: "my-custom-session-name",
     secret: "my-hardcoded-secret",
@@ -20,6 +21,7 @@ var sessionConfig = {
   secret: "hardcoded-secret",
 }
 
+// bearer:expected javascript_express_hardcoded_secret
 app.use(session(sessionConfig))
 
 var sessionConfig = {

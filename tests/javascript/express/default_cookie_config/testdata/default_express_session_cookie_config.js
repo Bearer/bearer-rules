@@ -8,12 +8,14 @@ app.use(helmet.hidePoweredBy())
 
 app.use(
   session({
+// bearer:expected javascript_express_default_cookie_config
     cookie: {},
   })
 )
 
 app.use(
   session({
+// bearer:expected javascript_express_default_cookie_config
     cookie: {
       domain: "example.com",
       secure: true,
@@ -26,6 +28,7 @@ app.use(
 
 app.use(
   session({
+// bearer:expected javascript_express_default_cookie_config
     cookie: {
       domain: "example.com",
       secure: true,

@@ -1,36 +1,70 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
 
-  test("insecure-raw_input", () => {
-    const testCase = "insecure-raw_input.js"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+  
+    test("insecure-raw_input", () => {
+      const testCase = "insecure-raw_input.js"
 
-  test("insecure-template_string", () => {
-    const testCase = "insecure-template_string.js"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+      const results = invoke(testCase)
 
-  test("secure-render-markdown", () => {
-    const testCase = "secure-render-markdown.js"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
 
-  test("secure-sanitize", () => {
-    const testCase = "secure-sanitize.js"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+    test("insecure-template_string", () => {
+      const testCase = "insecure-template_string.js"
 
-  test("secure-template_string", () => {
-    const testCase = "secure-template_string.js"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+      const results = invoke(testCase)
 
-  test("secure-dom-purify", () => {
-    const testCase = "secure-dom_purify.tsx"
-    expect(invoke(testCase)).toMatchSnapshot()
-  })
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
+
+    test("secure-dom_purify", () => {
+      const testCase = "secure-dom_purify.tsx"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
+
+    test("secure-render-markdown", () => {
+      const testCase = "secure-render-markdown.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
+
+    test("secure-sanitize", () => {
+      const testCase = "secure-sanitize.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
+
+    test("secure-template_string", () => {
+      const testCase = "secure-template_string.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
 })

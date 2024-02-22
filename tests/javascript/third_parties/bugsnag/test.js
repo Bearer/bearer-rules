@@ -1,37 +1,60 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+
+  
+    test("datatype_in_breadcrumb", () => {
+      const testCase = "datatype_in_breadcrumb.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("datatype_in_breadcrumb", () => {
-    const testCase = "datatype_in_breadcrumb.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("datatype_in_notify", () => {
+      const testCase = "datatype_in_notify.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("datatype_in_notify", () => {
-    const testCase = "datatype_in_notify.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("datatype_in_session", () => {
+      const testCase = "datatype_in_session.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("datatype_in_session", () => {
-    const testCase = "datatype_in_session.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("datatype_in_start", () => {
+      const testCase = "datatype_in_start.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("datatype_in_start", () => {
-    const testCase = "datatype_in_start.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+    test("ok_ignored_datatype_only", () => {
+      const testCase = "ok_ignored_datatype_only.js"
 
-  test("ok_ignored_datatype_only", () => {
-    const testCase = "ok_ignored_datatype_only.js"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 })
