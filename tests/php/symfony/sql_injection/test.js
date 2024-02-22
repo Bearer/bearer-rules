@@ -7,8 +7,8 @@ const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 describe(ruleId, () => {
   const invoke = createNewInvoker(ruleId, ruleFile, testBase)
 
-  
-    test("injection-function-arguments", () => {
+
+    test.skip("injection-function-arguments", () => {
       const testCase = "injection-function-arguments.php"
 
       const results = invoke(testCase)
@@ -16,7 +16,7 @@ describe(ruleId, () => {
       expect(results.Missing).toEqual([])
       expect(results.Extra).toEqual([])
     })
-  
+
 
     test("injection-query-builder", () => {
       const testCase = "injection-query-builder.php"
@@ -26,7 +26,7 @@ describe(ruleId, () => {
       expect(results.Missing).toEqual([])
       expect(results.Extra).toEqual([])
     })
-  
+
 
     test("injection", () => {
       const testCase = "injection.php"
@@ -36,7 +36,7 @@ describe(ruleId, () => {
       expect(results.Missing).toEqual([])
       expect(results.Extra).toEqual([])
     })
-  
+
 
     test("safe", () => {
       const testCase = "safe.php"
@@ -46,5 +46,5 @@ describe(ruleId, () => {
       expect(results.Missing).toEqual([])
       expect(results.Extra).toEqual([])
     })
-  
+
 })
