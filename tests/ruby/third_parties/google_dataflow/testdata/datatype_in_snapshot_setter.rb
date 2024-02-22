@@ -6,4 +6,5 @@ snapshot_client = Google::Cloud::Dataflow::V1beta3::Snapshots::Client.new
 snapshot = snapshot_client.get_snapshot
 
 snapshot.id = user.id
+# bearer:expected ruby_third_parties_google_dataflow
 snapshot.description = "Current user: #{user.email_address}"

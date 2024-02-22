@@ -9,6 +9,7 @@ Bugsnag.notify(exception) do |event|
   event.severity = "warning"
 
   # Add customer information to this event
+# bearer:expected ruby_third_parties_bugsnag
   event.add_metadata(:account, {
     user_name: current_user.name,
     paying_customer: true

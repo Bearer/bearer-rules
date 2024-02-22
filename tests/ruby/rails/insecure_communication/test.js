@@ -1,31 +1,50 @@
-const { createInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+
+  
+    test("no_datatypes", () => {
+      const testCase = "no_datatypes.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("no_datatypes", () => {
-    const testCase = "no_datatypes.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("ok_ssl_disabled_commented_out", () => {
+      const testCase = "ok_ssl_disabled_commented_out.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("ok_ssl_disabled_commented_out", () => {
-    const testCase = "ok_ssl_disabled_commented_out.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("ok_ssl_enabled", () => {
+      const testCase = "ok_ssl_enabled.rb"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 
-  test("ok_ssl_enabled", () => {
-    const testCase = "ok_ssl_enabled.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
-  
+    test("ssl_disabled", () => {
+      const testCase = "ssl_disabled.rb"
 
-  test("ssl_disabled", () => {
-    const testCase = "ssl_disabled.rb"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
   
 })
