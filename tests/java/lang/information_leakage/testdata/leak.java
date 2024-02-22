@@ -5,6 +5,7 @@ public class Main {
     }
     catch (Exception e)
     {
+// bearer:expected java_lang_information_leakage
       e.printStackTrace();
     }
   }

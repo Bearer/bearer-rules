@@ -14,8 +14,11 @@ public class Log extends HttpServlet
     {
             log = Logger.getLogger(Log.class);
             String username = request.getParameter("username");
+// bearer:expected java_lang_log_injection
             log.info("Username is" + request.getParameter("username"));
+// bearer:expected java_lang_log_injection
             log.warn("Username is" + username);
+// bearer:expected java_lang_log_injection
             log.error(username);
             log.error("This is not finding");
 

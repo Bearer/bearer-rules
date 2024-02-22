@@ -9,8 +9,10 @@ public class Cls extends HttpServlet
         javax.xml.xpath.XPath xp = xpf.newXPath();
 
         String expression = "/Users/User[@userID='" + userID + "']";
+// bearer:expected java_lang_xpath_injection
         String result = xp.evaluate(expression, xmlDocument);
 
+// bearer:expected java_lang_xpath_injection
         var compiled = xpf.newXPath().compile(expression);
     }
 }

@@ -25,6 +25,7 @@ public class HashingAssignment extends AssignmentEndpoint {
       String secret = SECRETS[new Random().nextInt(SECRETS.length)];
 
       MessageDigest md = MessageDigest.getInstance("SHA-1");
+// bearer:expected java_lang_weak_hash_sha1
       md.update(secret.getBytes());
       byte[] digest = md.digest();
       sha1Hash = DatatypeConverter.printHexBinary(digest).toUpperCase();

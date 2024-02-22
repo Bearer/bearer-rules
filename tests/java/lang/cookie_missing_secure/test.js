@@ -1,30 +1,40 @@
-const { createInvoker, createNewInvoker, getEnvironment } = require("../../../helper.js")
+const {
+  createNewInvoker,
+  getEnvironment,
+} = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-  const invoke = createInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
 
+  
+    test("bad", () => {
+      const testCase = "bad.java"
 
-  test("bad", () => {
-    const testCase = "bad.java"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+      const results = invoke(testCase)
 
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
 
-  test("ok", () => {
-    const testCase = "ok.java"
-    expect(invoke(testCase)).toMatchSnapshot();
-  })
+    test("main", () => {
+      const testCase = "main.java"
 
-  // new invoker
-  const invokeV2 = createNewInvoker(ruleId, ruleFile, testBase)
+      const results = invoke(testCase)
 
-  test("missing_http_only", () => {
-    const testCase = "main.java"
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
 
-    const results = invokeV2(testCase)
+    test("ok", () => {
+      const testCase = "ok.java"
 
-    expect(results.Missing).toEqual([])
-    expect(results.Extra).toEqual([])
-  })
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+  
 })
