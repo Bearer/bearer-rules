@@ -1,19 +1,113 @@
 imports:
   - go_shared_lang_datatype
 patterns:
-  - pattern: log.$<LOGLEVEL>().$<METHOD>($<DATA_TYPE>)
+  - pattern: |
+      $<CALLER>.$<METHOD>($<DATA_TYPE>);
     filters:
-      - variable: LOGLEVEL
-        values:
-          - Error
-          - Debug
+      - either:
+          - variable: CALLER
+            detection: go_lang_logger_log
+          - variable: CALLER
+            detection: go_lang_logger_zerolog
       - variable: METHOD
-        values:
-          - Msgf
-          - Msg
+        regex: \A(Fatal|Panic|Print)(f|ln)?\z
       - variable: DATA_TYPE
         detection: go_shared_lang_datatype
         scope: result
+  - pattern: |
+      $<CALLER>.$<EVENT>().$<METHOD>($<DATA_TYPE>);
+    filters:
+      - either:
+        - variable: CALLER
+          detection: go_lang_logger_log
+        - variable: CALLER
+          detection: go_lang_logger_zerolog
+      - variable: EVENT
+        regex: \A(Info|Debug|Error|Trace|Fatal|Panic|Warn)\z
+      - variable: METHOD
+        values:
+          - Msg
+          - Msgf
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: |
+      $<CALLER>.$<METHOD>($<DATA_TYPE>);
+    filters:
+      - either:
+          - variable: CALLER
+            detection: go_lang_logger_logrus
+          - variable: CALLER
+            detection: go_lang_logger_seelog
+      - variable: METHOD
+        regex: \A(WithFields\.)?(Info|Debug|Error|Trace|Fatal|Panic|Warn)\z
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: |
+      $<CALLER>.$<METHOD>($<DATA_TYPE>);
+    filters:
+      - variable: CALLER
+        detection: go_lang_logger_glog
+      - variable: METHOD
+        regex: \A(Info|Warning|Error|Fatal)(Contex)?(Depth)?(f)?\z
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: |
+      $<ZAP>.$<METHOD>($<DATA_TYPE>);
+    filters:
+      - variable: ZAP
+        detection: go_lang_logger_zap
+      - variable: METHOD
+        regex: \A(WithFields\.)?(Info|Log|Error|Fatal|DPanic|Warn)\z
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: go_lang_logger_log
+    patterns:
+      - log
+      - log.New();
+      - log.Default();
+      - import $<!>"log"
+      - |
+        import (
+          $<!>"log"
+        )
+  - id: go_lang_logger_zerolog
+    patterns:
+      - import $<!>"github.com/rs/zerolog"
+      - |
+        import (
+          $<!>"github.com/rs/zerolog"
+        )
+  - id: go_lang_logger_logrus
+    patterns:
+      - logrus.New();
+      - import $<!>"github.com/sirupsen/logrus"
+      - |
+        import (
+          $<!>"github.com/sirupsen/logrus"
+        )
+  - id: go_lang_logger_zap
+    patterns:
+      - zap.$<_>().Sugar()
+      - zap.$<_>()
+  - id: go_lang_logger_seelog
+    patterns:
+      - import $<!>"github.com/cihub/seelog"
+      - |
+        import (
+          $<!>"github.com/cihub/seelog"
+        )
+  - id: go_lang_logger_glog
+    patterns:
+      - import $<!>"github.com/golang/glog"
+      - |
+        import (
+          $<!>"github.com/golang/glog"
+        )
 languages:
   - go
 skip_data_types:

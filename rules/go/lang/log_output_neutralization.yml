@@ -14,10 +14,13 @@ patterns:
       - variable: INPUT
         detection: go_lang_log_output_neutralization_input
   - pattern: |
-      $<ZEROLOG>.$<EVENT>.$<METHOD>($<INPUT>);
+      $<CALLER>.$<EVENT>().$<METHOD>($<INPUT>);
     filters:
-      - variable: ZEROLOG
-        detection: go_lang_log_output_neutralization_zerolog
+      - either:
+        - variable: CALLER
+          detection: go_lang_log_output_neutralization_logger
+        - variable: CALLER
+          detection: go_lang_log_output_neutralization_zerolog
       - variable: EVENT
         regex: \A(Info|Debug|Error|Trace|Fatal|Panic|Warn)\z
       - variable: METHOD
@@ -61,6 +64,12 @@ auxiliary:
     patterns:
       - log.New();
       - log.Default();
+      - log
+      - import $<!>"log"
+      - |
+        import (
+          $<!>"log"
+        )
   - id: go_lang_log_output_neutralization_zerolog
     patterns:
       - import $<!>"github.com/rs/zerolog"
