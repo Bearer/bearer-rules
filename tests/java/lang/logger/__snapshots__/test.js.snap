@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`java_lang_logger_with_datatypes simple 1`] = `
+exports[`java_lang_logger simple 1`] = `
 "{
   "critical": [
     {
       "cwe_ids": [
         "532"
       ],
-      "id": "java_lang_logger_with_datatypes",
+      "id": "java_lang_logger",
       "title": "Leakage of sensitive information in logger message",
       "description": "## Description\\n\\nLeaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.\\n\\n## Remediations\\n\\n❌ Avoid using sensitive data in logger messages:\\n\\n\`\`\`java\\nlogger.info(user.email)\\n\`\`\`\\n\\n✅ If you need to identify a user, use their unique identifier instead of their personal identifiable information:\\n\\n\`\`\`java\\nlogger.info(user.uuid)\\n\`\`\`\\n\\n✅ Ideally, do not log dynamic variables or attributes as this could lead to unintentional information leakage down the line\\n\\n\`\`\`java\\nlogger.info(\\"user signed in\\")\\n\`\`\`\\n## Resources\\n- [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)\\n",
-      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_logger_with_datatypes",
+      "documentation_url": "https://docs.bearer.com/reference/rules/java_lang_logger",
       "line_number": 16,
       "full_filename": "/tmp/bearer-scan/simple.java",
       "filename": ".",
@@ -41,8 +41,8 @@ exports[`java_lang_logger_with_datatypes simple 1`] = `
       },
       "parent_line_number": 16,
       "snippet": "logger.error(user.name)",
-      "fingerprint": "a1f17af53934d40abef83314b1e8b8c1_0",
-      "old_fingerprint": "dbc6c614b2c7f0cef9cc1bef5af2b67c_0",
+      "fingerprint": "14b8421b91dfd6860ab797a528643c7f_0",
+      "old_fingerprint": "52b4f9ef975cdb0ca989d6f9b7b721db_0",
       "code_extract": "            logger.error(user.name);"
     }
   ]

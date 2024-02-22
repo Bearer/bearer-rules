@@ -3,9 +3,9 @@ public class Foo
     public void bad(String someVar)
     {
         User user;
-        // bearer:expected java_lang_logger
+        // bearer:expected java_lang_logger_leak
         logger.error(someVar);
-        // bearer:expected java_lang_logger
+        // bearer:expected java_lang_logger_leak
         logger.error("This is not okay " + someVar);
     }
 

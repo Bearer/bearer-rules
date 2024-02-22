@@ -1,0 +1,43 @@
+imports:
+  - java_shared_lang_logger_methods
+  - java_shared_lang_datatype
+patterns:
+  - pattern: $<LOG>.$<METHOD>($<INPUT>)
+    filters:
+      - not:
+          variable: INPUT
+          detection: string_literal
+          scope: cursor
+      - not:
+          variable: INPUT
+          detection: java_shared_lang_datatype
+          scope: result
+      - variable: METHOD
+        detection: java_shared_lang_logger_methods
+      - variable: LOG
+        values:
+          - log
+          - logger
+languages:
+  - java
+severity: warning
+metadata:
+  description: Leakage of information in logger message
+  remediation_message: |
+    ## Description
+
+    Leaking data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of dynamic data or variables sent to loggers.
+
+    ## Remediations
+
+    ❌ Avoid using variables or dynamic data in logger messages
+
+    ```java
+    logger.info("user signed in: " + user.uuid)
+    ```
+    ## Resources
+    - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
+  cwe_id:
+    - 532
+  id: java_lang_logger_leak
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_logger_leak
