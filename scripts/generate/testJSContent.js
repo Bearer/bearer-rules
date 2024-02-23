@@ -15,8 +15,10 @@ describe(ruleId, () => {
 
     const results = invoke(testCase)
 
-    expect(results.Missing).toEqual([])
-    expect(results.Extra).toEqual([])
+    expect(results).toEqual({
+      Missing: [],
+      Extra: []
+    })
   })
 })`;
 };
