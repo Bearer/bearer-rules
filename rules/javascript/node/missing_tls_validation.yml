@@ -1,0 +1,24 @@
+patterns:
+  - $<_>.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+  - $<_>.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
+languages:
+  - javascript
+severity: warning
+metadata:
+  description: Missing TLS validation
+  remediation_message: |
+    ## Description
+
+    When establishing a connection, it is important to validate the SSL/TLS certificate in order to mitigate
+    man-in-the-middle attacks, data interception and related security risks.
+
+    Disabling SSL/TLS certification validation is a serious security risk that puts your application at risk.
+
+    ## Remediations
+
+    ❌ Do not set the NODE_TLS_REJECT_UNAUTHORIZED variable to zero
+
+  cwe_id:
+    - 295
+  id: javascript_node_missing_tls_validation
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_node_missing_tls_validation
