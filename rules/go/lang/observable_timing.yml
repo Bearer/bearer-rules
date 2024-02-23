@@ -1,0 +1,218 @@
+patterns:
+  - pattern: |
+      $<KEY1> == $<KEY2>
+    filters:
+      - variable: KEY1
+        regex: /pass(word)?/
+      - variable: KEY2
+        regex: /pass(word)?/
+    # - pattern: |
+    #     return $X === auth_token;
+    # - pattern: |
+    #     return auth_token === $X;
+    # - pattern: |
+    #     return $X === token;
+    # - pattern: |
+    #     return token === $X;
+    # - pattern: |
+    #     return $X === hash;
+    # - pattern: |
+    #     return hash === $X;
+    # - pattern: |
+    #     return $X === password;
+    # - pattern: |
+    #     return password === $X;
+    # - pattern: |
+    #     return $X === pass;
+    # - pattern: |
+    #     return pass === $X;
+    # - pattern: |
+    #     return $X === apiKey;
+    # - pattern: |
+    #     return apiKey === $X;
+    # - pattern: |
+    #     return $X === apiSecret;
+    # - pattern: |
+    #     return apiSecret === $X;
+    # - pattern: |
+    #     return $X === api_key;
+    # - pattern: |
+    #     return api_key === $X;
+    # - pattern: |
+    #     return $X === api_secret;
+    # - pattern: |
+    #     return api_secret === $X;
+    # - pattern: |
+    #     return $X === secret;
+    # - pattern: |
+    #     return secret === $X;
+    # - pattern: |
+    #     return $X === api;
+    # - pattern: |
+    #     return api === $X;
+    # - pattern: |
+    #     return $X == auth_token;
+    # - pattern: |
+    #     return auth_token == $X;
+    # - pattern: |
+    #     return $X == token;
+    # - pattern: |
+    #     return token == $X;
+    # - pattern: |
+    #     return $X == hash;
+    # - pattern: |
+    #     return hash == $X;
+    # - pattern: |
+    #     return $X == password;
+    # - pattern: |
+    #     return password == $X;
+    # - pattern: |
+    #     return $X == pass;
+    # - pattern: |
+    #     return pass == $X;
+    # - pattern: |
+    #     return $X == apiKey;
+    # - pattern: |
+    #     return apiKey == $X;
+    # - pattern: |
+    #     return $X == apiSecret;
+    # - pattern: |
+    #     return apiSecret == $X;
+    # - pattern: |
+    #     return $X == api_key;
+    # - pattern: |
+    #     return api_key == $X;
+    # - pattern: |
+    #     return $X == api_secret;
+    # - pattern: |
+    #     return api_secret == $X;
+    # - pattern: |
+    #     return $X == secret;
+    # - pattern: |
+    #     return secret == $X;
+    # - pattern: |
+    #     return $X == api;
+    # - pattern: |
+    #     return api == $X;
+    # - pattern: |
+    #     return $X !== auth_token;
+    # - pattern: |
+    #     return auth_token !== $X;
+    # - pattern: |
+    #     return $X !== token;
+    # - pattern: |
+    #     return token !== $X;
+    # - pattern: |
+    #     return $X !== hash;
+    # - pattern: |
+    #     return hash !== $X;
+    # - pattern: |
+    #     return $X !== password;
+    # - pattern: |
+    #     return password !== $X;
+    # - pattern: |
+    #     return $X !== pass;
+    # - pattern: |
+    #     return pass !== $X;
+    # - pattern: |
+    #     return $X !== apiKey;
+    # - pattern: |
+    #     return apiKey !== $X;
+    # - pattern: |
+    #     return $X !== apiSecret;
+    # - pattern: |
+    #     return apiSecret !== $X;
+    # - pattern: |
+    #     return $X !== api_key;
+    # - pattern: |
+    #     return api_key !== $X;
+    # - pattern: |
+    #     return $X !== api_secret;
+    # - pattern: |
+    #     return api_secret !== $X;
+    # - pattern: |
+    #     return $X !== secret;
+    # - pattern: |
+    #     return secret !== $X;
+    # - pattern: |
+    #     return $X !== api;
+    # - pattern: |
+    #     return api !== $X;
+    # - pattern: |
+    #     return $X != auth_token;
+    # - pattern: |
+    #     return auth_token != $X;
+    # - pattern: |
+    #     return $X != token;
+    # - pattern: |
+    #     return token != $X;
+    # - pattern: |
+    #     return $X != hash;
+    # - pattern: |
+    #     return hash != $X;
+    # - pattern: |
+    #     return $X != password;
+    # - pattern: |
+    #     return password != $X;
+    # - pattern: |
+    #     return $X != pass;
+    # - pattern: |
+    #     return pass != $X;
+    # - pattern: |
+    #     return $X != apiKey;
+    # - pattern: |
+    #     return apiKey != $X;
+    # - pattern: |
+    #     return $X != apiSecret;
+    # - pattern: |
+    #     return apiSecret != $X;
+    # - pattern: |
+    #     return $X != api_key;
+    # - pattern: |
+    #     return api_key != $X;
+    # - pattern: |
+    #     return $X != api_secret;
+    # - pattern: |
+    #     return api_secret != $X;
+    # - pattern: |
+    #     return $X != secret;
+    # - pattern: |
+    #     return secret != $X;
+    # - pattern: |
+    #     return $X != api;
+    # - pattern: |
+    #     return api != $X;
+
+# auxiliary:
+#   - id: go_lang_observable_timing_init
+#     patterns:
+#       - pattern1
+#       - pattern: $<INIT>
+#         filters:
+#           - variable: INIT
+#             detection: go_lang_observable_timing_instance
+#             scope: cursor
+#   - id: go_lang_observable_timing_instance
+#     patterns:
+#       - pattern2
+languages:
+  - go
+metadata:
+  description: ""
+  remediation_message: |
+    ## Description
+
+    ## Remediations
+
+    ✅
+
+    ❌
+
+    ## References
+
+    - []()
+
+  cwe_id:
+    - 208
+  id: go_lang_observable_timing
+  documentation_url: https://docs.bearer.com/reference/rules/go_lang_observable_timing
