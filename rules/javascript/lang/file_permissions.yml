@@ -31,11 +31,11 @@ auxiliary:
         filters:
           - either:
               - variable: MASK
-                regex: \A0o7
+                regex: \A0o?7
               - variable: MASK
-                regex: \A0o\d[1-7]
+                regex: \A0o?\d[1-7]
               - variable: MASK
-                regex: \A0o\d\d[1-7]
+                regex: \A0o?\d\d[1-7]
 languages:
   - javascript
 severity: high
