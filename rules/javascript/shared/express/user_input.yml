@@ -88,6 +88,7 @@ auxiliary:
   - id: javascript_shared_express_user_input_request
     patterns:
       - req
+      - request
       # typescript
       - |
         const $<_>: Request = $<!>$<_>

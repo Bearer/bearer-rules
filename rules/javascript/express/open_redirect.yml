@@ -2,11 +2,31 @@ imports:
   - javascript_shared_common_user_input
 patterns:
   - pattern: |
-      res.redirect($<USER_INPUT>$<...>)
+      $<RES>.redirect($<USER_INPUT>$<...>)
     filters:
+      - variable: RES
+        detection: javascript_express_open_redirect_response
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
         scope: result
+auxiliary:
+  - id: javascript_express_open_redirect_response
+    patterns:
+      - res
+      - response
+      # typescript
+      - |
+        const $<_>: Response = $<!>$<_>
+      - |
+        ($<...>$<!>$<_>: Response$<...>) => {}
+      - |
+        ($<...>$<!>$<_>: Response$<...>) {}
+      - |
+        function ($<...>$<!>$<_>: Response$<...>) {}
+      - |
+        function $<_>($<...>$<!>$<_>: Response$<...>) {}
+      - |
+        class $<_> $<...>{ $<...>$<_>($<...>$<!>$<_>: Response$<...>) {} }
 languages:
   - javascript
 severity: medium
