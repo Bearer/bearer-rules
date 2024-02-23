@@ -3,6 +3,7 @@ patterns:
   - $<_>.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
 languages:
   - javascript
+severity: warning
 metadata:
   description: Missing TLS validation
   remediation_message: |
