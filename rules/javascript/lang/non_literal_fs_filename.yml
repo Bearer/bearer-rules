@@ -1,0 +1,166 @@
+imports:
+  - javascript_shared_import_library
+patterns:
+  - pattern: |
+      $<FS>.$<METHOD>($<...>$<INPUT>$<...>)
+    filters:
+      - variable: FS
+        detection: javascript_lang_non_literal_fs_filename_fs_init
+        scope: cursor
+      - variable: METHOD
+        values:
+          - access
+          - appendFile
+          - chmod
+          - chown
+          - close
+          - copyFile
+          - copyFile
+          - cp
+          - cp
+          - createReadStream
+          - createWriteStream
+          - exists
+          - fchmod
+          - fchown
+          - fdatasync
+          - fstat
+          - fsync
+          - ftruncate
+          - futimes
+          - lchmod
+          - lchown
+          - lutimes
+          - link
+          - link
+          - lstat
+          - mkdir
+          - mkdtemp
+          - open
+          - opendir
+          - read
+          - read
+          - readdir
+          - readFile
+          - readlink
+          - readv
+          - realpath
+          - realpath
+          - rename
+          - rename
+          - rmdir
+          - rm
+          - stat
+          - symlink
+          - symlink
+          - truncate
+          - unlink
+          - unwatchFile
+          - utimes
+          - watch
+          - watchFile
+          - write
+          - writeFile
+          - writev
+          - accessSync
+          - appendFileSync
+          - chmodSync
+          - chownSync
+          - closeSync
+          - copyFileSync
+          - copyFileSync
+          - cpSync
+          - cpSync
+          - existsSync
+          - fchmodSync
+          - fchownSync
+          - fdatasyncSync
+          - fstatSync
+          - fsyncSync
+          - ftruncateSync
+          - futimesSync
+          - lchmodSync
+          - lchownSync
+          - lutimesSync
+          - linkSync
+          - linkSync
+          - lstatSync
+          - mkdirSync
+          - mkdtempSync
+          - opendirSync
+          - openSync
+          - readdirSync
+          - readFileSync
+          - readlinkSync
+          - readSync
+          - readSync
+          - readvSync
+          - realpathync
+          - realpathSync
+          - renameSync
+          - renameSync
+          - rmdirSync
+          - rmSync
+          - statSync
+          - symlinkSync
+          - symlinkSync
+          - truncateSync
+          - unlinkSync
+          - utimesSync
+          - writeFileSync
+          - writeSync
+          - writevSync
+      - not:
+          variable: INPUT
+          detection: string_literal
+          scope: result
+auxiliary:
+  - id: javascript_lang_non_literal_fs_filename_fs_init
+    patterns:
+      - pattern: $<LIBRARY>
+        filters:
+          - variable: LIBRARY
+            detection: javascript_shared_import_library
+            scope: cursor
+            filters:
+              - variable: JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME
+                string_regex: \A(?i)fs(\/promises)?\z
+      - import $<!>$<_> from "fs"
+      - import * as $<!>$<_> from "fs"
+      - import $<!>$<_> from "fs/promises"
+      - import * as $<!>$<_> from "fs/promises"
+languages:
+  - javascript
+severity: warning
+metadata:
+  description: Unsanitized non-literal filename detected
+  remediation_message: |
+    ## Description
+
+    The use of dynamic data with the file system module is bad security practice as it could allow attackers to access unauthorized or hidden files and folders.
+
+    ## Remediations
+
+    ✅ Always ensure that dynamic data and function arguments are sanitized
+
+    ❌ Do not pass dynamic data or function arguments directly to the fs module. Use hard-coded string literals and control logic instead
+
+    ```javascript
+      function write(filename) {
+        switch(filename) {
+          case "hello.txt":
+          fs.writeCreateFile("hello.txt");
+          break;
+
+          case ...
+        }
+      }
+    ```
+
+    ## References
+
+    - [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)
+  cwe_id:
+    - 73
+  id: javascript_lang_non_literal_fs_filename
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_non_literal_fs_filename
