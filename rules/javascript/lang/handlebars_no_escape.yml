@@ -1,0 +1,37 @@
+patterns:
+  - pattern: handlebars.compile($<...>$<NO_ESCAPE>)
+    filters:
+      - variable: NO_ESCAPE
+        detection: javascript_lang_handlebars_no_escape_true
+        scope: result
+auxiliary:
+  - id: javascript_lang_handlebars_no_escape_true
+    patterns:
+      - |
+        { noEscape: true }
+languages:
+  - javascript
+severity: warning
+metadata:
+  description: "Missing escape of HTML entities in Handlebars template compilation"
+  remediation_message: |
+    ## Description
+
+    As a templating engine, Handlebars generates HTML markup dynamically.
+    Setting `noEscape` to true disables escaping HTML entities within the template output itself.
+
+    This is a security risk as it could lead to Cross-Site Scripting (XSS) vulnerabilities if
+    the template is from an untrusted source.
+
+    ## Remediations
+
+    ❌ Do not set `noEscape` to true when compiling Handlebars templates
+
+    ## References
+
+    - [Handlebars compile docs](https://handlebarsjs.com/api-reference/compilation.html#handlebars-compile-template-options)
+    - [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+  cwe_id:
+    - 80
+  id: javascript_lang_handlebars_no_escape
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_handlebars_no_escape
