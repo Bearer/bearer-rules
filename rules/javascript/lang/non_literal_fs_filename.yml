@@ -1,9 +1,12 @@
+imports:
+  - javascript_shared_import_library
 patterns:
   - pattern: |
       $<FS>.$<METHOD>($<...>$<INPUT>$<...>)
     filters:
       - variable: FS
-        regex: (?i)\Afs\z
+        detection: javascript_lang_non_literal_fs_filename_fs_init
+        scope: cursor
       - variable: METHOD
         values:
           - access
@@ -111,6 +114,21 @@ patterns:
           variable: INPUT
           detection: string_literal
           scope: result
+auxiliary:
+  - id: javascript_lang_non_literal_fs_filename_fs_init
+    patterns:
+      - pattern: $<LIBRARY>
+        filters:
+          - variable: LIBRARY
+            detection: javascript_shared_import_library
+            scope: cursor
+            filters:
+              - variable: JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME
+                string_regex: \A(?i)fs(\/promises)?\z
+      - import $<!>$<_> from "fs"
+      - import * as $<!>$<_> from "fs"
+      - import $<!>$<_> from "fs/promises"
+      - import * as $<!>$<_> from "fs/promises"
 languages:
   - javascript
 severity: warning
