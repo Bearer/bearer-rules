@@ -1,12 +1,12 @@
-import { Request, ResponseToolkit } from "@hapi/hapi";
+import { Server, Request, ResponseToolkit } from "@hapi/hapi";
 import { format as formatUrl } from 'url';
 
 export class Foo {
-  public async bad(req: Request, res: ResponseToolkit) {
+  public async bad(request: Request, responseToolkit: ResponseToolkit) {
     // bearer:expected javascript_hapi_open_redirect
-    return res
+    return responseToolkit
       .redirect(formatUrl({
-          pathname: req.url.pathname
+          pathname: request.url.pathname
         })
       )
       .takeover();

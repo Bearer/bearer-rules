@@ -4,6 +4,12 @@ patterns:
   - pattern: |
       $<RES>.redirect($<USER_INPUT>$<...>)
     filters:
+      - not:
+          # avoid overlap with express js rule
+          variable: RES
+          values:
+            - res
+            - response
       - variable: RES
         detection: javascript_hapi_open_redirect_response_toolkit
       - variable: USER_INPUT
