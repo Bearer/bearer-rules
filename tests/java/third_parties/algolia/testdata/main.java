@@ -8,9 +8,8 @@ public class Program {
    public static void bad(User user) {
       SearchClient client = DefaultSearchClient.create("YourApplicationID", "YourWriteAPIKey");
       SearchIndex<Contact> index = client.initIndex("test_index", Contact.class);
-      // bearer:expected java_third_parties_algolia
       Contact contactObj = new Contact().setName(user.name).setEmail(user.email);
-
+      // bearer:expected java_third_parties_algolia
       SearchResult<Contact> results = index.saveObject(contactObj);
    }
 
@@ -18,8 +17,8 @@ public class Program {
       SearchClient client = DefaultSearchClient.create("YourApplicationID", "YourWriteAPIKey");
 
       SearchIndex<Record> index = client.initIndex("test_index", Record.class);
-      // bearer:expected java_third_parties_algolia
       Record record = new Record("test_user", user.email);
+      // bearer:expected java_third_parties_algolia
       index.saveObject(record);
    }
 
@@ -29,11 +28,10 @@ public class Program {
       List contactList = Arrays.asList(
          new Contact()
             .setId(currentUser.uuid)
-            // bearer:expected java_third_parties_algolia
             .setName(currentUser.name)
             .setEmail(currentUser.email)
-      )
-
+      );
+      // bearer:expected java_third_parties_algolia
       SearchResult<Contact> results = index.saveObjectsAsync(contactList);
    }
 

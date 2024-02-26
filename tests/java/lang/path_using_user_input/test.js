@@ -14,8 +14,7 @@ describe(ruleId, () => {
       const results = invoke(testCase)
 
       expect(results.Missing).toEqual([])
-      // FIXME: bug in expected findings
-      expect(results.Extra).toEqual(["java_lang_path_using_user_input:18"])
+      expect(results.Extra).toEqual([])
     })
 
 

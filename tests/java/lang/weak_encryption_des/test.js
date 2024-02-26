@@ -14,8 +14,7 @@ describe(ruleId, () => {
       const results = invoke(testCase)
 
       expect(results.Missing).toEqual([])
-      // FIXME: bug in expected findings
-      expect(results.Extra).toEqual(["java_lang_weak_encryption_des:22"])
+      expect(results.Extra).toEqual([])
     })
 
 })
