@@ -3,7 +3,7 @@ imports:
   - java_shared_lang_instance
 patterns:
   - pattern: |
-      $<ES_CLIENT>.index($<_> -> $<_>.index().id().$<!>document($<OBJECT_WITH_DATATYPES>));
+      $<ES_CLIENT>.index($<_> -> $<_>.index().id().document($<OBJECT_WITH_DATATYPES>));
     filters:
       - variable: ES_CLIENT
         values:
@@ -11,7 +11,7 @@ patterns:
       - variable: OBJECT_WITH_DATATYPES
         detection: java_third_parties_elasticsearch_object_with_datatypes
   - pattern: |
-      $<ES_CLIENT>.update($<_> -> $<_>.index().id().$<!>upsert($<OBJECT_WITH_DATATYPES>)$<...>);
+      $<ES_CLIENT>.update($<_> -> $<_>.index().id().upsert($<OBJECT_WITH_DATATYPES>)$<...>);
     filters:
       - variable: ES_CLIENT
         values:
