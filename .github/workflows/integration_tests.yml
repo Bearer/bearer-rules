@@ -24,7 +24,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: ["latest"]
         group:
           [
             "javascript/express",
@@ -39,6 +38,7 @@ jobs:
             "java/lang",
             "java/spring",
             "java/android",
+            "java/third_parties",
             "php/lang",
             "php/symfony",
             "php/third_parties",
@@ -50,6 +50,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: yarn install --frozen-lockfile
+      - run: curl -sfL https://raw.githubusercontent.com/Bearer/bearer/main/contrib/install.sh | sh
+      - run: ./bin/bearer verson
       - name: Test ${{ matrix.group }}
-        run: BEARER_VERSION=${{matrix.version}} yarn test tests/${{ matrix.group }}
+        run: BEARER_BIN=./bin/bearer yarn test tests/${{ matrix.group }}
         shell: bash

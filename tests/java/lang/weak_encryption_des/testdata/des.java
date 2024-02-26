@@ -5,6 +5,7 @@ public byte[] signToken(byte[] payload) throws GeneralSecurityException
 
   c.init(Cipher.ENCRYPT_MODE, keyPair.getPrivate());
 
+  // bearer:expected java_lang_weak_encryption_des
   return c.doFinal(payload);
 }
 
@@ -13,6 +14,10 @@ public byte[] encryptName(User user) throws GeneralSecurityException
   Cipher c = Cipher.getInstance("DES/CBC/NoPadding", "foo");
 
   c.init(Cipher.ENCRYPT_MODE, keyPair.getPrivate());
-  c.update(user.firstname)
+
+  // bearer:expected java_lang_weak_encryption_des
+  c.update(user.firstname);
+
+  // bearer:expected java_lang_weak_encryption_des
   return c.doFinal(user.lastname);
 }

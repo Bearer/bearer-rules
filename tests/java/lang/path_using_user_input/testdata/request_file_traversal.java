@@ -15,6 +15,7 @@ public class Cls extends HttpServlet
     public void handleRequest(HttpServletRequest request, HttpServletResponse response)
     {
         String image = request.getParameter("user_profile_picture");
+// bearer:expected java_lang_path_using_user_input
         File file = new File("user/profile/", image);
         File okFile = new File("user/profile/", image ? ok : ok);
     }

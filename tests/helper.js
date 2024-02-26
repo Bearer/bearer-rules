@@ -21,45 +21,6 @@ exports.getEnvironment = (path) => {
   }
 }
 
-exports.createInvoker = (ruleId, ruleFile, testBase) => {
-  return (testCase) => {
-    const out = execSync(
-      `./scripts/invoke.sh ${ruleFile} ${testBase}${testCase} ${ruleId}`
-    ).toString()
-
-    results = JSON.parse(out)
-    let findings = []
-    for (const [_severity, values] of Object.entries(results)) {
-      for (const [value] in values) {
-        findings.push({
-          // severity: key,
-          line_number: values[value]["line_number"],
-        })
-      }
-    }
-
-    if (CI !== "true") {
-      console.log(
-        "[%s]\n\t%d findings for %s using (%s)\n%s\n\n%s",
-        ruleId,
-        findings.length,
-        ruleFile,
-        testBase,
-        JSON.stringify(findings, null, 2),
-        `Run the following command if you need to debug
-
-(if running bearer develop)
-go run cmd/bearer/main.go scan ${testBase} --only-rule ${ruleId} --log-level trace
-
-(if running binary)
-bearer scan ${testBase} --only-rule ${ruleId} --log-level trace`
-      )
-    }
-
-    return JSON.stringify(results, null, 2)
-  }
-}
-
 function difference(setA, setB) {
   const diff = new Set(setA)
 
@@ -88,8 +49,9 @@ FORMAT=jsonv2 bearer scan ${testBase} --only-rule ${ruleId} --log-level trace`
   }
 
   return (testCase) => {
+    // console.log( `FORMAT=jsonv2 ./scripts/invoke.sh ${testBase}${testCase} ${ruleId}`)
     const out = execSync(
-      `FORMAT=jsonv2 ./scripts/invoke.sh ${ruleFile} ${testBase}${testCase} ${ruleId}`
+      `FORMAT=jsonv2 ./scripts/invoke.sh ${testBase}${testCase} ${ruleId}`
     ).toString()
 
     results = JSON.parse(out)
