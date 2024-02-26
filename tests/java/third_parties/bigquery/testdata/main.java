@@ -28,4 +28,19 @@ public class FooBar {
         .build()
       );
   }
+
+    public static void bad(User user) {
+    BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
+
+    TableId tableId = TableId.of("MY_DATASET_NAME", "MY_TABLE_NAME");
+
+    Map<String, String> rowContent = new HashMap<>();
+    rowContent.put("uuid", user.uuid);
+
+    InsertAllResponse response = bigquery
+      .insertAll(InsertAllRequest.newBuilder(tableId)
+        .addRow(rowContent)
+        .build()
+      );
+  }
 }
