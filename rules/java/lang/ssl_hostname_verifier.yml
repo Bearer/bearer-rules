@@ -1,0 +1,225 @@
+imports:
+  - java_shared_lang_instance
+patterns:
+  - pattern: $<SSL_SOCKET_FACTORY>.ALLOW_ALL_HOSTNAME_VERIFIER;
+    filters:
+      - variable: SSL_SOCKET_FACTORY
+        regex: \A(org\.apache\.http\.conn\.ssl\.)?SSLSocketFactory\z
+  - pattern: $<CALLER>.$<METHOD>($<...>$<ALLOW_ALL_HOSTNAME_VERIFIER>);
+    filters:
+      - either:
+          - variable: CALLER
+            detection: ssl_hostname_verifier_socket_factory
+          - variable: CALLER
+            detection: ssl_hostname_verifier_https_url_connection
+      - variable: METHOD
+        values:
+          - setHostnameVerifier
+          - setDefaultHostnameVerifier
+          - setSSLHostnameVerifier
+      - either:
+          - variable: ALLOW_ALL_HOSTNAME_VERIFIER
+            detection: ssl_hostname_verifier_allow_all_hostname_verifier
+          - variable: ALLOW_ALL_HOSTNAME_VERIFIER
+            detection: ssl_hostname_verifier_allow_all_hostname_verifier_instance
+  - pattern: $<SSL_CONTEXT_GET_INSTANCE>.init($<NULL>, $<_>, $<_>)
+    filters:
+      - variable: SSL_CONTEXT_GET_INSTANCE
+        detection: ssl_hostname_verifier_ssl_context_get_instance
+      - variable: "NULL"
+        detection: ssl_hostname_verifier_null
+        scope: cursor
+  - pattern: $<TLS_CLIENT_PARAMS>.setDisableCNCheck($<TRUE>);
+    filters:
+      - variable: TLS_CLIENT_PARAMS
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(org\.apache\.cxf\.configuration\.jsse\.)?TLSClientParameters\z
+      - variable: "TRUE"
+        detection: ssl_hostname_verifier_true
+  - pattern: |
+      new $<X509_TRUST_MANAGER>() {
+        $<!>$<...>X509Certificate[] getAcceptedIssuers() {
+          return $<NULL_X509_CERTIFICATE>;
+        }
+      };
+    filters:
+      - variable: X509_TRUST_MANAGER
+        regex: \A(javax\.net\.ssl\.)?X509TrustManager\z
+      - variable: NULL_X509_CERTIFICATE
+        detection: ssl_hostname_verifier_null_x509_cert
+  - pattern: |
+      new $<X509_TRUST_MANAGER>() {
+        $<!>$<...>X509Certificate[] getAcceptedIssuers() {
+          $<X509_CERTIFICATE_TYPE>[] $<X509_CERT> = $<NULL_X509_CERTIFICATE>;
+          return $<X509_CERT>;
+        }
+      };
+    filters:
+      - variable: X509_TRUST_MANAGER
+        regex: \A(javax\.net\.ssl\.)?X509TrustManager\z
+      - variable: X509_CERTIFICATE_TYPE
+        regex: \A(java\.security\.cert\.)?X509Certificate\z
+      - variable: NULL_X509_CERTIFICATE
+        detection: ssl_hostname_verifier_null_x509_cert
+  - pattern: |
+      class $<...>$<_> implements $<X509_TRUST_MANAGER> {
+        $<!>$<...>X509Certificate[] getAcceptedIssuers() {
+          return $<NULL_X509_CERTIFICATE>;
+        }
+      };
+    filters:
+      - variable: X509_TRUST_MANAGER
+        regex: \A(javax\.net\.ssl\.)?X509TrustManager\z
+      - variable: NULL_X509_CERTIFICATE
+        detection: ssl_hostname_verifier_null_x509_cert
+  - pattern: |
+      class $<...>$<_> implements $<X509_TRUST_MANAGER> {
+        $<!>$<...>X509Certificate[] getAcceptedIssuers() {
+          $<X509_CERTIFICATE_TYPE>[] $<X509_CERT> = $<NULL_X509_CERTIFICATE>;
+          return $<X509_CERT>;
+        }
+      };
+    filters:
+      - variable: X509_TRUST_MANAGER
+        regex: \A(javax\.net\.ssl\.)?X509TrustManager\z
+      - variable: X509_CERTIFICATE_TYPE
+        regex: \A(java\.security\.cert\.)?X509Certificate\z
+      - variable: NULL_X509_CERTIFICATE
+        detection: ssl_hostname_verifier_null_x509_cert
+  - pattern: |
+      new $<HOSTNAME_VERIFIER>() {
+        $<!>$<...>$<_> verify($<...>String $<_>, $<...>$<SSL_SESSION> $<_>) {
+          return $<TRUE>;
+        }
+      };
+    filters:
+      - variable: HOSTNAME_VERIFIER
+        regex: \A(javax\.net\.ssl\.)?HostnameVerifier\z
+      - variable: SSL_SESSION
+        regex: \A(javax\.net\.ssl\.)?SSLSession\z
+      - variable: "TRUE"
+        detection: ssl_hostname_verifier_true
+  - pattern: |
+      class $<...>$<_> implements $<HOSTNAME_VERIFIER> {
+        $<!>$<...>$<_> verify($<...>String $<_>, $<...>$<SSL_SESSION> $<_>) {
+          return $<TRUE>;
+        }
+      }
+    filters:
+      - variable: HOSTNAME_VERIFIER
+        regex: \A(javax\.net\.ssl\.)?HostnameVerifier\z
+      - variable: SSL_SESSION
+        regex: \A(javax\.net\.ssl\.)?SSLSession\z
+      - variable: "TRUE"
+        detection: ssl_hostname_verifier_true
+auxiliary:
+  - id: ssl_hostname_verifier_allow_all_hostname_verifier
+    patterns:
+      - pattern: $<ALLOW_ALL_HOSTNAME_VERIFIER>;
+        filters:
+          - variable: ALLOW_ALL_HOSTNAME_VERIFIER
+            regex: \A(org\.apache\.http\.conn\.ssl\.)?(AllowAllHostnameVerifier|NoopHostnameVerifier|NullHostnameVerifier)\z
+      - pattern: $<ALLOW_ALL_HOSTNAME_VERIFIER>.INSTANCE;
+        filters:
+          - variable: ALLOW_ALL_HOSTNAME_VERIFIER
+            regex: \A(org\.apache\.http\.conn\.ssl\.)?(AllowAllHostnameVerifier|NoopHostnameVerifier|NullHostnameVerifier)\z
+      - pattern: $<SSL_SOCKET_FACTORY>.ALLOW_ALL_HOSTNAME_VERIFIER;
+        filters:
+          - variable: SSL_SOCKET_FACTORY
+            detection: ssl_hostname_verifier_socket_factory
+      - pattern: $<SSL_SOCKET_FACTORY>.ALLOW_ALL_HOSTNAME_VERIFIER;
+        filters:
+          - variable: SSL_SOCKET_FACTORY
+            regex: \A(org\.apache\.http\.conn\.ssl\.)?SSLSocketFactory\z
+  - id: ssl_hostname_verifier_allow_all_hostname_verifier_instance
+    patterns:
+      - pattern: new $<ALLOW_ALL_HOSTNAME_VERIFIER>();
+        filters:
+          - variable: ALLOW_ALL_HOSTNAME_VERIFIER
+            detection: ssl_hostname_verifier_allow_all_hostname_verifier
+      - pattern: ($<HOSTNAME_VERIFIER_CAST>) new $<ALLOW_ALL_HOSTNAME_VERIFIER>();
+        filters:
+          - variable: HOSTNAME_VERIFIER_CAST
+            values:
+              - HostnameVerifier
+              - X509HostnameVerifier
+          - variable: ALLOW_ALL_HOSTNAME_VERIFIER
+            detection: ssl_hostname_verifier_allow_all_hostname_verifier
+      - pattern: ($<HOSTNAME_VERIFIER_CAST>) <$ALLOW_ALL_HOSTNAME_VERIFIER>;
+        filters:
+          - variable: ALLOW_ALL_HOSTNAME_VERIFIER
+            detection: ssl_hostname_verifier_allow_all_hostname_verifier
+          - variable: HOSTNAME_VERIFIER_CAST
+            values:
+              - HostnameVerifier
+              - X509HostnameVerifier
+  - id: ssl_hostname_verifier_socket_factory
+    patterns:
+      - pattern: $<SSL_SOCKET_FACTORY>;
+        filters:
+          - variable: SSL_SOCKET_FACTORY
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(org\.apache\.http\.conn\.ssl\.)?SSLSocketFactory\z
+      - pattern: $<CALLER>.getSocketFactory();
+        filters:
+          - either:
+              - variable: CALLER
+                regex: \A(javax\.net\.ssl\.)?SSLContext\z
+              - variable: CALLER
+                regex: \A(org\.apache\.http\.conn\.ssl\.)?SSLSocketFactory\z
+  - id: ssl_hostname_verifier_https_url_connection
+    patterns:
+      - pattern: $<HTTPS_URL_CONNECTION>;
+        filters:
+          - variable: HTTPS_URL_CONNECTION
+            regex: \A(javax\.net\.ssl\.)?HttpsURLConnection\z
+  - id: ssl_hostname_verifier_ssl_context_get_instance
+    patterns:
+      - pattern: $<SSL_CONTEXT>.getInstance();
+        filters:
+          - variable: SSL_CONTEXT
+            regex: \A(javax\.net\.ssl\.)?SSLContext\z
+  - id: ssl_hostname_verifier_null_x509_cert
+    patterns:
+      - pattern: new $<X509_CERT>[]{};
+        filters:
+          - variable: X509_CERT
+            regex: \A(java\.security\.cert\.)?X509Certificate\z
+      - pattern: new $<X509_CERT>[0];
+        filters:
+          - variable: X509_CERT
+            regex: \A(java\.security\.cert\.)?X509Certificate\z
+      - pattern: $<NULL>;
+        filters:
+          - variable: "NULL"
+            detection: ssl_hostname_verifier_null
+  - id: ssl_hostname_verifier_null
+    patterns:
+      - "null;"
+  - id: ssl_hostname_verifier_true
+    patterns:
+      - "true;"
+languages:
+  - java
+metadata:
+  description: "Missing or permissive SSL hostname verifier"
+  remediation_message: |
+    ## Description
+
+    It is best security practice to always verify the hostname when establishing a SSL/TLS connection.
+    Failure to do so puts your application at risk of man-in-the-middle attacks.
+
+    ## Remediations
+
+    ❌ Do not use `ALLOW_ALL_HOSTNAME_VERIFIER` or similar permissive verifiers
+
+  cwe_id:
+    - 295
+  id: java_lang_ssl_hostname_verifier
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_ssl_hostname_verifier
