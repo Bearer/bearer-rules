@@ -6,211 +6,42 @@ patterns:
         regex: /pass(word)?/
       - variable: KEY2
         regex: /pass(word)?/
-    # - pattern: |
-    #     return $X === auth_token;
-    # - pattern: |
-    #     return auth_token === $X;
-    # - pattern: |
-    #     return $X === token;
-    # - pattern: |
-    #     return token === $X;
-    # - pattern: |
-    #     return $X === hash;
-    # - pattern: |
-    #     return hash === $X;
-    # - pattern: |
-    #     return $X === password;
-    # - pattern: |
-    #     return password === $X;
-    # - pattern: |
-    #     return $X === pass;
-    # - pattern: |
-    #     return pass === $X;
-    # - pattern: |
-    #     return $X === apiKey;
-    # - pattern: |
-    #     return apiKey === $X;
-    # - pattern: |
-    #     return $X === apiSecret;
-    # - pattern: |
-    #     return apiSecret === $X;
-    # - pattern: |
-    #     return $X === api_key;
-    # - pattern: |
-    #     return api_key === $X;
-    # - pattern: |
-    #     return $X === api_secret;
-    # - pattern: |
-    #     return api_secret === $X;
-    # - pattern: |
-    #     return $X === secret;
-    # - pattern: |
-    #     return secret === $X;
-    # - pattern: |
-    #     return $X === api;
-    # - pattern: |
-    #     return api === $X;
-    # - pattern: |
-    #     return $X == auth_token;
-    # - pattern: |
-    #     return auth_token == $X;
-    # - pattern: |
-    #     return $X == token;
-    # - pattern: |
-    #     return token == $X;
-    # - pattern: |
-    #     return $X == hash;
-    # - pattern: |
-    #     return hash == $X;
-    # - pattern: |
-    #     return $X == password;
-    # - pattern: |
-    #     return password == $X;
-    # - pattern: |
-    #     return $X == pass;
-    # - pattern: |
-    #     return pass == $X;
-    # - pattern: |
-    #     return $X == apiKey;
-    # - pattern: |
-    #     return apiKey == $X;
-    # - pattern: |
-    #     return $X == apiSecret;
-    # - pattern: |
-    #     return apiSecret == $X;
-    # - pattern: |
-    #     return $X == api_key;
-    # - pattern: |
-    #     return api_key == $X;
-    # - pattern: |
-    #     return $X == api_secret;
-    # - pattern: |
-    #     return api_secret == $X;
-    # - pattern: |
-    #     return $X == secret;
-    # - pattern: |
-    #     return secret == $X;
-    # - pattern: |
-    #     return $X == api;
-    # - pattern: |
-    #     return api == $X;
-    # - pattern: |
-    #     return $X !== auth_token;
-    # - pattern: |
-    #     return auth_token !== $X;
-    # - pattern: |
-    #     return $X !== token;
-    # - pattern: |
-    #     return token !== $X;
-    # - pattern: |
-    #     return $X !== hash;
-    # - pattern: |
-    #     return hash !== $X;
-    # - pattern: |
-    #     return $X !== password;
-    # - pattern: |
-    #     return password !== $X;
-    # - pattern: |
-    #     return $X !== pass;
-    # - pattern: |
-    #     return pass !== $X;
-    # - pattern: |
-    #     return $X !== apiKey;
-    # - pattern: |
-    #     return apiKey !== $X;
-    # - pattern: |
-    #     return $X !== apiSecret;
-    # - pattern: |
-    #     return apiSecret !== $X;
-    # - pattern: |
-    #     return $X !== api_key;
-    # - pattern: |
-    #     return api_key !== $X;
-    # - pattern: |
-    #     return $X !== api_secret;
-    # - pattern: |
-    #     return api_secret !== $X;
-    # - pattern: |
-    #     return $X !== secret;
-    # - pattern: |
-    #     return secret !== $X;
-    # - pattern: |
-    #     return $X !== api;
-    # - pattern: |
-    #     return api !== $X;
-    # - pattern: |
-    #     return $X != auth_token;
-    # - pattern: |
-    #     return auth_token != $X;
-    # - pattern: |
-    #     return $X != token;
-    # - pattern: |
-    #     return token != $X;
-    # - pattern: |
-    #     return $X != hash;
-    # - pattern: |
-    #     return hash != $X;
-    # - pattern: |
-    #     return $X != password;
-    # - pattern: |
-    #     return password != $X;
-    # - pattern: |
-    #     return $X != pass;
-    # - pattern: |
-    #     return pass != $X;
-    # - pattern: |
-    #     return $X != apiKey;
-    # - pattern: |
-    #     return apiKey != $X;
-    # - pattern: |
-    #     return $X != apiSecret;
-    # - pattern: |
-    #     return apiSecret != $X;
-    # - pattern: |
-    #     return $X != api_key;
-    # - pattern: |
-    #     return api_key != $X;
-    # - pattern: |
-    #     return $X != api_secret;
-    # - pattern: |
-    #     return api_secret != $X;
-    # - pattern: |
-    #     return $X != secret;
-    # - pattern: |
-    #     return secret != $X;
-    # - pattern: |
-    #     return $X != api;
-    # - pattern: |
-    #     return api != $X;
-
-# auxiliary:
-#   - id: go_lang_observable_timing_init
-#     patterns:
-#       - pattern1
-#       - pattern: $<INIT>
-#         filters:
-#           - variable: INIT
-#             detection: go_lang_observable_timing_instance
-#             scope: cursor
-#   - id: go_lang_observable_timing_instance
-#     patterns:
-#       - pattern2
 languages:
   - go
 metadata:
-  description: ""
+  description: "Observable Timing Discrepancy"
   remediation_message: |
     ## Description
 
+    Observable Timing Discrepancy refers to vulnerabilities arising from attackers being able to observe differences in the time it takes to perform certain operations.
+    These discrepancies can lead to the exposure of sensitive information, as attackers can use timing analysis to infer secrets based on the execution time of algorithms, particularly during comparisons of user input against secret values.
+
     ## Remediations
 
-    ✅
+    ✅ **Implement Constant Time Algorithms**
 
-    ❌
+    Ensure algorithms that process sensitive information, such as password comparisons, execute in constant time to prevent timing attacks.
 
-    ## References
+    ✅ **Use Built-in Security Features**
 
-    - []()
+    Leverage built-in cryptographic libraries that include timing-attack safe functions for comparing secrets.
+
+    ✅ **Minimize Client-Side Checks**
+
+    Avoid sensitive comparisons directly in client-side JavaScript where possible, as the execution environment is more exposed to timing analysis by attackers.
+
+    ❌ **Avoid Direct Comparisons**
+
+    Do not use direct string comparisons for sensitive information that can lead to early function termination based on the first incorrect character.
+
+    ❌ **Do Not Rely on Execution Time for Logic**
+
+    Ensure the application's logic does not change execution paths in a way that could introduce observable timing differences based on user input or secret values.
+
+    ## Resources
+
+    - [CWE-208: Observable Timing Discrepancy](https://cwe.mitre.org/data/definitions/208.html)
+    - [OWASP Guide to Cryptography](https://owasp.org/www-project-cheat-sheets/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)
 
   cwe_id:
     - 208
