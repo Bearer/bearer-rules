@@ -6,18 +6,6 @@ import (
 	"time"
 )
 
-func bad() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
-	})
-	err := (&http.Server{
-		Addr: ":1234",
-	}).ListenAndServe()
-	if err != nil {
-		panic(err)
-	}
-}
-
 func ok() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
@@ -26,7 +14,6 @@ func ok() {
 		Addr:              ":1234",
 		ReadHeaderTimeout: 3 * time.Second,
 	}
-// bearer:expected go_gosec_http_http_slowloris
 	err := server.ListenAndServe()
 	if err != nil {
 		panic(err)
@@ -41,39 +28,52 @@ func ok2() {
 		Addr:        ":1234",
 		ReadTimeout: 1 * time.Second,
 	}
-// bearer:expected go_gosec_http_http_slowloris
 	err := server.ListenAndServe()
 	if err != nil {
 		panic(err)
 	}
 }
 
-func ok3() {
+func ok_but_cfg_unsupported() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
 	})
+	// bearer:expected go_gosec_http_http_slowloris
 	server := &http.Server{
 		Addr: ":1234",
 	}
 	// FIXME: unsupported for now
 	server.ReadHeaderTimeout = 1 * time.Second
-// bearer:expected go_gosec_http_http_slowloris
 	err := server.ListenAndServe()
+	if err != nil {
+		panic(err)
+	}
+}
+
+func bad1() {
+	router := httprouter.New()
+
+	// bearer:expected go_gosec_http_http_slowloris
+	s := http.Server{
+		Addr:    fmt.Sprintf(":%s", config.Cfg.Webport),
+		Handler: router,
+	}
+
+	err := s.ListenAndServe()
 	if err != nil {
 		panic(err)
 	}
 }
 
 func bad2() {
-	router := httprouter.New()
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
+	})
 
-	s := http.Server{
-		Addr:    fmt.Sprintf(":%s", config.Cfg.Webport),
-		Handler: router,
-	}
-
-// bearer:expected go_gosec_http_http_slowloris
-	err := s.ListenAndServe()
+	// bearer:expected go_gosec_http_http_slowloris
+	err := (&http.Server{
+		Addr: ":1234",
+	}).ListenAndServe()
 	if err != nil {
 		panic(err)
 	}

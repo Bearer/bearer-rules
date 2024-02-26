@@ -1,35 +1,94 @@
 patterns:
-  - pattern: $<HTTP_INIT>.ListenAndServe()
+  - pattern: |
+      $<SERVER>
     filters:
-      - variable: HTTP_INIT
-        detection: go_gosec_http_http_slowloris_http_init
-        scope: cursor
-      - either:
-          - not:
-              variable: HTTP_INIT
+      - variable: SERVER
+        detection: go_gosec_http_http_slowloris_net_http_init
+        scope: cursor_strict
+      - not:
+          either:
+            - variable: SERVER
               detection: go_gosec_http_http_slowloris_http_slowloris_read_timeout
               scope: cursor
-          - not:
-              variable: HTTP_INIT
+            - variable: SERVER
               detection: go_gosec_http_http_slowloris_http_slowloris_read_header_timeout
               scope: cursor
+  # FIXME: Switch to this once we have better CFG support
+  # - pattern: $<HTTP_INIT>.$<METHOD>()
+  #   filters:
+  #     - variable: HTTP_INIT
+  #       detection: go_gosec_http_http_slowloris_net_http_init
+  #       scope: result
+  #     - variable: METHOD
+  #       values:
+  #         - ListenAndServe
+  #         - ListenAndServeTLS
+  #         - Serve
+  #         - ServeTLS
+  # - pattern: $<HTTP_INIT>
+  #   filters:
+  #     - variable: HTTP_INIT
+  #       detection: go_gosec_http_http_slowloris_net_http_init
+  #       scope: cursor
+  #     - not:
+  #         either:
+  #           - variable: HTTP_INIT
+  #             detection: go_gosec_http_http_slowloris_http_slowloris_read_timeout
+  #             scope: cursor
+  #           - variable: HTTP_INIT
+  #             detection: go_gosec_http_http_slowloris_http_slowloris_read_header_timeout
+  #             scope: cursor
 auxiliary:
   - id: go_gosec_http_http_slowloris_http_slowloris_read_timeout
     patterns:
       - pattern: |
-          http.Server{$<...>$<!>ReadTimeout: $<_>$<...>}
+          $<HTTP>.Server{$<...>ReadTimeout: $<_>$<...>}
+        filters:
+          - variable: HTTP
+            detection: go_gosec_http_http_slowloris_net_http_import
+            scope: cursor
       - pattern: |
-          &http.Server{$<...>$<!>ReadTimeout: $<_>$<...>}
+          &$<HTTP>.Server{$<...>ReadTimeout: $<_>$<...>}
+        filters:
+          - variable: HTTP
+            detection: go_gosec_http_http_slowloris_net_http_import
+            scope: cursor
   - id: go_gosec_http_http_slowloris_http_slowloris_read_header_timeout
     patterns:
       - pattern: |
-          http.Server{$<...>$<!>ReadHeaderTimeout: $<_>$<...>}
+          $<HTTP>.Server{$<...>ReadHeaderTimeout: $<_>$<...>}
+        filters:
+          - variable: HTTP
+            detection: go_gosec_http_http_slowloris_net_http_import
+            scope: cursor
       - pattern: |
-          &http.Server{$<...>$<!>ReadHeaderTimeout: $<_>$<...>}
-  - id: go_gosec_http_http_slowloris_http_init
+          &$<HTTP>.Server{$<...>ReadHeaderTimeout: $<_>$<...>}
+        filters:
+          - variable: HTTP
+            detection: go_gosec_http_http_slowloris_net_http_import
+            scope: cursor
+  - id: go_gosec_http_http_slowloris_net_http_init
     patterns:
-      - "&http.Server{}"
-      - "http.Server{}"
+      - pattern: |
+          $<HTTP>.Server{$<...>}
+        filters:
+          - variable: HTTP
+            detection: go_gosec_http_http_slowloris_net_http_import
+            scope: cursor
+      - pattern: |
+          &$<HTTP>.Server{$<...>}
+        filters:
+          - variable: HTTP
+            detection: go_gosec_http_http_slowloris_net_http_import
+            scope: cursor
+  - id: go_gosec_http_http_slowloris_net_http_import
+    patterns:
+      - pattern: |
+          import $<!>"net/http"
+      - pattern: |
+          import (
+            $<!>"net/http"
+          )
 languages:
   - go
 metadata:
