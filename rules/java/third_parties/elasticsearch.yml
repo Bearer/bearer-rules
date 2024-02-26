@@ -1,0 +1,64 @@
+imports:
+  - java_shared_lang_datatype
+  - java_shared_lang_instance
+patterns:
+  - pattern: |
+      $<ES_CLIENT>.index($<_> -> $<_>.index().id().document($<OBJECT_WITH_DATATYPES>));
+    filters:
+      - variable: ES_CLIENT
+        values:
+          - esClient
+      - variable: OBJECT_WITH_DATATYPES
+        detection: java_third_parties_elasticsearch_object_with_datatypes
+  - pattern: |
+      $<ES_CLIENT>.update($<_> -> $<_>.index().id().upsert($<OBJECT_WITH_DATATYPES>)$<...>);
+    filters:
+      - variable: ES_CLIENT
+        values:
+          - esClient
+      - variable: OBJECT_WITH_DATATYPES
+        detection: java_third_parties_elasticsearch_object_with_datatypes
+  - pattern: |
+      $<BUILDER>.document($<OBJECT_WITH_DATATYPES>);
+    filters:
+      - variable: BUILDER
+        detection: java_third_parties_elasticsearch_index_request_builder
+      - variable: OBJECT_WITH_DATATYPES
+        detection: java_third_parties_elasticsearch_object_with_datatypes
+auxiliary:
+  - id: java_third_parties_elasticsearch_object_with_datatypes
+    patterns:
+      - pattern: $<_> $<OBJ> = new $<_>($<...>$<DATA_TYPE>$<...>);
+        focus: OBJ
+        filters:
+          - variable: DATA_TYPE
+            detection: java_shared_lang_datatype
+  - id: java_third_parties_elasticsearch_index_request_builder
+    patterns:
+      - pattern: $<INDEX_REQUEST>.Builder<$<_>> $<BUILDER> = new $<INDEX_REQUEST>.Builder<>();
+        focus: BUILDER
+        filters:
+          - variable: INDEX_REQUEST
+            regex: \A(org\.elasticsearch\.action\.index\.)?IndexRequest\z
+languages:
+  - java
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: Leakage of sensitive data to ElasticSearch
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party data tools is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Elasticsearch.
+
+    ## Remediations
+    When sending data to third-party services, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Elasticsearch docs](https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/current/index.html)
+  cwe_id:
+    - 201
+  associated_recipe: Elasticsearch
+  id: java_third_parties_elasticsearch
+  documentation_url: https://docs.bearer.com/reference/rules/java_third_parties_elasticsearch
