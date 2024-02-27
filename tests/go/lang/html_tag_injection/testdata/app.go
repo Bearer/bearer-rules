@@ -13,7 +13,7 @@ func bad(w http.ResponseWriter, r *http.Request) {
 }
 
 func bad2(w http.ResponseWriter, r *http.Request) {
-	searchTerm := r.FormValue("q")
+	searchTerm := r.URL.Query().Get("Foo")
 	// bearer:expected go_lang_html_tag_injection
 	t := template.Must(template.New("ex").Parse(searchTerm))
 	v := map[string]interface{}{

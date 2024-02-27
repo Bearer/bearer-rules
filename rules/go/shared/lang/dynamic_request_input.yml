@@ -14,6 +14,12 @@ patterns:
       - variable: READER
         detection: go_shared_lang_dynamic_request_input_reader
         scope: cursor
+  - pattern: $<REQUEST>.FormValue()
+    filters:
+      - variable: REQUEST
+        detection: go_shared_lang_dynamic_request_input_request
+        scope: cursor
+
 auxiliary:
   - id: go_shared_lang_dymamic_request_input_input
     patterns:
