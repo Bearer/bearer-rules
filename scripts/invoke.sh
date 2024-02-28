@@ -8,6 +8,7 @@ rule_id=$2
 rule_loc=$PWD/rules
 BEARER_VERSION=${BEARER_VERSION=latest}
 FORMAT=${FORMAT=json}
+DEBUG=${DEBUG=false}
 
 filename=$(basename $test_location)
 tmp_location=/tmp/bearer-scan/$filename
@@ -27,11 +28,12 @@ if [ -n "$BEARER_BIN" ]; then
 else
   if [ -n "$BEARER_WORKSPACE" ]; then
     cd $BEARER_WORKSPACE
-    $GO_EXEC run ./cmd/bearer/main.go scan $tmp_location \
+    $BEARER_DEBUG $GO_EXEC run ./cmd/bearer/main.go scan $tmp_location \
       --only-rule=$rule_id \
-      --debug \
       --disable-default-rules=true \
       --external-rule-dir=$rule_loc \
+      --debug=${DEBUG} \
+      --quiet \
       --format=${FORMAT} \
       --disable-version-check \
       --force \
