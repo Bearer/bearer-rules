@@ -1,45 +1,58 @@
 imports:
-  - javascript_shared_common_user_input
+  - javascript_shared_common_dynamic_input
   - javascript_shared_import_library
   - javascript_shared_import_member
+  - javascript_shared_common_user_input
 patterns:
   - pattern: |
-      $<METHOD>($<...>$<USER_INPUT>$<...>)
+      $<METHOD>($<...>$<DYNAMIC_INPUT>$<...>)
     filters:
       - either:
           - variable: METHOD
-            detection: javascript_express_path_traversal_resolve
+            detection: javascript_lang_path_traversal_resolve
           - variable: METHOD
-            detection: javascript_express_path_traversal_join
-      - variable: USER_INPUT
-        detection: javascript_express_path_traversal_user_input
-        scope: result
+            detection: javascript_lang_path_traversal_join
+      - variable: DYNAMIC_INPUT
+        detection: javascript_lang_path_traversal_dynamic_input
+        scope: cursor
+      # - not:
+      #     variable: DYNAMIC_INPUT
+      #     detection: javascript_shared_common_user_input
+      #     scope: result
   - pattern: |
-      $<PATH>.$<METHOD>($<...>$<USER_INPUT>$<...>)
+      $<PATH>.$<METHOD>($<...>$<DYNAMIC_INPUT>$<...>)
     filters:
       - variable: PATH
-        detection: javascript_express_path_traversal_path
+        detection: javascript_lang_path_traversal_path
       - variable: METHOD
         values:
           - join
           - resolve
-      - variable: USER_INPUT
-        detection: javascript_express_path_traversal_user_input
-        scope: result
+      - variable: DYNAMIC_INPUT
+        detection: javascript_lang_path_traversal_dynamic_input
+        scope: cursor
+      # - not:
+      #     variable: DYNAMIC_INPUT
+      #     detection: javascript_shared_common_user_input
+      #     scope: result
 auxiliary:
-  - id: javascript_express_path_traversal_user_input
-    sanitizer: javascript_express_path_traversal_sanitizer
+  - id: javascript_lang_path_traversal_dynamic_input
+    sanitizer: javascript_lang_path_traversal_sanitizer
     patterns:
-      - pattern: $<UNSANITIZED_USER_INPUT>
+      - pattern: $<UNSANITIZED_DYNAMIC_INPUT>
         filters:
-          - variable: UNSANITIZED_USER_INPUT
-            detection: javascript_shared_common_user_input
-            scope: cursor
-  - id: javascript_express_path_traversal_sanitizer
+          - variable: UNSANITIZED_DYNAMIC_INPUT
+            detection: javascript_shared_common_dynamic_input
+            scope: result
+          - not:
+              variable: UNSANITIZED_DYNAMIC_INPUT
+              detection: javascript_shared_common_user_input
+              scope: result
+  - id: javascript_lang_path_traversal_sanitizer
     patterns:
       - $<_>.replace($<_>, "")
       - $<_>.replace($<_>, '')
-  - id: javascript_express_path_traversal_path
+  - id: javascript_lang_path_traversal_path
     patterns:
       - pattern: $<LIBRARY>
         filters:
@@ -53,7 +66,7 @@ auxiliary:
       - import * as $<!>$<_> from "path"
       # Fallback
       - path
-  - id: javascript_express_path_traversal_join
+  - id: javascript_lang_path_traversal_join
     patterns:
       - pattern: $<PATH>
         filters:
@@ -67,7 +80,7 @@ auxiliary:
                 regex: \Ajoin\z
       - import { $<!>join } from "path"
       - import { join as $<!>$<_> } from "path"
-  - id: javascript_express_path_traversal_resolve
+  - id: javascript_lang_path_traversal_resolve
     patterns:
       - pattern: $<PATH>
         filters:
@@ -83,17 +96,17 @@ auxiliary:
       - import { resolve as $<!>$<_> } from "path"
 languages:
   - javascript
-severity: high
+severity: warning
 metadata:
-  description: "Unsanitized user input in file path"
+  description: "Unsanitized dynamic input in file path"
   remediation_message: |
     ## Description
-    Allowing unsanitized user input in path resolution methods means an attacker could gain access to files and folders outside of the intended scope.
+    Allowing unsanitized dynamic input in path resolution methods means an attacker could gain access to files and folders outside of the intended scope.
 
     ## Remediations
     ❌ Avoid wherever possible
 
-    ✅ Sanitize user input when resolving paths, for example:
+    ✅ Sanitize dynamic input when resolving paths, for example:
     - Use `replace()` to mitigate against unwanted patterns in the path (such as `\..\..`)
     - Actively guard against paths that end in "%00" (poison NULL byte attacks)
     - Use path concatenation to ensure the intended scope is respected
@@ -101,12 +114,12 @@ metadata:
     ```javascript
     const path = require("path");
 
-    app.get("/", (req, res) => {
-      if (req.params.path.indexOf('\0')) !== -1 {
+    function(target) {
+      if (target.indexOf('\0')) !== -1 {
         // prevent access
       }
 
-      var folder = req.params.path.replace(/^(\.\.(\/|\\|$))+/, '')
+      var folder = target.replace(/^(\.\.(\/|\\|$))+/, '')
 
       var pathname = path.join("/public/", folder)
       if pathname.indexOf("/public/") !== 0 {
@@ -120,6 +133,6 @@ metadata:
     ## Resources
     - [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)
   cwe_id:
-    - 73
-  id: "javascript_express_path_traversal"
-  documentation_url: https://docs.bearer.com/reference/rules/javascript_express_path_traversal
+    - 22
+  id: javascript_lang_path_traversal
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_path_traversal

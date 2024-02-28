@@ -1,0 +1,37 @@
+type: shared
+languages:
+  - javascript
+sanitizer: javascript_shared_common_dynamic_input_sanitized
+patterns:
+  - pattern: const { $<!>$<_> } = $<JAVASCRIPT_SHARED_COMMON_DYNAMIC_INPUT>
+    filters:
+      - variable: JAVASCRIPT_SHARED_COMMON_DYNAMIC_INPUT
+        detection: javascript_shared_common_dynamic_input_input
+        scope: result
+  - pattern: $<JAVASCRIPT_SHARED_COMMON_DYNAMIC_INPUT>
+    filters:
+      - variable: JAVASCRIPT_SHARED_COMMON_DYNAMIC_INPUT
+        detection: javascript_shared_common_dynamic_input_input
+        scope: cursor
+auxiliary:
+  - id: javascript_shared_common_dynamic_input_input
+    patterns:
+      - |
+        ($<...>$<!>$<_>$<...>) => {}
+      - |
+        ($<...>$<!>$<_>$<...>) {}
+      - |
+        function ($<...>$<!>$<_>$<...>) {}
+      - |
+        function $<_>($<...>$<!>$<_>$<...>) {}
+      - |
+        class $<_> { $<_>($<...>$<!>$<_>$<...>) {} }
+      - |
+        this.$<_>
+  - id: javascript_shared_common_dynamic_input_sanitized
+    patterns:
+      - pattern: |
+          !$<!>$<_>
+metadata:
+  description: "Javascript dynamic input."
+  id: javascript_shared_common_dynamic_input
