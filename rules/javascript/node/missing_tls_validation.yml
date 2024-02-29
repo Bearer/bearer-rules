@@ -1,6 +1,90 @@
+imports:
+  - javascript_shared_import_library
 patterns:
-  - $<_>.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-  - $<_>.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
+  - $<_>.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
+  - $<_>.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0"
+  - pattern: $<SOCKET>.renegotiate($<!>$<REJECT_UNAUTHORIZED>)
+    filters:
+      - variable: SOCKET
+        detection: javascript_node_missing_tls_validation_socket
+      - variable: REJECT_UNAUTHORIZED
+        detection: javascript_node_missing_tls_validation_reject
+  - pattern: $<TLS>.connect($<!>$<REJECT_UNAUTHORIZED>)
+    filters:
+      - variable: TLS
+        detection: javascript_node_missing_tls_validation_tls
+        scope: cursor
+      - variable: REJECT_UNAUTHORIZED
+        detection: javascript_node_missing_tls_validation_reject
+  - pattern: new $<TLS>.TLSSocket($<_>, $<!>$<REJECT_UNAUTHORIZED>)
+    filters:
+      - variable: TLS
+        detection: javascript_node_missing_tls_validation_tls
+        scope: cursor
+      - variable: REJECT_UNAUTHORIZED
+        detection: javascript_node_missing_tls_validation_reject
+  - pattern: $<HTTPS>.$<METHOD>($<!>$<REJECT_UNAUTHORIZED>)
+    filters:
+      - variable: METHOD
+        values:
+          - get
+          - createServer
+      - variable: HTTPS
+        detection: javascript_node_missing_tls_validation_https
+        scope: cursor
+      - variable: REJECT_UNAUTHORIZED
+        detection: javascript_node_missing_tls_validation_reject
+  - pattern: new $<HTTPS>.Agent($<!>$<REJECT_UNAUTHORIZED>)
+    filters:
+      - variable: HTTPS
+        detection: javascript_node_missing_tls_validation_https
+        scope: cursor
+      - variable: REJECT_UNAUTHORIZED
+        detection: javascript_node_missing_tls_validation_reject
+auxiliary:
+  - id: javascript_node_missing_tls_validation_socket
+    patterns:
+      - pattern: new tls.TLSSocket()
+  - id: javascript_node_missing_tls_validation_reject
+    patterns:
+      - pattern: |
+          { $<...>$<!>rejectUnauthorized: $<FALSY>$<...> }
+        filters:
+          - variable: FALSY
+            detection: javascript_node_missing_tls_validation_unsanitized_falsy
+
+  - id: javascript_node_missing_tls_validation_unsanitized_falsy
+    sanitizer: javascript_node_missing_tls_validation_falsy_sanitizer
+    patterns:
+      - pattern: |
+          false
+
+  - id: javascript_node_missing_tls_validation_falsy_sanitizer
+    patterns:
+      - pattern: |
+          !$<!>$<_>
+
+  - id: javascript_node_missing_tls_validation_https
+    patterns:
+      - pattern: $<LIBRARY>
+        filters:
+          - variable: LIBRARY
+            detection: javascript_shared_import_library
+            scope: cursor
+            filters:
+              - variable: JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME
+                string_regex: \Ahttps\z
+
+  - id: javascript_node_missing_tls_validation_tls
+    patterns:
+      - pattern: $<LIBRARY>
+        filters:
+          - variable: LIBRARY
+            detection: javascript_shared_import_library
+            scope: cursor
+            filters:
+              - variable: JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME
+                string_regex: \Atls\z
 languages:
   - javascript
 severity: warning

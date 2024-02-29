@@ -1,7 +1,4 @@
-const {
-  createNewInvoker,
-  getEnvironment,
-} = require("../../../helper.js")
+const { createNewInvoker, getEnvironment } = require("../../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
@@ -14,7 +11,29 @@ describe(ruleId, () => {
 
     expect(results).toEqual({
       Missing: [],
-      Extra: []
+      Extra: [],
+    })
+  })
+
+  test("missing_tls_validation_other", () => {
+    const testCase = "other.js"
+
+    const results = invoke(testCase)
+
+    expect(results).toEqual({
+      Missing: [],
+      Extra: [],
+    })
+  })
+
+  test("missing_tls_validation_other2", () => {
+    const testCase = "other2.js"
+
+    const results = invoke(testCase)
+
+    expect(results).toEqual({
+      Missing: [],
+      Extra: [],
     })
   })
 })
