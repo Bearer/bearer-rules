@@ -21,6 +21,72 @@ patterns:
           detection: javascript_lang_observable_timing_other
           scope: cursor
 
+  - pattern: |
+      $<KEY1> != $<OTHER>
+    filters:
+      - variable: KEY1
+        detection: javascript_lang_observable_timing_regex
+        scope: cursor
+      - not:
+          variable: OTHER
+          detection: javascript_lang_observable_timing_other
+          scope: cursor
+
+  - pattern: |
+      $<OTHER> != $<KEY1>
+    filters:
+      - variable: KEY1
+        detection: javascript_lang_observable_timing_regex
+        scope: cursor
+      - not:
+          variable: OTHER
+          detection: javascript_lang_observable_timing_other
+          scope: cursor
+
+  - pattern: |
+      $<KEY1> === $<OTHER>
+    filters:
+      - variable: KEY1
+        detection: javascript_lang_observable_timing_regex
+        scope: cursor
+      - not:
+          variable: OTHER
+          detection: javascript_lang_observable_timing_other
+          scope: cursor
+
+  - pattern: |
+      $<OTHER> === $<KEY1>
+    filters:
+      - variable: KEY1
+        detection: javascript_lang_observable_timing_regex
+        scope: cursor
+      - not:
+          variable: OTHER
+          detection: javascript_lang_observable_timing_other
+          scope: cursor
+
+  - pattern: |
+      $<KEY1> !== $<OTHER>
+    filters:
+      - variable: KEY1
+        detection: javascript_lang_observable_timing_regex
+        scope: cursor
+      - not:
+          variable: OTHER
+          detection: javascript_lang_observable_timing_other
+          scope: cursor
+
+  - pattern: |
+      $<OTHER> !== $<KEY1>
+    filters:
+      - variable: KEY1
+        detection: javascript_lang_observable_timing_regex
+        scope: cursor
+      - not:
+          variable: OTHER
+          detection: javascript_lang_observable_timing_other
+          scope: cursor
+
 auxiliary:
   - id: javascript_lang_observable_timing_regex
     patterns:

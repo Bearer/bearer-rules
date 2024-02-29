@@ -19,6 +19,7 @@ patterns:
     filters:
       - variable: PATH
         detection: javascript_express_path_traversal_path
+        scope: cursor
       - variable: METHOD
         values:
           - join
