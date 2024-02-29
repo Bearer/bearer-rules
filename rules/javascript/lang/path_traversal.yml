@@ -15,15 +15,12 @@ patterns:
       - variable: DYNAMIC_INPUT
         detection: javascript_lang_path_traversal_dynamic_input
         scope: cursor
-      # - not:
-      #     variable: DYNAMIC_INPUT
-      #     detection: javascript_shared_common_user_input
-      #     scope: result
   - pattern: |
       $<PATH>.$<METHOD>($<...>$<DYNAMIC_INPUT>$<...>)
     filters:
       - variable: PATH
         detection: javascript_lang_path_traversal_path
+        scope: cursor
       - variable: METHOD
         values:
           - join
@@ -31,10 +28,6 @@ patterns:
       - variable: DYNAMIC_INPUT
         detection: javascript_lang_path_traversal_dynamic_input
         scope: cursor
-      # - not:
-      #     variable: DYNAMIC_INPUT
-      #     detection: javascript_shared_common_user_input
-      #     scope: result
 auxiliary:
   - id: javascript_lang_path_traversal_dynamic_input
     sanitizer: javascript_lang_path_traversal_sanitizer
