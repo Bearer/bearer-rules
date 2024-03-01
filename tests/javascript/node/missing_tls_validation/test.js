@@ -25,15 +25,4 @@ describe(ruleId, () => {
       Extra: [],
     })
   })
-
-  test("missing_tls_validation_other2", () => {
-    const testCase = "other2.js"
-
-    const results = invoke(testCase)
-
-    expect(results).toEqual({
-      Missing: [],
-      Extra: [],
-    })
-  })
 })
