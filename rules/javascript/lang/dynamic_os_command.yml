@@ -1,0 +1,150 @@
+imports:
+  - javascript_shared_common_user_input
+  - javascript_shared_common_dynamic_input
+  - javascript_shared_import_library
+  - javascript_shared_import_member
+patterns:
+  - pattern: |
+      $<METHOD>($<...>$<DYNAMIC_INPUT>$<...>)
+    filters:
+      - either:
+          - variable: METHOD
+            detection: javascript_lang_dynamic_os_command_exec
+          - variable: METHOD
+            detection: javascript_lang_dynamic_os_command_exec_sync
+          - variable: METHOD
+            detection: javascript_lang_dynamic_os_command_spawn
+          - variable: METHOD
+            detection: javascript_lang_dynamic_os_command_spawn_sync
+      - variable: DYNAMIC_INPUT
+        detection: javascript_lang_dynamic_os_command_dynamic_input
+        scope: cursor
+  - pattern: |
+      $<CHILD_PROCESS>$<METHOD>($<...>$<DYNAMIC_INPUT>$<...>)
+    filters:
+      - variable: CHILD_PROCESS
+        detection: javascript_lang_dynamic_os_command_child_process
+        scope: cursor
+      - variable: METHOD
+        values:
+          - exec
+          - execSync
+          - spawn
+          - spawnSync
+      - variable: DYNAMIC_INPUT
+        detection: javascript_lang_dynamic_os_command_dynamic_input
+        scope: result
+auxiliary:
+  - id: javascript_lang_dynamic_os_command_exec
+    patterns:
+      - pattern: $<PATH>
+        filters:
+          - variable: PATH
+            detection: javascript_shared_import_member
+            scope: cursor
+            filters:
+              - variable: JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME
+                string_regex: \Achild_process\z
+              - variable: JAVASCRIPT_SHARED_IMPORT_MEMBER_NAME
+                regex: \Aexec\z
+      - import { $<!>exec } from "child_process"
+      - import { exec as $<!>$<_> } from "child_process"
+
+  - id: javascript_lang_dynamic_os_command_exec_sync
+    patterns:
+      - pattern: $<PATH>
+        filters:
+          - variable: PATH
+            detection: javascript_shared_import_member
+            scope: cursor
+            filters:
+              - variable: JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME
+                string_regex: \Achild_process\z
+              - variable: JAVASCRIPT_SHARED_IMPORT_MEMBER_NAME
+                regex: \AexecSync\z
+      - import { $<!>execSync } from "child_process"
+      - import { execSync as $<!>$<_> } from "child_process"
+
+  - id: javascript_lang_dynamic_os_command_spawn
+    patterns:
+      - pattern: $<PATH>
+        filters:
+          - variable: PATH
+            detection: javascript_shared_import_member
+            scope: cursor
+            filters:
+              - variable: JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME
+                string_regex: \Achild_process\z
+              - variable: JAVASCRIPT_SHARED_IMPORT_MEMBER_NAME
+                regex: \Aspawn\z
+      - import { $<!>spawn } from "child_process"
+      - import { spawn as $<!>$<_> } from "child_process"
+
+  - id: javascript_lang_dynamic_os_command_spawn_sync
+    patterns:
+      - pattern: $<PATH>
+        filters:
+          - variable: PATH
+            detection: javascript_shared_import_member
+            scope: cursor
+            filters:
+              - variable: JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME
+                string_regex: \Achild_process\z
+              - variable: JAVASCRIPT_SHARED_IMPORT_MEMBER_NAME
+                regex: \AspawnSync\z
+      - import { $<!>spawnSync } from "child_process"
+      - import { spawnSync as $<!>$<_> } from "child_process"
+
+  - id: javascript_lang_dynamic_os_command_dynamic_input
+    patterns:
+      - pattern: $<UNSANITIZED_DYNAMIC_INPUT>
+        filters:
+          - variable: UNSANITIZED_DYNAMIC_INPUT
+            detection: javascript_shared_common_dynamic_input
+            scope: result
+
+  - id: javascript_lang_dynamic_os_command_child_process
+    patterns:
+      - pattern: $<LIBRARY>
+        filters:
+          - variable: LIBRARY
+            detection: javascript_shared_import_library
+            scope: cursor
+            filters:
+              - variable: JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME
+                string_regex: \Achild_process\z
+      - import $<!>$<_> from "child_process"
+      - import * as $<!>$<_> from "child_process"
+      # Fallback
+      - child_process
+languages:
+  - javascript
+severity: warning
+metadata:
+  description: "Unsanitized dynamic input in OS command"
+  remediation_message: |
+    ## Description
+    Using dynamic input directly in an OS command can allow attackers to perform dangerous commands on the operating system.
+
+    ## Remediations
+
+    Think twice if user input is really needed there.
+
+    It might be possible to use dynamic hardcoded values:
+
+    ```javascript
+      let filePattern = "*.js"
+
+      if sanitized(filePattern) {
+        filePattern = "*.gql"
+      }
+
+      cp.exec(`cp ${filePattern} foo`, (error, stdout, stderr) => {});
+    ```
+
+    ## Resources
+    - [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)
+  cwe_id:
+    - 78
+  id: javascript_lang_dynamic_os_command
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_lang_os_command_injection
