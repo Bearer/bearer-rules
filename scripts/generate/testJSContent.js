@@ -1,10 +1,10 @@
-module.exports = function testJSContent(filePath, testCase) {
+module.exports = function testJSContent(namespace, filePath, testCase) {
   const testName = filePath.split('/').pop();
-
+  let helperDir = namespace.split("/").map(()=>"../").join("")
   return `const {
   createNewInvoker,
   getEnvironment,
-} = require("../../../helper.js")
+} = require("${helperDir}../../helper.js")
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {

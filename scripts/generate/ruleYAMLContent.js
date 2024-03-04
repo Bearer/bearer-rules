@@ -6,7 +6,7 @@ patterns:
       $<INIT>.$<METHOD>($<USER_INPUT>$<...>)
     filters:
       - variable: INIT
-        detection: ${ruleID}_init
+        detection: ${ruleID.toLowerCase()}_init
         scope: cursor
       - variable: METHOD
         values:
@@ -16,15 +16,15 @@ patterns:
         detection: shared_rule1
         scope: result
 auxiliary:
-  - id: ${ruleID}_init
+  - id: ${ruleID.toLowerCase()}_init
     patterns:
       - pattern1
       - pattern: $<INIT>
         filters:
           - variable: INIT
-            detection: ${ruleID}_instance
+            detection: ${ruleID.toLowerCase()}_instance
             scope: cursor
-  - id: ${ruleID}_instance
+  - id: ${ruleID.toLowerCase()}_instance
     patterns:
       - pattern2
 languages:

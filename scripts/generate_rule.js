@@ -13,36 +13,24 @@ const languageInPathToFiles = {
   ruby: 'main.rb',
 };
 
-function writeRuleStructure(ruleID) {
-  const ruleNameParts = ruleID.replace("third_parties", "thirdparties").split('_');
-  const rootRuleFilePath = path.join(
+function writeRuleStructure(lang, namespace, id, ruleID) {
+  const ruleFilePath = path.join(
     'rules',
-    ruleNameParts[0],
-    ruleNameParts[1].replace("thirdparties", "third_parties"),
+    lang,
+    namespace,
+    id + '.yml',
   );
   try {
-    if (!fs.existsSync(rootRuleFilePath)) {
-      const directoryPath = path.dirname(rootRuleFilePath);
+    if (!fs.existsSync(ruleFilePath)) {
+      const directoryPath = path.dirname(ruleFilePath);
 
-      if (!fs.existsSync(rootRuleFilePath)) {
+      if (!fs.existsSync(directoryPath)) {
         fs.mkdirSync(directoryPath, { recursive: true });
       }
 
-      fs.writeFileSync(rootRuleFilePath, content, 'utf8');
-      console.log(`testdata file written successfully - ${rootRuleFilePath}`);
-    } else {
-      console.error(`testdata file already exists - ${rootRuleFilePath}`);
-    }
-
-    // write rule.yml file
-    const ruleFilePath = path.join(
-      rootRuleFilePath,
-      ruleNameParts.slice(2).join('_') + '.yml',
-    );
-    if (!fs.existsSync(ruleFilePath)) {
       fs.writeFileSync(
         ruleFilePath,
-        ruleYAMLContent(ruleID, ruleNameParts[0]),
+        ruleYAMLContent(ruleID, lang),
         'utf8',
       );
       console.log(`${ruleID} file written successfully - ${ruleFilePath}`);
@@ -54,30 +42,30 @@ function writeRuleStructure(ruleID) {
   }
 }
 
-function writeTestFileIfNotExists(ruleID) {
-  try {
-    // e.g. ["java", "lang", "log_injection"],join("_")
-    const ruleNameParts = ruleID.replace("third_parties", "thirdparties").split('_');
-    const content = `// Use bearer:expected ${ruleID} to flag expected findings`;
-    if (ruleNameParts[0] == 'python' || ruleNameParts[0].includes('ruby')) {
-      content = `# Use bearer:expected ${ruleID} to flag expected findings`;
-    }
+function ignoreComment(lang, ruleID) {
+  switch(lang) {
+    case "python":
+    case "ruby":
+      return `# Use bearer:expected ${ruleID} to flag expected findings`;
+    default:
+      return `// Use bearer:expected ${ruleID} to flag expected findings`;
+  }
+}
 
-    let testdataFileName = '';
-    for (let part in languageInPathToFiles) {
-      if (ruleNameParts[0] == part) {
-        testdataFileName = languageInPathToFiles[part];
-        break; // Exit the loop once a match is found
-      }
-    }
+const generateRuleID = (lang, namespace, id) => `${lang}_${namespace.replace("/","_")}_${id}`.toLowerCase()
+
+function writeTestFileIfNotExists(lang, namespace, id, ruleID) {
+
+  try {
+    const content = ignoreComment(lang, ruleID)
 
     const rootTestdataFilePath = path.join(
       'tests',
-      ruleNameParts[0],
-      ruleNameParts[1].replace("thirdparties", "third_parties"),
-      ruleNameParts.slice(2).join('_'),
+      lang,
+      namespace,
+      id
     );
-
+    const testdataFileName = languageInPathToFiles[lang]
     const testdataFilePath = path.join(
       rootTestdataFilePath,
       'testdata',
@@ -109,7 +97,7 @@ function writeTestFileIfNotExists(ruleID) {
 
       fs.writeFileSync(
         testFilePath,
-        testJSContent(rootTestdataFilePath, testdataFileName),
+        testJSContent(namespace, rootTestdataFilePath, testdataFileName),
         'utf8',
       );
       console.log(`test.js file written successfully - ${testFilePath}`);
@@ -123,8 +111,11 @@ function writeTestFileIfNotExists(ruleID) {
 
 program
   .name('generate-rule')
+  .usage("language namespace rule_id")
   .description('Generate a rule structure or only the rule test structure')
-  .argument('<ruleID>', 'ruleID to process')
+  .argument('<language>', 'language')
+  .argument('<namespace>', 'namespace example; lang or third_party')
+  .argument('<id>', 'name of the rule, example; MY_RULE')
   .version('1.0.0', '-v, --version')
   .option(
     '--only-rule',
@@ -141,12 +132,20 @@ program
 program.parse();
 
 const options = program.opts();
-const ruleID = program.args[0];
+const lang = program.args[0];
+const namespace = program.args[1];
+const id = program.args[2].toLowerCase();
 
+const langs = Object.keys(languageInPathToFiles)
+if(langs.indexOf(lang) == -1) {
+  program.error('Language must be one of: ' + langs.join(", "));
+}
+const ruleID = generateRuleID(lang, namespace, id)
+console.log("Generating "+ruleID)
 if (options.onlyRule === 'false') {
-  writeTestFileIfNotExists(ruleID);
+  writeTestFileIfNotExists(lang,namespace,id,ruleID);
 }
 
 if (options.onlyTest === 'false') {
-  writeRuleStructure(ruleID);
+  writeRuleStructure(lang,namespace,id,ruleID);
 }
