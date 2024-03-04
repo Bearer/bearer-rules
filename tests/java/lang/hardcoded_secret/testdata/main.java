@@ -13,7 +13,12 @@ public class ShareTheSecrets {
   // bearer:expected java_lang_hardcoded_secret
   private static final char[] password = { 's', 'e', 'c', 'r', 'e', 't', '5' };
   // bearer:expected java_lang_hardcoded_secret
+  public static final String[] SECRETS = {"secret", "admin", "password", "123456", "passw0rd"};
+  // bearer:expected java_lang_hardcoded_secret
   public static final String API_KEY = ".uYikE-os3cM23rz.i6Q";
+
+  // bearer:expected java_lang_hardcoded_secret
+  public static final String JWT_PASSWORD = TextCodec.BASE64.encode("6sGVjfiD0iPLux5fyuDxorRMG4qyNi7U3cQ");
 
   public static void bad() throws Exception {
     // bearer:expected java_lang_hardcoded_secret
@@ -31,6 +36,13 @@ public class ShareTheSecrets {
     public char[] apiKey = {"s", "e", "c", "r", "e", "t"};
     // bearer:expected java_lang_hardcoded_secret
     char[] pwd = ".uYikE-os3cM23rz.i6Q".toCharArray();
+  }
+
+  public void stillBad(String password) {
+    // bearer:expected java_lang_hardcoded_secret
+    if ("xFb8H9qoPVabx6QvUQygMIOS69nsgh1LQkb".equals(password)) {
+      // let them in
+    }
   }
 
   public void good() throws Exception {
