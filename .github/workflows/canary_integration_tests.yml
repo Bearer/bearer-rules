@@ -42,7 +42,7 @@ jobs:
             "go/gorilla",
           ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: yarn install --frozen-lockfile
       - name: Test ${{ matrix.group }}
         run: BEARER_VERSION=${{matrix.version}} yarn test tests/${{ matrix.group }}
