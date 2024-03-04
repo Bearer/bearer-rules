@@ -108,14 +108,14 @@ function writeTestFileIfNotExists(lang, namespace, id, ruleID) {
     console.error('Error writing test file:', err);
   }
 }
-
+const langs = Object.keys(languageInPathToFiles)
 program
   .name('generate-rule')
   .usage("language namespace rule_id")
   .description('Generate a rule structure or only the rule test structure')
-  .argument('<language>', 'language')
+  .argument('<language>', 'language one of: '+ langs.join(", "))
   .argument('<namespace>', 'namespace example; lang or third_party')
-  .argument('<id>', 'name of the rule, example; MY_RULE')
+  .argument('<id>', 'name of the rule, example; my_rule')
   .version('1.0.0', '-v, --version')
   .option(
     '--only-rule',
@@ -136,7 +136,6 @@ const lang = program.args[0];
 const namespace = program.args[1];
 const id = program.args[2].toLowerCase();
 
-const langs = Object.keys(languageInPathToFiles)
 if(langs.indexOf(lang) == -1) {
   program.error('Language must be one of: ' + langs.join(", "));
 }
