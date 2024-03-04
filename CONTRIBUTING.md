@@ -25,8 +25,20 @@ Here are the basic steps to adding a new rule.
 1. Generate a rule and its associated test folder by running
 
 ```bash
-yarn generate_rule MY_RULE_ID
+yarn generate_rule {LANGUAGE_NAME}_lang_{CUSTOM_RULE_ID}
 ```
+This command will generate:
+
+- a YAML file in `rules/{LANGUAGE_NAME}/lang/{CUSTOM_RULE_ID}.yml` for the rule itself
+- a test folder in `tests/{LANGUAGE_NAME}/lang/{CUSTOM_RULE_ID}/` containing:
+  - a testdata folder containing a `main.{LANGUAGE_EXTENSION}` file
+  - a `test.js` file to run the test.
+
+Replace the placeholders as follows:
+
+- {LANGUAGE_NAME}: The name of the programming language (java, python, go, ruby).
+- lang: Indicates the nature or category of the rule.
+- {CUSTOM_RULE_ID}: Descriptive keyword specific to the rule.
 
 **Example**
 
@@ -34,7 +46,7 @@ yarn generate_rule MY_RULE_ID
 yarn generate_rule java_lang_hardcoded_secret
 ```
 
-This command will generate:
+This command generates:
 
 - a YAML file in `rules/java/lang/hardcoded_secret.yml` for the rule itself
 - a test folder in `tests/java/lang/hardcoded_secret/` containing:
