@@ -25,26 +25,26 @@ Here are the basic steps to adding a new rule.
 1. Generate a rule and its associated test folder by running
 
 ```bash
-yarn generate_rule MY_RULE_ID
+yarn generate_rule <language> <namespace> <rule_id>
 ```
+
+see `yarn generate_rule --help` for more options and information
 
 **Example**
 
 ```bash
-yarn generate_rule java_lang_hardcoded_secret
+yarn generate_rule java lang hardcoded_secret
 ```
 
-This command will generate:
+This command generates:
 
 - a YAML file in `rules/java/lang/hardcoded_secret.yml` for the rule itself
 - a test folder in `tests/java/lang/hardcoded_secret/` containing:
   - a testdata folder containing a `main.java` file
   - a `test.js` file to run the test
 
-  NB: you can run `yarn generate_rule --help` for more options
-
 2. Follow the guide [here](https://docs.bearer.com/guides/custom-rule/) to complete the rule
-3. Run the tests `yarn test tests/<path-to-test>`
+3. Run the tests `yarn test tests/java/lang/hardcoded_secret/test.js`
 4. Run the linter/validator to check your rule passes
 
 ```bash
