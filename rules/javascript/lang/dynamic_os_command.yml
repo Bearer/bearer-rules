@@ -20,7 +20,7 @@ patterns:
         detection: javascript_lang_dynamic_os_command_dynamic_input
         scope: cursor
   - pattern: |
-      $<CHILD_PROCESS>$<METHOD>($<...>$<DYNAMIC_INPUT>$<...>)
+      $<CHILD_PROCESS>.$<METHOD>($<...>$<DYNAMIC_INPUT>$<...>)
     filters:
       - variable: CHILD_PROCESS
         detection: javascript_lang_dynamic_os_command_child_process
