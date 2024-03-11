@@ -20,7 +20,7 @@ patterns:
           - tag_request
   - pattern: |
       Appsignal.$<ERROR_METHOD>($<...>) do |$<TRANSACTION:identifier>|
-        $<TRANSACTION>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
+        $<!>$<TRANSACTION>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
       end
     filters:
       - variable: DATA_TYPE
