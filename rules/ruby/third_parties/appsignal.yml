@@ -71,13 +71,13 @@ metadata:
 
     ## Remediations
 
-    ✅When logging errors or events, ensure all sensitive data is removed.
+    ✅ When logging errors or events, ensure all sensitive data is removed.
 
     ```ruby
     Appsignal.tag_request(user: current_user.email)
     ```
 
-    ❌Do not send sensitive data to AppSignal
+    ❌ Do not send sensitive data to AppSignal
 
     ```ruby
     Appsignal.tag_request(user_id: current_user.id)
