@@ -1,0 +1,99 @@
+languages:
+  - go
+imports:
+  - go_shared_lang_datatype
+  - go_shared_lang_instance
+patterns:
+  - pattern: $<NOTICE>.$<_> = $<DATA_TYPE>
+    filters:
+      - variable: NOTICE
+        detection: go_third_parties_airbrake_notice
+        scope: result
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+
+  - pattern: $<NOTICE>.$<_>[$<_>] = $<DATA_TYPE>
+    filters:
+      - variable: NOTICE
+        detection: go_third_parties_airbrake_notice
+        scope: result
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: go_third_parties_airbrake_notice
+    patterns:
+      - pattern: $<PACKAGE>.NewNotice($<...>)
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_airbrake_package
+            scope: cursor
+      - pattern: $<NOTIFIER>.Notice($<...>)
+        filters:
+          - variable: NOTIFIER
+            detection: go_third_parties_airbrake_notifier
+            scope: cursor
+      - pattern: $<NOTICE>
+        filters:
+          - variable: NOTICE
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_airbrake_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Notice
+  - id: go_third_parties_airbrake_notifier
+    patterns:
+      - pattern: $<PACKAGE>.NewNotifier($<...>)
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_airbrake_package
+            scope: cursor
+      - pattern: $<PACKAGE>.NewNotifierWithOptions($<...>)
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_airbrake_package
+            scope: cursor
+      - pattern: $<NOTIFIER>
+        filters:
+          - variable: NOTIFIER
+            detection: go_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_airbrake_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Notifier
+  - id: go_third_parties_airbrake_package
+    patterns:
+      - import $<!>"github.com/airbrake/gobrake/v5"
+      - import ($<!>"github.com/airbrake/gobrake/v5")
+      - gobrake
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Leakage of sensitive data to Airbrake"
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Airbrake.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Airbrake Docs](https://docs.airbrake.io/)
+  cwe_id:
+    - 201
+  associated_recipe: Airbrake
+  id: go_third_parties_airbrake
+  documentation_url: https://docs.bearer.com/reference/rules/go_third_parties_airbrake
+severity: high
