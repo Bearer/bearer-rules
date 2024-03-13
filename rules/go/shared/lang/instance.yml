@@ -5,12 +5,12 @@ patterns:
   - $<PACKAGE>.$<TYPE> {}
   - |
       &$<PACKAGE>.$<TYPE> {}
-  - func ($<...>$<!>$<_> $<PACKAGE>.$<TYPE>$<...>) {}
-  - func ($<...>$<!>$<_> *$<PACKAGE>.$<TYPE>$<...>) {}
-  - func $<_>($<...>$<!>$<_> $<PACKAGE>.$<TYPE>$<...>) {}
-  - func $<_>($<...>$<!>$<_> *$<PACKAGE>.$<TYPE>$<...>) {}
-  - func () $<_>($<...>$<!>$<_> $<PACKAGE>.$<TYPE>$<...>) {}
-  - func () $<_>($<...>$<!>$<_> *$<PACKAGE>.$<TYPE>$<...>) {}
+  - func ($<...>$<!>$<_> $<PACKAGE>.$<TYPE>$<...>)$<...>{}
+  - func ($<...>$<!>$<_> *$<PACKAGE>.$<TYPE>$<...>)$<...>{}
+  - func $<_>($<...>$<!>$<_> $<PACKAGE>.$<TYPE>$<...>)$<...>{}
+  - func $<_>($<...>$<!>$<_> *$<PACKAGE>.$<TYPE>$<...>)$<...>{}
+  - func () $<_>($<...>$<!>$<_> $<PACKAGE>.$<TYPE>$<...>)$<...>{}
+  - func () $<_>($<...>$<!>$<_> *$<PACKAGE>.$<TYPE>$<...>)$<...>{}
   - var $<!>$<_> $<PACKAGE>.$<TYPE>
   - var $<!>$<_> *$<PACKAGE>.$<TYPE>
 metadata:
