@@ -111,7 +111,8 @@
       "else": {
         "properties": {
           "metadata": { "$ref": "#/definitions/Metadata" }
-        }
+        },
+        "required": ["severity"]
       },
       "title": "Rule"
     },
