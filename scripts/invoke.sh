@@ -28,7 +28,7 @@ if [ -n "$BEARER_BIN" ]; then
 else
   if [ -n "$BEARER_WORKSPACE" ]; then
     cd $BEARER_WORKSPACE
-    $BEARER_DEBUG $GO_EXEC run ./cmd/bearer/main.go scan $tmp_location \
+    $BEARER_DEBUG $GO_EXEC run ./cmd/bearer/bearer.go scan $tmp_location \
       --only-rule=$rule_id \
       --disable-default-rules=true \
       --external-rule-dir=$rule_loc \
