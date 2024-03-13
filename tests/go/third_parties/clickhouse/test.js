@@ -7,7 +7,7 @@ const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 describe(ruleId, () => {
   const invoke = createNewInvoker(ruleId, ruleFile, testBase)
 
-  test("bugsnag", () => {
+  test("clickhouse", () => {
     const testCase = "main.go"
 
     const results = invoke(testCase)

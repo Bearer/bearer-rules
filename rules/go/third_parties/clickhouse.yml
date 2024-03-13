@@ -1,0 +1,127 @@
+imports:
+  - go_shared_lang_datatype
+  - go_shared_lang_instance
+patterns:
+  - pattern: $<CONNECTION>.AsyncInsert($<_>, $<DATA_TYPE>$<...>)
+    filters:
+      - variable: CONNECTION
+        detection: go_third_parties_clickhouse_connection
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<BATCH>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: BATCH
+        detection: go_third_parties_clickhouse_batch
+        scope: cursor
+      - variable: METHOD
+        values:
+          - Append
+          - AppendStruct
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<COLUMN>.$<METHOD>($<DATA_TYPE>)
+    filters:
+      - variable: COLUMN
+        detection: go_third_parties_clickhouse_column
+        scope: cursor
+      - variable: METHOD
+        values:
+          - Append
+          - AppendRow
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: go_third_parties_clickhouse_column
+    patterns:
+      - pattern: $<BATCH>.Column($<...>)
+        filters:
+          - variable: BATCH
+            detection: go_third_parties_clickhouse_batch
+            scope: cursor
+      - pattern: $<COLUMN>
+        filters:
+          - variable: COLUMN
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_clickhouse_driver_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - BatchColumn
+  - id: go_third_parties_clickhouse_batch
+    patterns:
+      - pattern: $<CONNECTION>.PrepareBatch($<...>)
+        filters:
+          - variable: CONNECTION
+            detection: go_third_parties_clickhouse_connection
+            scope: cursor
+      - pattern: $<BATCH>
+        filters:
+          - variable: BATCH
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_clickhouse_driver_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Batch
+  - id: go_third_parties_clickhouse_connection
+    patterns:
+      - pattern: $<PACKAGE>.Open($<...>)
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_clickhouse_package
+            scope: cursor
+      - pattern: $<CONNECTION>
+        filters:
+          - variable: CONNECTION
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_clickhouse_driver_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Conn
+  - id: go_third_parties_clickhouse_driver_package
+    patterns:
+      - import $<!>"github.com/ClickHouse/clickhouse-go/v2/lib/driver"
+      - import ($<!>"github.com/ClickHouse/clickhouse-go/v2/lib/driver")
+  - id: go_third_parties_clickhouse_package
+    patterns:
+      - import $<!>"github.com/ClickHouse/clickhouse-go/v2"
+      - import ($<!>"github.com/ClickHouse/clickhouse-go/v2")
+      - clickhouse
+languages:
+  - go
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Leakage of sensitive data to ClickHouse"
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to a third-party service is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to ClickHouse.
+
+    ## Remediations
+
+    When sending data to third-party services, ensure all sensitive data is removed.
+
+    ## Resources
+    - [ClickHouse docs](https://clickhouse.com/docs/en/intro/)
+  cwe_id:
+    - 201
+  associated_recipe: ClickHouse
+  id: go_third_parties_clickhouse
+  documentation_url: https://docs.bearer.com/reference/rules/go_third_parties_clickhouse
+severity: high

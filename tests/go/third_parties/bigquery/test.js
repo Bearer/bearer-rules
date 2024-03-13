@@ -5,14 +5,16 @@ const {
 const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
-    const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+  const invoke = createNewInvoker(ruleId, ruleFile, testBase)
 
-    test("main", () => {
-      const testCase = "main.go"
+  test("bigquery", () => {
+    const testCase = "main.go"
 
-      const results = invoke(testCase)
+    const results = invoke(testCase)
 
-      expect(results.Missing).toEqual([])
-      expect(results.Extra).toEqual([])
+    expect(results).toEqual({
+      Missing: [],
+      Extra: []
     })
+  })
 })

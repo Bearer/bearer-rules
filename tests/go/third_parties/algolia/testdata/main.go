@@ -7,27 +7,27 @@ func main() {
 	index := client.InitIndex("my_index")
 
 	// bearer:expected go_third_parties_algolia
-	index.SaveObject(map[string]string{"email": user.email}, options)
-	index.SaveObject(map[string]string{"ok": user.count}, options)
+	index.SaveObject(map[string]string{"user": user.email}, options)
+	index.SaveObject(map[string]string{"user": user.id}, options)
 	// bearer:expected go_third_parties_algolia
-	index.SaveObjects([]map[string]string{{"email": user.email}}, options)
-	index.SaveObjects([]map[string]string{{"ok": user.count}}, options)
+	index.SaveObjects([]map[string]string{{"user": user.email}}, options)
+	index.SaveObjects([]map[string]string{{"user": user.id}}, options)
 	// bearer:expected go_third_parties_algolia
-	index.PartialUpdateObject(map[string]string{"email": user.email}, options)
-	index.PartialUpdateObject(map[string]string{"ok": user.count}, options)
+	index.PartialUpdateObject(map[string]string{"user": user.email}, options)
+	index.PartialUpdateObject(map[string]string{"user": user.id}, options)
 	// bearer:expected go_third_parties_algolia
-	index.PartialUpdateObjects([]map[string]string{{"email": user.email}}, options)
-	index.PartialUpdateObjects([]map[string]string{{"ok": user.count}}, options)
+	index.PartialUpdateObjects([]map[string]string{{"user": user.email}}, options)
+	index.PartialUpdateObjects([]map[string]string{{"user": user.id}}, options)
 	// bearer:expected go_third_parties_algolia
-	index.ReplaceAllObjects([]map[string]string{{"email": user.email}}, options)
-	index.ReplaceAllObjects([]map[string]string{{"ok": user.count}}, options)
+	index.ReplaceAllObjects([]map[string]string{{"user": user.email}}, options)
+	index.ReplaceAllObjects([]map[string]string{{"user": user.id}}, options)
 	// bearer:expected go_third_parties_algolia
 	index.Batch(
 		[]search.BatchOperationIndexed{{
 			IndexName: "index1",
 			BatchOperation: search.BatchOperation{
 				Action: search.AddObject,
-				Body:   map[string]string{"email": user.email},
+				Body:   map[string]string{"user": user.email},
 			},
 		}},
 		options,
@@ -37,7 +37,7 @@ func main() {
 			IndexName: "index1",
 			BatchOperation: search.BatchOperation{
 				Action: search.AddObject,
-				Body:   map[string]string{"ok": user.count},
+				Body:   map[string]string{"user": user.id},
 			},
 		}},
 		options,
