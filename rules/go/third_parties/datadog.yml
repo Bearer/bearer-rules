@@ -1,0 +1,171 @@
+imports:
+  - go_shared_lang_datatype
+  - go_shared_lang_instance
+patterns:
+  - pattern: $<STATSD>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: STATSD
+        detection: go_third_parties_datadog_statsd_client
+        scope: cursor
+      - variable: METHOD
+        values:
+          - Count
+          - CountWithTimestamp
+          - Decr
+          - Distribution
+          - Gauge
+          - GaugeWithTimestamp
+          - Histogram
+          - Incr
+          - Set
+          - SimpleEvent
+          - TimeInMilliseconds
+          - Timing
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<PACKAGE>.WithTags($<DATA_TYPE>)
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_datadog_statsd_package
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<PACKAGE>.NewEvent($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_datadog_statsd_package
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<EVENT>.$<_> = $<DATA_TYPE>
+    filters:
+      - variable: EVENT
+        detection: go_third_parties_datadog_statsd_event
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<PACKAGE>.StartSpan($<DATA_TYPE>$<...>)
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_datadog_tracer_package
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<PACKAGE>.WithGlobalTag($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_datadog_tracer_package
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<PACKAGE>.SetUser($<_>, $<DATA_TYPE>$<...>)
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_datadog_tracer_package
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<PACKAGE>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_datadog_tracer_package
+        scope: cursor
+      - variable: METHOD
+        regex: \AWithUser
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<PACKAGE>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_datadog_tracer_package
+        scope: cursor
+      - variable: METHOD
+        values:
+          - ResourceName
+          - ServiceName
+          - Tag
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+languages:
+  - go
+auxiliary:
+  - id: go_third_parties_datadog_statsd_event
+    patterns:
+      - pattern: $<PACKAGE>.NewEvent($<...>)
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_datadog_statsd_package
+            scope: cursor
+      - pattern: $<EVENT>
+        filters:
+          - variable: EVENT
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_datadog_statsd_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Event
+  - id: go_third_parties_datadog_statsd_client
+    patterns:
+      - pattern: $<PACKAGE>.$<METHOD>($<...>)
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_datadog_statsd_package
+            scope: cursor
+          - variable: METHOD
+            values:
+              - New
+              - NewWithWriter
+      - pattern: $<CLIENT>
+        filters:
+          - variable: CLIENT
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_datadog_statsd_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Client
+  - id: go_third_parties_datadog_statsd_package
+    patterns:
+      - import $<!>"github.com/DataDog/datadog-go/v5/statsd"
+      - import ($<!>"github.com/DataDog/datadog-go/v5/statsd")
+  - id: go_third_parties_datadog_tracer_package
+    patterns:
+      - import $<!>"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
+      - import ($<!>"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer")
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Leakage of sensitive data to Datadog"
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Datadog docs](https://docs.datadoghq.com)
+    - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=go#scrub-sensitive-data-from-your-spans)
+  cwe_id:
+    - 201
+  associated_recipe: Datadog
+  id: go_third_parties_datadog
+  documentation_url: https://docs.bearer.com/reference/rules/go_third_parties_datadog
+severity: high
