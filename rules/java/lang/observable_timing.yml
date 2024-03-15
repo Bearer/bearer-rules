@@ -1,13 +1,14 @@
 patterns:
-  - pattern: |
-      $<KEY1> == $<KEY2>
+  - pattern: $<_>.equals($<KEY>);
     filters:
-      - variable: KEY1
-        regex: /pass(word)?/
-      - variable: KEY2
-        regex: /pass(word)?/
+      - variable: KEY
+        regex: (?i)\A(password)|hash|(api|auth)?.?(token|secret)\z
+  - pattern: $<KEY>.equals($<_>);
+    filters:
+      - variable: KEY
+        regex: (?i)\A(password)|hash|(api|auth)?.?(token|secret)\z
 languages:
-  - go
+  - java
 severity: medium
 metadata:
   description: "Observable Timing Discrepancy"
@@ -43,9 +44,7 @@ metadata:
 
     - [CWE-208: Observable Timing Discrepancy](https://cwe.mitre.org/data/definitions/208.html)
     - [OWASP Guide to Cryptography](https://owasp.org/www-project-cheat-sheets/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)
-
   cwe_id:
     - 208
-  id: go_lang_observable_timing
-  documentation_url: https://docs.bearer.com/reference/rules/go_lang_observable_timing
-severity: medium
+  id: java_lang_observable_timing
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_observable_timing
