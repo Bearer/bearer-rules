@@ -1,0 +1,154 @@
+imports:
+  - go_shared_lang_datatype
+  - go_shared_lang_instance
+patterns:
+  - pattern: $<PACKAGE>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_bugsnag_package
+        scope: cursor
+      - variable: METHOD
+        values:
+          - AutoNotify
+          - Notify
+          - Recover
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<PACKAGE>.HandlerFunc($<_>, $<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_bugsnag_package
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<PACKAGE>.New($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_bugsnag_package
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<NOTIFIER>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: NOTIFIER
+        detection: go_third_parties_bugsnag_notifier
+        scope: cursor
+      - variable: METHOD
+        values:
+          - AutoNotify
+          - Notify
+          - NotifySync
+          - Recover
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<EVENT>.$<_> = $<DATA_TYPE>
+    filters:
+      - variable: EVENT
+        detection: go_third_parties_bugsnag_event
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<METADATA>.$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: METADATA
+        detection: go_third_parties_bugsnag_metadata
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: |
+      $<PACKAGE>.User{$<_>: $<DATA_TYPE>}
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_bugsnag_package
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: go_third_parties_bugsnag_notifier
+    patterns:
+      - pattern: $<PACKAGE>.New($<...>)
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_bugsnag_package
+            scope: cursor
+      - pattern: $<NOTIFIER>
+        filters:
+          - variable: NOTIFIER
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_bugsnag_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Notifier
+  - id: go_third_parties_bugsnag_metadata
+    patterns:
+      - pattern: $<EVENT>.MetaData
+        filters:
+          - variable: EVENT
+            detection: go_third_parties_bugsnag_event
+            scope: cursor
+      - pattern: $<METADATA>
+        filters:
+          - variable: METADATA
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_bugsnag_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - MetaData
+  - id: go_third_parties_bugsnag_event
+    patterns:
+      - pattern: $<EVENT>
+        filters:
+          - variable: EVENT
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_bugsnag_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Event
+  - id: go_third_parties_bugsnag_package
+    patterns:
+      - import $<!>"github.com/bugsnag/bugsnag-go/v2"
+      - import ($<!>"github.com/bugsnag/bugsnag-go/v2")
+      - bugsnag
+languages:
+  - go
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Leakage of sensitive data to Bugsnag"
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Bugsnag.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Bugsnag Docs](https://docs.bugsnag.com/platforms/go/)
+  cwe_id:
+    - 201
+  associated_recipe: Bugsnag
+  id: go_third_parties_bugsnag
+  documentation_url: https://docs.bearer.com/reference/rules/go_third_parties_bugsnag
+severity: high

@@ -1,0 +1,22 @@
+type: shared
+languages:
+  - go
+patterns:
+  - $<PACKAGE>.$<TYPE> {}
+  - func ($<...>$<!>$<_> $<PACKAGE>.$<TYPE>$<...>)$<...>{}
+  - func ($<...>$<!>$<_> *$<PACKAGE>.$<TYPE>$<...>)$<...>{}
+  - func $<_>($<...>$<!>$<_> $<PACKAGE>.$<TYPE>$<...>)$<...>{}
+  - func $<_>($<...>$<!>$<_> *$<PACKAGE>.$<TYPE>$<...>)$<...>{}
+  - func () $<_>($<...>$<!>$<_> $<PACKAGE>.$<TYPE>$<...>)$<...>{}
+  - func () $<_>($<...>$<!>$<_> *$<PACKAGE>.$<TYPE>$<...>)$<...>{}
+  - var $<!>$<_> $<PACKAGE>.$<TYPE>
+  - var $<!>$<_> *$<PACKAGE>.$<TYPE>
+  - pattern: |
+      &$<INSTANCE>
+    filters:
+      - variable: INSTANCE
+        detection: go_shared_lang_instance
+        scope: cursor
+metadata:
+  description: "Go instance."
+  id: go_shared_lang_instance

@@ -1,0 +1,127 @@
+imports:
+  - go_shared_lang_datatype
+  - go_shared_lang_instance
+patterns:
+  - pattern: |
+      $<INSERTER>.Put($<_>, $<DATA_TYPE>)
+    filters:
+      - variable: INSERTER
+        detection: go_third_parties_bigquery_inserter
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+languages:
+  - go
+auxiliary:
+  - id: go_third_parties_bigquery_inserter
+    patterns:
+      - pattern: $<TABLE>.$<METHOD>()
+        filters:
+          - variable: TABLE
+            detection: go_third_parties_bigquery_table
+            scope: cursor
+          - variable: METHOD
+            values:
+              - Inserter
+              - Uploader
+      - pattern: $<INSERTER>
+        filters:
+          - variable: INSERTER
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_bigquery_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Inserter
+  - id: go_third_parties_bigquery_table
+    patterns:
+      - pattern: |
+          $<DATASET>.Table($<...>)
+        filters:
+          - variable: DATASET
+            detection: go_third_parties_bigquery_dataset
+            scope: cursor
+      - pattern: $<TABLE>
+        filters:
+          - variable: TABLE
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_bigquery_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Table
+  - id: go_third_parties_bigquery_dataset
+    patterns:
+      - pattern: |
+          $<CLIENT>.$<METHOD>($<...>)
+        filters:
+          - variable: CLIENT
+            detection: go_third_parties_bigquery_client
+            scope: cursor
+          - variable: METHOD
+            values:
+              - Dataset
+              - DatasetInProject
+      - pattern: $<DATASET>
+        filters:
+          - variable: DATASET
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_bigquery_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Dataset
+  - id: go_third_parties_bigquery_client
+    patterns:
+      - pattern: $<PACKAGE>.NewClient($<...>)
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_bigquery_package
+            scope: cursor
+      - pattern: $<CLIENT>
+        filters:
+          - variable: CLIENT
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_bigquery_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Client
+  - id: go_third_parties_bigquery_package
+    patterns:
+      - import $<!>"cloud.google.com/go/bigquery"
+      - import ($<!>"cloud.google.com/go/bigquery")
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Leakage of sensitive data to BigQuery"
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party data tools is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to BigQuery.
+
+    ## Remediations
+    When sending data to third-party services, ensure all sensitive data is removed.
+
+    ## Resources
+    - [BigQuery docs](https://cloud.google.com/php/docs/reference/cloud-bigquery/latest)
+  cwe_id:
+    - 201
+  associated_recipe: Google Cloud BigQuery
+  id: go_third_parties_bigquery
+  documentation_url: https://docs.bearer.com/reference/rules/go_third_parties_bigquery
+severity: high
