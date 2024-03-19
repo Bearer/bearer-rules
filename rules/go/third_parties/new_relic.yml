@@ -1,0 +1,108 @@
+imports:
+  - go_shared_lang_datatype
+  - go_shared_lang_instance
+patterns:
+  - pattern: $<APPLICATION>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: APPLICATION
+        detection: go_third_parties_new_relic_application
+        scope: cursor
+      - variable: METHOD
+        values:
+          - StartTransaction
+          - RecordCustomEvent
+          - RecordLog
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<TRANSACTION>.$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: TRANSACTION
+        detection: go_third_parties_new_relic_transaction
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<LOG_DATA>.$<_> = $<DATA_TYPE>
+    filters:
+      - variable: LOG_DATA
+        detection: go_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_new_relic_package
+            scope: cursor
+          - variable: TYPE
+            values:
+              - LogData
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: go_third_parties_new_relic_transaction
+    patterns:
+      - pattern: $<APPLICATION>.StartTransaction($<...>)
+        filters:
+          - variable: APPLICATION
+            detection: go_third_parties_new_relic_application
+            scope: cursor
+      - pattern: $<TRANSACTION>
+        filters:
+          - variable: TRANSACTION
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_new_relic_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Transaction
+  - id: go_third_parties_new_relic_application
+    patterns:
+      - pattern: $<PACKAGE>.NewApplication($<...>)
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_new_relic_package
+            scope: cursor
+      - pattern: $<APPLICATION>
+        filters:
+          - variable: APPLICATION
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_new_relic_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Application
+  - id: go_third_parties_new_relic_package
+    patterns:
+      - import $<!>"github.com/newrelic/go-agent/v3/newrelic"
+      - import ($<!>"github.com/newrelic/go-agent/v3/newrelic")
+languages:
+  - go
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Leakage of sensitive data to New Relic"
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to New Relic.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [New Relic Docs](https://docs.newrelic.com/)
+    - [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)
+  cwe_id:
+    - 201
+  associated_recipe: New Relic
+  id: go_third_parties_new_relic
+  documentation_url: https://docs.bearer.com/reference/rules/go_third_parties_new_relic
+severity: high
