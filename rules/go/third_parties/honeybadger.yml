@@ -1,0 +1,90 @@
+imports:
+  - go_shared_lang_datatype
+  - go_shared_lang_instance
+patterns:
+  - pattern: $<PACKAGE>.$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_honeybadger_package
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<NOTICE>.$<_> = $<DATA_TYPE>
+    filters:
+      - variable: NOTICE
+        detection: go_third_parties_honeybadger_notice
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<CONTEXT>[$<_>] = $<DATA_TYPE>
+    filters:
+      - variable: CONTEXT
+        detection: go_third_parties_honeybadger_context
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: go_third_parties_honeybadger_context
+    patterns:
+      - pattern: $<NOTICE>.Context
+        filters:
+          - variable: NOTICE
+            detection: go_third_parties_honeybadger_notice
+            scope: cursor
+      - pattern: $<CONTEXT>
+        filters:
+          - variable: CONTEXT
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_honeybadger_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Context
+  - id: go_third_parties_honeybadger_notice
+    patterns:
+      - pattern: $<NOTICE>
+        filters:
+          - variable: NOTICE
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_honeybadger_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Notice
+  - id: go_third_parties_honeybadger_package
+    patterns:
+      - import $<!>"github.com/honeybadger-io/honeybadger-go"
+      - import ($<!>"github.com/honeybadger-io/honeybadger-go")
+languages:
+  - go
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Leakage of sensitive data to Honeybadger"
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Honeybadger.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Honeybadger Docs](https://docs.honeybadger.io/lib/go/)
+  cwe_id:
+    - 201
+  associated_recipe: Honeybadger
+  id: go_third_parties_honeybadger
+  documentation_url: https://docs.bearer.com/reference/rules/go_third_parties_honeybadger
+severity: high

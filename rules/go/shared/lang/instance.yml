@@ -2,7 +2,7 @@ type: shared
 languages:
   - go
 patterns:
-  - $<PACKAGE>.$<TYPE> {}
+  - $<PACKAGE>.$<TYPE>{}
   - func ($<...>$<!>$<_> $<PACKAGE>.$<TYPE>$<...>)$<...>{}
   - func ($<...>$<!>$<_> *$<PACKAGE>.$<TYPE>$<...>)$<...>{}
   - func $<_>($<...>$<!>$<_> $<PACKAGE>.$<TYPE>$<...>)$<...>{}
