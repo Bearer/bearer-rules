@@ -37,9 +37,10 @@ jobs:
             "php/symfony",
             "php/third_parties",
             "python/lang",
-            "go/lang",
-            "go/gosec",
             "go/gorilla",
+            "go/gosec",
+            "go/lang",
+            "go/third_parties",
           ]
     steps:
       - uses: actions/checkout@v4
