@@ -1,0 +1,73 @@
+imports:
+  - go_shared_lang_datatype
+  - go_shared_lang_instance
+patterns:
+  - pattern: $<PACKAGE>.$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_rollbar_package
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<CLIENT>.$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: CLIENT
+        detection: go_third_parties_rollbar_client
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+languages:
+  - go
+auxiliary:
+  - id: go_third_parties_rollbar_client
+    patterns:
+      - pattern: $<PACKAGE>.$<METHOD>($<...>)
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_rollbar_package
+            scope: cursor
+          - variable: METHOD
+            values:
+              - New
+              - NewAsync
+              - NewSync
+      - pattern: $<CLIENT>
+        filters:
+          - variable: CLIENT
+            detection: go_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_rollbar_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Client
+  - id: go_third_parties_rollbar_package
+    patterns:
+      - import $<!>"github.com/rollbar/rollbar-go"
+      - import ($<!>"github.com/rollbar/rollbar-go")
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Leakage of sensitive data to RollBar"
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Rollbar.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Rollbar docs](https://docs.rollbar.com/docs/go)
+  cwe_id:
+    - 201
+  associated_recipe: Rollbar
+  id: go_third_parties_rollbar
+  documentation_url: https://docs.bearer.com/reference/rules/go_third_parties_rollbar
+severity: high
