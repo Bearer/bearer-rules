@@ -1,0 +1,127 @@
+imports:
+  - go_shared_lang_datatype
+  - go_shared_lang_instance
+patterns:
+  - pattern: $<SPAN>.$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: SPAN
+        detection: go_third_parties_open_telemetry_span
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<TRACER>.Start($<_>, $<DATA_TYPE>$<...>)
+    filters:
+      - variable: TRACER
+        detection: go_third_parties_open_telemetry_tracer
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: |
+      $<PACKAGE>.KeyValue{$<_>: $<DATA_TYPE>}
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_open_telemetry_attribute_package
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+languages:
+  - go
+auxiliary:
+  - id: go_third_parties_open_telemetry_span
+    patterns:
+      - pattern: $<TRACER>.Start($<...>)
+        filters:
+          - variable: TRACER
+            detection: go_third_parties_open_telemetry_tracer
+            scope: cursor
+      - pattern: $<SPAN>
+        filters:
+          - variable: SPAN
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_open_telemetry_trace_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Span
+  - id: go_third_parties_open_telemetry_tracer
+    patterns:
+      - pattern: $<PACKAGE>.Tracer($<...>)
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_open_telemetry_package
+            scope: cursor
+      - pattern: $<PROVIDER>.Tracer($<...>)
+        filters:
+          - variable: PROVIDER
+            detection: go_third_parties_open_telemetry_tracer_provider
+            scope: cursor
+      - pattern: $<TRACER>
+        filters:
+          - variable: TRACER
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_open_telemetry_trace_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Tracer
+  - id: go_third_parties_open_telemetry_tracer_provider
+    patterns:
+      - pattern: $<PACKAGE>.GetTracerProvider()
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_open_telemetry_package
+            scope: cursor
+      - pattern: $<PROVIDER>
+        filters:
+          - variable: PROVIDER
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_open_telemetry_trace_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - TracerProvider
+  - id: go_third_parties_open_telemetry_attribute_package
+    patterns:
+      - import $<!>"go.opentelemetry.io/otel/attribute"
+      - import ($<!>"go.opentelemetry.io/otel/attribute")
+  - id: go_third_parties_open_telemetry_trace_package
+    patterns:
+      - import $<!>"go.opentelemetry.io/otel/trace"
+      - import ($<!>"go.opentelemetry.io/otel/trace")
+  - id: go_third_parties_open_telemetry_package
+    patterns:
+      - import $<!>"go.opentelemetry.io/otel"
+      - import ($<!>"go.opentelemetry.io/otel")
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Leakage of sensitive data to Open Telemetry"
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party loggers is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Open Telemetry.
+
+    ## Remediations
+
+    When logging errors or events, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Open Telemetry Docs](https://opentelemetry.io/docs/)
+  cwe_id:
+    - 201
+  id: go_third_parties_open_telemetry
+  documentation_url: https://docs.bearer.com/reference/rules/go_third_parties_open_telemetry
+severity: high
