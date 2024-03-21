@@ -1,0 +1,102 @@
+imports:
+  - go_shared_lang_datatype
+  - go_shared_lang_instance
+patterns:
+  - pattern: |
+      $<PACKAGE>.$<TYPE>{$<_>: $<DATA_TYPE>}
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_segment_package
+        scope: cursor
+      - variable: TYPE
+        values:
+          - Alias
+          - Group
+          - Identify
+          - Track
+          - Page
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: |
+      $<INSTANCE>.$<_> = $<DATA_TYPE>
+    filters:
+      - variable: INSTANCE
+        detection: go_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_segment_package
+            scope: cursor
+          - variable: TYPE
+            values:
+              - Alias
+              - Group
+              - Identify
+              - Track
+              - Page
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: |
+      $<TRAITS>.$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: TRAITS
+        detection: go_third_parties_segment_traits
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: go_third_parties_segment_traits
+    patterns:
+      - pattern: $<PACKAGE>.NewTraits()
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_segment_package
+            scope: cursor
+      - pattern: $<TRAITS>
+        filters:
+          - variable: TRAITS
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_segment_package
+                scope: cursor
+              - variable: TYPE
+                values:
+                  - Traits
+      - pattern: $<TRAITS>.$<_>($<...>)
+        filters:
+          - variable: TRAITS
+            detection: go_third_parties_segment_traits
+            scope: cursor
+  - id: go_third_parties_segment_package
+    patterns:
+      - import $<!>"gopkg.in/segmentio/analytics-go.v3"
+      - import ($<!>"gopkg.in/segmentio/analytics-go.v3")
+languages:
+  - go
+skip_data_types:
+  - "Unique Identifier"
+metadata:
+  description: "Leakage of sensitive data to Segment"
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party analytics tools is a common cause of
+    data leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Segment.
+
+    ## Remediations
+
+    When sending data to analytics libraries, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Segment docs](https://segment.com/docs/connections/sources/catalog/libraries/server/go/)
+  cwe_id:
+    - 201
+  associated_recipe: Segment
+  id: go_third_parties_segment
+  documentation_url: https://docs.bearer.com/reference/rules/go_third_parties_segment
+severity: high
