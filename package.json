@@ -2,7 +2,8 @@
   "scripts": {
     "test": "jest",
     "generate_rule": "node scripts/generate_rule.js",
-    "bulk-update": "node scripts/bulk_update.js"
+    "bulk-update": "node scripts/bulk_update.js",
+    "check-links": "node scripts/check_links.js"
   },
   "devDependencies": {
     "jest": "^29.6.1",
@@ -11,6 +12,8 @@
   "dependencies": {
     "commander": "^11.1.0",
     "csv-parse": "^5.5.3",
+    "glob": "^10.3.10",
+    "marked": "^12.0.1",
     "yaml": "^2.3.4"
   }
 }
