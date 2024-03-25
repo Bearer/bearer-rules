@@ -1,0 +1,88 @@
+imports:
+  - go_shared_lang_datatype
+  - go_shared_lang_instance
+patterns:
+  - pattern: $<SERVICE>.$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: SERVICE
+        detection: go_third_parties_google_analytics_service
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: |
+      $<PACKAGE>.$<_>{$<_>: $<DATA_TYPE>}
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_google_analytics_package
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<STRUCT>.$<_> = $<DATA_TYPE>
+    filters:
+      - variable: STRUCT
+        detection: go_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_google_analytics_package
+            scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: go_third_parties_google_analytics_service
+    patterns:
+      - pattern: $<PACKAGE>.$<METHOD>($<...>)
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_google_analytics_package
+            scope: cursor
+          - variable: METHOD
+            regex: \ANew
+      - pattern: $<SERVICE>
+        filters:
+          - variable: SERVICE
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_google_analytics_package
+                scope: cursor
+              - variable: TYPE
+                regex: Service\z
+      - pattern: $<SERVICE>.$<_>
+        filters:
+          - variable: SERVICE
+            detection: go_third_parties_google_analytics_service
+            scope: cursor
+  - id: go_third_parties_google_analytics_package
+    patterns:
+      - import $<!>"google.golang.org/api/analytics/v3"
+      - import ($<!>"google.golang.org/api/analytics/v3")
+languages:
+  - go
+skip_data_types:
+  - Unique Identifier
+metadata:
+  description: "Leakage of sensitive data to Google Analytics"
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to third-party analytics tools is a common cause of
+    data leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Google Analytics.
+
+    ## Remediations
+
+    When sending data to analytics libraries, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Google Analytics docs](https://developers.google.com/analytics/devguides/reporting/)
+  cwe_id:
+    - 201
+  associated_recipe: Google Analytics
+  id: go_third_parties_google_analytics
+  documentation_url: https://docs.bearer.com/reference/rules/go_third_parties_google_analytics
+  cloud_code_suggestions: true
+severity: high
