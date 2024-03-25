@@ -1,0 +1,87 @@
+imports:
+  - go_shared_lang_datatype
+  - go_shared_lang_instance
+patterns:
+  - pattern: $<SERVICE>.$<_>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: SERVICE
+        detection: go_third_parties_google_dataflow_service
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: |
+      $<PACKAGE>.$<_>{$<_>: $<DATA_TYPE>}
+    filters:
+      - variable: PACKAGE
+        detection: go_third_parties_google_dataflow_package
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+  - pattern: $<STRUCT>.$<_> = $<DATA_TYPE>
+    filters:
+      - variable: STRUCT
+        detection: go_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_google_dataflow_package
+            scope: cursor
+      - variable: DATA_TYPE
+        detection: go_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: go_third_parties_google_dataflow_service
+    patterns:
+      - pattern: $<PACKAGE>.$<METHOD>($<...>)
+        filters:
+          - variable: PACKAGE
+            detection: go_third_parties_google_dataflow_package
+            scope: cursor
+          - variable: METHOD
+            regex: \ANew
+      - pattern: $<SERVICE>
+        filters:
+          - variable: SERVICE
+            detection: go_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: PACKAGE
+                detection: go_third_parties_google_dataflow_package
+                scope: cursor
+              - variable: TYPE
+                regex: Service\z
+      - pattern: $<SERVICE>.$<_>
+        filters:
+          - variable: SERVICE
+            detection: go_third_parties_google_dataflow_service
+            scope: cursor
+  - id: go_third_parties_google_dataflow_package
+    patterns:
+      - import $<!>"google.golang.org/api/dataflow/v1b3"
+      - import ($<!>"google.golang.org/api/dataflow/v1b3")
+languages:
+  - go
+skip_data_types:
+  - Unique Identifier
+metadata:
+  description: "Leakage of sensitive data to Google Dataflow"
+  remediation_message: |
+    ## Description
+    Leaking sensitive data to a third-party service is a common cause of data
+    leaks and can lead to data breaches. This rule looks for instances of
+    sensitive data sent to Google Dataflow.
+
+    ## Remediations
+
+    When sending data to third-party services, ensure all sensitive data is removed.
+
+    ## Resources
+    - [Google Dataflow Docs](https://cloud.google.com/dataflow/docs/overview)
+  cwe_id:
+    - 201
+  id: go_third_parties_google_dataflow
+  documentation_url: https://docs.bearer.com/reference/rules/go_third_parties_google_dataflow
+  cloud_code_suggestions: true
+severity: high
