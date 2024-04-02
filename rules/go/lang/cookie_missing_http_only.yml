@@ -6,16 +6,13 @@ patterns:
         scope: cursor_strict
       - not:
           variable: COOKIE
-          detection: go_lang_cookie_missing_http_only_true
+          detection: go_lang_cookie_missing_http_only_http_http_only_cookie
           scope: cursor_strict
 auxiliary:
   - id: go_lang_cookie_missing_http_only_cookie_init
     patterns:
       - import $<!>"net/http"
-      - |
-        import (
-          $<!>"net/http"
-        )
+      - import ($<!>"net/http")
   - id: go_lang_cookie_missing_http_only_true
     patterns:
       - "true"
@@ -26,7 +23,7 @@ auxiliary:
           - variable: HTTP
             detection: go_lang_cookie_missing_http_only_cookie_init
             scope: cursor
-  - id: go_lang_cookie_missing_http_only_http_only_true
+  - id: go_lang_cookie_missing_http_only_http_http_only_cookie
     patterns:
       - pattern: "$<_>{ HttpOnly: $<TRUE> }"
         filters:
