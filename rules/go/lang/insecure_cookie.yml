@@ -6,16 +6,13 @@ patterns:
         scope: cursor_strict
       - not:
           variable: COOKIE
-          detection: go_lang_insecure_cookie_true
+          detection: go_lang_insecure_cookie_http_secure_cookie
           scope: cursor_strict
 auxiliary:
   - id: go_lang_insecure_cookie_cookie_init
     patterns:
       - import $<!>"net/http"
-      - |
-        import (
-          $<!>"net/http"
-        )
+      - import ($<!>"net/http")
   - id: go_lang_insecure_cookie_true
     patterns:
       - "true"
@@ -26,7 +23,7 @@ auxiliary:
           - variable: HTTP
             detection: go_lang_insecure_cookie_cookie_init
             scope: cursor
-  - id: go_lang_insecure_cookie_true
+  - id: go_lang_insecure_cookie_http_secure_cookie
     patterns:
       - pattern: "$<_>{ Secure: $<TRUE> }"
         filters:

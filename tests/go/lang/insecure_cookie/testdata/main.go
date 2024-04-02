@@ -60,3 +60,12 @@ func DeleteCookie(w http.ResponseWriter, cookies []string) {
 		http.SetCookie(w, cookie)
 	}
 }
+
+func Ok(w http.ResponseWriter, name, value string) {
+	cookie := http.Cookie{
+		Name:     name,
+		Value:    value,
+		Secure:   true,
+	}
+	http.SetCookie(w, &cookie)
+}
