@@ -15,11 +15,23 @@ patterns:
       - variable: USER_INPUT
         detection: ruby_shared_common_html_user_input
         scope: result
-  - pattern: send_data($<USER_INPUT>$<...>)
+  - pattern: |
+      send_data($<USER_INPUT>, disposition: $<DISPOSITION>)
     filters:
       - variable: USER_INPUT
         detection: ruby_shared_common_html_user_input
         scope: result
+      - not:
+          variable: DISPOSITION
+          detection: ruby_rails_render_using_user_input_attachment
+          scope: cursor
+auxiliary:
+  - id: ruby_rails_render_using_user_input_attachment
+    patterns:
+      - pattern: $<VALUE>
+        filters:
+          - variable: VALUE
+            string_regex: \Aattachment\z
 severity: high
 metadata:
   description: "Unsanitized user input in raw HTML strings (XSS)"
