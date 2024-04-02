@@ -99,11 +99,15 @@ patterns:
       - variable: USER_INPUT
         detection: ruby_shared_common_user_input
         scope: result
-  - pattern: $<URI>.open$<...>
+  - pattern: $<URI>.$<METHOD>$<...>
     filters:
       - variable: URI
         detection: ruby_lang_http_url_using_user_input_uri
         scope: cursor
+      - variable: METHOD
+        values:
+          - open
+          - read
   - pattern: open($<URI>$<...>)$<...>
     filters:
       - variable: URI
