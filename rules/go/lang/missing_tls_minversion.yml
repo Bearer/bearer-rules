@@ -1,0 +1,54 @@
+patterns:
+  - pattern: $<TLS_CONFIG>
+    filters:
+      - variable: TLS_CONFIG
+        detection: go_lang_missing_tls_minversion_tls_config
+        scope: cursor_strict
+      - not:
+          variable: TLS_CONFIG
+          detection: go_lang_missing_tls_minversion_missing_minversion
+          scope: cursor_strict
+auxiliary:
+  - id: go_lang_missing_tls_minversion_tls_init
+    patterns:
+      - import $<!>"crypto/tls"
+      - import ($<!>"crypto/tls")
+  - id: go_lang_missing_tls_minversion_tls_config
+    patterns:
+      - pattern: $<TLS>.Config{}
+        filters:
+          - variable: TLS
+            detection: go_lang_missing_tls_minversion_tls_init
+            scope: cursor
+  - id: go_lang_missing_tls_minversion_missing_minversion
+    patterns:
+      - |
+        $<_>{ MinVersion: $<_> }
+languages:
+  - go
+severity: warning
+metadata:
+  description: Missing TLS MinVersion
+  remediation_message: |
+    ## Description
+
+    Older versions of TLS (Transport Layer Security) have been deprecated because of known security issues.
+    It is therefore best security practice to always configure the minimum TLS version accepted by the server.
+
+    ## Remediations
+
+    ✅ Set `MinVersion` in the `tls.Config` struct to `tls.VersionTLS13` or, for legacy applications, to the highest possible supported version of TLS.
+
+    ```
+      {
+        MinVersion: tls.VersionTLS13
+      }
+    ```
+
+    ## References
+
+    - [OWASP TLS Cipher String Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/TLS_Cipher_String_Cheat_Sheet.html)
+  cwe_id:
+    - 327
+  id: go_lang_missing_tls_minversion
+  documentation_url: https://docs.bearer.com/reference/rules/go_lang_missing_tls_minversion
