@@ -29,6 +29,7 @@ auxiliary:
       - pattern2
 languages:
   - ${language}
+severity:
 metadata:
   description: ""
   remediation_message: |
