@@ -26,7 +26,7 @@ patterns:
             detection: go_gosec_sql_concat_sqli_sql_db_begin
             scope: cursor
           - variable: DB
-            regex: (?i).*(db|database)
+            regex: (?i).*(db|database|client)
   - pattern: |
       $<DB>.$<METHOD>($<_>, $<INPUT>)
     filters:
@@ -48,7 +48,28 @@ patterns:
             detection: go_gosec_sql_concat_sqli_sql_db_begin
             scope: cursor
           - variable: DB
-            string_regex: (?i).*(db|database)
+            regex: (?i).*(db|database|client)
+  - pattern: |
+      $<DB>.$<METHOD>($<_>, $<_>, $<INPUT>)
+    filters:
+      - variable: METHOD
+        values:
+          - QueryContext
+          - ExecContext
+      - variable: INPUT
+        detection: go_gosec_sql_concat_sqli_unsanitized_input
+      - not:
+          variable: INPUT
+          detection: go_gosec_sql_concat_sqli_input_sprintf_sanitizer
+      - either:
+          - variable: DB
+            detection: go_gosec_sql_concat_sqli_sql_open
+            scope: cursor
+          - variable: DB
+            detection: go_gosec_sql_concat_sqli_sql_db_begin
+            scope: cursor
+          - variable: DB
+            regex: (?i).*(db|database|client)
 auxiliary:
   - id: go_gosec_sql_concat_sqli_input_sprintf_sanitizer
     patterns:

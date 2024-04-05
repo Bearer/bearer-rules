@@ -7,7 +7,16 @@ const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 describe(ruleId, () => {
   const invoke = createNewInvoker(ruleId, ruleFile, testBase)
 
-  
+    test("query_context", () => {
+      const testCase = "query_context.go"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+
+
     test("function", () => {
       const testCase = "function.go"
 
