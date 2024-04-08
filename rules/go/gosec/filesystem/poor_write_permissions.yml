@@ -16,7 +16,7 @@ auxiliary:
               - variable: MASK
                 regex: \A0\d[1-7]
               - variable: MASK
-                regex: \A0\d\d[1-7]
+                regex: \A0(o)?\d\d[1-7]
 languages:
   - go
 metadata:
