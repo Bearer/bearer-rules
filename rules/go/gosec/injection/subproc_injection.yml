@@ -2,25 +2,29 @@ imports:
   - go_shared_lang_dynamic_input_combined
 patterns:
   - pattern: |
-      exec.CommandContext($<CTX>, $<INPUT>$<...>)
+      exec.CommandContext($<_>, $<...>$<INPUT>$<...>)
     filters:
       - variable: INPUT
         detection: go_shared_lang_dynamic_input_combined
+        scope: result
   - pattern: |
       exec.Command($<...>$<INPUT>$<...>)
     filters:
       - variable: INPUT
         detection: go_shared_lang_dynamic_input_combined
+        scope: result
   - pattern: |
       syscall.ForkExec($<INPUT>$<...>)
     filters:
       - variable: INPUT
         detection: go_shared_lang_dynamic_input_combined
+        scope: result
   - pattern: |
       syscall.StartProcess($<INPUT>$<...>)
     filters:
       - variable: INPUT
         detection: go_shared_lang_dynamic_input_combined
+        scope: result
 languages:
   - go
 severity: high
