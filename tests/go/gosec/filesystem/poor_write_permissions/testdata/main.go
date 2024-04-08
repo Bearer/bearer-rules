@@ -16,11 +16,14 @@ func check(e error) {
 func mainwriteperms() {
 
 	d1 := []byte("hello\ngo\n")
-// bearer:expected go_gosec_filesystem_poor_write_permissions
+	// bearer:expected go_gosec_filesystem_poor_write_permissions
 	err := ioutil.WriteFile("/tmp/dat1", d1, 0744)
 	check(err)
 
 	allowed := ioutil.WriteFile("/tmp/dat1", d1, 0600)
+
+	// bearer:expected go_gosec_filesystem_poor_write_permissions
+	err = ioutil.WriteFile("/tmp/dat1", d1, 0o755)
 	check(allowed)
 
 	f, err := os.Create("/tmp/dat2")
