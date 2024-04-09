@@ -17,6 +17,11 @@ patterns:
       - variable: INSTANCE
         detection: go_shared_lang_instance
         scope: cursor
+        imports:
+          - variable: PACKAGE
+            as: PACKAGE
+          - variable: TYPE
+            as: TYPE
 metadata:
   description: "Go instance."
   id: go_shared_lang_instance
