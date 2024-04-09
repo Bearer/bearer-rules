@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 	"os/exec"
 	"syscall"
@@ -20,7 +21,7 @@ func foo1() {
 
 func foo2() {
 	// ruleid
-// bearer:expected go_gosec_injection_subproc_injection
+	// bearer:expected go_gosec_injection_subproc_injection
 	err := exec.CommandContext(context.Background(), os.Args[0], "5").Run() // detected
 	if err != nil {
 		log.Fatal(err)
@@ -31,7 +32,7 @@ func foo2() {
 func foo3() {
 	run := "sleep" + os.Getenv("SOMETHING")
 	// ruleid
-// bearer:expected go_gosec_injection_subproc_injection
+	// bearer:expected go_gosec_injection_subproc_injection
 	cmd := exec.Command(run, "5") // detected
 	err := cmd.Start()
 	if err != nil {
@@ -44,7 +45,7 @@ func foo3() {
 
 func foo4(command string) {
 	// ruleid
-// bearer:expected go_gosec_injection_subproc_injection
+	// bearer:expected go_gosec_injection_subproc_injection
 	cmd := exec.Command(command, "5")
 	err := cmd.Start()
 	if err != nil {
@@ -60,7 +61,7 @@ func foo5() {
 
 func foo6(a string, c string) {
 	// ruleid
-// bearer:expected go_gosec_injection_subproc_injection
+	// bearer:expected go_gosec_injection_subproc_injection
 	cmd := exec.Command(c)
 	err := cmd.Start()
 	if err != nil {
@@ -69,7 +70,7 @@ func foo6(a string, c string) {
 	log.Printf("Waiting for command to finish...")
 	err = cmd.Wait()
 	// ruleid
-// bearer:expected go_gosec_injection_subproc_injection
+	// bearer:expected go_gosec_injection_subproc_injection
 	cmd = exec.Command(a)
 	err = cmd.Start()
 	if err != nil {
@@ -92,7 +93,7 @@ func foo8() {
 
 func foo9(command string) {
 	// ruleid
-// bearer:expected go_gosec_injection_subproc_injection
+	// bearer:expected go_gosec_injection_subproc_injection
 	_, err := syscall.ForkExec(command, []string{}, nil)
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
@@ -105,7 +106,7 @@ func foo10() {
 
 func foo11(command string) {
 	// ruleid
-// bearer:expected go_gosec_injection_subproc_injection
+	// bearer:expected go_gosec_injection_subproc_injection
 	_, _, err := syscall.StartProcess(command, []string{}, nil)
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
@@ -130,10 +131,29 @@ func foo13() {
 
 func foo14() {
 	// ruleid
-// bearer:expected go_gosec_injection_subproc_injection
+	// bearer:expected go_gosec_injection_subproc_injection
 	err := exec.CommandContext(context.Background(), os.Args[0], "5").Run() // detected
 	if err != nil {
 		log.Fatal(err)
 	}
 	log.Printf("Command finished with error: %v", err)
+}
+
+func foo15(r *http.Request) error {
+	userName, err := r.Cookie("UserName")
+	if err != nil {
+		return err
+	}
+
+	cmd := "mysql -h mysql -u root -prootwolf -e 'select id,name,mail,age,created_at,updated_at from vulnapp.user where name not in (\"" + userName.Value + "\");'"
+
+	fmt.Println(cmd)
+
+	// bearer:expected go_gosec_injection_subproc_injection
+	_, err = exec.Command("sh", "-c", cmd).Output()
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
