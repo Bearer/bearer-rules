@@ -30,7 +30,7 @@ auxiliary:
               detection: javascript_shared_common_user_input
               scope: result
 metadata:
-  description: "Unsanitized user input in file request"
+  description: Unsanitized user input in HTTP send file request
   remediation_message: |
     ## Description
     Passing unsanitized user input to the sendFile API is bad practice and can lead to path manipulation, by which attackers can gain access to resources and data outside of the intended scope.

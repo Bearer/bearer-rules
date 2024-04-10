@@ -15,7 +15,7 @@ auxiliary:
         { name: $<_> }
 severity: medium
 metadata:
-  description: Usage of session cookie with default configuration
+  description: Usage of default session cookie configuration
   remediation_message: |
     ## Description
     To make sure session cookies don't open your application up to exploits or unauthorized access, don't use default cookie values.

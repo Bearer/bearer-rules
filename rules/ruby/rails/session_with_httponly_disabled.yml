@@ -7,7 +7,7 @@ patterns:
 languages:
   - ruby
 metadata:
-  description: "Missing 'HttpOnly' flag in session cookie configuration"
+  description: Missing HTTP Only option in cookie configuration
   remediation_message: |
     ## Description
     To mitigate against Cross-Site Scripting attacks, we should avoid accessing session cookies using JavaScript.

@@ -24,12 +24,15 @@ dependency:
   filename: package.json
 severity: high
 metadata:
-  description: "Usage of vulnerable DOMPurify package (XSS)"
+  description: Usage of vulnerable DOMPurify package
   remediation_message: |
     ## Description
-    There are XSS vulnerabilites when using DOMPurify's sanitize without proper configuration
+
+    For DOMPurify versions less than 2.0.17, there are XSS vulnerabilities when using sanitize without proper configuration
 
     ## Remediations
+
+    Upgrade DOMPurify to version 2.0.17 or greater.
 
     Specify a secure configuration option:
     ```
@@ -45,7 +48,7 @@ metadata:
     ## Resources
     - [Vulnerability explained](https://research.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass)
   cwe_id:
-    - 79
+    - 1395
   id: javascript_third_parties_dom_purify
   documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_dom_purify
   cloud_code_suggestions: true
