@@ -29,6 +29,9 @@ metadata:
     Validations using regular expressions should use the start of text (\A) and
     end of text (\z or \Z) boundaries.
 
+    Note, it is best security practice to prefer the boundary expressions \A and \z or \Z
+    over ^ and $, because ^ and $ operate as line-based boundaries when multiline mode is enabled.
+
     ## Remediations
 
     ❌ Avoid matching without start and end boundaries:
@@ -40,7 +43,7 @@ metadata:
     ❌ Avoid using line-based boundaries:
 
     ```go
-    regexp.MustCompile("^foo$"}
+    regexp.MustCompile("^foo$")
     ```
 
     ✅ Use whole-text boundaries:
