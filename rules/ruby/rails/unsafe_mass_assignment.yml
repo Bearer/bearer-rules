@@ -5,7 +5,7 @@ patterns:
         regex: (\:|"|')(role|admin|banned|account_id)["|']?
 languages:
   - ruby
-severity: warning
+severity: medium
 metadata:
   description: "Possible dangerous permitted parameter key"
   remediation_message: |

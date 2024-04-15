@@ -22,7 +22,7 @@ auxiliary:
     patterns:
       - pattern: |
           { isRevoked: $<_> }
-severity: low
+severity: medium
 metadata:
   description: "Missing revoke method on JWT"
   remediation_message: |

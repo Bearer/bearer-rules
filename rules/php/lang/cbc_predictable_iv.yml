@@ -24,7 +24,7 @@ patterns:
       - variable: INIT_VECTOR
         detection: string_literal
         scope: cursor
-severity: high
+severity: medium
 metadata:
   description: "Usage of CBC (Cipher Block Chaining) with predictable
     Initialization Vector (IV)"

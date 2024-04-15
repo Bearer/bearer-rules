@@ -118,7 +118,7 @@ auxiliary:
             detection: ruby_lang_exec_using_user_input_shell
             scope: cursor
       - Shell::CommandProcessor.new$<...>
-severity: high
+severity: critical
 metadata:
   description: "Unsanitized user input in OS command"
   remediation_message: |

@@ -31,7 +31,7 @@ patterns:
   # Unsupported:
   #   printf(io, format, ...) - can't distinguish arg types
   #   user_input % single_value - could confuse with number mod
-severity: low
+severity: high
 metadata:
   description: "Unsanitized user input in format string"
   remediation_message: |

@@ -489,10 +489,11 @@ metadata:
     $curl = curl_init("https://example.com/users?$query");
     ```
 
+    <!--
     ## Resources
     - [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)
   cwe_id:
     - 598
   id: php_lang_http_url_using_sensitive_data
   documentation_url: https://docs.bearer.com/reference/rules/php_lang_http_url_using_sensitive_data
-severity: high
+severity: medium

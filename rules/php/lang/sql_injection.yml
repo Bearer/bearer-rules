@@ -33,7 +33,7 @@ auxiliary:
               - db2_escape_string
 languages:
   - php
-severity: high
+severity: critical
 metadata:
   description: "Unsanitized user input in SQL query"
   remediation_message: |

@@ -15,7 +15,7 @@ auxiliary:
             regex: \A(java\.nio\.file\.)?Files\z
 languages:
   - java
-severity: warning
+severity: high
 metadata:
   description: Usage of permissive file permission ('other')
   remediation_message: |

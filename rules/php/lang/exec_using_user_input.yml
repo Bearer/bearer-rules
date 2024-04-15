@@ -56,7 +56,7 @@ patterns:
       - variable: ENVIRONMENT
         detection: php_shared_lang_user_input
         scope: result
-severity: high
+severity: critical
 metadata:
   description: "Unsanitized user input in OS command"
   remediation_message: |

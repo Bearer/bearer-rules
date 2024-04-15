@@ -89,7 +89,7 @@ auxiliary:
       - import { resolve as $<!>$<_> } from "path"
 languages:
   - javascript
-severity: warning
+severity: high
 metadata:
   description: "Unsanitized dynamic input in file path"
   remediation_message: |

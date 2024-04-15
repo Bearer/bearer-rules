@@ -48,7 +48,7 @@ auxiliary:
                 regex: \A(javax\.servlet\.http\.)?HttpSession\z
 languages:
   - java
-severity: warning
+severity: medium
 metadata:
   description: "Usage of trusted and untrusted data inside the same data structure"
   remediation_message: |

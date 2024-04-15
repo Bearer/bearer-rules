@@ -5,7 +5,7 @@ patterns:
         regex: \A(java\.net\.)?Socket\z
 languages:
   - java
-severity: warning
+severity: critical
 metadata:
   description: Usage of naive Socket class to create SSL Socket
   remediation_message: |
