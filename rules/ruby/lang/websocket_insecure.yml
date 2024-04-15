@@ -41,7 +41,7 @@ auxiliary:
   - id: ruby_lang_websocket_insecure_simple_client
     patterns:
       - WebSocket::Client::Simple::Client.new
-severity: low
+severity: critical
 metadata:
   description: "Usage of insecure websocket connection"
   remediation_message: |

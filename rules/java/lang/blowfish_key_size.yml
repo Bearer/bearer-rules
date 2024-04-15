@@ -16,7 +16,7 @@ auxiliary:
             string_regex: (?i)\ABlowfish\z
 languages:
   - java
-severity: warning
+severity: high
 metadata:
   description: Usage of small key size with Blowfish encryption
   remediation_message: |

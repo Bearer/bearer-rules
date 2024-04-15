@@ -36,7 +36,7 @@ auxiliary:
               detection: javascript_third_parties_dynamodb_query_injection_hash
 languages:
   - javascript
-severity: high
+severity: critical
 metadata:
   description: "Unsanitized user input in DynamoDB query"
   remediation_message: |

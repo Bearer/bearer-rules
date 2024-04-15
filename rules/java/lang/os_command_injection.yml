@@ -56,7 +56,7 @@ auxiliary:
                 regex: \A(java\.lang\.)?ProcessBuilder\z
 languages:
   - java
-severity: high
+severity: critical
 metadata:
   description: "Unsanitized user input in OS command"
   remediation_message: |

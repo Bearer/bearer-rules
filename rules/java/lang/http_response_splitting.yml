@@ -94,7 +94,7 @@ auxiliary:
               string_regex: "\\r\\n|\\\\r\\\\n"
 languages:
   - java
-severity: warning
+severity: high
 metadata:
   description: "Unsanitized user input in HTTP response (XSS)"
   remediation_message: |

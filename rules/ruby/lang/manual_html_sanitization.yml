@@ -10,7 +10,7 @@ patterns:
         regex: "&(lt|gt|apos|quot|amp);"
 languages:
   - ruby
-severity: low
+severity: high
 metadata:
   description: "Usage of manual HTML sanitization (XSS)"
   remediation_message: |

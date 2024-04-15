@@ -25,7 +25,7 @@ patterns:
       - variable: USER_INPUT
         detection: javascript_shared_common_user_input
         scope: result
-severity: low
+severity: high
 metadata:
   description: "Unsanitized user input in format string"
   remediation_message: |

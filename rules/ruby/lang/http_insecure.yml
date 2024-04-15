@@ -210,7 +210,7 @@ auxiliary:
         filters:
           - variable: INSECURE_URL
             detection: ruby_shared_common_insecure_url
-severity: low
+severity: critical
 metadata:
   description: "Usage of insecure HTTP connection"
   remediation_message: |

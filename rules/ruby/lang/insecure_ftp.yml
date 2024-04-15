@@ -15,7 +15,7 @@ patterns:
     $<!>Net::FTP.open()$<...>
 languages:
   - ruby
-severity: low
+severity: critical
 metadata:
   description: "Usage of insecure FTP connection"
   remediation_message: |

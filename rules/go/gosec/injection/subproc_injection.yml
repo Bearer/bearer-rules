@@ -23,7 +23,7 @@ patterns:
         detection: go_shared_lang_dynamic_input_combined
 languages:
   - go
-severity: high
+severity: critical
 metadata:
   description: Unsanitized dynamic input in OS command
   remediation_message: |

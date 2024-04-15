@@ -111,7 +111,7 @@ auxiliary:
       - pattern: $<_>.hash($<!>$<_>)
 languages:
   - javascript
-severity: high
+severity: critical
 metadata:
   description: "Unsanitized user input in SQL query"
   remediation_message: |

@@ -7,7 +7,7 @@ patterns:
     $<_>.verify_mode = OpenSSL::SSL::VERIFY_NONE
 languages:
   - ruby
-severity: medium
+severity: high
 metadata:
   description: "Missing SSL certificate verification"
   remediation_message: |

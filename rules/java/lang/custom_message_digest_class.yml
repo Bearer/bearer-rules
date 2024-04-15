@@ -6,7 +6,7 @@ patterns:
         regex: \A(java\.security\.)?MessageDigest\z
 languages:
   - java
-severity: warning
+severity: high
 metadata:
   description: Usage of custom Digest class
   remediation_message: |

@@ -19,7 +19,7 @@ patterns:
         string_regex: (?i)\ASSL\z
 languages:
   - java
-severity: warning
+severity: high
 metadata:
   description: Missing TLS validation
   remediation_message: |

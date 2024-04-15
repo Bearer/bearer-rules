@@ -26,7 +26,7 @@ auxiliary:
         $<_>{ MinVersion: $<_> }
 languages:
   - go
-severity: warning
+severity: high
 metadata:
   description: Missing TLS MinVersion
   remediation_message: |

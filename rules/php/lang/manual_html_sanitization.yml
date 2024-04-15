@@ -10,7 +10,7 @@ patterns:
         string_regex: "&(lt|gt|apos|quot|amp);"
 languages:
   - php
-severity: low
+severity: high
 metadata:
   description: "Usage of manual HTML sanitization (XSS)"
   remediation_message: |

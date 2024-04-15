@@ -13,7 +13,7 @@ auxiliary:
             regex: \A(io\.jsonwebtoken\.)?Jwts\z
 languages:
   - java
-severity: low
+severity: critical
 metadata:
   description: Missing signature verification of JWT
   remediation_message: |

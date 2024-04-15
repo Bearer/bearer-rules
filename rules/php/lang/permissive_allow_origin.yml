@@ -9,7 +9,7 @@ patterns:
         string_regex: (?i)\Aaccess-control-allow-origin:\s+\*\s*\z
 languages:
   - php
-severity: warning
+severity: medium
 metadata:
   description: "Permissive Access-Control-Allow-Origin configuration"
   remediation_message: |

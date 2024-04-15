@@ -131,7 +131,7 @@ auxiliary:
       - import * as $<!>$<_> from "fs/promises"
 languages:
   - javascript
-severity: warning
+severity: high
 metadata:
   description: Unsanitized dynamic input in file path
   remediation_message: |

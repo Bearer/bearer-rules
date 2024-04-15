@@ -13,7 +13,7 @@ patterns:
           - variable: URL
             detection: php_shared_lang_insecure_url
             scope: result
-severity: low
+severity: critical
 metadata:
   description: "Usage of insecure HTTP connection"
   remediation_message: |
