@@ -11,6 +11,6 @@
 -->
 
 ## Checklist
+If this is your first time contributing please [sign the CLA](https://docs.bearer.com/contributing/)
 
 - [ ] My rule has adequate metadata to explain its use.
-- [ ] PR title follows [Conventional Commits](https://www.conventionalcommits.org/) format

@@ -54,6 +54,12 @@ This command generates:
 
 5. Make a pull request containing all of the above
 
+## CLA (Contributor License Agreement)
+
+A Contributor License Agreement (CLA) is a legal document that outlines the terms and conditions under which a contributor submits their work, such as code, documentation, or other materials, to a project.
+
+Before submitting any Pull Request, please take a look at our [CLA document](https://docs.bearer.com/cla.pdf), fill it out and send it to [research@cycode.com](mailto:research@cycode.com). After that, you are good to go.
+
 ## Have questions?
 
 You can find more guides and everything you need to get started in the [Contributing to Bearer](https://docs.bearer.com/contributing/) documentation, or join the [Discord Community](https://discord.gg/eaHZBJUXRF).
