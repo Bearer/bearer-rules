@@ -1,6 +1,6 @@
 patterns:
   - pattern: |
-      $<GET_WINDOW>.$<METHOD>($<FLAG_SECURE>$<...>);
+      $<GET_WINDOW>.$<METHOD>($<FLAGS>$<...>);
     filters:
       - variable: GET_WINDOW
         detection: java_android_prevent_screenshot_get_window
@@ -8,8 +8,10 @@ patterns:
         values:
           - setFlags
           - addFlags
-      - variable: FLAG_SECURE
-        detection: java_android_prevent_screenshot_flag_secure
+      - not:
+          variable: FLAGS
+          detection: java_android_prevent_screenshot_flag_secure
+          scope: cursor_strict
 auxiliary:
   - id: java_android_prevent_screenshot_get_window
     patterns:
@@ -26,21 +28,16 @@ metadata:
   remediation_message: |
     ## Description
 
-    Android may take screenshots of the current application view for display purposes, for example when an application is sent to the background.
-    Whether or not Android is permitted to take such screenshots is determined by the FLAG_SECURE option.
+    The Android operating system can capture screenshots of the current application view, such as when the app is minimized. This capability is controlled by the FLAG_SECURE option. If FLAG_SECURE is not enabled, Android can take screenshots, which might include sensitive information.
 
-    By default, the FLAG_SECURE option is not set and no screenshots are taken.
-
-    For best security practices, we should not set the FLAG_SECURE to true and we should never allow Android to take screenshots of the current application activity.
+    For best security practices, we should set FLAG_SECURE and we should never allow Android to take screenshots of the current application activity.
 
     ## Remediations
 
-    ❌ Do not set the FLAG_SECURE option, to ensure that Android does not take screenshots of potentially sensitive information
-
-    ## References
-
-    - []()
-
+    ✅ Set the FLAG_SECURE option to true in your Android application to prevent the system from taking screenshots of your app's activities. This is crucial for protecting potentially sensitive information from being captured and stored in screenshots.
+    ```java
+    getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
+    ```
   cwe_id:
     - 200
   id: java_android_prevent_screenshot

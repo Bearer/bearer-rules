@@ -1,13 +1,15 @@
 public class FlagSecure extends Activity {
-  public void bad() {
-    // bearer:expected java_android_prevent_screenshot
+  public void ok() {
     getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
                          WindowManager.LayoutParams.FLAG_SECURE);
-    // bearer:expected java_android_prevent_screenshot
+
     activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
   }
 
-  public void ok() {
+  public void bad() {
+    // bearer:expected java_android_prevent_screenshot
     activity.getWindow().addFlags("some other flag");
+    // bearer:expected java_android_prevent_screenshot
+    getWindow().setFlags("some other flag", "another other flag");
   }
 }
