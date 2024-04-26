@@ -18,3 +18,10 @@ ActiveRecord::Base.connection.exec_query("SELECT #{params[:oops]}")
 
 # bearer:expected ruby_rails_sql_injection
 connection.select_all("SELECT #{params[:oops]}")
+
+class Foo
+  def bad(name)
+    # bearer:expected ruby_rails_sql_injection
+    connection.select_all("SELECT user WHERE name ='#{name}'")
+  end
+end

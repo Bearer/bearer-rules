@@ -1,0 +1,12 @@
+type: shared
+languages:
+  - ruby
+patterns:
+  - |
+    class $<_>
+      def $<METHOD_NAME>($<...>$<!>$<_>$<...>)
+      end
+    end
+metadata:
+  description: Ruby dynamic input.
+  id: ruby_shared_common_dynamic_input

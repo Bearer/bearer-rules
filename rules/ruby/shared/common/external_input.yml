@@ -1,0 +1,20 @@
+imports:
+  - ruby_shared_common_user_input
+  - ruby_shared_common_dynamic_input
+type: shared
+languages:
+  - ruby
+patterns:
+  - pattern: $<USER_INPUT>
+    filters:
+      - variable: USER_INPUT
+        detection: ruby_shared_common_user_input
+        scope: cursor_strict
+  - pattern: $<DYNAMIC_INPUT>
+    filters:
+      - variable: DYNAMIC_INPUT
+        detection: ruby_shared_common_dynamic_input
+        scope: cursor_strict
+metadata:
+  description: Ruby externally influenced (user or dynamic) input.
+  id: ruby_shared_common_external_input

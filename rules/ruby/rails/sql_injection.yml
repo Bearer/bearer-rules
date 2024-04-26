@@ -1,5 +1,5 @@
 imports:
-  - ruby_shared_common_user_input
+  - ruby_shared_common_external_input
 patterns:
   - pattern: $<_>.$<METHOD>($<...>$<USER_INPUT>$<...>)
     filters:
@@ -7,7 +7,7 @@ patterns:
         detection: ruby_rails_sql_injection_regular_method
         scope: cursor
       - variable: USER_INPUT
-        detection: ruby_rails_sql_injection_user_input
+        detection: ruby_rails_sql_injection_external_input
         scope: result
   - pattern: $<METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -15,7 +15,7 @@ patterns:
         detection: ruby_rails_sql_injection_regular_method
         scope: cursor
       - variable: USER_INPUT
-        detection: ruby_rails_sql_injection_user_input
+        detection: ruby_rails_sql_injection_external_input
         scope: result
   - pattern: ActiveRecord::Base.connection.$<CONN_METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -23,7 +23,7 @@ patterns:
         detection: ruby_rails_sql_injection_connection_method
         scope: cursor
       - variable: USER_INPUT
-        detection: ruby_rails_sql_injection_user_input
+        detection: ruby_rails_sql_injection_external_input
         scope: result
   - pattern: connection.$<CONN_METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -31,7 +31,7 @@ patterns:
         detection: ruby_rails_sql_injection_connection_method
         scope: cursor
       - variable: USER_INPUT
-        detection: ruby_rails_sql_injection_user_input
+        detection: ruby_rails_sql_injection_external_input
         scope: result
   - pattern: $<_>.$<SPECIAL_METHOD>($<USER_INPUT>$<...>)
     filters:
@@ -39,7 +39,7 @@ patterns:
         detection: ruby_rails_sql_injection_special_arg_method
         scope: cursor
       - variable: USER_INPUT
-        detection: ruby_rails_sql_injection_user_input
+        detection: ruby_rails_sql_injection_external_input
         scope: result
       - not:
           variable: USER_INPUT
@@ -50,7 +50,7 @@ patterns:
         detection: ruby_rails_sql_injection_special_arg_method
         scope: cursor
       - variable: USER_INPUT
-        detection: ruby_rails_sql_injection_user_input
+        detection: ruby_rails_sql_injection_external_input
         scope: result
       - not:
           variable: USER_INPUT
@@ -107,13 +107,13 @@ auxiliary:
               - delete_by
               - destroy_by
               - update_all
-  - id: ruby_rails_sql_injection_user_input
+  - id: ruby_rails_sql_injection_external_input
     sanitizer: ruby_rails_sql_injection_sanitized
     patterns:
-      - pattern: $<COMMON_USER_INPUT>
+      - pattern: $<COMMON_INPUT>
         filters:
-          - variable: COMMON_USER_INPUT
-            detection: ruby_shared_common_user_input
+          - variable: COMMON_INPUT
+            detection: ruby_shared_common_external_input
             scope: cursor
   - id: ruby_rails_sql_injection_safe_special_arg
     patterns:
