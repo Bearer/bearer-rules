@@ -76,22 +76,18 @@ auxiliary:
 severity: high
 metadata:
   description: "Unsanitized user input in HTTP request (SSRF)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should not connect to locations formed from user input.
-    This rule checks for URLs containing user-supplied data.
+    Constructing URLs based on user input puts your application at risk of Server-Side Request Forgery (SSRF) attacks. This vulnerability allows attackers to manipulate the application into making unintended HTTP requests.
 
     ## Remediations
 
-    ❌ Avoid using user input in HTTP URLs:
-
+    - **Do not** directly incorporate user input into URLs for HTTP requests. This can lead to SSRF vulnerabilities.
     ```javascript
-    const response = axios.get(`https://${req.params.host}`)
+    const response = axios.get(`https://${req.params.host}`) // unsafe
     ```
-
-    ✅ Use user input indirectly to form a URL:
-
+    - **Do** validate or map user input against a predefined list of allowed values before using it to form URLs. This approach minimizes the risk of SSRF attacks.
     ```javascript
     const hosts = new Map([
       ["option1", "api1.com"],
@@ -99,7 +95,7 @@ metadata:
     ])
 
     const host = hosts.get(req.params.host)
-    const response = axois.get(`https://${host}`)
+    const response = axios.get(`https://${host}`)
     ```
   cwe_id:
     - 918

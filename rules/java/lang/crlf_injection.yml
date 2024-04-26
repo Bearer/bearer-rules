@@ -75,22 +75,22 @@ languages:
   - java
 metadata:
   description: "Possible CLRF injection detected"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    A CRLF (Carriage Return Line Feed) injection occurs when an attacker injects a sequence of line termination characters into a log message, allowing them to forge log entries.
+    CRLF (Carriage Return Line Feed) injection vulnerability occurs when an attacker is able to insert a sequence of line termination characters into a log message. This can lead to forged log entries, compromising the integrity of log files.
 
     ## Remediations
 
-    ✅ Strip any carriage return and line feed characters from user input data before logging it.
-
+    - **Do** strip any carriage return and line feed characters from user input data before logging it. This prevents attackers from injecting malicious CRLF sequences.
     ```java
     logger.info(userInput.replaceAll("[\r\n]+", ""));
     ```
 
-    ## Resources
-    - [OWASP CRLF Injection] (https://owasp.org/www-community/vulnerabilities/CRLF_Injection)
-    - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
+    ## References
+
+    - [OWASP CRLF Injection](https://owasp.org/www-community/vulnerabilities/CRLF_Injection)
+    - [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
   cwe_id:
     - 93
   id: java_lang_crlf_injection

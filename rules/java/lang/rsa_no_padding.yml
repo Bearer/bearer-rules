@@ -9,20 +9,20 @@ languages:
   - java
 metadata:
   description: "Missing Optimal Asymmetric Encryption Padding (OAEP)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The RSA encryption algorithm is weak when used without Optimal Asymmetric Encryption Padding (OAEP).
+    The RSA encryption algorithm becomes vulnerable without Optimal Asymmetric Encryption Padding (OAEP). This vulnerability can lead to security risks such as information disclosure.
 
     ## Remediations
 
-    ✅ Always use OAEP when using RSA encryption
-
+    - **Do** always use OAEP with RSA encryption to enhance security and mitigate vulnerabilities.
     ```java
-      Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithMD5AndMGF1Padding")
+    Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithMD5AndMGF1Padding")
     ```
 
-    ## Resources
+    ## References
+
     - [Java MessageDigest class](https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html)
   cwe_id:
     - 780

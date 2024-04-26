@@ -4,30 +4,18 @@ languages:
   - go
 metadata:
   description: "Missing verification of host keys"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The security vulnerability identified pertains to the application neglecting the verification of host keys during SSH connections. Host keys are crucial for confirming the server's identity, preventing Man-in-the-Middle (MitM) attacks where an attacker could impersonate the server. When these keys are ignored, the client cannot guarantee the authenticity of the server it connects to.
+    Lacking verification of host key during SSH connections compromises the security of your application. Host keys are essential for verifying the server's identity to prevent Man-in-the-Middle (MitM) attacks, where an attacker could pose as the server. Without this verification, there's no way to ensure the server's authenticity.
 
-    ## Remediation
+    ## Remediations
 
-    To mitigate this risk, it is essential to implement proper host key checking:
+    - **Do not** use `ssh.InsecureIgnoreHostKey` as a `HostKeyCallback` function. This method bypasses any form of host validation, making your application vulnerable to attacks.
+    - **Do** implement host key verification. For example, use the `knownhosts` package from Go's `x/crypto/ssh` to check server keys against a list of known hosts, similar to OpenSSH's approach.
+    - **Do not** disable host key checking in your production code. While it might seem convenient for development or testing environments, it significantly increases the risk of security breaches.
 
-    ✅ Implement Host Key Verification
-
-    Use the `knownhosts` package from Go's `x/crypto/ssh` to validate server keys against known hosts. This mirrors the functionality found in OpenSSH.
-
-    ✅ Avoid Disabling Host Key Checking
-
-    Never disable host key checking in production code. While it might be convenient for testing, it opens up security vulnerabilities.
-
-    ❌ Do Not Use `InsecureIgnoreHostKey`
-
-    Although available, using `ssh.InsecureIgnoreHostKey` as a `HostKeyCallback` function should be strictly avoided as it does not offer any form of host validation.
-
-    Below is a code snippet showing how to set up an SSH `ClientConfig` in Go to use the `knownhosts` callback for server verification:
-
-    ## Resources
+    ## References
 
     - [GoDoc for x/crypto/ssh](https://pkg.go.dev/golang.org/x/crypto/ssh)
     - [Secure use of SSH - OpenSSH](https://www.openssh.com/)

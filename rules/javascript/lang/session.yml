@@ -13,29 +13,26 @@ skip_data_types:
   - "Unique Identifier"
 metadata:
   description: "Leakage of sensitive data in local storage"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Sensitive data should not be stored in a `localStorage` session. This policy looks for any sensitive data stored within the localstorage.
+    Storing sensitive data in `localStorage` poses a security risk. This vulnerability occurs when sensitive information is saved in the browser's local storage, making it susceptible to unauthorized access.
 
     ## Remediations
 
-    It's best to avoid storing sensitive data in `localStorage` whenever possible. To keep session data safe, use a server-based session storage solution instead.
-
-    ❌ If you do need do store data in `localStorage`, avoid including sensitive data:
-
+    - **Do not** store sensitive data in `localStorage`. This method exposes sensitive information to potential security threats.
     ```javascript
-    localStorage.setItem('user', email)
+    localStorage.setItem('user', email); // unsafe
+    ```
+    - **Do** use server-based session storage solutions to keep session data secure. This approach minimizes the risk of sensitive data exposure.
+    - **Do** store only non-sensitive data in `localStorage`, such as a unique identifier, to reduce security risks.
+    ```javascript
+    localStorage.setItem('user', user.uuid);
     ```
 
-    ✅ Instead, use a unique identifier:
+    ## References
 
-    ```javascript
-    localStorage.setItem('user', user.uuid)
-    ```
-
-    ## Resources
-      - [OWASP sensitive data exposure](https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure)
+    - [OWASP sensitive data exposure](https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure)
   cwe_id:
     - 312
   id: javascript_lang_session

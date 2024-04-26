@@ -69,24 +69,20 @@ languages:
 trigger:
   match_on: presence
 metadata:
-  description: "Unsanitized input in SQL query"
-  remediation_message: |
+  description: "Unsanitized external input in SQL query"
+  remediation_message: |-
     ## Description
 
-    Including unsanitized data, such as user input or request data, or externally influenced data passed to a function, in raw SQL
-    queries makes your application vulnerable to SQL injection attacks.
+    Using unsanitized data, such as user input or request data, or externally influenced data passed to a function, in SQL query exposes your application to SQL injection attacks. This vulnerability arises when externally controlled data is directly included in SQL statements without proper sanitation, allowing attackers to manipulate queries and access or modify data.
 
     ## Remediations
 
-    ❌ Avoid raw queries, especially those that contain unsanitized input:
-
+    - **Do not** concatenate external input directly into SQL queries. This practice can lead to SQL injection vulnerabilities.
     ```java
-      String query = "update user set name='"+uri.getQueryParameter("name")+"' where id='"+uri.getQueryParameter("userId")+"'";
-      return jdbcTemplate.update(query);
+    String query = "update user set name='"+uri.getQueryParameter("name")+"' where id='"+uri.getQueryParameter("userId")+"'";
+    return jdbcTemplate.update(query);
     ```
-
-    ✅ Use `PreparedStatement` creators and setters to construct SQL queries
-
+    - **Do** use `PreparedStatement` with parameterized SQL queries to safely include external input. This method ensures that input is treated as data, not executable code.
     ```java
     new PreparedStatementCreator() {
       public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
@@ -97,13 +93,14 @@ metadata:
 
     new PreparedStatementSetter() {
       public void setValues(PreparedStatement preparedStatement) throws SQLException {
-        preparedStatement.setString(1, uri.getQueryParameter("name"))
-        preparedStatement.setInt(2, uri.getQueryParameter("userId"))
+        preparedStatement.setString(1, uri.getQueryParameter("name"));
+        preparedStatement.setInt(2, uri.getQueryParameter("userId"));
       }
     }
     ```
 
-    ## Resources
+    ## References
+
     - [JDBC Template class](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html)
     - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
     - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)

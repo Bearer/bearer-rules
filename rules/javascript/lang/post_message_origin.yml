@@ -14,24 +14,20 @@ patterns:
 severity: medium
 metadata:
   description: "Permissive origin in postMessage"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Using "*" (any) as the target origin of a postMessage call allows
-    third-parties to read the message.
+    The use of a permissive origin in postMessage calls poses a security risk. When you set the target origin to "*" in a postMessage call, it means any website can receive the message, potentially exposing sensitive information to third parties.
 
     ## Remediations
 
-    ❌ Avoid using "*" as the target origin:
-
+    - **Do not** use "*" as the target origin in postMessage calls. This approach is insecure as it allows any website to receive the messages.
     ```javascript
-    window.postMessage(message, '*')
+    window.postMessage(message, '*'); // unsafe
     ```
-
-    ✅ Specify the origin for your target application:
-
+    - **Do** specify the exact origin of the target application when using postMessage. This practice ensures that only the intended recipient can read the message.
     ```javascript
-    window.postMessage(message, 'https://myapp.example.com')
+    window.postMessage(message, 'https://myapp.example.com');
     ```
   cwe_id:
     - 346

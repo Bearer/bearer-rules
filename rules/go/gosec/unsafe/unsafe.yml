@@ -7,30 +7,27 @@ languages:
   - go
 metadata:
   description: "Usage of vulnerable 'unsafe' package"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The Go programming language features the `unsafe` package which grants low-level memory management capabilities, inclusive of direct memory access and pointer manipulation. Though the `unsafe` package can be quite potent, its usage sidesteps the Go compiler's type safety checks. This can lead to an array of security vulnerabilities and unpredictable system behavior.
+    The `unsafe` package in Go allows for low-level memory management, including direct memory access and pointer manipulation. While `unsafe` is a powerful library, using it bypasses Go's type safety checks and opens the door to security vulnerabilities and unpredictable behavior in your application.
 
     ## Remediations
 
-    ✅ Avoid `unsafe` Unless Absolutely Necessary
+    - **Do not** use the `unsafe` package unless it is absolutely necessary. If you must use it, ensure you fully understand the implications and thoroughly test your code.
+    - **Do** ensure buffer boundaries are respected to avoid buffer overflows. This precaution helps prevent unauthorized code execution.
+    ```go
+    buffer := make([]byte, 10)
+    ```
+    - **Do not** access memory after it has been freed to avoid use-after-free vulnerabilities, which can lead to unintended code execution or unpredictable system behavior.
+    ```go
+    unsafePointer := unsafe.Pointer(&data)
+    C.free(unsafePointer)
+    // now unsafe to access
+    ```
+    - **Do** regularly review and audit your code to prevent memory or information leaks that could compromise security or lead to system failures due to exhausted memory.
 
-    The overarching guidance here is to steer clear of the `unsafe` package unless there's an absolute necessity for its functions. When opting for low-level memory operations, ensure that their implications are well-understood and that their deployment is preceded by rigorous testing.
-
-    ✅ Be Wary of Buffer Overflows
-
-    Direct manipulation of memory can lead to buffer overflows, potentially enabling unauthorized code execution. Ensure buffer boundaries are always respected.
-
-    ✅ Avoid Use After Free
-
-    Accessing memory that has already been freed can result in unintended code execution or unpredictable behaviors. Ensure that once memory has been freed, it isn't accessed further.
-
-    ✅ Prevent Information/Memory Leaks
-
-    Unintended memory retention or unintended disclosure of information in memory can occur when using unsafe functions. This can compromise other security defenses or lead to system failures due to exhausted memory. Regularly review and audit your code to check for such leaks.
-
-    ## Resources
+    ## References
 
     - [Buffer Overflows - OWASP](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)
     - [Using Freed Memory - OWASP](https://owasp.org/www-community/vulnerabilities/Using_freed_memory)

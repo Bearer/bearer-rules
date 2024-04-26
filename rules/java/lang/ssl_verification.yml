@@ -22,25 +22,19 @@ languages:
 severity: high
 metadata:
   description: Missing TLS validation
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    When establishing a connection, it is important to verify the hostname to mitigate man-in-the-middle attacks, data interception and related security risks.
-    `DefaultHttpClient` is deprecated and does not verify hostnames.
-
-    Likewise, the SSL protocol is also deprecated on account of its known security vulnerabilities.
+    Your code is vulnerable to Man-in-the-Middle attacks if it doesn't validate TLS certificates. This issue arises when your application establishes a connection without verifying the server's hostname, making it susceptible to data interception and other security risks.  Using deprecated elements like `DefaultHttpClient`, which lacks hostname verification, or the SSL protocol, known for its security flaws, exacerbates these vulnerabilities.
 
     ## Remediations
 
-    ✅ Use newer HTTP Clients such as `java.net.http.HttpClient` that do this validation automatically
-
-    ✅ Use newer protocols like TLS instead of SSL
-
+    - **Do** use newer HTTP Clients such as `java.net.http.HttpClient` that automatically include TLS validation.
+    - **Do** opt for the newer TLS protocol over SSL, wherever possible, to secure connections. Ensure your application explicitly requests TLS to avoid the vulnerabilities associated with SSL.
     ```java
-    SSLContext.getInstance("TLS")
+    SSLContext.getInstance("TLS");
     ```
-
-    ❌ Do not use deprecated HTTP Clients such as `DefaultHttpClient`
+    - **Do not** rely on deprecated HTTP clients, such as `DefaultHttpClient`, for your application's networking needs. These clients do not perform necessary security checks like TLS validation, putting your application at risk.
   cwe_id:
     - 295
   id: java_lang_ssl_verification

@@ -13,18 +13,15 @@ patterns:
 severity: medium
 metadata:
   description: "Possible HTTP verb confusion"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Rails uses the same actions for both GET and HEAD requests. When creating
-    actions that handle both GET and state altering verbs (eg. POST), the use
-    of `request.get?` can lead to unexpected state changes.
 
-    ### Remediations
+    In Rails applications, the same actions are often used to respond to both GET and HEAD requests. This can become problematic when actions are designed to handle both GET requests, which should not alter the application state, and requests like POST, which may alter state. Relying on `request.get?` to differentiate request types can inadvertently lead to unexpected changes in the application state.
 
-    ✅ Use separate action logic for GET and POST
+    ## Remediations
 
-    ✅ Check for state altering verbs rather than GET:
-
+    - **Do** use separate action logic for handling GET and POST requests to prevent unintended state changes.
+    - **Do** explicitly check for state-altering HTTP verbs (such as POST) instead of relying on GET to ensure that state changes only occur when intended.
     ```ruby
     if request.post?
       alter_state

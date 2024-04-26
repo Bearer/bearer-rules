@@ -69,15 +69,23 @@ languages:
   - php
 metadata:
   description: Missing Secure option in cookie configuration
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    A cookie that is configured to be secure ensures that a client will only send the cookie to the server when HTTPS is being used.
-    This prevents the cookie from being observed by unauthorized third parties.
+    When a cookie lacks the Secure attribute, it can be transmitted over insecure connections, making it vulnerable to interception by unauthorized parties. The Secure attribute is important because it instructs the browser to only send the cookie over HTTPS, enhancing security.
 
     ## Remediations
 
-    ✅ Set `secure`  to `true` to force cookies to only send over HTTPS.
+    - **Do** set the `Secure` attribute to `true` for cookies to ensure they are only sent over HTTPS.
+    ```php
+    $cookie = Cookie::create($name, $value);
+    $cookie->withSecure(true);
+    ```
+
+    ## References
+
+    - [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
+    - [OWASP Cookies Properties](https://owasp.org/www-community/controls/SecureCookieAttribute)
   cwe_id:
     - 614
   id: php_symfony_insecure_cookie

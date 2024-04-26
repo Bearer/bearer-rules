@@ -8,23 +8,23 @@ languages:
 severity: critical
 metadata:
   description: "Missing secure HTTP server configuration"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    When applications process sensitive data, they should default to always use SSL when available. This rule checks if force SSL is enabled at the application level.
 
-    ### Remediations
-    This helps avoid attacks like [session hijacking](https://guides.rubyonrails.org/security.html#session-hijacking). More importantly, unencrypted HTTP communication sends all requests as plain text, meaning anyone listening in can see all the traffic and extract user data.
+    Your application may be at risk if it does not enforce the use of SSL (Secure Sockets Layer) for all communications, especially when processing sensitive data. Be sure to enable force_ssl at the application level to ensure that all data transmitted is encrypted. Unencrypted HTTP communication sends all requests as plain text, meaning anyone listening in can see all the traffic and extract user data.
 
-    While you want to avoid sending sensitive data whenever possible, it's unavoidable so protecting the connection is an important method of improving your rails application data security.
+    ## Remediations
 
-    ✅ To force all traffic to your application to be encrypted though SSL, use the following Rails configuration option:
-
+    - **Do** enforce SSL to secure all data in transit. This is crucial for protecting sensitive information from eavesdropping or interception.
     ```ruby
     config.force_ssl = true
     ```
+    - **Do not** allow unencrypted HTTP traffic for your application. Unencrypted communications can be intercepted, exposing sensitive user data to attackers.
 
-    ## Resources
+    ## References
+
     - [Configuring Rails Applications - Ruby on Rails Guides](https://guides.rubyonrails.org/configuring.html#config-force-ssl)
+    - [Session Hijacking - Ruby on Rails Guides](https://guides.rubyonrails.org/security.html#session-hijacking)
   cwe_id:
     - 319
   id: ruby_rails_insecure_communication

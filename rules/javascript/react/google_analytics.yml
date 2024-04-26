@@ -11,19 +11,15 @@ languages:
   - javascript
 metadata:
   description: "Leakage of sensitive data to Google Analytics (React)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Leaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Google Analytics.
+    Sending sensitive data to Google Analytics can result in data leaks. This vulnerability arises when sensitive or confidential information is inadvertently transmitted to Google Analytics, posing a risk of unauthorized access and potential data breaches.
 
     ## Remediations
 
-    When sending data to analytics libraries, ensure all sensitive data is removed.
-
-    <!--
-    ## Resources
-    Coming soon.
-    -->
+    - **Do not** include sensitive information in data payloads sent to Google Analytics. Always review the data being transmitted to ensure it does not contain personal or confidential details.
+    - **Do** use data processing techniques to anonymize or remove sensitive data before sending it to Google Analytics. This can include techniques like hashing or tokenization to ensure that any data transmitted cannot be used to identify an individual.
   cwe_id:
     - 201
   id: "javascript_react_google_analytics"

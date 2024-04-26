@@ -13,18 +13,21 @@ languages:
   - java
 metadata:
   description: "Unsanitized user input in regular expression"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should avoid constructing regular expressions from user input.
-    Regular expressions can have exponential worst-case computational
-    complexity, allowing users to trigger this behaviour can result in
-    excessive CPU consumption causing a regular expression denial of service (ReDoS).
+    Constructing regular expressions from user input can lead to a vulnerability known as Regular Expression Denial of Service (ReDoS). This issue arises because certain regular expressions can be processed with exponential time complexity. If attackers exploit this, they can cause significant CPU usage spikes, effectively denying service to legitimate users.
 
     ## Remediations
-    ❌ Avoid using untrusted or user data when building regular expressions
 
-    ## Resources
+    - **Do not** - wherever possible - use user input directly in regular expressions. This can prevent attackers from exploiting complex patterns that cause excessive CPU consumption.
+    ```java
+    Pattern pattern = Pattern.compile(request.getParameter("dangerousRegex"));
+    ```
+    - **Do** sanitize or validate user input if it must be used in a regular expression. Ensure that the input does not contain patterns that could lead to ReDoS.
+
+    ## References
+
     - [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)
   cwe_id:
     - 1287

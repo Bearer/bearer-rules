@@ -33,18 +33,15 @@ metadata:
   remediation_message: |
     ## Description
 
-    Leaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to loggers.
+    Leaking sensitive data to loggers is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    ❌ Avoid using sensitive data in logger messages:
-
+    - **Do not** include sensitive data in logger messages.
     ```php
-    $log->info('User is: ' . $user.email)
+    $log->info('User is: ' . $user.email) // unsafe
     ```
-
-    ✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:
-
+    - **Do** use unique identifiers from the database (instead of personal identifiable information) if you really need to identify users.
     ```php
     log->info('User is: ' . $user.uuid)
     ```

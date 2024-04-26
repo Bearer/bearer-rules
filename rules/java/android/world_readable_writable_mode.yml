@@ -7,19 +7,24 @@ languages:
   - java
 metadata:
   description: Permissive context mode for resources
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Creating world-readable and -writeable files poses a serious security risk.
-    It is for this reason that the `Context.MODE_WORLD_READABLE` and `Context.MODE_WORLD_WRITEABLE` constants were deprecated and later removed.
+    Using permissive context modes like `Context.MODE_WORLD_READABLE` and `Context.MODE_WORLD_WRITEABLE` for file permissions exposes your application to significant security risks. These modes allow any application to read and write to your files, respectively. In light of these risks, these constants have been deprecated and removed from newer Android versions.
 
     ## Remediations
 
-    ✅ Use Context.MODE_PRIVATE wherever possible
-
-    ✅ Use a `ContentProvider` when sharing content with other applications
-
-    ❌ (For legacy applications) Do not use the deprecated `MODE_WORLD_READABLE` or `MODE_WORLD_WRITEABLE` constants
+    - **Do** use `Context.MODE_PRIVATE` for file permissions to ensure that your files are accessible only by your application.
+    ```java
+    getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+    ```
+    - **Do** utilize a `ContentProvider` if you need to share data with other applications securely. This approach provides a granular control over who can access your data.
+    ```java
+    public class MyContentProvider extends ContentProvider {
+        // Implement content provider methods here
+    }
+    ```
+    - **Do not** use `MODE_WORLD_READABLE` or `MODE_WORLD_WRITEABLE` constants, even in legacy applications. Instead, update your application to use more secure alternatives.
 
     ## References
 

@@ -52,33 +52,27 @@ languages:
   - java
 metadata:
   description: "Possible HTTP Parameter Pollution detected"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Unsanitized user input is being used to construct a URL.
-    This can lead to HTTP Parameter Pollution (HPP) attacks, where an attacker overrides the
-    value of a URL or request parameter, to manipulate requests or retrieve otherwise hidden information.
+    Using unsanitized user input to construct a URL can lead to HTTP Parameter Pollution (HPP) attacks. In such attacks, an attacker can manipulate the URL or request parameters to alter requests or access hidden information.
 
     ## Remediations
 
-    ❌ Never use direct or unsanitized user input when constructing URLs or URL parameters. Seek alternatives instead.
-
-    For example, use a map to convert user input to an appropriate parameter.
-
+    - **Do not** use direct or unsanitized user input when constructing URLs or URL parameters.
+    - **Do** use alternative and safe methods to incorporate user input when constructing URLs. For example, a lookup table.
     ```java
-      HashMap<String, String> lookupTable = new HashMap<>();
-      // ... populate hash map
-      String rawUserInput = request.getParameter("someParam")
-
-      String value = lookupTable.getOrDefault(rawUserInput, "someDefault") ;
-      HttpGet httpget = new HttpGet("https://example.com/?param="+value);
+    HashMap<String, String> lookupTable = new HashMap<>();
+    // ... populate hash map
+    String rawUserInput = request.getParameter("someParam");
+    String value = lookupTable.getOrDefault(rawUserInput, "someDefault");
+    HttpGet httpget = new HttpGet("https://example.com/?param=" + value);
     ```
-
-    ✅ Always sanitize user input
+    - **Do** sanitize user input before using it in your URLs. This step ensures that any harmful characters or attempts to manipulate the URL are neutralized.
 
     ```java
-      String rawUserInput = request.getParameter("someParam");
-      String encoded = java.net.URLEncoder.encode(rawUserInput, StandardCharsets.UTF_8);
+    String rawUserInput = request.getParameter("someParam");
+    String encoded = java.net.URLEncoder.encode(rawUserInput, StandardCharsets.UTF_8);
     ```
   cwe_id:
     - 88

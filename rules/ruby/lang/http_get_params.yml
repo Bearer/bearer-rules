@@ -33,25 +33,23 @@ patterns:
         scope: result
 metadata:
   description: "Leakage of sensitive data in HTTP GET parameters"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Sensitive data should never be sent as part of the query string in HTTP GET requests. This rule checks if sensitive data types are sent as GET parameters.
+
+    Sensitive data should never be sent as part of the query string in HTTP GET requests. This is bad practice that can expose sensitive information since query strings can be cached or logged in server logs, and can be seen in browser history, making them vulnerable to unauthorized access.
 
     ## Remediations
-    Avoid sending sensitive data though HTTP GET parameters since they are passed in plain text even while using HTTPS communication:
 
-    ❌ Avoid code like this:
+    - **Do not** send sensitive data through HTTP GET parameters. This method exposes information in plain text, even when using HTTPS.
     ```ruby
     HTTParty.get(
       'https://secure-api.com/user',
       {
-        email: user.email
+        email: user.email # unsafe
       }
     )
     ```
-
-    ✅ Instead, use the HTTP POST method if you need to send data:
-
+    - **Do** use the HTTP POST method to send sensitive data securely. POST requests do not expose data in the URL.
     ```ruby
     HTTParty.post(
       'https://secure-api.com/user',
@@ -60,11 +58,9 @@ metadata:
       }
     )
     ```
-
-    ✅ Or keep using HTTP Get but avoid using sending sensitive data:
-
+    - **Do** use identifiers that do not expose personal or sensitive information, for cases where a GET request is required
     ```ruby
-    HTTParty.GET(
+    HTTParty.get(
       'https://secure-api.com/user',
       {
         id: user.uuid
@@ -72,8 +68,8 @@ metadata:
     )
     ```
 
-    <!--
-    ## Resources
+    ## References
+
     - [OWASP information exposure through URL query strings](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url)
   cwe_id:
     - 598

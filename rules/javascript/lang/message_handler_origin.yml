@@ -42,24 +42,20 @@ auxiliary:
 severity: medium
 metadata:
   description: "Missing origin check in message handler"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should check the origin of `message` events. Handling messages
-    from untrusted origins could lead to Cross-Site Scripting (XSS) attacks.
+    Failing to verify the origin of message events can expose your application to Cross-Site Scripting (XSS) attacks. This vulnerability arises when an application processes messages without confirming if they come from a trusted source.
 
     ## Remediations
 
-    ❌ Avoid handling messages from any origin:
-
+    - **Do not** add message event listeners without checking the origin of the messages. This approach leaves your application vulnerable to malicious inputs.
     ```javascript
     window.addEventListener('message', (event) => {
-      actOnMessage(event.data)
+      actOnMessage(event.data) // unsafe
     })
     ```
-
-    ✅ Validate the origin:
-
+    - **Do** validate the origin of incoming messages before processing them. Ensure that the message comes from a trusted source by comparing the event's origin with a predefined list of allowed origins.
     ```javascript
     window.addEventListener('message', (event) => {
       if (event.origin != 'https://myapp.example.com') {
@@ -70,7 +66,8 @@ metadata:
     })
     ```
 
-    ## Resources
+    ## References
+
     - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
   cwe_id:
     - 346

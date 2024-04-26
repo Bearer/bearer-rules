@@ -9,60 +9,17 @@ languages:
   - go
 metadata:
   description: "Import of weak encryption algorithm (RCA)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    RC4 is a stream cipher that was once popular for its simplicity and speed in operation. However, extensive research over the years has revealed multiple vulnerabilities, rendering RC4 insecure in most contexts. Its weaknesses in key scheduling and the generation of non-random bytes have led to successful cryptanalysis and practical attacks, making it unsuitable for securing data.
+    The RC4 encryption algorithm is outdated and vulnerable. It has been found to have significant security flaws, including predictable key generation and weak randomization, which have been exploited in various attacks. These vulnerabilities make RC4 unsuitable for secure data encryption.
 
-    ## Remediation
+    ## Remediations
 
-    With the known vulnerabilities of RC4, it's essential to move to a more secure cipher. AES (Advanced Encryption Standard) is the recommended replacement because it has undergone extensive scrutiny and is considered secure against cryptanalysis.
+    - **Do not** use RC4 for encrypting data. Its vulnerabilities to cryptanalysis and practical attacks compromise data security.
+    - **Do** switch to AES-256 for encryption. AES-256 is a secure and widely accepted standard that provides strong protection against attacks. Using AES-256 ensures compliance with current security standards and provides a robust defense against known cryptographic attacks.
 
-    ✅ Switch to AES-256 for Robust Encryption
-
-    ```go
-    // 32 byte keys will set up AES-256, which is a secure block cipher that has become the industry standard for encryption.
-    key := make([]byte, 32)
-    if _, err := io.ReadFull(rand.Reader, key); err != nil {
-      log.Fatal(err)
-    }
-
-    blockCipher, err := aes.NewCipher(key)
-    if err != nil {
-      log.Fatal(err)
-    }
-
-    aead, err := cipher.NewGCM(blockCipher)
-    if err != nil {
-      log.Fatal(err)
-    }
-
-    var encrypted = []byte{}
-    var nonce = []byte{}
-    // Encryption routine
-    {
-      msg := []byte("Some secret message")
-      // Note that the key must be rotated after every 2^32 uses of a single nonce-value to avoid cipher text repetition.
-      nonce = make([]byte, 12)
-      if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
-        log.Fatal(err)
-      }
-      encrypted = aead.Seal(nil, nonce, msg, nil)
-    }
-
-    // Decryption routine
-    {
-      msg, err := aead.Open(nil, nonce, encrypted, nil)
-      if err != nil {
-        log.Fatal(err)
-      }
-      fmt.Printf("Decrypted: %s\n", msg)
-    }
-    ```
-
-    Using AES-256 ensures that your encryption mechanism meets current security standards and is robust against known attacks. AES has been widely adopted across various industries and has proven its reliability over time.
-
-    ## Resources
+    ## References
 
     - [NIST Guidelines on Cryptography](https://csrc.nist.gov/publications/detail/sp/800-38a/final)
   cwe_id:

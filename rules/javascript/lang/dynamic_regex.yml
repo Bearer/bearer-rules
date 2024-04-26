@@ -20,34 +20,24 @@ languages:
 severity: medium
 metadata:
   description: Unsanitized dynamic input in regular expression
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    In JavaScript, improper neutralization of regular expressions (often referred to as ReDoS) occurs when user-controlled input is not adequately sanitized before being integrated into a regular expression. This vulnerability allows attackers to craft input that can cause the application to consume excessive resources (CPU and memory), leading to a denial of service condition. Specifically, certain patterns within regular expressions can be exploited to cause catastrophic backtracking, effectively freezing the application.
+    Creating regular expressions from dynamic input can lead to a vulnerability known as Regular Expression Denial of Service (ReDoS). This issue arises because some regular expressions can be processed with exponential time complexity. When attackers exploit this, it can significantly drain CPU resources, effectively causing a denial of service.
 
     ## Remediations
 
-    ✅ **Validate Input Before Processing**
-    - **Ensure all user-supplied input is validated** against a strict whitelist of allowed characters before incorporating it into regular expressions. This reduces the risk of malicious patterns being injected.
+    - **Do** validate all dynamic and user-supplied input against a strict safelist of allowed characters before using it in regular expressions. This step helps prevent attackers from injecting malicious patterns.
+    - **Do** restrict the length of input that can be processed. Limiting input size is a straightforward way to mitigate many ReDoS vulnerabilities.
+    - **Do** implement timeouts for regular expression evaluation to avoid excessive resource consumption. This can be achieved using JavaScript environments or libraries that allow setting execution time limits.
+    - **Do** simplify complex regular expressions to reduce the risk of catastrophic backtracking. Breaking down expressions into simpler parts makes them safer and more manageable.
+    - **Do not** directly concatenate user input into regular expressions. This practice can introduce unsafe patterns and lead to vulnerabilities.
+    ```javascript
+    var dynamicRegex = new RegExp('^' + userInput); // unsafe
+    ```
 
-    ✅ **Limit Input Length**
-    - **Restrict the length of input** that can be submitted. Many ReDoS vulnerabilities can be mitigated by limiting the size of the input string that is matched against complex regular expressions.
+    ## References
 
-    ✅ **Use Timeouts for Regular Expression Evaluation**
-    - **Implement timeouts** when evaluating regular expressions to prevent excessive resource consumption. Some JavaScript environments or third-party libraries offer functionality to specify execution time limits for regex evaluation.
-
-    ✅ **Simplify Regular Expressions**
-    - **Simplify complex regular expressions** to avoid patterns prone to catastrophic backtracking. Break down complex expressions into simpler, more manageable ones.
-
-    ❌ **Do Not Directly Concatenate User Input into Regular Expressions**
-    - Avoid constructing regular expressions by directly concatenating user-controlled input, as this can introduce unsafe patterns.
-
-    ❌ **Avoid Greedy Quantifiers with Overlapping Matches**
-    - Be cautious with the use of greedy quantifiers (`.*`, `.+`) in regular expressions, especially when they can overlap, as they are often the cause of ReDoS vulnerabilities.
-
-    ## Resources
-
-    - [CWE-1333: Improper Neutralization of Regular Expression](https://cwe.mitre.org/data/definitions/1333.html)
     - [OWASP Regular expression Denial of Service - ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)
 
   cwe_id:

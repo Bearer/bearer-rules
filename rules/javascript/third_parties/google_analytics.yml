@@ -16,14 +16,12 @@ metadata:
   remediation_message: |
     ## Description
 
-    Leaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Google Analytics.
+    Leaking sensitive data to third-party analytics tools like Google Analytics is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    When sending data to analytics libraries, ensure all sensitive data is removed.
-
-    If you really need to identify users, use unique identifiers from the database.
-
+    - **Do** ensure all sensitive data is removed when sending data to analytics libraries like Google Analytics.
+    - **Do** use unique identifiers from the database if you really need to identify users.
     ```javascript
       gtag("event", "screen_view", {
         user: {
@@ -32,7 +30,8 @@ metadata:
       });
     ```
 
-    ## Resources
+    ## References
+    - [Google Analytics docs](https://developers.google.com/analytics/devguides/reporting/)
     - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
 
   cwe_id:

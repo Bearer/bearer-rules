@@ -59,22 +59,18 @@ patterns:
 severity: critical
 metadata:
   description: "Unsanitized user input in OS command"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should not execute OS commands that are formed from user input.
-    This rule checks for external commands containing user-supplied data.
+    Executing OS commands that include user-supplied data can lead to command injection vulnerabilities. This occurs when an application dynamically executes OS commands that an attacker can manipulate through user input.
 
     ## Remediations
 
-    ❌ Avoid using user input when executing commands:
-
+    - **Do not** directly include user input in commands to be executed by the OS. This can allow attackers to inject malicious commands.
     ```php
-    exec($_GET["command"]);
+    exec($_GET["command"]); // unsafe
     ```
-
-    ✅ Use user input indirectly when executing commands:
-
+    - **Do** use a predefined set of commands instead of directly including user input, if user input has to influence the execution flow.
     ```php
     if ($_GET["action"] == "option1") {
       $command = "command1";
@@ -85,7 +81,8 @@ metadata:
     exec($command);
     ```
 
-    ## Resources
+    ## References
+
     - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
   cwe_id:
     - 78

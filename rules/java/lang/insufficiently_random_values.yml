@@ -23,21 +23,20 @@ languages:
   - java
 metadata:
   description: "Usage of insufficient random value"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Using predictable random values makes our application vulnerable to attacks,
-    especially if these values are used for security purposes.
+    The use of predictable random values compromises application security, particularly when these values serve security-related functions.
 
     ## Remediations
 
-    ✅ Use a stronger library when generating random values
-
+    - **Do** utilize a robust library for generating random values to enhance security.
     ```java
     SecureRandom random = new SecureRandom();
     ```
 
-    ## Resources
+    ## References
+
     - [Java SecureRandom class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/SecureRandom.html)
   cwe_id:
     - 330

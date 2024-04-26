@@ -14,22 +14,18 @@ auxiliary:
 severity: medium
 metadata:
   description: "Permissive request parameters"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Being overly permissive with request parameters can allow an attacker to
-    update arbitrary model attributes.
+    Allowing overly permissive request parameters can allow attackers to update any model attributes they choose.
 
     ## Remediations
 
-    ❌ Avoid blanket permitting of parameters:
-
+    - **Do not** use blanket permissions for request parameters. This approach can inadvertently expose your application to unauthorized modifications.
     ```ruby
     params.permit!
     ```
-
-    ✅ Only permit parameters the user should be able to update:
-
+    - **Do** explicitly permit only the parameters that users are allowed to update. This practice helps safeguard your application by limiting what can be modified.
     ```ruby
     params.permit(:name, :email)
     ```

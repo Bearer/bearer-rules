@@ -28,17 +28,15 @@ languages:
   - go
 metadata:
   description: "Missing SSL certificate verification"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications processing sensitive data should use valid SSL certificates.
-    This rule checks if SSL verification is enabled.
+    Your application's security is compromised if it fails to verify SSL certificates. This vulnerability occurs when your application communicates over HTTPS without validating the authenticity of the SSL certificate presented by the server. It exposes sensitive data to interception by attackers.
 
     ## Remediations
 
-    ❌ Do not disable SSL certificate validation in your HTTP client
-
-    ✅ Ensure verification of both peers and hostnames is enabled in your HTTP client
+    - **Do not** disable SSL certificate validation in your HTTP client. Disabling it makes your application vulnerable to Man-in-the-Middle (MitM) attacks.
+    - **Do** ensure that your HTTP client is configured to verify both the SSL certificate's validity and the hostname. This step is crucial for establishing a secure connection.
 
   cwe_id:
     - 295

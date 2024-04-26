@@ -73,34 +73,35 @@ languages:
   - java
 metadata:
   description: "Unsanitized user input in LDAP request"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-      Unsatized input going into LDAP query detected. This could lead to LDAP injection, which could result in attackers modifying objects in the LDAP tree structure. Ensure data passed to an LDAP query is not controllable or properly sanitize the data.
+
+    Using unsanitized user input in an LDAP request can lead to LDAP injection, which is when attackers can modify the LDAP tree structure by injecting malicious input. It's crucial to ensure that data passed to an LDAP query is either not controlled by the user or is properly sanitized.
 
     ## Remediations
 
-    ✅ Sanitize LDAP query data
-
+    - **Do** sanitize user input before including it in LDAP queries to prevent LDAP injection attacks.
     ```java
-      public class Cls extends HttpServlet
-      {
+    public class Cls extends HttpServlet
+    {
 
-          public void handleRequest(HttpServletRequest request, HttpServletResponse response)
-          {
-              String userID = request.getParameter("userID");
-              String sanitizedUserID = sanitize(userID);
+        public void handleRequest(HttpServletRequest request, HttpServletResponse response)
+        {
+            String userID = request.getParameter("userID");
+            String sanitizedUserID = sanitize(userID); // Ensure sanitization method effectively neutralizes LDAP injection vectors
 
-              String filter = "(&(objectclass=person))(|(uid=" + sanitizedUserID + ")(street={0}))";
-              String base = "ou=users,ou=system";
-              Object[] filters = new Object[] {"First avenue"};
-              javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+            String filter = "(&(objectclass=person))(|(uid=" + sanitizedUserID + ")(street={0}))";
+            String base = "ou=users,ou=system";
+            Object[] filters = new Object[] {"First avenue"};
+            javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
 
-              dirContext.search(base, filter, filters, sc);
-          }
-      }
+            dirContext.search(base, filter, filters, sc);
+        }
+    }
     ```
 
     ## References
+
     - [LDAP Injection](https://owasp.org/www-community/attacks/LDAP_Injection)
     - [LDAP Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html)
   cwe_id:

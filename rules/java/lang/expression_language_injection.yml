@@ -37,16 +37,17 @@ languages:
 severity: high
 metadata:
   description: "Possible expression language (EL) injection detected"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Using external input when building an expression language (EL) statement can lead to EL injection attacks and the evaluation of risky code.
+    Expression Language (EL) injection vulnerabilities occur when external input is used to construct EL statements without proper validation. This can result in the execution of malicious code.
 
     ## Remediations
 
-    ✅ Always validate the source of external input or dynamic values before using them to construct EL statements
+    - **Do** validate all external input or dynamic values before incorporating them into EL statements. This step is crucial to prevent EL injection attacks.
 
-    ## Resources
+    ## References
+
     - [OWASP Expression Language Injection](https://owasp.org/www-community/vulnerabilities/Expression_Language_Injection)
   cwe_id:
     - 917

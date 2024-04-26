@@ -36,24 +36,21 @@ languages:
   - ruby
 metadata:
   description: "Unsanitized user input in regular expression"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should avoid constructing regular expressions from user input.
-    Regular expressions can have exponential worst-case computational
-    complexity, allowing users to trigger this behaviour can result in
-    excessive CPU consumption causing a regular expression denial of service (ReDoS).
+    Creating regular expressions from user input can lead to a vulnerability known as Regular Expression Denial of Service (ReDoS). This issue arises because some regular expressions can be processed with exponential time complexity. When attackers exploit this, it can significantly drain CPU resources, effectively causing a denial of service.
 
     ## Remediations
-    ❌ Avoid using untrusted or user data when building regular expressions
 
-    ✅ Specify a timeout when working with regular expressions
-
+    - **Do not** construct regular expressions directly from user inputs. This can make your application susceptible to ReDoS attacks.
+    - **Do** set a timeout for regular expressions to prevent excessive CPU usage. This can help mitigate the impact of potential ReDoS attacks.
     ```ruby
-      Regexp.new(/(a|b)/, timeout: 3)
+    Regexp.new(/(a|b)/, timeout: 3)
     ```
 
-    ## Resources
+    ## References
+
     - [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)
   cwe_id:
     - 1287

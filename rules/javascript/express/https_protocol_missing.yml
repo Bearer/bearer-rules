@@ -12,23 +12,25 @@ trigger:
   required_detection: javascript_express_https_protocol_missing_http_server
 metadata:
   description: "Missing secure HTTP server configuration"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Use HTTPS wherever possible. HTTPS uses the TLS (Transport Layer Security) protocol to encrypt communication, making it more secure than HTTP.
+
+    Failing to configure your HTTP server to use HTTPS can expose data to interception and manipulation. HTTPS, which incorporates TLS (Transport Layer Security), encrypts data in transit and therefore provides a more secure communication channel than HTTP.
 
     ## Remediations
-    ✅ Use the `https` module when calling `createServer()`
 
+    - **Do** use the `https` module for creating secure servers in your applications. This ensures that data transmitted between the server and clients is encrypted.
     ```javascript
     var https = require('https');
     var express = require('express');
     var app = express();
 
-    var httpsServer = https.createServer(app)
+    var httpsServer = https.createServer(app);
     httpsServer.listen(8080);
     ```
 
-    ## Resources
+    ## References
+
     - [Express Security Best Practices: use TLS](https://expressjs.com/en/advanced/best-practice-security.html#use-tls)
   cwe_id:
     - 319

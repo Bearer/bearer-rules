@@ -59,29 +59,25 @@ trigger:
   match_on: presence
 metadata:
   description: Unsanitized user input in file path
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Allowing unsanitized user input in path resolution methods means an attacker could influence or control the file name or path used by an application, potentially leading to unauthorized access, data disclosure, or other security issues
+    Unsanitized user input in file path resolution can lead to security vulnerabilities. This issue arises when an application directly uses input from the user to determine file paths or names without proper validation or sanitization. Attackers can exploit this to access unauthorized files or directories, leading to data breaches or other security compromises.
 
     ## Remediations
 
-    ❌ Avoid wherever possible
-
-    ✅ Use a safelist to specify which paths or directories can be accessed, and restrict attempts to access directories that are not whitelisted
-
-    ✅ Sanitize user input when resolving paths. For example, use `FilenameUtils.getName()` to extract just the filename from raw input:
-
+    - **Do not** directly use user input in file paths without sanitization. This prevents attackers from manipulating file paths to access or manipulate unauthorized files.
+    - **Do** use a safelist to define accessible paths or directories. Only allow user input to influence file paths within these predefined, safe boundaries.
+    - **Do** sanitize user input used in file path resolution. For example, use methods like `FilenameUtils.getName()` to safely extract only the intended file name from the user input, removing any path manipulation attempts.
     ```java
-      public class Cls extends HttpServlet
-      {
-
-          public void handleRequest(HttpServletRequest request, HttpServletResponse response)
-          {
-              String image = request.getParameter("user_profile_picture");
-              File file = new File("user/profile/" + FilenameUtils.getName(image));
-          }
-      }
+    public class Cls extends HttpServlet
+    {
+        public void handleRequest(HttpServletRequest request, HttpServletResponse response)
+        {
+            String image = request.getParameter("user_profile_picture");
+            File file = new File("user/profile/" + FilenameUtils.getName(image));
+        }
+    }
     ```
   cwe_id:
     - 73

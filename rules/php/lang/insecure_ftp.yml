@@ -5,22 +5,20 @@ languages:
 severity: critical
 metadata:
   description: "Usage of insecure FTP connection"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Communication with FTP servers should be done securely over SFTP in
-    applications that process sensitive data. This rule checks if all FTP
-    connections are made using SFTP.
+    Using insecure FTP connections can compromise the security of sensitive data. This vulnerability arises when applications that handle sensitive information communicate with FTP servers without secure protocols. Always verify that FTP connections in your application utilize SFTP for enhanced security.
 
     ## Remediations
 
-    ✅ To ensure secure FTP connections are made, use the ftp_ssl_connect function
-
+    - **Do** use the `ftp_ssl_connect` function to establish secure FTP connections. This function ensures that your connection to the FTP server is encrypted, protecting the data transmitted from potential interception or eavesdropping.
     ```php
     $ftp = ftp_ssl_connect("ftp.example.com");
     ```
 
-    ## Resources
+    ## References
+
     - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
   cwe_id:
     - 319

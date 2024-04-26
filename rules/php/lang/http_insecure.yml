@@ -16,26 +16,24 @@ patterns:
 severity: critical
 metadata:
   description: "Usage of insecure HTTP connection"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.
+    Your application is at risk when it connects to APIs using insecure HTTP connections. This vulnerability occurs because HTTP lacks encryption, making data susceptible to interception and alteration. Always verify that your application exclusively uses HTTPS connections for enhanced security.
 
     ## Remediations
 
-    ❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:
-
+    - **Do not** initiate connections using unsecured HTTP. This exposes your data to potential interception and manipulation.
     ```php
-    $curl = curl_init('http://insecure-api.com');
+    $curl = curl_init('http://insecure-api.com'); // unsafe
     ```
-
-    ✅ Ensure to always connect though HTTPS:
-
+    - **Do** ensure all connections are made through HTTPS to encrypt data and protect against eavesdropping and tampering.
     ```php
     $curl = curl_init('https://secure-api.com');
     ```
 
-    ## Resources
+    ## References
+
     - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
   cwe_id:
     - 319

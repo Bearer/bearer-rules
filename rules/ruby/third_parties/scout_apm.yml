@@ -21,13 +21,14 @@ metadata:
   description: "Leakage of sensitive data to Scout APM"
   remediation_message: |
     ## Description
-    Leaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Scout APM.
+
+    Leaking sensitive data to third-party loggers like Scout APM is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    When logging errors or events, ensure all sensitive data is removed.
+    - **Do** ensure all sensitive data is removed when sending data to third-party loggers like Scout APM.
 
-    ## Resources
+    ## References
     - [Scout APM docs](https://scoutapm.com/docs/ruby)
   cwe_id:
     - 201

@@ -67,25 +67,24 @@ skip_data_types:
   - "Passwords" # see javascript_weak_password_encryption
 metadata:
   description: "Usage of weak hashing library (SHA-1)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    A weak hashing library can lead to data breaches and greater security risk.
+    Using a weak hashing library like SHA-1 increases the risk of data breaches. SHA-1 in particular is vulnerable to collision attacks, where two different inputs can produce the same hash value, compromising data integrity and security.
 
     ## Remediations
 
-    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hash algorithm and therefore shouldn't be used.
-
-    ✅ Use stronger hashing algorithms when storing data.
-
+    - **Do not** use SHA-1 for hashing. It's no longer considered secure against well-funded attackers.
     ```javascript
-    const crypto = require("crypto");
-
-    const key = "secret key";
-    const hash = crypto.createHmac("es-256-cbc", key).update(user.password);
+    const hash = crypto.createHmac("sha1", key).update(user.password); // unsafe
+    ```
+    - **Do** use stronger hashing algorithms like SHA-256 or SHA-3 for enhanced security.
+    ```javascript
+    const hash = crypto.createHmac("sha256", key).update(user.password);
     ```
 
-    ## Resources
+    ## References
+
     - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)
   cwe_id:
     - 328

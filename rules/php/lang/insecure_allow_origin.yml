@@ -12,17 +12,30 @@ languages:
   - php
 metadata:
   description: "Unsanitized user input in Access-Control-Allow-Origin"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Do not use unverified user-defined input to define Access-Control-Allow-Origin.
-    This can lead to unintended user access to sensitive data.
+
+    Using unverified user-defined input to set the Access-Control-Allow-Origin header can result in unauthorized access to sensitive data. This vulnerability exposes your application to potential security risks by allowing attackers to specify origins that can access resources.
 
     ## Remediations
-    ❌ Avoid defining origins with user input wherever possible.
 
-    ✅ If unavoidable, be sure to verify the input or to use a safe-list.
+    - **Do not** use user input to define the `Access-Control-Allow-Origin` header without validation. This practice can inadvertently grant access to sensitive information.
+    ```php
+    header("Access-Control-Allow-Origin: {$_GET['untrusted']}", true); // unsafe
+    ```
+    - **Do** validate user input if it must be used to set the `Access-Control-Allow-Origin` header. Ensure that only trusted origins are allowed by implementing a safelist of approved origins.
+    ```php
+      $allowedOrigins = ['http://www.example.com', 'https://www.secure.example.com'];
 
-    ## Resources
+      $origin = $_GET['someParam'];
+
+      if (in_array($origin, $allowedOrigins)) {
+        header("Access-Control-Allow-Origin: $origin");
+      }
+    ```
+
+    ## References
+
     - [OWASP Origin & Access-Control-Allow-Origin](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/07-Testing_Cross_Origin_Resource_Sharing)
   cwe_id:
     - 346

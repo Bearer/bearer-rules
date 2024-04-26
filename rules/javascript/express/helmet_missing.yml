@@ -89,21 +89,20 @@ trigger:
   required_detection: javascript_express_helmet_missing_express_init
 metadata:
   description: "Missing Helmet configuration on HTTP headers"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Helmet can help protect your app from some well-known web vulnerabilities by setting HTTP headers appropriately.
+    Helmet can help protect your app from some well-known web vulnerabilities by setting HTTP headers appropriately. Failing to configure Helmet for HTTP headers leaves your application vulnerable to several web attacks.
 
     ## Remediations
 
-    ✅ Use Helmet middleware
-
+    - **Do** use Helmet middleware to secure your app by adding it to your application's middleware.
     ```javascript
-    const helmet = require("helmet")
-    app.use(helmet())
+    const helmet = require("helmet");
+    app.use(helmet());
     ```
 
-    ## Resources
+    ## References
 
     - [Express Security Best Practices: Use Helmet](https://expressjs.com/en/advanced/best-practice-security.html#use-helmet)
   cwe_id:

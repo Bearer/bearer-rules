@@ -67,24 +67,18 @@ metadata:
   description: "Leakage of sensitive data to AppSignal"
   remediation_message: |
     ## Description
-    Leaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to AppSignal.
+
+    Leaking sensitive data to third-party loggers like AppSignal is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    ✅ When logging errors or events, ensure all sensitive data is removed.
-
+    - **Do** ensure all sensitive data is removed when sending data to third-party loggers like AppSignal.
+    - **Do** use unique identifiers from the database if you really need to identify users.
     ```ruby
-    Appsignal.tag_request(user: current_user.email)
-    ```
-
-    ❌ Do not send sensitive data to AppSignal
-
-    ```ruby
-    Appsignal.tag_request(user_id: current_user.id)
+    Appsignal.tag_request(user_id: current_user.uuid)
     ```
 
     ## References
-
     - [AppSignal Documentation](https://docs.appsignal.com/)
     - [Filtering Application Data in AppSignal](https://docs.appsignal.com/guides/filter-data.html)
   cwe_id:

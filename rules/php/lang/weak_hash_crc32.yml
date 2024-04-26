@@ -31,24 +31,20 @@ languages:
   - php
 metadata:
   description: "Usage of weak hashing library (CRC32)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    While CRC32 can give a quick assurance of integrity it provides little protection against intentional alteration of data.
+    The use of CRC32 for hashing is insecure. CRC32 is designed for error-checking and not for security purposes, making it vulnerable to intentional data tampering.
 
     ## Remediations
 
-
-    ❌ Avoid algorithms with known weaknesses:
-
+    - **Do not** use CRC32 for hashing when security is a concern. It is not secure against intentional data modifications.
     ```php
-      $myhash = crc32($input)
+    $myhash = crc32($input); // unsafe
     ```
-
-    ✅ Use stronger hashing algorithms.
-
+    - **Do** opt for stronger hashing algorithms like SHA-256 to ensure data integrity and security.
     ```php
-      $myhash = hash('sha256', $input)
+    $myhash = hash('sha256', $input);
     ```
 
   cwe_id:

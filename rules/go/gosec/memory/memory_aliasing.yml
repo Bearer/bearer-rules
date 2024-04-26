@@ -20,43 +20,30 @@ languages:
   - go
 metadata:
   description: Usage of single iteration variable in range loop
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Go's `for ... range` constructs allocate a single iteration variable for the loop's duration, which can cause confusion when addresses of this variable are stored or used beyond a single iteration. Since the iteration variable's address remains constant, subsequent iterations overwrite the previously referenced values, leading to unexpected results, particularly when using go routines or deferred functions within the loop.
+    In Go, using the `for ... range` loop with a single iteration variable can lead to errors. This happens because the loop uses the same memory address for the iteration variable throughout its execution. When you store or use the address of this variable across different iterations, it can overwrite values unexpectedly. This issue is especially problematic in concurrent operations or when deferring functions inside the loop.
 
     ## Remediations
 
-    ✅ Create a New Variable Inside the Loop
-
-    Declare a new local variable within the loop's scope to hold the iteration value. This ensures a unique address is used for each iteration.
-
+    - **Do** create a new variable inside the loop to ensure each iteration uses a unique memory address.
     ```go
     for _, n := range []someStruct{{1}, {2}, {3}, {4}} {
       localVar := n
-      // Use localVar instead of n
+      // use localVar instead of n
     }
     ```
-
-    ✅ Use Indexed Addressing
-
-    Instead of the iteration variable, directly reference the indexed element within the array or slice.
-
+    - **Do** use indexed addressing to directly reference the elements in an array or slice, avoiding the shared address problem.
     ```go
     for i := range mySlice {
-      // Use &mySlice[i] to obtain a stable address
+      // use &mySlice[i] for a stable address
     }
     ```
+    - **Do not** store the address of the iteration variable. This practice leads to all references pointing to the same location in memory, causing errors.
+    - **Do not** use the iteration variable's address in goroutines. This can result in race conditions or logical errors if the variable's value changing before the goroutine accesses it.
 
-    ❌ Do Not Store the Address of the Iteration Variable
-
-    Avoid taking the address of the iteration variable and storing it, as it leads to all references pointing to the same memory location.
-
-    ❌ Avoid Using the Iteration Variable's Address in Goroutines
-
-    Using the iteration variable's address directly in goroutines can cause race conditions or logical errors, as the variable's value may change before the goroutine accesses it.
-
-    ## Resources
+    ## References
 
     - [Go For Statements](https://go.dev/ref/spec#For_statements)
   cwe_id:

@@ -9,19 +9,18 @@ languages:
 severity: high
 metadata:
   description: Usage of custom Digest class
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Implementing a custom Digest class manually is not advised as the process could lead to errors.
-    Instead use a standard Digest algorithm such as SHA-256 or SHA-512.
+    Creating your own Digest class is not recommended because manually implement cryptographic functions is a highly error-prone process. It's safer and more secure to rely on standard Digest algorithms like SHA-256 or SHA-512.
 
     ## Remediations
 
-    ❌ Do not implement a custom Digest class by hand
+    - **Do not** implement a custom Digest class manually. Custom implementations can lead to security vulnerabilities due to incorrect handling or flawed algorithms.
+    - **Do** use established Digest algorithms such as SHA-256, SHA-384, SHA-512, or SHA-512/256. These standard algorithms have been thoroughly tested and are widely trusted for their security.
 
-    ✅ Choose a standard Digest algorithm as SHA-256, SHA-384, SHA-512, or SHA-512/256.
+    ## References
 
-    ## Resources
     - [Java MessageDigest class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/MessageDigest.html)
   cwe_id:
     - 327

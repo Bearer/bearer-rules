@@ -24,14 +24,19 @@ languages:
   - java
 metadata:
   description: "Unsanitized user input in 'eval' type function"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    It is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to command injection.
+
+    Using 'eval' or similar functions with unsanitized user input poses a high security risk. This practice can result in command injection attacks, where attackers can execute arbitrary code within your application.
 
     ## Remediations
-    ❌ Avoid using code execution methods with unsanitized user input.
 
-    ## Resources
+    - **Do not** use `eval` or similar functions with user-supplied data. This can open up your application to severe vulnerabilities.
+    - **Do** validate and sanitize all user input before using it in your code. Ensure that inputs are checked against a strict set of rules.
+    - **Do** use safer alternatives to `eval` for dynamic code execution needs. Consider using functions that do not execute user-supplied data as code.
+
+    ## References
+
     - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
   cwe_id:
     - 95

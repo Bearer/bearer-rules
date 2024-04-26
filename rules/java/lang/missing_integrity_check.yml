@@ -15,20 +15,20 @@ languages:
   - java
 metadata:
   description: "Missing support for integrity check"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    If a protocol does not include integrity checks ("checksums"), we cannot determine whether or not an attacker has interfered or manipulated the transmitted data (man-in-the-middle attack).
+    If a protocol does not include integrity checks ("checksums"), it is impossible to determine whether or not an attacker has interfered with or manipulated the transmitted data. This makes it difficult to confirm whether or not the transmitted data has been tampered with or altered by unauthorized parties (Man-in-the-Middle attack).
 
     ## Remediations
 
-    ✅ Use encryption schemes that provide integrity
-
+    - **Do** use encryption schemes that include integrity checks to ensure the data has not been modified during transmission.
     ```java
-      Cipher c = Cipher.getInstance("AES/GCM/PKCS5Padding");
+    Cipher c = Cipher.getInstance("AES/GCM/PKCS5Padding");
     ```
 
-    ## Resources
+    ## References
+
     - [Java Cipher class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/javax/crypto/Cipher.html)
   cwe_id:
     - 353

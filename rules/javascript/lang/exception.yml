@@ -35,28 +35,21 @@ skip_data_types:
   - Unique Identifier
 metadata:
   description: "Leakage of sensitive data in exception message"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Leaking sensitive data to an exception is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to exceptions.
+    Leakage of sensitive data in exception messages can lead to data breaches. This vulnerability occurs when sensitive information is included in exceptions, making it accessible to unauthorized users.
 
     ## Remediations
 
-    ❌ Avoid using sensitive data in exception messages:
-
+    - **Do not** include sensitive data in exception messages. This can inadvertently expose personal or confidential information.
     ```javascript
-    throw new CustomError(`Error with ${user.email}`)
+    throw new CustomError(`Error with ${user.email}`) // unsafe
     ```
-
-    ✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:
-
+    - **Do** use non-sensitive, unique identifiers in exception messages to maintain user privacy and data security.
     ```javascript
     throw new CustomError(`Error with ${user.uuid}`)
     ```
-    <!--
-    ## Resources
-    Coming soon.
-    -->
   cwe_id:
     - 210
   id: javascript_lang_exception

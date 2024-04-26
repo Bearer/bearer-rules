@@ -12,37 +12,23 @@ languages:
 severity: medium
 metadata:
   description: "Observable Timing Discrepancy"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Observable Timing Discrepancy refers to vulnerabilities arising from attackers being able to observe differences in the time it takes to perform certain operations.
-    These discrepancies can lead to the exposure of sensitive information, as attackers can use timing analysis to infer secrets based on the execution time of algorithms, particularly during comparisons of user input against secret values.
+    Observable Timing Discrepancy occurs when the time it takes for certain operations to complete can be measured and observed by attackers. This vulnerability is particularly concerning when operations involve sensitive information, such as password checks or secret comparisons. If attackers can analyze how long these operations take, they might be able to deduce confidential details, putting your data at risk.
 
     ## Remediations
 
-    ✅ **Implement Constant Time Algorithms**
+    - **Do** implement algorithms that process sensitive information in constant time. This approach helps prevent attackers from guessing secrets based on the duration of operations.
+    - **Do** use built-in security features and cryptographic libraries that offer functions safe from timing attacks for comparing secret values.
+    - **Do not** use direct string comparisons for sensitive information, as this can lead to early termination of the function if a mismatch is found, revealing timing information.
+    ```java
+      boolean isAdmin = "admin".equals(username); // unsafe
+    ```
+    - **Do not** design application logic that changes execution paths in a manner that could introduce timing discrepancies based on user input or secret values.
 
-    Ensure algorithms that process sensitive information, such as password comparisons, execute in constant time to prevent timing attacks.
+    ## References
 
-    ✅ **Use Built-in Security Features**
-
-    Leverage built-in cryptographic libraries that include timing-attack safe functions for comparing secrets.
-
-    ✅ **Minimize Client-Side Checks**
-
-    Avoid sensitive comparisons directly in client-side JavaScript where possible, as the execution environment is more exposed to timing analysis by attackers.
-
-    ❌ **Avoid Direct Comparisons**
-
-    Do not use direct string comparisons for sensitive information that can lead to early function termination based on the first incorrect character.
-
-    ❌ **Do Not Rely on Execution Time for Logic**
-
-    Ensure the application's logic does not change execution paths in a way that could introduce observable timing differences based on user input or secret values.
-
-    ## Resources
-
-    - [CWE-208: Observable Timing Discrepancy](https://cwe.mitre.org/data/definitions/208.html)
     - [OWASP Guide to Cryptography](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)
   cwe_id:
     - 208

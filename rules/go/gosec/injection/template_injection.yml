@@ -21,73 +21,27 @@ languages:
   - go
 metadata:
   description: "Unsanitized user input in web page generation (XSS)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
     Cross-Site Scripting (XSS) is a vulnerability that allows attackers to run malicious scripts in the context of a trusted web application. This can happen when an application includes untrusted data without proper validation or escaping. There are several contexts where XSS can occur, each requiring specific encoding strategies to mitigate the risk.
 
     ## Remediations
 
-    To defend against XSS attacks, consider the following measures:
-
-    ✅ Encode Based on Context
-
-    When user input is reflected back in HTML, ensure it is encoded based on the context in which it is used (e.g., HTML content, HTML attributes, JavaScript context, CSS context, etc.).
-
-    ✅ Template Safely
-
-    Utilize templating engines that automatically encode data based on context, and be cautious not to override these safeguards.
-
-    ✅ Sanitize Data
-
-    Use libraries or functions designed to sanitize user input, particularly when inserting content into a web page.
-
-    ✅ Separate Data from Code
-
-    Avoid inline scripting and event handlers, and instead use separate JavaScript files to handle events. This reduces the risk of script injection through event attributes.
-
-    ✅ Avoid Mixing Templating Systems
-
-    Do not mix server-side and client-side templating systems, as server-side systems may not escape output in a way that is safe for client-side use.
-
-    ❌ Do Not Encode Before Storing
-
-    Avoid encoding user input before storing it in a database. The encoding should be applied when the data is output, not before storage, to ensure that it is encoded appropriately for its context.
-
-    Here's an example of using Go’s `html/template` package to safely render HTML content:
-
+    - **Do** encode user input based on the context it is used in, such as HTML content, HTML attributes, JavaScript, and CSS contexts. This helps prevent malicious scripts from being executed.
     ```go
-    import (
-        "html/template"
-        "os"
-        "log"
-    )
-
-    func main() {
-        // Define a template with a function to safely render HTML
-        testTemplate, err := template.New("testTemplate").Funcs(template.FuncMap{
-            "SafeHTML": func() template.HTML {
-                const safeHTML = "<div>hardcoded, safe html</div>"
-                return template.HTML(safeHTML)
-            },
-        }).Parse(`<html><body>{{ SafeHTML }}</body></html>`)
-
-        if err != nil {
-            log.Fatal(err)
-        }
-
-        // Execute the template and ensure proper encoding
-        if err := testTemplate.Execute(os.Stdout, nil); err != nil {
-            log.Fatal(err)
-        }
-    }
+    html.EscapeString(userInput)
     ```
+    - **Do** use templating engines like `html/template` that automatically encode data based on its context.
+    - **Do** sanitize data using libraries or functions specifically designed for this purpose, especially when inserting content into a web page.
+    - **Do** separate data from code by avoiding inline scripting and event handlers. Use separate JavaScript files for event handling to minimize script injection risks.
+    - **Do not** mix server-side and client-side templating systems, as server-side systems may not escape output safely for client-side use.
+    - **Do not** encode user input before storing it in a database. Any encoding should be applied when the data is output, not before storage, to ensure that it is encoded appropriately for its context.
 
-    ## Resources
+    ## References
 
     - [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
     - [Go html/template Documentation](https://pkg.go.dev/html/template)
-    - [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)
 
   cwe_id:
     - 79

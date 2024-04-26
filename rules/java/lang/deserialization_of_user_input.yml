@@ -65,29 +65,23 @@ languages:
   - java
 metadata:
   description: Unsanitized user input in deserialization method
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    It is bad practice to deserialize untrusted data, such as data that comes
-    from params or cookies, without sufficient verification. Attackers can
-    transfer payloads or malicious code via serialized data, and deserializing
-    such data puts your application at risk.
+    It is bad practice to deserialize untrusted data, such as data that comes from params or cookies, without sufficient verification. Attackers can transfer payloads or malicious code via serialized data, and deserializing such data puts your application at risk.
 
     ## Remediations
 
-    ❌ Do not deserialize untrusted data
+    - **Do not** deserialize data from untrusted sources directly. This includes data received through user input, parameters, or cookies.
+    - **Do not** use `XMLEncoder` and `XMLDecoder` for serialization and deserialization. These classes are not secure and can increase the risk of attacks.
+    - **Do** use data-only and language-agnostic serialization formats like JSON. These formats are less susceptible to manipulation by attackers aiming to exploit the deserialization process.
+    - **Do** use deserialization methods that allow you to define explicitly which object types are permitted for deserialization. This helps prevent the deserialization of potentially harmful objects.
+    - **Do not** allow the deserialization of generic base object types, such as `Object`. Restricting the types of objects that can be deserialized minimizes the risk of executing malicious code.
 
-    ❌ Avoid `XMLEncoder` and `XMLDecoder` classes, as these are not recommended
+    ## References
 
-    ✅ Prefer pure (data-only) and language-agnostic (de)serialization formats such as JSON. Avoiding language-specific (de)serialization formats reduces the risk of attackers manipulating the deserialization process for malicious purposes.
-
-    ✅ Prefer (de)serialization methods that allow you to specify the object types that are allowed to be deserialized
-
-    ❌ Never permit the (de)serialization of base object types (like `Object`).
-
-    ## Resources
-    - [OWASP XEE prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html#java)
-    - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
+    - [OWASP XML External Entity Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html#java)
+    - [OWASP Deserialization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
   cwe_id:
     - 502
   id: java_lang_deserialization_of_user_input

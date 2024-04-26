@@ -74,12 +74,14 @@ metadata:
   description: "Leakage of sensitive data to BigQuery"
   remediation_message: |
     ## Description
-    Leaking sensitive data to third-party data tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to BigQuery.
+
+    Leaking sensitive data to third-party data tools like BigQuery is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
-    When sending data to third-party services, ensure all sensitive data is removed.
 
-    ## Resources
+    - **Do** ensure all sensitive data is removed when sending data to third-party services like BigQuery.
+
+    ## References
     - [BigQuery docs](https://cloud.google.com/ruby/docs)
   cwe_id:
     - 201

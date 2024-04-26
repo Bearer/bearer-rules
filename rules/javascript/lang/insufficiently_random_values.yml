@@ -23,16 +23,14 @@ languages:
   - javascript
 metadata:
   description: Usage of insufficient random value
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Using predictable random values makes our application vulnerable to attacks,
-    especially if these values are used for security purposes.
+    Using predictable random values compromises your application's security, particularly if these values serve security-related functions.
 
     ## Remediations
 
-    ✅ Use a stronger library when generating random values
-
+    - **Do** use a robust library for generating random values to enhance security.
     ```javascript
     const crypto = require('crypto');
     crypto.randomBytes(16).toString('hex');

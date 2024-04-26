@@ -47,18 +47,22 @@ languages:
   - php
 metadata:
   description: "Unsanitized user input in regular expression"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should avoid constructing regular expressions from user input.
-    Regular expressions can have exponential worst-case computational
-    complexity, allowing users to trigger this behaviour can result in
-    excessive CPU consumption causing a regular expression denial of service (ReDoS).
+    Constructing regular expressions from user input can lead to a vulnerability known as Regular Expression Denial of Service (ReDoS). This occurs because certain regular expressions can be processed with exponential time complexity, leading to excessive CPU usage and potentially crashing the system when handling malicious input.
 
     ## Remediations
-    ❌ Avoid using untrusted or user data when building regular expressions
 
-    ## Resources
+    - **Do not** use user input directly in regular expressions. This can prevent attackers from exploiting complex patterns to cause a denial of service.
+    ```php
+    $user_input = $_GET["name"] . ".php";
+    preg_grep($user_input, $array); // unsafe
+    ```
+    - **Do** sanitize or validate user input before incorporating it into regular expressions. This reduces the risk of ReDoS attacks by ensuring only safe patterns are used.
+
+    ## References
+
     - [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)
   cwe_id:
     - 1287

@@ -129,30 +129,24 @@ languages:
   - go
 metadata:
   description: Missing output neutralization for logs
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Logging untrusted and unsanitized input could lead to log injection vulnerabilities.
+    Logging unsanitized external input directly can introduce log injection vulnerabilities. This occurs when external data is logged without being cleaned, potentially allowing attackers to insert malicious content into your logs.
 
     ## Remediations
 
-    ❌ Do not log unsanitized external input directly
-
-    ✅ Use printf methods with %q format for logging external input
-
+    - **Do not** log unsanitized external input directly. This practice can make your application vulnerable to log injection attacks.
+    - **Do** use printf methods with `%q` format for logging external input. This method ensures that the input is safely encoded, preventing log injection.
     ```go
-      dangerousInput := os.Args[0]
-
-      logger.Printf("Args: %q", dangerousInput)
+    dangerousInput := os.Args[0]
+    logger.Printf("Args: %q", dangerousInput)
     ```
-
-    ✅ Use manual method to escape external strings before logging
-
+    - **Do** manually escape external strings before logging them. This approach allows you to sanitize input by escaping potentially dangerous characters.
     ```go
-      dangerousInput := os.Args[0]
-      sanitizedInput := strconv.Quote(dangerousInput)
-
-      logger.Print(sanitizedInput)
+    dangerousInput := os.Args[0]
+    sanitizedInput := strconv.Quote(dangerousInput)
+    logger.Print(sanitizedInput)
     ```
   cwe_id:
     - 117

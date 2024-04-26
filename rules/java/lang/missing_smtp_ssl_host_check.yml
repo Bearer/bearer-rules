@@ -36,21 +36,18 @@ languages:
   - java
 metadata:
   description: "Missing SSL host check in SMTP"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    SSL certificates must be validated to check that the certificate is from the expected host and the server identity is correct.
-    Without such checks in place, the application is at risk of redirection or spoofing attacks, where an attacker impersonates a trusted host by using a valid SSL certificate from a different host.
+    Missing SSL host check in SMTP can compromise the security of email communications. This vulnerability arises when SSL certificates are not properly validated to ensure they originate from the anticipated host, potentially allowing attackers to pose as legitimate entities by leveraging valid SSL certificates from other hosts.
 
-    ## Remediation
+    ## Remediations
 
-    ✅ Always configure email client to check server identity
-
+    - **Do** configure your email client to verify the server's identity. This step is crucial to prevent attackers from impersonating a trusted server, which could lead to redirection or spoofing attacks.
     ```java
-      Email email = new Email();
-
-      email.setSSLOnConnect(true);
-      email.setSSLCheckServerIdentity(true);
+    Email email = new Email();
+    email.setSSLOnConnect(true);
+    email.setSSLCheckServerIdentity(true);
     ```
   cwe_id:
     - 297

@@ -51,39 +51,31 @@ auxiliary:
               string_regex: \A.\\A.*\\[zZ].\z
 metadata:
   description: "Missing validation for regular expression"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Validations using regular expressions should use the start of text (\A) and
-    end of text (\z or \Z) boundaries.
-
-    Note, it is best security practice to prefer the boundary expressions \A and \z or \Z
-    over ^ and $, because ^ and $ operate as line-based boundaries when multiline mode is enabled.
+    When validating data with regular expressions, it's crucial to match the entire text. Failing to specify the start and end of the text can lead to incomplete validation, making your application vulnerable to malicious input. Regular expressions should always specify the start of text (\A) and end of text (\z or \Z) boundaries to ensure that the entire string is evaluated, not just portions of it. Note: it is best security practice to prefer the boundary expressions \A and \z or \Z over ^ and $, because ^ and $ operate as line-based boundaries when multiline mode is enabled.
 
     ## Remediations
 
-    ❌ Avoid matching without start and end boundaries:
-
+    - **Do not** use regular expressions without specifying start and end text boundaries. This approach can result in partial matches, which may not fully validate the data.
     ```php
     #[Assert\Regex('/foo/')]
-    protected string $attribute;
+    protected string $attribute; // unsafe
     ```
-
-    ❌ Avoid using line-based boundaries:
-
+    - **Do not** rely on line-based boundaries (^ and $).
     ```php
     #[Assert\Regex('/^foo$/')]
-    protected string $attribute;
+    protected string $attribute; // unsafe
     ```
-
-    ✅ Use whole-text boundaries:
-
+    - **Do** use \A and \z or \Z as boundaries in your regular expressions to ensure that the entire text is validated from start to end.
     ```php
     #[Assert\Regex('/\Afoo\z/')]
     protected string $attribute;
     ```
 
-    ## Resources
+    ## References
+
     - [Symfony validation](https://symfony.com/doc/current/validation.html)
   cwe_id:
     - 625

@@ -126,35 +126,20 @@ languages:
 severity: critical
 metadata:
   description: "Unsanitized user input in SQL query"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    SQL Injection represents a severe vulnerability that can culminate in the compromise of data or entire systems. When SQL query strings are crafted dynamically based on user inputs, there's potential for malicious users to manipulate the logic of the SQL statement. Such tampering could provide adversaries unauthorized access to sensitive data or even allow them to execute system-level operations or code.
+    SQL Injection is a critical vulnerability that arises when SQL queries are dynamically constructed using unsanitized user input. This flaw allows attackers to alter the intended logic of SQL statements, potentially leading to unauthorized access to sensitive data or the execution of arbitrary code on the system.
 
     ## Remediations
 
-    ✅ Use Parameterized Queries
-
-    Always opt for parameterized queries over dynamically generated SQL queries to prevent SQL injection.
-
+    - **Do** use parameterized queries to prevent SQL injection. This method ensures that user input is treated as data, not as part of the SQL command, effectively neutralizing the threat.
     ```go
-    rows, err := db.Query("SELECT * FROM users WHERE userName = ?", userName)
-    if err != nil {
-        return nil, err
-    }
-    defer rows.Close()
-    for rows.Next() {
-      // ... process rows
-    }
+    db.Query("SELECT * FROM users WHERE userName = ?", userName)
     ```
+    - **Do not** use direct user input in dynamic queries. If you must create dynamic queries, use a predefined map or dictionary of valid values (a safelist). This approach allows you to safely include user input by translating it into safe, predefined commands or values.
 
-    ✅ Avoid Direct User Input in Dynamic Queries
-
-    If there's an absolute need to formulate dynamic queries, ensure that direct user input is never utilized. Instead, leverage a map or dictionary containing valid values and determine them through a user-provided key.
-
-    For instance, certain database drivers do not support parameterized queries for operators like `>` or `<`. Instead of directly using user-input values, allow users to provide substitutes like `gt` for `>` and `lt` for `<`. Subsequently, use these alphabetical inputs to retrieve the actual operators for your query. Implement a similar approach for queries requiring non-parameterizable column or table names.
-
-    ## Resources
+    ## References
 
     - [OWASP SQL Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
   cwe_id:

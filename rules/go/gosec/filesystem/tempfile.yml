@@ -26,53 +26,21 @@ languages:
   - go
 metadata:
   description: "Permissive temporary file creation"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The application has been observed creating files in shared system temporary directories, such as `/tmp` or `/var/tmp`, without the use of secure functions like `os.CreateTemp`. This practice is insecure because it opens up the possibility of symlink attacks, where an attacker could anticipate the temporary file name and create a symlink to a target file, leading to unauthorized file creation or overwriting when the application writes to what it believes is a temporary file.
+    Your application creates temporary files in shared system directories like `/tmp` or `/var/tmp` without using secure functions such as `os.CreateTemp`. This method is risky as it could lead to symlink attacks. In such attacks, an attacker predicts the name of the temporary file and creates a symlink to a target file. Consequently, when your application writes to the supposed temporary file, it could unintentionally overwrite or create unauthorized files.
 
     ## Remediations
 
-    To prevent symlink attacks and other vulnerabilities associated with the use of shared temporary directories:
-
-    ✅ Use Secure Temporary File Creation
-
-    Implement `os.CreateTemp` to safely create temporary files within a directory that's restricted to the application. This reduces the risk of symlink attacks and ensures that temporary files are handled securely.
-
+    - **Do** use `os.CreateTemp` for creating temporary files. This function helps in securely generating temporary files within a directory that only your application can access, significantly reducing the risk of symlink attacks.
     ```go
-    import (
-        "os"
-        "log"
-    )
-
-    func main() {
-        // Ensure the application-restricted directory exists with appropriate permissions
-        restrictedDir := "/opt/appdir/restricted"
-        if err := os.MkdirAll(restrictedDir, 0700); err != nil {
-            log.Fatalf("failed to create restricted directory: %s", err)
-        }
-
-        // Securely create a temporary file within the restricted directory
-        f, err := os.CreateTemp(restrictedDir, "temp-*.txt")
-        if err != nil {
-            log.Fatalf("failed to create temporary file: %s", err)
-        }
-        defer f.Close() // Ensure the file is closed when no longer needed
-
-        defer os.Remove(f.Name()) // Clean up the file upon exit
-        // Continue working with the temporary file
-    }
+    f, err := os.CreateTemp(restrictedDir, "temp-*.txt")
     ```
+    - **Do not** use shared temporary directories for operations that involve sensitive data or require secure file handling.
+    - **Do** ensure temporary files are removed after their intended use to avoid accumulation and potential security risks.
 
-    ✅ Avoid Shared Temporary Directories for Sensitive Operations
-
-    Do not use common temporary directories for storing sensitive information or for operations that require secure handling of files.
-
-    ✅ Clean Up After Use
-
-    Always remove temporary files after their use to prevent accumulation and potential misuse.
-
-    ## Resources
+    ## References
 
     - [Go Documentation: os.CreateTemp](https://pkg.go.dev/os#CreateTemp)
   cwe_id:

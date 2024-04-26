@@ -94,31 +94,28 @@ languages:
 trigger:
   match_on: presence
 metadata:
-  description: "Unsanitized input in SQL query"
-  remediation_message: |
+  description: "Unsanitized external input in SQL query"
+  remediation_message: |-
     ## Description
 
-    Including unsanitized data, such as user input or request data, or externally influenced data passed to a function, in raw SQL
-    queries makes your application vulnerable to SQL injection attacks.
+    Using unsanitized data, such as user input or request data, or externally influenced data passed to a function, in SQL query exposes your application to SQL injection attacks. This vulnerability arises when externally controlled data is directly included in SQL statements without proper sanitation, allowing attackers to manipulate queries and access or modify data.
 
     ## Remediations
 
-    ❌ Avoid raw queries, especially those that contain unsanitized input:
-
+    - **Do not** include unsanitized input in SQL queries. This practice can lead to SQL injection vulnerabilities.
     ```java
-      Statement stmt = conn.createStatement();
-      ResultSet rs = stmt.executeQuery("select name from users where id='"+ uri.getQueryParameter("user_id") "'")) {
+    Statement stmt = conn.createStatement();
+    ResultSet rs = stmt.executeQuery("select name from users where id='" + uri.getQueryParameter("user_id") + "'"));
     ```
-
-    ✅ Instead of using dynamically crafted strings for your SQL queries, use prepared statements instead
-
+    - **Do** use prepared statements for SQL queries to safely include external input.
     ```java
-    myStmt = myCon.prepareStatement("select * from students where age > ? and name = ?");
+    PreparedStatement myStmt = myCon.prepareStatement("select * from students where age > ? and name = ?");
     myStmt.setInt(1, uri.getQueryParameter("age"));
     myStmt.setString(2, uri.getQueryParameter("name"));
     ```
 
-    ## Resources
+    ## References
+
     - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
     - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
   cwe_id:

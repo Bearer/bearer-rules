@@ -11,21 +11,22 @@ languages:
   - javascript
 metadata:
   description: "Unsanitized user input in resource rendering"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Using raw unsanitized input when rendering resources is bad practice.
+
+    Unsanitized user input in resource rendering can lead to security vulnerabilities. This issue arises when user-provided data is used directly in rendering resources without proper sanitization, potentially leading to unauthorized access or manipulation of data.
 
     ## Remediations
-    ❌ Avoid passing user or request input to res.render().
 
-    ✅ Sanitize the input or use a safelist
-
-    Where it is unavoidable to rely on user input, sanitize the input or use a safelist to keep the rendered resources within the expected scope.
-
+    - **Do not** pass user or request input directly to `res.render()` without sanitization. Directly using user input in resource rendering can introduce security risks.
     ```javascript
-    var path = req.body.path
+    res.render(req.body.page); // unsafe
+    ```
+    - **Do** sanitize the input or use a safelist if you must rely on user input for resource rendering. This ensures that only expected and safe resources are rendered.
+    ```javascript
+    var path = req.body.path;
     if (['users', 'posts', 'pages'].includes(path)) {
-      return res.render(`${path}/success`)
+      return res.render(`${path}/success`);
     }
     ```
   cwe_id:

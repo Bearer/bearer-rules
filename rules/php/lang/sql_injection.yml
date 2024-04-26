@@ -35,41 +35,35 @@ languages:
   - php
 severity: critical
 metadata:
-  description: Unsanitized input in SQL query
-  remediation_message: |
+  description: Unsanitized external input in SQL query
+  remediation_message: |-
     ## Description
-    Including unsanitized data, such as user input or request data, or externally influenced data passed to a function, in raw SQL queries makes your application vulnerable to SQL injection attacks.
+
+    Using unsanitized data, such as user input or request data, or externally influenced data passed to a function, in SQL query exposes your application to SQL injection attacks. This vulnerability arises when externally controlled data is directly included in SQL statements without proper sanitation, allowing attackers to manipulate queries and access or modify data.
 
     ## Remediations
 
-    ❌ Avoid raw queries, especially those that contain unsanitized user input
-
+    - **Do not** include raw external input in SQL queries. This practice can lead to SQL injection vulnerabilities.
     ```php
-      $oops = $_GET['oops'];
-      $query  = "SELECT id, name FROM products ORDER BY name LIMIT 20 $oops;";
-      $result = mysqli_query($conn, $query);
+    $sortingOrder = $_GET['untrusted'];
+    $query  = "SELECT id, name FROM products ORDER BY name LIMIT 20 $sortingOrder;"; // unsafe
+    ```
+    - **Do** validate all external input to ensure it meets the expected format before including it in SQL queries.
+    ```php
+    $sortingOrder = $_GET['sortingOrder'] === 'DESC' ? 'DESC' : 'ASC';
+    ```
+    - **Do** use prepared statements for database queries to separate SQL logic from external input, significantly reducing the risk of SQL injection.
+    ```php
+    $stmt = $pdo->prepare("SELECT * FROM products WHERE id LIKE ? ORDER BY price {$sortingOrder}");
+    $stmt->execute(["%{$productId}%"]);
+    ```
+    - **Do** escape all external input using appropriate database-specific escaping functions before including it in SQL queries.
+    ```php
+    $ok = mysqli_real_escape_string($conn, $_GET['ok']);
     ```
 
-    Instead, consider the following approaches when writing SQL queries
+    ## References
 
-    ✅ Validate query input or use prepared statement wherever possible
-
-    ```php
-      $sortingOrder = $_GET['sortingOrder'] === 'DESC' ? 'DESC' : 'ASC';
-      $productId = $_GET['productId'];
-      $stmt = $pdo->prepare("SELECT * FROM products WHERE id LIKE ? ORDER BY price {$sortingOrder}");
-      $stmt->execute(["%{$productId}%"]);
-    ```
-
-    ✅ Escape query input wherever possible
-
-    ```php
-      $ok = mysqli_real_escape_string($conn, $_GET['ok']);
-      $query  = "SELECT id, name FROM products ORDER BY name LIMIT 20 $ok;";
-      $result = pg_query($conn, $query);
-    ```
-
-    ## Resources
     - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
     - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
   cwe_id:

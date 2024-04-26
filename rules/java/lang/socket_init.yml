@@ -8,21 +8,18 @@ languages:
 severity: critical
 metadata:
   description: Usage of naive Socket class to create SSL Socket
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    When creating an SSL socket, it is better security practice to use an SSL Socket factory over `new Socket()`
-    This is because `SSLSocketFactory` has built-in support for SSL/TLS protocols and other security features, such as encryption and support for the configuration of hostname verification and trust managers.
+    Using the naive Socket class to create SSL sockets compromises security. Creating SSL sockets directly with `new Socket()` lacks the advanced security features provided by `SSLSocketFactory`. `SSLSocketFactory` is designed with SSL/TLS protocols in mind, offering encryption, hostname verification, and trust manager configuration. This makes it a more secure option for creating SSL sockets.
 
     ## Remediations
 
-    ❌ Where possible, avoid creating SSL sockets using java.net.Socket init as there is limited security support
-
-    ✅ Prefer `SSLSocketFactory` methods to create SSL sockets, something like
-
+    - **Do not** use `java.net.Socket` init to directly create SSL sockets, because of its limited security capabilities.
+    - **Do** utilize `SSLSocketFactory` to create SSL sockets. This method ensures the use of SSL/TLS protocols and other security enhancements.
     ```java
-      SSLSocketFactory sslSocketFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
-      SSLSocket socket = (SSLSocket) sslSocketFactory.createSocket(socket, host, port, true);
+    SSLSocketFactory sslSocketFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+    SSLSocket socket = (SSLSocket) sslSocketFactory.createSocket(socket, host, port, true);
     ```
 
     ## References

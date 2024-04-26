@@ -44,28 +44,25 @@ auxiliary:
 severity: critical
 metadata:
   description: "Usage of insecure websocket connection"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should only connect to APIs using SSL connections. This rule
-    checks that all websocket connections use SSL.
+    Using an insecure WebSocket connection exposes data to interception and manipulation. This vulnerability occurs when WebSocket connections are not encrypted with SSL/TLS, risking the confidentiality and integrity of the data transmitted.
 
     ## Remediations
 
-    ❌ Avoid using unsecured outgoing websocket communication:
-
+    - **Do not** initiate WebSocket connections without SSL. This can compromise the security of data in transit.
     ```ruby
-    client = Faye::WebSocket::Client.new('ws://insecure-api.com')
+    client = Faye::WebSocket::Client.new('ws://insecure-api.com') # unsafe
     ```
-
-    ✅ Always connect using SSL:
-
+    - **Do** ensure all WebSocket connections are made over SSL to protect data during transmission.
     ```ruby
     client = Faye::WebSocket::Client.new('wss://secure-api.com')
     ```
 
-    ## Resources
-    - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
+    ## References
+
+    - [OWASP Insecure Transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
   cwe_id:
     - 319
   id: ruby_lang_websocket_insecure

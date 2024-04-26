@@ -8,19 +8,21 @@ languages:
   - ruby
 metadata:
   description: Missing HTTP Only option in cookie configuration
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    To mitigate against Cross-Site Scripting attacks, we should avoid accessing session cookies using JavaScript.
-    By default, Rails avoids this by setting the HttpOnly flag to true on session cookies. Setting this flag to false puts our application at risk of Cross-Site Scripting attacks.
+
+    Disabling httponly in your cookie configuration can expose your application to Cross-Site Scripting (XSS) attacks. This vulnerability occurs when session cookies can be accessed through JavaScript. Rails, by default, protects your application by enabling the HTTP only, which prevents such access. Setting httponly to `false` greatly increases your application's risk of XSS attacks.
 
     ## Remediations
-    ❌ Do not disable httponly flag if configuring Rails session_store
 
-    ```
-    Rails.application.config.session_store :cookie_store, key: "some_key", httponly: false
+    - **Do not** set the httponly flag to false when configuring the Rails session_store.
+    - **Do** keep this flag enabled to prevent JavaScript from accessing session cookies and reducing the risk of XSS attacks.
+    ```ruby
+    Rails.application.config.session_store :cookie_store, key: "some_key", httponly: true
     ```
 
-    ## Resources
+    ## References
+
     - [OWASP HttpOnly](https://owasp.org/www-community/HttpOnly)
   cwe_id:
     - 1004

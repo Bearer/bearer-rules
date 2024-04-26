@@ -279,27 +279,29 @@ languages:
 severity: high
 metadata:
   description: "Unsanitized user input in file path"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Using raw unsanitized input when forming filenames or file paths is bad practice.
-    It can lead to path manipulation, by which attackers can gain access to resources outside of the intended scope.
+
+    Unsanitized user input in file paths can compromise your system's security. This vulnerability arises when user input is directly used to construct file names or paths without proper sanitization, potentially leading to path manipulation. Attackers could exploit this to access files or directories outside the intended scope, posing a significant security risk.
 
     ## Remediations
-    ❌ Avoid wherever possible
 
-    ✅ Validate expected file paths using `File` methods
-
+    - **Do not** use unsanitized user input to construct file paths or filenames. This can open up your application to path manipulation attacks.
+    - **Do** validate and sanitize user input before using it in file paths.
+    - **Do** ensure that the constructed path is within the intended directory. For example, restrict user input to a predefined list of allowed values when constructing file paths. This limits the scope of accessible resources to only those explicitly permitted.
+    - **Do** use file path manipulation methods to verify and constrain the path appropriately.
     ```ruby
-      path = File.expand("/home/" + params[:resource_name])
-      if path.starts_with?("/home/")
-        Dir.chdir(path)
-      else
-        # path is unexpected
-      end
+    path = File.expand_path("/home/" + params[:resource_name])
+    if path.starts_with?("/home/")
+      Dir.chdir(path)
+    else
+      # Handle unexpected path
+    end
     ```
 
-    ## Resources
-    - [OWASP path traversal attack](https://owasp.org/www-community/attacks/Path_Traversal)
+    ## References
+
+    - [OWASP Path Traversal Attack](https://owasp.org/www-community/attacks/Path_Traversal)
   cwe_id:
     - 73
   id: ruby_lang_path_using_user_input

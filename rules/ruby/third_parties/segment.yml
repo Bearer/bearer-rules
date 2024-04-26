@@ -30,13 +30,14 @@ metadata:
   description: "Leakage of sensitive data to Segment"
   remediation_message: |
     ## Description
-    Leaking sensitive data to third-party analytics tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Segment.
+
+    Leaking sensitive data to third-party analytics tools like Segment is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    When sending data to analytics libraries, ensure all sensitive data is removed.
+    - **Do** ensure all sensitive data is removed when sending data to third-party analytics libraries like Segment.
 
-    ## Resources
+    ## References
     - [Segment docs](https://segment.com/docs/connections/sources/catalog/libraries/server/ruby/)
   cwe_id:
     - 201

@@ -40,16 +40,23 @@ languages:
 severity: critical
 metadata:
   description: "Unsanitized user input in session key"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Using user-defined data in a session key is bad practice and can allow
-    attackers to perform unsafe actions.
+
+    Incorporating user-provided data directly into session keys poses a significant security risk. This practice can allow attackers to manipulate session data or perform unauthorized actions by exploiting the predictability or vulnerability of the session mechanism.
 
     ## Remediations
-    ❌ Avoid using user-defined data in session keys
 
-    ## Resources
-    - [OWASP Session management cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
+    - **Do not** use user-defined data directly in session keys. This can lead to vulnerabilities where attackers might exploit the session management.
+    ```php
+    $session = $requestStack->getSession();
+    $session->put($userInput, $data); // unsafe
+    ```
+    - **Do** sanitize user input before incorporating it into session keys. Ensure that any data derived from user input is properly validated and sanitized to prevent injection attacks.
+
+    ## References
+
+    - [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
   cwe_id:
     - 1018
   id: php_symfony_session_key_using_user_input

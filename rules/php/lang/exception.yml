@@ -22,21 +22,18 @@ skip_data_types:
   - Unique Identifier
 metadata:
   description: "Leakage of sensitive data in exception message"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Leaking sensitive data to an exception is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to exceptions.
+    Leakage of sensitive data in exception messages can lead to data breaches. This vulnerability occurs when sensitive information is included in exceptions, making it accessible to unauthorized users.
 
     ## Remediations
 
-    ❌ Avoid using sensitive data in logger messages:
-
+    - **Do not** include sensitive data in exception messages. This can inadvertently expose private information.
     ```php
-    throw new Exception("error for {$user->email}");
+    throw new Exception("error for {$user->email}"); // unsafe
     ```
-
-    ✅ If you need to identify a user, ensure to use their unique identifier instead of their personal identifiable information:
-
+    - **Do** use non-sensitive, unique identifiers in exception messages to avoid revealing personal information.
     ```php
     throw new Exception("error for {$user->uuid}");
     ```

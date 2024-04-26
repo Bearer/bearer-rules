@@ -25,20 +25,20 @@ languages:
 severity: high
 metadata:
   description: "Unsanitized user input in React inner HTML method (XSS)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    There are Cross-Site Scripting (XSS) vulnerabilites when using React's dangerouslySetInnerHTML with unsanitized data.
+
+    Using React's dangerouslySetInnerHTML with unsanitized data can introduce Cross-Site Scripting (XSS) vulnerabilities. This occurs when external input is embedded directly into the HTML without proper sanitization, allowing attackers to inject malicious scripts.
 
     ## Remediations
-    ✅ Sanitize data when using dangerouslySetInnerHTML
 
+    - **Do** sanitize data before using it with dangerouslySetInnerHTML. This step is crucial to prevent XSS attacks by ensuring that the input does not contain harmful scripts.
     ```javascript
-      <div
-        dangerouslySetInnerHTML={{__html: sanitize(data)}}
-      />
+    <div dangerouslySetInnerHTML={{__html: sanitize(data)}} />
     ```
 
-    ## Resources
+    ## References
+
     - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
   cwe_id:
     - 79

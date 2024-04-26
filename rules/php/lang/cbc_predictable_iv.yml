@@ -28,20 +28,18 @@ severity: medium
 metadata:
   description: "Usage of CBC (Cipher Block Chaining) with predictable
     Initialization Vector (IV)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications using encryption with Cipher Block Chaining (CBC) mode must
-    not use a predictable Initialization Vector (IV). Using a predictable IV
-    facilitates dictionary attacks.
+    When your application employs Cipher Block Chaining (CBC) mode for encryption, it's crucial to avoid using a predictable Initialization Vector (IV). A predictable IV can make your encryption vulnerable to dictionary attacks, where attackers can guess the encryption key by trying many possibilities.
 
     ## Remediations
 
-    ❌ Avoid using a static Initialization Vector:
-
+    - **Do not** use a static or predictable Initialization Vector (IV) for encryption. This approach can compromise the security of your encrypted data.
     ```php
-    openssl_encrypt($data, "aes-256-cbc", iv: "literal-iv");
+    openssl_encrypt($data, "aes-256-cbc", iv: "literal-iv"); // unsafe
     ```
+    - **Do** use a strong, random IV for each encryption operation to enhance security. This practice prevents attackers from predicting the IV and launching dictionary attacks.
   cwe_id:
     - 329
   id: php_lang_cbc_predictable_iv

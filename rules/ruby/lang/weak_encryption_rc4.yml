@@ -28,27 +28,24 @@ skip_data_types:
   - Passwords # see ruby_lang_weak_password_encryption_rc4
 metadata:
   description: "Usage of weak encryption algorithm (RC4)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    A weak encryption library can lead to data breaches and greater security risk.
+    Using the RC4 encryption algorithm exposes your data to security risks. RC4 is outdated and has known vulnerabilities that can lead to data breaches.
 
     ## Remediations
-    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), RC4 (Rivest Cipher 4) is considered a weak encryption algorithm and therefore shouldn't be used.
 
-    ❌ Avoid libraries and algorithms with known weaknesses:
-
+    - **Do not** use RC4 for encrypting data. Its vulnerabilities make it an insecure option for protecting sensitive information.
     ```ruby
-    RC4.new("weak password encryption")
+    RC4.new("weak password encryption") # unsafe
     ```
-
-    ✅ Instead, we recommend using bcrypt:
-
+    - **Do** use stronger, more secure encryption algorithms like bcrypt for handling sensitive data securely.
     ```ruby
     BCrypt::Password.create('iLOVEdogs123')
     ```
 
-    ## Resources
+    ## References
+
     - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
   cwe_id:
     - 327

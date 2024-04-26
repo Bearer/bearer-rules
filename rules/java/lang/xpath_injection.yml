@@ -33,36 +33,34 @@ languages:
   - java
 metadata:
   description: "Unsanitized user input in XPath"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-      Unsanitized input going into XPath evaluate detected.
-      This could lead to xpath injection if variables passed into the evaluate or compile commands are not properly sanitized.
-      Xpath injection could lead to unauthorized access to sensitive information in XML documents.
-      Instead, thoroughly sanitize user input or use parameterized xpath queries if you can.
+
+    Using unsanitized user input in XPath expressions can lead to XPath injection, whereby attackers can gain unauthorized access to sensitive information in XML documents. Ensure all variables passed into XPath `evaluate` or `compile` commands are properly sanitized.
 
     ## Remediations
 
-    ✅ Sanitize XPATH queries
-
+    - **Do** sanitize user input before incorporating it into XPath queries. This prevents XPath injection by ensuring that input values cannot manipulate the query structure.
     ```java
-      public class Cls extends HttpServlet
-      {
+    public class Cls extends HttpServlet
+    {
+        public void handleRequest(HttpServletRequest request, HttpServletResponse response)
+        {
+            String userID = request.getParameter("userID");
+            String sanitizedUserID = sanitize(userID); // Ensure sanitization
 
-          public void handleRequest(HttpServletRequest request, HttpServletResponse response)
-          {
-              String userID = request.getParameter("userID");
-              String sanitizedUserID = sanitize(userID);
+            javax.xml.xpath.XPathFactory xpf = javax.xml.xpath.XPathFactory.newInstance();
+            javax.xml.xpath.XPath xp = xpf.newXPath();
 
-              javax.xml.xpath.XPathFactory xpf = javax.xml.xpath.XPathFactory.newInstance();
-              javax.xml.xpath.XPath xp = xpf.newXPath();
-
-              String expression = "/Users/User[@userID='" + sanitizedUserID + "']";
-              String result = xp.evaluate(expression, xmlDocument);
-          }
-      }
+            String expression = "/Users/User[@userID='" + sanitizedUserID + "']";
+            String result = xp.evaluate(expression, xmlDocument);
+        }
+    }
     ```
+    - **Do not** directly concatenate or embed unsanitized user inputs into XPath expressions. This practice can lead to XPath injection vulnerabilities.
 
     ## References
+
     - [XPATH Injection](https://owasp.org/www-community/attacks/XPATH_Injection)
   cwe_id:
     - 643

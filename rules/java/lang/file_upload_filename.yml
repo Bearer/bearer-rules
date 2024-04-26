@@ -40,29 +40,27 @@ languages:
   - java
 metadata:
   description: Unsanitized use of FileUpload filename
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The unsanitized use of the filename provided by FileUpload could lead to path traversal attacks, since an attacker could manipulate the filename to gain access to unauthorized resources.
-    Try to avoid referencing filenames that are open to such manipulation, or if it is unavoidable, ensure that the filename is sanitized and that appropriate validation measures are taken.
+    Using the filename from FileUpload without sanitization can lead to path traversal attacks. This vulnerability occurs when an attacker manipulates the filename to access files or directories that are outside of the intended directory.
 
     ## Remediations
 
-    ❌ Avoid wherever possible
-
-    ✅ Sanitize user input when resolving paths, for example by using `FilenameUtils.getName()` to normalize the path:
-
+    - **Do not** use unsanitized filenames from FileUpload directly. Attackers can exploit these filenames to navigate the server's directory structure.
+    - **Do** sanitize user input when handling file paths. Use methods like `FilenameUtils.getName()` to ensure the path is safe and cannot be manipulated to traverse directories.
     ```java
-      ServletFileUpload upload = new ServletFileUpload();
-      List<FileItem> fileItems = upload.parseRequest(request);
+    ServletFileUpload upload = new ServletFileUpload();
+    List<FileItem> fileItems = upload.parseRequest(request);
 
-      for (FileItem item : fileItems) {
-        String filename = FilenameUtils.getName(item.getName());
-        // ...
-      }
+    for (FileItem item : fileItems) {
+      String filename = FilenameUtils.getName(item.getName());
+      // ...
+    }
     ```
 
-    ## Resources
+    ## References
+
     - [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)
   cwe_id:
     - 73

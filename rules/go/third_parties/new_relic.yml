@@ -89,15 +89,14 @@ metadata:
   description: "Leakage of sensitive data to New Relic"
   remediation_message: |
     ## Description
-    Leaking sensitive data to third-party loggers is a common cause of data
-    leaks and can lead to data breaches. This rule looks for instances of
-    sensitive data sent to New Relic.
+
+    Leaking sensitive data to third-party loggers like New Relic is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    When logging errors or events, ensure all sensitive data is removed.
+    - **Do** ensure all sensitive data is removed when sending data to third-party loggers like New Relic
 
-    ## Resources
+    ## References
     - [New Relic Docs](https://docs.newrelic.com/)
     - [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)
   cwe_id:

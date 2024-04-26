@@ -13,7 +13,8 @@ patterns:
           - setInt
       - variable: DATA_TYPE
         detection: java_shared_lang_datatype
-  - pattern: $<BINARY_STREAM_UTILS>.$<METHOD>($<CLICKHOUSE_OUTPUT_STREAM>, $<DATA_TYPE>);
+  - pattern: $<BINARY_STREAM_UTILS>.$<METHOD>($<CLICKHOUSE_OUTPUT_STREAM>,
+      $<DATA_TYPE>);
     filters:
       - variable: BINARY_STREAM_UTILS
         regex: \A(com\.clickhouse\.data\.format\.)?BinaryStreamUtils\z
@@ -27,14 +28,16 @@ patterns:
 auxiliary:
   - id: java_third_parties_clickhouse_prepared_statement
     patterns:
-      - pattern: try ($<PREPARED_STATEMENT_TYPE> $<PS> = $<CLICKHOUSE_CONN>.prepareStatement()) {} catch() {};
+      - pattern: try ($<PREPARED_STATEMENT_TYPE> $<PS> =
+          $<CLICKHOUSE_CONN>.prepareStatement()) {} catch() {};
         focus: PS
         filters:
           - variable: PREPARED_STATEMENT_TYPE
             regex: \A(java\.sql\.)?PreparedStatement\z
           - variable: CLICKHOUSE_CONN
             detection: java_third_parties_clickhouse_conn
-      - pattern: $<PREPARED_STATEMENT_TYPE> $<PS> = $<CLICKHOUSE_CONN>.prepareStatement();
+      - pattern: $<PREPARED_STATEMENT_TYPE> $<PS> =
+          $<CLICKHOUSE_CONN>.prepareStatement();
         focus: PS
         filters:
           - variable: PREPARED_STATEMENT_TYPE
@@ -43,14 +46,17 @@ auxiliary:
             detection: java_third_parties_clickhouse_conn
   - id: java_third_parties_clickhouse_output_stream
     patterns:
-      - pattern: try ($<STREAM_TYPE> $<STREAM> = $<CLICKHOUSE_DATASTREAM_FACTORY>.createPipedOutputStream()) {} catch() {};
+      - pattern: try ($<STREAM_TYPE> $<STREAM> =
+          $<CLICKHOUSE_DATASTREAM_FACTORY>.createPipedOutputStream()) {} catch()
+          {};
         focus: STREAM
         filters:
           - variable: STREAM_TYPE
             regex: \A(com\.clickhouse\.data\.)?ClickHousePipedOutputStream\z
           - variable: CLICKHOUSE_DATASTREAM_FACTORY
             detection: java_third_parties_clickhouse_datastream_factory
-      - pattern: $<STREAM_TYPE> $<STREAM> = $<CLICKHOUSE_DATASTREAM_FACTORY>.createPipedOutputStream();
+      - pattern: $<STREAM_TYPE> $<STREAM> =
+          $<CLICKHOUSE_DATASTREAM_FACTORY>.createPipedOutputStream();
         focus: STREAM
         filters:
           - variable: STREAM_TYPE
@@ -59,14 +65,16 @@ auxiliary:
             detection: java_third_parties_clickhouse_datastream_factory
   - id: java_third_parties_clickhouse_conn
     patterns:
-      - pattern: try ($<CONNECTION_CLASS> $<CONN> = $<CLICKHOUSE_DATASOURCE_INSTANCE>.getConnection()) {} catch() {};
+      - pattern: try ($<CONNECTION_CLASS> $<CONN> =
+          $<CLICKHOUSE_DATASOURCE_INSTANCE>.getConnection()) {} catch() {};
         focus: CONN
         filters:
           - variable: CONNECTION_CLASS
             regex: \A(java\.sql\.)?Connection\z
           - variable: CLICKHOUSE_DATASOURCE_INSTANCE
             detection: java_third_parties_clickhouse_datasource
-      - pattern: $<CONNECTION_CLASS> $<CONN> = $<CLICKHOUSE_DATASOURCE_INSTANCE>.getConnection();
+      - pattern: $<CONNECTION_CLASS> $<CONN> =
+          $<CLICKHOUSE_DATASOURCE_INSTANCE>.getConnection();
         focus: CONN
         filters:
           - variable: CONNECTION_CLASS
@@ -97,15 +105,14 @@ metadata:
   description: Leakage of sensitive data to ClickHouse
   remediation_message: |
     ## Description
-    Leaking sensitive data to a third-party service is a common cause of data
-    leaks and can lead to data breaches. This rule looks for instances of
-    sensitive data sent to ClickHouse.
+
+    Leaking sensitive data to a third-party service like ClickHouse is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    When sending data to third-party services, ensure all sensitive data is removed.
+    - **Do** ensure all sensitive data is removed when sending data to third-party services like Algolia.
 
-    ## Resources
+    ## References
     - [ClickHouse docs](https://clickhouse.com/docs/en/intro/)
   cwe_id:
     - 201

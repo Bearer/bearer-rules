@@ -67,21 +67,23 @@ languages:
 severity: high
 metadata:
   description: "Unsanitized user input in dynamic HTML insertion (XSS)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    There are XSS vulnerabilities when dynamically inserting HTML that contains unsanitized data.
+
+    Unsanitized user input in dynamic HTML insertion can lead to Cross-Site Scripting (XSS) attacks. This vulnerability arises when user-provided data is directly inserted into the DOM without proper sanitization, potentially allowing attackers to execute malicious scripts.
 
     ## Remediations
-    Make sure you use HTML sanitization library before inserting html
 
+    - **Do** use an HTML sanitization library to clean user input before inserting it into the HTML. This step helps prevent XSS attacks by removing or neutralizing any potentially harmful scripts.
     ```javascript
     import sanitizeHtml from 'sanitize-html';
 
     const html = `<strong>${user.Input}</strong>`;
-    document.body.innerHTML = sanitizeHtml(html)
+    document.body.innerHTML = sanitizeHtml(html);
     ```
 
-    ## Resources
+    ## References
+
     - [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)
   cwe_id:
     - 79

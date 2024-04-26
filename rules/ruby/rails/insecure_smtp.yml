@@ -15,22 +15,23 @@ languages:
   - ruby
 metadata:
   description: "Usage of insecure SMTP connection"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Secure connections using SMTP help prevent unauthorized actors from viewing transmitted data. This policy checks if SMTP mailer settings are set to only allow secure connections.
+    Using an insecure SMTP connection exposes your data to interception by unauthorized parties. Alwats check that your application's SMTP settings enforce secure connections.
 
     ## Remediations
-    ✅ When using the SMTP protocol, make sure to enable SSL encryption in ActionMailer configuration:
 
+    - **Do** enable SSL encryption in your SMTP settings to secure the connection. For Ruby on Rails' ActionMailer, configure as follows:
     ```ruby
     config.action_mailer.smtp_settings = {
-    	...
-    	ssl: true
+      ...
+      ssl: true
     }
     ```
 
-    ## Resources
+    ## References
+
     - [Ruby on Rails configuring Action Mailer](https://guides.rubyonrails.org/configuring.html#configuring-action-mailer)
     - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
   cwe_id:

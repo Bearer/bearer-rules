@@ -9,64 +9,17 @@ languages:
   - go
 metadata:
   description: "Import of weak encryption algorithm (DES)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The Data Encryption Standard (DES) is an outdated symmetric-key algorithm for encryption. Officially deemed insecure and no longer recommended for use, DES was withdrawn by the National Institute of Standards and Technology (NIST) as a standard in 2005, primarily because of its 56-bit key size, which is vulnerable to brute-force attacks.
+    The Data Encryption Standard (DES) is an outdated encryption algorithm that is officially considered insecure and is no longer recommended for use. DES was withdrawn as a standard by the National Institute of Standards and Technology (NIST) in 2005 because of its 56-bit key size which makes it susceptible to brute-force attacks.
 
-    ## Remediation
+    ## Remediations
 
-    To ensure the confidentiality and integrity of sensitive data, it is crucial to utilize a modern and secure encryption algorithm. The use of Advanced Encryption Standard (AES) with a key size of 256 bits (AES-256) is recommended for its strong security properties and widespread acceptance as a replacement for DES.
+    - **Do not** use DES for encrypting data. Its known vulnerabilities and insecurities make it an unsuitable choice for protecting sensitive information.
+    - **Do** implement the Advanced Encryption Standard (AES) with a key size of 256 bits (AES-256) for encryption. AES-256 is recognized for its strong security properties and is widely accepted as a secure replacement for DES.
 
-    ✅ Implement AES-256 for Strong Encryption
-
-    ```go
-    // Use AES-256 for secure encryption by initializing a 32-byte key for AES-256
-    key := make([]byte, 32)
-    if _, err := io.ReadFull(rand.Reader, key); err != nil {
-      log.Fatal(err)
-    }
-
-    // Create a new cipher block from the key
-    blockCipher, err := aes.NewCipher(key)
-    if err != nil {
-      log.Fatal(err)
-    }
-
-    // Use Galois/Counter Mode (GCM) for both encryption and decryption
-    aead, err := cipher.NewGCM(blockCipher)
-    if err != nil {
-      log.Fatal(err)
-    }
-
-    var encrypted = []byte{}
-    var nonce = []byte{}
-
-    // Encrypt a message with AES-256 using GCM
-    {
-      msg := []byte("Some secret message")
-      // Ensure nonces are unique for each encryption to maintain security
-      nonce = make([]byte, 12)
-      if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
-        log.Fatal(err)
-      }
-      encrypted = aead.Seal(nil, nonce, msg, nil)
-    }
-
-    // Decrypt the message securely
-    {
-      msg, err := aead.Open(nil, nonce, encrypted, nil)
-      if err != nil {
-        log.Fatal(err)
-      }
-      fmt.Printf("Decrypted: %s\n", msg)
-    }
-    ```
-
-    ❌ Do Not Use Deprecated Algorithms
-    Avoid using deprecated cryptographic algorithms such as DES, as they do not provide adequate security against modern threats and attacks.
-
-    ## Resources
+    ## References
 
     - [NIST Recommendations](https://csrc.nist.gov/publications/detail/sp/800-131a/rev-2/final)
     - [AES-256 Encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)

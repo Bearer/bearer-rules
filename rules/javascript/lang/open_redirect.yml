@@ -32,16 +32,20 @@ auxiliary:
 severity: medium
 metadata:
   description: Unsanitized user input in redirect
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    A redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.
+
+    Using unsanitized user input in redirects increases the risk of phishing attacks. This vulnerability occurs when an application dynamically redirects users to a URL that includes user-controlled input without proper validation or sanitization.
 
     ## Remediations
 
-    Avoid using redirects and forwards.
+    - **Do not** directly use user input in redirect URLs. This can lead to phishing attacks where attackers can redirect users to malicious sites.
+    - **Do** validate and sanitize all user input used in redirects. Ensure that the destination URLs are safe and intended. Use a whitelist of allowed URLs if possible.
+    - **Do** use server-side redirection methods that do not allow user input to directly influence the destination. This ensures that the application controls the redirect targets.
 
-    ## Resources
-    - [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
+    ## References
+
+    - [OWASP Unvalidated Redirects and Forwards Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
   cwe_id:
     - 601
   id: "javascript_lang_open_redirect"

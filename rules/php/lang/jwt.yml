@@ -11,25 +11,22 @@ languages:
   - php
 metadata:
   description: "Leakage of sensitive data in JWT"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    JWTs are not a secure place to store sensitive data. This rule looks for any sensitive data types saved to a JWT.
+    Storing sensitive data in JWTs exposes it to potential security risks. JWTs are designed for transmitting data securely, not for storing confidential information. Guard against including sensitive data in a JWT payload.
 
     ## Remediations
 
-    ❌ Avoid storing sensitive data in JWT:
-
+    - **Do not** include sensitive data such as email addresses or personal identifiable information in JWT payloads. This can lead to unauthorized access to sensitive information.
     ```php
     $payload = [
       'data' => 'data',
       'email' => $user->email
     ];
-    $jwt = JWT::encode($payload, $key, 'HS256');
+    $jwt = JWT::encode($payload, $key, 'HS256'); // unsafe
     ```
-
-    ✅ If you need to store user's information, use their unique database identifier instead of personal identifiable information:
-
+    - **Do** use non-sensitive, unique identifiers like a user's UUID in JWT payloads. This approach minimizes the risk of sensitive data exposure while still allowing user identification.
     ```php
     $payload = [
       'data' => 'data',

@@ -34,21 +34,17 @@ languages:
   - javascript
 metadata:
   description: Usage of session on static asset (CSRF)
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Static assets are often cached by services in front of the application
-    (eg. CDNs). Serving static assets with sessions enabled may lead to
-    Cross-Site Request Forgery (CSRF) attacks that can hijack a user's session.
+
+    Enabling sessions for static assets can inadvertently expose your application to Cross-Site Request Forgery (CSRF) attacks. This vulnerability arises because static assets, like images and stylesheets, are often cached by intermediary services such as Content Delivery Networks (CDNs). If these assets are served with session information, attackers can exploit this to hijack a user's session.
 
     ## Remediations
 
-    ✅ Ensure static resources are handled prior to session initialization:
-
+    - **Do** ensure that static resources are served prior to session initialization in your application's middleware order. This practice prevents session cookies from being unnecessarily attached to static assets, reducing the risk of CSRF attacks.
     ```javascript
-      // static middleware should be added before session middleware
-      app.use(express.static(__dirname + "/public"))
-
-      app.use(session())
+    app.use(express.static(__dirname + "/public"));
+    app.use(session());
     ```
   cwe_id:
     - 352

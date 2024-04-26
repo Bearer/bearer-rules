@@ -12,19 +12,25 @@ languages:
   - java
 metadata:
   description: Usage of vulnerable Apache Commons Collections InvokeTransformer class
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The InvokeTransformer class has known security vulnerabilities for versions of Apache Commons Collections older than 3.2.2;
-    namely, the class is vulnerable to remote code execution when deserializing data.
+    The InvokeTransformer class in versions of Apache Commons Collections older than 3.2.2 is susceptible to remote code execution vulnerabilities. This issue arises during the deserialization of data, where malicious actors can execute arbitrary code on the server.
 
     ## Remediations
 
-    ✅ Upgrade Apache Commons Collections 3 to version 3.2.2 or above
+    - **Do** upgrade Apache Commons Collections 3 to version 3.2.2 or above to mitigate the vulnerability associated with the InvokeTransformer class.
+    ```java
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-collections4</artifactId>
+        <version>3.2.2</version>
+    </dependency>
+    ```
 
     ## References
 
-    - [Apache Commons Collections 3.2.2](https://commons.apache.org/proper/commons-collections/security-reports.html)
+    - [Apache Commons Collections 3.2.2 Security Report](https://commons.apache.org/proper/commons-collections/security-reports.html)
   cwe_id:
     - 1395
   id: java_lang_apache_commons_collection

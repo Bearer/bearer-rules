@@ -22,20 +22,24 @@ languages:
   - java
 metadata:
   description: "Permissive Access-Control-Allow-Origin configuration"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Setting the Access-Control-Allow-Origin header to "*" allows code from any
-    origin to access the response. This can lead to unintended access to
-    sensitive data.
+
+    A permissive Access-Control-Allow-Origin configuration can expose your application to security risks. When this header is set to "*", it means your application's responses can be accessed by any website, potentially leading to unauthorized access to sensitive information.
 
     ## Remediations
-    ✅ Permit only the specific origins needed by your application
 
-    ```php
-    header("Access-Control-Allow-Origin: myapp.example.com");
+    - **Do not** set the Access-Control-Allow-Origin header to "*". This overly permissive setting can make your application vulnerable to attacks.
+    ```java
+      response.addHeader("access-control-allow-origin", "*"); // unsafe
+    ```
+    - **Do** restrict the Access-Control-Allow-Origin header to only allow specific, trusted origins that need access to your application. This minimizes the risk of sensitive data exposure.
+    ```java
+    response.addHeader("access-control-allow-origin", "myapp.example.com");
     ```
 
-    ## Resources
+    ## References
+
     - [OWASP Origin & Access-Control-Allow-Origin](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/07-Testing_Cross_Origin_Resource_Sharing)
   cwe_id:
     - 942

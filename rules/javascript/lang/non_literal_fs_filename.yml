@@ -139,27 +139,24 @@ languages:
 severity: high
 metadata:
   description: Unsanitized dynamic input in file path
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The use of dynamic data with the file system module is bad security practice as it could allow attackers to access unauthorized or hidden files and folders.
+    Allowing unsanitized dynamic input in file paths can lead to unauthorized file and folder access. This vulnerability arises when dynamic data is used within the file system operations, potentially allowing attackers to access unauthorized or hidden files and folders.
 
     ## Remediations
 
-    ✅ Always ensure that dynamic data and function arguments are sanitized
-
-    ❌ Do not pass dynamic data or function arguments directly to the fs module. Use hard-coded string literals and control logic instead
-
+    - **Do** sanitize all dynamic data and function arguments before using them in file system operations. This step is crucial to prevent unauthorized access.
+    - **Do** use a combination of hard-coded string literals and control logic, instead of directly passing dynamic data or function arguments to file system functions. This ensures safety.
     ```javascript
-      function write(filename) {
-        switch(filename) {
-          case "hello.txt":
+    function write(filename) {
+      switch(filename) {
+        case "hello.txt":
           fs.writeCreateFile("hello.txt");
           break;
-
-          case ...
-        }
+        // Add more cases as necessary
       }
+    }
     ```
 
     ## References

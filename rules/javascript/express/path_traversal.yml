@@ -87,39 +87,29 @@ languages:
 severity: high
 metadata:
   description: "Unsanitized user input in file path"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Allowing unsanitized user input in path resolution methods means an attacker could gain access to files and folders outside of the intended scope.
+
+    Using unsanitized user input to construct file paths can allow attackers to access files and directories beyond the intended limits. This vulnerability, known as path traversal, poses a significant security risk.
 
     ## Remediations
-    ❌ Avoid wherever possible
 
-    ✅ Sanitize user input when resolving paths, for example:
-    - Use `replace()` to mitigate against unwanted patterns in the path (such as `\..\..`)
-    - Actively guard against paths that end in "%00" (poison NULL byte attacks)
-    - Use path concatenation to ensure the intended scope is respected
-
+    - **Do not** directly use user input in file path construction. This can lead to unauthorized file access.
+    - **Do** sanitize user input before using it in path resolution. Replace or remove dangerous patterns like `\..\..` to prevent directory traversal attacks.
     ```javascript
-    const path = require("path");
-
-    app.get("/", (req, res) => {
-      if (req.params.path.indexOf('\0')) !== -1 {
-        // prevent access
-      }
-
-      var folder = req.params.path.replace(/^(\.\.(\/|\\|$))+/, '')
-
-      var pathname = path.join("/public/", folder)
-      if pathname.indexOf("/public/") !== 0 {
-        // prevent access
-      }
-
-      path.resolve(pathname)
-    })
+    var sanitizedPath = userInput.replace(/^(\.\.(\/|\\|$))+/, '');
     ```
+    - **Do** check for and eliminate any instances of the poison NULL byte ("%00") in user input, as it can be used to bypass path sanitization.
+    ```javascript
+    if (userInput.indexOf('\0') !== -1) {
+      // Handle or reject the input
+    }
+    ```
+    - **Do** validate the final path to ensure it is within the intended scope before accessing the file system.
 
-    ## Resources
-    - [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)
+    ## References
+
+    - [OWASP Path Traversal](https://owasp.org/www-community/attacks/Path_Traversal)
   cwe_id:
     - 73
   id: "javascript_express_path_traversal"

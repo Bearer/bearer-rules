@@ -19,36 +19,30 @@ patterns:
           regex: \A([/'"]|%r.)\\A.*\\[zZ](.|/[a-z]*)\z
 metadata:
   description: "Missing validation for regular expression"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Validations using regular expressions should use the start of text (\A) and
-    end of text (\z or \Z) boundaries.
+    When validating data with regular expressions, it's crucial to match the entire text. Failing to specify the start and end of the text can lead to incomplete validation, making your application vulnerable to malicious input. Regular expressions should always specify the start of text (\A) and end of text (\z or \Z) boundaries to ensure that the entire string is evaluated, not just portions of it.
 
     ## Remediations
 
-    ❌ Avoid matching without start and end boundaries:
-
+    - **Do not** use regular expressions for validation without specifying the start and end of the text. This approach can result in partial matches, which may not fully validate the data.
     ```ruby
-    validates :attribute, format: { with: /foo/}
+    validates :attribute, format: { with: /foo/ }
+    ```
+    - **Do not** rely on line-based boundaries (`^` for start of line, `$` for end of line) for validation. These can allow unexpected matches across multiple lines, potentially bypassing the validation.
+    ```ruby
+    validates :attribute, format: { with: /^foo$/ }
+    ```
+    - **Do** use whole-text boundaries (`\A` for start of text, `\z` or `\Z` for absolute end of text) in your regular expressions. This ensures that the validation matches the entire text, from start to finish, providing a more secure validation.
+    ```ruby
+    validates :attribute1, format: { with: "\Afoo\Z" }
+    validates :attribute2, format: { with: "\Afoo\z" }
     ```
 
-    ❌ Avoid using line-based boundaries:
+    ## References
 
-    ```ruby
-    validates :attribute, format: { with: /^foo$/}
-    ```
-
-    ✅ Use whole-text boundaries:
-
-    ```ruby
-    validates :attribute1, format: { with: "\Afoo\Z"}
-    validates :attribute2, format: { with: "\Afoo\z"}
-    ```
-    <!--
-    ## Resources
     - [Active Record format validation](https://guides.rubyonrails.org/active_record_validations.html#format)
-    -->
   cwe_id:
     - 625
   id: ruby_rails_permissive_regex_validation

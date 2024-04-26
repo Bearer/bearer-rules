@@ -138,18 +138,18 @@ languages:
 severity: low
 metadata:
   description: "Leakage of information in logger message"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Leaking data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of dynamic data or variables sent to loggers.
+    Information leakage through logger messages can result in data breaches. This vulnerability arises when dynamic data or variables, which may contain sensitive information, are included in log messages.
 
     ## Remediations
 
-    ❌ Avoid using variables or dynamic data in logger messages:
-
+    - **Do not** include variables or dynamic data containing sensitive information in logger messages. This can inadvertently expose sensitive data.
     ```go
-    logger.info(f"User is: '{user.email}'")
+    logger.info(f"User is: '{user.email}'") // unsafe
     ```
+    - **Do** sanitize or remove sensitive information from data before logging. Ensure that logged information does not contain any personal or confidential data.
   cwe_id:
     - 532
   id: go_lang_logger_leak

@@ -10,32 +10,19 @@ languages:
   - go
 metadata:
   description: "Usage of weak hashing library"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The issue identified indicates the use of a cryptographic algorithm that is no longer considered secure by current standards. Such algorithms can compromise data confidentiality and integrity, making it vulnerable to decryption and tampering by unauthorized parties.
+    Your code uses a weak hashing library, which means it relies on cryptographic algorithms that are no longer secure. This vulnerability can lead to compromised data confidentiality and integrity, as it makes the data susceptible to unauthorized decryption and tampering.
 
-    ## Remediation
+    ## Remediations
 
-    To ensure the security of the data, adhere to the following guidelines:
+    - **Do** replace weak or outdated algorithms with strong, modern alternatives. For encryption, use AES (Advanced Encryption Standard), and for hashing, opt for SHA-256 or higher.
+    - **Do** always use the latest versions of cryptographic libraries. These versions are more likely to use secure algorithms and settings by default.
+    - **Do not** use cryptographic algorithms that have been deprecated due to known vulnerabilities. Avoid MD5, SHA-1, or DES for any cryptographic operations.
+    - **Do not** attempt to create custom cryptographic solutions. Instead use well-reviewed and tested standard cryptographic libraries to ensure security.
 
-    ✅ Employ Strong Cryptographic Algorithms
-
-    Replace deprecated or weak algorithms with strong, modern alternatives such as AES (Advanced Encryption Standard) for encryption, and SHA-256 or higher for hashing.
-
-    ✅ Keep Libraries Updated
-
-    Use the latest versions of cryptographic libraries, as they are more likely to default to secure algorithms and settings.
-
-    ❌ Avoid Deprecated Algorithms
-
-    Do not use cryptographic algorithms that have been deprecated due to vulnerabilities, such as MD5, SHA-1, or DES.
-
-    ❌ Do Not Reinvent Cryptography
-
-    Avoid custom cryptographic implementations as they are more susceptible to errors. Instead, rely on well-reviewed and tested standard cryptographic libraries.
-
-    ## Resources
+    ## References
 
     - [NIST Cryptographic Standards and Guidelines](https://csrc.nist.gov/publications/sp)
     - [Cryptography Coding Standard](https://cryptocoding.net/index.php/Coding_rules)

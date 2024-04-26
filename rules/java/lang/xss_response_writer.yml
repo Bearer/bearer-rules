@@ -54,28 +54,27 @@ languages:
   - java
 metadata:
   description: "Unsanitized user input in output stream (XSS)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Make sure to encode and sanitize any user input before passing it down to `response.getWriter()` to avoid cross-site scripting (XSS) attacks.
+    Cross-site scripting (XSS) vulnerabilities occur when unsanitized user input is included in web page content. This flaw can lead to malicious scripts being executed in the context of the user's browser, compromising the security of user data and interactions with the application.
 
-    ✅ Use an encoder to minimize XSS risk
+    ## Remediations
 
+    - **Do** use an encoder to handle user input before incorporating it into the output stream. This step helps minimize the risk of XSS attacks by converting potentially dangerous characters into a safe format.
     ```java
-      String userInput = req.getQueryString("user");
-      String encodedUserInput = Encode.forHtml(userInput)
-      response.getWriter().write(encodedUserInput)
+    String userInput = req.getQueryString("user");
+    String encodedUserInput = Encode.forHtml(userInput);
+    response.getWriter().write(encodedUserInput);
+    ```
+    - **Do** sanitize user input to remove or neutralize unwanted scripts. Sanitization goes beyond encoding by actively removing harmful content from user input before it is used in the output.
+    ```java
+    String userInput = req.getQueryString("user");
+    String sanitizedUserInput = sanitize(userInput);
+    response.getWriter().write(sanitizedUserInput);
     ```
 
-    ✅ Even better, sanitize user input
-
-    ```java
-      String userInput = req.getQueryString("user");
-      String sanitizedUserInput = sanitize(userInput);
-      response.getWriter().write(sanitizedUserInput);
-    ```
-
-    ## Resources
+    ## References
 
     - [OWASP XSS Prevention Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
     - [OWASP Java Encoder](https://owasp.org/www-project-java-encoder/)

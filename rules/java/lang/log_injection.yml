@@ -19,22 +19,26 @@ languages:
 
 metadata:
   description: "Unsanitized user input in logger message"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Writing invalidated user input to log files can allow an attacker to forge log entries or inject malicious content into the logs. This rule looks for instances of user input sent to loggers.
+
+    Logging unsanitized user input can lead to log forgery or malicious content injection. This vulnerability arises when user input is directly included in log messages without proper sanitization.
+
     ## Remediations
-    ❌ Avoid using unsanitized user input in logger messages:
+
+    - **Do not** include unsanitized user input in log messages. This can allow attackers to manipulate log files or inject harmful content.
     ```java
-     String username = request.getParameter("username");
-     log.warn("Username is" + username);
+    String username = request.getParameter("username");
+    log.warn("Username is" + username); // unsafe
     ```
-    ✅ If you need to identify a user, use their unique identifier instead of their personal identifiable information:
+    - **Do** sanitize user input before logging it. Ensure that any data derived from user input is cleaned to prevent log injection attacks.
     ```java
-     String username = sanitized(request.getParameter("username"));
-     log.warn("Username is" + username);
+    String username = sanitized(request.getParameter("username"));
+    log.warn("Username is" + username);
     ```
-    ## Resources
-    - [OWASP Log Injection] (https://owasp.org/www-community/attacks/Log_Injection)
+    ## References
+
+    - [OWASP Log Injection](https://owasp.org/www-community/attacks/Log_Injection)
     - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
 
   cwe_id:

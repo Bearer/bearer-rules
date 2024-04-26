@@ -94,27 +94,24 @@ skip_data_types:
   - "Passwords" # see ruby_lang_weak_password_hash_md
 metadata:
   description: "Usage of weak hashing library (MD5)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    A weak hashing library can lead to data breaches and greater security risk.
+    Using a weak hashing library like MD5 increases the risk of data breaches. MD5 is vulnerable to collision attacks, where two different inputs produce the same output, compromising data integrity and security.
 
     ## Remediations
-    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 and its predecessors are considered weak hash algorithms and therefore shouldn't be used.
 
-    ❌ Avoid libraries and algorithms with known weaknesses:
-
+    - **Do not** use MD5 or other weak hash algorithms for hashing. These are not secure and can be easily compromised.
     ```ruby
-    Digest::MD5.hexdigest 'weak hash'
+    Digest::MD5.hexdigest('weak hash') # unsafe
     ```
-
-    ✅ Instead, we recommend using bcrypt:
-
+    - **Do** use stronger hashing algorithms like bcrypt for securing data. Bcrypt is designed to be slow and computationally intensive, making it resistant to brute force attacks.
     ```ruby
     BCrypt::Password.create('iLOVEdogs123')
     ```
 
-    ## Resources
+    ## References
+
     - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
   cwe_id:
     - 328

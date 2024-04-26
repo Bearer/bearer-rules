@@ -27,50 +27,30 @@ languages:
   - go
 metadata:
   description: "Usage of vulnerable 'serve' function"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The `net/http` serve functions in Go, when used with default settings, are vulnerable to resource consumption attacks. Attackers can exploit this by creating numerous connections to the server, intentionally not completing data transfers or leaving connections open, which can exhaust the server's resources and prevent it from accepting new legitimate connections.
+    The default `serve` functions in Go's `net/http` package are susceptible to resource consumption attacks. This vulnerability arises when attackers flood the server with incomplete or persistent connections, depleting its resources and blocking new legitimate connections.
 
     ## Remediations
 
-    To mitigate such attacks, specific server configurations are necessary:
-
-    ❌ Avoid Default Serve Functions for Production
-
-    Functions like `http.ListenAndServe` and `http.Serve` should not be used in a production setting as they do not allow for timeout configurations.
-
-    ✅ Configure Timeouts on Custom `http.Server` Object
-
-    Create a custom `http.Server` object and set appropriate timeouts to prevent resource exhaustion.
-
+    - **Do not** use default serve functions like `http.ListenAndServe` and `http.Serve` in production environments. You cannot set timeouts for these functions, making the server vulnerable to attacks.
     ```go
-    import (
-        "net/http"
-        "time"
-        "log"
-    )
-
-    func main() {
-        srv := &http.Server{
-            Addr:             "localhost:8000",
-            ReadHeaderTimeout: 15 * time.Second,
-            ReadTimeout:      15 * time.Second,
-            WriteTimeout:     10 * time.Second,
-            IdleTimeout:      30 * time.Second,
-        }
-
-        if err := srv.ListenAndServe(); err != nil {
-            log.Fatal(err)
-        }
+    http.ListenAndServe(":8080", nil) // unsafe
+    ```
+    - **Do** create a custom `http.Server` object with configured timeouts to safeguard against resource exhaustion. Set `ReadHeaderTimeout`, `ReadTimeout`, `WriteTimeout`, and `IdleTimeout` to appropriate values.
+    ```go
+    myServer := &http.Server{
+        Addr:             "localhost:8000",
+        ReadHeaderTimeout: 15 * time.Second,
+        ReadTimeout:      15 * time.Second,
+        WriteTimeout:     10 * time.Second,
+        IdleTimeout:      30 * time.Second,
     }
     ```
+    - **Do** enforce timeouts on individual requests using `http.TimeoutHandler`. This wrapper ensures that the server does not indefinitely wait for a request to finish, preventing potential denial of service.
 
-    ✅ Use `http.TimeoutHandler` for Per Request Timeouts
-
-    To set timeouts for individual requests, use the `http.TimeoutHandler` wrapper on your handlers. This ensures that the server does not wait indefinitely for a request to complete.
-
-    ## Resources
+    ## References
 
     - [http.Server Timeouts Documentation](https://pkg.go.dev/net/http#Server)
     - [Guide to Setting Request-Based Timeouts](https://pkg.go.dev/net/http#TimeoutHandler)

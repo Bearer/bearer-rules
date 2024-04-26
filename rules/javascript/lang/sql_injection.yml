@@ -116,43 +116,37 @@ languages:
 severity: critical
 metadata:
   description: Unsanitized input in SQL query
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Including unsanitized data, such as user input or request data, or externally influenced data passed to a function, in raw SQL queries makes your application vulnerable to SQL injection attacks.
+
+    Using unsanitized data, such as user input or request data, or externally influenced data passed to a function, in SQL query exposes your application to SQL injection attacks. This vulnerability arises when externally controlled data is directly included in SQL statements without proper sanitation, allowing attackers to manipulate queries and access or modify data.
 
     ## Remediations
 
-    ❌ Avoid raw queries, especially those that contain unsanitized input
-
+    - **Do not** use raw SQL queries that concatenate unsanitized input directly.
     ```javascript
-      var sqlite = new Sequelize("sqlite::memory:");
-      sqlite.query("SELECT * FROM users WHERE ID = " + req.params.userId);
+    var sqlite = new Sequelize("sqlite::memory:");
+    sqlite.query("SELECT * FROM users WHERE ID = " + req.params.userId); // unsafe
+    ```
+    - **Do** validate all query inputs to ensure they meet expected patterns or values before using them in a query.
+    ```javascript
+    var rawId = req.params.userId
+    if !(/[0-9]+/.test(rawId)) {
+      // input is unexpected; don't make the query
+    }
+    ```
+    - **Do** use prepared (or parameterized) statements for querying databases to safely include external input.
+    ```javascript
+    var sqlite = new Sequelize("sqlite::memory:");
+    sqlite.query(
+      "SELECT * FROM users WHERE ID = ?",
+      { replacements: [req.params.userId] },
+      type: sequelize.QueryTypes.SELECT
+    )
     ```
 
-    Instead, consider the following approaches when writing SQL queries
+    ## References
 
-    ✅ Validate query input wherever possible
-
-    ```javascript
-      var rawId = req.params.userId
-      if !(/[0-9]+/.test(rawId)) {
-        // input is unexpected; don't make the query
-      }
-    ```
-
-    ✅ Always use prepared (or parameterized) statements when querying
-
-    Sequelize example -
-    ```javascript
-      var sqlite = new Sequelize("sqlite::memory:");
-      sqlite.query(
-        "SELECT * FROM users WHERE ID = ?",
-        { replacements: [req.params.userId] },
-        type: sequelize.QueryTypes.SELECT
-      )
-    ```
-
-    ## Resources
     - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
     - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
   cwe_id:

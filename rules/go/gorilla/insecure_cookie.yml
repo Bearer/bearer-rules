@@ -37,31 +37,29 @@ languages:
   - go
 metadata:
   description: "Missing Secure option in cookie configuration"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    When set to "true", the "Secure" attribute ensures that a client will only send the cookie to the server when HTTPS is being used.
-    This prevents the cookie from being observed by unauthorized third parties.
-
-    It's essential to configure cookie security options properly, especially when using session management libraries like Gorilla Sessions in Go.
+    The Secure attribute in cookie configuration is crucial for protecting cookies from unauthorized third-party access. When set to "true," it ensures cookies are only sent over HTTPS, safeguarding the data during transmission.
 
     ## Remediations
 
-    To ensure that cookies, particularly session cookies, are secure:
+    - **Do** set the Secure flag for cookies if your site uses HTTPS. This action restricts cookies to secure channels, enhancing their security.
+    ```go
+    http.SetCookie(w, &http.Cookie{
+        Name:     "session_token",
+        Value:    sessionToken,
+        Secure:   true,
+        HttpOnly: true,
+    })
+    ```
+    - **Do** use Gorilla SecureCookie for encoding and decoding session data securely. This method provides an additional layer of security for session information.
+    ```go
+    var s = sessions.NewCookieStore([]byte("your-secret-key"))
+    ```
+    - **Do** implement robust session management with Gorilla Sessions. Proper session management helps prevent attacks related to session fixation and enhances overall session security.
 
-    ✅ Set Secure Flag
-
-    If your site is served over HTTPS, also set the `Secure` flag on the cookie to ensure it's transmitted over secure channels only.
-
-    ✅ Leverage Gorilla SecureCookie
-
-    Utilize the encoding/decoding capabilities of Gorilla's SecureCookie to securely store session data.
-
-    ✅ Implement Strong Session Management
-
-    Use Gorilla's session management features to create, renew, and expire sessions in a secure manner, preventing session fixation and other session-related attacks.
-
-    ## Resources
+    ## References
 
     - [Gorilla Sessions Documentation](http://www.gorillatoolkit.org/pkg/sessions)
     - [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)

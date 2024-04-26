@@ -180,24 +180,19 @@ auxiliary:
 severity: high
 metadata:
   description: "Unsanitized user input in raw HTML strings (XSS)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should not include unsanitized user input in HTML. This
-    can allow cross-site scripting (XSS) attacks.
+    Including unsanitized user input in HTML exposes your application to cross-site scripting (XSS) attacks. This vulnerability allows attackers to inject malicious scripts into web pages viewed by other users.
 
     ## Remediations
 
-    ❌ Avoid including user input directly in HTML strings:
-
+    - **Do not** include user input directly in HTML strings. This practice can lead to XSS vulnerabilities.
     ```javascript
-    const html = `<h1>${req.params.title}</h1>`
+    const html = `<h1>${req.params.title}</h1>` // unsafe
     ```
-
-    ✅ Use a framework or templating language to construct the HTML.
-
-    ✅ When HTML strings must be used, sanitize user input:
-
+    - **Do** use a framework or templating language that automatically handles the encoding and sanitization of user input when constructing HTML. This approach minimizes the risk of XSS attacks.
+    - **Do** sanitize user input if you must use HTML strings directly. Utilize libraries designed for input sanitization to ensure that user input does not contain malicious content.
     ```javascript
     import sanitizeHtml from 'sanitize-html'
 
@@ -205,7 +200,8 @@ metadata:
     const html = `<h1>${sanitizedTitle}</h1>`
     ```
 
-    ## Resources
+    ## References
+
     - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
   cwe_id:
     - 79

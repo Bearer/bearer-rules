@@ -33,14 +33,15 @@ languages:
   - java
 metadata:
   description: Unsanitized user input in code generation
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The use of external input in scripting functions is bad security practice as it could lead to code injection attacks, where an attacker passes malicious code, that is then run by the application with potentially harmful results.
+    Allowing user input to directly influence code generation or scripting functions without proper sanitization can lead to code injection vulnerabilities. This occurs when an attacker is able to insert malicious code into your application, which is then executed, potentially leading to unauthorized actions or data access.
 
     ## Remediations
 
-    ❌ Never pass raw user input to functions and methods that are dynamically invoked
+    - **Do not** pass unsanitized user input to functions or methods that dynamically execute code.
+    - **Do** always validate or sanitize input to ensure it does not contain harmful code before using it in such contexts.
 
     ## References
 

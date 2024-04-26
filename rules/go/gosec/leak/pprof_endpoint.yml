@@ -8,50 +8,19 @@ languages:
   - go
 metadata:
   description: "Usage of active debug code (pprof enabled)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Go's standard library includes a profiling tool that can be enabled by importing `net/http/pprof`. This tool provides a `/debug/pprof` endpoint that exposes runtime profiling data over HTTP. When enabled in a production environment, it can present a significant security risk as it lacks authentication controls and can potentially leak sensitive information about the application's runtime state and environment.
+    Enabling Go's `net/http/pprof` in production environments exposes runtime profiling data via a `/debug/pprof` endpoint, creating a security vulnerability. This tool is part of Go's standard library and, while useful for debugging, it does not have authentication controls. This can lead to sensitive information leaks about the application's runtime state and environment if left accessible in production.
 
     ## Remediations
 
-    To prevent unintended exposure of profiling information:
+    - **Do not** include `net/http/pprof` in your production code. Remove any imports of this package before deploying to ensure the profiling endpoint is not exposed.
+    - **Do** use build tags for conditional compilation, and only allow profiling in non-production builds.
+    - **Do** configure environment-specific settings to enable or disable profiling endpoints based on the deployment environment.
+    - **Do** implement strong authentication mechanisms if profiling must be enabled in a controlled production scenario to secure the endpoint.
 
-    ✅ Remove `net/http/pprof` in Production
-
-    Before deploying your application to a production environment, remove any import statements for `net/http/pprof` from your codebase. Ensure that the profiling endpoint is not available in the live environment.
-
-    ```go
-    // +build !production
-
-    package main
-
-    import (
-        _ "net/http/pprof" // Ensure this line is not present in your production builds
-        "net/http"
-    )
-
-    func main() {
-        // ... your application code ...
-
-        // Start the server (omit the pprof import and handler in production)
-        log.Println(http.ListenAndServe("localhost:6060", nil))
-    }
-    ```
-
-    ✅ Conditional Compilation
-
-    Use build tags to include profiling only in non-production builds.
-
-    ✅ Use Environment Configurations
-
-    Configure environment-specific settings to conditionally enable or disable the profiling endpoints.
-
-    ✅ Implement Authentication
-
-    If profiling is necessary in a controlled production scenario, secure the endpoint with strong authentication mechanisms.
-
-    ## Resources
+    ## References
 
     - [Go net/http/pprof Package Documentation](https://pkg.go.dev/net/http/pprof)
     - [Go Build Constraints Documentation](https://pkg.go.dev/go/build#hdr-Build_Constraints)

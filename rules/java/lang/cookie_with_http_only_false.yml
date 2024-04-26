@@ -20,15 +20,14 @@ languages:
   - java
 metadata:
   description: Permissive HTTP Only option in cookie configuration
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    To make sure cookies don't open your application up to exploits or unauthorized access, make sure to set security options appropriately.
+    Leaving the HTTP Only option in cookie configuration unset or false can expose your application to attacks by allowing client-side scripts to access cookie values. This vulnerability can lead to unauthorized access or exploits.
 
     ## Remediations
 
-    ✅ Set `HttpOnly` to `true` to protect the cookie value from being accessed by client side JavaScript
-
+    - **Do** set `HttpOnly` to `true` for cookies to prevent client-side scripts from accessing the cookie values. This step is crucial for enhancing the security of your application by limiting access to cookie data.
     ```java
     cookie.setHttpOnly(true);
     ```

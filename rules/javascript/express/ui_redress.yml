@@ -13,32 +13,32 @@ languages:
   - javascript
 metadata:
   description: "Unsanitized user input in UI"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Using unsanitized user input to set X-Frame-Options or Content-Security-Policy HTTP headers puts your application at risk for UI redress attacks (clickjacking).
+
+    Incorporating unsanitized user input to configure X-Frame-Options or Content-Security-Policy HTTP headers exposes your application to UI redress attacks, commonly known as clickjacking. This vulnerability arises when attackers manipulate the appearance of a webpage to deceive users into performing unintended actions.
 
     ## Remediations
-    ✅ Prefer the most secure values when setting these headers
 
+    - **Do** set the most secure values for these headers to enhance protection against clickjacking.
     ```javascript
-    res.set('X-Frame-Options', 'DENY')
-    res.set('Content-Security-Policy', "frame-ancestors 'none'")
+    res.set('X-Frame-Options', 'DENY');
+    res.set('Content-Security-Policy', "frame-ancestors 'none'");
     ```
-
-    ✅ Avoid using user input directly to set the headers, or use a safelist to guard against clickjacking
-
+    - **Do not** directly use user input to set these headers. Instead, implement a safelist approach to ensure only approved values are used.
     ```javascript
     if (req.query.options === 'same') {
-      res.set('X-Frame-Options', 'SAME')
+      res.set('X-Frame-Options', 'SAME');
     }
 
-    // safelist
-    if (['deny', 'sameorigin'].includes(req.query.options.toLowerCase)) {
-      res.set('X-Frame-Options', req.query.options)
+    // Safelist
+    if (['deny', 'sameorigin'].includes(req.query.options.toLowerCase())) {
+      res.set('X-Frame-Options', req.query.options);
     }
     ```
 
-    ## Resources
+    ## References
+
     - [OWASP Clickjacking attack explained](https://owasp.org/www-community/attacks/Clickjacking)
     - [OWASP Clickjacking defense cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html)
   cwe_id:

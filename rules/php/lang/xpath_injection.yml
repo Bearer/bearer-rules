@@ -45,20 +45,18 @@ languages:
   - php
 metadata:
   description: "Unsanitized user input in XPath"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Using unsanitized input in an XPath expression could lead to XPath injection
-    if variables are not properly sanitized. XPath injection could lead to
-    unauthorized access to sensitive information in XML documents.
+
+    Unsanitized user input in XPath expressions can result in XPath injection. This vulnerability occurs when user input is directly used in XPath queries without proper sanitation, potentially granting unauthorized access to sensitive data within XML documents.
 
     ## Remediations
 
-    ❌ Avoid using user input in XPath expressions
-
-    ✅ Sanitize user input when it must be included
-    ```
+    - **Do not** directly use user input in XPath expressions. This can lead to XPath injection vulnerabilities.
+    - **Do** sanitize user input before including it in XPath queries. Ensure that any data derived from user input is properly cleaned to prevent injection attacks.
 
     ## References
+
     - [XPath Injection](https://owasp.org/www-community/attacks/XPATH_Injection)
   cwe_id:
     - 643

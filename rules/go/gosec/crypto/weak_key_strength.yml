@@ -7,46 +7,20 @@ languages:
   - go
 metadata:
   description: "Usage of inadequate encryption strength"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The application generates an RSA key with a bit length that is shorter than the current recommended minimum of 2048 bits. Keys shorter than 2048 bits are considered insecure due to advancements in computational power which could potentially allow them to be factored, thereby breaking the encryption.
+    Your application uses RSA encryption with a key length shorter than the recommended 2048 bits. Keys under 2048 bits are vulnerable because of the increasing power of modern computers, which could break the encryption by factoring the key.
 
-    ## Remediation
+    ## Remediations
 
-    To ensure the security of RSA keys, follow these guidelines:
-
-    ✅ Use Sufficient Key Length
-
-    Generate RSA keys with a minimum length of 2048 bits to align with NIST recommendations and safeguard against future advancements in computing power that could compromise keys of shorter lengths.
-
+    - **Do** generate RSA keys with a minimum of 2048 bits. This meets NIST recommendations and protects against the risk of keys being compromised by advancements in computing power. Keys shorter than 2048 bits do not provide adequate protection against brute-force attacks.
     ```go
-    // Example of generating a secure RSA key with 2048 bits
-    import (
-      "crypto/rand"
-      "crypto/rsa"
-      "log"
-    )
-
-    func generateSecureKey() {
-      // Use at least 2048 bits for secure RSA keys
       privateKey, err := rsa.GenerateKey(rand.Reader, 2048)
-      if err != nil {
-        log.Fatalf("Error generating RSA key: %v", err)
-      }
-      // privateKey can now be used for secure cryptographic operations
-    }
     ```
+    - **Do** adhere to industry standards and guidelines for cryptographic practices to ensure the security of your data.
 
-    ❌ Avoid Short Keys
-
-    Do not use RSA keys that are less than 2048 bits in length, as they do not offer sufficient protection against brute-force attacks.
-
-    ❌ Don't Ignore Industry Standards
-
-    Always follow industry standards and guidelines for cryptographic practices to maintain the integrity and confidentiality of data.
-
-    ## Resources
+    ## References
 
     - [NIST Special Publication 800-57 Part 1](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final)
   cwe_id:

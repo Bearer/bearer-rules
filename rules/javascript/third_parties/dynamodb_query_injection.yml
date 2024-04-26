@@ -41,14 +41,12 @@ metadata:
   description: "Unsanitized user input in DynamoDB query"
   remediation_message: |
     ## Description
+
     Including unsanitized data, such as user input or request data, in raw queries makes your application vulnerable to injection attacks.
 
     ## Remediations
 
-    Narrow down your query from the code instead of using unsanitzed user input to define it.
-
-    Example:
-
+    - **Do** narrow down your query from the code instead of using unsanitzed user input to define it.
     ```javascript
     exports.handler = async function(event, context) {
         var params = {
@@ -63,8 +61,8 @@ metadata:
     }
     ```
 
+    ## References
 
-    ## Resources
     - [OWASP nosql injection explained](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection)
 
   cwe_id:
