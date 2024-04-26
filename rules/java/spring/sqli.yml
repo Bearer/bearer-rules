@@ -1,15 +1,15 @@
 imports:
   - java_shared_lang_instance
-  - java_shared_lang_user_input
+  - java_shared_lang_external_input
 patterns:
-  - pattern: new $<CLASS>($<USER_INPUT>$<...>);
+  - pattern: new $<CLASS>($<INPUT>$<...>);
     filters:
       - variable: CLASS
         regex: \A(org\.springframework\.jdbc\.core\.)?PreparedStatementCreatorFactory\z
-      - variable: USER_INPUT
-        detection: java_shared_lang_user_input
+      - variable: INPUT
+        detection: java_shared_lang_external_input
         scope: result
-  - pattern: $<FACTORY>.newPreparedStatementCreator($<USER_INPUT>$<...>);
+  - pattern: $<FACTORY>.newPreparedStatementCreator($<INPUT>$<...>);
     filters:
       - variable: FACTORY
         detection: java_shared_lang_instance
@@ -17,18 +17,18 @@ patterns:
         filters:
           - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
             regex: \A(org\.springframework\.jdbc\.core\.)?PreparedStatementCreatorFactory\z
-      - variable: USER_INPUT
-        detection: java_shared_lang_user_input
+      - variable: INPUT
+        detection: java_shared_lang_external_input
         scope: result
-  - pattern: $<JDBC_TEMPLATE>.batchUpdate($<...>$<USER_INPUT>$<...>);
+  - pattern: $<JDBC_TEMPLATE>.batchUpdate($<...>$<INPUT>$<...>);
     filters:
       - variable: JDBC_TEMPLATE
         detection: java_spring_sqli_jdbc_template
         scope: cursor
-      - variable: USER_INPUT
-        detection: java_shared_lang_user_input
+      - variable: INPUT
+        detection: java_shared_lang_external_input
         scope: result
-  - pattern: $<JDBC_TEMPLATE>.$<METHOD>($<USER_INPUT>$<...>);
+  - pattern: $<JDBC_TEMPLATE>.$<METHOD>($<INPUT>$<...>);
     filters:
       - variable: JDBC_TEMPLATE
         detection: java_spring_sqli_jdbc_template
@@ -45,8 +45,8 @@ patterns:
           - queryForLong
           - queryForStream
           - update
-      - variable: USER_INPUT
-        detection: java_shared_lang_user_input
+      - variable: INPUT
+        detection: java_shared_lang_external_input
         scope: result
 auxiliary:
   - id: java_spring_sqli_jdbc_template
@@ -69,16 +69,16 @@ languages:
 trigger:
   match_on: presence
 metadata:
-  description: "Unsanitized user input in SQL query"
+  description: "Unsanitized input in SQL query"
   remediation_message: |
     ## Description
 
-    Including unsanitized data, such as user input or request data, in raw SQL
+    Including unsanitized data, such as user input or request data, or externally influenced data passed to a function, in raw SQL
     queries makes your application vulnerable to SQL injection attacks.
 
     ## Remediations
 
-    ❌ Avoid raw queries, especially those that contain unsanitized user input:
+    ❌ Avoid raw queries, especially those that contain unsanitized input:
 
     ```java
       String query = "update user set name='"+uri.getQueryParameter("name")+"' where id='"+uri.getQueryParameter("userId")+"'";
