@@ -1,7 +1,7 @@
 imports:
-  - php_shared_lang_user_input
+  - php_shared_lang_external_input
 patterns:
-  - pattern: $<_>->$<METHOD>($<UNSANITIZED_USER_INPUT>)
+  - pattern: $<_>->$<METHOD>($<UNSANITIZED_INPUT>)
     filters:
       - variable: METHOD
         values:
@@ -24,53 +24,39 @@ patterns:
           - orHaving
           - orderBy
           - addOrderBy
-      - variable: UNSANITIZED_USER_INPUT
-        detection: php_symfony_sql_injection_user_input_unsanitized
+      - variable: UNSANITIZED_INPUT
+        detection: php_symfony_sql_injection_input_unsanitized
         scope: result
-  - pattern: $<_>->$<METHOD>($<UNSANITIZED_USER_INPUT>)
+  - pattern: $<_>->$<METHOD>($<UNSANITIZED_INPUT>)
     filters:
       - variable: METHOD
         values:
           - prepare
           - createQuery
       - either:
-          - variable: UNSANITIZED_USER_INPUT
-            detection: php_symfony_sql_injection_user_input_unsanitized
+          - variable: UNSANITIZED_INPUT
+            detection: php_symfony_sql_injection_input_unsanitized
             scope: result
-          # - variable: UNSANITIZED_USER_INPUT
-          #   detection: php_symfony_sql_injection_unsanitized_method_argument
-          #   scope: result
 auxiliary:
-  # This will trigger a lot of FPs
-  # We should probably have a separate rule with a lower confidence level
-  # - id: php_symfony_sql_injection_unsanitized_method_argument
-  #   sanitizer: php_symfony_sql_injection_user_input_sanitizer
-  #   patterns:
-  #     - function $<_>($<...>$<!>$<_>$<...>) {}
-  #     - function($<...>$<!>$<_>$<...>) {}
-  #     - pattern: |
-  #         class $<_>$<...>{
-  #           function $<...>$<NAME>($<...>$<!>$<_>$<...>) {}
-  #         }
-  - id: php_symfony_sql_injection_user_input_unsanitized
-    sanitizer: php_symfony_sql_injection_user_input_sanitizer
+  - id: php_symfony_sql_injection_input_unsanitized
+    sanitizer: php_symfony_sql_injection_input_sanitizer
     patterns:
-      - pattern: $<USER_INPUT>;
+      - pattern: $<EXTERNAL_INPUT>;
         filters:
-          - variable: USER_INPUT
-            detection: php_shared_lang_user_input
+          - variable: EXTERNAL_INPUT
+            detection: php_shared_lang_external_input
             scope: cursor
-  - id: php_symfony_sql_injection_user_input_sanitizer
+  - id: php_symfony_sql_injection_input_sanitizer
     patterns:
       - pattern: $<_>->quote($<!>$<_>)
 languages:
   - php
 severity: critical
 metadata:
-  description: "Unsanitized user input in SQL query"
+  description: Unsanitized input in SQL query
   remediation_message: |
     ## Description
-    Including unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.
+    Including unsanitized data, such as user input or request data, or externally influenced data passed to a function, in raw SQL queries makes your application vulnerable to SQL injection attacks.
 
     ## Remediations
 

@@ -23,4 +23,14 @@ class FooRepository extends ServiceEntityRepository
         $data = $query->getResult();
         return $data;
     }
+
+    public function oops3(string $bar): array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        # bearer:expected php_symfony_sql_injection
+        $query = $conn->createQuery("SELECT * FROM foo WHERE bar = '" . $bar . "'");
+        $data = $query->getResult();
+        return $data;
+    }
 }

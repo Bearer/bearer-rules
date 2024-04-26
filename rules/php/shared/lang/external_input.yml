@@ -1,0 +1,20 @@
+imports:
+  - php_shared_lang_user_input
+  - php_shared_lang_dynamic_input
+type: shared
+languages:
+  - php
+patterns:
+  - pattern: $<INPUT>;
+    filters:
+      - variable: INPUT
+        detection: php_shared_lang_user_input
+        scope: cursor_strict
+  - pattern: $<INPUT>;
+    filters:
+      - variable: INPUT
+        detection: php_shared_lang_dynamic_input
+        scope: cursor_strict
+metadata:
+  description: PHP externally influenced (user or dynamic) input.
+  id: php_shared_lang_external_input
