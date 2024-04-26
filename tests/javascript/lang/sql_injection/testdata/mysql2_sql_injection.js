@@ -2,6 +2,7 @@ const connection = mysql.createConnection({});
 const asyncConn = await mysql.createConnection({});
 
 module.exports.asyncFooBar = async function (req, res) {
+	// bearer:expected javascript_lang_sql_injection
 	await asyncConn.execute(
 		"SELECT * FROM `admin_users` WHERE ID = " + req.admin.id
 	);

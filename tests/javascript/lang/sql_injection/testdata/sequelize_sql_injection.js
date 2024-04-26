@@ -7,3 +7,11 @@ module.exports.fooBar = function (req, _res) {
 // bearer:expected javascript_lang_sql_injection
 	sqlite.query(customerQuery);
 };
+
+module.exports.bad = function (status) {
+	var sqlite = new Sequelize("sqlite::memory:");
+	var customerQuery =
+		"SELECT * FROM customers WHERE status = " + status;
+	// bearer:expected javascript_lang_sql_injection
+	sqlite.query(customerQuery);
+};
