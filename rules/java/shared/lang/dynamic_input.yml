@@ -24,23 +24,23 @@ auxiliary:
   - id: java_shared_lang_dynamic_input_input
     patterns:
       - | # class constructor argument
-          class $<...>$<_> $<...>{
-            $<...>$<_>($<...>$<_> $<!>$<ARG>$<...>)$<...>{}
-          }
+        class $<...>$<_> $<...>{
+          $<...>$<_>($<...>$<_> $<!>$<ARG>$<...>)$<...>{}
+        }
       - | # class method argument
-          class $<...>$<_> $<...>{
-            $<...>$<_> $<_>($<...>$<_> $<!>$<ARG>$<...>)$<...>{}
-          }
+        class $<...>$<_> $<...>{
+          $<...>$<_> $<_>($<...>$<_> $<!>$<ARG>$<...>)$<...>{}
+        }
   - id: java_shared_lang_dynamic_input_buffered_reader
     patterns:
-    - pattern: $<BUFFERED_READER>.readLine();
-      filters:
-        - variable: BUFFERED_READER
-          detection: java_shared_lang_instance
-          scope: cursor
-          filters:
-            - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
-              regex: \A(java\.io\.)?BufferedReader\z
+      - pattern: $<BUFFERED_READER>.readLine();
+        filters:
+          - variable: BUFFERED_READER
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(java\.io\.)?BufferedReader\z
 metadata:
   description: Java dynamic input.
   id: java_shared_lang_dynamic_input
