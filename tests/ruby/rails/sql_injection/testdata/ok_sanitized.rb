@@ -9,3 +9,10 @@ joins("INNER JOIN t_#{params[:oops].to_i}")
 ActiveRecord::Base.connection.exec_query("SELECT #{connection.quote(params[:oops])}")
 
 connection.select_all("SELECT #{connection.quote(params[:oops])}")
+
+class Foo
+  def bad(name, count)
+    connection.select_all("SELECT user WHERE name =#{connection.quote(name)}")
+    connection.select_all("SELECT user LIMIT #{count.to_i}")
+  end
+end

@@ -1,0 +1,16 @@
+type: shared
+languages:
+  - php
+imports:
+  - php_shared_lang_user_input_sanitizer
+sanitizer: php_shared_lang_user_input_sanitizer
+patterns:
+  - function $<_>($<...>$<!>$<_>$<...>) {}
+  - function($<...>$<!>$<_>$<...>) {}
+  - pattern: |
+      class $<_>$<...>{
+        function $<...>$<NAME>($<...>$<!>$<_>$<...>) {}
+      }
+metadata:
+  description: PHP dynamic input.
+  id: php_shared_lang_dynamic_input

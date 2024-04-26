@@ -1,7 +1,7 @@
 imports:
-  - php_shared_lang_user_input
+  - php_shared_lang_external_input
 patterns:
-  - pattern: $<ODBC_METHOD>($<_>, $<UNSANITIZED_USER_INPUT>)
+  - pattern: $<ODBC_METHOD>($<_>, $<UNSANITIZED_INPUT>)
     filters:
       - variable: ODBC_METHOD
         values:
@@ -9,21 +9,21 @@ patterns:
           - odbc_exec
           - mssql_query
           - mysqli_query
-      - variable: UNSANITIZED_USER_INPUT
-        detection: php_lang_sql_injection_user_input_unsanitized
+      - variable: UNSANITIZED_INPUT
+        detection: php_lang_sql_injection_external_input_unsanitized
         scope: result
 auxiliary:
-  - id: php_lang_sql_injection_user_input_unsanitized
-    sanitizer: php_lang_sql_injection_user_input_sanitizer
+  - id: php_lang_sql_injection_external_input_unsanitized
+    sanitizer: php_lang_sql_injection_external_input_sanitizer
     patterns:
-      - pattern: $<USER_INPUT>;
+      - pattern: $<INPUT>;
         filters:
-          - variable: USER_INPUT
-            detection: php_shared_lang_user_input
+          - variable: INPUT
+            detection: php_shared_lang_external_input
             scope: cursor
-  - id: php_lang_sql_injection_user_input_sanitizer
+  - id: php_lang_sql_injection_external_input_sanitizer
     patterns:
-      - pattern: $<ESCAPE_METHOD>($<_>, $<!>$<USER_INPUT>)
+      - pattern: $<ESCAPE_METHOD>($<_>, $<!>$<INPUT>)
         filters:
           - variable: ESCAPE_METHOD
             values:
@@ -35,10 +35,10 @@ languages:
   - php
 severity: critical
 metadata:
-  description: "Unsanitized user input in SQL query"
+  description: Unsanitized input in SQL query
   remediation_message: |
     ## Description
-    Including unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.
+    Including unsanitized data, such as user input or request data, or externally influenced data passed to a function, in raw SQL queries makes your application vulnerable to SQL injection attacks.
 
     ## Remediations
 

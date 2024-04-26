@@ -1,5 +1,5 @@
 imports:
-  - javascript_shared_common_user_input
+  - javascript_shared_common_external_input
 patterns:
   - pattern: |
       $<KNEX_CLIENT>.$<METHOD>($<...>$<USER_INPUT>$<...>)
@@ -73,10 +73,10 @@ auxiliary:
   - id: javascript_lang_sql_injection_user_input
     sanitizer: javascript_lang_sql_injection_sanitizer
     patterns:
-      - pattern: $<UNSANITIZED_USER_INPUT>
+      - pattern: $<UNSANITIZED_INPUT>
         filters:
-          - variable: UNSANITIZED_USER_INPUT
-            detection: javascript_shared_common_user_input
+          - variable: UNSANITIZED_INPUT
+            detection: javascript_shared_common_external_input
             scope: cursor
   - id: javascript_lang_sql_injection_pg_client
     patterns:
@@ -109,18 +109,20 @@ auxiliary:
   - id: javascript_lang_sql_injection_sanitizer
     patterns:
       - pattern: $<_>.hash($<!>$<_>)
+      - |
+        { replacements: [$<...>$<!>$<_>$<...>] }
 languages:
   - javascript
 severity: critical
 metadata:
-  description: "Unsanitized user input in SQL query"
+  description: Unsanitized input in SQL query
   remediation_message: |
     ## Description
-    Including unsanitized data, such as user input or request data, in raw SQL queries makes your application vulnerable to SQL injection attacks.
+    Including unsanitized data, such as user input or request data, or externally influenced data passed to a function, in raw SQL queries makes your application vulnerable to SQL injection attacks.
 
     ## Remediations
 
-    ❌ Avoid raw queries, especially those that contain unsanitized user input
+    ❌ Avoid raw queries, especially those that contain unsanitized input
 
     ```javascript
       var sqlite = new Sequelize("sqlite::memory:");
@@ -138,7 +140,7 @@ metadata:
       }
     ```
 
-    ✅ Use prepared (or parameterized) statements when querying
+    ✅ Always use prepared (or parameterized) statements when querying
 
     Sequelize example -
     ```javascript

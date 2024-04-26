@@ -1,0 +1,20 @@
+type: shared
+imports:
+  - javascript_shared_common_user_input
+  - javascript_shared_common_dynamic_input
+languages:
+  - javascript
+patterns:
+  - pattern: $<USER_INPUT>
+    filters:
+      - variable: USER_INPUT
+        detection: javascript_shared_common_user_input
+        scope: cursor
+  - pattern: $<DYNAMIC_INPUT>
+    filters:
+      - variable: DYNAMIC_INPUT
+        detection: javascript_shared_common_dynamic_input
+        scope: cursor
+metadata:
+  description: Javascript externally influenced (user or dynamic) input.
+  id: javascript_shared_common_external_input

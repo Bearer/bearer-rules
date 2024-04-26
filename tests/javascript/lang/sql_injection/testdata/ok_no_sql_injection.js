@@ -6,7 +6,7 @@ const client = new Client({
 
 const connection = mysql.createConnection({});
 
-module.exports.fooBar = function(req, _res) {
+module.exports.fooBar = function(req, _res, name) {
   var sqlite = new Sequelize('sqlite::memory:')
   var customerQuery = "SELECT * FROM customers WHERE status = ACTIVE"
   sqlite.query(customerQuery)
@@ -14,4 +14,5 @@ module.exports.fooBar = function(req, _res) {
   client.query('SELECT * FROM users WHERE user.name = ' + getUser().name)
 
   connection.query("SELECT * FROM `user` WHERE name = " + currentUser().name);
+  connection.query("SELECT * FROM `user` WHERE name = ?", { replacements: [name] });
 }
