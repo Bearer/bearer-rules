@@ -1,0 +1,20 @@
+imports:
+  - java_shared_lang_user_input
+  - java_shared_lang_dynamic_input
+type: shared
+languages:
+  - java
+patterns:
+  - pattern: $<INPUT>;
+    filters:
+      - variable: INPUT
+        detection: java_shared_lang_user_input
+        scope: cursor_strict
+  - pattern: $<INPUT>;
+    filters:
+      - variable: INPUT
+        detection: java_shared_lang_dynamic_input
+        scope: cursor_strict
+metadata:
+  description: Java externally influenced (user or dynamic) input.
+  id: java_shared_lang_external_input

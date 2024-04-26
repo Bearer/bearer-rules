@@ -1,9 +1,9 @@
 imports:
   - java_shared_lang_instance
-  - java_shared_lang_user_input
+  - java_shared_lang_external_input
 patterns:
   - pattern: |
-      $<CONNECTION>.$<METHOD>($<USER_INPUT>$<...>);
+      $<CONNECTION>.$<METHOD>($<EXTERNAL_INPUT>$<...>);
     filters:
       - variable: CONNECTION
         detection: java_lang_sqli_connection
@@ -13,11 +13,11 @@ patterns:
           - nativeSQL
           - prepareCall
           - prepareStatement
-      - variable: USER_INPUT
-        detection: java_shared_lang_user_input
+      - variable: EXTERNAL_INPUT
+        detection: java_shared_lang_external_input
         scope: result
   - pattern: |
-      $<STATEMENT>.$<METHOD>($<USER_INPUT>$<...>);
+      $<STATEMENT>.$<METHOD>($<EXTERNAL_INPUT>$<...>);
     filters:
       - variable: STATEMENT
         detection: java_lang_sqli_statement
@@ -29,11 +29,11 @@ patterns:
           - executeLargeUpdate
           - executeQuery
           - executeUpdate
-      - variable: USER_INPUT
-        detection: java_shared_lang_user_input
+      - variable: EXTERNAL_INPUT
+        detection: java_shared_lang_external_input
         scope: result
   - pattern: |
-      $<ENTITY_MANAGER>.$<METHOD>($<USER_INPUT>$<...>);
+      $<ENTITY_MANAGER>.$<METHOD>($<EXTERNAL_INPUT>$<...>);
     filters:
       - variable: ENTITY_MANAGER
         detection: java_lang_sqli_entity_manager
@@ -42,8 +42,8 @@ patterns:
         values:
           - createNativeQuery
           - createQuery
-      - variable: USER_INPUT
-        detection: java_shared_lang_user_input
+      - variable: EXTERNAL_INPUT
+        detection: java_shared_lang_external_input
         scope: result
 auxiliary:
   - id: java_lang_sqli_connection
@@ -94,16 +94,16 @@ languages:
 trigger:
   match_on: presence
 metadata:
-  description: "Unsanitized user input in SQL query"
+  description: "Unsanitized input in SQL query"
   remediation_message: |
     ## Description
 
-    Including unsanitized data, such as user input or request data, in raw SQL
+    Including unsanitized data, such as user input or request data, or externally influenced data passed to a function, in raw SQL
     queries makes your application vulnerable to SQL injection attacks.
 
     ## Remediations
 
-    ❌ Avoid raw queries, especially those that contain unsanitized user input:
+    ❌ Avoid raw queries, especially those that contain unsanitized input:
 
     ```java
       Statement stmt = conn.createStatement();

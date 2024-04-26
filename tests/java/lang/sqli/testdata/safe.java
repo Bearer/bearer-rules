@@ -28,4 +28,14 @@ public class FirstExample {
       EntityManagerFactory emf = Persistence.createEntityManagerFactory("Student_details");
       emf.createEntityManager().createQuery(QUERY);
    }
+
+   public static void dynamicVarTest(EntityManager x, Int age, String[] names) {
+      conn = Connection conn = DriverManager.getConnection(DB_URL, USER, PASS)
+
+      myStmt = conn.prepareStatement("select * from students where age > ? and name = ?");
+      myStmt.setInt(1, age);
+      myStmt.setString(2, names[0]);
+
+      x.createQuery(myStmt);
+   }
 }
