@@ -2,7 +2,7 @@ imports:
   - javascript_shared_import_library
 patterns:
   - pattern: |
-      $<FS>.$<METHOD>($<...>$<INPUT>$<...>)
+      $<FS>.$<METHOD>($<INPUT>$<...>)
     filters:
       - variable: FS
         detection: javascript_lang_non_literal_fs_filename_fs_init
@@ -14,10 +14,6 @@ patterns:
           - chmod
           - chown
           - close
-          - copyFile
-          - copyFile
-          - cp
-          - cp
           - createReadStream
           - createWriteStream
           - exists
@@ -31,28 +27,22 @@ patterns:
           - lchmod
           - lchown
           - lutimes
-          - link
-          - link
           - lstat
           - mkdir
           - mkdtemp
           - open
+          - openAsBlob
           - opendir
-          - read
           - read
           - readdir
           - readFile
           - readlink
           - readv
           - realpath
-          - realpath
-          - rename
-          - rename
           - rmdir
           - rm
           - stat
-          - symlink
-          - symlink
+          - statfs
           - truncate
           - unlink
           - unwatchFile
@@ -67,10 +57,6 @@ patterns:
           - chmodSync
           - chownSync
           - closeSync
-          - copyFileSync
-          - copyFileSync
-          - cpSync
-          - cpSync
           - existsSync
           - fchmodSync
           - fchownSync
@@ -82,8 +68,6 @@ patterns:
           - lchmodSync
           - lchownSync
           - lutimesSync
-          - linkSync
-          - linkSync
           - lstatSync
           - mkdirSync
           - mkdtempSync
@@ -93,17 +77,11 @@ patterns:
           - readFileSync
           - readlinkSync
           - readSync
-          - readSync
           - readvSync
-          - realpathync
           - realpathSync
-          - renameSync
-          - renameSync
           - rmdirSync
           - rmSync
           - statSync
-          - symlinkSync
-          - symlinkSync
           - truncateSync
           - unlinkSync
           - utimesSync
@@ -114,6 +92,33 @@ patterns:
           variable: INPUT
           detection: string_literal
           scope: result
+  - pattern: |
+      $<FS>.$<METHOD>($<INPUT_1>, $<INPUT_2>$<...>)
+    filters:
+      - variable: FS
+        detection: javascript_lang_non_literal_fs_filename_fs_init
+        scope: cursor
+      - variable: METHOD
+        values:
+          - copyFile # copyFile(sourcePath, destPath)
+          - cp # cp(sourcePath, destPath)
+          - link # link(oldPath, newPath, ...)
+          - rename # rename(oldPath, newPath, ...)
+          - symlink # symlink(target, path)
+          - copyFileSync
+          - cpSync
+          - linkSync
+          - renameSync
+          - symlinkSync
+      - either:
+          - not:
+              variable: INPUT_1
+              detection: string_literal
+              scope: result
+          - not:
+              variable: INPUT_2
+              detection: string_literal
+              scope: result
 auxiliary:
   - id: javascript_lang_non_literal_fs_filename_fs_init
     patterns:
