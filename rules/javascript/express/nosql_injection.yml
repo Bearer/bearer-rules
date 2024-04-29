@@ -42,19 +42,17 @@ metadata:
   description: Unsanitized input in NoSQL query
   remediation_message: |
     ## Description
-    Including unsanitized data, such as user input or request data, or externally influenced data passed to a function, in NoSQL queries could make your application vulnerable to NoSQL injection attacks.
+
+    Using unsanitized data in NoSQL queries exposes your application to NoSQL injection attacks. This vulnerability arises when user input, request data, or any externally influenced data is directly passed into a NoSQL query function without proper sanitization.
 
     ## Remediations
 
-    ❌ Avoid raw queries, especially those that contain unsanitized input
-
+    - **Do not** include raw, unsanitized user input in NoSQL queries. This practice can lead to NoSQL injection vulnerabilities.
     ```javascript
       const User = require("../models/user")
       const newUser = new User(req.body); // unsafe
     ```
-
-    ✅ Sanitize query input wherever possible
-
+    - **Do** sanitize all input data before using it in NoSQL queries. Ensuring data is properly sanitized can prevent NoSQL injection attacks.
     ```javascript
       const User = require("../models/user");
 
@@ -62,8 +60,9 @@ metadata:
       User.findOne({ name: username.toString() });
     ```
 
-    ## Resources
-    - [OWASP nosql injection explained](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection)
+    ## References
+
+    - [OWASP NoSQL injection explained](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection)
   cwe_id:
     - 943
   id: javascript_express_nosql_injection
