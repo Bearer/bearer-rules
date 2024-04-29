@@ -1,0 +1,70 @@
+imports:
+  - javascript_shared_common_external_input
+patterns:
+  - pattern: new $<MODEL>($<...>$<INPUT>$<...>)
+    filters:
+      - variable: INPUT
+        detection: javascript_lang_nosql_injection_unsanitized_external_input
+        scope: result
+      - variable: MODEL
+        detection: javascript_lang_nosql_injection_mongo_db_model
+  - pattern: $<MODEL>.$<METHOD>($<...>$<INPUT>$<...>)
+    filters:
+      - variable: INPUT
+        detection: javascript_lang_nosql_injection_unsanitized_external_input
+        scope: result
+      - variable: MODEL
+        detection: javascript_lang_nosql_injection_mongo_db_model
+      - variable: METHOD
+        regex: (find|delete|update|replace|where|create|insert|map|bulk|aggregate|count).*
+auxiliary:
+  - id: javascript_lang_nosql_injection_mongo_db_model
+    patterns:
+      - pattern: require($<MODEL_IMPORT>)
+        filters:
+          - variable: MODEL_IMPORT
+            string_regex: .*(db|models|data|schema|mongo).*
+  - id: javascript_lang_nosql_injection_unsanitized_external_input
+    sanitizer: javascript_lang_nosql_injection_sanitizer
+    patterns:
+      - pattern: $<UNSANITIZED_INPUT>
+        filters:
+          - variable: UNSANITIZED_INPUT
+            detection: javascript_shared_common_external_input
+            scope: cursor
+  - id: javascript_lang_nosql_injection_sanitizer
+    patterns:
+      - $<!>$<_>.toString()
+languages:
+  - javascript
+severity: critical
+metadata:
+  description: Unsanitized input in NoSQL query
+  remediation_message: |
+    ## Description
+    Including unsanitized data, such as user input or request data, or externally influenced data passed to a function, in NoSQL queries could make your application vulnerable to NoSQL injection attacks.
+
+    ## Remediations
+
+    ❌ Avoid raw queries, especially those that contain unsanitized input
+
+    ```javascript
+      const User = require("../models/user")
+      const newUser = new User(req.body); // unsafe
+    ```
+
+    ✅ Sanitize query input wherever possible
+
+    ```javascript
+      const User = require("../models/user");
+
+      username = req.params.username;
+      User.findOne({ name: username.toString() });
+    ```
+
+    ## Resources
+    - [OWASP nosql injection explained](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection)
+  cwe_id:
+    - 943
+  id: javascript_express_nosql_injection
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_express_nosql_injection
