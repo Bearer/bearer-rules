@@ -49,10 +49,11 @@ public class SQLExample {
       x.createQuery("select " + request.getParameter("id"));
    }
 
-   public static void dynamicVarTest(EntityManager x, String someString, String[] args) {
+   public static void dynamicVarTest(EntityManager x, String name, String[] args) {
+      String queryStr = "select name, email, headline, phone_no from employee where lower(name) like '%" + name.toLowerCase() + "%'";
       // bearer:expected java_lang_sqli
-      x.createQuery("select " + someString);
+      x.createQuery(queryStr);
       // bearer:expected java_lang_sqli
-      x.createQuery("select " + args[1]);
+      x.createNativeQuery("select " + args[1]);
    }
 }
