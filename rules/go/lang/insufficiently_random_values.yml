@@ -17,38 +17,36 @@ languages:
   - go
 metadata:
   description: "Usage of insufficient random value"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Using predictable random values makes our application vulnerable to attacks,
-    especially if these values are used for security purposes.
+    Your application is at risk when it uses predictable random values, particularly for security-related functions.
 
     ## Remediations
 
-    ✅ Use a stronger library when generating random values
+    - **Do** use a stronger, more secure library for generating random values. This is crucial for enhancing the security of your application.
+      ```go
+      import (
+        "crypto/rand"
+        "encoding/base64"
+        "fmt"
+      )
 
-    ```go
-    import (
-      "crypto/rand"
-      "encoding/base64"
-      "fmt"
-    )
+      func generateSecureToken(length int) (string, error) {
+        bytes := make([]byte, length)
+        _, err := rand.Read(bytes)
+        if err != nil {
+          return "", err
+        }
 
-    func generateSecureToken(length int) (string, error) {
-      bytes := make([]byte, length)
-      _, err := rand.Read(bytes)
-      if err != nil {
-        return "", err
+        // Encode the binary data to a string for easier use
+        return base64.URLEncoding.EncodeToString(bytes), nil
       }
+      ```
 
-      // Encode the binary data to a string for easier use
-      return base64.URLEncoding.EncodeToString(bytes), nil
-    }
-    ```
+    ## References
 
-    ## Resources
-
-    [Use of Insufficiently Random Values](https://cwe.mitre.org/data/definitions/330.html)
+    - [Use of Insufficiently Random Values](https://cwe.mitre.org/data/definitions/330.html)
 
   cwe_id:
     - 330

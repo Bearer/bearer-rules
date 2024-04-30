@@ -97,25 +97,20 @@ languages:
 severity: high
 metadata:
   description: "Unsanitized user input in HTTP response (XSS)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Including unsanitized user input in a HTTP response allows an attacker to
-    split the response by injecting CRLF characters. An entirely
-    attacker-controlled response can then be returned, creating a cross-site
-    scripting (XSS) vulnerability.
+    Including unsanitized user input in a HTTP response could allow an attacker inject Carriage Return Line Feed (CRLF) characters into the response. An entirely attacker-controlled response can then be returned, creating a cross-site scripting (XSS) vulnerability.
 
     ## Remediations
 
-    ✅ Avoid using user input in cookies or other headers
-
-    ✅ Remove CRLF sequences from user input:
-
-    ```java
-    var input = request.getParameter("data");
-    var sanitized = input.replaceAll("\r\n", "");
-    cookie.setValue(sanitized);
-    ```
+    - **Do not** include user input in cookies or other HTTP headers without proper sanitization. This can prevent attackers from exploiting the input to manipulate the response.
+    - **Do** remove CRLF sequences from user input to mitigate the risk of response splitting and XSS attacks. Use the following code snippet as a reference for sanitizing input in Java:
+      ```java
+      var input = request.getParameter("data");
+      var sanitized = input.replaceAll("\r\n", "");
+      cookie.setValue(sanitized);
+      ```
   cwe_id:
     - 79
   id: java_lang_http_response_splitting

@@ -38,102 +38,28 @@ languages:
   - go
 metadata:
   description: "Missing protection against 'Zip Slip' path traversal"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The application is at risk of a path traversal vulnerability, commonly known as 'Zip Slip', when extracting files from untrusted archives. Maliciously crafted archive files can contain relative path specifications that lead to writing files outside the intended directory when extracted, potentially overwriting system files or placing unauthorized files in critical paths.
+    Your application is vulnerable to a 'Zip Slip' path traversal attack when it extracts files from archives that are not trusted. This occurs because malicious archives may contain files with relative paths aiming to escape the intended directory. As a result, these files could overwrite important system files or be placed in sensitive locations, leading to security breaches.
 
     ## Remediations
 
-    To safeguard against 'Zip Slip' and related exploitation techniques, follow these security practices:
-
-    ✅ Limit Archive Size
-
-    Implement checks to ensure the zip archive's size does not exceed a maximum threshold, preventing 'Zip Bombs'—archives that decompress to disproportionately large sizes.
-
-    ✅ Generate Unique Filenames
-
-    Avoid using the original filenames from the archive. If necessary, use only the base name after sanitizing or, better yet, generate a unique name to prevent intentional overwrites.
-
-    ✅ Validate Extraction Paths
-
-    Confirm that extracted files are written to a specified, trusted directory and do not traverse outside of this directory.
-
-    ✅ Disallow Symbolic Links
-
-    Only process regular files. Exclude symbolic links to prevent indirect file read/write vulnerabilities.
-
-    ```go
-    import (
-      "archive/zip"
-      "io"
-      "log"
-      "os"
-      "path/filepath"
-      "strings"
-    )
-
-    func main() {
-      // Open the zip file for reading
-      r, err := zip.OpenReader("trusted.zip")
-      if err != nil {
-        log.Fatal(err)
+    - **Do** implement checks to limit the zip archive's size. This prevents 'Zip Bombs', which are archives that decompress into sizes much larger than expected. For example, use `file.UncompressedSize64` to check the size of a file within a ZIP file.
+    - **Do** generate unique filenames for extracted files or sanitize the original filenames to avoid overwriting files intentionally. You can use `filepath.Base`, for example, to extract the filename from a path and discard any directory information.
+      ```go
+      name := filepath.Base(file.Name)
+      ```
+    - **Do** validate the paths of extracted files to ensure they are written to a specified, trusted directory without traversing outside of it.
+    - **Do** process only regular files. Exclude symbolic links to prevent indirect file read/write vulnerabilities.
+      ```go
+      if !file.Mode().IsRegular() {
+        log.Fatal("non-regular file: %s\n", file.Name)
       }
-      defer r.Close()
+      ```
+    - **Do** ensure directories within the zip archive are processed securely by cleaning the path and strictly validating it against the base path.
 
-      // Set up restrictions and base path
-      const (
-        expectedFileCount = 10
-        totalAllowedSize  = 10 * 1024 * 1024 // 10MB
-        maxFileSize       = 1024 * 1024      // 1MB
-        basePath          = "/var/restricted/"
-      )
-
-      // Calculate total size of uncompressed files
-      var totalSize uint64
-      for _, f := range r.File {
-        totalSize += f.UncompressedSize64
-      }
-
-      // Check if total size exceeds the limit
-      if totalSize > totalAllowedSize {
-        log.Fatalf("archive exceeds total allowed size: %d\n", totalSize)
-      }
-
-      // Process files in the archive
-      for _, f := range r.File {
-        // Skip overlarge files
-        if f.UncompressedSize64 > maxFileSize {
-          log.Printf("skipping file as it exceeds maxFileSize: %s\n", f.Name)
-          continue
-        }
-
-        // Skip if not a regular file
-        if !f.Mode().IsRegular() {
-          log.Printf("skipping non-regular file: %s\n", f.Name)
-          continue
-        }
-
-        // Securely resolve the file path
-        name := filepath.Base(f.Name)
-        resolvedPath, err := filepath.Join(basePath, name)
-        if err != nil {
-          log.Fatal(err)
-        }
-
-        // Ensure the file does not traverse outside the base path
-        if !strings.HasPrefix(resolvedPath, basePath) {
-          log.Fatal("path does not start with basePath")
-        }
-
-        // Extract and process the file (omitted for brevity)
-      }
-    }
-    ```
-
-    For processing directories within the zip archive, ensure to clean the path and validate it strictly against the base path.
-
-    ## Resources
+    ## References
 
     - [Go Documentation: archive/zip package](https://pkg.go.dev/archive/zip)
 

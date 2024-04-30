@@ -16,14 +16,18 @@ auxiliary:
 severity: medium
 metadata:
   description: Usage of default session cookie configuration
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    To make sure session cookies don't open your application up to exploits or unauthorized access, don't use default cookie values.
+
+    Using default session cookie configurations can expose your application to security vulnerabilities. This vulnerability arises when session cookie are set with their default values, making them predictable and easier to exploit.
 
     ## Remediations
-    ✅ Instead of the default session name, use generic names.
 
-    ## Resources
+    - **Do not** rely on the default session cookie names and values provided by your framework. These defaults can be easily guessed by attackers, increasing the risk of session hijacking.
+    - **Do** use generic, non-descriptive names for session cookies. This makes it harder for attackers to identify and exploit the session management mechanism of your application.
+
+    ## References
+
     - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
   cwe_id:
     - 693

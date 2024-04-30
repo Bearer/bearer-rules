@@ -65,27 +65,24 @@ skip_data_types:
   - Passwords # see ruby_lang_weak_password_encryption_blowfish
 metadata:
   description: "Usage of weak encryption algorithm (Blowfish)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    A weak encryption library can lead to data breaches and greater security risk.
+    Using Blowfish for encryption is a security risk as it is a weak algorithm, vulnerable to collision attacks (including birthday attacks) where two different inputs can produce the same hash value, compromising data integrity and security. A weak encryption library can lead to data breaches and greater security risk.
 
     ## Remediations
-    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), Blowfish is considered a weak encryption algorithm and therefore shouldn't be used.
 
-    ❌ Avoid libraries and algorithms with known weaknesses:
+    - **Do not** use Blowfish as it is considered a weak encryption algorithm. This can make your data vulnerable to attacks.
+      ```ruby
+      Crypt::Blowfish.new("weak password encryption") #unsafe
+      ```
+    - **Do** use stronger encryption algorithms like bcrypt to ensure higher security levels for your data.
+      ```ruby
+      BCrypt::Password.create('iLOVEdogs123')
+      ```
 
-    ```ruby
-    Crypt::Blowfish.new("weak password encryption")
-    ```
+    ## References
 
-    ✅ Instead, we recommend using bcrypt:
-
-    ```ruby
-    BCrypt::Password.create('iLOVEdogs123')
-    ```
-
-    ## Resources
     - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
   cwe_id:
     - 327

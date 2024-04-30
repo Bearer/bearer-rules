@@ -22,15 +22,14 @@ metadata:
   description: "Leakage of sensitive data to ClickHouse"
   remediation_message: |
     ## Description
-    Leaking sensitive data to a third-party service is a common cause of data
-    leaks and can lead to data breaches. This rule looks for instances of
-    sensitive data sent to ClickHouse.
+
+    Leaking sensitive data to a third-party service like ClickHouse is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    When sending data to third-party services, ensure all sensitive data is removed.
+    - **Do** ensure all sensitive data is removed when sending data to third-party services like Algolia.
 
-    ## Resources
+    ## References
     - [ClickHouse docs](https://clickhouse.com/docs/en/intro/)
   cwe_id:
     - 201

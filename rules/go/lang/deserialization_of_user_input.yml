@@ -39,21 +39,18 @@ languages:
   - go
 metadata:
   description: Unsanitized user input in deserialization method
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    It is bad practice to deserialize untrusted data, such as data that comes
-    from external sources like user input or request parameters, without sufficient
-    verification. Attackers can transfer payloads or malicious code via serialized
-    data, and deserializing such data puts your application at risk.
+    Deserializing data from untrusted sources, like user inputs or request parameters, without proper verification is a security risk. Attackers can embed malicious code or payloads within serialized data. When your application deserializes this data without checks, it becomes vulnerable to attacks.
 
     ## Remediations
 
-    ❌ Do not deserialize untrusted data
+    - **Do not** deserialize data from untrusted sources directly. This can lead to security vulnerabilities.
+    - **Do** validate and sanitize all data before deserializing it. Ensure that the data is coming from a trusted source and is in the expected format.
 
-    ✅ Validate and sanitize data before attempting to (de)serialize it
+    ## References
 
-    ## Resources
     - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
   cwe_id:
     - 502

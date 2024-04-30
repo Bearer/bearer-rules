@@ -213,26 +213,24 @@ auxiliary:
 severity: critical
 metadata:
   description: "Usage of insecure HTTP connection"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should only connect to API using HTTPS connections. This rule checks that all HTTP connections use HTTPS.
+    Your application is at risk when it connects to APIs using insecure HTTP connections. This vulnerability occurs because HTTP does not encrypt data, making it susceptible to interception and alteration. Ensure that your application uses HTTPS, which encrypts data in transit, for all connections.
 
     ## Remediations
 
-    ❌ Avoid using unsecured outgoing HTTP communication, especially in the context of API calls:
+    - **Do not** use unsecured HTTP connections for outgoing communications, particularly when making API calls.
+      ```ruby
+      response = HTTParty.get('http://insecure-api.com') # unsafe
+      ```
+    - **Do** ensure all connections are made through HTTPS to protect data in transit with encryption.
+      ```ruby
+      response = HTTParty.get('https://secure-api.com')
+      ```
 
-    ```ruby
-    response = HTTParty.get('http://insecure-api.com')
-    ```
+    ## References
 
-    ✅ Ensure to always connect though HTTPS:
-
-    ```ruby
-    response = HTTParty.get('https://secure-api.com')
-    ```
-
-    ## Resources
     - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
   cwe_id:
     - 319

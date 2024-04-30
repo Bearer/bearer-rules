@@ -31,23 +31,25 @@ auxiliary:
               scope: result
 metadata:
   description: Unsanitized user input in HTTP send file request
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Passing unsanitized user input to the sendFile API is bad practice and can lead to path manipulation, by which attackers can gain access to resources and data outside of the intended scope.
+
+    Using unsanitized user input in the sendFile API call exposes your application to path manipulation attacks. This vulnerability allows attackers to access files and resources they shouldn't be able to, by manipulating file paths in requests.
 
     ## Remediations
-    ✅ Set the root option to be an absolute path to a directory
 
-    ```javascript
-    app.post("/upload", (req, res) => {
-      var options = {
-        root: path.join(__dirname, "upload")
-      }
-      res.sendFile(req.params.filename, options)
-    }
-    ```
+    - **Do** set the `root` option to an absolute path to a directory when using `sendFile`. This confines the accessible files to a specific directory, preventing attackers from accessing files outside of this directory.
+      ```javascript
+      app.post("/upload", (req, res) => {
+        var options = {
+          root: path.join(__dirname, "upload")
+        };
+        res.sendFile(req.params.filename, options);
+      });
+      ```
 
-    ## Resources
+    ## References
+
     - [Express sendFile API reference](http://expressjs.com/en/5x/api.html#res.sendFile)
   cwe_id:
     - 73

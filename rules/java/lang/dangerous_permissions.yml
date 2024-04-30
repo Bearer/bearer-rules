@@ -29,21 +29,16 @@ languages:
 severity: high
 metadata:
   description: Usage of dangerous permissions
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    It is improper privilege management to grant certain permissions, as these can compromise the security of an application.
-
-    In this case, granting RuntimePermission of `createClassLoader` puts the application at risk of the unauthorized class loaders being instantiated to load arbitrary classes.
-    Granting ReflectPermission of `suppressAccessChecks` removes Java language access checks, and risks providing unrestricted access to protected and private class members.
+    Granting certain (dangerous) permissions compromises application security. Specifically, allowing `RuntimePermission` of `createClassLoader` can lead to unauthorized class loaders being used to load arbitrary classes. Similarly, permitting `ReflectPermission` of `suppressAccessChecks` bypasses Java language access controls, risking unrestricted access to protected and private class members.
 
     ## Remediations
 
-    ❌ Do not grant RuntimePermission("createClassLoader") permission
-
-    ❌ Do not grant ReflectPermission("suppressAccessChecks") permission
-
-    ✅ Avoid granting the RuntimePermission of createClassLoader to prevent the instantiation of unauthorized class loaders and the loading of arbitrary classes.
+    - **Do not** grant `RuntimePermission("createClassLoader")`. This permission enables the instantiation of unauthorized class loaders, posing a security risk by potentially loading arbitrary classes.
+    - **Do not** grant `ReflectPermission("suppressAccessChecks")`. This permission allows bypassing Java's access checks, leading to a risk of unrestricted access to protected and private class members.
+    - **Do** review and restrict permissions to only what is necessary for the application's functionality. Limiting permissions minimizes potential security vulnerabilities.
   cwe_id:
     - 269
   id: java_lang_dangerous_permissions

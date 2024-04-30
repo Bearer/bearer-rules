@@ -35,27 +35,25 @@ auxiliary:
 severity: high
 metadata:
   description: "Unsanitized user input in raw HTML strings (XSS)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should not include unsanitized user input in responses. This
-    can allow cross-site scripting (XSS) attacks.
+    Including unsanitized user input in HTML responses can lead to cross-site scripting (XSS) attacks. This vulnerability exposes your application to malicious scripts injected by attackers, compromising user data and browser security.
 
     ## Remediations
 
-    ❌ Avoid including user input directly in the response:
+    - **Do not** include unsanitized user input directly in HTML responses. This practice makes your application vulnerable to XSS attacks.
+      ```ruby
+      render html: "<h1>#{params[:title]}</h1>"
+      ```
 
-    ```ruby
-    render html: "<h1>#{params[:title]}</h1>"
-    ```
+    - **Do** sanitize user input before including it in an HTML response to prevent XSS attacks.
+      ```ruby
+      render html: "<h1>#{strip_tags(params[:title])}</h1>"
+      ```
 
-    ✅ Sanitize user input when including it in a response:
+    ## References
 
-    ```ruby
-    render html: "<h1>#{strip_tags(params[:title])}</h1>"
-    ```
-
-    ## Resources
     - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
   cwe_id:
     - 79

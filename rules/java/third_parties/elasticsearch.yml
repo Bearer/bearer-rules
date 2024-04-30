@@ -35,7 +35,8 @@ auxiliary:
             detection: java_shared_lang_datatype
   - id: java_third_parties_elasticsearch_index_request_builder
     patterns:
-      - pattern: $<INDEX_REQUEST>.Builder<$<_>> $<BUILDER> = new $<INDEX_REQUEST>.Builder<>();
+      - pattern: $<INDEX_REQUEST>.Builder<$<_>> $<BUILDER> = new
+          $<INDEX_REQUEST>.Builder<>();
         focus: BUILDER
         filters:
           - variable: INDEX_REQUEST
@@ -48,14 +49,14 @@ metadata:
   description: Leakage of sensitive data to ElasticSearch
   remediation_message: |
     ## Description
-    Leaking sensitive data to third-party data tools is a common cause of data
-    leaks and can lead to data breaches. This rule looks for instances of
-    sensitive data sent to Elasticsearch.
+
+    Leaking sensitive data to third-party data tools is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
-    When sending data to third-party services, ensure all sensitive data is removed.
 
-    ## Resources
+    - **Do** ensure all sensitive data is removed when sending data to third-party services like ElasticSearch
+
+    ## References
     - [Elasticsearch docs](https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/current/index.html)
   cwe_id:
     - 201

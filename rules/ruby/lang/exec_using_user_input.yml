@@ -121,35 +121,33 @@ auxiliary:
 severity: critical
 metadata:
   description: "Unsanitized user input in OS command"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should not execute OS commands that are formed from user input.
-    This rule checks for external commands containing user-supplied data.
+    Executing OS commands with user input can lead to command injection attacks. This vulnerability occurs when an application dynamically generates a command to the operating system using data supplied by the user without proper sanitization.
 
     ## Remediations
 
-    ❌ Avoid using user input when executing commands:
+    - **Do not** directly use user input to form OS commands. This can allow attackers to execute arbitrary commands.
+      ```ruby
+      system(params[:command]) # unsafe
+      ```
+    - **Do** validate or sanitize user input before using it in OS commands. Prefer using static command strings where possible.
+    - **Do** use indirect methods for incorporating user input into commands, such as selecting from predefined options.
+      ```ruby
+      command =
+        case params[:action]
+        when "option1"
+          "command1"
+        when "option2"
+          "command2"
+        end
 
-    ```ruby
-    system(params[:command])
-    ```
+      system(command)
+      ```
 
-    ✅ Use user input indirectly when executing commands:
+    ## References
 
-    ```ruby
-    command =
-      case params[:action]
-      when "option1"
-        "command1"
-      when "option2"
-        "command2"
-      end
-
-    system(command)
-    ```
-
-    ## Resources
     - [OWASP Ruby command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#command-injection)
     - [OWASP OS command injection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
   cwe_id:

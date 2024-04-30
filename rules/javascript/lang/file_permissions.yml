@@ -41,20 +41,18 @@ languages:
 severity: high
 metadata:
   description: "Permissive file assignment"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Having overly permissive file permissions, such as extending read, write, or execute privileges to 'other', is risky and could lead to accidental exposure of sensitive information.
+    Permissive file assignment exposes sensitive information by granting unnecessary read, write, or execute permissions to users without ownership privileges.
 
     ## Remediations
 
-    ✅ Keep file permissions as restrictive as possible. With the Posix enum, for example, prefer 'groups' to 'other', when extending privileges to users without owner privileges.
-
-    ```javascript
-    fs.chmod(path, 0o600);
-    ```
-
-    ## Resources
+    - **Do** keep file permissions as restrictive as possible to minimize the risk of unauthorized access. Use the principle of least privilege to only grant permissions that are absolutely necessary for the operation of the application.
+      ```javascript
+      fs.chmod(path, 0o600);
+      ```
+    - **Do** prefer assigning file permissions to 'groups' rather than 'other' when you need to extend privileges to users who are not the owners. This approach helps in limiting access to a more controlled set of users.
 
   cwe_id:
     - 276

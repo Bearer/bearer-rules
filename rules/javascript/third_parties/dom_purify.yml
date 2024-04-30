@@ -28,24 +28,19 @@ metadata:
   remediation_message: |
     ## Description
 
-    For DOMPurify versions less than 2.0.17, there are XSS vulnerabilities when using sanitize without proper configuration
+    For DOMPurify versions less than 2.0.17, there are XSS vulnerabilities when using the sanitize function without proper configuration.
 
     ## Remediations
 
-    Upgrade DOMPurify to version 2.0.17 or greater.
+    - **Do** upgrade DOMPurify to version 2.0.17 or greater, and specify a secure configuration option.
+      ```javascript
+        // either
+        DOMPurify.sanitize(htmlToSanitize, { RETURN_DOM_IMPORT:true })
+        // or
+        DOMPurify.sanitize(htmlToSanitize, { RETURN_DOM_FRAGMENT: true })
+      ```
 
-    Specify a secure configuration option:
-    ```
-      DOMPurify.sanitize(htmlToSanitize, { RETURN_DOM_IMPORT:true })
-    ```
-
-    or:
-
-    ```
-      DOMPurify.sanitize(htmlToSanitize, { RETURN_DOM_FRAGMENT: true })
-    ```
-
-    ## Resources
+    ## References
     - [Vulnerability explained](https://research.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass)
   cwe_id:
     - 1395

@@ -5,67 +5,25 @@ languages:
   - go
 metadata:
   description: "Usage of deprecated TLS version"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    TLS (Transport Layer Security) versions 1.1 and 1.0 have been deprecated due to known security vulnerabilities that can expose sensitive data to interception and attacks. Using these versions can put data transmissions at risk.
+    TLS (Transport Layer Security) versions 1.0 and 1.1 have known vulnerabilities and using them introduces security risks to your application. These outdated TLS versions can lead to the interception and compromise of sensitive data during transmission.
 
     ## Remediations
 
-    To ensure secure data transmission, you should enforce the use of TLS 1.3, which includes security enhancements over its predecessors. The following steps can be taken:
+    - **Do** enforce the use of TLS 1.3 when configuring Go's TLS library. TLS 1.3 offers significant security improvements, helping to protect data from known vulnerabilities present in older versions.
+      ```go
+        cfg := &tls.Config{
+          MinVersion:   tls.VersionTLS13,
+          ...
+        }
+      ```
+    - **Do** utilize configurations that support Perfect Forward Secrecy (PFS) with TLS 1.3. PFS enhances security by ensuring that past communications remain secure even if future session keys are compromised.
+    - **Do** regularly update your Go version and dependencies to incorporate the latest security fixes and improvements.
+    - **Do not** configure your server to accept TLS versions 1.0 or 1.1. Removing these options from your TLS configuration is crucial to prevent downgrade attacks.
 
-    ✅ Enforce TLS 1.3
-
-    Update your server configuration to support and prefer TLS 1.3, which includes modern security features and mitigates known vulnerabilities found in older versions.
-
-    ✅ Configure Go’s TLS Library
-
-    Set `MinVersion` in the `tls.Config` struct to `tls.VersionTLS13` to ensure that the server only accepts TLS 1.3 connections.
-
-    ```go
-    import (
-      "crypto/tls"
-      "log"
-      "net/http"
-      "time"
-    )
-
-    func main() {
-      cert, err := tls.LoadX509KeyPair("server.crt", "server.key")
-      if err != nil {
-        log.Fatalf("failed to load key pair: %s", err)
-      }
-
-      cfg := &tls.Config{
-        Certificates: []tls.Certificate{cert},
-        MinVersion:   tls.VersionTLS13, // Enforce TLS 1.3
-      }
-
-      srv := &http.Server{
-        Addr:         ":8999", // Listen on port 8999
-        TLSConfig:    cfg,
-        ReadTimeout:  time.Minute,
-        WriteTimeout: time.Minute,
-      }
-
-      log.Printf("Server is starting...")
-      log.Fatal(srv.ListenAndServeTLS("", "")) // TLS cert and key are already provided in the TLSConfig
-    }
-    ```
-
-    ✅ Perfect Forward Secrecy (PFS)
-
-    TLS 1.3 configurations ensure PFS by default, which protects past communications even if future session keys are compromised.
-
-    ✅ Regularly Update Dependencies
-
-    Keep your Go version and dependencies up-to-date to benefit from the latest security fixes and improvements.
-
-    ❌ Do Not Use Deprecated TLS Versions
-
-    Avoid configuring your server to accept TLS 1.0 or 1.1. Remove these options from your TLS configuration to prevent downgrade attacks.
-
-    ## Resources
+    ## References
 
     - [IETF's Deprecation of TLS 1.0 and 1.1](https://tools.ietf.org/html/rfc8996)
     - [OWASP TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html)

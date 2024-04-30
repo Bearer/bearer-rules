@@ -24,15 +24,26 @@ languages:
 severity: medium
 metadata:
   description: "Missing Cross-Site Request Forgery (CSRF) configuration"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Disabling Cross-Site Request Forgery (CSRF) protection allows attackers to
-    trick clients into making unintentional requests to your application.
+
+    Your application is vulnerable when Cross-Site Request Forgery (CSRF) protection is disabled. This weakness can allow attackers to deceive users into executing actions they did not intend, potentially compromising security or data integrity.
 
     ## Remediations
-    ❌ Don't disable CRSF protection
 
-    ## Resources
+    - **Do** ensure that CSRF proteection is enabled in your web application's configuration settings. This prevents attackers from exploiting your web application by making unauthorized requests on behalf of the user.
+      ```php
+      use Symfony\Config\FrameworkConfig;
+
+      return static function (FrameworkConfig $framework): void {
+          $framework->csrfProtection()
+              ->enabled(true)
+          ;
+      };
+      ```
+
+    ## References
+
     - [Symfony CSRF guide](https://symfony.com/doc/current/security/csrf.html)
   cwe_id:
     - 352

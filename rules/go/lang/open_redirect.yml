@@ -22,45 +22,40 @@ languages:
   - go
 metadata:
   description: "Unsanitized user input in redirect"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    A redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.
+
+    Using unsanitized user input to perform redirects can expose your application to phishing attacks. This vulnerability arises when user input directly influences the destination of a redirect without proper validation, making it easier for attackers to deceive users by directing them to malicious sites.
 
     ## Remediations
-    ❌ Do not use unsanitized user input when constructing URLs
 
-    ✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs
-
-    ```go
-    var URLMapping = map[string]string{
-      "google": "https://www.google.com",
-      "openai": "https://www.openai.com",
-      "github": "https://www.github.com",
-      "root":   "https://www.example.com",
-    }
-
-    func safeRedirectHandler(w http.ResponseWriter, r *http.Request) {
-      // Get the redirectTo parameter from the query string
-      redirectTo := r.URL.Query().Get("redirectTo")
-
-      // Get the safe URL from the map, default to the URL for "root" if not found
-      redirectURL, ok := URLMapping[redirectTo]
-      if !ok {
-        redirectURL = URLMapping["root"] // Default to a predefined safe URL
+    - **Do not** use unsanitized user input to construct URLs for redirects. This can lead to security vulnerabilities where attackers might redirect users to malicious websites.
+    - **Do** validate all user input used in redirects. Employ a whitelist approach or a mapping of allowed destinations to ensure only safe and intended URLs are used for redirection.
+      ```go
+      var URLMapping = map[string]string{
+        "google": "https://www.google.com",
+        "openai": "https://www.openai.com",
+        "github": "https://www.github.com",
+        "root":   "https://www.example.com",
       }
 
-      // Set the Location header to redirect the user
-      http.Redirect(w, r, redirectURL, http.StatusFound)
-    }
+      func safeRedirectHandler(w http.ResponseWriter, r *http.Request) {
+        // Get the redirectTo parameter from the query string
+        redirectTo := r.URL.Query().Get("redirectTo")
 
-    func main() {
-      http.HandleFunc("/", safeRedirectHandler)
-      http.ListenAndServe(":8080", nil)
-    }
-    ```
+        // Get the safe URL from the map, default to the URL for "root" if not found
+        redirectURL, ok := URLMapping[redirectTo]
+        if !ok {
+          redirectURL = URLMapping["root"] // Default to a predefined safe URL
+        }
 
-    ## Resources
-    - [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
+        ...
+      }
+      ```
+
+    ## References
+
+    - [OWASP Unvalidated Redirects and Forwards Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
 
   cwe_id:
     - 601

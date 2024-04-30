@@ -139,14 +139,15 @@ metadata:
   description: "Leakage of sensitive data to Google Dataflow"
   remediation_message: |
     ## Description
-    Leaking sensitive data to a third-party service is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Google Dataflow.
+
+    Leaking sensitive data to a third-party service is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    When sending data to third-party services, ensure all sensitive data is removed.
+    - **Do** ensure all sensitive data is removed when sending data to third-party services like Google Dataflow.
 
-    ## Resources
-    - [Google Dataflow Docs](https://cloud.google.com/ruby/docs/reference/google-cloud-dataflow/latest)
+    ## References
+    - [Google Dataflow Docs](https://cloud.google.com/dataflow/docs/overview)
   cwe_id:
     - 201
   id: ruby_third_parties_google_dataflow

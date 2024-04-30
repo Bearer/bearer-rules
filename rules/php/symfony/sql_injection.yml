@@ -53,40 +53,37 @@ languages:
   - php
 severity: critical
 metadata:
-  description: Unsanitized input in SQL query
-  remediation_message: |
+  description: Unsanitized external input in SQL query
+  remediation_message: |-
     ## Description
-    Including unsanitized data, such as user input or request data, or externally influenced data passed to a function, in raw SQL queries makes your application vulnerable to SQL injection attacks.
+
+    Using unsanitized data, such as user input or request data, or externally influenced data passed to a function, in SQL query exposes your application to SQL injection attacks. This vulnerability arises when externally controlled data is directly included in SQL statements without proper sanitation, allowing attackers to manipulate queries and access or modify data.
 
     ## Remediations
 
-    ❌ Avoid raw queries, especially those that contain unsanitized user input
-
-    ```php
-      $sql = "SELECT * FROM foo WHERE foo.bar > " . $_GET['oops']. " ORDER BY foo.bar ASC";
-    ```
-
-    Instead, consider the following approaches when writing SQL queries
-
-    ✅ Validate query input or use prepared statement wherever possible
-
-    ```php
+    - **Do not** include raw input in SQL queries. This practice can lead to SQL injection vulnerabilities.
+      ```php
+      $sql = "SELECT * FROM foo WHERE foo.bar > " . $_GET['untrusted']. " ORDER BY foo.bar ASC";
+      ```
+    - **Do** validate all external input to ensure it meets the expected format before including it in SQL queries.
+      ```php
       $sql = "SELECT * FROM foo WHERE bar = '" . $conn->quote($_GET['bar']) . "'";
-    ```
-
-    ```php
+      ```
+    - **Do** use prepared statements with bound parameters to safely include external data in SQL queries. This method ensures that external input is treated as data and not as part of the SQL command.
+      ```php
       $sql = "SELECT * FROM users WHERE username = :user";
       $stmt = $connection->prepare($sql);
       $stmt->bindValue("user", $_GET['username']);
-    ```
-
-    ```php
+      ```
+    - **Do** employ an Object-Relational Mapping (ORM) tool or a database abstraction layer that automatically handles input sanitization and prepared statements.
+      ```php
       $dql = "SELECT * FROM Foo WHERE bar = :bar";
       $query = $em->createQuery($dql);
       $query->setParameter("bar", $_GET['bar']);
-    ```
+      ```
 
-    ## Resources
+    ## References
+
     - [Doctrine DBAL Security](https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/security.html)
     - [Doctrine SQL Query Builder Security](https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/query-builder.html#security-safely-preventing-sql-injection)
     - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)

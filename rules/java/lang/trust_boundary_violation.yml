@@ -51,15 +51,14 @@ languages:
 severity: medium
 metadata:
   description: "Usage of trusted and untrusted data inside the same data structure"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Mixing trusted and untrusted data inside the same data structure can lead
-    to untrusted data being mistakenly treated as being trusted.
+    Combining trusted and untrusted data within a single data structure poses a significant security risk. This practice may result in untrusted data being incorrectly regarded as trustworthy, potentially leading to security vulnerabilities.
 
     ## Remediations
 
-    ✅ Avoid adding trusted data to data structures containing untrusted data
+    - **Do not** mix trusted and untrusted data in the same data structure. Keeping them separate ensures that untrusted data does not accidentally gain the same level of trust as the verified data.
   cwe_id:
     - 501
   id: java_lang_trust_boundary_violation

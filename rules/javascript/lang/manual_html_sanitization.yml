@@ -20,31 +20,29 @@ languages:
 severity: high
 metadata:
   description: "Usage of manual HTML sanitization (XSS)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Sanitizing HTML manually is error prone and can lead to Cross Site
-    Scripting (XSS) vulnerabilities.
+
+    Manually sanitizing HTML is prone to mistakes and can lead to Cross-Site Scripting (XSS) vulnerabilities. This occurs when user input is not properly sanitized, allowing attackers to inject malicious scripts into web pages viewed by other users.
 
     ## Remediations
 
-    ❌ Avoid manually escaping HTML:
+    - **Do not** manually escape HTML to sanitize user input. This method is unreliable and can easily miss certain exploits.
+      ```javascript
+      const sanitizedUserInput = user.Input
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;'); // unsafe
+      const html = `<strong>${sanitizedUserInput}</strong>`;
+      ```
+    - **Do** use a trusted HTML sanitization library to handle user input safely. Libraries designed for sanitization are more reliable as they cover a wide range of XSS attack vectors.
+      ```javascript
+      import sanitizeHtml from 'sanitize-html';
 
-    ```javascript
-    const sanitizedUserInput = user.Input
-      .replaceAll('<', '&lt;')
-      .replaceAll('>', '&gt;');
-    const html = `<strong>${sanitizedUserInput}</strong>`;
-    ```
+      const html = sanitizeHtml(`<strong>${user.Input}</strong>`);
+      ```
 
-    ✅ Use a HTML sanitization library:
+    ## References
 
-    ```javascript
-    import sanitizeHtml from 'sanitize-html';
-
-    const html = sanitizeHtml(`<strong>${user.Input}</strong>`);
-    ```
-
-    ## Resources
     - [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)
   cwe_id:
     - 79

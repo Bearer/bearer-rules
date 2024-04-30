@@ -25,18 +25,19 @@ trigger:
   required_detection: javascript_express_reduce_fingerprint_express_init
 metadata:
   description: "Missing server configuration to reduce server fingerprinting"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    It can help to provide an extra layer of security to reduce server fingerprinting. Though not a security issue itself, a method to improve the overall posture of a web server is to take measures to reduce the ability to fingerprint the software being used on the server. Server software can be fingerprinted by quirks in how they respond to specific requests.
+    Reducing server fingerprinting enhances security by making it harder for attackers to identify the software your server is running. Server fingerprinting involves analyzing the unique responses of server software to specific requests, which can reveal information about the server's software and version. While not a direct security vulnerability, minimizing this information leakage is a proactive step to obscure details that could be used in targeted attacks.
 
-    By default, Express.js sends the X-Powered-By response header banner. This can be disabled using the app.disable() method:
+    ## Remediations
 
-    ```javascript
-      app.disable('x-powered-by')
-    ```
+    - **Do** disable the `X-Powered-By` header in Express.js applications to prevent revealing the server's technology stack. Use the `app.disable()` method to achieve this.
+      ```javascript
+      app.disable('x-powered-by');
+      ```
 
-    ## Resources
+    ## References
 
     - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html)
   cwe_id:

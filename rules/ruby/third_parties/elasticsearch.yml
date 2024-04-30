@@ -44,12 +44,14 @@ metadata:
   description: "Leakage of sensitive data to Elasticsearch"
   remediation_message: |
     ## Description
-    Leaking sensitive data to third-party data tools is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Elasticsearch.
+
+    Leaking sensitive data to third-party data tools is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
-    When sending data to third-party services, ensure all sensitive data is removed.
 
-    ## Resources
+    - **Do** ensure all sensitive data is removed when sending data to third-party services like ElasticSearch
+
+    ## References
     - [Elasticsearch docs](https://www.elastic.co/guide/en/elasticsearch/client/ruby-api/current/index.html)
   cwe_id:
     - 201

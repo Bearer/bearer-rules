@@ -34,26 +34,21 @@ patterns:
 severity: high
 metadata:
   description: "Unsanitized user input in format string"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    If an application includes user input directly in a format string, an
-    attacker can use format specifiers in the user input to produce misleading
-    or fabricated messages.
+    Including user input directly in a format string can lead to security vulnerabilities. Attackers might exploit these format strings to generate misleading or fabricated messages by inserting format specifiers into the user input.
 
     ## Remediations
 
-    ❌ Avoid format strings containing user input:
-
-    ```ruby
-    sprintf("The value was #{params[:value]}")
-    ```
-
-    ✅ Use a literal format string with additional arguments:
-
-    ```ruby
-    sprintf("The value was %s", params[:value])
-    ```
+    - **Do not** include user input directly in format strings. This approach is vulnerable to manipulation by attackers.
+      ```ruby
+      sprintf("The value was #{params[:value]}") # unsafe
+      ```
+    - **Do** use a literal format string with user input as separate arguments. This method prevents attackers from exploiting the format string.
+      ```ruby
+      sprintf("The value was %s", params[:value])
+      ```
   cwe_id:
     - 134
   id: ruby_lang_format_string_using_user_input

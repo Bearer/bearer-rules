@@ -69,17 +69,22 @@ languages:
   - php
 metadata:
   description: Missing HTTP Only option in cookie configuration
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The "HttpOnly" attribute when set to "true" protects the cookie value from
-    being accessed by client side JavaScript such as reading the "document.cookie"
-    values. By enabling this protection, a website that is vulnerable to Cross-Site
-    Scripting (XSS) will be able to block malicious scripts from accessing the
-    cookie value from JavaScript.
+    Not setting the "httpOnly" attribute to "true" in cookie configurations leaves the cookie vulnerable to being accessed by client-side JavaScript. This oversight can lead to the exposure of cookie values, especially on websites susceptible to Cross-Site Scripting (XSS) attacks. Enabling "httpOnly" is a critical step in preventing malicious scripts from reading the cookie values through JavaScript.
 
     ## Remediations
-    ✅ Set `httpOnly` to `true` to avoid the cookie being sent by client-side scripts.
+
+    - **Do** set the `httpOnly` attribute to `true` in your cookie configurations. This action prevents client-side scripts from sending or accessing the cookie, enhancing your application's security against XSS attacks.
+      ```php
+      Cookie::create($name, $value, httpOnly: true);
+      ```
+
+    ## References
+
+    - [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
+    - [OWASP Cookies Properties](https://owasp.org/www-community/controls/SecureCookieAttribute)
   cwe_id:
     - 1004
   id: php_symfony_cookie_missing_http_only

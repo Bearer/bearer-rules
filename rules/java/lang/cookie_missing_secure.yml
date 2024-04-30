@@ -29,20 +29,17 @@ languages:
   - java
 metadata:
   description: Missing Secure option in cookie configuration
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The "Secure" attribute when set to "true" ensures that a client will only send
-    the cookie to the server when HTTPS is being used. This prevents the cookie
-    from being observed by unauthorized third parties.
+    Not setting the "Secure" attribute in cookie configuration can lead to unauthorized third-party access. This attribute, when enabled, ensures cookies are sent to the server only over HTTPS, enhancing security by preventing potential eavesdropping.
 
     ## Remediations
 
-    ✅ Set `setSecure` to `true`
-
-    ```java
-    cookie.setSecure(true);
-    ```
+    - **Do** set the `setSecure` attribute to `true` to enforce the transmission of cookies over HTTPS only.
+      ```java
+      cookie.setSecure(true);
+      ```
   cwe_id:
     - 614
   id: java_lang_cookie_missing_secure

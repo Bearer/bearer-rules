@@ -58,31 +58,29 @@ languages:
 severity: high
 metadata:
   description: "Unsanitized user input in HTTP request (SSRF)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Using unsanitized URLs from the request object when retrieving data puts your application at risk of server-side request forgery (SSRF) attacks.
-    This rule checks for URLs containing user-supplied data.
+
+    Incorporating unsanitized user input directly into URLs for data retrieval exposes your application to server-side request forgery (SSRF) attacks. This vulnerability arises when URLs include data provided by users without adequate validation or sanitization.
 
     ## Remediations
 
-    ❌ Avoid using user input in URLs:
+    - **Do not** directly use user input to construct URLs for backend requests. This approach can lead to SSRF vulnerabilities.
+      ```javascript
+      axios.get(`https://${req.params.host}`); // unsafe
+      ```
+    - **Do** validate or sanitize user input before using it in URLs. Prefer using a predefined list of allowed hosts and map user input to this list, ensuring only safe and expected URLs are constructed.
+      ```javascript
+      var host = "default-api.com"
+      if (req.params.host == "something-else") {
+        host = "other-api.com";
+      }
 
-    ```javascript
-    axios.get(`https://${req.params.host}`)
-    ```
+      axios.get(`https://${host}`);
+      ```
 
-    ✅ Use user input indirectly to form a URL:
+    ## References
 
-    ```javascript
-    var host = "default-api.com"
-    if req.params.host == "something-else" {
-      host = "other-api.com"
-    }
-
-    axios.get(`https://${host}`)
-    ```
-
-    ## Resources
     - [OWASP - Server-Side Request Forgery (SSRF) prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)
   cwe_id:
     - 918

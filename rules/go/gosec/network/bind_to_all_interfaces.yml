@@ -11,47 +11,21 @@ languages:
   - go
 metadata:
   description: "Permissive server network interface configuration"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Binding to "0.0.0.0" allows a service to accept connections on all network interfaces. While this can be useful for services meant to be widely accessible, it can also unintentionally expose the service on network interfaces that are not secure or intended for such traffic, potentially leading to security vulnerabilities.
+    Binding a service to "0.0.0.0" makes it accessible on all network interfaces. This configuration can lead to unintended exposure over insecure or unintended network interfaces, creating potential security risks.
 
     ## Remediations
 
-    To mitigate the risks associated with binding to all network interfaces:
+    - **Do not** bind services to "0.0.0.0" without considering the security implications. This default setting can expose your service on all network interfaces, including those that are not secure.
+    - **Do** bind your service to a specific IP address or network interface to limit access and enhance security. This can be achieved through various methods:
+        - Specify the IP address using an environment variable for flexible and secure configuration.
+        - Define the IP address in a configuration file that the application reads at startup.
+        - Dynamically identify the appropriate network interface and bind the service to its IP address.
+    - **Do** implement security best practices when configuring network services. Use firewalls to control access and encrypt communication with TLS to protect data in transit.
 
-    ✅ Bind to a Specific Interface
-
-    Configure your service to listen on a specific IP address or network interface. This can be controlled through:
-
-    - **Environment Variable**: Use an environment variable to specify the IP address, making the configuration more flexible and secure.
-    - **Configuration File**: Define the IP address in a configuration file which the application reads at startup.
-    - **Programmatic Identification**: Programmatically determine the appropriate network interface and bind the service to its IP address.
-
-    ```go
-    import (
-        "net"
-        "os"
-        "log"
-    )
-
-    func main() {
-        // Retrieve the IP address from an environment variable
-        addr := os.Getenv("IP_ADDRESS")
-
-        // Listen on the specified interface
-        listener, err := net.Listen("tcp", addr)
-        if err != nil {
-            log.Fatalf("Failed to listen on %s: %v", addr, err)
-        }
-
-        // Continue to set up your server (e.g., http.Serve(listener, handler))
-    }
-    ```
-
-    ✅ **Security Best Practices**: Always follow security best practices when configuring network services, such as using firewalls to restrict access and encrypting traffic with TLS.
-
-    ## Resources
+    ## References
 
     - [Go net package](https://pkg.go.dev/net)
     - [Go os package for environment variables](https://pkg.go.dev/os)

@@ -18,18 +18,17 @@ patterns:
           - except
 metadata:
   description: "Permissive callback disable configuration"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    When using except for disabling a callback, there is a high chance
-    of skipping important access control logic by accident.
 
-    ### Remediations
+    Using the `except` option to disable a callback can inadvertently bypass critical access control logic. This oversight can compromise the security of your application by not enforcing necessary checks on certain actions.
 
-    ✅ Prefer enumerating all of the actions using `only`:
+    ## Remediations
 
-    ```ruby
-    skip_before_action :access_control, only: %i[public_action1 public_action2]
-    ```
+    - **Do** explicitly list all actions where a callback should be skipped using the `only` option. This approach minimizes the risk of accidentally bypassing important security controls.
+      ```ruby
+      skip_before_action :access_control, only: %i[public_action1 public_action2]
+      ```
   cwe_id:
     - 284
   id: ruby_rails_insecure_disabling_of_callback

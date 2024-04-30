@@ -66,26 +66,21 @@ skip_data_types:
   - Passwords # see php_lang_weak_password_hash_md5
 metadata:
   description: "Usage of weak hashing library (MDx)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    A weak hashing library can lead to data breaches and greater security risk.
+    Using a weak hashing library, such as MD5, increases the risk of data breaches. MD5 itself is vulnerable to collision attacks, where two different inputs can produce the same hash value, compromising data integrity and security.
 
     ## Remediations
 
-    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), MD5 is considered a weak hashing algorithms and therefore shouldn't be used.
-
-    ❌ Avoid libraries and algorithms with known weaknesses:
-
-    ```php
-      $encrypted = md5($input)
-    ```
-
-    ✅ Use stronger encryption algorithms when storing data.
-
-    ```php
-      $encrypted = hash('sha256', $input)
-    ```
+    - **Do not** use MD5 for hashing. This algorithm is considered weak and vulnerable to attacks.
+      ```php
+      $encrypted = md5($input); // unsafe
+      ```
+    - **Do** opt for stronger hashing algorithms like SHA-256 to enhance security.
+      ```php
+      $encrypted = hash('sha256', $input);
+      ```
   cwe_id:
     - 328
   id: php_lang_weak_hash_md

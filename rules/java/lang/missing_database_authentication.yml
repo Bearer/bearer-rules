@@ -9,13 +9,17 @@ languages:
 severity: high
 metadata:
   description: "Missing authentication for database"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    A database server with inadequate authentication is extremely vulnerable to security attacks.
-    Ensure that your database server has the recommended authentication configuration (password, username), and consider using a key management system for any passwords.
+    Your database is at high risk if it lacks proper authentication mechanisms. This vulnerability makes it an easy target for unauthorized access and potential security breaches.
 
-    ## Resources
+    ## Remediations
+
+    - **Do** configure your database server with recommended authentication configuration, including a strong password and username.
+    - **Do** implement a key management system to securely manage and store your passwords.
+
+    ## References
 
     - [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)
   cwe_id:

@@ -34,29 +34,25 @@ languages:
 severity: low
 metadata:
   description: "Leakage of sensitive information in exception message"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Returning detailed error messages to users could reveal sensitive
-    information. This could lead to
+    Leakage of sensitive information in exception messages poses a significant security risk. When an exception message is printed to the default output, it might reveal sensitive details about your application's technical setup or environment. This could potentially open the door to attacks, such as path traversal. Even more concerning is the possibility of exposing user-specific data, which could lead to serious privacy breaches.
 
     ## Remediations
 
-    ❌ Don't configure your application to return details for every error:
-
-    ```ruby
-    config.consider_all_requests_local = false
-    ```
-
-    ❌ Don't use `show_detailed_exceptions?` in controllers:
-
-    ```ruby
-    class MyController < ApplicationController
-      def show_detailed_exceptions?
-        ...
+    - **Do not** configure your application to display detailed error messages for all errors.
+      ```ruby
+      config.consider_all_requests_local = false # unsafe
+      ```
+    - **Do not** implement `show_detailed_exceptions?` in controllers to return detailed errors.
+      ```ruby
+      class MyController < ApplicationController
+        def show_detailed_exceptions? # unsafe
+          ...
+        end
       end
-    end
-    ```
+      ```
   cwe_id:
     - 209
   id: ruby_rails_detailed_exceptions

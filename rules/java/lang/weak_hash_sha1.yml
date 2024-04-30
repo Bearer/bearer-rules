@@ -24,28 +24,24 @@ skip_data_types:
   - Passwords # see java_lang_weak_password_hash_sha1
 metadata:
   description: "Usage of weak hashing library (SHA-1)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    A weak hashing library can lead to data breaches and greater security risk.
+    Using a weak hashing library like SHA-1 increases the risk of data breaches. SHA-1 in particular is vulnerable to collision attacks, where two different inputs can produce the same hash value, compromising data integrity and security.
 
     ## Remediations
 
-    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), SHA1 is considered a weak hashing algorithms and therefore shouldn't be used.
-
-    ❌ Avoid libraries and algorithms with known weaknesses:
-
-    ```java
-      MessageDigest md = MessageDigest.getInstance("SHA-1");
-    ```
-
-    ✅ Use stronger encryption algorithms when storing data.
-
-    ```java
+    - **Do not** use SHA-1 for hashing. It is no longer considered secure.
+      ```java
+      MessageDigest md = MessageDigest.getInstance("SHA-1"); // unsafe
+      ```
+    - **Do** use stronger hashing algorithms such as SHA-256 to enhance security.
+      ```java
       MessageDigest md = MessageDigest.getInstance("SHA-256");
-    ```
+      ```
 
-    ## Resources
+    ## References
+
     - [Java MessageDigest class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/MessageDigest.html)
   cwe_id:
     - 328

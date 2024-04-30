@@ -28,25 +28,21 @@ languages:
   - php
 metadata:
   description: "Usage of weak hashing library (Adler-32)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    While Adler-32 can give a quick assurance of integrity it provides little protection against intentional alteration of data.
+    Adler-32 is a weak hashing algorithm that offers minimal security. It is not suitable for protecting data against intentional modifications.
 
     ## Remediations
 
-
-    ❌ Avoid algorithms with known weaknesses:
-
-    ```php
-      $myhash = hash('adler32', $input)
-    ```
-
-    ✅ Use stronger hashing algorithms.
-
-    ```php
-      $myhash = hash('sha256', $input)
-    ```
+    - **Do not** use Adler-32 for hashing when security is a concern. Its simplicity and speed do not compensate for its lack of protection against data tampering.
+      ```php
+      $myhash = hash('adler32', $input); // unsafe
+      ```
+    - **Do** opt for stronger hashing algorithms like SHA-256 to ensure data integrity and security.
+      ```php
+      $myhash = hash('sha256', $input);
+      ```
 
   cwe_id:
     - 328

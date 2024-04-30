@@ -9,35 +9,18 @@ languages:
   - go
 metadata:
   description: "Import of weak hashing library (MD5)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    MD5 is a widely used cryptographic hash function that produces a 128-bit (16-byte) hash value. It's commonly used to check the integrity of files. However, MD5 is not collision-resistant; this means that different inputs may produce the same output hash. MD5's vulnerabilities and the feasibility of collision attacks have rendered it obsolete for security-related purposes, particularly digital signatures, SSL certificates, and cryptographic message authentication.
+    Using a weak hashing library like MD5 increases the risk of data breaches. MD5 is vulnerable to collision attacks, where two different inputs produce the same output, compromising data integrity and security.
 
-    ## Remediation
+    ## Remediations
 
-    Given the vulnerabilities of MD5, it is highly recommended to switch to more secure hashing algorithms. For hashing purposes that do not involve passwords, such as verifying file integrity or generating unique identifiers, SHA-3 or BLAKE2 can be used due to their stronger cryptographic properties.
+    - **Do not** use MD5 for hashing. It is considered a weak hash algorithm and can compromise data security.
+    - **Do** use stronger hashing algorithms such as SHA-3 or BLAKE2 for general hashing purposes, such as file integrity checks or generating unique identifiers.
+    - **Do** use recommended algorithms such as bcrypt or Argon2id for password hashing, as these are designed to be slower and therefore more effective against brute-force attacks.
 
-    ✅ Use SHA-3 or BLAKE2 for General Hashing Needs
-
-    ```go
-    // BLAKE2 is a cryptographic hash function faster than MD5, SHA-1, and SHA-2, and as secure as the latest standard SHA-3
-    fileContents := []byte("some file contents to create hash for")
-    blake2bHasher, err := blake2b.New512(nil)
-    if err != nil {
-      log.Fatal(err)
-    }
-    hashedValue := blake2bHasher.Sum(fileContents)
-    fmt.Printf("%s\n", hex.EncodeToString(hashedValue))
-    ```
-
-    For password hashing, where the hash functions need to be slow to combat brute-force attacks, bcrypt or Argon2id should be used. These algorithms are designed to be computationally intensive to hash and verify, which helps protect against password cracking attempts.
-
-    ✅ Adopt bcrypt or Argon2id for Password Hashing
-
-    The bcrypt algorithm is a good choice for password hashing as it allows you to adjust the cost (computational complexity) and is widely supported. Argon2id is the winner of the Password Hashing Competition and offers a good balance between resistance to GPU cracking attacks and usability.
-
-    ## Resources
+    ## References
 
     - [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
 

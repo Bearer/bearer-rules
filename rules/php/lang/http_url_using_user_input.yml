@@ -16,31 +16,31 @@ patterns:
 severity: high
 metadata:
   description: "Unsanitized user input in HTTP request (SSRF)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should not connect to locations formed from user input.
-    This rule checks for URLs containing user-supplied data.
+    Your application is vulnerable to Server-Side Request Forgery (SSRF) attacks when it connects to URLs that include user-supplied data. This vulnerability occurs because attackers can manipulate these URLs to force your application to make unintended requests to internal or external resources.
 
     ## Remediations
 
-    ❌ Avoid using user input in HTTP URLs:
+    - **Do not** directly include user input in HTTP URLs. This practice can lead to SSRF vulnerabilities, where attackers exploit the application to send requests to unintended destinations.
+      ```php
+      $curl = curl_init("https://{$_GET['host']}"); // unsafe
+      ```
+    - **Do** validate or map user input against a predefined list of safe values before using it to form URLs. This approach ensures that the application only connects to intended and safe locations.
+      ```php
+      if ($_GET["host"] == "option1") {
+        $host = "api1.com";
+      } else {
+        $host = "api2.com";
+      }
 
-    ```php
-    $curl = curl_init("https://{$_GET['host']}');
-    ```
+      $curl = curl_init("https://$host");
+      ```
 
-    ✅ Use user input indirectly to form a URL:
+    ## References
 
-    ```php
-    if ($_GET["host"] == "option1") {
-      $host = "api1.com";
-    } else {
-      $host = "api2.com";
-    }
-
-    $curl = curl_init("https://$host');
-    ```
+    - [OWASP - Server-Side Request Forgery (SSRF) prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)
   cwe_id:
     - 918
   id: php_lang_http_url_using_user_input

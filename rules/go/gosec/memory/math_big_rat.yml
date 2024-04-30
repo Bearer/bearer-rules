@@ -23,46 +23,31 @@ languages:
   - go
 metadata:
   description: "Possible integer overflow when converting strings"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    When converting strings to integers using `strconv.Atoi` in Go, there's a risk of integer overflow if the result is assigned to a smaller integer type such as `int16` or `int32`. The size of the default `int` type in Go is platform-dependent—64 bits on a 64-bit system and 32 bits on a 32-bit system. Overflow can occur when the value returned from `strconv.Atoi` exceeds the range of the target integer type.
+    When you convert strings to integers in Go using `strconv.Atoi`, you might encounter an integer overflow if you assign the result to a smaller integer type like `int16` or `int32`. This is because the size of `int` type in Go is not fixed and depends on the system architecture (32 bits on a 32-bit system and 64 bits on a 64-bit system). An overflow occurs if the `strconv.Atoi` return value is too large for the intended smaller integer type.
 
     ## Remediations
 
-    ✅ Check Before Conversion
-
-    Always verify that the value returned from `strconv.Atoi` is within the range of the target type before conversion.
-
-    ```go
-    if intValue, err := strconv.Atoi(stringValue); err == nil {
+    - **Do** verify the value from `strconv.Atoi` fits within the range of your target integer type before conversion.
+      ```go
+      if intValue, err := strconv.Atoi(stringValue); err == nil {
         if intValue >= math.MinInt16 && intValue <= math.MaxInt16 {
-            int16Value := int16(intValue)
-            // Use int16Value safely
+          int16Value := int16(intValue)
         }
-    }
-    ```
-
-    ✅ Use Specific Type Conversion Functions
-
-    Use type-specific parsing functions such as `strconv.ParseInt` with the appropriate bit size to directly obtain the desired type.
-
-    ```go
-    if int64Value, err := strconv.ParseInt(stringValue, 10, 16); err == nil {
+      }
+      ```
+    - **Do** use type-specific parsing functions like `strconv.ParseInt` with the appropriate bit size to ensure you get the type you need.
+      ```go
+      if int64Value, err := strconv.ParseInt(stringValue, 10, 16); err == nil {
         int16Value := int16(int64Value)
-        // Use int16Value safely
-    }
-    ```
+      }
+      ```
+    - **Do not** cast the result of `strconv.Atoi` to a smaller integer type without ensuring the value is within the acceptable range for that type.
+    - **Do not** ignore errors from `strconv.Atoi`. Always handle them to detect conversion problems, including possible overflows.
 
-    ❌ Avoid Blind Type Casting
-
-    Do not cast the result of `strconv.Atoi` to a smaller integer type without validating that the value fits within the smaller type's range.
-
-    ❌ Don't Ignore Errors
-
-    Never ignore the error returned by `strconv.Atoi`. Always handle it to catch conversion issues, including potential overflows.
-
-    ## Resources
+    ## References
 
     - [Go strconv package](https://pkg.go.dev/strconv)
     - [Go math package for min/max constants](https://pkg.go.dev/math#pkg-constants)

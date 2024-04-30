@@ -29,27 +29,23 @@ languages:
   - php
 metadata:
   description: "Unsanitized user input in 'echo' function (XSS)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should not include unsanitized user input in responses. This
-    can allow cross-site scripting (XSS) attacks.
+    Including unsanitized user input in responses can lead to cross-site scripting (XSS) attacks. This vulnerability exposes your application to malicious scripts injected by attackers, compromising user data and browser security.
 
     ## Remediations
 
-    ❌ Avoid including user input directly in the response:
+    - **Do not** include user input directly in the response. This practice can make your application vulnerable to XSS attacks.
+      ```php
+      echo "<h1>" . $_GET["title"] . "</h1>" // unsafe
+      ```
+    - **Do** sanitize user input before including it in a response. This step helps prevent malicious code from being executed.
+      ```php
+      echo "<h1>" . filter_var($_GET["title"], FILTER_SANITIZE_STRING). "</h1>"
+      ```
 
-    ```ruby
-    echo "<h1>" . $_GET["title"] . "</h1>"
-    ```
-
-    ✅ Sanitize user input when including it in a response:
-
-    ```ruby
-    echo "<h1>" . filter_var($_GET["title"], FILTER_SANITIZE_STRING). "</h1>"
-    ```
-
-    ## Resources
+    ## References
 
     - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
   cwe_id:

@@ -19,14 +19,14 @@ metadata:
   remediation_message: |
     ## Description
 
-    Leaking sensitive data to database is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to elasticsearch.
+    Leaking sensitive data to third-party data tools is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    <!--
-    ## Resources
-    Coming soon.
-    -->
+    - **Do** ensure all sensitive data is removed when sending data to third-party services like ElasticSearch
+
+    ## References
+    - [Elasticsearch docs](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/index.html)
   cwe_id:
     - 201
   id: javascript_third_parties_elasticsearch

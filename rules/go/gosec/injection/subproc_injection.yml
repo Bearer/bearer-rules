@@ -26,72 +26,30 @@ languages:
 severity: critical
 metadata:
   description: Unsanitized dynamic input in OS command
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    OS command injection is a severe security vulnerability that occurs when an application incorrectly processes external input. This flaw can allow attackers to execute arbitrary commands on the host operating system, potentially leading to a full system compromise.
+    Using unsanitized dynamic or external input in an OS command is a critical security flaw that can enable attackers to execute unauthorized commands on the host operating system, potentially leading to a complete system takeover.
 
     ## Remediations
 
-    Prevent OS command injection by adhering to the following practices:
+    - **Do not** construct OS commands or command-line arguments using externally-supplied information. This practice can introduce command injection vulnerabilities.
+      ```go
+      cmd := exec.Command("bash", "-c", "echo " + externalInput) // unsafe
+      ```
+    - **Do** validate all external input against a strict set of rules to ensure it does not include harmful characters or patterns.
+      ```go
+      if !regexp.MustCompile(`^[a-zA-Z0-9]+$`).MatchString(externalInput) {
+        log.Fatal("Invalid input")
+      }
+      ```
+    - **Do** use hardcoded arguments when invoking OS commands to prevent external input from altering the command's execution.
+      ```go
+      cmd := exec.Command("ls", "-l", "/var/log")
+      ```
+    - **Do** prefer native libraries or programming language features over invoking shell commands for enhanced security and efficiency.
 
-    ❌ Avoid Direct External Input
-
-    Do not use externally-supplied information for constructing OS commands or command-line arguments, as this can lead to command injection vulnerabilities.
-
-    ✅ Implement Input Validation
-
-    Ensure that any external input is validated against a set of strict rules to ensure it does not contain malicious characters or patterns.
-
-    ✅ Use Hardcoded Arguments
-
-    When invoking OS commands, use a hardcoded set of arguments to ensure that external input cannot alter the command's behavior.
-
-    ✅ Utilize Temporary Files Securely
-
-    When dealing with files, create temporary files in a restricted directory, avoiding the use of user-supplied filenames.
-
-    ✅ Employ Native Libraries
-
-    Where possible, use native libraries or features of the programming language instead of invoking shell commands, which can be safer and more efficient.
-
-    ```go
-    import (
-        "io/ioutil"
-        "os/exec"
-        "log"
-    )
-
-    func main() {
-        userData := []byte("user data")
-
-        // Create a temporary file in a secure, application-specific directory
-        f, err := ioutil.TempFile("/var/app/restricted", "temp-*.dat")
-        if err != nil {
-            log.Fatal(err)
-        }
-
-        // Write user data to the temporary file
-        if _, err := f.Write(userData); err != nil {
-            f.Close()
-            log.Fatal(err)
-        }
-
-        // Close the file handle
-        if err := f.Close(); err != nil {
-            log.Fatal(err)
-        }
-
-        // Execute a command using the temporary file, avoiding direct external input for filenames
-        out, err := exec.Command("/bin/cat", f.Name()).Output()
-        if err != nil {
-            log.Fatal(err)
-        }
-        // Output can be used for further processing
-    }
-    ```
-
-    ## Resources
+    ## References
 
     - [OWASP OS Command Injection Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html)
   cwe_id:

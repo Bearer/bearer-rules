@@ -26,58 +26,26 @@ languages:
   - go
 metadata:
   description: "Permissive file assignment"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    When creating or updating files, ensuring proper file permissions is crucial to maintain security. Overly permissive file settings can allow unauthorized users to read, modify, or execute files, which could lead to information disclosure, data tampering, or compromise of the system.
+    Setting overly permissive file permissions exposes your system to risks such as unauthorized access, data tampering, and potential system compromise. This vulnerability arises when files are created or updated without adequately restrictive permissions, allowing unauthorized users to read, modify, or execute files.
 
     ## Remediations
 
-    To prevent unauthorized access, it's important to set restrictive file permissions, particularly when sensitive data is involved. Here's how to manage file permissions in Go:
-
-    ✅ Restrict File Permissions
-
-    Set file permissions to allow only the necessary access level for the application. Avoid using permissions like `0777`, which allows read, write, and execute permissions for all users.
-
-    ✅ Use Go’s `os` Package
-
-    Utilize the `os.OpenFile` function with the appropriate file permission flags.
-
-    ✅ Recommended File Permissions
-
-    - `0400` grants read-only access to the file's owner.
-    - `0200` grants write-only access to the file's owner.
-    - `0600` grants read and write access to the file's owner and is commonly used for files that need to be both read from and written to by the application.
-
-    ```go
-    import (
-      "log"
-      "os"
-    )
-
-    func main() {
-      // Use os.OpenFile to create a file with restricted permissions
-      // 0600 permission: Read and write for the owner, no permissions for others
-      f, err := os.OpenFile("file.txt", os.O_CREATE|os.O_WRONLY, 0600)
-      if err != nil {
-        log.Fatalf("failed to create file: %s", err)
-      }
-      defer f.Close()
-      // Continue to work with the file here
-    }
-    ```
-
-    ✅ Verify File Permissions
-
-    After file creation, check the file permissions to ensure they are set correctly.
-
-    ✅ Secure Default Permissions
-
-    If you are developing an application that creates multiple files, consider setting umask in your application to a secure default.
-
-    ✅ Review File Permission Settings
-
-    Regularly audit file permissions to ensure they adhere to the principle of least privilege.
+    - **Do not** use overly permissive file permissions, such as `0777`, which grants read, write, and execute permissions to all users.
+    - **Do** set file permissions to restrict access appropriately:
+      - `0400` for read-only access by the file's owner.
+      - `0200` for write-only access by the file's owner.
+      - `0600` for read and write access by the file's owner, suitable for files that the application needs to read from and write to.
+    - **Do** use Go's `os` package to manage file permissions effectively. For example, use `os.OpenFile` with appropriate permission flags such as 0600.
+      ```go
+        f, err := os.OpenFile("file.txt", os.O_CREATE|os.O_WRONLY, 0600)
+        ...
+      ```
+    - **Do** verify file permissions after creation or update to ensure they are set as intended.
+    - **Do** consider setting umask to a secure default, if your application creates multiple files, to ensure that files are created with safe default permissions.
+    - **Do** regularly review and audit file permissions in your system to ensure they adhere to the principle of least privilege, minimizing the access level to what is strictly necessary for operational functionality.
 
   cwe_id:
     - 276

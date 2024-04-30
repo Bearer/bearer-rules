@@ -97,30 +97,26 @@ languages:
   - java
 metadata:
   description: Unsanitized user input in format string detected
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    For format functions, the first argument (or second if a locale is specified) is the format string itself.
-    If unsanitized user input is passed as this format string argument, this puts the application at risk of attack. Malicious agents could pass format strings that result in data leaks or cause the application to throw exceptions, for example.
+    Using unsanitized user input as the format string in format functions exposes your application to potential attacks. This vulnerability allows attackers to craft format strings that can lead to unauthorized data exposure or cause your application to crash.
 
     ## Remediations
 
-    ❌ Do not allow user input to be used as the format string
-    For most Java formatting functions, this means never passing an externally-controlled string as the first argument (or second if a locale is specified) to the format function.
+    - **Do not** use user input directly as the format string in formatting functions. This applies to any situation where the first argument (or second, if a locale is specified) is expected to be a format string.
+      ```java
+      String.format(request.getParameter("foo"), "bar"); // unsafe
+      String.format(Locale.US, request.getParameter("foo"), "bar"); // unsafe
+      ```
+    - **Do** use hard-coded format strings when working with formatting functions. This ensures that the format string is not influenced by external input, mitigating the risk of format string vulnerabilities.
+      ```java
+      String.format("Strings: %s", request.getParameter("foo"), "bar");
+      String.format(Locale.US, "Strings: %s", request.getParameter("foo"), "bar");
+      ```
 
-    ```java
-    // bad
-    String.format(request.getParameter("foo"), "bar");
-    String.format(Locale.US, request.getParameter("foo"), "bar");
+    ## References
 
-    // okay
-    String.format("Strings: %s", request.getParameter("foo"), "bar");
-    String.format(Locale.US, "Strings: %s", request.getParameter("foo"), "bar");
-    ```
-
-    ✅ Use hard-coded format strings instead
-
-    ## Resources
     - [OWASP Testing for Format String Injection](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/07-Input_Validation_Testing/13-Testing_for_Format_String_Injection)
   cwe_id:
     - 134

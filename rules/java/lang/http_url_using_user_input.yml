@@ -54,32 +54,28 @@ languages:
   - java
 metadata:
   description: "Unsanitized user input in HTTP request (SSRF)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should not connect to locations formed from user input. This is bad security practice because it can lead to Server-Side-Request-Forgery (SSRF) attacks.
-    This rule checks for URLs containing user-supplied data.
+    Directly incorporating user input into HTTP request URLs can lead to Server-Side Request Forgery (SSRF) attacks. This vulnerability occurs when an attacker can control the destination of an HTTP request sent by the server.
 
     ## Remediations
 
-    ❌ Avoid using user input in HTTP URLs:
+    - **Do not** concatenate or include user input directly in URLs for HTTP requests. This practice can allow attackers to manipulate requests to unauthorized or malicious sites.
+      ```java
+      new URL(request.getParameter("someRandomUrl")).getContent(); // unsafe
+      ```
+    - **Do** validate or map user inputs to predefined options before using them to construct URLs. This approach ensures that the application only requests URLs to known, safe destinations.
+      ```java
+      String url;
+      if (request.getParameter("selectedUrl").equals("option1")) {
+        url = "https://api1.com";
+      } else {
+        url = "https://api2.com";
+      }
 
-    ```java
-    new URL(request.getParameter("someRandomUrl")).getContent();
-    ```
-
-    ✅ Use user input indirectly to form a URL:
-
-    ```java
-    String url;
-    if (request.getParameter("selectedUrl") == "option1") {
-      url = "api1.com";
-    } else {
-      url = "api2.com";
-    }
-
-    new URL(url).getContent();
-    ```
+      new URL(url).getContent();
+      ```
   cwe_id:
     - 918
   id: java_lang_http_url_using_user_input

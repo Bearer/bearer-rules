@@ -29,26 +29,25 @@ metadata:
   description: "Leakage of sensitive data to Datadog"
   remediation_message: |
     ## Description
-    Leaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.
+
+    Leaking sensitive data to third-party loggers like Datadog is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    When logging errors or events, ensure all sensitive data is removed.
+    - **Do** ensure all sensitive data is removed when sending data to third-party loggers like Datadog.
+    - **Do** use unique identifiers from the database if you really need to identify users.
+      ```javascript
+        const StatsD = require("hot-shots");
+        const client = new StatsD({
+          port: 8020,
+          globalTags: { env: process.env.NODE_ENV },
+          errorHandler: errorHandler,
+        });
 
-    If you really need to identify users, use unique identifiers from the database.
+        client.event(user.uuid, "logged_in", {});
+      ```
 
-    ```javascript
-      const StatsD = require("hot-shots");
-      const client = new StatsD({
-        port: 8020,
-        globalTags: { env: process.env.NODE_ENV },
-        errorHandler: errorHandler,
-      });
-
-      client.event(user.uuid, "logged_in", {});
-    ```
-
-    ## Resources
+    ## References
     - [Datadog docs](https://docs.datadoghq.com)
     - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=mongodb#scrub-sensitive-data-from-your-spans)
     - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)

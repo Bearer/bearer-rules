@@ -19,19 +19,17 @@ languages:
 severity: medium
 metadata:
   description: Unsanitized user input in SQL catalog configuration
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    It is bad security practice to use unsanitized user input when configuring a SQL Connection's catalog.
-    This could allow an attacker to provide their own catalog name to the setCatalog method call, resulting in unexpected or malicious application behaviour.
+    Using unsanitized user input to configure a SQL Connection's catalog can lead to security vulnerabilities. This practice allows attackers to manipulate the catalog name in the `setCatalog` method, potentially causing harmful or unintended actions in the application.
 
     ## Remediations
 
-    ❌ Avoid Direct User Input
+    - **Do not** use direct user input for setting the SQL database's catalog. Always sanitize or validate input before using it in your database configuration.
 
-    Do not use user-supplied information when setting the catalog for your SQL database
+    ## References
 
-    ## Resources
     - [Java SQL Connection](https://docs.oracle.com/en/java/javase/21/docs/api/java.sql/java/sql/Connection.html)
   cwe_id:
     - 15

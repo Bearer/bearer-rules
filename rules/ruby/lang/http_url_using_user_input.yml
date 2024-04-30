@@ -354,33 +354,29 @@ auxiliary:
 severity: high
 metadata:
   description: "Unsanitized user input in HTTP request (SSRF)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should not connect to locations formed from user input.
-    This rule checks for URLs containing user-supplied data.
+    Including user input when constructing URLs makes your application vulnerable to Server-Side Request Forgery (SSRF), which allows attackers to manipulate the server into making requests to unintended locations.
 
     ## Remediations
 
-    ❌ Avoid using user input in HTTP URLs:
+    - **Do not** directly incorporate user input into HTTP URLs. This can lead to SSRF vulnerabilities.
+      ```ruby
+      Faraday.get("https://#{params[:host]}") # unsafe
+      ```
+    - **Do** validate or map user input against a predefined list of safe values before using it to form URLs. This approach reduces the risk of SSRF attacks.
+      ```ruby
+      host =
+        case params[:host]
+        when "option1"
+          "api1.com"
+        when "option2"
+          "api2.com"
+        end
 
-    ```ruby
-    Faraday.get("https://#{params[:host]}')
-    ```
-
-    ✅ Use user input indirectly to form a URL:
-
-    ```ruby
-    host =
-      case params[:host]
-      when "option1"
-        "api1.com"
-      when "option2"
-        "api2.com"
-      end
-
-    Faraday.get("https://#{host}')
-    ```
+      Faraday.get("https://#{host}")
+      ```
   cwe_id:
     - 918
   id: ruby_lang_http_url_using_user_input

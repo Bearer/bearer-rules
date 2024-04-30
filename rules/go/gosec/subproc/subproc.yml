@@ -56,24 +56,17 @@ languages:
 severity: critical
 metadata:
   description: Unsanitized external input in code execution
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Code injection is a security vulnerability where untrusted (external or user) data is injected into a program or interpreted as part of its execution flow, leading to unintended and potentially harmful consequences.
+    Unsanitized external input in code execution can result in code injection. This vulnerability arises when external or user-provided data is directly used in the execution flow of a program without proper sanitization, potentially leading to unauthorized actions or access.
 
     ## Remediations
 
-    Prevent code injection by adhering to the following practices:
+    - **Do not** pass unsanitized external input directly to execution functions. This practice can introduce code injection vulnerabilities.
+    - **Do** implement thorough input validation. Ensure all external input is checked against a strict set of rules to verify it does not contain harmful characters or patterns.
 
-    ❌ Never pass raw external input to
-
-    Do not use externally supplied values when executing remote code, as this can lead to code injection vulnerabilities.
-
-    ✅ Implement Input Validation
-
-    Ensure that any external input is validated against a set of strict rules to ensure it does not contain malicious characters or patterns.
-
-    ## Resources
+    ## References
 
     - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
   cwe_id:

@@ -209,15 +209,18 @@ languages:
   - java
 metadata:
   description: "Missing or permissive SSL hostname verifier"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    It is best security practice to always verify the hostname when establishing a SSL/TLS connection.
-    Failure to do so puts your application at risk of man-in-the-middle attacks.
+    It is best security practice to always verify the hostname when establishing a SSL/TLS connection. Failure to do so exposes your application to Man-in-the-Middle attacks. This vulnerability arises when the application fails to confirm that the server's hostname matches the hostname in the server's SSL certificate.
 
     ## Remediations
 
-    ❌ Do not use `ALLOW_ALL_HOSTNAME_VERIFIER` or similar permissive verifiers
+    - **Do not** use `ALLOW_ALL_HOSTNAME_VERIFIER` or any similarly permissive hostname verifiers. These verifiers do not properly check if the server's hostname matches the SSL certificate, undermining the security of your connection.
+      ```java
+      HostnameVerifier hostnameVerifier = org.apache.http.conn.ssl.SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER;
+      HttpsURLConnection.setDefaultHostnameVerifier(hostnameVerifier); // unsafe
+      ```
 
   cwe_id:
     - 295

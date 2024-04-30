@@ -151,13 +151,14 @@ metadata:
   description: "Leakage of sensitive data to Sentry"
   remediation_message: |
     ## Description
-    Leaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Sentry.
+
+    Leaking sensitive data to third-party loggers like Sentry is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    When logging errors or events, ensure all sensitive data is removed.
+    - **Do** ensure all sensitive data is removed when sending data to third-party loggers like Sentry.
 
-    ## Resources
+    ## References
     - [Sentry Docs](https://docs.sentry.io/)
   cwe_id:
     - 201

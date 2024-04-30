@@ -79,27 +79,24 @@ skip_data_types:
   - "Passwords" # see ruby_lang_weak_password_hash_dss
 metadata:
   description: "Usage of weak hashing library (DSS)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    A weak hashing library can lead to data breaches and greater security risk.
+    Using a weak hashing library like DSS increases the risk of data breaches. DSS has known security flaws and vulnerabilities, and its use is no longer recommended.
 
     ## Remediations
-    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), DSS is considered a weak hash algorithm and therefore shouldn't be used.
 
-    ❌ Avoid libraries and algorithms with known weaknesses:
+    - **Do not** use DSS for hashing as it is considered a weak algorithm. This can compromise data security.
+      ```ruby
+      OpenSSL::Digest.new("dss").digest("weak") # unsafe
+      ```
+    - **Do** opt for stronger hashing algorithms like bcrypt to enhance security.
+      ```ruby
+      BCrypt::Password.create('iLOVEdogs123')
+      ```
 
-    ```ruby
-    OpenSSL::Digest.new("dss").digest("weak")
-    ```
+    ## References
 
-    ✅ Instead, we recommend using bcrypt:
-
-    ```ruby
-    BCrypt::Password.create('iLOVEdogs123')
-    ```
-
-    ## Resources
     - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
   cwe_id:
     - 328

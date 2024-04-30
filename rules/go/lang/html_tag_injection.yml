@@ -59,33 +59,26 @@ languages:
   - go
 metadata:
   description: "Missing sanitization of HTML template tags"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Failing to sanitize user input can allow attackers to inject HTML tags (like `<script>` tags)
-    into the rendered template. This can lead to Cross-Site Scripting (XSS) attacks if the injected
-    scripts are then executed.
-
-    Ensure user input is sanitized and, wherever possible, avoid rendering templates with raw user input.
+    When user input is not sanitized, attackers can inject HTML tags, such as `<script>` tags, into templates. This unsanitized input can lead to Cross-Site Scripting (XSS) attacks when the malicious scripts are executed.
 
     ## Remediations
 
-    ✅ Always sanitize user input before using it in a template
-
-    ```
+    - **Do** sanitize user input before incorporating it into a template. This step is crucial to prevent XSS attacks.
+      ```go
       safe := template.HTMLEscapeString(r.FormValue("xyz"))
-    ```
-
-    ✅ Prefer html/template to text/template when parsing and rendering a template
-
-    ```go
+      ```
+    - **Do** use `html/template` instead of `text/template` for parsing and rendering templates. The `html/template` package automatically escapes inputs, providing an additional layer of security.
+      ```go
       import "html/template"
 
       func good(w http.ResponseWriter, r *http.Request) {
-        t, _ = := template.New("something").Parse(r.FormValue("xyz"))
+        t, _ := template.New("something").Parse(r.FormValue("xyz"))
         t.Execute(w, nil)
       }
-    ```
+      ```
 
     ## References
 

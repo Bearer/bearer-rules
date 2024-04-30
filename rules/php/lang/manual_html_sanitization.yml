@@ -13,26 +13,24 @@ languages:
 severity: high
 metadata:
   description: "Usage of manual HTML sanitization (XSS)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Sanitizing HTML manually is error prone and can lead to Cross Site
-    Scripting (XSS) vulnerabilities.
+
+    Manual HTML sanitization can introduce Cross-Site Scripting (XSS) vulnerabilities. This security risk arises when developers attempt to manually escape HTML entities, which is a process prone to errors and oversights, potentially leaving the application vulnerable to XSS attacks.
 
     ## Remediations
 
-    ❌ Avoid manually escaping HTML:
+    - **Do not** manually escape HTML entities in an attempt to sanitize input or output. This method is unreliable and increases the risk of XSS vulnerabilities.
+      ```php
+      $html = str_replace("&", "&amp;", $text); // unsafe
+      ```
+    - **Do** use built-in HTML sanitizers to handle escaping of HTML content securely. These tools are designed to mitigate the risk of XSS by properly encoding user input or any data displayed in an HTML context.
+      ```php
+      $html = htmlspecialchars($text);
+      ```
 
-    ```php
-    $html = str_replace("&", "&amp;", $text);
-    ```
+    ## References
 
-    ✅ Use a HTML sanitizer:
-
-    ```php
-    $html = htmlspecialchars($text);
-    ```
-
-    ## Resources
     - [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)
   cwe_id:
     - 79

@@ -31,16 +31,16 @@ languages:
 severity: medium
 metadata:
   description: "Unsanitized user input in redirect"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    A redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.
+
+    Using unsanitized user input to perform redirects can make your application vulnerable to phishing attacks. This occurs when user input is directly used to determine the destination of a redirect without proper validation or sanitization, allowing attackers to redirect users to malicious sites, potentially compromising their security.
 
     ## Remediations
-    ❌ Do not use unsanitized user input when constructing URLs
 
-    ✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs
-
-    ```java
+    - **Do not** use unsanitized user input to construct URLs for redirects. This can lead to phishing attacks and compromise user security.
+    - **Do** validate user input by employing a safe list or a mapping strategy when constructing URLs for redirects. This ensures that only pre-approved destinations are used, significantly reducing the risk of malicious redirects.
+      ```java
       private static final Map<String, String> URL_MAPPING = new HashMap<>();
       static {
         URL_MAPPING.put("google", "https://www.google.com");
@@ -51,9 +51,11 @@ metadata:
 
       String redirectUrl = URL_MAPPING.getOrDefault(request.getParameter("redirectTo"), "root");
       response.addHeader("Location", redirectUrl);
-    ```
-    ## Resources
-    - [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
+      ```
+
+    ## References
+
+    - [OWASP Unvalidated Redirects and Forwards Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
   cwe_id:
     - 601
   id: java_lang_open_redirect

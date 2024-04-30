@@ -11,27 +11,24 @@ patterns:
 severity: critical
 metadata:
   description: "Usage of insecure websocket connection"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should only connect to APIs using SSL connections. This rule
-    checks that all websocket connections use SSL.
+    Your application is at risk when it connects to APIs via insecure websocket connections. This vulnerability occurs because the data transmitted over these connections can be intercepted or tampered with by attackers. Ensure that all websocket connections in your application use SSL to encrypt the data in transit, safeguarding it from unauthorized access.
 
     ## Remediations
 
-    ❌ Avoid using unsecured outgoing websocket communication:
+    - **Do not** initiate websocket connections without SSL. Such connections are vulnerable to interception and compromise.
+      ```javascript
+      const client = new WebSocket('ws://insecure-api.com'); // unsafe
+      ```
+    - **Do** ensure all websocket connections are secured with SSL. This encrypts the data transmitted, protecting it from eavesdroppers and tampering.
+      ```javascript
+      const client = new WebSocket('wss://secure-api.com');
+      ```
 
-    ```javascript
-    const client = new WebSocket('ws://insecure-api.com')
-    ```
+    ## References
 
-    ✅ Always connect using SSL:
-
-    ```javascript
-    const client = new WebSocket('wss://secure-api.com')
-    ```
-
-    ## Resources
     - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
   cwe_id:
     - 319

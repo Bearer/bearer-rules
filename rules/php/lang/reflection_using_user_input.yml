@@ -69,20 +69,22 @@ auxiliary:
 severity: high
 metadata:
   description: "Unsanitized user input in code generation"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should not look up or manipulate code using user-supplied data.
+    Unsanitized user input in code generation can lead to code injection vulnerabilities. This occurs when an application dynamically generates or manipulates code using data provided by the user without proper sanitization.
 
     ## Remediations
 
-    ❌ Avoid using user input when using reflection:
+    - **Do not** use user-supplied input directly in code generation or reflection mechanisms. This practice can introduce severe security vulnerabilities.
+      ```php
+      $class = new ReflectionClass($_GET["class"]) // unsafe
+      ```
+    - **Do** validate and sanitize all user input used in code generation to ensure it does not contain malicious code. Use a whitelist approach, allowing only known safe values.
+    - **Do** employ security mechanisms such as input validation libraries or frameworks that specifically address code injection risks.
 
-    ```php
-    $class = new ReflectionClass($_GET["class"])
-    ```
+    ## References
 
-    ## Resources
     - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
   cwe_id:
     - 98

@@ -15,21 +15,20 @@ languages:
   - java
 metadata:
   description: Usage of ECB cipher mode
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    ECB (electronic cookbook) encryption mode is insecure and not recommended for use in cryptographic protocols.
-    Instead, prefer cryptographic algorithms that have built-in message integrity and that do not require a
-    mode of operation to be configured, such as ChaCha20-Poly1305 or, for older applications that do not support this, AES-256-GCM.
+    The ECB (Electronic Codebook) cipher mode is recognized as insecure and is not recommended for use in cryptographic protocols. This mode does not provide adequate data protection because it encrypts identical plaintext blocks into identical ciphertext blocks, making it vulnerable to pattern analysis. For stronger security, it's essential to use encryption algorithms that have built-in message integrity and do not require a mode of operation to be configured, such as ChaCha20-Poly1305 or, for older applications that do not support this, AES-256-GCM.
 
     ## Remediations
-    ✅ Choose ChaCha20Poly1305 or AES-256-GCM for encryption, both of which offer built-in message integrity.
 
-    ```java
+    - **Do** choose ChaCha20-Poly1305 or AES-256-GCM for encryption. These algorithms include built-in message integrity, offering a more secure alternative to ECB mode.
+      ```java
       Cipher chaChaCipher = Cipher.getInstance("ChaCha20-Poly1305/None/NoPadding");
-    ```
+      ```
 
-    ## Resources
+    ## References
+
     - [Java Cipher class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/javax/crypto/Cipher.html)
   cwe_id:
     - 327

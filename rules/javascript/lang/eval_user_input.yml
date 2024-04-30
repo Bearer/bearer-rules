@@ -49,46 +49,32 @@ languages:
 severity: critical
 metadata:
   description: "Unsanitized user input in 'eval' type function"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Using `eval` (and similar code execution methods such as `setTimeout`) with user input is dangerous and can lead to remote code execution.
 
-    ## Remediation
-    ❌ As a general rule, avoid using `eval`.
+    Allowing user input to directly influence the behavior of `eval` and similar functions like `setTimeout` poses a significant security risk, potentially leading to remote code execution attacks. This vulnerability stems from the dynamic execution of code, which can be maliciously crafted by an attacker.
 
-    ❌ Avoid using code execution methods with unsanitized user input.
+    ## Remediations
 
-    Instead, it might be possible to use dynamic hardcoded values:
-    ```javascript
-      app.post("/:id", (req, res) => {
-        let myFunc = "(a, b) => a + b"
-        if req.params["single_item"] {
-          myFunc = "(a) => a"
+    - **Do not** use `eval` or similar code execution functions directly with user input. This approach can make your application vulnerable to attacks.
+      ```javascript
+      eval(userInput); // unsafe
+      ```
+    - **Do** use static, hardcoded values when working with dynamic code execution methods. This method ensures that only predefined operations are performed, reducing the risk of executing malicious code.
+      ```javascript
+        let myFunc = "(a, b) => a + b";
+        if (req.params["single_item"]) {
+          myFunc = "(a) => a";
         }
+      ```
+    - **Do** consider using compiled functions instead of dynamically compiling code with user input. This practice allows for safer execution of dynamic operations by predefining the code to be executed.
+    - **Do** enable JavaScript's strict mode in your code. This mode helps to catch common coding bloopers, prevents unsafe actions, and limits certain features that can make your code more secure.
+      ```javascript
+      "use strict";
+      ```
 
-        setTimeout(myFunc);
-      };
-    ```
-    or pass user input to a compiled function, instead of compiling it with user input.
-    ```javascript
-      app.post("/:id", (req, res) => {
-        let myFunc = "(a, b) => a + b"
-        let compiledFunction = vm.compileFunction(myFunc);
-        compiledFunction(req.params["pageCount"], req.params["appendixPageCount"])
-      };
-    ```
+    ## References
 
-    ✅ Use JavaScript's strict mode as best practice and to minimize the reach of code execution methods
-
-    ```javascript
-      "use strict"
-
-      app.post("/:id", (req, res) => {
-        ...
-      })
-    ```
-
-    ## Resources
     - [MDN JavaScript strict mode reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
   cwe_id:
     - 95

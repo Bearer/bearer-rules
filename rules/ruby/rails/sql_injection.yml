@@ -159,40 +159,33 @@ languages:
   - ruby
 severity: critical
 metadata:
-  description: "Unsanitized user input in SQL query"
-  remediation_message: |
+  description: "Unsanitized external input in SQL query"
+  remediation_message: |-
     ## Description
 
-    Including unsanitized data, such as user input or request data, in raw SQL
-    queries makes your application vulnerable to SQL injection attacks.
+    Using unsanitized data, such as user input or request data, or externally influenced data passed to a function, in SQL query exposes your application to SQL injection attacks. This vulnerability arises when externally controlled data is directly included in SQL statements without proper sanitation, allowing attackers to manipulate queries and access or modify data.
 
     ## Remediations
 
-    ❌ Avoid raw queries, especially those that contain unsanitized user input:
+    - **Do not** use raw SQL queries that incorporate unsanitized external input directly. This approach is vulnerable to SQL injection.
+      ```ruby
+      User.where("user.email = #{params[:email]}") # unsafe
+      ```
+    - **Do** utilize the ActiveRecord API for constructing SQL queries to automatically handle input sanitization.
+      ```ruby
+      User.where(email: params[:email])
+      ```
+    - **Do** employ bind variables in SQL queries to separate the query structure from the data, effectively preventing SQL injection.
+      ```ruby
+      User.where("user.email = ?", [params[:email]])
+      ```
+    - **Do** manually sanitize input values when constructing SQL queries to ensure that any potentially harmful characters are neutralized.
+      ```ruby
+      User.where(sanitize_sql(["user.email = ?", params[:email]]))
+      ```
 
-    ```ruby
-    User.where("user.email = #{params[:email]}")
-    ```
+    ## References
 
-    ✅ Use the ActiveRecord API wherever possible:
-
-    ```ruby
-    User.where(email: params[:email])
-    ```
-
-    ✅ Use bind variables:
-
-    ```ruby
-    User.where("user.email = ?", [params[:email]])
-    ```
-
-    ✅ Santize the value manually:
-
-    ```ruby
-    User.where(sanitize_sql(["user.email = ?", params[:email]]))
-    ```
-
-    ## Resources
     - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
     - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
     - [Securing Rails applications - SQL injection](https://guides.rubyonrails.org/security.html#sql-injection)

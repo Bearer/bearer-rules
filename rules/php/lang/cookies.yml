@@ -15,18 +15,17 @@ languages:
   - php
 metadata:
   description: "Leakage of sensitive data in cookie"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Storing sensitive data in cookies can lead to a data breach. This rule looks for instances where sensitive data is stored in browser cookies.
+    Leakage of sensitive data in cookies can lead to a data breach. This vulnerability occurs when sensitive information is stored in browser cookies, putting it at risk of unauthorized access.
 
     ## Remediations
 
-    ❌ Avoid storing sensitive data in unencrypted cookies:
-
-    ```php
-    setcookie("user_email", $user->email);
-    ```
+    - **Do not** store sensitive data in unencrypted cookies. This practice can expose sensitive information to potential security threats.
+      ```php
+      setcookie("user_email", $user->email); // unsafe
+      ```
   cwe_id:
     - 315
   id: php_lang_cookies

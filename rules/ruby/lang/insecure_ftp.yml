@@ -18,23 +18,23 @@ languages:
 severity: critical
 metadata:
   description: "Usage of insecure FTP connection"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Communication with FTP servers should be done securely over SFTP in applications that process sensitive data. This rule checks if all FTP connections are made using SFTP.
+    Using an insecure FTP connection can expose sensitive data to interception and unauthorized access. This vulnerability occurs when applications that handle sensitive information communicate with FTP servers without secure protocols like SFTP.
 
     ## Remediations
 
-    ✅ To ensure secure FTP connections are made, use the Net::SFTP [library](https://github.com/net-ssh/net-sftp) instead of Net::FTP:
+    - **Do** use the Net::SFTP library for secure FTP connections. This ensures that data transmitted between your application and the FTP server is encrypted and protected from potential eavesdropping.
+      ```ruby
+      require 'net/sftp'
+      Net::SFTP.start('host', 'username', password: ENV['password']) do |sftp|
+        ...
+      end
+      ```
 
-    ```ruby
-    require 'net/sftp'
-    Net::SFTP.start('host', 'username', password: ENV['password') do |sftp|
-    	...
-    end
-    ```
+    ## References
 
-    ## Resources
     - [net-sftp](https://github.com/net-ssh/net-sftp)
   cwe_id:
     - 319

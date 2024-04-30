@@ -8,22 +8,22 @@ languages:
   - javascript
 metadata:
   description: Usage of weak encryption algorithm in JWT
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Use any default encryption algorithm jwt library provides
+    Implementing weak encryption algorithms in JWT (JSON Web Tokens) compromises the security of the tokens. This vulnerability occurs when an encryption algorithm that does not offer sufficient security strength is used, making the tokens susceptible to attacks.
 
     ## Remediations
 
-    Use the HS256 algorithm for JWT encryption
-
-    ```
+    - **Do** use robust encryption algorithms recommended for JWT. HS256 (HMAC with SHA-256) is a secure choice for signing JWTs.
+      ```javascript
       jwt.sign({ "foo": "bar"}, process.env.JWT_SECRET, {
         algorithm: "HS256"
       })
-    ```
+      ```
 
-    ## Resources
+    ## References
+
     - [OWASP weak encryption](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption)
   cwe_id:
     - 327

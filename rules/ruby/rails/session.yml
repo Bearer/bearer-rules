@@ -13,21 +13,24 @@ skip_data_types:
   - "Unique Identifier"
 metadata:
   description: "Leakage of sensitive data in session cookie"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Sensitive data should not be stored in session cookies. This policy looks for any sensitive data stored within the session cookies.
+    Storing sensitive data in session cookies poses a security risk. This vulnerability arises when sensitive information is included within session cookies, making it susceptible to unauthorized access.
 
     ## Remediations
-    By default, [Rails uses a Cookie based session store](https://guides.rubyonrails.org/security.html#session-storage). This makes it unsafe if you use it to store sensitive data in addition of making invalidating cookies difficult as they are stored on the client.
 
-    ✅ To ensure session's data stays safe, ensure to use a database-based session storage, which is easily done though Rails configuration:
+    - **Do not** store sensitive data in session cookies. This approach risks exposing sensitive information since cookies are stored on the client side.
+      ```ruby
+      cookies[:user_credentials] = "username:password" # unsafe
+      ```
+    - **Do** configure your Rails application to use a database-based session storage. This method enhances security by storing session data on the server side, making it more secure and easier to manage session invalidation.
+      ```ruby
+      Rails.application.config.session_store :active_record_store
+      ```
 
-    ```ruby
-    Rails.application.config.session_store :active_record_store
-    ```
+    ## References
 
-    ## Resources
     - [Rails guide on configuring Rails applications](https://guides.rubyonrails.org/configuring.html)
   cwe_id:
     - 315

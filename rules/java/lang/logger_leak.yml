@@ -23,20 +23,25 @@ languages:
 severity: low
 metadata:
   description: Leakage of information in logger message
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Leaking data to loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of dynamic data or variables sent to loggers.
+    Information leakage through logger messages can compromise sensitive data. This vulnerability arises when dynamic data or variables, which may contain sensitive information, are included in log messages.
 
     ## Remediations
 
-    ❌ Avoid using variables or dynamic data in logger messages
+    - **Do not** include variables or dynamic data containing sensitive information in logger messages. This can inadvertently expose sensitive data in logs, which are often not adequately protected.
+      ```java
+      logger.info("user signed in: " + user.uuid) // unsafe
+      ```
+    - **Do** log static messages that do not contain dynamic variables or attributes. This minimizes the risk of accidentally logging sensitive information.
+      ```java
+      logger.info("user signed in")
+      ```
 
-    ```java
-    logger.info("user signed in: " + user.uuid)
-    ```
-    ## Resources
-    - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
+    ## References
+
+    - [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
   cwe_id:
     - 532
   id: java_lang_logger_leak

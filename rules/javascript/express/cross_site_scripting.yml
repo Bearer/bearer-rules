@@ -31,19 +31,21 @@ auxiliary:
 severity: high
 metadata:
   description: "Unsanitized user input in HTTP response (XSS)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Sending unsanitized user input in a response puts your application at risk of cross-site scripting attacks.
 
+    Including unsanitized user input in HTTP responses exposes your application to cross-site scripting (XSS) attacks. This vulnerability allows attackers to inject malicious scripts into web pages viewed by other users.
 
     ## Remediations
-    ❌ Avoid including user input directly in a response:
 
-    ```javascript
-    res.send(req.body.data)
-    ```
+    - **Do not** include user input directly in a response. This practice can lead to XSS vulnerabilities.
+      ```javascript
+      res.send(req.body.data); // unsafe
+      ```
+    - **Do** sanitize user input before including it in a response. Use library functions or frameworks designed for input sanitization to ensure that user data cannot be interpreted as executable code.
 
-    ## Resources
+    ## References
+
     - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
   cwe_id:
     - 79

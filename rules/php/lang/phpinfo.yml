@@ -5,18 +5,18 @@ languages:
   - php
 metadata:
   description: "Leakage of sensitive information with 'phpinfo' function"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Avoid exposing sensitive information to an unautorized actor.
+    The use of the 'phpinfo()' function can lead to the leakage of sensitive information. This function outputs a large amount of information about the current state of PHP, including environment variables, server information, and PHP configuration settings, which could be exploited by unauthorized individuals.
 
     ## Remediations
 
-    ❌ Avoid exposing sensitive information:
-
-    ```php
-    phpinfo();
-    ```
+    - **Do not** use the 'phpinfo()' function in production environments or publicly accessible areas of your application. This function can inadvertently expose critical information that could aid an attacker.
+      ```php
+      phpinfo(); // unsafe in production
+      ```
+    - **Do** regularly review your codebase to ensure that calls to 'phpinfo()' are removed before deploying to production. Consider using environment-specific configuration to automatically exclude such calls in production environments.
 
   cwe_id:
     - 200

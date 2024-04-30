@@ -93,50 +93,29 @@ languages:
   - go
 metadata:
   description: "Missing protection against 'Slowloris' attack"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The server configuration lacks a `ReadHeaderTimeout`, making it vulnerable to a Slowloris attack. This type of attack occurs when an attacker opens multiple connections to the server but sends only partial requests. The server keeps each connection open, waiting for the headers to be completed, ultimately leading to resource exhaustion.
+    Your server configuration is missing the `ReadHeaderTimeout` setting, making it vulnerable to a type of Distributed Denial of Service (DDoS) attack known as a Slowloris attack. In such an attack, a hacker initiates many connections to your server, sending incomplete requests. Your server then keeps each connection open, waiting for the headers to be completed. This can lead to resource exhaustion, where your server cannot handle additional (legitimate) requests.
 
     ## Remediations
 
-    To protect against such attacks, the following steps should be taken:
+    - **Do not** use default serve functions like `http.ListenAndServe` and `http.Serve` in production environments. You cannot set timeouts for these functions, making the server vulnerable to attacks.
+      ```go
+      http.ListenAndServe(":8080", nil) // unsafe
+      ```
+    - **Do** create a custom `http.Server` object with configured timeouts to safeguard against resource exhaustion. For Slowloris attacks in particular, set `ReadHeaderTimeout` to an appropriate value to ensure that connections do not remain open indefinitely.
+      ```go
+      myServer := &http.Server{
+          Addr:             "localhost:8000",
+          ReadHeaderTimeout: 15 * time.Second,
+          ReadTimeout:      15 * time.Second,
+          WriteTimeout:     10 * time.Second,
+          IdleTimeout:      30 * time.Second,
+      }
+      ```
 
-    ❌ Avoid Default Serve Functions for Production
-
-    Do not use `http.ListenAndServe` and `http.Serve` in a production environment, as they do not support timeout settings.
-
-    ✅ Configure `http.Server` with Timeouts
-
-    Establish a custom `http.Server` instance with appropriate timeouts to prevent attackers from exploiting the lack of `ReadHeaderTimeout`.
-
-    ```go
-    import (
-        "net/http"
-        "time"
-        "log"
-    )
-
-    func main() {
-        srv := &http.Server{
-            Addr: "localhost:8000",
-            ReadHeaderTimeout: 15 * time.Second,
-            ReadTimeout: 15 * time.Second,
-            WriteTimeout: 10 * time.Second,
-            IdleTimeout: 30 * time.Second,
-        }
-
-        if err := srv.ListenAndServe(); err != nil {
-            log.Fatal(err)
-        }
-    }
-    ```
-
-    ✅ Enforce Request Timeouts
-
-    Implement `http.TimeoutHandler` to apply timeouts to individual HTTP handlers, which starts counting down only after the headers have been read.
-
-    ## Resources
+    ## References
 
     - [Configuring Timeouts in http.Server](https://pkg.go.dev/net/http#Server)
     - [How to Set Request-Based Timeouts](https://pkg.go.dev/net/http#TimeoutHandler)

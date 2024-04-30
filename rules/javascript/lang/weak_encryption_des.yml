@@ -23,26 +23,24 @@ skip_data_types:
   - "Passwords" # see javascript_weak_password_encryption
 metadata:
   description: "Usage of weak encryption algorithm (DES)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    A weak encryption library can lead to data breaches and greater security risk.
+    Your code is at risk due to the use of DES (Data Encryption Standard), a weak encryption algorithm. This vulnerability can lead to data breaches and compromises your security measures.
 
     ## Remediations
 
-    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), DES (Data Encryption Standard) is considered a weak encryption algorithm and therefore shouldn't be used.
+    - **Do not** use DES as it is outdated and vulnerable to attacks. Its use can significantly weaken your application's security.
+    - **Do** opt for stronger encryption algorithms, such as AES (Advanced Encryption Standard), to ensure the confidentiality and integrity of your data.
+      ```javascript
+      const crypto = require("crypto");
 
-    ✅ Use stronger encryption algorithms when storing data.
+      const cipher = crypto.createCipheriv("aes-256-cbc", key, iv);
+      const encrypted = cipher.update("my secret message", "utf8");
+      ```
 
-    ```javascript
-    const crypto = require("crypto");
+    ## References
 
-    const cipher = crypto.createCipheriv("aes-256-cbc", key, iv);
-
-    const encrypted = cipher.update("my secret message", "utf8");
-    ```
-
-    ## Resources
     - [NodeJS Crypto Module](https://nodejs.org/api/crypto.html)
   cwe_id:
     - 327

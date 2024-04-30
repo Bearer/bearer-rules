@@ -16,20 +16,21 @@ languages:
 severity: critical
 metadata:
   description: Missing signature verification of JWT
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    With JSON Web Tokens (JWTs), signature verification allows us to ensure the authenticity and integrity of the token.
-    Not verifying the siguature of JWTs is bad security practice and makes an application vulnerable to token forgery and token replay attacks.
-
-    The `parse()` method does not perform signature verification, and should be avoided in most cases.
-    Instead, use the `parseClaimsJets()` method which does perform signature verification.
+    Failing to verify the signature of JSON Web Tokens (JWTs) compromises the security of an application. Signature verification is crucial for confirming the authenticity and integrity of JWTs. Without this verification, your application is open to token forgery and replay attacks, where attackers can manipulate or reuse tokens to gain unauthorized access.
 
     ## Remediations
 
-    ❌ Avoid using `parse()` to inspect JWT payloads because this method does not verify the token's signature
-
-    ✅ Prefer `parseClaimsJws()` because this will verify the JWT signature
+    - **Do not** use the `parse()` method for handling JWTs, as it does not verify the token's signature, leaving a significant security gap.
+      ```java
+      Jwts.parser().setSigningKey(JWT_PASSWORD).parse(accessToken); // unsafe
+      ```
+    - **Do** use the `parseClaimsJws()` method when working with JWTs. This method ensures that the signature is verified, safeguarding against the manipulation of token data.
+      ```java
+      Jwts.parser().setSigningKey(JWT_PASSWORD).parseClaimsJws(accessToken);
+      ```
 
     ## References
 

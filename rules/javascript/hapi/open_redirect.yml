@@ -37,16 +37,16 @@ languages:
 severity: medium
 metadata:
   description: Unsanitized user input in redirect
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    A redirect using unsanitized user input is bad practice and puts your application at greater risk of phishing attacks.
+
+    Using unsanitized user input for redirects can make your application vulnerable to phishing attacks. This occurs when user input directly influences the destination of a redirect without any validation, potentially leading to malicious sites.
 
     ## Remediations
-    ❌ Do not use unsanitized user input when constructing URLs
 
-    ✅ Instead, ensure the input is validated by using a safe list or a mapping when constructing URLs
-
-    ```javascript
+    - **Do not** use unsanitized user input to construct URLs for redirects. This practice can inadvertently lead to phishing attacks.
+    - **Do** validate user input by employing a safelist or predefined mapping for URL construction. This ensures that redirects only lead to safe and intended destinations.
+      ```javascript
       var map = {
         "1": "/planes",
         "2": "/trains",
@@ -54,9 +54,10 @@ metadata:
       }
 
       res.redirect(map[req.body.transport])
-    ```
-    ## Resources
-    - [OWASP open redirect](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
+      ```
+    ## References
+
+    - [OWASP Unvalidated Redirects and Forwards Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
   cwe_id:
     - 601
   id: javascript_hapi_open_redirect

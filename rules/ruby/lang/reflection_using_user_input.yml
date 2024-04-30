@@ -92,34 +92,32 @@ patterns:
 severity: critical
 metadata:
   description: "Unsanitized user input in code generation"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should not look up or manipulate code using user-supplied data.
+    Using unsanitized user input in code generation can lead to code injection vulnerabilities. This issue arises when an application dynamically generates or manipulates code based on user-supplied data without proper validation or sanitization.
 
     ## Remediations
 
-    ❌ Avoid using user input when using reflection:
+    - **Do not** directly use user input for code generation or reflection. This can lead to malicious code execution.
+      ```ruby
+      method(params[:method]) # unsafe
+      ```
+    - **Do** validate or sanitize user input before using it in code generation. Use a controlled approach to map user inputs to specific, predefined actions or methods.
+      ```ruby
+      method_name =
+        case params[:action]
+        when "option1"
+          "method1"
+        when "option2"
+          "method2"
+        end
 
-    ```ruby
-    method(params[:method])
-    ```
+      method(method_name)
+      ```
 
-    ✅ Use user input indirectly when using reflection:
+    ## References
 
-    ```ruby
-    method_name =
-      case params[:action]
-      when "option1"
-        "method1"
-      when "option2"
-        "method2"
-      end
-
-    method(method_name)
-    ```
-
-    ## Resources
     - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
   cwe_id:
     - 94

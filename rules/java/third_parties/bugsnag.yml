@@ -64,15 +64,14 @@ metadata:
   description: Leakage of sensitive data to Bugsnag
   remediation_message: |
     ## Description
-    Leaking sensitive data to third-party loggers is a common cause of data
-    leaks and can lead to data breaches. This rule looks for instances of
-    sensitive data sent to Bugsnag.
+
+    Leaking sensitive data to third-party loggers like Bugsnag is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    When logging errors or events, ensure all sensitive data is removed.
+    - **Do** ensure all sensitive data is removed when sending data to third-party loggers like Bugsnag.
 
-    ## Resources
+    ## References
     - [Bugsnag Docs](https://docs.bugsnag.com/platforms/java/)
   cwe_id:
     - 201

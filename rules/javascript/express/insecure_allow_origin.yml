@@ -35,16 +35,19 @@ auxiliary:
             scope: result
 metadata:
   description: "Unsanitized user input in Access-Control-Allow-Origin"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Do not use unverified user-defined input to define Access-Control-Allow-Origin. This can lead to unintended user access to sensitive data.
+
+    Using unverified user-defined input to set the Access-Control-Allow-Origin header can result in unauthorized access to sensitive data. This vulnerability exposes your application to potential security risks by allowing attackers to specify origins that can access resources.
 
     ## Remediations
-    ❌ Avoid defining origins with user input wherever possible.
 
-    ✅ If unavoidable, be sure to verify the input or to use a safe-list.
+    - **Do not** define the Access-Control-Allow-Origin header with user input. This practice can compromise the security of your application by allowing data access to unintended users.
+    - **Do** verify user input if it is absolutely necessary to use it for defining origins. Ensure that the verification process is robust to prevent security breaches.
+    - **Do** use a safelist approach when specifying origins. This uses a predefined list of trusted origins and only allows requests from those origins.
 
-    ## Resources
+    ## References
+
     - [OWASP Origin & Access-Control-Allow-Origin](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/07-Testing_Cross_Origin_Resource_Sharing)
   cwe_id:
     - 346

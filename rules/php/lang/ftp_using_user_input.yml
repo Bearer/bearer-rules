@@ -14,26 +14,26 @@ languages:
 severity: high
 metadata:
   description: "Unsanitized user input in FTP request"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Using raw unsanitized input with FTP methods is bad practice.
-    It could put your application at risk for code injection attacks, or lead
-    to path traversal, by which attackers can gain access to resources outside
-    of the intended scope.
+
+    Incorporating unsanitized user input directly into FTP requests poses a significant security risk. This practice can lead to code injection attacks, where attackers exploit the application to execute malicious code, or path traversal attacks, allowing unauthorized access to files and directories outside the intended area.
 
     ## Remediations
-    ❌ Do not form filenames or file paths for FTP from raw user input
-    ```php
-    $connection = ftp_ssl_connect("ftp.example.com", 21);
-    ftp_delete($connection, $_GET["name"]);
-    ```
-    ❌ Do not pass raw user input as arguments to FTP methods
 
-    ```php
-    $connection = ftp_ssl_connect($_GET["host"], 21);
-    ```
+    - **Do not** use unsanitized user input to construct filenames or file paths in FTP operations. Always sanitize and validate input before use.
+      ```php
+      $connection = ftp_ssl_connect("ftp.example.com", 21);
+      ftp_delete($connection, $_GET["name"]); // unsafe
+      ```
 
-    ## Resources
+    - **Do not** use unsanitized user input as arguments in FTP connection methods or any FTP operations. Validate and sanitize all input first.
+      ```php
+      $connection = ftp_ssl_connect($_GET["host"], 21); // unsafe
+      ```
+
+    ## References
+
     - [OWASP code injection](https://owasp.org/www-community/attacks/Code_Injection)
     - [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)
   cwe_id:

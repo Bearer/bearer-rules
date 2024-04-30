@@ -18,27 +18,28 @@ languages:
 severity: critical
 metadata:
   description: "Unsanitized user input in OS command"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Using external or user-defined input directly in an OS command can allow attackers to perform dangerous commands on the operating system.
+
+    Executing operating system commands with unsanitized user input can lead to command injection vulnerabilities. This occurs when attackers manipulate the input to execute unauthorized commands, potentially gaining control over the system.
 
     ## Remediations
 
-    Think twice if user input is really needed there.
-
-    It might be possible to use dynamic hardcoded values:
-
-    ```javascript
+    - **Do not** directly use user input in OS command execution. This can open up the system to command injection attacks.
+    - **Do** use static or predefined values for command parameters when possible. This reduces the risk of injection and ensures that the command operates within expected parameters.
+      ```javascript
       let filePattern = "*.js"
 
-      if req.params.graphql {
+      if (req.params.graphql) {
         filePattern = "*.gql"
       }
 
       cp.exec(`cp ${filePattern} foo`, (error, stdout, stderr) => {});
-    ```
+      ```
+    - **Do** validate and sanitize all user input used in OS commands. Ensure that the input does not contain malicious characters or command sequences.
 
-    ## Resources
+    ## References
+
     - [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)
   cwe_id:
     - 78

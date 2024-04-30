@@ -18,20 +18,20 @@ languages:
 severity: high
 metadata:
   description: Usage of permissive file permission ('other')
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Having overly permissive file permissions, such as extending read, write, or execute privileges to 'other', is risky and could lead to accidental exposure of sensitive information.
+    Granting overly permissive file permissions, especially to 'other', poses a significant security risk by potentially exposing sensitive information to unauthorized users.
 
     ## Remediations
 
-    ✅ Keep file permissions as restrictive as possible. With the Posix enum, for example, prefer 'groups' to 'other', when extending privileges to users without owner privileges.
-
-    ```java
+    - **Do** keep file permissions as restrictive as necessary. Opt for granting privileges to 'groups' rather than 'other' to minimize the risk of unauthorized access.
+      ```java
       permissions.add(PosixFilePermission.GROUP_WRITE)
-    ```
+      ```
 
-    ## Resources
+    ## References
+
     - [Java Files class](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/nio/file/Files.html)
     - [Java PosixFilePermission enum](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/nio/file/attribute/PosixFilePermission.html)
   cwe_id:

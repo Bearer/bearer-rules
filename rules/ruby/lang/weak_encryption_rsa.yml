@@ -28,27 +28,24 @@ skip_data_types:
   - Passwords # see ruby_lang_weak_password_encryption_rsa
 metadata:
   description: "Usage of weak encryption algorithm (RSA)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    A weak encryption library can lead to data breaches and greater security risk.
+    Using a weak encryption algorithm, specifically 1024-bit RSA, compromises data security. This vulnerability can lead to unauthorized access to sensitive information.
 
     ## Remediations
-    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), 1024-bit RSA (Rivest-Shamir-Adleman) is considered a weak encryption algorithm and therefore shouldn't be used.
 
-    ❌ Avoid libraries and algorithms with known weaknesses:
+    - **Do not** use 1024-bit RSA for encryption. It is no longer considered secure.
+      ```ruby
+      OpenSSL::PKey::RSA.new(1024) # unsafe
+      ```
+    - **Do** use stronger encryption methods, such as bcrypt, to enhance security.
+      ```ruby
+      BCrypt::Password.create('iLOVEdogs123')
+      ```
 
-    ```ruby
-    OpenSSL::PKey::RSA.new 1024
-    ```
+    ## References
 
-    ✅ Instead, we recommend using bcrypt:
-
-    ```ruby
-    BCrypt::Password.create('iLOVEdogs123')
-    ```
-
-    ## Resources
     - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
   cwe_id:
     - 327

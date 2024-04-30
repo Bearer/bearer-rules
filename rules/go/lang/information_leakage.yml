@@ -23,18 +23,17 @@ languages:
 severity: low
 metadata:
   description: Leakage of sensitive information in exception message
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Exposing an exception message is risky because it may contain sensitive information such as the technical details of your application or environment (which in turn could expose your application to path traversal attacks, for example), or worse, user-specific data.
+    Leakage of sensitive information in exception messages can compromise your application's security. This occurs when exception messages reveal too much about your application's internal workings or user-specific data, potentially aiding attackers in crafting targeted attacks such as path traversal.
 
     ## Remediations
 
-    ❌ Avoid printing the full stack trace
+    - **Do not** include sensitive information in exception messages. This prevents accidental exposure of application details or user data.
+    - **Do** limit the information logged in error messages to only what is necessary for troubleshooting. This minimizes the risk of information leakage.
 
-    ✅ Less is more! Only log the minimum required details in error messages
-
-    ## Resources
+    ## References
 
     - [Web Application Security Consortium: Information Leakage](http://projects.webappsec.org/w/page/13246936/Information%20Leakage)
   cwe_id:

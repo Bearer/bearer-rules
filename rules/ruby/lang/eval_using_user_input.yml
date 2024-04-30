@@ -36,26 +36,27 @@ languages:
 severity: critical
 metadata:
   description: "Unsanitized user input in 'eval' type function"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    It is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to code injection.
+
+    Executing code with 'eval' or similar functions using unsanitized user input is risky and can lead to code injection vulnerabilities. This happens when external input is used directly in functions that execute code, allowing attackers to run malicious code within your application.
 
     ## Remediations
-    ❌ Avoid using code execution methods with unsanitized user input.
 
-    It might be possible to use dynamic hardcoded values, instead of user input directly.
+    - **Do not** use `eval` or similar code execution functions with unsanitized user input. This can create a significant security risk by allowing code injection.
+    - **Do** use dynamic hardcoded values instead of direct user input to mitigate the risk of code injection. This approach allows for controlled execution of code without exposing your application to injected malicious code.
+      ```ruby
+      get_total_str = if params["include_vat"]
+        "def get_total(a,b,c); a + b + c; end"
+      else
+        "def get_total(a,b); a + b; end"
+      end
 
-    ```ruby
-    get_total_str = if params["include_vat"]
-      "def get_total(a,b,c); a + b + c; end"
-    else
-      "def get_total(a,b); a + b; end"
-    end
+      cart.instance_eval(get_total_str)
+      ```
 
-    cart.instance_eval(get_total_str)
-    ```
+    ## References
 
-    ## Resources
     - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
   cwe_id:
     - 95

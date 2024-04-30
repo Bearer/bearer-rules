@@ -23,34 +23,25 @@ languages:
   - go
 metadata:
   description: "Missing validation for regular expression"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Validations using regular expressions should use the start of text (\A) and
-    end of text (\z or \Z) boundaries.
-
-    Note, it is best security practice to prefer the boundary expressions \A and \z or \Z
-    over ^ and $, because ^ and $ operate as line-based boundaries when multiline mode is enabled.
+    When using regular expressions for validation, it's crucial to specify the start and end of the text boundaries. This ensures the entire text is validated, not just parts of it. Use \A and \z (or \Z) over ^ and $ to specify text boundaries, because these accurately mark the beginning and end of the text, even in multiline mode.
 
     ## Remediations
 
-    ❌ Avoid matching without start and end boundaries:
-
-    ```go
-    regexp.MustCompile("foo")
-    ```
-
-    ❌ Avoid using line-based boundaries:
-
-    ```go
-    regexp.MustCompile("^foo$"}
-    ```
-
-    ✅ Use whole-text boundaries:
-
-    ```go
-    regexp.MustCompile("\Afoo\z")
-    ```
+    - **Do not** use regular expressions without specifying start and end boundaries. This can lead to incomplete validation.
+      ```go
+      regexp.MustCompile("foo") // unsafe
+      ```
+    - **Do not** use line-based boundaries (^ and $) for validation as they may not secure the entire text.
+      ```go
+      regexp.MustCompile("^foo$") // unsafe
+      ```
+    - **Do** use whole-text boundaries (\A and \z or \Z) in your regular expressions to ensure comprehensive validation.
+      ```go
+      regexp.MustCompile("\Afoo\z")
+      ```
 
   cwe_id:
     - 625

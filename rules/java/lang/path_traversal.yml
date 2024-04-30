@@ -16,20 +16,18 @@ languages:
   - java
 metadata:
   description: Unsanitized user input in file path
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Allowing unsanitized user input in path resolution methods means an attacker could gain access to files and folders outside of the intended scope (path traversal).
+    Unsanitized user input in file paths can compromise your system's security. This vulnerability arises when user input is directly used to construct file names or paths without proper sanitization, potentially leading to path manipulation. Attackers could exploit this to access files or directories outside the intended scope, posing a significant security risk.
 
     ## Remediations
-    ❌ Wherever possible, avoid constructing filepaths with user input
 
-    ✅ Use Paths helpers to normalize filepaths. This removes unwanted patterns in the path such as `\..\..` that could lead to path traversal attacks
-
-    ```java
+    - **Do not** construct file paths directly with user input. This practice can inadvertently allow attackers to manipulate paths to access unauthorized files.
+    - **Do** use path normalization utilities to safely handle user input in file paths. These utilities help eliminate dangerous path sequences.
+      ```java
       public class Cls extends HttpServlet
       {
-
           public void handleRequest(HttpServletRequest request, HttpServletResponse response)
           {
               String image = request.getParameter("user_profile_picture");
@@ -39,9 +37,10 @@ metadata:
               File file = new File(imagePath.toString());
           }
       }
-    ```
+      ```
 
-    ## Resources
+    ## References
+
     - [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)
   cwe_id:
     - 73

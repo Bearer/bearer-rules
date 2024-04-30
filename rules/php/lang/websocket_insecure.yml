@@ -16,27 +16,24 @@ patterns:
 severity: critical
 metadata:
   description: "Usage of insecure websocket connection"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    Applications should only connect to APIs using SSL connections. This rule
-    checks that all websocket connections use SSL.
+    Using insecure websocket connections can compromise data security. This vulnerability arises when applications connect to APIs without SSL, making the data susceptible to interception and manipulation.
 
     ## Remediations
 
-    ❌ Avoid using unsecured outgoing websocket communication:
+    - **Do not** use unsecured websocket connections. These connections lack encryption, putting data at risk.
+      ```php
+      $client = new Client('ws://insecure-api.com') // unsafe
+      ```
+    - **Do** ensure all websocket connections are secured with SSL. This encrypts the data, protecting it from unauthorized access.
+      ```php
+      $client = new Client('wss://secure-api.com')
+      ```
 
-    ```php
-    $client = new Client('ws://insecure-api.com')
-    ```
+    ## References
 
-    ✅ Always connect using SSL:
-
-    ```php
-    $client = new Client('wss://secure-api.com')
-    ```
-
-    ## Resources
     - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
   cwe_id:
     - 319

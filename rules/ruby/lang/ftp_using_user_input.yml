@@ -33,28 +33,30 @@ languages:
 severity: high
 metadata:
   description: "Unsanitized user input in FTP request"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Using raw unsanitized input with FTP methods is bad practice.
-    It could put your application at risk for code injection attacks, or lead to path traversal, by which attackers can gain access to resources outside of the intended scope
 
+    Using unsanitized user input in FTP requests can lead to severe security vulnerabilities. When your application uses raw user input in FTP operations without proper sanitization, it opens up avenues for attackers. They could exploit this to perform code injection attacks, where malicious code is executed by the application, or path traversal attacks, which allow unauthorized access to files and directories outside of the intended scope.
 
     ## Remediations
-    ❌ Do not form filenames or file paths for FTP from raw user input
-    ```ruby
-    Net::FTP.open("public/#{params["resource_name"]}.txt" do
-      # ...
-    end
-    ```
-    ❌ Do not pass raw user input as arguments to FTP methods
 
-    ```ruby
-    Net::FTP.open("example.txt", username: params[:user]) do
-      # ...
-    end
-    ```
+    - **Do not** use unsanitized user input to form filenames or file paths in FTP operations. Always sanitize input to prevent malicious data from being processed.
+      ```ruby
+      Net::FTP.open("public/#{params["resource_name"]}.txt") do # unsafe
+        # ...
+      end
+      ```
+    - **Do not** pass unsanitized user input as arguments to FTP methods. Ensure input is validated or sanitized before use.
+      ```ruby
+      Net::FTP.open("example.txt", username: params[:user]) do # unsafe
+        # ...
+      end
+      ```
+    - **Do** use a safelist for filenames and paths, allowing only known patterns.
+    - **Do** implement strict input validation checks, such as length, format, and type, to ensure only expected data is processed.
 
-    ## Resources
+    ## References
+
     - [OWASP code injection](https://owasp.org/www-community/attacks/Code_Injection)
     - [OWASP path traversal](https://owasp.org/www-community/attacks/Path_Traversal)
   cwe_id:

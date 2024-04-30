@@ -154,13 +154,14 @@ metadata:
   description: "Leakage of sensitive data to Datadog"
   remediation_message: |
     ## Description
-    Leaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Datadog.
+
+    Leaking sensitive data to third-party loggers like Datadog is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    When logging errors or events, ensure all sensitive data is removed.
+    - **Do** ensure all sensitive data is removed when sending data to third-party loggers like Datadog.
 
-    ## Resources
+    ## References
     - [Datadog docs](https://docs.datadoghq.com)
     - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=go#scrub-sensitive-data-from-your-spans)
   cwe_id:

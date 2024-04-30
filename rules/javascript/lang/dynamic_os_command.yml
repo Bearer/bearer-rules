@@ -122,27 +122,22 @@ languages:
 severity: critical
 metadata:
   description: "Unsanitized dynamic input in OS command"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Using dynamic input directly in an OS command can allow attackers to perform dangerous commands on the operating system.
+
+    Incorporating unsanitized dynamic input directly into operating system commands poses a significant security risk. This practice could give attackers the opportunity to execute harmful commands on your system.
 
     ## Remediations
 
-    Think twice if user input is really needed there.
+    - **Do** use static, hardcoded values in command strings - wherever possible - to avoid relying on dynamic data.
+      ```javascript
+      let filePattern = "*.js";
+      cp.exec(`cp ${filePattern} destinationFolder`, (error, stdout, stderr) => {});
+      ```
+    - **Do** sanitize any dynamic input used in OS commands to ensure it does not contain malicious code. This can be achieved by validating and escaping the input.
 
-    It might be possible to use dynamic hardcoded values:
+    ## References
 
-    ```javascript
-      let filePattern = "*.js"
-
-      if sanitized(filePattern) {
-        filePattern = "*.gql"
-      }
-
-      cp.exec(`cp ${filePattern} foo`, (error, stdout, stderr) => {});
-    ```
-
-    ## Resources
     - [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)
   cwe_id:
     - 78

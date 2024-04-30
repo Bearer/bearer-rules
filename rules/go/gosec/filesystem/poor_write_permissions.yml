@@ -21,50 +21,21 @@ languages:
   - go
 metadata:
   description: "Permissive file creation"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    The application has been detected setting file permissions that are too permissive. This configuration could allow unauthorized users to read, write, or execute files, potentially leading to information disclosure or other security vulnerabilities.
+    Your application sets file permissions that are overly permissive. This oversight could let unauthorized individuals read, write, or execute files, which could lead to the exposure of sensitive information or other security risks.
 
     ## Remediations
 
-    To enhance security, file permissions should be set to more restrictive values, especially when the files contain sensitive information:
+    - **Do** use restrictive file permissions. Assign file permissions that strictly limit access, aligning with what your application genuinely needs:
+      - `0400` for read-only access by the file's owner.
+      - `0200` for write-only access by the file's owner.
+      - `0600` for read and write access by the file's owner, suitable for files that the application needs to read from and write to.
+    - **Do** set the correct permissions when you create or modify files. This step is crucial to prevent unauthorized access right from the start.
+    - **Do** regularly review and audit file permissions in your system to ensure they adhere to the principle of least privilege, minimizing the access level to what is strictly necessary for operational functionality.
 
-    ✅ Use Restrictive File Permissions
-
-    Assign file permissions to limit access appropriately based on the application's requirements.
-
-    - `0400`: Grants read-only access to the file for the owner.
-    - `0200`: Grants write-only access to the file for the owner.
-    - `0600`: Grants read and write access to the file for the owner.
-
-    ✅ Apply Permissions During File Creation
-
-    When creating or modifying files, set the appropriate permissions to prevent unauthorized access.
-
-    ```go
-    import (
-        "os"
-        "log"
-    )
-
-    func main() {
-        // Data to be written to the file
-        dat := []byte("sensitive data")
-
-        // Write the data to 'file.txt' with read and write permissions for the owner only
-        if err := os.WriteFile("file.txt", dat, 0600); err != nil {
-            log.Fatalf("failed to write file: %s", err)
-        }
-        // File is now safely written with restricted permissions
-    }
-    ```
-
-    ✅ Review File Permission Settings
-
-    Regularly audit the permissions of files to ensure they conform to the principle of least privilege.
-
-    ## Resources
+    ## References
 
     - [Go Documentation for os Package](https://pkg.go.dev/os)
     - [Linux 'chmod' Command](https://linux.die.net/man/1/chmod)

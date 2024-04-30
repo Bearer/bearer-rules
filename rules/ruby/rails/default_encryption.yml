@@ -20,14 +20,28 @@ trigger:
 severity: warning
 metadata:
   description: "Missing application-level encryption of sensitive data"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    Application-level encryption greatly reduces the risk of a data breach or data leak by making data unreadable. This rule checks if sensitive data types found in records are encrypted.
+
+    Failing to encrypt sensitive data at the application level can lead to data breaches. This vulnerability arises when sensitive information within records is not encrypted, making it readable and accessible.
 
     ## Remediations
-    Whenever storing sensitive data to a datastore, make sure to encrypt the entire record, or the field itself.
 
-    ## Resources
+    - **Do** encrypt the entire record when storing sensitive data in a datastore. This approach ensures that all sensitive information is protected.
+      ```ruby
+      class User < ApplicationRecord
+        encrypts :personal_info
+      end
+      ```
+    - **Do** encrypt specific fields if encrypting the entire record is not feasible. This method protects individual pieces of sensitive data.
+      ```ruby
+      class User < ApplicationRecord
+        encrypts :ssn, :credit_card_number
+      end
+      ```
+
+    ## References
+
     - [Ruby on Rails Active Record encryption](https://guides.rubyonrails.org/active_record_encryption.html)
   cwe_id:
     - 312

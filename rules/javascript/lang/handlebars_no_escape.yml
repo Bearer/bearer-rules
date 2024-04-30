@@ -14,18 +14,17 @@ languages:
 severity: high
 metadata:
   description: "Missing escape of HTML entities in Handlebars template compilation"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    As a templating engine, Handlebars generates HTML markup dynamically.
-    Setting `noEscape` to true disables escaping HTML entities within the template output itself.
-
-    This is a security risk as it could lead to Cross-Site Scripting (XSS) vulnerabilities if
-    the template is from an untrusted source.
+    In Handlebars (a templating engine that dynamically generates HTML markup), setting `noEscape` to true disables escaping HTML entities within the template output itself. This poses a security vulnerability, particularly leading to Cross-Site Scripting (XSS) attacks if the template content comes from an untrusted source.
 
     ## Remediations
 
-    ❌ Do not set `noEscape` to true when compiling Handlebars templates
+    - **Do** set `noEscape` to false while compiling Handlebars templates, to ensure that HTML entities are properly escaped, thus mitigating the risk of XSS vulnerabilities.
+      ```javascript
+      Handlebars.compile(template, { noEscape: false });
+      ```
 
     ## References
 

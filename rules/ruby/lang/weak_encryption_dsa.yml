@@ -28,27 +28,24 @@ skip_data_types:
   - Passwords # see ruby_lang_weak_password_encryption_dsa
 metadata:
   description: "Usage of weak encryption algorithm (DSA)"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    A weak encryption library can lead to data breaches and greater security risk.
+    Using a weak encryption algorithm like 1024-bit DSA (Digital Signature Algorithm) compromises data security, making it vulnerable to breaches.
 
     ## Remediations
-    According to [OWASP](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption), 1024-bit DSA (Digital Signature Algorithm) is considered a weak encryption algorithm and therefore shouldn't be used.
 
-    ❌ Avoid libraries and algorithms with known weaknesses:
+    - **Do not** use 1024-bit DSA for encryption. This algorithm is no longer considered secure.
+      ```ruby
+      OpenSSL::PKey::DSA.new(1024) # unsafe
+      ```
+    - **Do** use stronger, more secure algorithms such as bcrypt for encrypting data. bcrypt is designed to be a slow hashing algorithm, which makes it harder for attackers to decrypt.
+      ```ruby
+      BCrypt::Password.create('iLOVEdogs123')
+      ```
 
-    ```ruby
-    OpenSSL::PKey::DSA.new 1024
-    ```
+    ## References
 
-    ✅ Instead, we recommend using bcrypt:
-
-    ```ruby
-    BCrypt::Password.create('iLOVEdogs123')
-    ```
-
-    ## Resources
     - [BCrypt Explained](https://dev.to/sylviapap/bcrypt-explained-4k5c)
   cwe_id:
     - 327

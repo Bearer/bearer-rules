@@ -98,16 +98,19 @@ auxiliary:
 severity: medium
 metadata:
   description: Usage of default cookie configuration
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    To make sure cookies don't open your application up to exploits or unauthorized access, don't use default cookie values.
+
+    Using default cookie configurations can expose your application to security risks. This vulnerability arises when cookies are set with their default values, making them predictable and easier to exploit.
 
     ## Remediations
-    ✅ Instead of the default cookie name, use generic names.
 
-    ✅ Always set a maxAge or expires value
+    - **Do not** rely on default cookie names.
+    - **Do** use generic, non-descriptive names for session cookies. This makes it harder for attackers to identify and exploit the session management mechanism of your application.
+    - **Do** always specify a `maxAge` or `expires` value to control cookie lifetime.
 
-    ## Resources
+    ## References
+
     - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
   cwe_id:
     - 693

@@ -22,20 +22,20 @@ languages:
   - javascript
 metadata:
   description: Missing Secure option in cookie configuration
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    A cookie that is configured to be secure ensures that a client will only send the cookie to the server when HTTPS is being used.
-    This prevents the cookie from being observed by unauthorized third parties.
+    When a cookie lacks the Secure attribute, it can be transmitted over an unencrypted connection, making it vulnerable to interception by unauthorized parties. Enabling the Secure option ensures that cookies are only sent over HTTPS, enhancing the security of data in transit.
 
     ## Remediations
 
-    ✅ Set `secure` values to `true` to force cookies to only send over HTTPS.
+    - **Do** set the `secure` attribute of cookies to `true`. This action mandates that cookies are sent only over HTTPS, safeguarding them from potential eavesdropping.
       ```javascript
-        cookie({{ secure: true }})
+      cookie({ secure: true });
       ```
 
-    ## Resources
+    ## References
+
     - [Express Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html#use-cookies-securely)
   cwe_id:
     - 614

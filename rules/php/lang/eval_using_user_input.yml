@@ -28,14 +28,22 @@ languages:
 severity: critical
 metadata:
   description: "Unsanitized user input in 'eval' type function"
-  remediation_message: |
+  remediation_message: |-
     ## Description
-    It is dangerous to use eval with user input, or to compile code with user-supplied data. Such practices can lead to command injection.
+
+    Executing code with 'eval' or similar functions using unsanitized user input is risky and can lead to code injection vulnerabilities. This happens when external input is used directly in functions that execute code, allowing attackers to run malicious code within your application.
 
     ## Remediations
-    ❌ Avoid using code execution methods with unsanitized user input.
 
-    ## Resources
+    - **Do not** use 'eval' or similar functions with user-supplied data. This can open your application to severe security risks.
+      ```php
+      eval("echo " . $_GET["untrusted"]);  // unsafe
+      ```
+    - **Do** validate and sanitize all user input before using it in your code. Ensure that the input does not contain malicious code or commands.
+    - **Do** use safer alternatives to 'eval' for dynamic code execution. Consider using functions that limit the scope and capabilities of executed code to reduce risk.
+
+    ## References
+
     - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
   cwe_id:
     - 95

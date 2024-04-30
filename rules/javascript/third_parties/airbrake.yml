@@ -23,22 +23,21 @@ metadata:
   description: "Leakage of sensitive data to Airbrake"
   remediation_message: |
     ## Description
-    Leaking sensitive data to third-party loggers is a common cause of data leaks and can lead to data breaches. This rule looks for instances of sensitive data sent to Airbrake.
+
+    Leaking sensitive data to third-party loggers like Airbrake is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    When logging errors or events, ensure all sensitive data is removed.
+    - **Do** ensure all sensitive data is removed when logging errors or events to Airbrake
+    - **Do** use unique identifiers from the database if you really need to identify users.
+      ```javascript
+      airbrake.notify({
+        error: err,
+        params: { user: user.uuid },
+      });
+      ```
 
-    If you really need to identify users, use unique identifiers from the database.
-
-    ```javascript
-    airbrake.notify({
-      error: err,
-      params: { user: user.uuid },
-    });
-    ```
-
-    ## Resources
+    ## References
     - [Airbrake Docs](https://docs.airbrake.io/)
     - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
   cwe_id:

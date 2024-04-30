@@ -28,26 +28,25 @@ languages:
 severity: high
 metadata:
   description: "Unsanitized user input in format string"
-  remediation_message: |
+  remediation_message: |-
     ## Description
 
-    If an application includes user input directly in a format string, an
-    attacker can use format specifiers in the user input to produce misleading
-    or fabricated messages.
+    Unsanitized user input in format string can lead to security vulnerabilities. This issue arises when user input is directly incorporated into a format string, enabling attackers to manipulate the output through format specifiers, resulting in misleading or fabricated messages.
 
     ## Remediations
 
-    ❌ Avoid format strings containing user input:
+    - **Do not** include user input directly in format strings. This approach can be exploited by attackers to manipulate the output.
+      ```php
+      sprintf("The value was ${_GET["value"]}"); // unsafe
+      ```
+    - **Do** use a literal format string with user input as separate arguments. This method helps prevent attackers from influencing the format of the output.
+      ```php
+      sprintf("The value was %s", $_GET["value"]);
+      ```
 
-    ```php
-    sprintf("The value was ${_GET["value"]}");
-    ```
+    ## References
 
-    ✅ Use a literal format string with additional arguments:
-
-    ```php
-    sprintf("The value was %s", $_GET["value"]);
-    ```
+    - [OWASP Testing for Format String Injection](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/07-Input_Validation_Testing/13-Testing_for_Format_String_Injection)
   cwe_id:
     - 134
   id: php_lang_format_string_using_user_input
