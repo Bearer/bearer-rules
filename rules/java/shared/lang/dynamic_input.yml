@@ -9,6 +9,27 @@ patterns:
       - variable: DYNAMIC_INPUT
         detection: java_shared_lang_dynamic_input_input
         scope: cursor_strict
+  - pattern: $<DYNAMIC_INPUT>.$<METHOD>();
+    filters:
+      - variable: DYNAMIC_INPUT
+        detection: java_shared_lang_dynamic_input
+        scope: cursor
+      - variable: METHOD
+        values:
+          - getBytes
+          - replace
+          - replaceAll
+          - split
+          - substring
+          - toCharArray
+          - toLowerCase
+          - toString
+          - toUpperCase
+            # StringBuilder
+          - append
+          - toString
+            # Enumeration
+          - nextElement
   # array access
   - pattern: $<DYNAMIC_INPUT>[$<_>];
     filters:

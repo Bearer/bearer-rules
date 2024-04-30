@@ -4,6 +4,27 @@ type: shared
 languages:
   - java
 patterns:
+  - pattern: $<USER_INPUT>.$<METHOD>()
+    filters:
+      - variable: USER_INPUT
+        detection: java_shared_lang_user_input
+        scope: cursor
+      - variable: METHOD
+        values:
+          - getBytes
+          - replace
+          - replaceAll
+          - split
+          - substring
+          - toCharArray
+          - toLowerCase
+          - toString
+          - toUpperCase
+            # StringBuilder
+          - append
+          - toString
+            # Enumeration
+          - nextElement
   - pattern: $<JAVA_SHARED_LANG_USER_INPUT_REQUEST>.$<JAVA_SHARED_LANG_USER_INPUT_METHOD>();
     filters:
       - variable: JAVA_SHARED_LANG_USER_INPUT_REQUEST
