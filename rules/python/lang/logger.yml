@@ -25,13 +25,13 @@ metadata:
     ## Remediations
 
     - **Do not** include sensitive data in logger messages. This can lead to unintentional exposure of private information.
-    ```python
-    logger.info(f"User is: '{user.email}'") # unsafe
-    ```
+      ```python
+      logger.info(f"User is: '{user.email}'") # unsafe
+      ```
     - **Do** use non-sensitive, unique identifiers to log user information. This approach maintains privacy and security.
-    ```python
-    logger.info(f"User is: '{user.uuid}'")
-    ```
+      ```python
+      logger.info(f"User is: '{user.uuid}'")
+      ```
 
     ## References
 

@@ -30,9 +30,9 @@ metadata:
     ## Remediations
 
     - **Do** set the `secure` attribute of cookies to `true`. This action mandates that cookies are sent only over HTTPS, safeguarding them from potential eavesdropping.
-    ```javascript
-    cookie({ secure: true });
-    ```
+      ```javascript
+      cookie({ secure: true });
+      ```
 
     ## References
 

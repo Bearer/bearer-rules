@@ -31,13 +31,13 @@ metadata:
     ## Remediations
 
     - **Do not** include variables or dynamic data containing sensitive information in logger messages. This can inadvertently expose sensitive data in logs, which are often not adequately protected.
-    ```java
-    logger.info("user signed in: " + user.uuid) // unsafe
-    ```
+      ```java
+      logger.info("user signed in: " + user.uuid) // unsafe
+      ```
     - **Do** log static messages that do not contain dynamic variables or attributes. This minimizes the risk of accidentally logging sensitive information.
-    ```java
-    logger.info("user signed in")
-    ```
+      ```java
+      logger.info("user signed in")
+      ```
 
     ## References
 

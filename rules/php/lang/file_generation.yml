@@ -24,11 +24,11 @@ metadata:
     ## Remediations
 
     - **Do not** write sensitive data directly to static files without considering the security implications. This includes personal user information like emails and addresses.
-    ```php
-    foreach ($users as $user) {
-      fputcsv($csvFile, [$user['email'], $user['address']]); // unsafe
-    }
-    ```
+      ```php
+      foreach ($users as $user) {
+        fputcsv($csvFile, [$user['email'], $user['address']]); // unsafe
+      }
+      ```
     - **Do** ensure that if writing sensitive data to files is a requirement, such actions are thoroughly documented. Include the file's location and the rationale for storing sensitive data in this manner, adhering to your organization's internal policies.
   cwe_id:
     - 313

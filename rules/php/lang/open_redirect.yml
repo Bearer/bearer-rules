@@ -22,16 +22,16 @@ metadata:
 
     - **Do not** use unsanitized user input when constructing URLs for redirects. Directly incorporating user input without validation can lead to phishing attacks and malicious site redirection.
     - **Do** validate user input by employing a safe list or a mapping strategy for constructing URLs. This ensures that the redirection is to a known, safe location.
-    ```php
-    $paths = [
-      "1" => "/planes",
-      "2" => "/trains",
-      "3" => "/automobiles",
-    ];
+      ```php
+      $paths = [
+        "1" => "/planes",
+        "2" => "/trains",
+        "3" => "/automobiles",
+      ];
 
-    $transport = $_GET["transport"];
-    header("Location: {$paths[$transport]}", true, 301);
-    ```
+      $transport = $_GET["transport"];
+      header("Location: {$paths[$transport]}", true, 301);
+      ```
 
     ## References
 

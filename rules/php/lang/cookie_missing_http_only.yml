@@ -79,9 +79,9 @@ metadata:
     ## Remediations
 
     - **Do** set the `httponly` attribute to `true` in your cookie configurations. This action prevents client-side scripts from sending or accessing the cookie, enhancing your application's security against XSS attacks.
-    ```php
-    setcookie("name", "value", httponly: true);
-    ```
+      ```php
+      setcookie("name", "value", httponly: true);
+      ```
 
     ## References
 

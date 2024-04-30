@@ -106,11 +106,11 @@ metadata:
 
     - **Do not** include user input in cookies or other HTTP headers without proper sanitization. This can prevent attackers from exploiting the input to manipulate the response.
     - **Do** remove CRLF sequences from user input to mitigate the risk of response splitting and XSS attacks. Use the following code snippet as a reference for sanitizing input in Java:
-    ```java
-    var input = request.getParameter("data");
-    var sanitized = input.replaceAll("\r\n", "");
-    cookie.setValue(sanitized);
-    ```
+      ```java
+      var input = request.getParameter("data");
+      var sanitized = input.replaceAll("\r\n", "");
+      cookie.setValue(sanitized);
+      ```
   cwe_id:
     - 79
   id: java_lang_http_response_splitting

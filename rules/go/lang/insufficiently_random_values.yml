@@ -25,24 +25,24 @@ metadata:
     ## Remediations
 
     - **Do** use a stronger, more secure library for generating random values. This is crucial for enhancing the security of your application.
-    ```go
-    import (
-      "crypto/rand"
-      "encoding/base64"
-      "fmt"
-    )
+      ```go
+      import (
+        "crypto/rand"
+        "encoding/base64"
+        "fmt"
+      )
 
-    func generateSecureToken(length int) (string, error) {
-      bytes := make([]byte, length)
-      _, err := rand.Read(bytes)
-      if err != nil {
-        return "", err
+      func generateSecureToken(length int) (string, error) {
+        bytes := make([]byte, length)
+        _, err := rand.Read(bytes)
+        if err != nil {
+          return "", err
+        }
+
+        // Encode the binary data to a string for easier use
+        return base64.URLEncoding.EncodeToString(bytes), nil
       }
-
-      // Encode the binary data to a string for easier use
-      return base64.URLEncoding.EncodeToString(bytes), nil
-    }
-    ```
+      ```
 
     ## References
 

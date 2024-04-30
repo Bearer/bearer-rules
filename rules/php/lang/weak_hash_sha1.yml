@@ -74,13 +74,13 @@ metadata:
     ## Remediations
 
     - **Do not** use SHA-1 for hashing. It is considered weak and vulnerable to attacks.
-    ```php
-    $encrypted = sha1($input); // unsafe
-    ```
+      ```php
+      $encrypted = sha1($input); // unsafe
+      ```
     - **Do** opt for stronger hashing algorithms such as SHA-256 to enhance security.
-    ```php
-    $encrypted = hash('sha256', $input);
-    ```
+      ```php
+      $encrypted = hash('sha256', $input);
+      ```
   cwe_id:
     - 328
   id: php_lang_weak_hash_sha1

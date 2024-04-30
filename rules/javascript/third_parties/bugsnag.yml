@@ -65,12 +65,12 @@ metadata:
 
     - **Do** ensure all sensitive data is removed when sending data to third-party loggers like Bugsnag.
     - **Do** use unique identifiers from the database if you really need to identify users.
-    ```javascript
-      import { Bugsnag } from "@bugsnag/js"
+      ```javascript
+        import { Bugsnag } from "@bugsnag/js"
 
-      var bugSession = Bugsnag.startSession()
-      bugSession.notify(user.uuid)
-    ```
+        var bugSession = Bugsnag.startSession()
+        bugSession.notify(user.uuid)
+      ```
 
     ## References
     - [Bugsnag Docs](https://docs.bugsnag.com/platforms/javascript/)

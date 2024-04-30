@@ -124,26 +124,26 @@ metadata:
     ## Remediations
 
     - **Do not** use raw SQL queries that concatenate unsanitized input directly.
-    ```javascript
-    var sqlite = new Sequelize("sqlite::memory:");
-    sqlite.query("SELECT * FROM users WHERE ID = " + req.params.userId); // unsafe
-    ```
+      ```javascript
+      var sqlite = new Sequelize("sqlite::memory:");
+      sqlite.query("SELECT * FROM users WHERE ID = " + req.params.userId); // unsafe
+      ```
     - **Do** validate all query inputs to ensure they meet expected patterns or values before using them in a query.
-    ```javascript
-    var rawId = req.params.userId
-    if !(/[0-9]+/.test(rawId)) {
-      // input is unexpected; don't make the query
-    }
-    ```
+      ```javascript
+      var rawId = req.params.userId
+      if !(/[0-9]+/.test(rawId)) {
+        // input is unexpected; don't make the query
+      }
+      ```
     - **Do** use prepared (or parameterized) statements for querying databases to safely include external input.
-    ```javascript
-    var sqlite = new Sequelize("sqlite::memory:");
-    sqlite.query(
-      "SELECT * FROM users WHERE ID = ?",
-      { replacements: [req.params.userId] },
-      type: sequelize.QueryTypes.SELECT
-    )
-    ```
+      ```javascript
+      var sqlite = new Sequelize("sqlite::memory:");
+      sqlite.query(
+        "SELECT * FROM users WHERE ID = ?",
+        { replacements: [req.params.userId] },
+        type: sequelize.QueryTypes.SELECT
+      )
+      ```
 
     ## References
 

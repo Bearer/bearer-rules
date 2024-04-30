@@ -43,13 +43,13 @@ metadata:
     ## Remediations
 
     - **Do not** use MD5 for hashing. This algorithm is considered weak and vulnerable to attacks.
-    ```python
-    hashlib.md5('password').digest() # unsafe
-    ```
+      ```python
+      hashlib.md5('password').digest() # unsafe
+      ```
     - **Do** opt for stronger hashing algorithms like SHA-256 to enhance security.
-    ```python
-    hashlib.sha256('password').digest()
-    ```
+      ```python
+      hashlib.sha256('password').digest()
+      ```
   cwe_id:
     - 328
   id: python_lang_weak_hash_md5

@@ -27,12 +27,12 @@ metadata:
     - **Do not** pass user or request input directly to the `require()` function. This practice can lead to severe security vulnerabilities.
     - **Do** sanitize user input if it must be used to dynamically load code. Ensure that the input is checked and cleaned to prevent malicious data from being processed.
     - **Do** use a safelist approach when relying on user input to load code dynamically. Verify that the input matches a predefined list of safe values before processing.
-    ```javascript
-    var path = req.body.path;
-    if (['users', 'posts', 'pages'].includes(path)) {
-      require(`${path}.js`);
-    }
-    ```
+      ```javascript
+      var path = req.body.path;
+      if (['users', 'posts', 'pages'].includes(path)) {
+        require(`${path}.js`);
+      }
+      ```
   cwe_id:
     - 470
   id: "javascript_lang_import_using_user_input"

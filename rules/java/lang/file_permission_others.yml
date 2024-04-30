@@ -26,9 +26,9 @@ metadata:
     ## Remediations
 
     - **Do** keep file permissions as restrictive as necessary. Opt for granting privileges to 'groups' rather than 'other' to minimize the risk of unauthorized access.
-    ```java
-    permissions.add(PosixFilePermission.GROUP_WRITE)
-    ```
+      ```java
+      permissions.add(PosixFilePermission.GROUP_WRITE)
+      ```
 
     ## References
 

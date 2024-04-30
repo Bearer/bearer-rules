@@ -27,18 +27,18 @@ metadata:
     ## Remediations
 
     - **Do not** use regular expressions for validation without specifying the start and end of the text. This approach can result in partial matches, which may not fully validate the data.
-    ```ruby
-    validates :attribute, format: { with: /foo/ }
-    ```
+      ```ruby
+      validates :attribute, format: { with: /foo/ }
+      ```
     - **Do not** rely on line-based boundaries (`^` for start of line, `$` for end of line) for validation. These can allow unexpected matches across multiple lines, potentially bypassing the validation.
-    ```ruby
-    validates :attribute, format: { with: /^foo$/ }
-    ```
+      ```ruby
+      validates :attribute, format: { with: /^foo$/ }
+      ```
     - **Do** use whole-text boundaries (`\A` for start of text, `\z` or `\Z` for absolute end of text) in your regular expressions. This ensures that the validation matches the entire text, from start to finish, providing a more secure validation.
-    ```ruby
-    validates :attribute1, format: { with: "\Afoo\Z" }
-    validates :attribute2, format: { with: "\Afoo\z" }
-    ```
+      ```ruby
+      validates :attribute1, format: { with: "\Afoo\Z" }
+      validates :attribute2, format: { with: "\Afoo\z" }
+      ```
 
     ## References
 

@@ -20,13 +20,13 @@ metadata:
     ## Remediations
 
     - **Do** upgrade Apache Commons Collections 3 to version 3.2.2 or above to mitigate the vulnerability associated with the InvokeTransformer class.
-    ```java
-    <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-collections4</artifactId>
-        <version>3.2.2</version>
-    </dependency>
-    ```
+      ```java
+      <dependency>
+          <groupId>org.apache.commons</groupId>
+          <artifactId>commons-collections4</artifactId>
+          <version>3.2.2</version>
+      </dependency>
+      ```
 
     ## References
 

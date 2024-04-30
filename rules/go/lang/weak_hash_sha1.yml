@@ -43,13 +43,13 @@ metadata:
     ## Remediations
 
     - **Do not** use SHA-1 for hashing. It is considered weak and vulnerable to attacks.
-    ```go
-    sha1.Sum([]byte("password")) // unsafe
-    ```
+      ```go
+      sha1.Sum([]byte("password")) // unsafe
+      ```
     - **Do** use stronger hashing algorithms such as SHA-256 to enhance security.
-    ```go
-    sha256.Sum256([]byte("string"))
-    ```
+      ```go
+      sha256.Sum256([]byte("string"))
+      ```
   cwe_id:
     - 328
   id: go_lang_weak_hash_sha1

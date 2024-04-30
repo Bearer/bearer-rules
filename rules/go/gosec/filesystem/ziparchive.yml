@@ -47,16 +47,16 @@ metadata:
 
     - **Do** implement checks to limit the zip archive's size. This prevents 'Zip Bombs', which are archives that decompress into sizes much larger than expected. For example, use `file.UncompressedSize64` to check the size of a file within a ZIP file.
     - **Do** generate unique filenames for extracted files or sanitize the original filenames to avoid overwriting files intentionally. You can use `filepath.Base`, for example, to extract the filename from a path and discard any directory information.
-    ```go
-    name := filepath.Base(file.Name)
-    ```
+      ```go
+      name := filepath.Base(file.Name)
+      ```
     - **Do** validate the paths of extracted files to ensure they are written to a specified, trusted directory without traversing outside of it.
     - **Do** process only regular files. Exclude symbolic links to prevent indirect file read/write vulnerabilities.
-    ```go
-    if !file.Mode().IsRegular() {
-      log.Fatal("non-regular file: %s\n", file.Name)
-    }
-    ```
+      ```go
+      if !file.Mode().IsRegular() {
+        log.Fatal("non-regular file: %s\n", file.Name)
+      }
+      ```
     - **Do** ensure directories within the zip archive are processed securely by cleaning the path and strictly validating it against the base path.
 
     ## References

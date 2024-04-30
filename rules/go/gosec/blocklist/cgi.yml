@@ -19,9 +19,9 @@ metadata:
     - **Do** update your Go version to 1.6.3 or later to mitigate this vulnerability.
     - **Do** opt for alternative packages, like the standard `net/http` library, for handling HTTP requests that do not use the CGI protocol.
     - **Do not** use the `net/http/cgi` package if your Go version is older than 1.6.3, as it is vulnerable to the Httpoxy attack.
-    ```go
-    import "net/http/cgi"
-    ```
+      ```go
+      import "net/http/cgi"
+      ```
     - **Do** ensure that environment variables like `HTTP_PROXY` are not unintentionally exposed, as this can be leveraged for Httpoxy attacks.
 
     ## References

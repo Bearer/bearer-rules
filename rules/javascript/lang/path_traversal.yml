@@ -101,23 +101,23 @@ metadata:
 
     - **Do not** directly use user input to construct file paths. This can lead to unauthorized file access.
     - **Do** sanitize user input used in file paths. Replace patterns that can navigate out of intended directories, such as `..\..`, to prevent path traversal attacks.
-    ```javascript
-    var folder = target.replace(/^(\.\.(\/|\\|$))+/, '');
-    ```
+      ```javascript
+      var folder = target.replace(/^(\.\.(\/|\\|$))+/, '');
+      ```
     - **Do** check for and remove any instances of the NULL byte ("%00") in user input to guard against poison NULL byte attacks.
-    ```javascript
-    if (target.indexOf('\0') !== -1) {
-      // Handle or reject the input
-    }
-    ```
+      ```javascript
+      if (target.indexOf('\0') !== -1) {
+        // Handle or reject the input
+      }
+      ```
     - **Do** use path concatenation methods provided by your programming environment to securely combine user input with your base directory path. This ensures the final path starts within the intended scope.
-    ```javascript
-    const path = require("path");
-    var pathname = path.join("/public/", folder);
-    if (pathname.indexOf("/public/") !== 0) {
-      // Handle or reject the input
-    }
-    ```
+      ```javascript
+      const path = require("path");
+      var pathname = path.join("/public/", folder);
+      if (pathname.indexOf("/public/") !== 0) {
+        // Handle or reject the input
+      }
+      ```
 
     ## References
 

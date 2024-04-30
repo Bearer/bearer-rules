@@ -28,18 +28,18 @@ metadata:
     ## Remediations
 
     - **Do** create a new variable inside the loop to ensure each iteration uses a unique memory address.
-    ```go
-    for _, n := range []someStruct{{1}, {2}, {3}, {4}} {
-      localVar := n
-      // use localVar instead of n
-    }
-    ```
+      ```go
+      for _, n := range []someStruct{{1}, {2}, {3}, {4}} {
+        localVar := n
+        // use localVar instead of n
+      }
+      ```
     - **Do** use indexed addressing to directly reference the elements in an array or slice, avoiding the shared address problem.
-    ```go
-    for i := range mySlice {
-      // use &mySlice[i] for a stable address
-    }
-    ```
+      ```go
+      for i := range mySlice {
+        // use &mySlice[i] for a stable address
+      }
+      ```
     - **Do not** store the address of the iteration variable. This practice leads to all references pointing to the same location in memory, causing errors.
     - **Do not** use the iteration variable's address in goroutines. This can result in race conditions or logical errors if the variable's value changing before the goroutine accesses it.
 

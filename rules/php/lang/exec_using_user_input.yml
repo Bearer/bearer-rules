@@ -67,19 +67,19 @@ metadata:
     ## Remediations
 
     - **Do not** directly include user input in commands to be executed by the OS. This can allow attackers to inject malicious commands.
-    ```php
-    exec($_GET["command"]); // unsafe
-    ```
+      ```php
+      exec($_GET["command"]); // unsafe
+      ```
     - **Do** use a predefined set of commands instead of directly including user input, if user input has to influence the execution flow.
-    ```php
-    if ($_GET["action"] == "option1") {
-      $command = "command1";
-    } else {
-      $command = "command2";
-    }
+      ```php
+      if ($_GET["action"] == "option1") {
+        $command = "command1";
+      } else {
+        $command = "command2";
+      }
 
-    exec($command);
-    ```
+      exec($command);
+      ```
 
     ## References
 

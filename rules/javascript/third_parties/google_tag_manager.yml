@@ -28,13 +28,13 @@ metadata:
 
     - **Do** ensure all sensitive data is removed when sending data to analytics libraries like Google Analytics.
     - **Do** use unique identifiers from the database if you really need to identify users.
-    ```javascript
-    datalayer.push({
-      user: {
-        uuid: user.uuid
-      }
-    })
-    ```
+      ```javascript
+      datalayer.push({
+        user: {
+          uuid: user.uuid
+        }
+      })
+      ```
 
     ## References
     - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)

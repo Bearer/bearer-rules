@@ -25,11 +25,11 @@ metadata:
     ## Remediations
 
     - **Do not** write sensitive data directly to logs, backups, or data exports. This practice can lead to unauthorized access to sensitive information.
-    ```javascript
-    fs.writeFile("data.csv", JSON.stringify(users), "utf-8", (err) => {
-      if (err) console.log(err)
-    })
-    ```
+      ```javascript
+      fs.writeFile("data.csv", JSON.stringify(users), "utf-8", (err) => {
+        if (err) console.log(err)
+      })
+      ```
     - **Do** obfuscate or filter sensitive data before writing it to static files. This reduces the risk of sensitive data exposure.
   cwe_id:
     - 313

@@ -42,13 +42,13 @@ metadata:
     ## Remediations
 
     - **Do not** include user input directly in format strings. This approach is vulnerable to manipulation by attackers.
-    ```ruby
-    sprintf("The value was #{params[:value]}") # unsafe
-    ```
+      ```ruby
+      sprintf("The value was #{params[:value]}") # unsafe
+      ```
     - **Do** use a literal format string with user input as separate arguments. This method prevents attackers from exploiting the format string.
-    ```ruby
-    sprintf("The value was %s", params[:value])
-    ```
+      ```ruby
+      sprintf("The value was %s", params[:value])
+      ```
   cwe_id:
     - 134
   id: ruby_lang_format_string_using_user_input

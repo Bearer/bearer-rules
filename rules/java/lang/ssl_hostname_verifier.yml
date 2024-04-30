@@ -217,10 +217,10 @@ metadata:
     ## Remediations
 
     - **Do not** use `ALLOW_ALL_HOSTNAME_VERIFIER` or any similarly permissive hostname verifiers. These verifiers do not properly check if the server's hostname matches the SSL certificate, undermining the security of your connection.
-    ```java
-    HostnameVerifier hostnameVerifier = org.apache.http.conn.ssl.SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER;
-    HttpsURLConnection.setDefaultHostnameVerifier(hostnameVerifier); // unsafe
-    ```
+      ```java
+      HostnameVerifier hostnameVerifier = org.apache.http.conn.ssl.SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER;
+      HttpsURLConnection.setDefaultHostnameVerifier(hostnameVerifier); // unsafe
+      ```
 
   cwe_id:
     - 295

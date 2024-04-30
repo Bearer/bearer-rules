@@ -21,21 +21,21 @@ metadata:
     ## Remediations
 
     - **Do** set the most secure values for these headers to enhance protection against clickjacking.
-    ```javascript
-    res.set('X-Frame-Options', 'DENY');
-    res.set('Content-Security-Policy', "frame-ancestors 'none'");
-    ```
+      ```javascript
+      res.set('X-Frame-Options', 'DENY');
+      res.set('Content-Security-Policy', "frame-ancestors 'none'");
+      ```
     - **Do not** directly use user input to set these headers. Instead, implement a safelist approach to ensure only approved values are used.
-    ```javascript
-    if (req.query.options === 'same') {
-      res.set('X-Frame-Options', 'SAME');
-    }
+      ```javascript
+      if (req.query.options === 'same') {
+        res.set('X-Frame-Options', 'SAME');
+      }
 
-    // Safelist
-    if (['deny', 'sameorigin'].includes(req.query.options.toLowerCase())) {
-      res.set('X-Frame-Options', req.query.options);
-    }
-    ```
+      // Safelist
+      if (['deny', 'sameorigin'].includes(req.query.options.toLowerCase())) {
+        res.set('X-Frame-Options', req.query.options);
+      }
+      ```
 
     ## References
 

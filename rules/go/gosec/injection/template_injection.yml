@@ -29,9 +29,9 @@ metadata:
     ## Remediations
 
     - **Do** encode user input based on the context it is used in, such as HTML content, HTML attributes, JavaScript, and CSS contexts. This helps prevent malicious scripts from being executed.
-    ```go
-    html.EscapeString(userInput)
-    ```
+      ```go
+      html.EscapeString(userInput)
+      ```
     - **Do** use templating engines like `html/template` that automatically encode data based on its context.
     - **Do** sanitize data using libraries or functions specifically designed for this purpose, especially when inserting content into a web page.
     - **Do** separate data from code by avoiding inline scripting and event handlers. Use separate JavaScript files for event handling to minimize script injection risks.

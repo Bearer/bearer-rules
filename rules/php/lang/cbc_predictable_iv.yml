@@ -36,9 +36,9 @@ metadata:
     ## Remediations
 
     - **Do not** use a static or predictable Initialization Vector (IV) for encryption. This approach can compromise the security of your encrypted data.
-    ```php
-    openssl_encrypt($data, "aes-256-cbc", iv: "literal-iv"); // unsafe
-    ```
+      ```php
+      openssl_encrypt($data, "aes-256-cbc", iv: "literal-iv"); // unsafe
+      ```
     - **Do** use a strong, random IV for each encryption operation to enhance security. This practice prevents attackers from predicting the IV and launching dictionary attacks.
   cwe_id:
     - 329

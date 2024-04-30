@@ -19,10 +19,10 @@ metadata:
     ## Remediations
 
     - **Do not** use user-defined data as session keys. This prevents attackers from being able to guess or forge session keys to hijack user sessions.
-    ```php
-    $userInput = $_GET["untrusted"];
-    call($_SESSION[$userInput]); // unsafe
-    ```
+      ```php
+      $userInput = $_GET["untrusted"];
+      call($_SESSION[$userInput]); // unsafe
+      ```
     - **Do** sanitize user input before incorporating it into session keys. Ensure that any data derived from user input is properly validated and sanitized to prevent injection attacks.
 
     ## References

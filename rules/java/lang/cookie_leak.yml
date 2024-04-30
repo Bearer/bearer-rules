@@ -20,9 +20,9 @@ metadata:
     ## Remediations
 
     - **Do not** store sensitive data in unencrypted cookies. This practice can expose sensitive information to potential security threats.
-    ```java
-    Cookie cookie = new Cookie("user", user.email);
-    ```
+      ```java
+      Cookie cookie = new Cookie("user", user.email);
+      ```
   cwe_id:
     - 315
   id: java_lang_cookie_leak

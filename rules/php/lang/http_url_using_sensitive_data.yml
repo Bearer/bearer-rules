@@ -463,20 +463,20 @@ metadata:
     ## Remediations
 
     - **Do not** include sensitive data in the URL path. This makes the information visible in server logs and to anyone who might intercept the URL.
-    ```php
-    $curl = curl_init("https://example.com/users/{$user->email}"); // unsafe
-    ```
+      ```php
+      $curl = curl_init("https://example.com/users/{$user->email}"); // unsafe
+      ```
     - **Do not** append sensitive data as query parameters in URLs. Similar to paths, query parameters are also vulnerable to interception and logging.
-    ```php
-    $query = http_build_query(['email' => $user->email]); // unsafe
-    $curl = curl_init("https://example.com/users?$query");
-    ```
+      ```php
+      $query = http_build_query(['email' => $user->email]); // unsafe
+      $curl = curl_init("https://example.com/users?$query");
+      ```
     - **Do** use the HTTP POST method to send sensitive data within the body of the request. This method is more secure as the data is not exposed in the URL.
-    ```php
-    $query = http_build_query(['email' => $user->email]);
-    $curl = curl_init("https://example.com/users/list");
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $query);
-    ```
+      ```php
+      $query = http_build_query(['email' => $user->email]);
+      $curl = curl_init("https://example.com/users/list");
+      curl_setopt($curl, CURLOPT_POSTFIELDS, $query);
+      ```
     - **Do** not send sensitive data if it's not necessary. If you must send identifying information, use less sensitive data that doesn't compromise user privacy or security.
     ```php
     $query = http_build_query(['uuid' => $user->uuid]);

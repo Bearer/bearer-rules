@@ -33,9 +33,9 @@ metadata:
     ## Remediations
 
     - **Do** set the FLAG_SECURE option to true in your Android application to prevent the system from taking screenshots of your app's activities. This is crucial for protecting potentially sensitive information from being captured and stored in screenshots.
-    ```java
-    getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
-    ```
+      ```java
+      getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
+      ```
   cwe_id:
     - 200
   id: java_android_prevent_screenshot

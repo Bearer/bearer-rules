@@ -38,20 +38,20 @@ metadata:
 
     - **Do not** use unsanitized user input when constructing URLs for redirects. Directly incorporating user input without validation can lead to phishing attacks and malicious site redirection.
     - **Do** validate user input by employing a safe list or a mapping strategy for constructing URLs. This ensures that the redirection is to a known, safe location.
-    ```ruby
-    transport_path = case params[:transport_type]
-      when "planes"
-        planes_path
-      when "trains"
-        trains_path
-      when "automobiles"
-        automobiles_path
-      else
-        root_path
-      end
+      ```ruby
+      transport_path = case params[:transport_type]
+        when "planes"
+          planes_path
+        when "trains"
+          trains_path
+        when "automobiles"
+          automobiles_path
+        else
+          root_path
+        end
 
-    redirect_to transport_path
-    ```
+      redirect_to transport_path
+      ```
 
     ## References
 

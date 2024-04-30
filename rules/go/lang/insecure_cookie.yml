@@ -42,14 +42,14 @@ metadata:
     ## Remediations
 
     - **Do** set the `Secure` attribute for cookies to `true`. This ensures cookies are transmitted securely over HTTPS, preventing unauthorized access.
-    ```go
-    http.SetCookie(w, &http.Cookie{
-        Name:     "session_token",
-        Value:    sessionToken,
-        Secure:   true,
-        // Additional flags like HttpOnly, SameSite, etc., should be set as needed.
-    })
-    ```
+      ```go
+      http.SetCookie(w, &http.Cookie{
+          Name:     "session_token",
+          Value:    sessionToken,
+          Secure:   true,
+          // Additional flags like HttpOnly, SameSite, etc., should be set as needed.
+      })
+      ```
     - **Do** also set `HttpOnly`, `SameSite`, and `Domain` attributes for cookies as needed by your application. These attributes provide additional layers of security for your cookies.
 
     ## References

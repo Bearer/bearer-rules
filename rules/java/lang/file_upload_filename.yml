@@ -49,15 +49,15 @@ metadata:
 
     - **Do not** use unsanitized filenames from FileUpload directly. Attackers can exploit these filenames to navigate the server's directory structure.
     - **Do** sanitize user input when handling file paths. Use methods like `FilenameUtils.getName()` to ensure the path is safe and cannot be manipulated to traverse directories.
-    ```java
-    ServletFileUpload upload = new ServletFileUpload();
-    List<FileItem> fileItems = upload.parseRequest(request);
+      ```java
+      ServletFileUpload upload = new ServletFileUpload();
+      List<FileItem> fileItems = upload.parseRequest(request);
 
-    for (FileItem item : fileItems) {
-      String filename = FilenameUtils.getName(item.getName());
-      // ...
-    }
-    ```
+      for (FileItem item : fileItems) {
+        String filename = FilenameUtils.getName(item.getName());
+        // ...
+      }
+      ```
 
     ## References
 

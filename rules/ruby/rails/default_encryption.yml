@@ -28,17 +28,17 @@ metadata:
     ## Remediations
 
     - **Do** encrypt the entire record when storing sensitive data in a datastore. This approach ensures that all sensitive information is protected.
-    ```ruby
-    class User < ApplicationRecord
-      encrypts :personal_info
-    end
-    ```
+      ```ruby
+      class User < ApplicationRecord
+        encrypts :personal_info
+      end
+      ```
     - **Do** encrypt specific fields if encrypting the entire record is not feasible. This method protects individual pieces of sensitive data.
-    ```ruby
-    class User < ApplicationRecord
-      encrypts :ssn, :credit_card_number
-    end
-    ```
+      ```ruby
+      class User < ApplicationRecord
+        encrypts :ssn, :credit_card_number
+      end
+      ```
 
     ## References
 

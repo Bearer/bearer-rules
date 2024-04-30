@@ -53,9 +53,9 @@ metadata:
     - **Do not** use unsanitized user input directly in file path construction. This can lead to path traversal vulnerabilities.
     - **Do** hash or replace user input with a system-generated unique identifier when constructing file paths. This approach minimizes the risk of path manipulation.
     - **Do** use `filepath.Base` to extract the filename from a path, discarding any directory information. This helps prevent directory traversal attacks.
-    ```go
-    safeFilename := filepath.Base(userInput)
-    ```
+      ```go
+      safeFilename := filepath.Base(userInput)
+      ```
     - **Do** validate paths before accessing files to ensure they are within the intended directory. This validation acts as a safeguard against unauthorized file access.
 
     ## References

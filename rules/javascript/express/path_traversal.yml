@@ -96,15 +96,15 @@ metadata:
 
     - **Do not** directly use user input in file path construction. This can lead to unauthorized file access.
     - **Do** sanitize user input before using it in path resolution. Replace or remove dangerous patterns like `\..\..` to prevent directory traversal attacks.
-    ```javascript
-    var sanitizedPath = userInput.replace(/^(\.\.(\/|\\|$))+/, '');
-    ```
+      ```javascript
+      var sanitizedPath = userInput.replace(/^(\.\.(\/|\\|$))+/, '');
+      ```
     - **Do** check for and eliminate any instances of the poison NULL byte ("%00") in user input, as it can be used to bypass path sanitization.
-    ```javascript
-    if (userInput.indexOf('\0') !== -1) {
-      // Handle or reject the input
-    }
-    ```
+      ```javascript
+      if (userInput.indexOf('\0') !== -1) {
+        // Handle or reject the input
+      }
+      ```
     - **Do** validate the final path to ensure it is within the intended scope before accessing the file system.
 
     ## References

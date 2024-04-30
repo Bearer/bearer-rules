@@ -43,13 +43,13 @@ metadata:
     ## Remediations
 
     - **Do not** use MD5 for hashing. It is considered a weak hash algorithm and can compromise data security.
-    ```go
-    md5.Sum([]byte("password")) // unsafe
-    ```
+      ```go
+      md5.Sum([]byte("password")) // unsafe
+      ```
     - **Do** opt for stronger hashing algorithms such as SHA-256 to enhance security.
-    ```go
-    sha256.Sum256([]byte("string"))
-    ```
+      ```go
+      sha256.Sum256([]byte("string"))
+      ```
   cwe_id:
     - 328
   id: go_lang_weak_hash_md5

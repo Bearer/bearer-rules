@@ -29,17 +29,17 @@ metadata:
     ## Remediations
 
     - **Do not** include sensitive data in logger messages. This can lead to unintended exposure of personal or confidential information.
-    ```java
-    logger.info(user.email) // unsafe
-    ```
+      ```java
+      logger.info(user.email) // unsafe
+      ```
     - **Do** use non-sensitive, unique identifiers to refer to users or entities in log messages. This approach maintains privacy while still allowing for effective logging.
-    ```java
-    logger.info(user.uuid)
-    ```
+      ```java
+      logger.info(user.uuid)
+      ```
     - **Do** log static messages that do not contain dynamic variables or attributes. This minimizes the risk of accidentally logging sensitive information.
-    ```java
-    logger.info("user signed in")
-    ```
+      ```java
+      logger.info("user signed in")
+      ```
 
     ## References
 

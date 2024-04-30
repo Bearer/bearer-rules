@@ -20,9 +20,9 @@ metadata:
     ## Remediations
 
     - **Do not** use user-defined data directly in session keys. This can lead to security vulnerabilities.
-    ```ruby
-    session["test-#{params[:unsafe]}"] = 42
-    ```
+      ```ruby
+      session["test-#{params[:unsafe]}"] = 42
+      ```
     - **Do** sanitize user input before incorporating it into session keys. Ensure that any data derived from user input is properly validated and sanitized to prevent injection attacks.
 
     ## References

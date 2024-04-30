@@ -31,13 +31,13 @@ metadata:
 
     - **Do** ensure all sensitive data is removed when sending data to third-party loggers like Honeybadger.
     - **Do** use unique identifiers from the database if you really need to identify users.
-    ```javascript
-      const Honeybadger = require("@honeybadger-io/js");
+      ```javascript
+        const Honeybadger = require("@honeybadger-io/js");
 
-      let context = { user: { uuid: "aacd05fd-8f5b-4bc6-aa8b-35e5fbf37325" } };
+        let context = { user: { uuid: "aacd05fd-8f5b-4bc6-aa8b-35e5fbf37325" } };
 
-      Honeybadger.setContext(context);
-    ```
+        Honeybadger.setContext(context);
+      ```
 
     ## References
     - [Honeybadger Docs](https://docs.honeybadger.io/lib/javascript/)

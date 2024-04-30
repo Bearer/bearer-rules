@@ -17,9 +17,9 @@ metadata:
     ## Remediations
 
     - **Do** always use OAEP with RSA encryption to enhance security and mitigate vulnerabilities.
-    ```java
-    Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithMD5AndMGF1Padding")
-    ```
+      ```java
+      Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithMD5AndMGF1Padding")
+      ```
 
     ## References
 

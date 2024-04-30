@@ -24,13 +24,13 @@ metadata:
     ## Remediations
 
     - **Do not** use the `parse()` method for handling JWTs, as it does not verify the token's signature, leaving a significant security gap.
-    ```java
-    Jwts.parser().setSigningKey(JWT_PASSWORD).parse(accessToken); // unsafe
-    ```
+      ```java
+      Jwts.parser().setSigningKey(JWT_PASSWORD).parse(accessToken); // unsafe
+      ```
     - **Do** use the `parseClaimsJws()` method when working with JWTs. This method ensures that the signature is verified, safeguarding against the manipulation of token data.
-    ```java
-    Jwts.parser().setSigningKey(JWT_PASSWORD).parseClaimsJws(accessToken);
-    ```
+      ```java
+      Jwts.parser().setSigningKey(JWT_PASSWORD).parseClaimsJws(accessToken);
+      ```
 
     ## References
 

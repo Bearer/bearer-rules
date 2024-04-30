@@ -43,13 +43,13 @@ metadata:
     ## Remediations
 
     - **Do not** use SHA-1 for hashing. It is no longer considered secure due to its vulnerability to collision attacks.
-    ```python
-    hashlib.sha1('password').digest() # unsafe
-    ```
+      ```python
+      hashlib.sha1('password').digest() # unsafe
+      ```
     - **Do** opt for stronger hashing algorithms such as SHA-256 to enhance security.
-    ```python
-    hashlib.sha256('password').digest()
-    ```
+      ```python
+      hashlib.sha256('password').digest()
+      ```
   cwe_id:
     - 328
   id: python_lang_weak_hash_sha1

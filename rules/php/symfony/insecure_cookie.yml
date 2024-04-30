@@ -77,10 +77,10 @@ metadata:
     ## Remediations
 
     - **Do** set the `Secure` attribute to `true` for cookies to ensure they are only sent over HTTPS.
-    ```php
-    $cookie = Cookie::create($name, $value);
-    $cookie->withSecure(true);
-    ```
+      ```php
+      $cookie = Cookie::create($name, $value);
+      $cookie->withSecure(true);
+      ```
 
     ## References
 

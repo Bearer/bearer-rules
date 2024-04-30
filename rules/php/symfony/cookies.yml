@@ -29,9 +29,9 @@ metadata:
     ## Remediations
 
     - **Do not** store sensitive data in unencrypted cookies. This practice can expose sensitive information to potential security threats.
-    ```php
-    $cookie = Cookie::create("user_email", $user->email); // unsafe
-    ```
+      ```php
+      $cookie = Cookie::create("user_email", $user->email); // unsafe
+      ```
   cwe_id:
     - 315
   id: php_symfony_cookies

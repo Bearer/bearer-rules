@@ -50,21 +50,21 @@ metadata:
     ## Remediations
 
     - **Do not** add message event listeners without checking the origin of the messages. This approach leaves your application vulnerable to malicious inputs.
-    ```javascript
-    window.addEventListener('message', (event) => {
-      actOnMessage(event.data) // unsafe
-    })
-    ```
+      ```javascript
+      window.addEventListener('message', (event) => {
+        actOnMessage(event.data) // unsafe
+      })
+      ```
     - **Do** validate the origin of incoming messages before processing them. Ensure that the message comes from a trusted source by comparing the event's origin with a predefined list of allowed origins.
-    ```javascript
-    window.addEventListener('message', (event) => {
-      if (event.origin != 'https://myapp.example.com') {
-        throw new Error('invalid origin')
-      }
+      ```javascript
+      window.addEventListener('message', (event) => {
+        if (event.origin != 'https://myapp.example.com') {
+          throw new Error('invalid origin')
+        }
 
-      actOnMessage(event.data)
-    })
-    ```
+        actOnMessage(event.data)
+      })
+      ```
 
     ## References
 

@@ -43,13 +43,13 @@ metadata:
     ## Remediations
 
     - **Do not** include sensitive data in exception messages. This can inadvertently expose personal or confidential information.
-    ```javascript
-    throw new CustomError(`Error with ${user.email}`) // unsafe
-    ```
+      ```javascript
+      throw new CustomError(`Error with ${user.email}`) // unsafe
+      ```
     - **Do** use non-sensitive, unique identifiers in exception messages to maintain user privacy and data security.
-    ```javascript
-    throw new CustomError(`Error with ${user.uuid}`)
-    ```
+      ```javascript
+      throw new CustomError(`Error with ${user.uuid}`)
+      ```
   cwe_id:
     - 210
   id: javascript_lang_exception

@@ -32,13 +32,13 @@ metadata:
     ## Remediations
 
     - **Do not** use MD5 for hashing purposes. This algorithm is no longer considered secure and can compromise data integrity.
-    ```java
-    MessageDigest md = MessageDigest.getInstance("MD5"); // unsafe
-    ```
+      ```java
+      MessageDigest md = MessageDigest.getInstance("MD5"); // unsafe
+      ```
     - **Do** opt for stronger hashing algorithms like SHA-256 to ensure data security.
-    ```java
-    MessageDigest md = MessageDigest.getInstance("SHA-256");
-    ```
+      ```java
+      MessageDigest md = MessageDigest.getInstance("SHA-256");
+      ```
 
     ## References
 

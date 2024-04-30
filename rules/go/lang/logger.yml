@@ -122,13 +122,13 @@ metadata:
     ## Remediations
 
     - **Do not** include sensitive data, such as email addresses, in logger messages. This can inadvertently expose personal information.
-    ```go
-    logger.info(f"User is: '{user.email}'") // unsafe
-    ```
+      ```go
+      logger.info(f"User is: '{user.email}'") // unsafe
+      ```
     - **Do** use non-sensitive, unique identifiers, like user UUIDs, in logger messages to maintain user privacy and data security.
-    ```go
-    logger.info(f"User is: '{user.uuid}'")
-    ```
+      ```go
+      logger.info(f"User is: '{user.uuid}'")
+      ```
 
     ## References
 

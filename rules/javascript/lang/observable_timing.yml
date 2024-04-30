@@ -116,11 +116,11 @@ metadata:
     - **Do** implement algorithms that process sensitive information in constant time. This approach helps prevent attackers from guessing secrets based on the duration of operations.
     - **Do** use built-in security features and cryptographic libraries that offer functions safe from timing attacks for comparing secret values.
     - **Do not** use direct string comparisons for sensitive information, as this can lead to early termination of the function if a mismatch is found, revealing timing information.
-    ```javascript
-      if (apiToken === "zDE9ET!TDq2uZx2oM!FD2") { // unsafe
-        ...
-      }
-    ```
+      ```javascript
+        if (apiToken === "zDE9ET!TDq2uZx2oM!FD2") { // unsafe
+          ...
+        }
+      ```
     - **Do not** design application logic that changes execution paths in a manner that could introduce timing discrepancies based on user input or secret values.
 
     ## References

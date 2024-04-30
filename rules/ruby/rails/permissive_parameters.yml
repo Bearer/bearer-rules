@@ -22,13 +22,13 @@ metadata:
     ## Remediations
 
     - **Do not** use blanket permissions for request parameters. This approach can inadvertently expose your application to unauthorized modifications.
-    ```ruby
-    params.permit!
-    ```
+      ```ruby
+      params.permit! # unsafe
+      ```
     - **Do** explicitly permit only the parameters that users are allowed to update. This practice helps safeguard your application by limiting what can be modified.
-    ```ruby
-    params.permit(:name, :email)
-    ```
+      ```ruby
+      params.permit(:name, :email)
+      ```
   cwe_id:
     - 913
   id: ruby_rails_permissive_parameters

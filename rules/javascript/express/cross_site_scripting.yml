@@ -39,9 +39,9 @@ metadata:
     ## Remediations
 
     - **Do not** include user input directly in a response. This practice can lead to XSS vulnerabilities.
-    ```javascript
-    res.send(req.body.data); // unsafe
-    ```
+      ```javascript
+      res.send(req.body.data); // unsafe
+      ```
     - **Do** sanitize user input before including it in a response. Use library functions or frameworks designed for input sanitization to ensure that user data cannot be interpreted as executable code.
 
     ## References

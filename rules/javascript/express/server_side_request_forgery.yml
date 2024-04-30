@@ -66,18 +66,18 @@ metadata:
     ## Remediations
 
     - **Do not** directly use user input to construct URLs for backend requests. This approach can lead to SSRF vulnerabilities.
-    ```javascript
-    axios.get(`https://${req.params.host}`); // unsafe
-    ```
+      ```javascript
+      axios.get(`https://${req.params.host}`); // unsafe
+      ```
     - **Do** validate or sanitize user input before using it in URLs. Prefer using a predefined list of allowed hosts and map user input to this list, ensuring only safe and expected URLs are constructed.
-    ```javascript
-    var host = "default-api.com"
-    if (req.params.host == "something-else") {
-      host = "other-api.com";
-    }
+      ```javascript
+      var host = "default-api.com"
+      if (req.params.host == "something-else") {
+        host = "other-api.com";
+      }
 
-    axios.get(`https://${host}`);
-    ```
+      axios.get(`https://${host}`);
+      ```
 
     ## References
 

@@ -24,13 +24,13 @@ metadata:
     ## Remediations
 
     - **Do not** initiate connections using unsecured HTTP. This exposes your data to potential interception and manipulation.
-    ```php
-    $curl = curl_init('http://insecure-api.com'); // unsafe
-    ```
+      ```php
+      $curl = curl_init('http://insecure-api.com'); // unsafe
+      ```
     - **Do** ensure all connections are made through HTTPS to encrypt data and protect against eavesdropping and tampering.
-    ```php
-    $curl = curl_init('https://secure-api.com');
-    ```
+      ```php
+      $curl = curl_init('https://secure-api.com');
+      ```
 
     ## References
 

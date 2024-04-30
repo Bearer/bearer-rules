@@ -19,21 +19,21 @@ metadata:
     ## Remediations
 
     - **Do not** include sensitive data such as email addresses or personal identifiable information in JWT payloads. This can lead to unauthorized access to sensitive information.
-    ```php
-    $payload = [
-      'data' => 'data',
-      'email' => $user->email
-    ];
-    $jwt = JWT::encode($payload, $key, 'HS256'); // unsafe
-    ```
+      ```php
+      $payload = [
+        'data' => 'data',
+        'email' => $user->email
+      ];
+      $jwt = JWT::encode($payload, $key, 'HS256'); // unsafe
+      ```
     - **Do** use non-sensitive, unique identifiers like a user's UUID in JWT payloads. This approach minimizes the risk of sensitive data exposure while still allowing user identification.
-    ```php
-    $payload = [
-      'data' => 'data',
-      'uuid' => $user->uuid
-    ];
-    $jwt = JWT::encode($payload, $key, 'HS256');
-    ```
+      ```php
+      $payload = [
+        'data' => 'data',
+        'uuid' => $user->uuid
+      ];
+      $jwt = JWT::encode($payload, $key, 'HS256');
+      ```
   cwe_id:
     - 315
   id: php_lang_jwt

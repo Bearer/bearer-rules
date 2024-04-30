@@ -25,13 +25,13 @@ metadata:
     - **Do** check values before conversion to a smaller type. Ensure the value does not exceed the maximum value the target type can hold.
     - **Do** always handle errors from conversion functions like `strconv.Atoi` to promptly address and manage conversion issues.
     - **Do** use fixed-size types like `int32` or `int64` when possible to avoid overflow issues that arise from architecture-dependent sizes.
-    ```go
-      if intValue, err := strconv.Atoi(stringValue); err == nil {
-        if intValue >= math.MinInt16 && intValue <= math.MaxInt16 {
-          int16Value := int16(intValue)
+      ```go
+        if intValue, err := strconv.Atoi(stringValue); err == nil {
+          if intValue >= math.MinInt16 && intValue <= math.MaxInt16 {
+            int16Value := int16(intValue)
+          }
         }
-      }
-    ```
+      ```
 
     ## References
 

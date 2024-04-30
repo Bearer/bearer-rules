@@ -31,27 +31,27 @@ metadata:
 
     - **Do not** use unsanitized user input to construct URLs for redirects. This can lead to security vulnerabilities where attackers might redirect users to malicious websites.
     - **Do** validate all user input used in redirects. Employ a whitelist approach or a mapping of allowed destinations to ensure only safe and intended URLs are used for redirection.
-    ```go
-    var URLMapping = map[string]string{
-      "google": "https://www.google.com",
-      "openai": "https://www.openai.com",
-      "github": "https://www.github.com",
-      "root":   "https://www.example.com",
-    }
-
-    func safeRedirectHandler(w http.ResponseWriter, r *http.Request) {
-      // Get the redirectTo parameter from the query string
-      redirectTo := r.URL.Query().Get("redirectTo")
-
-      // Get the safe URL from the map, default to the URL for "root" if not found
-      redirectURL, ok := URLMapping[redirectTo]
-      if !ok {
-        redirectURL = URLMapping["root"] // Default to a predefined safe URL
+      ```go
+      var URLMapping = map[string]string{
+        "google": "https://www.google.com",
+        "openai": "https://www.openai.com",
+        "github": "https://www.github.com",
+        "root":   "https://www.example.com",
       }
 
-      ...
-    }
-    ```
+      func safeRedirectHandler(w http.ResponseWriter, r *http.Request) {
+        // Get the redirectTo parameter from the query string
+        redirectTo := r.URL.Query().Get("redirectTo")
+
+        // Get the safe URL from the map, default to the URL for "root" if not found
+        redirectURL, ok := URLMapping[redirectTo]
+        if !ok {
+          redirectURL = URLMapping["root"] // Default to a predefined safe URL
+        }
+
+        ...
+      }
+      ```
 
     ## References
 

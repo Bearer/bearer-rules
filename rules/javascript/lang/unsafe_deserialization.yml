@@ -32,9 +32,9 @@ metadata:
 
     - **Do not** deserialize data that comes directly from untrusted sources. This prevents attackers from injecting malicious payloads that could compromise your application.
     - **Do** opt for data-only and language-neutral serialization formats like JSON or XML for deserializing data. These formats are less susceptible to manipulation by attackers aiming to exploit the deserialization process.
-    ```javascript
-    JSON.parse(req.params);
-    ```
+      ```javascript
+      JSON.parse(req.params);
+      ```
 
     ## References
 

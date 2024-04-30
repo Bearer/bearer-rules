@@ -69,16 +69,16 @@ metadata:
     - **Do not** directly use user input in file paths without sanitization. This prevents attackers from manipulating file paths to access or manipulate unauthorized files.
     - **Do** use a safelist to define accessible paths or directories. Only allow user input to influence file paths within these predefined, safe boundaries.
     - **Do** sanitize user input used in file path resolution. For example, use methods like `FilenameUtils.getName()` to safely extract only the intended file name from the user input, removing any path manipulation attempts.
-    ```java
-    public class Cls extends HttpServlet
-    {
-        public void handleRequest(HttpServletRequest request, HttpServletResponse response)
-        {
-            String image = request.getParameter("user_profile_picture");
-            File file = new File("user/profile/" + FilenameUtils.getName(image));
-        }
-    }
-    ```
+      ```java
+      public class Cls extends HttpServlet
+      {
+          public void handleRequest(HttpServletRequest request, HttpServletResponse response)
+          {
+              String image = request.getParameter("user_profile_picture");
+              File file = new File("user/profile/" + FilenameUtils.getName(image));
+          }
+      }
+      ```
   cwe_id:
     - 73
   id: java_lang_path_using_user_input

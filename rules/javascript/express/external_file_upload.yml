@@ -39,14 +39,14 @@ metadata:
     ## Remediations
 
     - **Do** set the `root` option to an absolute path to a directory when using `sendFile`. This confines the accessible files to a specific directory, preventing attackers from accessing files outside of this directory.
-    ```javascript
-    app.post("/upload", (req, res) => {
-      var options = {
-        root: path.join(__dirname, "upload")
-      };
-      res.sendFile(req.params.filename, options);
-    });
-    ```
+      ```javascript
+      app.post("/upload", (req, res) => {
+        var options = {
+          root: path.join(__dirname, "upload")
+        };
+        res.sendFile(req.params.filename, options);
+      });
+      ```
 
     ## References
 

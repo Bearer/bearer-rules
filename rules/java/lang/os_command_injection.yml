@@ -68,14 +68,14 @@ metadata:
 
     - **Do not** use OS commands that include dynamic input directly. Instead, explore safer alternatives such as libraries or built-in functions that achieve the same goal without executing system commands.
     - **Do** use hardcoded values for any input that is incorporated into OS commands. This approach minimizes the risk by ensuring only predefined inputs are used, thus preventing attackers from injecting malicious commands.
-    ```java
-    String filePattern = "*.json";
-    if ("xml".equals(request.getParameter("format"))) {
-      filePattern = "*.xml";
-    }
+      ```java
+      String filePattern = "*.json";
+      if ("xml".equals(request.getParameter("format"))) {
+        filePattern = "*.xml";
+      }
 
-    Process process = Runtime.getRuntime().exec("ls /myDir/" + filePattern);
-    ```
+      Process process = Runtime.getRuntime().exec("ls /myDir/" + filePattern);
+      ```
 
     ## References
 

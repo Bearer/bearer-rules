@@ -25,19 +25,19 @@ metadata:
 
     - **Do not** construct file paths directly with user input. This practice can inadvertently allow attackers to manipulate paths to access unauthorized files.
     - **Do** use path normalization utilities to safely handle user input in file paths. These utilities help eliminate dangerous path sequences.
-    ```java
-    public class Cls extends HttpServlet
-    {
-        public void handleRequest(HttpServletRequest request, HttpServletResponse response)
-        {
-            String image = request.getParameter("user_profile_picture");
+      ```java
+      public class Cls extends HttpServlet
+      {
+          public void handleRequest(HttpServletRequest request, HttpServletResponse response)
+          {
+              String image = request.getParameter("user_profile_picture");
 
-            // normalize path
-            Path imagePath = Paths.get("user/profile/" + FilenameUtils.getName(image)).normalize();
-            File file = new File(imagePath.toString());
-        }
-    }
-    ```
+              // normalize path
+              Path imagePath = Paths.get("user/profile/" + FilenameUtils.getName(image)).normalize();
+              File file = new File(imagePath.toString());
+          }
+      }
+      ```
 
     ## References
 

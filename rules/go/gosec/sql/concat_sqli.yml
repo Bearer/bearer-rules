@@ -134,9 +134,9 @@ metadata:
     ## Remediations
 
     - **Do** use parameterized queries to prevent SQL injection. This method ensures that user input is treated as data, not as part of the SQL command, effectively neutralizing the threat.
-    ```go
-    db.Query("SELECT * FROM users WHERE userName = ?", userName)
-    ```
+      ```go
+      db.Query("SELECT * FROM users WHERE userName = ?", userName)
+      ```
     - **Do not** use direct user input in dynamic queries. If you must create dynamic queries, use a predefined map or dictionary of valid values (a safelist). This approach allows you to safely include user input by translating it into safe, predefined commands or values.
 
     ## References

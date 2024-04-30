@@ -21,13 +21,13 @@ metadata:
     ## Remediations
 
     - **Do not** include sensitive data in logger messages. This can lead to unintentional exposure of private information.
-    ```php
-    error_log('User is: ' . $user.email);  // unsafe
-    ```
+      ```php
+      error_log('User is: ' . $user.email);  // unsafe
+      ```
     - **Do** use non-sensitive, unique identifiers to reference users or other entities in log messages. This approach helps maintain privacy and security.
-    ```php
-    error_log('User is: ' . $user.uuid);
-    ```
+      ```php
+      error_log('User is: ' . $user.uuid);
+      ```
 
     ## References
 

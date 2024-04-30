@@ -57,21 +57,21 @@ metadata:
     ## Remediations
 
     - **Do not** use `eval` or similar code execution functions directly with user input. This approach can make your application vulnerable to attacks.
-    ```javascript
-    eval(userInput); // unsafe
-    ```
+      ```javascript
+      eval(userInput); // unsafe
+      ```
     - **Do** use static, hardcoded values when working with dynamic code execution methods. This method ensures that only predefined operations are performed, reducing the risk of executing malicious code.
-    ```javascript
-      let myFunc = "(a, b) => a + b";
-      if (req.params["single_item"]) {
-        myFunc = "(a) => a";
-      }
-    ```
+      ```javascript
+        let myFunc = "(a, b) => a + b";
+        if (req.params["single_item"]) {
+          myFunc = "(a) => a";
+        }
+      ```
     - **Do** consider using compiled functions instead of dynamically compiling code with user input. This practice allows for safer execution of dynamic operations by predefining the code to be executed.
     - **Do** enable JavaScript's strict mode in your code. This mode helps to catch common coding bloopers, prevents unsafe actions, and limits certain features that can make your code more secure.
-    ```javascript
-    "use strict";
-    ```
+      ```javascript
+      "use strict";
+      ```
 
     ## References
 

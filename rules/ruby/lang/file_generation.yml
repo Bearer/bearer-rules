@@ -54,14 +54,14 @@ metadata:
     ## Remediations
 
     - **Do not** write sensitive data directly to static files without considering the security implications. This includes user emails, names, or any personally identifiable information (PII).
-    ```ruby
-    File.open("users.log", "w") { |f| f.write "#{Time.now} - User #{user.email} logged in\n" }
-    File.open("users.csv", "w") do |f|
-      users.each do |user|
-        f.write "#{user.email},#{user.first_name},#{user.last_name}"
+      ```ruby
+      File.open("users.log", "w") { |f| f.write "#{Time.now} - User #{user.email} logged in\n" }
+      File.open("users.csv", "w") do |f|
+        users.each do |user|
+          f.write "#{user.email},#{user.first_name},#{user.last_name}"
+        end
       end
-    end
-    ```
+      ```
     - **Do** ensure that if writing sensitive data to files is necessary, such files are securely stored and access is strictly controlled. Implement encryption for files containing sensitive data.
     - **Do** document the storage location of files containing sensitive data and ensure it aligns with your organization's internal data handling and privacy policies.
   cwe_id:

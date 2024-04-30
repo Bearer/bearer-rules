@@ -22,15 +22,15 @@ metadata:
     ## Remediations
 
     - **Do not** use unsanitized user input to construct filenames or file paths in FTP operations. Always sanitize and validate input before use.
-    ```php
-    $connection = ftp_ssl_connect("ftp.example.com", 21);
-    ftp_delete($connection, $_GET["name"]); // unsafe
-    ```
+      ```php
+      $connection = ftp_ssl_connect("ftp.example.com", 21);
+      ftp_delete($connection, $_GET["name"]); // unsafe
+      ```
 
     - **Do not** use unsanitized user input as arguments in FTP connection methods or any FTP operations. Validate and sanitize all input first.
-    ```php
-    $connection = ftp_ssl_connect($_GET["host"], 21); // unsafe
-    ```
+      ```php
+      $connection = ftp_ssl_connect($_GET["host"], 21); // unsafe
+      ```
 
     ## References
 

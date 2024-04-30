@@ -21,14 +21,14 @@ metadata:
     ## Remediations
 
     - **Do not** include user input directly in HTML strings. This practice can lead to XSS vulnerabilities.
-    ```php
-    $html = "<h1>{$_GET["title"]}</h1>"; // unsafe
-    ```
+      ```php
+      $html = "<h1>{$_GET["title"]}</h1>"; // unsafe
+      ```
     - **Do** use a templating language like Twig, and keep the template in a separate file. Templating languages automatically handle input sanitization, reducing the risk of XSS.
     - **Do** sanitize user input when HTML strings must be used, to prevent malicious code injection.
-    ```php
-    $html = "<h1>${htmlspecialchars($_GET["title"])}</h1>";
-    ```
+      ```php
+      $html = "<h1>${htmlspecialchars($_GET["title"])}</h1>";
+      ```
 
     ## References
 

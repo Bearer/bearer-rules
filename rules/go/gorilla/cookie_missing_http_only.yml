@@ -45,18 +45,18 @@ metadata:
     ## Remediations
 
     - **Do** set the `HttpOnly` attribute to `true` for cookies, especially session cookies, to prevent them from being accessed by client-side scripts. This is a key measure in mitigating the risk of XSS attacks.
-    ```go
-    func MyHandler(w http.ResponseWriter, r *http.Request) {
-        session, _ := store.Get(r, "session-name")
-        ...
-        session.Options.HttpOnly = true
-        session.Save(r, w)
-    }
-    ```
+      ```go
+      func MyHandler(w http.ResponseWriter, r *http.Request) {
+          session, _ := store.Get(r, "session-name")
+          ...
+          session.Options.HttpOnly = true
+          session.Save(r, w)
+      }
+      ```
     - **Do** use Gorilla SecureCookie for encoding and decoding session data securely. This method provides an additional layer of security for session information.
-    ```go
-    var s = sessions.NewCookieStore([]byte("your-secret-key"))
-    ```
+      ```go
+      var s = sessions.NewCookieStore([]byte("your-secret-key"))
+      ```
     - **Do** implement robust session management with Gorilla Sessions. Proper session management helps prevent attacks related to session fixation and enhances overall session security.
 
     ## References

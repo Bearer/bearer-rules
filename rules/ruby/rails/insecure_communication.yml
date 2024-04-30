@@ -16,9 +16,9 @@ metadata:
     ## Remediations
 
     - **Do** enforce SSL to secure all data in transit. This is crucial for protecting sensitive information from eavesdropping or interception.
-    ```ruby
-    config.force_ssl = true
-    ```
+      ```ruby
+      config.force_ssl = true
+      ```
     - **Do not** allow unencrypted HTTP traffic for your application. Unencrypted communications can be intercepted, exposing sensitive user data to attackers.
 
     ## References

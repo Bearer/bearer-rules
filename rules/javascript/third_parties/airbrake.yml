@@ -30,12 +30,12 @@ metadata:
 
     - **Do** ensure all sensitive data is removed when logging errors or events to Airbrake
     - **Do** use unique identifiers from the database if you really need to identify users.
-    ```javascript
-    airbrake.notify({
-      error: err,
-      params: { user: user.uuid },
-    });
-    ```
+      ```javascript
+      airbrake.notify({
+        error: err,
+        params: { user: user.uuid },
+      });
+      ```
 
     ## References
     - [Airbrake Docs](https://docs.airbrake.io/)

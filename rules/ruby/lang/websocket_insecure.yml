@@ -52,13 +52,13 @@ metadata:
     ## Remediations
 
     - **Do not** initiate WebSocket connections without SSL. This can compromise the security of data in transit.
-    ```ruby
-    client = Faye::WebSocket::Client.new('ws://insecure-api.com') # unsafe
-    ```
+      ```ruby
+      client = Faye::WebSocket::Client.new('ws://insecure-api.com') # unsafe
+      ```
     - **Do** ensure all WebSocket connections are made over SSL to protect data during transmission.
-    ```ruby
-    client = Faye::WebSocket::Client.new('wss://secure-api.com')
-    ```
+      ```ruby
+      client = Faye::WebSocket::Client.new('wss://secure-api.com')
+      ```
 
     ## References
 

@@ -36,13 +36,13 @@ metadata:
     ## Remediations
 
     - **Do not** use Adler-32 for hashing when security is a concern. Its simplicity and speed do not compensate for its lack of protection against data tampering.
-    ```php
-    $myhash = hash('adler32', $input); // unsafe
-    ```
+      ```php
+      $myhash = hash('adler32', $input); // unsafe
+      ```
     - **Do** opt for stronger hashing algorithms like SHA-256 to ensure data integrity and security.
-    ```php
-    $myhash = hash('sha256', $input);
-    ```
+      ```php
+      $myhash = hash('sha256', $input);
+      ```
 
   cwe_id:
     - 328

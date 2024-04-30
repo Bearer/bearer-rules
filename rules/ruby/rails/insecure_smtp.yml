@@ -23,12 +23,12 @@ metadata:
     ## Remediations
 
     - **Do** enable SSL encryption in your SMTP settings to secure the connection. For Ruby on Rails' ActionMailer, configure as follows:
-    ```ruby
-    config.action_mailer.smtp_settings = {
-      ...
-      ssl: true
-    }
-    ```
+      ```ruby
+      config.action_mailer.smtp_settings = {
+        ...
+        ssl: true
+      }
+      ```
 
     ## References
 

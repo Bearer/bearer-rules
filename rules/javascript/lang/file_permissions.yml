@@ -49,9 +49,9 @@ metadata:
     ## Remediations
 
     - **Do** keep file permissions as restrictive as possible to minimize the risk of unauthorized access. Use the principle of least privilege to only grant permissions that are absolutely necessary for the operation of the application.
-    ```javascript
-    fs.chmod(path, 0o600);
-    ```
+      ```javascript
+      fs.chmod(path, 0o600);
+      ```
     - **Do** prefer assigning file permissions to 'groups' rather than 'other' when you need to extend privileges to users who are not the owners. This approach helps in limiting access to a more controlled set of users.
 
   cwe_id:

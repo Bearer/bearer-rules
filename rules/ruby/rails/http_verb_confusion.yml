@@ -22,11 +22,11 @@ metadata:
 
     - **Do** use separate action logic for handling GET and POST requests to prevent unintended state changes.
     - **Do** explicitly check for state-altering HTTP verbs (such as POST) instead of relying on GET to ensure that state changes only occur when intended.
-    ```ruby
-    if request.post?
-      alter_state
-    end
-    ```
+      ```ruby
+      if request.post?
+        alter_state
+      end
+      ```
   cwe_id:
     - 650
   id: ruby_rails_http_verb_confusion

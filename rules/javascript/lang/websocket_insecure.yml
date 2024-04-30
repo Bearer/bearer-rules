@@ -19,13 +19,13 @@ metadata:
     ## Remediations
 
     - **Do not** initiate websocket connections without SSL. Such connections are vulnerable to interception and compromise.
-    ```javascript
-    const client = new WebSocket('ws://insecure-api.com'); // unsafe
-    ```
+      ```javascript
+      const client = new WebSocket('ws://insecure-api.com'); // unsafe
+      ```
     - **Do** ensure all websocket connections are secured with SSL. This encrypts the data transmitted, protecting it from eavesdroppers and tampering.
-    ```javascript
-    const client = new WebSocket('wss://secure-api.com');
-    ```
+      ```javascript
+      const client = new WebSocket('wss://secure-api.com');
+      ```
 
     ## References
 

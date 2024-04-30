@@ -19,15 +19,15 @@ metadata:
     ## Remediations
 
     - **Do not** include sensitive data, such as email addresses or personal information, in JWT payloads. This practice can lead to unauthorized access to sensitive information.
-    ```ruby
-    payload = { data: 'data', email: user.email } # unsafe
-    token = JWT.encode payload, hmac_secret, 'HS256'
-    ```
+      ```ruby
+      payload = { data: 'data', email: user.email } # unsafe
+      token = JWT.encode payload, hmac_secret, 'HS256'
+      ```
     - **Do** use non-sensitive, unique identifiers, like a user's database UUID, in JWT payloads. This approach minimizes the risk of sensitive data exposure.
-    ```ruby
-    payload = { data: 'data', user_id: user.uuid }
-    token = JWT.encode payload, hmac_secret, 'HS256'
-    ```
+      ```ruby
+      payload = { data: 'data', user_id: user.uuid }
+      token = JWT.encode payload, hmac_secret, 'HS256'
+      ```
   cwe_id:
     - 315
   id: ruby_lang_jwt

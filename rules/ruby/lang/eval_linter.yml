@@ -28,9 +28,9 @@ metadata:
     ## Remediations
 
     - **Do not** use the `eval` function. Its ability to execute code that can be manipulated by an attacker introduces various injection vulnerabilities.
-    ```ruby
-    eval("def hello_world; puts 'Hello world!'; end")
-    ```
+      ```ruby
+      eval("def hello_world; puts 'Hello world!'; end")
+      ```
     - **Do** explore safer alternatives to `eval`. Use language features or libraries specifically designed for the task you're trying to accomplish with `eval`.
     - **Do** validate and sanitize all inputs if you must use dynamic code execution. This reduces the risk of executing malicious code.
     - **Do** use restricted execution environments for running code dynamically if absolutely necessary. This minimizes the potential impact of malicious code execution by isolating it from the main application environment.

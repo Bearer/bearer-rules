@@ -21,13 +21,13 @@ metadata:
     ## Remediations
 
     - **Do not** manually escape HTML entities in an attempt to sanitize input or output. This method is unreliable and increases the risk of XSS vulnerabilities.
-    ```php
-    $html = str_replace("&", "&amp;", $text); // unsafe
-    ```
+      ```php
+      $html = str_replace("&", "&amp;", $text); // unsafe
+      ```
     - **Do** use built-in HTML sanitizers to handle escaping of HTML content securely. These tools are designed to mitigate the risk of XSS by properly encoding user input or any data displayed in an HTML context.
-    ```php
-    $html = htmlspecialchars($text);
-    ```
+      ```php
+      $html = htmlspecialchars($text);
+      ```
 
     ## References
 

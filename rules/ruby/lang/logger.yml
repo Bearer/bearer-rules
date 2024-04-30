@@ -29,13 +29,13 @@ metadata:
     ## Remediations
 
     - **Do not** include sensitive data in logger messages. This can lead to unintended exposure of personal or confidential information.
-    ```ruby
-    logger.info('User is: #{user.email}') # unsafe
-    ```
+      ```ruby
+      logger.info('User is: #{user.email}') # unsafe
+      ```
     - **Do** use non-sensitive, unique identifiers to reference users or other entities in log messages. This approach maintains privacy while still allowing for effective logging.
-    ```ruby
-    logger.info('User is: #{user.uuid}')
-    ```
+      ```ruby
+      logger.info('User is: #{user.uuid}')
+      ```
 
     ## References
 

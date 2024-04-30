@@ -27,14 +27,14 @@ metadata:
     ## Remediations
 
     - **Do** increase the key size when using Blowfish encryption. Specifically, set the key size to 256 or more using the `KeyGenerator.init(keySize)` method. This adjustment significantly improves the security of the encryption.
-    ```java
-    KeyGenerator keyGenerator = KeyGenerator.getInstance("Blowfish");
-    keyGenerator.init(256);
-    ```
+      ```java
+      KeyGenerator keyGenerator = KeyGenerator.getInstance("Blowfish");
+      keyGenerator.init(256);
+      ```
     - **Do** consider using AES for encryption instead of Blowfish. AES is a more secure and widely recommended encryption standard. You can select AES as your encryption method by initializing the KeyGenerator instance for AES.
-    ```java
-    KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-    ```
+      ```java
+      KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+      ```
 
     ## References
 

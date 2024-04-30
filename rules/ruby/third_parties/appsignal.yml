@@ -74,9 +74,9 @@ metadata:
 
     - **Do** ensure all sensitive data is removed when sending data to third-party loggers like AppSignal.
     - **Do** use unique identifiers from the database if you really need to identify users.
-    ```ruby
-    Appsignal.tag_request(user_id: current_user.uuid)
-    ```
+      ```ruby
+      Appsignal.tag_request(user_id: current_user.uuid)
+      ```
 
     ## References
     - [AppSignal Documentation](https://docs.appsignal.com/)

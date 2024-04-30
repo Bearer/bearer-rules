@@ -41,15 +41,15 @@ metadata:
 
     - **Do not** use unsanitized user input to construct URLs for redirection. This can lead to security vulnerabilities where attackers could exploit the redirect to lead users to malicious sites.
     - **Do** validate user input by employing a safe list or a mapping strategy for constructing URLs. This ensures that only pre-approved destinations are used for redirects, significantly reducing the risk of phishing attacks.
-    ```javascript
-    var map = {
-      "1": "/planes",
-      "2": "/trains",
-      "3": "/automobiles",
-    }
+      ```javascript
+      var map = {
+        "1": "/planes",
+        "2": "/trains",
+        "3": "/automobiles",
+      }
 
-    res.redirect(map[req.body.transport])
-    ```
+      res.redirect(map[req.body.transport])
+      ```
 
     ## References
 

@@ -97,10 +97,10 @@ metadata:
     ## Remediations
 
     - **Do** use Helmet middleware to secure your app by adding it to your application's middleware.
-    ```javascript
-    const helmet = require("helmet");
-    app.use(helmet());
-    ```
+      ```javascript
+      const helmet = require("helmet");
+      app.use(helmet());
+      ```
 
     ## References
 

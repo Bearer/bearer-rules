@@ -37,9 +37,9 @@ metadata:
     ## Remediations
 
     - **Do** set the `setSecure` attribute to `true` to enforce the transmission of cookies over HTTPS only.
-    ```java
-    cookie.setSecure(true);
-    ```
+      ```java
+      cookie.setSecure(true);
+      ```
   cwe_id:
     - 614
   id: java_lang_cookie_missing_secure

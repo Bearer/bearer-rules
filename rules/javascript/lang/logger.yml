@@ -81,13 +81,13 @@ metadata:
     ## Remediations
 
     - **Do not** include sensitive data in logger messages. This can lead to unintended exposure of private information.
-    ```javascript
-    logger.info(`User is: ${user.email}`) // unsafe
-    ```
+      ```javascript
+      logger.info(`User is: ${user.email}`) // unsafe
+      ```
     - **Do** use non-sensitive, unique identifiers to reference users in log messages. This approach maintains user privacy while still allowing for effective logging.
-    ```javascript
-    logger.info(`User is: ${user.uuid}`)
-    ```
+      ```javascript
+      logger.info(`User is: ${user.uuid}`)
+      ```
     ## References
 
     - [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)

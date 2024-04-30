@@ -102,14 +102,14 @@ metadata:
     ## Remediations
 
     - **Do not** use SHA or SHA-1 for hashing. These algorithms are outdated and vulnerable to attacks.
-    ```ruby
-    Digest::SHA.hexdigest('weak hash')
-    Digest::SHA1.hexdigest('weak hash')
-    ```
+      ```ruby
+      Digest::SHA.hexdigest('weak hash')
+      Digest::SHA1.hexdigest('weak hash')
+      ```
     - **Do** use stronger hashing algorithms like bcrypt for enhanced security.
-    ```ruby
-    BCrypt::Password.create('iLOVEdogs123')
-    ```
+      ```ruby
+      BCrypt::Password.create('iLOVEdogs123')
+      ```
 
     ## References
 

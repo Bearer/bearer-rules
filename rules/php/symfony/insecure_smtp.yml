@@ -15,15 +15,15 @@ metadata:
     ## Remediations
 
     - **Do** enable SSL encryption in your SMTP configuration to secure the connection. This prevents unauthorized access to the data being transmitted.
-    ```php
-    return static function (ContainerConfigurator $container): void {
-      $container->extension('framework', [
-        'mailer' => [
-          'dsn' => "foo+smtp://wherever?verify_peer=true",
-        ],
-      ]);
-    };
-    ```
+      ```php
+      return static function (ContainerConfigurator $container): void {
+        $container->extension('framework', [
+          'mailer' => [
+            'dsn' => "foo+smtp://wherever?verify_peer=true",
+          ],
+        ]);
+      };
+      ```
 
     ## References
 

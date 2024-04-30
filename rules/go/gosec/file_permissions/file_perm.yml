@@ -39,10 +39,10 @@ metadata:
       - `0200` for write-only access by the file's owner.
       - `0600` for read and write access by the file's owner, suitable for files that the application needs to read from and write to.
     - **Do** use Go's `os` package to manage file permissions effectively. For example, use `os.OpenFile` with appropriate permission flags such as 0600.
-    ```go
-      f, err := os.OpenFile("file.txt", os.O_CREATE|os.O_WRONLY, 0600)
-      ...
-    ```
+      ```go
+        f, err := os.OpenFile("file.txt", os.O_CREATE|os.O_WRONLY, 0600)
+        ...
+      ```
     - **Do** verify file permissions after creation or update to ensure they are set as intended.
     - **Do** consider setting umask to a secure default, if your application creates multiple files, to ensure that files are created with safe default permissions.
     - **Do** regularly review and audit file permissions in your system to ensure they adhere to the principle of least privilege, minimizing the access level to what is strictly necessary for operational functionality.

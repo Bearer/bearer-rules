@@ -33,12 +33,12 @@ metadata:
     ## Remediations
 
     - **Do** upgrade DOMPurify to version 2.0.17 or greater, and specify a secure configuration option.
-    ```javascript
-      // either
-      DOMPurify.sanitize(htmlToSanitize, { RETURN_DOM_IMPORT:true })
-      // or
-      DOMPurify.sanitize(htmlToSanitize, { RETURN_DOM_FRAGMENT: true })
-    ```
+      ```javascript
+        // either
+        DOMPurify.sanitize(htmlToSanitize, { RETURN_DOM_IMPORT:true })
+        // or
+        DOMPurify.sanitize(htmlToSanitize, { RETURN_DOM_FRAGMENT: true })
+      ```
 
     ## References
     - [Vulnerability explained](https://research.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass)

@@ -31,17 +31,17 @@ metadata:
     ## Remediations
 
     - **Do not** use regular expressions without specifying start and end boundaries. This can lead to incomplete validation.
-    ```go
-    regexp.MustCompile("foo") // unsafe
-    ```
+      ```go
+      regexp.MustCompile("foo") // unsafe
+      ```
     - **Do not** use line-based boundaries (^ and $) for validation as they may not secure the entire text.
-    ```go
-    regexp.MustCompile("^foo$") // unsafe
-    ```
+      ```go
+      regexp.MustCompile("^foo$") // unsafe
+      ```
     - **Do** use whole-text boundaries (\A and \z or \Z) in your regular expressions to ensure comprehensive validation.
-    ```go
-    regexp.MustCompile("\Afoo\z")
-    ```
+      ```go
+      regexp.MustCompile("\Afoo\z")
+      ```
 
   cwe_id:
     - 625

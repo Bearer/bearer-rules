@@ -32,12 +32,12 @@ metadata:
 
     - **Do not** use DES as it is outdated and vulnerable to attacks. Its use can significantly weaken your application's security.
     - **Do** opt for stronger encryption algorithms, such as AES (Advanced Encryption Standard), to ensure the confidentiality and integrity of your data.
-    ```javascript
-    const crypto = require("crypto");
+      ```javascript
+      const crypto = require("crypto");
 
-    const cipher = crypto.createCipheriv("aes-256-cbc", key, iv);
-    const encrypted = cipher.update("my secret message", "utf8");
-    ```
+      const cipher = crypto.createCipheriv("aes-256-cbc", key, iv);
+      const encrypted = cipher.update("my secret message", "utf8");
+      ```
 
     ## References
 

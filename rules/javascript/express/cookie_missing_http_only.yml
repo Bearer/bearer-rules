@@ -30,9 +30,9 @@ metadata:
     ## Remediations
 
     - **Do** set the `HttpOnly` attribute to `true` in your cookie configuration. This action ensures that cookies are shielded from unauthorized client-side access.
-    ```javascript
-    cookie({ httpOnly: true });
-    ```
+      ```javascript
+      cookie({ httpOnly: true });
+      ```
 
     ## References
 

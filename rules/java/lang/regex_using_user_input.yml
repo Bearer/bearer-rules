@@ -21,9 +21,9 @@ metadata:
     ## Remediations
 
     - **Do not** - wherever possible - use user input directly in regular expressions. This can prevent attackers from exploiting complex patterns that cause excessive CPU consumption.
-    ```java
-    Pattern pattern = Pattern.compile(request.getParameter("dangerousRegex"));
-    ```
+      ```java
+      Pattern pattern = Pattern.compile(request.getParameter("dangerousRegex"));
+      ```
     - **Do** sanitize or validate user input if it must be used in a regular expression. Ensure that the input does not contain patterns that could lead to ReDoS.
 
     ## References

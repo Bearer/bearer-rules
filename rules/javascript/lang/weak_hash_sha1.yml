@@ -75,13 +75,13 @@ metadata:
     ## Remediations
 
     - **Do not** use SHA-1 for hashing. It's no longer considered secure against well-funded attackers.
-    ```javascript
-    const hash = crypto.createHmac("sha1", key).update(user.password); // unsafe
-    ```
+      ```javascript
+      const hash = crypto.createHmac("sha1", key).update(user.password); // unsafe
+      ```
     - **Do** use stronger hashing algorithms like SHA-256 or SHA-3 for enhanced security.
-    ```javascript
-    const hash = crypto.createHmac("sha256", key).update(user.password);
-    ```
+      ```javascript
+      const hash = crypto.createHmac("sha256", key).update(user.password);
+      ```
 
     ## References
 

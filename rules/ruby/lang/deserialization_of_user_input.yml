@@ -54,10 +54,10 @@ metadata:
 
     - **Do not** deserialize data from untrusted sources directly. This prevents attackers from exploiting the deserialization process.
     - **Do** use data formats that are purely data-oriented and not tied to a specific programming language, such as JSON or XML, for serialization and deserialization. This approach minimizes the risk of executing malicious code during deserialization.
-    ```ruby
-    user_data = JSON.parse(params[:user])
-    JSON.load(user)
-    ```
+      ```ruby
+      user_data = JSON.parse(params[:user])
+      JSON.load(user)
+      ```
 
     ## References
 

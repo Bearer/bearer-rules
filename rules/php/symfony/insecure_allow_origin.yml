@@ -41,9 +41,9 @@ metadata:
     ## Remediations
 
     - **Do not** define the Access-Control-Allow-Origin header with user input. This practice can compromise the security of your application by allowing data access to unintended users.
-    ```php
-    $response->headers->set('Access-Control-Allow-Origin', $userInput); // unsafe
-    ```
+      ```php
+      $response->headers->set('Access-Control-Allow-Origin', $userInput); // unsafe
+      ```
     - **Do** validate user input if it must be used to set the `Access-Control-Allow-Origin` header. Ensure that only trusted origins are allowed by implementing a safe-list of approved origins.
 
     ## References

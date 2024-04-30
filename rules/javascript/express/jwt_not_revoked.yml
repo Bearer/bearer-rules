@@ -33,13 +33,13 @@ metadata:
     ## Remediations
 
     - **Do** ensure JWTs are short-lived by implementing a method to revoke them. This reduces the risk of unauthorized access to sensitive information.
-    ```javascript
-    expressjwt({
-      ...
-      isRevoked: this.customRevokeCall(),
-      ...
-    })
-    ```
+      ```javascript
+      expressjwt({
+        ...
+        isRevoked: this.customRevokeCall(),
+        ...
+      })
+      ```
 
     ## References
 

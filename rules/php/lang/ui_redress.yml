@@ -21,13 +21,13 @@ metadata:
     ## Remediations
 
     - **Do** set the X-Frame-Options header to "DENY" to prevent your website from being framed by potentially malicious sites.
-    ```php
-    header("X-Frame-Options: DENY");
-    ```
+      ```php
+      header("X-Frame-Options: DENY");
+      ```
     - **Do** configure the Content-Security-Policy header with "frame-ancestors 'none'" to disallow embedding your content in iframes across all sites.
-    ```php
-    header("Content-Security-Policy: frame-ancestors 'none'");
-    ```
+      ```php
+      header("Content-Security-Policy: frame-ancestors 'none'");
+      ```
     - **Do not** use user input directly to set these headers without proper sanitization and validation.
 
     ## References

@@ -81,24 +81,24 @@ metadata:
     ## Remediations
 
     - **Do** sanitize user input before including it in LDAP queries to prevent LDAP injection attacks.
-    ```java
-    public class Cls extends HttpServlet
-    {
+      ```java
+      public class Cls extends HttpServlet
+      {
 
-        public void handleRequest(HttpServletRequest request, HttpServletResponse response)
-        {
-            String userID = request.getParameter("userID");
-            String sanitizedUserID = sanitize(userID); // Ensure sanitization method effectively neutralizes LDAP injection vectors
+          public void handleRequest(HttpServletRequest request, HttpServletResponse response)
+          {
+              String userID = request.getParameter("userID");
+              String sanitizedUserID = sanitize(userID); // Ensure sanitization method effectively neutralizes LDAP injection vectors
 
-            String filter = "(&(objectclass=person))(|(uid=" + sanitizedUserID + ")(street={0}))";
-            String base = "ou=users,ou=system";
-            Object[] filters = new Object[] {"First avenue"};
-            javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+              String filter = "(&(objectclass=person))(|(uid=" + sanitizedUserID + ")(street={0}))";
+              String base = "ou=users,ou=system";
+              Object[] filters = new Object[] {"First avenue"};
+              javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
 
-            dirContext.search(base, filter, filters, sc);
-        }
-    }
-    ```
+              dirContext.search(base, filter, filters, sc);
+          }
+      }
+      ```
 
     ## References
 

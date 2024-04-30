@@ -29,25 +29,25 @@ metadata:
     ## Remediations
 
     - **Do not** set the cookie's max age to -1. This persists the cookie until the browser session ends and is a security risk.
-    ```java
-    Cookie cookie = new Cookie("name", "value");
-    cookie.setMaxAge(-1); // unsafe
-    ```
+      ```java
+      Cookie cookie = new Cookie("name", "value");
+      cookie.setMaxAge(-1); // unsafe
+      ```
     - **Do not** set the cookie's path to "/". This makes the cookie accessible to all paths in the domain. Such permissive cookie exposure is a security risk.
-    ```java
-    Cookie cookie = new Cookie("name", "value");
-    cookie.setPath("/"); // unsafe
-    ```
+      ```java
+      Cookie cookie = new Cookie("name", "value");
+      cookie.setPath("/"); // unsafe
+      ```
     - **Do** set a limited maximum age for cookies to control their lifespan effectively.
-    ```java
-    Cookie cookie = new Cookie("name", "value");
-    cookie.setMaxAge(3000);
-    ```
+      ```java
+      Cookie cookie = new Cookie("name", "value");
+      cookie.setMaxAge(3000);
+      ```
     - **Do** restrict the cookie's path to limit its accessibility to specific parts of your application. This practice enhances security by reducing the cookie's exposure.
-    ```java
-    Cookie cookie = new Cookie("name", "value");
-    cookie.setPath("/my-cookie-path");
-    ```
+      ```java
+      Cookie cookie = new Cookie("name", "value");
+      cookie.setPath("/my-cookie-path");
+      ```
   cwe_id:
     - 693
   id: java_lang_permissive_cookie_config

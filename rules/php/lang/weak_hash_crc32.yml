@@ -39,13 +39,13 @@ metadata:
     ## Remediations
 
     - **Do not** use CRC32 for hashing when security is a concern. It is not secure against intentional data modifications.
-    ```php
-    $myhash = crc32($input); // unsafe
-    ```
+      ```php
+      $myhash = crc32($input); // unsafe
+      ```
     - **Do** opt for stronger hashing algorithms like SHA-256 to ensure data integrity and security.
-    ```php
-    $myhash = hash('sha256', $input);
-    ```
+      ```php
+      $myhash = hash('sha256', $input);
+      ```
 
   cwe_id:
     - 328

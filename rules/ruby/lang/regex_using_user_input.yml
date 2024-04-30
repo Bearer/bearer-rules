@@ -45,9 +45,9 @@ metadata:
 
     - **Do not** construct regular expressions directly from user inputs. This can make your application susceptible to ReDoS attacks.
     - **Do** set a timeout for regular expressions to prevent excessive CPU usage. This can help mitigate the impact of potential ReDoS attacks.
-    ```ruby
-    Regexp.new(/(a|b)/, timeout: 3)
-    ```
+      ```ruby
+      Regexp.new(/(a|b)/, timeout: 3)
+      ```
 
     ## References
 

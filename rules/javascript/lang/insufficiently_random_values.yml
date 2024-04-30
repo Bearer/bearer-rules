@@ -31,10 +31,10 @@ metadata:
     ## Remediations
 
     - **Do** use a robust library for generating random values to enhance security.
-    ```javascript
-    const crypto = require('crypto');
-    crypto.randomBytes(16).toString('hex');
-    ```
+      ```javascript
+      const crypto = require('crypto');
+      crypto.randomBytes(16).toString('hex');
+      ```
   cwe_id:
     - 330
   id: javascript_lang_insufficiently_random_values

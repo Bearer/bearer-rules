@@ -52,9 +52,9 @@ metadata:
 
     - **Do not** deserialize data from untrusted sources directly. This practice can lead to security vulnerabilities by executing malicious code embedded in the data.
     - **Do** use data-only and language-agnostic serialization formats such as JSON or XML for deserializing data. These formats are less susceptible to manipulation by attackers aiming to exploit the deserialization process.
-    ```javascript
-    JSON.parse(req.params);
-    ```
+      ```javascript
+      JSON.parse(req.params);
+      ```
 
     ## References
 

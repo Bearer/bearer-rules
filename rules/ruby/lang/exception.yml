@@ -21,13 +21,13 @@ metadata:
     ## Remediations
 
     - **Do not** include sensitive data in exception messages. This can inadvertently expose private information.
-    ```ruby
-    raise CustomException.new(user.email) # unsafe
-    ```
+      ```ruby
+      raise CustomException.new(user.email) # unsafe
+      ```
     - **Do** use non-sensitive, unique identifiers in exception messages to avoid revealing personal information.
-    ```ruby
-    raise CustomException.new(user.uuid)
-    ```
+      ```ruby
+      raise CustomException.new(user.uuid)
+      ```
   cwe_id:
     - 210
   id: ruby_lang_exception

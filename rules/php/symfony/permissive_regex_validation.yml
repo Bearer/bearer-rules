@@ -59,20 +59,20 @@ metadata:
     ## Remediations
 
     - **Do not** use regular expressions without specifying start and end text boundaries. This approach can result in partial matches, which may not fully validate the data.
-    ```php
-    #[Assert\Regex('/foo/')]
-    protected string $attribute; // unsafe
-    ```
+      ```php
+      #[Assert\Regex('/foo/')]
+      protected string $attribute; // unsafe
+      ```
     - **Do not** rely on line-based boundaries (^ and $).
-    ```php
-    #[Assert\Regex('/^foo$/')]
-    protected string $attribute; // unsafe
-    ```
+      ```php
+      #[Assert\Regex('/^foo$/')]
+      protected string $attribute; // unsafe
+      ```
     - **Do** use \A and \z or \Z as boundaries in your regular expressions to ensure that the entire text is validated from start to end.
-    ```php
-    #[Assert\Regex('/\Afoo\z/')]
-    protected string $attribute;
-    ```
+      ```php
+      #[Assert\Regex('/\Afoo\z/')]
+      protected string $attribute;
+      ```
 
     ## References
 

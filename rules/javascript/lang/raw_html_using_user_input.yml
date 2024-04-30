@@ -188,17 +188,17 @@ metadata:
     ## Remediations
 
     - **Do not** include user input directly in HTML strings. This practice can lead to XSS vulnerabilities.
-    ```javascript
-    const html = `<h1>${req.params.title}</h1>` // unsafe
-    ```
+      ```javascript
+      const html = `<h1>${req.params.title}</h1>` // unsafe
+      ```
     - **Do** use a framework or templating language that automatically handles the encoding and sanitization of user input when constructing HTML. This approach minimizes the risk of XSS attacks.
     - **Do** sanitize user input if you must use HTML strings directly. Utilize libraries designed for input sanitization to ensure that user input does not contain malicious content.
-    ```javascript
-    import sanitizeHtml from 'sanitize-html'
+      ```javascript
+      import sanitizeHtml from 'sanitize-html'
 
-    const sanitizedTitle = sanitizeHtml(req.params.title)
-    const html = `<h1>${sanitizedTitle}</h1>`
-    ```
+      const sanitizedTitle = sanitizeHtml(req.params.title)
+      const html = `<h1>${sanitizedTitle}</h1>`
+      ```
 
     ## References
 

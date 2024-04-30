@@ -62,20 +62,20 @@ metadata:
     ## Remediations
 
     - **Do not** concatenate or include user input directly in URLs for HTTP requests. This practice can allow attackers to manipulate requests to unauthorized or malicious sites.
-    ```java
-    new URL(request.getParameter("someRandomUrl")).getContent(); // unsafe
-    ```
+      ```java
+      new URL(request.getParameter("someRandomUrl")).getContent(); // unsafe
+      ```
     - **Do** validate or map user inputs to predefined options before using them to construct URLs. This approach ensures that the application only requests URLs to known, safe destinations.
-    ```java
-    String url;
-    if (request.getParameter("selectedUrl").equals("option1")) {
-      url = "https://api1.com";
-    } else {
-      url = "https://api2.com";
-    }
+      ```java
+      String url;
+      if (request.getParameter("selectedUrl").equals("option1")) {
+        url = "https://api1.com";
+      } else {
+        url = "https://api2.com";
+      }
 
-    new URL(url).getContent();
-    ```
+      new URL(url).getContent();
+      ```
   cwe_id:
     - 918
   id: java_lang_http_url_using_user_input

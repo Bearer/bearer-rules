@@ -13,12 +13,12 @@ metadata:
     ## Remediations
 
     - **Do** enforce the use of TLS 1.3 when configuring Go's TLS library. TLS 1.3 offers significant security improvements, helping to protect data from known vulnerabilities present in older versions.
-    ```go
-      cfg := &tls.Config{
-        MinVersion:   tls.VersionTLS13,
-        ...
-      }
-    ```
+      ```go
+        cfg := &tls.Config{
+          MinVersion:   tls.VersionTLS13,
+          ...
+        }
+      ```
     - **Do** utilize configurations that support Perfect Forward Secrecy (PFS) with TLS 1.3. PFS enhances security by ensuring that past communications remain secure even if future session keys are compromised.
     - **Do** regularly update your Go version and dependencies to incorporate the latest security fixes and improvements.
     - **Do not** configure your server to accept TLS versions 1.0 or 1.1. Removing these options from your TLS configuration is crucial to prevent downgrade attacks.

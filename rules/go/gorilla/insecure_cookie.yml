@@ -45,18 +45,18 @@ metadata:
     ## Remediations
 
     - **Do** set the Secure flag for cookies if your site uses HTTPS. This action restricts cookies to secure channels, enhancing their security.
-    ```go
-    http.SetCookie(w, &http.Cookie{
-        Name:     "session_token",
-        Value:    sessionToken,
-        Secure:   true,
-        HttpOnly: true,
-    })
-    ```
+      ```go
+      http.SetCookie(w, &http.Cookie{
+          Name:     "session_token",
+          Value:    sessionToken,
+          Secure:   true,
+          HttpOnly: true,
+      })
+      ```
     - **Do** use Gorilla SecureCookie for encoding and decoding session data securely. This method provides an additional layer of security for session information.
-    ```go
-    var s = sessions.NewCookieStore([]byte("your-secret-key"))
-    ```
+      ```go
+      var s = sessions.NewCookieStore([]byte("your-secret-key"))
+      ```
     - **Do** implement robust session management with Gorilla Sessions. Proper session management helps prevent attacks related to session fixation and enhances overall session security.
 
     ## References

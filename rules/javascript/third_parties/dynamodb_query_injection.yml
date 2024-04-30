@@ -47,19 +47,19 @@ metadata:
     ## Remediations
 
     - **Do** narrow down your query from the code instead of using unsanitzed user input to define it.
-    ```javascript
-    exports.handler = async function(event, context) {
-        var params = {
-            Key: {
-             "artist": {"S": event.input },
-             "song": {"S": "Carrot Eton"}
-            },
-            TableName: "artists"
-        };
-        var result = await dynamodb.getItem(params).promise()
-        console.log(JSON.stringify(result))
-    }
-    ```
+      ```javascript
+      exports.handler = async function(event, context) {
+          var params = {
+              Key: {
+              "artist": {"S": event.input },
+              "song": {"S": "Carrot Eton"}
+              },
+              TableName: "artists"
+          };
+          var result = await dynamodb.getItem(params).promise()
+          console.log(JSON.stringify(result))
+      }
+      ```
 
     ## References
 

@@ -34,19 +34,19 @@ metadata:
     ## Remediations
 
     - **Do not** construct OS commands or command-line arguments using externally-supplied information. This practice can introduce command injection vulnerabilities.
-    ```go
-    cmd := exec.Command("bash", "-c", "echo " + externalInput) // unsafe
-    ```
+      ```go
+      cmd := exec.Command("bash", "-c", "echo " + externalInput) // unsafe
+      ```
     - **Do** validate all external input against a strict set of rules to ensure it does not include harmful characters or patterns.
-    ```go
-    if !regexp.MustCompile(`^[a-zA-Z0-9]+$`).MatchString(externalInput) {
-      log.Fatal("Invalid input")
-    }
-    ```
+      ```go
+      if !regexp.MustCompile(`^[a-zA-Z0-9]+$`).MatchString(externalInput) {
+        log.Fatal("Invalid input")
+      }
+      ```
     - **Do** use hardcoded arguments when invoking OS commands to prevent external input from altering the command's execution.
-    ```go
-    cmd := exec.Command("ls", "-l", "/var/log")
-    ```
+      ```go
+      cmd := exec.Command("ls", "-l", "/var/log")
+      ```
     - **Do** prefer native libraries or programming language features over invoking shell commands for enhanced security and efficiency.
 
     ## References

@@ -19,16 +19,16 @@ metadata:
     ## Remediations
 
     - **Do not** pass user or request input directly to `res.render()` without sanitization. Directly using user input in resource rendering can introduce security risks.
-    ```javascript
-    res.render(req.body.page); // unsafe
-    ```
+      ```javascript
+      res.render(req.body.page); // unsafe
+      ```
     - **Do** sanitize the input or use a safelist if you must rely on user input for resource rendering. This ensures that only expected and safe resources are rendered.
-    ```javascript
-    var path = req.body.path;
-    if (['users', 'posts', 'pages'].includes(path)) {
-      return res.render(`${path}/success`);
-    }
-    ```
+      ```javascript
+      var path = req.body.path;
+      if (['users', 'posts', 'pages'].includes(path)) {
+        return res.render(`${path}/success`);
+      }
+      ```
   cwe_id:
     - 706
   id: "javascript_express_external_resource"

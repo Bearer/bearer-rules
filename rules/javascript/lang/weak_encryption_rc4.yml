@@ -32,12 +32,12 @@ metadata:
 
     - **Do not** use RC4 for encrypting data. Its weaknesses can lead to compromised data security.
     - **Do** opt for stronger, more secure encryption algorithms like AES-256 when encrypting data. This ensures a higher level of security for your data.
-    ```javascript
-    const crypto = require("crypto");
+      ```javascript
+      const crypto = require("crypto");
 
-    const cipher = crypto.createCipheriv("aes-256-cbc", key, iv);
-    const encrypted = cipher.update("my secret message", "utf8");
-    ```
+      const cipher = crypto.createCipheriv("aes-256-cbc", key, iv);
+      const encrypted = cipher.update("my secret message", "utf8");
+      ```
 
     ## References
 

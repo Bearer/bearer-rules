@@ -36,13 +36,13 @@ metadata:
     ## Remediations
 
     - **Do not** use RC4 for encrypting data. Its vulnerabilities make it an insecure option for protecting sensitive information.
-    ```ruby
-    RC4.new("weak password encryption") # unsafe
-    ```
+      ```ruby
+      RC4.new("weak password encryption") # unsafe
+      ```
     - **Do** use stronger, more secure encryption algorithms like bcrypt for handling sensitive data securely.
-    ```ruby
-    BCrypt::Password.create('iLOVEdogs123')
-    ```
+      ```ruby
+      BCrypt::Password.create('iLOVEdogs123')
+      ```
 
     ## References
 

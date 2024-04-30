@@ -21,16 +21,16 @@ metadata:
     ## Remediations
 
     - **Do not** manually escape HTML to sanitize user input. This method is unreliable and can easily miss certain exploits.
-    ```ruby
-    sanitized_user_input = user.Input
-      .gsub('<', '&lt;') # unsafe
-      .gsub('>', '&gt;') # unsafe
-    html = "<strong>#{sanitized_user_input}</strong>"
-    ```
+      ```ruby
+      sanitized_user_input = user.Input
+        .gsub('<', '&lt;') # unsafe
+        .gsub('>', '&gt;') # unsafe
+      html = "<strong>#{sanitized_user_input}</strong>"
+      ```
     - **Do** use a HTML sanitization library to handle user input safely. Libraries are designed to comprehensively sanitize input, protecting against XSS attacks.
-    ```ruby
-    html = sanitize("<strong>#{user.Input}</strong>")
-    ```
+      ```ruby
+      html = sanitize("<strong>#{user.Input}</strong>")
+      ```
 
     ## References
 

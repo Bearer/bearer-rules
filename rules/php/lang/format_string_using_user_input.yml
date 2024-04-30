@@ -36,13 +36,13 @@ metadata:
     ## Remediations
 
     - **Do not** include user input directly in format strings. This approach can be exploited by attackers to manipulate the output.
-    ```php
-    sprintf("The value was ${_GET["value"]}"); // unsafe
-    ```
+      ```php
+      sprintf("The value was ${_GET["value"]}"); // unsafe
+      ```
     - **Do** use a literal format string with user input as separate arguments. This method helps prevent attackers from influencing the format of the output.
-    ```php
-    sprintf("The value was %s", $_GET["value"]);
-    ```
+      ```php
+      sprintf("The value was %s", $_GET["value"]);
+      ```
 
     ## References
 

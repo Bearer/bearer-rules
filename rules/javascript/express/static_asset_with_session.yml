@@ -42,10 +42,10 @@ metadata:
     ## Remediations
 
     - **Do** ensure that static resources are served prior to session initialization in your application's middleware order. This practice prevents session cookies from being unnecessarily attached to static assets, reducing the risk of CSRF attacks.
-    ```javascript
-    app.use(express.static(__dirname + "/public"));
-    app.use(session());
-    ```
+      ```javascript
+      app.use(express.static(__dirname + "/public"));
+      app.use(session());
+      ```
   cwe_id:
     - 352
   id: javascript_express_static_asset_with_session

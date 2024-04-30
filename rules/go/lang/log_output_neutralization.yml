@@ -138,16 +138,16 @@ metadata:
 
     - **Do not** log unsanitized external input directly. This practice can make your application vulnerable to log injection attacks.
     - **Do** use printf methods with `%q` format for logging external input. This method ensures that the input is safely encoded, preventing log injection.
-    ```go
-    dangerousInput := os.Args[0]
-    logger.Printf("Args: %q", dangerousInput)
-    ```
+      ```go
+      dangerousInput := os.Args[0]
+      logger.Printf("Args: %q", dangerousInput)
+      ```
     - **Do** manually escape external strings before logging them. This approach allows you to sanitize input by escaping potentially dangerous characters.
-    ```go
-    dangerousInput := os.Args[0]
-    sanitizedInput := strconv.Quote(dangerousInput)
-    logger.Print(sanitizedInput)
-    ```
+      ```go
+      dangerousInput := os.Args[0]
+      sanitizedInput := strconv.Quote(dangerousInput)
+      logger.Print(sanitizedInput)
+      ```
   cwe_id:
     - 117
   id: go_lang_log_output_neutralization

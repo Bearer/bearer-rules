@@ -52,10 +52,10 @@ metadata:
     ## Remediations
 
     - **Do** limit the decompression size. Use `io.LimitReader`, for example, to restrict the amount of data that a reader will decompress. This prevents the decompression of large files that could fill up memory or disk space.
-    ```go
-    const maxDecompressSize = 10 * 1024 * 1024 // 10 MB
-    limitedReader := io.LimitReader(r, maxDecompressSize)
-    ```
+      ```go
+      const maxDecompressSize = 10 * 1024 * 1024 // 10 MB
+      limitedReader := io.LimitReader(r, maxDecompressSize)
+      ```
     - **Do** monitor resource usage to detect unexpected increases in CPU, memory, or disk usage, which may indicate an attack.
     - **Do** validate the size and type of input files before decompression. Reject files that do not meet predefined criteria to avoid processing potentially harmful data.
     - **Do** ensure your application fails safely. It should handle decompression errors without crashing or becoming unresponsive.

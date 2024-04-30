@@ -33,9 +33,9 @@ metadata:
 
     - **Do** ensure all sensitive data is removed when sending data to third-party loggers like Rollbar.
     - **Do** use unique identifiers from the database if you really need to identify users.
-    ```javascript
-      Rollbar.critical("Connection error from remote Payments API", user.uuid);
-    ```
+      ```javascript
+        Rollbar.critical("Connection error from remote Payments API", user.uuid);
+      ```
 
     ## References
     - [Rollbar docs](https://docs.rollbar.com/docs/javascript)

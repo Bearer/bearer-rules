@@ -45,9 +45,9 @@ metadata:
     ## Remediations
 
     - **Do not** print the full stack trace to the default output. This can inadvertently reveal sensitive information.
-    ```php
-    echo $e->getTrace(); // unsafe
-    ```
+      ```php
+      echo $e->getTrace(); // unsafe
+      ```
     - **Do** log only the essential details required for error messages. This minimizes the risk of sensitive data exposure.
 
     ## References

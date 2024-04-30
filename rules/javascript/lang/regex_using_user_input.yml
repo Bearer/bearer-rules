@@ -19,9 +19,9 @@ metadata:
     ## Remediations
 
     - **Do not** use user-supplied data directly in regular expressions. This can prevent attackers from exploiting the ReDoS vulnerability to cause a denial of service.
-    ```javascript
-    new RegExp(`abc${req.params.untrusted}`, 'i'); // unsafe
-    ```
+      ```javascript
+      new RegExp(`abc${req.params.untrusted}`, 'i'); // unsafe
+      ```
     - **Do** sanitize or validate all user input if it must be used in a regular expression, to ensure it does not contain patterns that can lead to ReDoS attacks.
     - **Do** consider implementing timeouts or other limitations on regex operations to mitigate potential ReDoS attacks when user input is involved.
 

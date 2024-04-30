@@ -17,10 +17,10 @@ metadata:
 
     - **Do not** use `java.net.Socket` init to directly create SSL sockets, because of its limited security capabilities.
     - **Do** utilize `SSLSocketFactory` to create SSL sockets. This method ensures the use of SSL/TLS protocols and other security enhancements.
-    ```java
-    SSLSocketFactory sslSocketFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
-    SSLSocket socket = (SSLSocket) sslSocketFactory.createSocket(socket, host, port, true);
-    ```
+      ```java
+      SSLSocketFactory sslSocketFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+      SSLSocket socket = (SSLSocket) sslSocketFactory.createSocket(socket, host, port, true);
+      ```
 
     ## References
 

@@ -36,13 +36,13 @@ metadata:
     ## Remediations
 
     - **Do not** incorporate user input directly into format strings. This approach can be exploited by attackers to manipulate output or execute malicious code.
-    ```javascript
-    console.log(`The value was ${req.params.value}`); // unsafe
-    ```
+      ```javascript
+      console.log(`The value was ${req.params.value}`); // unsafe
+      ```
     - **Do** use a literal format string and pass user input as additional arguments. This method safely incorporates user input without exposing the application to format string vulnerabilities.
-    ```javascript
-    console.log("The value was %s", req.params.value);
-    ```
+      ```javascript
+      console.log("The value was %s", req.params.value);
+      ```
   cwe_id:
     - 134
   id: javascript_lang_format_string_using_user_input

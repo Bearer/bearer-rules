@@ -98,9 +98,9 @@ metadata:
     ## Remediations
 
     - **Do not** disable SSL/TLS certificate validation. Specifically, avoid setting the `NODE_TLS_REJECT_UNAUTHORIZED` variable to zero in environments where security is a concern. This action turns off TLS/SSL certificate validation, leaving your application vulnerable to attacks.
-    ```javascript
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-    ```
+        ```javascript
+        process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+        ```
 
   cwe_id:
     - 295

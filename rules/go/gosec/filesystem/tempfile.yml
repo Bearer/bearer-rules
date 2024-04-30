@@ -34,9 +34,9 @@ metadata:
     ## Remediations
 
     - **Do** use `os.CreateTemp` for creating temporary files. This function helps in securely generating temporary files within a directory that only your application can access, significantly reducing the risk of symlink attacks.
-    ```go
-    f, err := os.CreateTemp(restrictedDir, "temp-*.txt")
-    ```
+      ```go
+      f, err := os.CreateTemp(restrictedDir, "temp-*.txt")
+      ```
     - **Do not** use shared temporary directories for operations that involve sensitive data or require secure file handling.
     - **Do** ensure temporary files are removed after their intended use to avoid accumulation and potential security risks.
 

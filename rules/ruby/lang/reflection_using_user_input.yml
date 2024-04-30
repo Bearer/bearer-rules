@@ -100,21 +100,21 @@ metadata:
     ## Remediations
 
     - **Do not** directly use user input for code generation or reflection. This can lead to malicious code execution.
-    ```ruby
-    method(params[:method]) # unsafe
-    ```
+      ```ruby
+      method(params[:method]) # unsafe
+      ```
     - **Do** validate or sanitize user input before using it in code generation. Use a controlled approach to map user inputs to specific, predefined actions or methods.
-    ```ruby
-    method_name =
-      case params[:action]
-      when "option1"
-        "method1"
-      when "option2"
-        "method2"
-      end
+      ```ruby
+      method_name =
+        case params[:action]
+        when "option1"
+          "method1"
+        when "option2"
+          "method2"
+        end
 
-    method(method_name)
-    ```
+      method(method_name)
+      ```
 
     ## References
 

@@ -31,9 +31,9 @@ metadata:
 
     - **Do** use newer HTTP Clients such as `java.net.http.HttpClient` that automatically include TLS validation.
     - **Do** opt for the newer TLS protocol over SSL, wherever possible, to secure connections. Ensure your application explicitly requests TLS to avoid the vulnerabilities associated with SSL.
-    ```java
-    SSLContext.getInstance("TLS");
-    ```
+      ```java
+      SSLContext.getInstance("TLS");
+      ```
     - **Do not** rely on deprecated HTTP clients, such as `DefaultHttpClient`, for your application's networking needs. These clients do not perform necessary security checks like TLS validation, putting your application at risk.
   cwe_id:
     - 295

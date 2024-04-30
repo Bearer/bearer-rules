@@ -67,18 +67,18 @@ metadata:
     ## Remediations
 
     - **Do** sanitize user input before incorporating it into a template. This step is crucial to prevent XSS attacks.
-    ```go
-    safe := template.HTMLEscapeString(r.FormValue("xyz"))
-    ```
+      ```go
+      safe := template.HTMLEscapeString(r.FormValue("xyz"))
+      ```
     - **Do** use `html/template` instead of `text/template` for parsing and rendering templates. The `html/template` package automatically escapes inputs, providing an additional layer of security.
-    ```go
-    import "html/template"
+      ```go
+      import "html/template"
 
-    func good(w http.ResponseWriter, r *http.Request) {
-      t, _ := template.New("something").Parse(r.FormValue("xyz"))
-      t.Execute(w, nil)
-    }
-    ```
+      func good(w http.ResponseWriter, r *http.Request) {
+        t, _ := template.New("something").Parse(r.FormValue("xyz"))
+        t.Execute(w, nil)
+      }
+      ```
 
     ## References
 

@@ -442,10 +442,10 @@ metadata:
 
     - **Do not** disable SSL certificate validation in your HTTP client. Disabling it removes a critical layer of security and makes your application vulnerable to Man-in-the-Middle attacks..
     - **Do** ensure that both peer and hostname verification are enabled in your HTTP client. This step is crucial for establishing secure connections and protecting data in transit.
-    ```php
-    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
-    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
-    ```
+      ```php
+      curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
+      curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
+      ```
   cwe_id:
     - 295
   id: php_lang_ssl_verification

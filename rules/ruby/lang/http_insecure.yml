@@ -221,13 +221,13 @@ metadata:
     ## Remediations
 
     - **Do not** use unsecured HTTP connections for outgoing communications, particularly when making API calls.
-    ```ruby
-    response = HTTParty.get('http://insecure-api.com') # unsafe
-    ```
+      ```ruby
+      response = HTTParty.get('http://insecure-api.com') # unsafe
+      ```
     - **Do** ensure all connections are made through HTTPS to protect data in transit with encryption.
-    ```ruby
-    response = HTTParty.get('https://secure-api.com')
-    ```
+      ```ruby
+      response = HTTParty.get('https://secure-api.com')
+      ```
 
     ## References
 

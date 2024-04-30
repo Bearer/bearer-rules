@@ -43,14 +43,14 @@ metadata:
     ## Remediations
 
     - **Do not** include unsanitized user input directly in HTML responses. This practice makes your application vulnerable to XSS attacks.
-    ```ruby
-    render html: "<h1>#{params[:title]}</h1>"
-    ```
+      ```ruby
+      render html: "<h1>#{params[:title]}</h1>"
+      ```
 
     - **Do** sanitize user input before including it in an HTML response to prevent XSS attacks.
-    ```ruby
-    render html: "<h1>#{strip_tags(params[:title])}</h1>"
-    ```
+      ```ruby
+      render html: "<h1>#{strip_tags(params[:title])}</h1>"
+      ```
 
     ## References
 

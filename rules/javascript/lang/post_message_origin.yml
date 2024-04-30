@@ -22,13 +22,13 @@ metadata:
     ## Remediations
 
     - **Do not** use "*" as the target origin in postMessage calls. This approach is insecure as it allows any website to receive the messages.
-    ```javascript
-    window.postMessage(message, '*'); // unsafe
-    ```
+      ```javascript
+      window.postMessage(message, '*'); // unsafe
+      ```
     - **Do** specify the exact origin of the target application when using postMessage. This practice ensures that only the intended recipient can read the message.
-    ```javascript
-    window.postMessage(message, 'https://myapp.example.com');
-    ```
+      ```javascript
+      window.postMessage(message, 'https://myapp.example.com');
+      ```
   cwe_id:
     - 346
   id: "javascript_lang_post_message_origin"

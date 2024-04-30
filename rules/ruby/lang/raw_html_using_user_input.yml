@@ -36,14 +36,14 @@ metadata:
     ## Remediations
 
     - **Do not** include user input directly in HTML strings. This practice can lead to XSS vulnerabilities.
-    ```ruby
-    html = "<h1>#{params[:title]}</h1>"
-    ```
+      ```ruby
+      html = "<h1>#{params[:title]}</h1>"
+      ```
     - **Do** use a templating language, such as ERB, and keep the template in a separate file to safely incorporate user input.
     - **Do** sanitize user input when HTML strings must be used, to prevent malicious code injection.
-    ```ruby
-    html = "<h1>#{strip_tags(params[:title])}</h1>"
-    ```
+      ```ruby
+      html = "<h1>#{strip_tags(params[:title])}</h1>"
+      ```
 
     ## References
 

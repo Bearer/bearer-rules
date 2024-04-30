@@ -60,11 +60,11 @@ metadata:
 
     - **Do** ensure all sensitive data is removed when sending data to third-party services like Algolia.
     - **Do** use unique identifiers from the database if you really need to identify users.
-    ```javascript
-      const algoliaSearch = require('algoliasearch')
-      const myAlgolia = algoliaSearch("123", "123")
-      const index = myAlgolia.initIndex(user.uuid)
-    ```
+      ```javascript
+        const algoliaSearch = require('algoliasearch')
+        const myAlgolia = algoliaSearch("123", "123")
+        const index = myAlgolia.initIndex(user.uuid)
+      ```
 
     ## References
     - [Algolia docs](https://www.algolia.com/doc/)

@@ -27,15 +27,15 @@ metadata:
     ## Remediations
 
     - **Do not** include unsanitized user input in log messages. This can allow attackers to manipulate log files or inject harmful content.
-    ```java
-    String username = request.getParameter("username");
-    log.warn("Username is" + username); // unsafe
-    ```
+      ```java
+      String username = request.getParameter("username");
+      log.warn("Username is" + username); // unsafe
+      ```
     - **Do** sanitize user input before logging it. Ensure that any data derived from user input is cleaned to prevent log injection attacks.
-    ```java
-    String username = sanitized(request.getParameter("username"));
-    log.warn("Username is" + username);
-    ```
+      ```java
+      String username = sanitized(request.getParameter("username"));
+      log.warn("Username is" + username);
+      ```
     ## References
 
     - [OWASP Log Injection](https://owasp.org/www-community/attacks/Log_Injection)

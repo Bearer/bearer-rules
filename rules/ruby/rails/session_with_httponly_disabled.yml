@@ -17,9 +17,9 @@ metadata:
 
     - **Do not** set the httponly flag to false when configuring the Rails session_store.
     - **Do** keep this flag enabled to prevent JavaScript from accessing session cookies and reducing the risk of XSS attacks.
-    ```ruby
-    Rails.application.config.session_store :cookie_store, key: "some_key", httponly: true
-    ```
+      ```ruby
+      Rails.application.config.session_store :cookie_store, key: "some_key", httponly: true
+      ```
 
     ## References
 

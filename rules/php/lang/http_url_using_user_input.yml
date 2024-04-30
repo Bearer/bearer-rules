@@ -24,19 +24,19 @@ metadata:
     ## Remediations
 
     - **Do not** directly include user input in HTTP URLs. This practice can lead to SSRF vulnerabilities, where attackers exploit the application to send requests to unintended destinations.
-    ```php
-    $curl = curl_init("https://{$_GET['host']}"); // unsafe
-    ```
+      ```php
+      $curl = curl_init("https://{$_GET['host']}"); // unsafe
+      ```
     - **Do** validate or map user input against a predefined list of safe values before using it to form URLs. This approach ensures that the application only connects to intended and safe locations.
-    ```php
-    if ($_GET["host"] == "option1") {
-      $host = "api1.com";
-    } else {
-      $host = "api2.com";
-    }
+      ```php
+      if ($_GET["host"] == "option1") {
+        $host = "api1.com";
+      } else {
+        $host = "api2.com";
+      }
 
-    $curl = curl_init("https://$host");
-    ```
+      $curl = curl_init("https://$host");
+      ```
 
     ## References
 

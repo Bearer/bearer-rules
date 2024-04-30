@@ -15,15 +15,15 @@ metadata:
     ## Remediations
 
     - **Do** use `Context.MODE_PRIVATE` for file permissions to ensure that your files are accessible only by your application.
-    ```java
-    getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-    ```
+      ```java
+      getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+      ```
     - **Do** utilize a `ContentProvider` if you need to share data with other applications securely. This approach provides a granular control over who can access your data.
-    ```java
-    public class MyContentProvider extends ContentProvider {
-        // Implement content provider methods here
-    }
-    ```
+      ```java
+      public class MyContentProvider extends ContentProvider {
+          // Implement content provider methods here
+      }
+      ```
     - **Do not** use `MODE_WORLD_READABLE` or `MODE_WORLD_WRITEABLE` constants, even in legacy applications. Instead, update your application to use more secure alternatives.
 
     ## References

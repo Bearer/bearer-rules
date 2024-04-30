@@ -21,13 +21,13 @@ metadata:
     ## Remediations
 
     - **Do not** store sensitive data in session cookies. This approach risks exposing sensitive information since cookies are stored on the client side.
-    ```ruby
-    cookies[:user_credentials] = "username:password" # unsafe
-    ```
+      ```ruby
+      cookies[:user_credentials] = "username:password" # unsafe
+      ```
     - **Do** configure your Rails application to use a database-based session storage. This method enhances security by storing session data on the server side, making it more secure and easier to manage session invalidation.
-    ```ruby
-    Rails.application.config.session_store :active_record_store
-    ```
+      ```ruby
+      Rails.application.config.session_store :active_record_store
+      ```
 
     ## References
 

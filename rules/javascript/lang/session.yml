@@ -21,14 +21,14 @@ metadata:
     ## Remediations
 
     - **Do not** store sensitive data in `localStorage`. This method exposes sensitive information to potential security threats.
-    ```javascript
-    localStorage.setItem('user', email); // unsafe
-    ```
+      ```javascript
+      localStorage.setItem('user', email); // unsafe
+      ```
     - **Do** use server-based session storage solutions to keep session data secure. This approach minimizes the risk of sensitive data exposure.
     - **Do** store only non-sensitive data in `localStorage`, such as a unique identifier, to reduce security risks.
-    ```javascript
-    localStorage.setItem('user', user.uuid);
-    ```
+      ```javascript
+      localStorage.setItem('user', user.uuid);
+      ```
 
     ## References
 

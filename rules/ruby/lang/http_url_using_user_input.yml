@@ -362,21 +362,21 @@ metadata:
     ## Remediations
 
     - **Do not** directly incorporate user input into HTTP URLs. This can lead to SSRF vulnerabilities.
-    ```ruby
-    Faraday.get("https://#{params[:host]}") # unsafe
-    ```
+      ```ruby
+      Faraday.get("https://#{params[:host]}") # unsafe
+      ```
     - **Do** validate or map user input against a predefined list of safe values before using it to form URLs. This approach reduces the risk of SSRF attacks.
-    ```ruby
-    host =
-      case params[:host]
-      when "option1"
-        "api1.com"
-      when "option2"
-        "api2.com"
-      end
+      ```ruby
+      host =
+        case params[:host]
+        when "option1"
+          "api1.com"
+        when "option2"
+          "api2.com"
+        end
 
-    Faraday.get("https://#{host}")
-    ```
+      Faraday.get("https://#{host}")
+      ```
   cwe_id:
     - 918
   id: ruby_lang_http_url_using_user_input

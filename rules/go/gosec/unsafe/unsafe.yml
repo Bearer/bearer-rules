@@ -16,15 +16,15 @@ metadata:
 
     - **Do not** use the `unsafe` package unless it is absolutely necessary. If you must use it, ensure you fully understand the implications and thoroughly test your code.
     - **Do** ensure buffer boundaries are respected to avoid buffer overflows. This precaution helps prevent unauthorized code execution.
-    ```go
-    buffer := make([]byte, 10)
-    ```
+      ```go
+      buffer := make([]byte, 10)
+      ```
     - **Do not** access memory after it has been freed to avoid use-after-free vulnerabilities, which can lead to unintended code execution or unpredictable system behavior.
-    ```go
-    unsafePointer := unsafe.Pointer(&data)
-    C.free(unsafePointer)
-    // now unsafe to access
-    ```
+      ```go
+      unsafePointer := unsafe.Pointer(&data)
+      C.free(unsafePointer)
+      // now unsafe to access
+      ```
     - **Do** regularly review and audit your code to prevent memory or information leaks that could compromise security or lead to system failures due to exhausted memory.
 
     ## References

@@ -129,22 +129,22 @@ metadata:
     ## Remediations
 
     - **Do not** directly use user input to form OS commands. This can allow attackers to execute arbitrary commands.
-    ```ruby
-    system(params[:command]) # unsafe
-    ```
+      ```ruby
+      system(params[:command]) # unsafe
+      ```
     - **Do** validate or sanitize user input before using it in OS commands. Prefer using static command strings where possible.
     - **Do** use indirect methods for incorporating user input into commands, such as selecting from predefined options.
-    ```ruby
-    command =
-      case params[:action]
-      when "option1"
-        "command1"
-      when "option2"
-        "command2"
-      end
+      ```ruby
+      command =
+        case params[:action]
+        when "option1"
+          "command1"
+        when "option2"
+          "command2"
+        end
 
-    system(command)
-    ```
+      system(command)
+      ```
 
     ## References
 

@@ -22,13 +22,13 @@ metadata:
     ## Remediations
 
     - **Do not** include high-risk parameters such as :admin or :role in the list of permitted keys for mass assignment, to prevent attackers from exploiting these attributes to escalate their privileges.
-    ```ruby
-    user_params = params.require(:user).permit(:admin, :role) # unsafe
-    ```
+      ```ruby
+      user_params = params.require(:user).permit(:admin, :role) # unsafe
+      ```
     - **Do not** use mass assignment with an untrusted hash, such as `params`.
-    ```
-    User.new(params) # unsafe
-    ```
+      ```ruby
+      User.new(params) # unsafe
+      ```
 
     ## References
 

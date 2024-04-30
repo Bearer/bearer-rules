@@ -105,15 +105,15 @@ metadata:
     ## Remediations
 
     - **Do not** use user input directly as the format string in formatting functions. This applies to any situation where the first argument (or second, if a locale is specified) is expected to be a format string.
-    ```java
-    String.format(request.getParameter("foo"), "bar"); // unsafe
-    String.format(Locale.US, request.getParameter("foo"), "bar"); // unsafe
-    ```
+      ```java
+      String.format(request.getParameter("foo"), "bar"); // unsafe
+      String.format(Locale.US, request.getParameter("foo"), "bar"); // unsafe
+      ```
     - **Do** use hard-coded format strings when working with formatting functions. This ensures that the format string is not influenced by external input, mitigating the risk of format string vulnerabilities.
-    ```java
-    String.format("Strings: %s", request.getParameter("foo"), "bar");
-    String.format(Locale.US, "Strings: %s", request.getParameter("foo"), "bar");
-    ```
+      ```java
+      String.format("Strings: %s", request.getParameter("foo"), "bar");
+      String.format(Locale.US, "Strings: %s", request.getParameter("foo"), "bar");
+      ```
 
     ## References
 

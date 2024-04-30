@@ -37,9 +37,9 @@ metadata:
     ## Remediations
 
     - **Do** set the HTTP Only attribute to `true` for cookies to prevent them from being accessed by client-side JavaScript. This is a critical step in safeguarding your cookies against unauthorized access, especially in the context of XSS vulnerabilities.
-    ```java
-    cookie.setHttpOnly(true);
-    ```
+      ```java
+      cookie.setHttpOnly(true);
+      ```
   cwe_id:
     - 1004
   id: java_lang_cookie_missing_http_only

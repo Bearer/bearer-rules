@@ -78,26 +78,26 @@ metadata:
     ## Remediations
 
     - **Do not** concatenate external input directly into SQL queries. This practice can lead to SQL injection vulnerabilities.
-    ```java
-    String query = "update user set name='"+uri.getQueryParameter("name")+"' where id='"+uri.getQueryParameter("userId")+"'";
-    return jdbcTemplate.update(query);
-    ```
+      ```java
+      String query = "update user set name='"+uri.getQueryParameter("name")+"' where id='"+uri.getQueryParameter("userId")+"'";
+      return jdbcTemplate.update(query);
+      ```
     - **Do** use `PreparedStatement` with parameterized SQL queries to safely include external input. This method ensures that input is treated as data, not executable code.
-    ```java
-    new PreparedStatementCreator() {
-      public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
-        String updateString = "update user set name = ? where id = ?";
-        return conn.prepareStatement(updateString);
+      ```java
+      new PreparedStatementCreator() {
+        public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
+          String updateString = "update user set name = ? where id = ?";
+          return conn.prepareStatement(updateString);
+        }
       }
-    }
 
-    new PreparedStatementSetter() {
-      public void setValues(PreparedStatement preparedStatement) throws SQLException {
-        preparedStatement.setString(1, uri.getQueryParameter("name"));
-        preparedStatement.setInt(2, uri.getQueryParameter("userId"));
+      new PreparedStatementSetter() {
+        public void setValues(PreparedStatement preparedStatement) throws SQLException {
+          preparedStatement.setString(1, uri.getQueryParameter("name"));
+          preparedStatement.setInt(2, uri.getQueryParameter("userId"));
+        }
       }
-    }
-    ```
+      ```
 
     ## References
 

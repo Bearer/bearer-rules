@@ -62,17 +62,17 @@ metadata:
     ## Remediations
 
     - **Do** use an encoder to handle user input before incorporating it into the output stream. This step helps minimize the risk of XSS attacks by converting potentially dangerous characters into a safe format.
-    ```java
-    String userInput = req.getQueryString("user");
-    String encodedUserInput = Encode.forHtml(userInput);
-    response.getWriter().write(encodedUserInput);
-    ```
+      ```java
+      String userInput = req.getQueryString("user");
+      String encodedUserInput = Encode.forHtml(userInput);
+      response.getWriter().write(encodedUserInput);
+      ```
     - **Do** sanitize user input to remove or neutralize unwanted scripts. Sanitization goes beyond encoding by actively removing harmful content from user input before it is used in the output.
-    ```java
-    String userInput = req.getQueryString("user");
-    String sanitizedUserInput = sanitize(userInput);
-    response.getWriter().write(sanitizedUserInput);
-    ```
+      ```java
+      String userInput = req.getQueryString("user");
+      String sanitizedUserInput = sanitize(userInput);
+      response.getWriter().write(sanitizedUserInput);
+      ```
 
     ## References
 

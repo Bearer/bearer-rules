@@ -38,13 +38,13 @@ metadata:
     ## Remediations
 
     - **Do not** include sensitive data in logger messages.
-    ```php
-    $log->info('User is: ' . $user.email) // unsafe
-    ```
+      ```php
+      $log->info('User is: ' . $user.email) // unsafe
+      ```
     - **Do** use unique identifiers from the database (instead of personal identifiable information) if you really need to identify users.
-    ```php
-    log->info('User is: ' . $user.uuid)
-    ```
+      ```php
+      log->info('User is: ' . $user.uuid)
+      ```
 
     ## Resources
     - [OWASP logging cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)

@@ -38,16 +38,16 @@ metadata:
     ## Remediations
 
     - **Do not** set the Access-Control-Allow-Origin header to "*". This overly permissive setting can make your application vulnerable to attacks.
-    ```php
-    $response = new Response();
-    $response->headers->set('Access-Control-Allow-Origin', "*"); // unsafe
-    ```
+      ```php
+      $response = new Response();
+      $response->headers->set('Access-Control-Allow-Origin', "*"); // unsafe
+      ```
 
     - **Do** restrict the Access-Control-Allow-Origin header to only allow specific, trusted origins that need access to your application. This minimizes the risk of sensitive data exposure.
-    ```php
-    $response = new Response();
-    $response->headers->set('Access-Control-Allow-Origin', "myapp.example.com");
-    ```
+      ```php
+      $response = new Response();
+      $response->headers->set('Access-Control-Allow-Origin', "myapp.example.com");
+      ```
 
     ## References
 

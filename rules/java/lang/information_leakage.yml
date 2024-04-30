@@ -47,13 +47,13 @@ metadata:
     ## Remediations
 
     - **Do not** print the full stack trace to the default output. This can inadvertently reveal sensitive information.
-    ```java
-    System.out.println(e); // unsafe
-    ```
+      ```java
+      System.out.println(e); // unsafe
+      ```
     - **Do** limit error messages to only include the necessary information for understanding the issue without exposing sensitive data.
-    ```java
-    System.out.println("An error occurred. Please try again.");
-    ```
+      ```java
+      System.out.println("An error occurred. Please try again.");
+      ```
 
     ## References
 

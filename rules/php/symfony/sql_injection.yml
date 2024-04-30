@@ -62,25 +62,25 @@ metadata:
     ## Remediations
 
     - **Do not** include raw input in SQL queries. This practice can lead to SQL injection vulnerabilities.
-    ```php
-    $sql = "SELECT * FROM foo WHERE foo.bar > " . $_GET['untrusted']. " ORDER BY foo.bar ASC";
-    ```
+      ```php
+      $sql = "SELECT * FROM foo WHERE foo.bar > " . $_GET['untrusted']. " ORDER BY foo.bar ASC";
+      ```
     - **Do** validate all external input to ensure it meets the expected format before including it in SQL queries.
-    ```php
-    $sql = "SELECT * FROM foo WHERE bar = '" . $conn->quote($_GET['bar']) . "'";
-    ```
+      ```php
+      $sql = "SELECT * FROM foo WHERE bar = '" . $conn->quote($_GET['bar']) . "'";
+      ```
     - **Do** use prepared statements with bound parameters to safely include external data in SQL queries. This method ensures that external input is treated as data and not as part of the SQL command.
-    ```php
-    $sql = "SELECT * FROM users WHERE username = :user";
-    $stmt = $connection->prepare($sql);
-    $stmt->bindValue("user", $_GET['username']);
-    ```
+      ```php
+      $sql = "SELECT * FROM users WHERE username = :user";
+      $stmt = $connection->prepare($sql);
+      $stmt->bindValue("user", $_GET['username']);
+      ```
     - **Do** employ an Object-Relational Mapping (ORM) tool or a database abstraction layer that automatically handles input sanitization and prepared statements.
-    ```php
-    $dql = "SELECT * FROM Foo WHERE bar = :bar";
-    $query = $em->createQuery($dql);
-    $query->setParameter("bar", $_GET['bar']);
-    ```
+      ```php
+      $dql = "SELECT * FROM Foo WHERE bar = :bar";
+      $query = $em->createQuery($dql);
+      $query->setParameter("bar", $_GET['bar']);
+      ```
 
     ## References
 

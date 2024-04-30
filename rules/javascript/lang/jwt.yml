@@ -21,15 +21,15 @@ metadata:
     ## Remediations
 
     - **Do not** include sensitive data, such as email addresses, in JWTs. This can lead to unauthorized access to personal information.
-    ```javascript
-    const jwt = require('jsonwebtoken');
-    const token = jwt.sign({ user: { email: 'john@gmail.com' }}); // unsafe
-    ```
+      ```javascript
+      const jwt = require('jsonwebtoken');
+      const token = jwt.sign({ user: { email: 'john@gmail.com' }}); // unsafe
+      ```
     - **Do** use non-sensitive, unique identifiers like a user's UUID in JWTs to reference user information securely.
-    ```javascript
-    const jwt = require('jsonwebtoken');
-    const token = jwt.sign({ user: user.uuid });
-    ```
+      ```javascript
+      const jwt = require('jsonwebtoken');
+      const token = jwt.sign({ user: user.uuid });
+      ```
 
     ## References
 

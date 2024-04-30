@@ -30,13 +30,13 @@ metadata:
     ## Remediations
 
     - **Do not** set the Access-Control-Allow-Origin header to "*". This overly permissive setting can make your application vulnerable to attacks.
-    ```java
-      response.addHeader("access-control-allow-origin", "*"); // unsafe
-    ```
+      ```java
+        response.addHeader("access-control-allow-origin", "*"); // unsafe
+      ```
     - **Do** restrict the Access-Control-Allow-Origin header to only allow specific, trusted origins that need access to your application. This minimizes the risk of sensitive data exposure.
-    ```java
-    response.addHeader("access-control-allow-origin", "myapp.example.com");
-    ```
+      ```java
+      response.addHeader("access-control-allow-origin", "myapp.example.com");
+      ```
 
     ## References
 

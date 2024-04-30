@@ -103,12 +103,12 @@ metadata:
 
     - **Do not** use MD5 for hashing or security purposes. It is no longer considered secure for cryptographic applications.
     - **Do** opt for stronger hashing algorithms like SHA-256 for enhanced security.
-    ```javascript
-    const crypto = require("crypto");
+      ```javascript
+      const crypto = require("crypto");
 
-    const key = "secret key";
-    const hash = crypto.createHmac("sha256", key).update(user.password).digest('hex');
-    ```
+      const key = "secret key";
+      const hash = crypto.createHmac("sha256", key).update(user.password).digest('hex');
+      ```
 
     ## References
 

@@ -146,9 +146,9 @@ metadata:
     ## Remediations
 
     - **Do not** include variables or dynamic data containing sensitive information in logger messages. This can inadvertently expose sensitive data.
-    ```go
-    logger.info(f"User is: '{user.email}'") // unsafe
-    ```
+      ```go
+      logger.info(f"User is: '{user.email}'") // unsafe
+      ```
     - **Do** sanitize or remove sensitive information from data before logging. Ensure that logged information does not contain any personal or confidential data.
   cwe_id:
     - 532

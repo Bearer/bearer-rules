@@ -42,14 +42,14 @@ metadata:
     ## Remediations
 
     - **Do** set the `HttpOnly` attribute for cookies to `true`. This action prevents client-side scripts from accessing the cookie, significantly reducing the risk of XSS attacks.
-    ```go
-    http.SetCookie(w, &http.Cookie{
-        Name:     "session_token",
-        Value:    sessionToken,
-        HttpOnly: true,
-        ...
-    })
-    ```
+      ```go
+      http.SetCookie(w, &http.Cookie{
+          Name:     "session_token",
+          Value:    sessionToken,
+          HttpOnly: true,
+          ...
+      })
+      ```
     - **Do** also consider setting `Secure`, `SameSite`, and `Domain` attributes for cookies. These additional configurations help in further securing cookies against various web vulnerabilities, tailoring the protection to your application's specific needs.
 
     ## References

@@ -20,13 +20,13 @@ metadata:
     ## Remediations
 
     - **Do not** set the Access-Control-Allow-Origin header to "*". This overly permissive setting can make your application vulnerable to attacks.
-    ```php
-    header("Access-Control-Allow-Origin: *");
-    ```
+      ```php
+      header("Access-Control-Allow-Origin: *");
+      ```
     - **Do** restrict the Access-Control-Allow-Origin header to only allow specific, trusted origins that need access to your application. This minimizes the risk of sensitive data exposure.
-    ```php
-    header("Access-Control-Allow-Origin: myapp.example.com");
-    ```
+      ```php
+      header("Access-Control-Allow-Origin: myapp.example.com");
+      ```
 
     ## References
 

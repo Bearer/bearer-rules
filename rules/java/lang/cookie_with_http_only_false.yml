@@ -28,9 +28,9 @@ metadata:
     ## Remediations
 
     - **Do** set `HttpOnly` to `true` for cookies to prevent client-side scripts from accessing the cookie values. This step is crucial for enhancing the security of your application by limiting access to cookie data.
-    ```java
-    cookie.setHttpOnly(true);
-    ```
+      ```java
+      cookie.setHttpOnly(true);
+      ```
   cwe_id:
     - 1004
   id: java_lang_cookie_with_http_only_false

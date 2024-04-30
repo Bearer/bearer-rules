@@ -21,13 +21,13 @@ metadata:
     ## Remediations
 
     - **Do not** include sensitive data in exception messages. This can inadvertently expose private information.
-    ```java
-    throw new Exception("error for " + user.email);
-    ```
+      ```java
+      throw new Exception("error for " + user.email);
+      ```
     - **Do** use non-sensitive, unique identifiers in exception messages to avoid revealing personal identifiable information (PII).
-    ```java
-    throw new Exception("error for " + user.id);
-    ```
+      ```java
+      throw new Exception("error for " + user.id);
+      ```
   cwe_id:
     - 210
   id: java_lang_exception

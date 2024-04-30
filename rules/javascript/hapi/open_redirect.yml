@@ -46,15 +46,15 @@ metadata:
 
     - **Do not** use unsanitized user input to construct URLs for redirects. This practice can inadvertently lead to phishing attacks.
     - **Do** validate user input by employing a safelist or predefined mapping for URL construction. This ensures that redirects only lead to safe and intended destinations.
-    ```javascript
-    var map = {
-      "1": "/planes",
-      "2": "/trains",
-      "3": "/automobiles",
-    }
+      ```javascript
+      var map = {
+        "1": "/planes",
+        "2": "/trains",
+        "3": "/automobiles",
+      }
 
-    res.redirect(map[req.body.transport])
-    ```
+      res.redirect(map[req.body.transport])
+      ```
     ## References
 
     - [OWASP Unvalidated Redirects and Forwards Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)

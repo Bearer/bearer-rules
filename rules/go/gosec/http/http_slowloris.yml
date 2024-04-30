@@ -101,19 +101,19 @@ metadata:
     ## Remediations
 
     - **Do not** use default serve functions like `http.ListenAndServe` and `http.Serve` in production environments. You cannot set timeouts for these functions, making the server vulnerable to attacks.
-    ```go
-    http.ListenAndServe(":8080", nil) // unsafe
-    ```
+      ```go
+      http.ListenAndServe(":8080", nil) // unsafe
+      ```
     - **Do** create a custom `http.Server` object with configured timeouts to safeguard against resource exhaustion. For Slowloris attacks in particular, set `ReadHeaderTimeout` to an appropriate value to ensure that connections do not remain open indefinitely.
-    ```go
-    myServer := &http.Server{
-        Addr:             "localhost:8000",
-        ReadHeaderTimeout: 15 * time.Second,
-        ReadTimeout:      15 * time.Second,
-        WriteTimeout:     10 * time.Second,
-        IdleTimeout:      30 * time.Second,
-    }
-    ```
+      ```go
+      myServer := &http.Server{
+          Addr:             "localhost:8000",
+          ReadHeaderTimeout: 15 * time.Second,
+          ReadTimeout:      15 * time.Second,
+          WriteTimeout:     10 * time.Second,
+          IdleTimeout:      30 * time.Second,
+      }
+      ```
 
     ## References
 

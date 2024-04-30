@@ -34,18 +34,18 @@ metadata:
 
     - **Do not** use direct user input to construct URLs for backend requests. If user input is necessary, ensure it is strictly validated or sanitized to prevent malicious manipulation.
     - **Do** use a safelist or predefined mapping when incorporating user input in URLs. This ensures that your application only redirects users to safe and intended destinations.
-    ```go
-    safeURLs := map[string]string{
-        "key1": "https://safe-domain1.com",
-        "key2": "https://safe-domain2.com",
-    }
-    requestedKey := getUserInput()
-    if url, ok := safeURLs[requestedKey]; ok {
-        // continue with request
-    } else {
-        log.Fatal("Requested URL is not allowed")
-    }
-    ```
+      ```go
+      safeURLs := map[string]string{
+          "key1": "https://safe-domain1.com",
+          "key2": "https://safe-domain2.com",
+      }
+      requestedKey := getUserInput()
+      if url, ok := safeURLs[requestedKey]; ok {
+          // continue with request
+      } else {
+          log.Fatal("Requested URL is not allowed")
+      }
+      ```
     - **Do** implement IP safelists and blocklists to customize and block specific IP ranges, especially those that are private, loopback, or otherwise non-routable.
     - **Do** use network-level security measures. If your HTTP client does not support IP range blocking, run it with restricted system permissions or within a network environment where firewall rules can effectively block requests to dangerous addresses.
     - **Do** consider using a secure HTTP proxy to route all backend HTTP requests. This proxy can serve as a filter to block requests to potentially harmful addresses, acting as an additional layer of security.

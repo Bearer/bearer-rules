@@ -87,13 +87,13 @@ metadata:
     ## Remediations
 
     - **Do not** use DSS for hashing as it is considered a weak algorithm. This can compromise data security.
-    ```ruby
-    OpenSSL::Digest.new("dss").digest("weak") # unsafe
-    ```
+      ```ruby
+      OpenSSL::Digest.new("dss").digest("weak") # unsafe
+      ```
     - **Do** opt for stronger hashing algorithms like bcrypt to enhance security.
-    ```ruby
-    BCrypt::Password.create('iLOVEdogs123')
-    ```
+      ```ruby
+      BCrypt::Password.create('iLOVEdogs123')
+      ```
 
     ## References
 

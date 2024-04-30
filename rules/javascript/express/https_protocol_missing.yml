@@ -20,14 +20,14 @@ metadata:
     ## Remediations
 
     - **Do** use the `https` module for creating secure servers in your applications. This ensures that data transmitted between the server and clients is encrypted.
-    ```javascript
-    var https = require('https');
-    var express = require('express');
-    var app = express();
+      ```javascript
+      var https = require('https');
+      var express = require('express');
+      var app = express();
 
-    var httpsServer = https.createServer(app);
-    httpsServer.listen(8080);
-    ```
+      var httpsServer = https.createServer(app);
+      httpsServer.listen(8080);
+      ```
 
     ## References
 

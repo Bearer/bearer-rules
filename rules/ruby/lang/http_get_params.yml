@@ -41,32 +41,32 @@ metadata:
     ## Remediations
 
     - **Do not** send sensitive data through HTTP GET parameters. This method exposes information in plain text, even when using HTTPS.
-    ```ruby
-    HTTParty.get(
-      'https://secure-api.com/user',
-      {
-        email: user.email # unsafe
-      }
-    )
-    ```
+      ```ruby
+      HTTParty.get(
+        'https://secure-api.com/user',
+        {
+          email: user.email # unsafe
+        }
+      )
+      ```
     - **Do** use the HTTP POST method to send sensitive data securely. POST requests do not expose data in the URL.
-    ```ruby
-    HTTParty.post(
-      'https://secure-api.com/user',
-      body: {
-        email: user.email,
-      }
-    )
-    ```
+      ```ruby
+      HTTParty.post(
+        'https://secure-api.com/user',
+        body: {
+          email: user.email,
+        }
+      )
+      ```
     - **Do** use identifiers that do not expose personal or sensitive information, for cases where a GET request is required
-    ```ruby
-    HTTParty.get(
-      'https://secure-api.com/user',
-      {
-        id: user.uuid
-      }
-    )
-    ```
+      ```ruby
+      HTTParty.get(
+        'https://secure-api.com/user',
+        {
+          id: user.uuid
+        }
+      )
+      ```
 
     ## References
 

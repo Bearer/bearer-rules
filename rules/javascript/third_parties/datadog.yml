@@ -36,16 +36,16 @@ metadata:
 
     - **Do** ensure all sensitive data is removed when sending data to third-party loggers like Datadog.
     - **Do** use unique identifiers from the database if you really need to identify users.
-    ```javascript
-      const StatsD = require("hot-shots");
-      const client = new StatsD({
-        port: 8020,
-        globalTags: { env: process.env.NODE_ENV },
-        errorHandler: errorHandler,
-      });
+      ```javascript
+        const StatsD = require("hot-shots");
+        const client = new StatsD({
+          port: 8020,
+          globalTags: { env: process.env.NODE_ENV },
+          errorHandler: errorHandler,
+        });
 
-      client.event(user.uuid, "logged_in", {});
-    ```
+        client.event(user.uuid, "logged_in", {});
+      ```
 
     ## References
     - [Datadog docs](https://docs.datadoghq.com)

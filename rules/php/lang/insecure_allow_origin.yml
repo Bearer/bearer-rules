@@ -20,19 +20,19 @@ metadata:
     ## Remediations
 
     - **Do not** use user input to define the `Access-Control-Allow-Origin` header without validation. This practice can inadvertently grant access to sensitive information.
-    ```php
-    header("Access-Control-Allow-Origin: {$_GET['untrusted']}", true); // unsafe
-    ```
+      ```php
+      header("Access-Control-Allow-Origin: {$_GET['untrusted']}", true); // unsafe
+      ```
     - **Do** validate user input if it must be used to set the `Access-Control-Allow-Origin` header. Ensure that only trusted origins are allowed by implementing a safelist of approved origins.
-    ```php
-      $allowedOrigins = ['http://www.example.com', 'https://www.secure.example.com'];
+      ```php
+        $allowedOrigins = ['http://www.example.com', 'https://www.secure.example.com'];
 
-      $origin = $_GET['someParam'];
+        $origin = $_GET['someParam'];
 
-      if (in_array($origin, $allowedOrigins)) {
-        header("Access-Control-Allow-Origin: $origin");
-      }
-    ```
+        if (in_array($origin, $allowedOrigins)) {
+          header("Access-Control-Allow-Origin: $origin");
+        }
+      ```
 
     ## References
 

@@ -42,17 +42,17 @@ metadata:
     ## Remediations
 
     - **Do not** configure your application to display detailed error messages for all errors.
-    ```ruby
-    config.consider_all_requests_local = false # unsafe
-    ```
+      ```ruby
+      config.consider_all_requests_local = false # unsafe
+      ```
     - **Do not** implement `show_detailed_exceptions?` in controllers to return detailed errors.
-    ```ruby
-    class MyController < ApplicationController
-      def show_detailed_exceptions? # unsafe
-        ...
+      ```ruby
+      class MyController < ApplicationController
+        def show_detailed_exceptions? # unsafe
+          ...
+        end
       end
-    end
-    ```
+      ```
   cwe_id:
     - 209
   id: ruby_rails_detailed_exceptions

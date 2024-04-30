@@ -44,23 +44,23 @@ metadata:
     ## Remediations
 
     - **Do not** include raw external input in SQL queries. This practice can lead to SQL injection vulnerabilities.
-    ```php
-    $sortingOrder = $_GET['untrusted'];
-    $query  = "SELECT id, name FROM products ORDER BY name LIMIT 20 $sortingOrder;"; // unsafe
-    ```
+      ```php
+      $sortingOrder = $_GET['untrusted'];
+      $query  = "SELECT id, name FROM products ORDER BY name LIMIT 20 $sortingOrder;"; // unsafe
+      ```
     - **Do** validate all external input to ensure it meets the expected format before including it in SQL queries.
-    ```php
-    $sortingOrder = $_GET['sortingOrder'] === 'DESC' ? 'DESC' : 'ASC';
-    ```
+      ```php
+      $sortingOrder = $_GET['sortingOrder'] === 'DESC' ? 'DESC' : 'ASC';
+      ```
     - **Do** use prepared statements for database queries to separate SQL logic from external input, significantly reducing the risk of SQL injection.
-    ```php
-    $stmt = $pdo->prepare("SELECT * FROM products WHERE id LIKE ? ORDER BY price {$sortingOrder}");
-    $stmt->execute(["%{$productId}%"]);
-    ```
+      ```php
+      $stmt = $pdo->prepare("SELECT * FROM products WHERE id LIKE ? ORDER BY price {$sortingOrder}");
+      $stmt->execute(["%{$productId}%"]);
+      ```
     - **Do** escape all external input using appropriate database-specific escaping functions before including it in SQL queries.
-    ```php
-    $ok = mysqli_real_escape_string($conn, $_GET['ok']);
-    ```
+      ```php
+      $ok = mysqli_real_escape_string($conn, $_GET['ok']);
+      ```
 
     ## References
 

@@ -32,13 +32,13 @@ metadata:
     ## Remediations
 
     - **Do not** use SHA-1 for hashing. It is no longer considered secure.
-    ```java
-    MessageDigest md = MessageDigest.getInstance("SHA-1"); // unsafe
-    ```
+      ```java
+      MessageDigest md = MessageDigest.getInstance("SHA-1"); // unsafe
+      ```
     - **Do** use stronger hashing algorithms such as SHA-256 to enhance security.
-    ```java
-    MessageDigest md = MessageDigest.getInstance("SHA-256");
-    ```
+      ```java
+      MessageDigest md = MessageDigest.getInstance("SHA-256");
+      ```
 
     ## References
 

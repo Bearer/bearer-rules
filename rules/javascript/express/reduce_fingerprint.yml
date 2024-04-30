@@ -33,9 +33,9 @@ metadata:
     ## Remediations
 
     - **Do** disable the `X-Powered-By` header in Express.js applications to prevent revealing the server's technology stack. Use the `app.disable()` method to achieve this.
-    ```javascript
-    app.disable('x-powered-by');
-    ```
+      ```javascript
+      app.disable('x-powered-by');
+      ```
 
     ## References
 

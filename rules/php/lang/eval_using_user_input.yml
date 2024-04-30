@@ -36,9 +36,9 @@ metadata:
     ## Remediations
 
     - **Do not** use 'eval' or similar functions with user-supplied data. This can open your application to severe security risks.
-    ```php
-    eval("echo " . $_GET["untrusted"]);  // unsafe
-    ```
+      ```php
+      eval("echo " . $_GET["untrusted"]);  // unsafe
+      ```
     - **Do** validate and sanitize all user input before using it in your code. Ensure that the input does not contain malicious code or commands.
     - **Do** use safer alternatives to 'eval' for dynamic code execution. Consider using functions that limit the scope and capabilities of executed code to reduce risk.
 

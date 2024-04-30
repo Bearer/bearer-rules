@@ -73,13 +73,13 @@ metadata:
     ## Remediations
 
     - **Do not** use Blowfish as it is considered a weak encryption algorithm. This can make your data vulnerable to attacks.
-    ```ruby
-    Crypt::Blowfish.new("weak password encryption") #unsafe
-    ```
+      ```ruby
+      Crypt::Blowfish.new("weak password encryption") #unsafe
+      ```
     - **Do** use stronger encryption algorithms like bcrypt to ensure higher security levels for your data.
-    ```ruby
-    BCrypt::Password.create('iLOVEdogs123')
-    ```
+      ```ruby
+      BCrypt::Password.create('iLOVEdogs123')
+      ```
 
     ## References
 

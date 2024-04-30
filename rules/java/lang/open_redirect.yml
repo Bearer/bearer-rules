@@ -40,18 +40,18 @@ metadata:
 
     - **Do not** use unsanitized user input to construct URLs for redirects. This can lead to phishing attacks and compromise user security.
     - **Do** validate user input by employing a safe list or a mapping strategy when constructing URLs for redirects. This ensures that only pre-approved destinations are used, significantly reducing the risk of malicious redirects.
-    ```java
-    private static final Map<String, String> URL_MAPPING = new HashMap<>();
-    static {
-      URL_MAPPING.put("google", "https://www.google.com");
-      URL_MAPPING.put("openai", "https://www.openai.com");
-      URL_MAPPING.put("github", "https://www.github.com");
-      URL_MAPPING.put("root", "https://www.example.com");
-    }
+      ```java
+      private static final Map<String, String> URL_MAPPING = new HashMap<>();
+      static {
+        URL_MAPPING.put("google", "https://www.google.com");
+        URL_MAPPING.put("openai", "https://www.openai.com");
+        URL_MAPPING.put("github", "https://www.github.com");
+        URL_MAPPING.put("root", "https://www.example.com");
+      }
 
-    String redirectUrl = URL_MAPPING.getOrDefault(request.getParameter("redirectTo"), "root");
-    response.addHeader("Location", redirectUrl);
-    ```
+      String redirectUrl = URL_MAPPING.getOrDefault(request.getParameter("redirectTo"), "root");
+      response.addHeader("Location", redirectUrl);
+      ```
 
     ## References
 

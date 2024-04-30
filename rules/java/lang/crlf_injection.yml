@@ -83,9 +83,9 @@ metadata:
     ## Remediations
 
     - **Do** strip any carriage return and line feed characters from user input data before logging it. This prevents attackers from injecting malicious CRLF sequences.
-    ```java
-    logger.info(userInput.replaceAll("[\r\n]+", ""));
-    ```
+      ```java
+      logger.info(userInput.replaceAll("[\r\n]+", ""));
+      ```
 
     ## References
 

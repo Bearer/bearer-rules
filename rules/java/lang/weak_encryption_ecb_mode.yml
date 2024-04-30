@@ -23,9 +23,9 @@ metadata:
     ## Remediations
 
     - **Do** choose ChaCha20-Poly1305 or AES-256-GCM for encryption. These algorithms include built-in message integrity, offering a more secure alternative to ECB mode.
-    ```java
-    Cipher chaChaCipher = Cipher.getInstance("ChaCha20-Poly1305/None/NoPadding");
-    ```
+      ```java
+      Cipher chaChaCipher = Cipher.getInstance("ChaCha20-Poly1305/None/NoPadding");
+      ```
 
     ## References
 

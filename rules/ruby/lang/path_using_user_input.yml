@@ -290,14 +290,14 @@ metadata:
     - **Do** validate and sanitize user input before using it in file paths.
     - **Do** ensure that the constructed path is within the intended directory. For example, restrict user input to a predefined list of allowed values when constructing file paths. This limits the scope of accessible resources to only those explicitly permitted.
     - **Do** use file path manipulation methods to verify and constrain the path appropriately.
-    ```ruby
-    path = File.expand_path("/home/" + params[:resource_name])
-    if path.starts_with?("/home/")
-      Dir.chdir(path)
-    else
-      # Handle unexpected path
-    end
-    ```
+      ```ruby
+      path = File.expand_path("/home/" + params[:resource_name])
+      if path.starts_with?("/home/")
+        Dir.chdir(path)
+      else
+        # Handle unexpected path
+      end
+      ```
 
     ## References
 

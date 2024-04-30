@@ -16,17 +16,17 @@ metadata:
     ## Remediations
 
     - **Do not** use model-specific encryption keys shorter than 12 bytes. Short keys are easier to crack, putting your data at risk.
-    ```ruby
-    class User < ApplicationRecord
-      encrypts :email, key: "weak-key" # unsafe
-    end
-    ```
+      ```ruby
+      class User < ApplicationRecord
+        encrypts :email, key: "weak-key" # unsafe
+      end
+      ```
     - **Do** ensure your model-specific encryption keys are 12 bytes or longer to maintain strong encryption and protect sensitive data.
-    ```ruby
-    class User < ApplicationRecord
-      encrypts :email, key: "stronger-key-example"
-    end
-    ```
+      ```ruby
+      class User < ApplicationRecord
+        encrypts :email, key: "stronger-key-example"
+      end
+      ```
 
     ## References
 

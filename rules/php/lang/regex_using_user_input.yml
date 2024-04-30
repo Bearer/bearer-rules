@@ -55,10 +55,10 @@ metadata:
     ## Remediations
 
     - **Do not** use user input directly in regular expressions. This can prevent attackers from exploiting complex patterns to cause a denial of service.
-    ```php
-    $user_input = $_GET["name"] . ".php";
-    preg_grep($user_input, $array); // unsafe
-    ```
+      ```php
+      $user_input = $_GET["name"] . ".php";
+      preg_grep($user_input, $array); // unsafe
+      ```
     - **Do** sanitize or validate user input before incorporating it into regular expressions. This reduces the risk of ReDoS attacks by ensuring only safe patterns are used.
 
     ## References

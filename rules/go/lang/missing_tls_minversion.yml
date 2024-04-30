@@ -37,11 +37,11 @@ metadata:
     ## Remediations
 
     - **Do** set `MinVersion` in the `tls.Config` struct to `tls.VersionTLS13`. This ensures your server only accepts connections using the most secure, up-to-date version of TLS.
-    ```go
-    {
-      MinVersion: tls.VersionTLS13
-    }
-    ```
+      ```go
+      {
+        MinVersion: tls.VersionTLS13
+      }
+      ```
     - **Do** configure `MinVersion` to the highest possible supported version of TLS for legacy applications that cannot use TLS 1.3. This step is essential for maintaining security while ensuring compatibility.
 
     ## References

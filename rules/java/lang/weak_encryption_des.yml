@@ -43,9 +43,9 @@ metadata:
 
     - **Do not** use DES as it is outdated and vulnerable to attacks. Its use can significantly weaken your application's security.
     - **Do** use stronger encryption algorithms to enhance data security. AES (Advanced Encryption Standard) is a recommended choice.
-    ```java
-    Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
-    ```
+      ```java
+      Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
+      ```
 
     ## References
 

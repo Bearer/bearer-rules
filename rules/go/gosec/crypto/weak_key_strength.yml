@@ -15,9 +15,9 @@ metadata:
     ## Remediations
 
     - **Do** generate RSA keys with a minimum of 2048 bits. This meets NIST recommendations and protects against the risk of keys being compromised by advancements in computing power. Keys shorter than 2048 bits do not provide adequate protection against brute-force attacks.
-    ```go
-      privateKey, err := rsa.GenerateKey(rand.Reader, 2048)
-    ```
+      ```go
+        privateKey, err := rsa.GenerateKey(rand.Reader, 2048)
+      ```
     - **Do** adhere to industry standards and guidelines for cryptographic practices to ensure the security of your data.
 
     ## References

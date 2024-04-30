@@ -41,18 +41,17 @@ metadata:
     ## Remediations
 
     - **Do not** use unsanitized user input to form filenames or file paths in FTP operations. Always sanitize input to prevent malicious data from being processed.
-    ```ruby
-    Net::FTP.open("public/#{params["resource_name"]}.txt") do # unsafe
-      # ...
-    end
-    ```
+      ```ruby
+      Net::FTP.open("public/#{params["resource_name"]}.txt") do # unsafe
+        # ...
+      end
+      ```
     - **Do not** pass unsanitized user input as arguments to FTP methods. Ensure input is validated or sanitized before use.
-    ```ruby
-    # Vulnerable code example
-    Net::FTP.open("example.txt", username: params[:user]) do # unsafe
-      # ...
-    end
-    ```
+      ```ruby
+      Net::FTP.open("example.txt", username: params[:user]) do # unsafe
+        # ...
+      end
+      ```
     - **Do** use a safelist for filenames and paths, allowing only known patterns.
     - **Do** implement strict input validation checks, such as length, format, and type, to ensure only expected data is processed.
 

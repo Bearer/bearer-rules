@@ -28,9 +28,9 @@ metadata:
     ## Remediations
 
     - **Do** set the `Secure` option to `true` for cookies to ensure they are only sent over HTTPS, enhancing the security of data transmission.
-    ```java
-    cookie.setSecure(true);
-    ```
+      ```java
+      cookie.setSecure(true);
+      ```
   cwe_id:
     - 614
   id: java_lang_insecure_cookie

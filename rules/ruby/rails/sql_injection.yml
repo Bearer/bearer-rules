@@ -168,21 +168,21 @@ metadata:
     ## Remediations
 
     - **Do not** use raw SQL queries that incorporate unsanitized external input directly. This approach is vulnerable to SQL injection.
-    ```ruby
-    User.where("user.email = #{params[:email]}") # unsafe
-    ```
+      ```ruby
+      User.where("user.email = #{params[:email]}") # unsafe
+      ```
     - **Do** utilize the ActiveRecord API for constructing SQL queries to automatically handle input sanitization.
-    ```ruby
-    User.where(email: params[:email])
-    ```
+      ```ruby
+      User.where(email: params[:email])
+      ```
     - **Do** employ bind variables in SQL queries to separate the query structure from the data, effectively preventing SQL injection.
-    ```ruby
-    User.where("user.email = ?", [params[:email]])
-    ```
+      ```ruby
+      User.where("user.email = ?", [params[:email]])
+      ```
     - **Do** manually sanitize input values when constructing SQL queries to ensure that any potentially harmful characters are neutralized.
-    ```ruby
-    User.where(sanitize_sql(["user.email = ?", params[:email]]))
-    ```
+      ```ruby
+      User.where(sanitize_sql(["user.email = ?", params[:email]]))
+      ```
 
     ## References
 

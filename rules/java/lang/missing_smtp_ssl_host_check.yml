@@ -44,11 +44,11 @@ metadata:
     ## Remediations
 
     - **Do** configure your email client to verify the server's identity. This step is crucial to prevent attackers from impersonating a trusted server, which could lead to redirection or spoofing attacks.
-    ```java
-    Email email = new Email();
-    email.setSSLOnConnect(true);
-    email.setSSLCheckServerIdentity(true);
-    ```
+      ```java
+      Email email = new Email();
+      email.setSSLOnConnect(true);
+      email.setSSLCheckServerIdentity(true);
+      ```
   cwe_id:
     - 297
   id: java_lang_missing_smtp_ssl_host_check

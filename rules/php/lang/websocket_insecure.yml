@@ -24,13 +24,13 @@ metadata:
     ## Remediations
 
     - **Do not** use unsecured websocket connections. These connections lack encryption, putting data at risk.
-    ```php
-    $client = new Client('ws://insecure-api.com') // unsafe
-    ```
+      ```php
+      $client = new Client('ws://insecure-api.com') // unsafe
+      ```
     - **Do** ensure all websocket connections are secured with SSL. This encrypts the data, protecting it from unauthorized access.
-    ```php
-    $client = new Client('wss://secure-api.com')
-    ```
+      ```php
+      $client = new Client('wss://secure-api.com')
+      ```
 
     ## References
 

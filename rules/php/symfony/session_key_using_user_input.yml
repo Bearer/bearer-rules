@@ -48,10 +48,10 @@ metadata:
     ## Remediations
 
     - **Do not** use user-defined data directly in session keys. This can lead to vulnerabilities where attackers might exploit the session management.
-    ```php
-    $session = $requestStack->getSession();
-    $session->put($userInput, $data); // unsafe
-    ```
+      ```php
+      $session = $requestStack->getSession();
+      $session->put($userInput, $data); // unsafe
+      ```
     - **Do** sanitize user input before incorporating it into session keys. Ensure that any data derived from user input is properly validated and sanitized to prevent injection attacks.
 
     ## References

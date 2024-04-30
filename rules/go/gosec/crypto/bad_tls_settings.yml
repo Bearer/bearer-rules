@@ -48,11 +48,11 @@ metadata:
 
     - **Do** use modern, secure cipher suites that offer Perfect Forward Secrecy (PFS), such as ECDHE-RSA-AES256-GCM-SHA384 or ECDHE-RSA-CHACHA20-POLY1305. PFS ensures that even if future private keys are compromised, past communications remain secure.
     - **Do** adopt TLS 1.3 whenever possible, as it includes enhancements that offer better security against various attacks. The Go standard library, for instance, automatically prefers the most secure protocol and cipher suite available.
-    ```go
-    cfg := &tls.Config{
-        MinVersion: tls.VersionTLS13,
-    }
-    ```
+      ```go
+      cfg := &tls.Config{
+          MinVersion: tls.VersionTLS13,
+      }
+      ```
     - **Do not** use obsolete or insecure cipher suites. Avoid any cipher suites that lack support for modern security standards or have known vulnerabilities.
 
     ## References

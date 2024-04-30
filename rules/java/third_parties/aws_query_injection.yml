@@ -47,23 +47,23 @@ metadata:
     - **Do** always sanitize user input especially if it is to be used in database queries. Where possible, such sanitization should include the removal of special characters (like ' or ") that could be used to alter the semantics of a database query.
     - **Do** validate user input wherever possible, to ensure it is the expected format and length
     - **Do** use parameterized queries rather than concatenating user input directly into the query string. This separates query logic from user input, which is good practice, and also in the case of AWS SimpleDB, lets us take advantage of the internal parameterization and sanitization of `SelectRequest`.
-    ```java
-      // query logic
-      public static SelectResult executeQuery(String query, String itemName) {
-        AmazonSimpleDB simpleDBClient = AmazonSimpleDBClientBuilder.defaultClient();
-        SelectRequest selectRequest = new SelectRequest(query, true).withNextToken(itemName);
+      ```java
+        // query logic
+        public static SelectResult executeQuery(String query, String itemName) {
+          AmazonSimpleDB simpleDBClient = AmazonSimpleDBClientBuilder.defaultClient();
+          SelectRequest selectRequest = new SelectRequest(query, true).withNextToken(itemName);
 
-        return simpleDBClient.select(selectRequest);
-      }
+          return simpleDBClient.select(selectRequest);
+        }
 
-      public static void selectItem(String itemName) { // itemName is dynamic and could be malicious
-        // parameterized query string
-        String query = "select * from items where itemName = ?";
+        public static void selectItem(String itemName) { // itemName is dynamic and could be malicious
+          // parameterized query string
+          String query = "select * from items where itemName = ?";
 
-        SelectResult result = executeQuery(query, itemName);
-        ...
-      }
-    ```
+          SelectResult result = executeQuery(query, itemName);
+          ...
+        }
+      ```
 
     ## References
     - [AWS SimpleDB docs](https://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/Welcome.html)

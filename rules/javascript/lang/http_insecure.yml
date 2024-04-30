@@ -82,13 +82,13 @@ metadata:
     ## Remediations
 
     - **Do not** use HTTP for outgoing connections or API calls. This practice leaves your data vulnerable to eavesdropping and tampering.
-    ```javascript
-    const response = axios.get('http://insecure-api.com') // unsafe
-    ```
+      ```javascript
+      const response = axios.get('http://insecure-api.com') // unsafe
+      ```
     - **Do** ensure all external connections, especially API calls, use HTTPS to protect data in transit.
-    ```javascript
-    const response = axios.get('https://secure-api.com')
-    ```
+      ```javascript
+      const response = axios.get('https://secure-api.com')
+      ```
 
     ## References
 

@@ -13,9 +13,9 @@ metadata:
     ## Remediations
 
     - **Do** use the `ftp_ssl_connect` function to establish secure FTP connections. This function ensures that your connection to the FTP server is encrypted, protecting the data transmitted from potential interception or eavesdropping.
-    ```php
-    $ftp = ftp_ssl_connect("ftp.example.com");
-    ```
+      ```php
+      $ftp = ftp_ssl_connect("ftp.example.com");
+      ```
 
     ## References
 

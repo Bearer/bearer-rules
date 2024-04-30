@@ -100,9 +100,9 @@ metadata:
     ## Remediations
 
     - **Do not** include sensitive data directly in logger messages. This can lead to the exposure of such data in log files, which might be accessible to unauthorized individuals.
-    ```javascript
-    logger.info(`Results: ${data}`) // unsafe
-    ```
+      ```javascript
+      logger.info(`Results: ${data}`) // unsafe
+      ```
     - **Do** use logging levels appropriately to control the verbosity of log output and minimize the risk of leaking sensitive information in production environments.
   cwe_id:
     - 532

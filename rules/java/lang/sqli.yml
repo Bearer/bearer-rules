@@ -103,16 +103,16 @@ metadata:
     ## Remediations
 
     - **Do not** include unsanitized input in SQL queries. This practice can lead to SQL injection vulnerabilities.
-    ```java
-    Statement stmt = conn.createStatement();
-    ResultSet rs = stmt.executeQuery("select name from users where id='" + uri.getQueryParameter("user_id") + "'"));
-    ```
+      ```java
+      Statement stmt = conn.createStatement();
+      ResultSet rs = stmt.executeQuery("select name from users where id='" + uri.getQueryParameter("user_id") + "'"));
+      ```
     - **Do** use prepared statements for SQL queries to safely include external input.
-    ```java
-    PreparedStatement myStmt = myCon.prepareStatement("select * from students where age > ? and name = ?");
-    myStmt.setInt(1, uri.getQueryParameter("age"));
-    myStmt.setString(2, uri.getQueryParameter("name"));
-    ```
+      ```java
+      PreparedStatement myStmt = myCon.prepareStatement("select * from students where age > ? and name = ?");
+      myStmt.setInt(1, uri.getQueryParameter("age"));
+      myStmt.setString(2, uri.getQueryParameter("name"));
+      ```
 
     ## References
 

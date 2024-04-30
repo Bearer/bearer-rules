@@ -26,12 +26,12 @@ metadata:
     ## Remediations
 
     - **Do** use the Net::SFTP library for secure FTP connections. This ensures that data transmitted between your application and the FTP server is encrypted and protected from potential eavesdropping.
-    ```ruby
-    require 'net/sftp'
-    Net::SFTP.start('host', 'username', password: ENV['password']) do |sftp|
-    	...
-    end
-    ```
+      ```ruby
+      require 'net/sftp'
+      Net::SFTP.start('host', 'username', password: ENV['password']) do |sftp|
+        ...
+      end
+      ```
 
     ## References
 

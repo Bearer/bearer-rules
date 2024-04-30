@@ -16,11 +16,11 @@ metadata:
     ## Remediations
 
     - **Do** use robust encryption algorithms recommended for JWT. HS256 (HMAC with SHA-256) is a secure choice for signing JWTs.
-    ```javascript
-    jwt.sign({ "foo": "bar"}, process.env.JWT_SECRET, {
-      algorithm: "HS256"
-    })
-    ```
+      ```javascript
+      jwt.sign({ "foo": "bar"}, process.env.JWT_SECRET, {
+        algorithm: "HS256"
+      })
+      ```
 
     ## References
 

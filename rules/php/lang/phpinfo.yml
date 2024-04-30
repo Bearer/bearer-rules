@@ -13,9 +13,9 @@ metadata:
     ## Remediations
 
     - **Do not** use the 'phpinfo()' function in production environments or publicly accessible areas of your application. This function can inadvertently expose critical information that could aid an attacker.
-    ```php
-    phpinfo(); // unsafe in production
-    ```
+      ```php
+      phpinfo(); // unsafe in production
+      ```
     - **Do** regularly review your codebase to ensure that calls to 'phpinfo()' are removed before deploying to production. Consider using environment-specific configuration to automatically exclude such calls in production environments.
 
   cwe_id:

@@ -18,19 +18,19 @@ metadata:
     ## Remediations
 
     - **Do not** disable SSL certificate verification. Disabling it, as shown below, makes your application vulnerable to Man-in-the-Middle attacks.
-    ```ruby
-    require "net/https"
-    require "uri"
+      ```ruby
+      require "net/https"
+      require "uri"
 
-    uri = URI.parse("https://ssl-site.com/")
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE # unsafe
-    ```
+      uri = URI.parse("https://ssl-site.com/")
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE # unsafe
+      ```
     - **Do** ensure SSL certificate verification is enabled by setting the verification mode to `VERIFY_PEER`. This ensures the authenticity of the SSL certificate presented by the server.
-    ```ruby
-    http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-    ```
+      ```ruby
+      http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+      ```
 
     ## References
 

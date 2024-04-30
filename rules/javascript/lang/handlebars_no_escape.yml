@@ -22,9 +22,9 @@ metadata:
     ## Remediations
 
     - **Do** set `noEscape` to false while compiling Handlebars templates, to ensure that HTML entities are properly escaped, thus mitigating the risk of XSS vulnerabilities.
-    ```javascript
-    Handlebars.compile(template, { noEscape: false });
-    ```
+      ```javascript
+      Handlebars.compile(template, { noEscape: false });
+      ```
 
     ## References
 

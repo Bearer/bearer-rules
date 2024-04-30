@@ -18,13 +18,13 @@ metadata:
     ## Remediations
 
     - **Do not** change the default cookie serializer.
-    ```ruby
-    Rails.application.config.action_dispatch.cookies_serializer = :marshal # unsafe
-    ```
+      ```ruby
+      Rails.application.config.action_dispatch.cookies_serializer = :marshal # unsafe
+      ```
     - **Do** consider the hybrid serializer option, but use this as a temporary measure only (such as during the transition from Marshal to JSON serialization). This should not be a permanent solution.
-    ```ruby
-    Rails.application.config.action_dispatch.cookies_serializer = :hybrid
-    ```
+      ```ruby
+      Rails.application.config.action_dispatch.cookies_serializer = :hybrid
+      ```
 
     ## References
 

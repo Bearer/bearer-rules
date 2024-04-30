@@ -32,15 +32,15 @@ metadata:
     ## Remediations
 
     - **Do** ensure that CSRF proteection is enabled in your web application's configuration settings. This prevents attackers from exploiting your web application by making unauthorized requests on behalf of the user.
-    ```php
-    use Symfony\Config\FrameworkConfig;
+      ```php
+      use Symfony\Config\FrameworkConfig;
 
-    return static function (FrameworkConfig $framework): void {
-        $framework->csrfProtection()
-            ->enabled(true)
-        ;
-    };
-    ```
+      return static function (FrameworkConfig $framework): void {
+          $framework->csrfProtection()
+              ->enabled(true)
+          ;
+      };
+      ```
 
     ## References
 

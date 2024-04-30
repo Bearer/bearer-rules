@@ -23,9 +23,9 @@ metadata:
     ## Remediations
 
     - **Do** use encryption schemes that include integrity checks to ensure the data has not been modified during transmission.
-    ```java
-    Cipher c = Cipher.getInstance("AES/GCM/PKCS5Padding");
-    ```
+      ```java
+      Cipher c = Cipher.getInstance("AES/GCM/PKCS5Padding");
+      ```
 
     ## References
 

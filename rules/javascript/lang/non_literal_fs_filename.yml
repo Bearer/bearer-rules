@@ -148,16 +148,16 @@ metadata:
 
     - **Do** sanitize all dynamic data and function arguments before using them in file system operations. This step is crucial to prevent unauthorized access.
     - **Do** use a combination of hard-coded string literals and control logic, instead of directly passing dynamic data or function arguments to file system functions. This ensures safety.
-    ```javascript
-    function write(filename) {
-      switch(filename) {
-        case "hello.txt":
-          fs.writeCreateFile("hello.txt");
-          break;
-        // Add more cases as necessary
+      ```javascript
+      function write(filename) {
+        switch(filename) {
+          case "hello.txt":
+            fs.writeCreateFile("hello.txt");
+            break;
+          // Add more cases as necessary
+        }
       }
-    }
-    ```
+      ```
 
     ## References
 

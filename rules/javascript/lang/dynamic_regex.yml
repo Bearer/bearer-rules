@@ -32,9 +32,9 @@ metadata:
     - **Do** implement timeouts for regular expression evaluation to avoid excessive resource consumption. This can be achieved using JavaScript environments or libraries that allow setting execution time limits.
     - **Do** simplify complex regular expressions to reduce the risk of catastrophic backtracking. Breaking down expressions into simpler parts makes them safer and more manageable.
     - **Do not** directly concatenate user input into regular expressions. This practice can introduce unsafe patterns and lead to vulnerabilities.
-    ```javascript
-    var dynamicRegex = new RegExp('^' + userInput); // unsafe
-    ```
+      ```javascript
+      var dynamicRegex = new RegExp('^' + userInput); // unsafe
+      ```
 
     ## References
 

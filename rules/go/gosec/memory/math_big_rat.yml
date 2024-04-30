@@ -31,19 +31,19 @@ metadata:
     ## Remediations
 
     - **Do** verify the value from `strconv.Atoi` fits within the range of your target integer type before conversion.
-    ```go
-    if intValue, err := strconv.Atoi(stringValue); err == nil {
-      if intValue >= math.MinInt16 && intValue <= math.MaxInt16 {
-        int16Value := int16(intValue)
+      ```go
+      if intValue, err := strconv.Atoi(stringValue); err == nil {
+        if intValue >= math.MinInt16 && intValue <= math.MaxInt16 {
+          int16Value := int16(intValue)
+        }
       }
-    }
-    ```
+      ```
     - **Do** use type-specific parsing functions like `strconv.ParseInt` with the appropriate bit size to ensure you get the type you need.
-    ```go
-    if int64Value, err := strconv.ParseInt(stringValue, 10, 16); err == nil {
-      int16Value := int16(int64Value)
-    }
-    ```
+      ```go
+      if int64Value, err := strconv.ParseInt(stringValue, 10, 16); err == nil {
+        int16Value := int16(int64Value)
+      }
+      ```
     - **Do not** cast the result of `strconv.Atoi` to a smaller integer type without ensuring the value is within the acceptable range for that type.
     - **Do not** ignore errors from `strconv.Atoi`. Always handle them to detect conversion problems, including possible overflows.
 

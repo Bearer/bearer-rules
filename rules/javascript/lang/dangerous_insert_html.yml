@@ -75,12 +75,12 @@ metadata:
     ## Remediations
 
     - **Do** use an HTML sanitization library to clean user input before inserting it into the HTML. This step helps prevent XSS attacks by removing or neutralizing any potentially harmful scripts.
-    ```javascript
-    import sanitizeHtml from 'sanitize-html';
+      ```javascript
+      import sanitizeHtml from 'sanitize-html';
 
-    const html = `<strong>${user.Input}</strong>`;
-    document.body.innerHTML = sanitizeHtml(html);
-    ```
+      const html = `<strong>${user.Input}</strong>`;
+      document.body.innerHTML = sanitizeHtml(html);
+      ```
 
     ## References
 
