@@ -4,7 +4,7 @@ type: shared
 languages:
   - java
 patterns:
-  - pattern: $<USER_INPUT>.$<METHOD>()
+  - pattern: $<USER_INPUT>.$<METHOD>();
     filters:
       - variable: USER_INPUT
         detection: java_shared_lang_user_input
@@ -12,8 +12,8 @@ patterns:
       - variable: METHOD
         values:
           - getBytes
-          - replace
-          - replaceAll
+          # - replace # sanitizer
+          # - replaceAll # sanitizer
           - split
           - substring
           - toCharArray

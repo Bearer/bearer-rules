@@ -17,8 +17,8 @@ patterns:
       - variable: METHOD
         values:
           - getBytes
-          - replace
-          - replaceAll
+          # - replace # sanitizer
+          # - replaceAll # sanitizer
           - split
           - substring
           - toCharArray
