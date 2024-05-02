@@ -69,6 +69,25 @@ patterns:
       - variable: USER_INPUT
         detection: javascript_lang_sql_injection_user_input
         scope: result
+  - pattern: |
+      $<SQLITE_3_DB>.$<METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: SQLITE_3_DB
+        detection: javascript_lang_sql_injection_sqlite3_init
+        scope: cursor
+      - variable: METHOD
+        values:
+          - all
+          - each
+          - exec
+          - get
+          - map
+          - prepare
+          - run
+      - variable: USER_INPUT
+        detection: javascript_lang_sql_injection_user_input
+        scope: result
+
 auxiliary:
   - id: javascript_lang_sql_injection_user_input
     sanitizer: javascript_lang_sql_injection_sanitizer
@@ -84,6 +103,9 @@ auxiliary:
   - id: javascript_lang_sql_injection_sequelize_init
     patterns:
       - new Sequelize()
+  - id: javascript_lang_sql_injection_sqlite3_init
+    patterns:
+      - new sqlite3.Database()
   - id: javascript_lang_sql_injection_mysql_conn
     patterns:
       - mysql.createConnection()
