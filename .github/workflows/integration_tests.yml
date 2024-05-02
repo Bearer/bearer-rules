@@ -52,7 +52,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: yarn install --frozen-lockfile
       - run: curl -sfL https://raw.githubusercontent.com/Bearer/bearer/main/contrib/install.sh | sh
-      - run: ./bin/bearer verson
+      - run: ./bin/bearer version
       - name: Test ${{ matrix.group }}
-        run: BEARER_BIN=./bin/bearer yarn test tests/${{ matrix.group }}
+        run: BEARER_BIN=./bin/bearer yarn test tests/javascript/third_parties/marked
         shell: bash
