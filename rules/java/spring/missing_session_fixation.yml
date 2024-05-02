@@ -1,0 +1,56 @@
+imports:
+  - java_shared_lang_instance
+patterns:
+  - pattern: |
+      $<SESSION_FIXATION>.none()
+    filters:
+      - variable: SESSION_FIXATION
+        detection: java_spring_missing_session_fixation_session_fixation
+        scope: cursor
+auxiliary:
+  - id: java_spring_missing_session_fixation_session_fixation
+    patterns:
+      - pattern: $<SESSION_MGMT>.sessionFixation()
+        filters:
+          - variable: SESSION_MGMT
+            detection: java_spring_missing_session_fixation_session_mgmt
+  - id: java_spring_missing_session_fixation_session_mgmt
+    patterns:
+      - pattern: $<HTTP_SECURITY>.sessionManagement()
+        filters:
+          - variable: HTTP_SECURITY
+            detection: java_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+                regex: \A(org\.springframework\.security\.config\.annotation\.web\.builders\.)?HttpSecurity\z
+languages:
+  - java
+severity: medium
+metadata:
+  description: Missing protection against session fixation attacks
+  remediation_message: |
+    ## Description
+
+    A session fixation attack is when an attacker sets a user's session ID to a known value before login. This can lead to unauthorized session hijacking. Spring framework, by default, protects against session fixation attacks by creating a new session or changing the user's session ID upon login. Disabling this default behaviour puts your application at increased risk of session fixation attacks.
+
+    ## Remediations
+
+    - **Do not** disable Spring's default session fixation protection. Disabling it removes a critical layer of security.
+      ```java
+      http.sessionManagement().sessionFixation().none() // not recommended
+      ```
+    - **Do** implement a session fixation protection strategy by configuring Spring to either create a new session or migrate to a new session ID upon login. This step is crucial for safeguarding user sessions against hijacking.
+      ```java
+      http.sessionManagement().sessionFixation().newSession() // or
+      http.sessionManagement().sessionFixation().migrateSession()
+      ```
+
+    ## References
+
+    - [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
+    - [Java Spring Session Fixation Configurer](https://docs.spring.io/spring-security/site/docs/5.1.x/api/org/springframework/security/config/annotation/web/configurers/SessionManagementConfigurer.SessionFixationConfigurer.html)
+  cwe_id:
+    - 384
+  id: java_spring_missing_session_fixation
+  documentation_url: https://docs.bearer.com/reference/rules/java_spring_missing_session_fixation
