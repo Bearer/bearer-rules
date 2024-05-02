@@ -1,0 +1,61 @@
+imports:
+  - javascript_shared_import_library
+  - javascript_shared_import_member
+patterns:
+  - pattern: $<MARKED>()
+    filters:
+      - variable: MARKED
+        detection: javascript_third_parties_marked_import
+        scope: cursor
+auxiliary:
+  - id: javascript_third_parties_marked_import
+    patterns:
+      - pattern: $<MARKED_LIB>
+        filters:
+          - variable: MARKED_LIB
+            detection: javascript_shared_import_library
+            scope: cursor
+            filters:
+              - variable: JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME
+                string_regex: \Amarked\z
+      - pattern: $<MARKED>
+        filters:
+          - variable: MARKED
+            detection: javascript_shared_import_member
+            scope: cursor
+            filters:
+              - variable: JAVASCRIPT_SHARED_IMPORT_LIBRARY_NAME
+                string_regex: \Amarked\z
+              - variable: JAVASCRIPT_SHARED_IMPORT_MEMBER_NAME
+                regex: \Amarked\z
+      - import $<!>$<_> from "marked"
+      - import * as $<!>$<_> from "marked"
+      - import { $<!>marked } from "marked"
+      - import { marked as $<!>$<_> } from "marked"
+      # Fallback
+      - marked
+languages:
+  - javascript
+dependency_check: true
+dependency:
+  name: marked
+  min_version: 1.2.9
+  filename: package.json
+severity: medium
+metadata:
+  description: Usage of vulnerable marked package
+  remediation_message: |
+    ## Description
+
+    For versions of marked less than 2.0.0, there is a Regular expression Denial of Service (ReDoS) vulnerability.
+
+    ## Remediations
+
+    - **Do** upgrade marked to version 2.0.0 or greater.
+
+    ## References
+    - [Vulnerability explained](https://nvd.nist.gov/vuln/detail/CVE-2021-21306)
+  cwe_id:
+    - 1333
+  id: javascript_third_parties_marked
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_marked
