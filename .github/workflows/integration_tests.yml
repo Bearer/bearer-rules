@@ -54,5 +54,5 @@ jobs:
       - run: curl -sfL https://raw.githubusercontent.com/Bearer/bearer/main/contrib/install.sh | sh
       - run: ./bin/bearer version
       - name: Test ${{ matrix.group }}
-        run: BEARER_BIN=./bin/bearer yarn test tests/javascript/third_parties/marked
+        run: BEARER_BIN=./bin/bearer yarn test tests/${{ matrix.group }}
         shell: bash
