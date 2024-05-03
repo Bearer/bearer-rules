@@ -10,14 +10,14 @@ describe(ruleId, () => {
     // FIXME: investigate - CI failure!
     // passes individually, fails when run together with
     // dom_purify test case
-    // test("insecure", () => {
-    //   const testCase = "insecure"
+    xtest("insecure", () => {
+      const testCase = "insecure"
 
-    //   const results = invoke(testCase)
+      const results = invoke(testCase)
 
-    //   expect(results.Missing).toEqual([])
-    //   expect(results.Extra).toEqual([])
-    // })
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
 
     test("not_used", () => {
       const testCase = "not_used"
