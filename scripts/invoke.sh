@@ -13,6 +13,7 @@ DEBUG=${DEBUG=false}
 filename=$(basename $test_location)
 tmp_location=/tmp/bearer-scan/$filename
 mkdir -p /tmp/bearer-scan
+rm -rf $tmp_location
 cp -R $test_location $tmp_location
 if [ -n "$BEARER_BIN" ]; then
     $BEARER_BIN scan $tmp_location \
