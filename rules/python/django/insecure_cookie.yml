@@ -1,0 +1,38 @@
+patterns:
+  - pattern: |
+      $<RESPONSE>.set_cookie($<...>secure=$<FALSE>$<...>)
+    filters:
+      - variable: RESPONSE
+        detection: python_django_insecure_cookie_http_response
+        scope: cursor
+      - variable: "FALSE"
+        detection: python_django_insecure_cookie_false
+        scope: cursor
+auxiliary:
+  - id: python_django_insecure_cookie_http_response
+    patterns:
+      - HttpResponse()
+      - HttpResponse
+  - id: python_django_insecure_cookie_false
+    patterns:
+      - "False"
+languages:
+  - python
+severity: medium
+metadata:
+  description: Missing Secure option in cookie configuration
+  remediation_message: |-
+    ## Description
+
+    When a cookie lacks the Secure option, it can be transmitted over insecure connections, making it vulnerable to interception by unauthorized parties. The Secure option is important because it instructs the browser to only send the cookie over HTTPS, enhancing security.
+
+    ## Remediations
+
+    - **Do** set the `secure` option to `True` for cookies to ensure they are only sent over HTTPS, enhancing the security of data transmission.
+      ```python
+      HttpResponse.set_cookie(key, value, secure = True)
+      ```
+  cwe_id:
+    - 614
+  id: python_django_insecure_cookie
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_insecure_cookie
