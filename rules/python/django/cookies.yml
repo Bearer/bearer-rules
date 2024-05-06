@@ -1,0 +1,48 @@
+imports:
+  - python_shared_lang_datatype
+patterns:
+  - pattern: |
+      $<RESPONSE>.set_cookie($<KEY>, $<VALUE>, $<...>)
+    filters:
+      - variable: RESPONSE
+        detection: python_django_cookies_http_response
+        scope: cursor
+      - either:
+          - variable: KEY
+            detection: python_shared_lang_datatype
+            scope: result
+          - variable: VALUE
+            detection: python_shared_lang_datatype
+            scope: result
+auxiliary:
+  - id: python_django_cookies_http_response
+    patterns:
+      - HttpResponse()
+      - HttpResponse
+languages:
+  - python
+severity: high
+metadata:
+  description: Leakage of sensitive data in cookie
+  remediation_message: |-
+    ## Description
+
+    Storing sensitive data in cookies can lead to a data breach. This vulnerability occurs when sensitive information is stored in browser cookies, putting it at risk of unauthorized access.
+
+    ## Remediations
+
+    - **Do not** store sensitive data in unencrypted cookies. This practice can expose sensitive information to potential security threats.
+      ```python
+      HttpResponse.set_cookie("user", "john@doe.com", ...) # unsafe
+      ```
+    - **Do** use encrypted cookies to protect sensitive data stored in cookies.
+      ```python
+      HttpResponse.set_signed_cookie("user", "john@doe.com", ...)
+      ```
+
+    ## References
+    - [Django set_signed_cookie documentation](https://docs.djangoproject.com/en/5.0/ref/request-response/#django.http.HttpResponse.set_signed_cookie)
+  cwe_id:
+    - 315
+  id: python_django_cookies
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_cookies
