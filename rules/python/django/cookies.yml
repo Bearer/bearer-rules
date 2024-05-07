@@ -1,11 +1,12 @@
 imports:
   - python_shared_lang_datatype
+  - python_shared_django_http_response
 patterns:
   - pattern: |
       $<RESPONSE>.set_cookie($<KEY>, $<VALUE>, $<...>)
     filters:
       - variable: RESPONSE
-        detection: python_django_cookies_http_response
+        detection: python_shared_django_http_response
         scope: cursor
       - either:
           - variable: KEY
@@ -14,11 +15,6 @@ patterns:
           - variable: VALUE
             detection: python_shared_lang_datatype
             scope: result
-auxiliary:
-  - id: python_django_cookies_http_response
-    patterns:
-      - HttpResponse()
-      - HttpResponse
 languages:
   - python
 severity: high
