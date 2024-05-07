@@ -31,15 +31,14 @@ languages:
   - ${language}
 severity:
 metadata:
-  description: ""
+  description:
   remediation_message: |
     ## Description
 
     ## Remediations
 
-    ✅
-
-    ❌
+    - **Do**
+    - **Do not**
 
     ## References
 
