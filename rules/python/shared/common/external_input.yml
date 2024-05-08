@@ -1,0 +1,20 @@
+imports:
+  - python_shared_common_user_input
+  - python_shared_lang_dynamic_input
+type: shared
+languages:
+  - python
+patterns:
+  - pattern: $<USER_INPUT>
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: cursor_strict
+  - pattern: $<DYNAMIC_INPUT>
+    filters:
+      - variable: DYNAMIC_INPUT
+        detection: python_shared_lang_dynamic_input
+        scope: cursor_strict
+metadata:
+  description: Python externally influenced (user or dynamic) input.
+  id: python_shared_common_external_input

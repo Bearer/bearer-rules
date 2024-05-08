@@ -1,0 +1,9 @@
+type: shared
+languages:
+  - python
+patterns:
+  - parser.parse_args()
+  - sys.argv[$<_>]
+metadata:
+  description: "Python dynamic input."
+  id: python_shared_lang_dynamic_input

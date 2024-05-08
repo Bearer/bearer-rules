@@ -1,0 +1,23 @@
+type: shared
+languages:
+  - python
+patterns:
+  - request.$<_>
+  - request.$<_>()
+  - request.$<_>.$<_>()
+  - pattern: $<FORM>.$<METHOD>()
+    filters: 
+      - variable: FORM
+        regex: \A(un)?(bound_)?form\z
+      - variable: METHOD
+        values:
+          - data
+          - changed_data
+          - cleaned_data
+  - pattern: $<FORM>[$<_>].value()
+    filters:
+      - variable: FORM
+        regex: \A(un)?(bound_)?form\z
+metadata:
+  description: "Django user input."
+  id: python_shared_django_user_input
