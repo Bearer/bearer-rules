@@ -39,7 +39,7 @@ metadata:
       ```python
         BASE_DIRECTORY = '/path/to/safe/directory'
         my_path = os.path.abspath(os.path.join(BASE_DIRECTORY, user_input))
-    
+
         if my_path.startswith(BASE_DIRECTORY):
           open(my_path)
       ```

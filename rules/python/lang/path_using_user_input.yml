@@ -21,7 +21,7 @@ patterns:
         detection: python_shared_common_user_input
         scope: result
       - variable: METHOD
-        values: 
+        values:
           - open
           - open_code
   - pattern: os.$<METHOD>($<USER_INPUT>)
@@ -50,7 +50,7 @@ patterns:
           - join
   - pattern: shutil.$<METHOD>($<SOURCE>, $<DEST>, $<...>)
     filters:
-      - either: 
+      - either:
           - variable: SOURCE
             detection: python_shared_common_user_input
             scope: result
@@ -128,7 +128,7 @@ auxiliary:
             scope: result
 languages:
   - python
-severity: high 
+severity: high
 metadata:
   description: Unsanitized user input in file path
   remediation_message: |-
