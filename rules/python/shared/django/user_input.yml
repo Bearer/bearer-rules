@@ -5,8 +5,8 @@ patterns:
   - request.$<_>
   - request.$<_>()
   - request.$<_>.$<_>()
-  - pattern: $<FORM>.$<METHOD>()
-    filters: 
+  - pattern: $<FORM>.$<METHOD>[$<_>]
+    filters:
       - variable: FORM
         regex: \A(un)?(bound_)?form\z
       - variable: METHOD
