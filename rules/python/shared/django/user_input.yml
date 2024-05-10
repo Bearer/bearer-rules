@@ -2,9 +2,14 @@ type: shared
 languages:
   - python
 patterns:
-  - request.$<_>
-  - request.$<_>()
-  - request.$<_>.$<_>()
+  - pattern: request.$<METHOD>.get()
+    filters:
+      - variable: METHOD
+        regex: (?i)\A(post|files|get|data|query_params|content_type|stream)\z
+  - pattern: request.$<METHOD>[$<_>]
+    filters:
+      - variable: METHOD
+        regex: (?i)\A(post|files|get|data|query_params|content_type|stream)\z
   - pattern: $<FORM>.$<METHOD>[$<_>]
     filters:
       - variable: FORM
