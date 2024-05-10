@@ -2,8 +2,19 @@ type: shared
 languages:
   - python
 patterns:
-  - parser.parse_args()
   - sys.argv[$<_>]
+  - pattern: $<PARSER>.parse_args($<...>)
+    filters:
+      - variable: PARSER
+        detection: python_shared_lang_dynamic_input_parser
+        scope: result
+auxiliary:
+  - id: python_shared_lang_dynamic_input_parser
+    patterns:
+      - pattern: $<ARG_PARSER>
+        filters:
+          - variable: ARG_PARSER
+            regex: \A(argparse\.)ArgumentParser?\z
 metadata:
   description: "Python dynamic input."
   id: python_shared_lang_dynamic_input
