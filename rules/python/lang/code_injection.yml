@@ -1,0 +1,63 @@
+imports:
+  - python_shared_common_user_input
+patterns:
+  - pattern: exec($<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: getattr($<_>, $<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: setattr($<_>, $<_>, $<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<OS>.$<METHOD>($<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: OS
+        detection: python_lang_code_injection_os
+        scope: result
+      - variable: METHOD
+        values:
+          - execl
+          - execle
+          - execlp
+          - execlpe
+          - execv
+          - execve
+          - execvp
+          - execvpe
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+auxiliary:
+  - id: python_lang_code_injection_os
+    patterns:
+      - os
+      - __import__("os")
+languages:
+  - python
+severity: critical
+metadata:
+  description: Unsanitized user input in code generation
+  remediation_message: |-
+    ## Description
+
+    Allowing user input to directly influence code generation or scripting functions without proper sanitization can lead to code injection vulnerabilities. This occurs when an attacker is able to insert malicious code into your application, which is then executed, potentially leading to unauthorized actions or data access.
+
+    ## Remediations
+
+    - **Do not** pass unsanitized user input to functions or methods that dynamically execute code.
+    - **Do** always validate or sanitize input to ensure it does not contain harmful code before using it in such contexts.
+
+    ## References
+
+    - [OWASP Code injection](https://owasp.org/www-community/attacks/Code_Injection)
+  cwe_id:
+    - 94
+  id: python_lang_code_injection
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_code_injection
