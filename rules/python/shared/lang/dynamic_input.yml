@@ -8,6 +8,11 @@ patterns:
       - variable: PARSER
         detection: python_shared_lang_dynamic_input_parser
         scope: result
+  - pattern: $<GETOPT>.getopt($<...>)
+    filters:
+      - variable: GETOPT
+        detection: python_shared_lang_dynamic_input_getopt
+        scope: result
 auxiliary:
   - id: python_shared_lang_dynamic_input_parser
     patterns:
@@ -28,6 +33,11 @@ auxiliary:
       - import $<!>argparse
       - import argparse as $<!>$<_>
       - argparse # fallback
+  - id: python_shared_lang_dynamic_input_getopt
+    patterns:
+      - import $<!>getopt
+      - import getopt as $<!>$<_>
+      - getopt # fallback
 metadata:
   description: "Python dynamic input."
   id: python_shared_lang_dynamic_input
