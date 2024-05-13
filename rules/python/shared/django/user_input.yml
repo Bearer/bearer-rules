@@ -2,12 +2,18 @@ type: shared
 languages:
   - python
 patterns:
-  - pattern: request.$<METHOD>.get()
+  - pattern: $<REQUEST>.$<METHOD>.get()
     filters:
+      - variable: REQUEST
+        detection: python_shared_django_user_input_request
+        scope: cursor
       - variable: METHOD
         regex: (?i)\A(post|files|get|data|query_params|content_type|stream)\z
-  - pattern: request.$<METHOD>[$<_>]
+  - pattern: $<REQUEST>.$<METHOD>[$<_>]
     filters:
+      - variable: REQUEST
+        detection: python_shared_django_user_input_request
+        scope: cursor
       - variable: METHOD
         regex: (?i)\A(post|files|get|data|query_params|content_type|stream)\z
   - pattern: $<FORM>.$<METHOD>[$<_>]
@@ -23,6 +29,12 @@ patterns:
     filters:
       - variable: FORM
         regex: \A(un)?(bound_)?form\z
+auxiliary:
+  - id: python_shared_django_user_input_request
+    patterns:
+      - request
+      - req
+      - r
 metadata:
   description: "Django user input."
   id: python_shared_django_user_input
