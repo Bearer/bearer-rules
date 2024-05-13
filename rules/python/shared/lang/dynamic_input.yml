@@ -11,10 +11,23 @@ patterns:
 auxiliary:
   - id: python_shared_lang_dynamic_input_parser
     patterns:
-      - pattern: $<ARG_PARSER>
+      - pattern: $<ARG_PARSER>()
         filters:
           - variable: ARG_PARSER
-            regex: \A(argparse\.)ArgumentParser?\z
+            detection: python_shared_lang_dynamic_input_argument_parser
+  - id: python_shared_lang_dynamic_input_argument_parser
+    patterns:
+      - ArgumentParser # fallback
+      - from argparse import ArgumentParser as $<!>$<_>
+      - pattern: $<ARGPARSE>.ArgumentParser
+        filters:
+          - variable: ARGPARSE
+            detection: python_shared_lang_dynamic_input_argparse_import
+  - id: python_shared_lang_dynamic_input_argparse_import
+    patterns:
+      - import $<!>argparse
+      - import argparse as $<!>$<_>
+      - argparse # fallback
 metadata:
   description: "Python dynamic input."
   id: python_shared_lang_dynamic_input
