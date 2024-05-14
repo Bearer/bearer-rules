@@ -15,7 +15,26 @@ auxiliary:
       - pattern: $<COOKIE>()
         filters:
           - variable: COOKIE
+            detection: python_lang_cookies_class
+            scope: result
+  - id: python_lang_cookies_class
+    patterns:
+      - pattern: $<COOKIE_CLASS>
+        filters:
+          - variable: COOKIE_CLASS
             regex: \A(http\.)?(cookies\.)?(Simple|Base)Cookie\z
+      - pattern: from http.cookies import $<COOKIE_CLASS>
+        filters:
+          - variable: COOKIE_CLASS
+            values:
+              - SimpleCookie
+              - BaseCookie
+      - pattern: from http.cookies import $<COOKIE_CLASS> as $<!>$<_>
+        filters:
+          - variable: COOKIE_CLASS
+            values:
+              - SimpleCookie
+              - BaseCookie
 languages:
   - python
 severity: high
