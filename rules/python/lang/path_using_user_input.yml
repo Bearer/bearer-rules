@@ -6,7 +6,7 @@ patterns:
       - variable: USER_INPUT
         detection: python_shared_common_user_input
         scope: result
-  - pattern: fileinput.$<METHOD>(files=($<...>$<USER_INPUT>$<...>)$<...>)
+  - pattern: fileinput.$<METHOD>($<...>files=$<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: python_shared_common_user_input
