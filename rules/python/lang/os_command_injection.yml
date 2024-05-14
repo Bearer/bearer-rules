@@ -22,7 +22,7 @@ patterns:
       - variable: EXTERNAL_INPUT
         detection: python_shared_common_external_input
         scope: result
-  - pattern: subprocess.$<METHOD>($<SUBPROC_EXTERNAL_INPUT>$<...>)
+  - pattern: subprocess.$<METHOD>($<EXTERNAL_INPUT>$<...>)
     filters:
       - variable: METHOD
         values:
@@ -31,8 +31,8 @@ patterns:
           - check_output
           - run
           - Popen
-      - variable: SUBPROC_EXTERNAL_INPUT
-        detection: python_lang_os_command_injection_external_input_subproc
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
         scope: result
   - pattern: $<OS>.$<METHOD>($<_>, $<...>$<EXTERNAL_INPUT>$<...>, $<...>)
     filters:
@@ -92,19 +92,6 @@ auxiliary:
     patterns:
       - os
       - __import__("os")
-  - id: python_lang_os_command_injection_external_input_subproc
-    patterns:
-      - pattern: $<...>$<EXTERNAL_INPUT>$<...>
-        filters:
-          - variable: EXTERNAL_INPUT
-            detection: python_shared_common_external_input
-            scope: result
-      - pattern: |
-          [$<...>$<EXTERNAL_INPUT>$<...>]
-        filters:
-          - variable: EXTERNAL_INPUT
-            detection: python_shared_common_external_input
-            scope: result
 languages:
   - python
 severity: critical
