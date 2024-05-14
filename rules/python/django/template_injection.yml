@@ -1,0 +1,50 @@
+imports:
+  - python_shared_common_user_input
+  - python_shared_lang_import2
+patterns:
+  - pattern: $<CLASS>($<USER_INPUT>)
+    filters:
+      - variable: CLASS
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [django]
+          - variable: MODULE2
+            values: [template]
+          - variable: NAME
+            values: [Template]
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+languages:
+  - python
+metadata:
+  description: "Unsanitized user input in web page generation (XSS)"
+  remediation_message: |-
+    ## Description
+
+    Cross-Site Scripting (XSS) is a vulnerability that allows attackers to run malicious scripts in the context of a trusted web application. This can happen when an application includes untrusted data without proper validation or escaping. There are several contexts where XSS can occur, each requiring specific encoding strategies to mitigate the risk.
+
+    ## Remediations
+
+    - **Do** encode user input based on the context it is used in, such as HTML content, HTML attributes, JavaScript, and CSS contexts. This helps prevent malicious scripts from being executed.
+      ```python
+      django.utils.html.escape(user_input)
+      ```
+    - **Do** use templating engines like Django that automatically encode data based on its context.
+    - **Do** sanitize data using libraries or functions specifically designed for this purpose, especially when inserting content into a web page.
+    - **Do** separate data from code by avoiding inline scripting and event handlers. Use separate JavaScript files for event handling to minimize script injection risks.
+    - **Do not** mix server-side and client-side templating systems, as server-side systems may not escape output safely for client-side use.
+    - **Do not** encode user input before storing it in a database. Any encoding should be applied when the data is output, not before storage, to ensure that it is encoded appropriately for its context.
+
+    ## References
+
+    - [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+    - [Django templates Documentation](https://docs.djangoproject.com/en/5.0/ref/templates/)
+
+  cwe_id:
+    - 79
+  id: python_django_template_injection
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_template_injection
+severity: high
