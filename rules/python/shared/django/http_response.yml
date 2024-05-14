@@ -2,8 +2,13 @@ type: shared
 languages:
   - python
 patterns:
-  - HttpResponse()
   - HttpResponse
+  - from django.http import $<!>HttpResponse
+  - from django.http import HttpResponse as $<!>$<_>
+  - pattern: $<HTTP_RESPONSE>
+    filters:
+      - variable: HTTP_RESPONSE
+        regex: \A(django\.)?(http\.)?HttpResponse\z
 metadata:
   description: "Python Django HTTP Response."
   id: python_shared_django_http_response

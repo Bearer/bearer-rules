@@ -1,9 +1,9 @@
 patterns:
   - pattern: |
-      $<COOKIE_INIT>[$<_>]['secure'] = $<FALSE>
+      $<COOKIE_SESSION>['secure'] = $<FALSE>
     filters:
-      - variable: COOKIE_INIT
-        detection: python_lang_insecure_cookie_init
+      - variable: COOKIE_SESSION
+        detection: python_lang_insecure_cookie_session
         scope: cursor
       - variable: "FALSE"
         detection: python_lang_insecure_cookie_false
@@ -12,12 +12,39 @@ auxiliary:
   - id: python_lang_insecure_cookie_false
     patterns:
       - "False"
+  - id: python_lang_insecure_cookie_session
+    patterns:
+      - pattern: $<COOKIE_INIT>[$<_>]
+        filters:
+          - variable: COOKIE_INIT
+            detection: python_lang_insecure_cookie_init
+            scope: result
   - id: python_lang_insecure_cookie_init
     patterns:
       - pattern: $<COOKIE>()
         filters:
           - variable: COOKIE
+            detection: python_lang_insecure_cookie_class
+            scope: result
+  - id: python_lang_insecure_cookie_class
+    patterns:
+      - pattern: $<COOKIE_CLASS>
+        filters:
+          - variable: COOKIE_CLASS
             regex: \A(http\.)?(cookies\.)?(Simple|Base)Cookie\z
+      - pattern: from http.cookies import $<COOKIE_CLASS>
+        filters:
+          - variable: COOKIE_CLASS
+            values:
+              - SimpleCookie
+              - BaseCookie
+      - pattern: from http.cookies import $<COOKIE_CLASS> as $<!>$<_>
+        filters:
+          - variable: COOKIE_CLASS
+            values:
+              - SimpleCookie
+              - BaseCookie
+
 languages:
   - python
 severity: medium
