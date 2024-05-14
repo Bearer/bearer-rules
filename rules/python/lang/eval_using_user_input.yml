@@ -1,0 +1,83 @@
+imports:
+  - python_shared_common_external_input
+patterns:
+  - pattern: eval($<...>$<EXTERNAL_INPUT>$<...>)
+    filters:
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
+        scope: result
+  - pattern: $<LITERAL_EVAL>($<...>$<EXTERNAL_INPUT>$<...>)
+    filters:
+      - variable: LITERAL_EVAL
+        detection: python_lang_eval_using_user_input_literal_eval
+        scope: result
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
+        scope: result
+  - pattern: $<SUBINTERPRETERS>.run_string($<_ID>, $<...>$<EXTERNAL_INPUT>$<...>)
+    filters:
+      - variable: SUBINTERPRETERS
+        detection: python_lang_eval_using_user_input_subinterpreters
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
+        scope: result
+auxiliary:
+  - id: python_lang_eval_using_user_input_literal_eval
+    patterns:
+      - pattern: $<AST_MODULE>.literal_eval
+        filters:
+          - variable: AST_MODULE
+            detection: python_lang_eval_using_user_input_ast_module
+            scope: cursor
+      - from ast import $<!>literal_eval
+      - from ast import literal_eval as $<!>$<_>
+  - id: python_lang_eval_using_user_input_ast_module
+    patterns:
+      - import $<!>ast
+      - import ast as $<!>$<_>
+  - id: python_lang_eval_using_user_input_subinterpreters
+    patterns:
+      - import $<!>_xxsubinterpreters
+      - import _xxsubinterpreters as $<!>$<SUBINTERPRETERS>
+languages:
+  - python
+severity: critical
+metadata:
+  description: "Unsanitized user input in 'eval' type function"
+  remediation_message: |-
+    ## Description
+
+    Executing code with 'eval' or similar functions using unsanitized user input is risky and can lead to code injection vulnerabilities. This happens when external input is used directly in functions that execute code, allowing attackers to run malicious code within your application.
+
+    ## Remediations
+
+    - **Do not** use `eval` or similar code execution functions with unsanitized user input. This can create a significant security risk by allowing code injection.
+    - **Do not** use `ast.literal_eval()` with unsanitized user input. While `literal_eval` is often considered to be less risky than `eval` because it evaluates strings as Python data structures only (integers, strings, dictionaries,etc), an attacker could exploit this function with deeply nested structures that could cause excessive memory allocation or stack consumption.
+    - **Do** use dynamic hardcoded values instead of direct user input to mitigate the risk of code injection. This approach allows for controlled execution of code without exposing your application to injected malicious code. For example, use a dictionary to store functions, and call these based on user input.
+      ```python
+      def total_with_vat(a, b):
+        total = a + b
+        return total + total * 0.15
+
+      def total_without_vat(a, b):
+        return a + b
+
+      get_total = {
+        "incl_vat": total_with_vat,
+        "excl_vat": total_without_vat
+      }
+
+      if form.cleaned_data["include_vat"]:
+        total_func = get_total["incl_vat"]
+        total = total_func(a, b)
+
+      # ...
+      ```
+
+    ## References
+
+    - [OWASP Code injection explained](https://owasp.org/www-community/attacks/Code_Injection)
+  cwe_id:
+    - 95
+  id: python_lang_eval_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_eval_using_user_input
