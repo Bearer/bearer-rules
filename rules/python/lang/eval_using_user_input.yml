@@ -24,10 +24,17 @@ patterns:
 auxiliary:
   - id: python_lang_eval_using_user_input_literal_eval
     patterns:
-      - pattern: $<AST_LITERAL_EVAL>
+      - pattern: $<AST_MODULE>.literal_eval
         filters:
-          - variable: AST_LITERAL_EVAL
-            regex: \A(ast\.)?literal_eval\z
+          - variable: AST_MODULE
+            detection: python_lang_eval_using_user_input_ast_module
+            scope: cursor
+      - from ast import $<!>literal_eval
+      - from ast import literal_eval as $<!>$<_>
+  - id: python_lang_eval_using_user_input_ast_module
+    patterns:
+      - import $<!>ast
+      - import ast as $<!>$<_>
   - id: python_lang_eval_using_user_input_subinterpreters
     patterns:
       - import $<!>_xxsubinterpreters
