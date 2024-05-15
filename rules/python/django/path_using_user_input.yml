@@ -21,6 +21,14 @@ auxiliary:
         filters:
           - variable: DEFAULT_STORAGE
             regex: \A(django\.core\.files\.storage\.)?default_storage\z
+      - pattern: from $<STORAGE> import $<!>default_storage
+        filters:
+          - variable: STORAGE
+            regex: \A(django\.core\.files\.)?storage\z
+      - pattern: from $<STORAGE> import default_storage as $<!>$<_>
+        filters:
+          - variable: STORAGE
+            regex: \A(django\.core\.files\.)?storage\z
 languages:
   - python
 severity: high
