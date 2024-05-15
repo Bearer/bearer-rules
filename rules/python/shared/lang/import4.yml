@@ -1,0 +1,76 @@
+type: shared
+languages:
+  - python
+patterns:
+  - pattern: $<IMPORTED_MODULE4>.$<NAME>
+    filters:
+      - variable: IMPORTED_MODULE4
+        detection: python_shared_lang_import4_module4
+        scope: cursor
+        imports:
+          - variable: MODULE1
+            as: MODULE1
+          - variable: MODULE2
+            as: MODULE2
+          - variable: MODULE3
+            as: MODULE3
+          - variable: MODULE4
+            as: MODULE4
+  - from $<MODULE1>.$<MODULE2>.$<MODULE3>.$<MODULE4> import $<NAME> as $<!>$<_>
+  - from $<MODULE1>.$<MODULE2>.$<MODULE3>.$<MODULE4> import $<!>$<NAME>
+auxiliary:
+  - id: python_shared_lang_import4_module1
+    patterns:
+      - import $<!>$<MODULE1>
+      - import $<!>$<MODULE1>.$<MODULE2>
+      - import $<!>$<MODULE1>.$<MODULE2>.$<MODULE3>
+      - import $<!>$<MODULE1>.$<MODULE2>.$<MODULE3>.$<MODULE4>
+      - import $<MODULE1> as $<!>$<_>
+  - id: python_shared_lang_import4_module2
+    patterns:
+      - pattern: $<IMPORTED_MODULE1>.$<MODULE2>
+        filters:
+          - variable: IMPORTED_MODULE1
+            detection: python_shared_lang_import4_module1
+            scope: cursor
+            imports:
+              - variable: MODULE1
+                as: MODULE1
+      - import $<MODULE1>.$<MODULE2> as $<!>$<_>
+      - from $<MODULE1> import $<!>$<MODULE2>
+      - from $<MODULE1> import $<MODULE2> as $<!>$<_>
+  - id: python_shared_lang_import4_module3
+    patterns:
+      - pattern: $<IMPORTED_MODULE2>.$<MODULE3>
+        filters:
+          - variable: IMPORTED_MODULE2
+            detection: python_shared_lang_import4_module2
+            scope: cursor
+            imports:
+              - variable: MODULE1
+                as: MODULE1
+              - variable: MODULE2
+                as: MODULE2
+      - import $<MODULE1>.$<MODULE2>.$<MODULE3> as $<!>$<_>
+      - from $<MODULE1>.$<MODULE2> import $<!>$<MODULE3>
+      - from $<MODULE1>.$<MODULE2> import $<MODULE3> as $<!>$<_>
+  - id: python_shared_lang_import4_module4
+    patterns:
+      - pattern: $<IMPORTED_MODULE3>.$<MODULE4>
+        filters:
+          - variable: IMPORTED_MODULE3
+            detection: python_shared_lang_import4_module3
+            scope: cursor
+            imports:
+              - variable: MODULE1
+                as: MODULE1
+              - variable: MODULE2
+                as: MODULE2
+              - variable: MODULE3
+                as: MODULE3
+      - import $<MODULE1>.$<MODULE2>.$<MODULE3>.$<MODULE4> as $<!>$<_>
+      - from $<MODULE1>.$<MODULE2>.$<MODULE3> import $<!>$<MODULE4>
+      - from $<MODULE1>.$<MODULE2>.$<MODULE3> import $<MODULE4> as $<!>$<_>
+metadata:
+  description: "Python import level 4."
+  id: python_shared_lang_import4
