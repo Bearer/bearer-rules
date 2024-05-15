@@ -1,0 +1,38 @@
+type: shared
+languages:
+  - python
+patterns:
+  - pattern: $<IMPORTED_MODULE2>.$<NAME>
+    filters:
+      - variable: IMPORTED_MODULE2
+        detection: python_shared_lang_import2_module2
+        scope: cursor
+        imports:
+          - variable: MODULE1
+            as: MODULE1
+          - variable: MODULE2
+            as: MODULE2
+  - from $<MODULE1>.$<MODULE2> import $<NAME> as $<!>$<_>
+  - from $<MODULE1>.$<MODULE2> import $<!>$<NAME>
+auxiliary:
+  - id: python_shared_lang_import2_module1
+    patterns:
+      - import $<!>$<MODULE1>
+      - import $<!>$<MODULE1>.$<MODULE2>
+      - import $<MODULE1> as $<!>$<_>
+  - id: python_shared_lang_import2_module2
+    patterns:
+      - pattern: $<IMPORTED_MODULE1>.$<MODULE2>
+        filters:
+          - variable: IMPORTED_MODULE1
+            detection: python_shared_lang_import2_module1
+            scope: cursor
+            imports:
+              - variable: MODULE1
+                as: MODULE1
+      - import $<MODULE1>.$<MODULE2> as $<!>$<_>
+      - from $<MODULE1> import $<!>$<MODULE2>
+      - from $<MODULE1> import $<MODULE2> as $<!>$<_>
+metadata:
+  description: "Python import level 2."
+  id: python_shared_lang_import2
