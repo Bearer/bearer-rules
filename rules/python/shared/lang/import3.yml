@@ -1,0 +1,56 @@
+type: shared
+languages:
+  - python
+patterns:
+  - pattern: $<IMPORTED_MODULE3>.$<NAME>
+    filters:
+      - variable: IMPORTED_MODULE3
+        detection: python_shared_lang_import3_module3
+        scope: cursor
+        imports:
+          - variable: MODULE1
+            as: MODULE1
+          - variable: MODULE2
+            as: MODULE2
+          - variable: MODULE3
+            as: MODULE3
+  - from $<MODULE1>.$<MODULE2>.$<MODULE3> import $<NAME> as $<!>$<_>
+  - from $<MODULE1>.$<MODULE2>.$<MODULE3> import $<!>$<NAME>
+auxiliary:
+  - id: python_shared_lang_import3_module1
+    patterns:
+      - import $<!>$<MODULE1>
+      - import $<!>$<MODULE1>.$<MODULE2>
+      - import $<!>$<MODULE1>.$<MODULE2>.$<MODULE3>
+      - import $<MODULE1> as $<!>$<_>
+  - id: python_shared_lang_import3_module2
+    patterns:
+      - pattern: $<IMPORTED_MODULE1>.$<MODULE2>
+        filters:
+          - variable: IMPORTED_MODULE1
+            detection: python_shared_lang_import3_module1
+            scope: cursor
+            imports:
+              - variable: MODULE1
+                as: MODULE1
+      - import $<MODULE1>.$<MODULE2> as $<!>$<_>
+      - from $<MODULE1> import $<!>$<MODULE2>
+      - from $<MODULE1> import $<MODULE2> as $<!>$<_>
+  - id: python_shared_lang_import3_module3
+    patterns:
+      - pattern: $<IMPORTED_MODULE2>.$<MODULE3>
+        filters:
+          - variable: IMPORTED_MODULE2
+            detection: python_shared_lang_import3_module2
+            scope: cursor
+            imports:
+              - variable: MODULE1
+                as: MODULE1
+              - variable: MODULE2
+                as: MODULE2
+      - import $<MODULE1>.$<MODULE2>.$<MODULE3> as $<!>$<_>
+      - from $<MODULE1>.$<MODULE2> import $<!>$<MODULE3>
+      - from $<MODULE1>.$<MODULE2> import $<MODULE3> as $<!>$<_>
+metadata:
+  description: "Python import level 3."
+  id: python_shared_lang_import3
