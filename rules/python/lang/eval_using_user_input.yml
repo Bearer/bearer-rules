@@ -1,5 +1,6 @@
 imports:
   - python_shared_common_external_input
+  - python_shared_lang_import1
 patterns:
   - pattern: eval($<...>$<EXTERNAL_INPUT>$<...>)
     filters:
@@ -9,36 +10,29 @@ patterns:
   - pattern: $<LITERAL_EVAL>($<...>$<EXTERNAL_INPUT>$<...>)
     filters:
       - variable: LITERAL_EVAL
-        detection: python_lang_eval_using_user_input_literal_eval
-        scope: result
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [ast]
+          - variable: NAME
+            values: [literal_eval]
       - variable: EXTERNAL_INPUT
         detection: python_shared_common_external_input
         scope: result
-  - pattern: $<SUBINTERPRETERS>.run_string($<_ID>, $<...>$<EXTERNAL_INPUT>$<...>)
+  - pattern: $<SUBINTERPRETERS>($<_ID>, $<...>$<EXTERNAL_INPUT>$<...>)
     filters:
       - variable: SUBINTERPRETERS
-        detection: python_lang_eval_using_user_input_subinterpreters
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [_xxsubinterpreters]
+          - variable: NAME
+            values: [run_string]
       - variable: EXTERNAL_INPUT
         detection: python_shared_common_external_input
         scope: result
-auxiliary:
-  - id: python_lang_eval_using_user_input_literal_eval
-    patterns:
-      - pattern: $<AST_MODULE>.literal_eval
-        filters:
-          - variable: AST_MODULE
-            detection: python_lang_eval_using_user_input_ast_module
-            scope: cursor
-      - from ast import $<!>literal_eval
-      - from ast import literal_eval as $<!>$<_>
-  - id: python_lang_eval_using_user_input_ast_module
-    patterns:
-      - import $<!>ast
-      - import ast as $<!>$<_>
-  - id: python_lang_eval_using_user_input_subinterpreters
-    patterns:
-      - import $<!>_xxsubinterpreters
-      - import _xxsubinterpreters as $<!>$<SUBINTERPRETERS>
 languages:
   - python
 severity: critical
