@@ -109,23 +109,37 @@ patterns:
 auxiliary:
   - id: python_lang_path_using_user_input_path_module_init_without_user_input
     patterns:
-      - pattern: $<PATH>
+      - pattern: $<PATH_MODULE>
         filters:
-          - variable: PATH
-            regex: \A(pathlib\.)?(Pure)?(Windows|Posix)?Path\z
+          - variable: PATH_MODULE
+            detection: python_lang_path_using_user_input_path_module
       - pattern: $<PATH_MODULE>($<...>)
         filters:
           - variable: PATH_MODULE
-            regex: \A(pathlib\.)?(Pure)?(Windows|Posix)?Path\z
+            detection: python_lang_path_using_user_input_path_module
   - id: python_lang_path_using_user_input_path_module_init_with_user_input
     patterns:
       - pattern: $<PATH_MODULE>($<USER_INPUT>)
         filters:
           - variable: PATH_MODULE
-            regex: \A(pathlib\.)?(Pure)?(Windows|Posix)?Path\z
+            detection: python_lang_path_using_user_input_path_module
           - variable: USER_INPUT
             detection: python_shared_common_user_input
             scope: result
+  - id: python_lang_path_using_user_input_path_module
+    patterns:
+      - pattern: from pathlib import $<!>$<PATH_MODULE>
+        filters:
+          - variable: PATH_MODULE
+            regex: \A(Pure)?(Windows|Posix)?Path\z
+      - pattern: from pathlib import $<PATH_MODULE> as $<!>$<_>
+        filters:
+          - variable: PATH_MODULE
+            regex: \A(Pure)?(Windows|Posix)?Path\z
+      - pattern: $<PATH_MODULE>
+        filters:
+          - variable: PATH_MODULE
+            regex: \A(pathlib\.)?(Pure)?(Windows|Posix)?Path\z
 languages:
   - python
 severity: high
