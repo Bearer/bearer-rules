@@ -1,0 +1,213 @@
+imports:
+  - python_shared_common_user_input
+  - python_shared_lang_import1
+  - python_shared_lang_import2
+patterns:
+  - pattern: open($<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<FILEINPUT>($<...>files=$<USER_INPUT>$<...>)
+    filters:
+      - variable: FILEINPUT
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [fileinput]
+          - variable: NAME
+            values:
+              - input
+              - FileInput
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<IO>($<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+      - variable: IO
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [io]
+          - variable: NAME
+            values:
+              - open
+              - open_code
+  - pattern: $<OS>($<USER_INPUT>)
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+      - variable: OS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [os]
+          - variable: NAME
+            values:
+              - listdir
+              - chdir
+              - mkdir
+              - makedirs
+              - open
+              - rmdir
+              - remove
+              - rename
+              - unlink
+  - pattern: $<OS_PATH>($<USER_INPUT>)
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+      - variable: OS_PATH
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [os]
+          - variable: MODULE2
+            values: [path]
+          - variable: NAME
+            values: [join]
+  - pattern: $<SHUTIL>($<SOURCE>, $<DEST>, $<...>)
+    filters:
+      - either:
+          - variable: SOURCE
+            detection: python_shared_common_user_input
+            scope: result
+          - variable: DEST
+            detection: python_shared_common_user_input
+            scope: result
+      - variable: SHUTIL
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [shutil]
+          - variable: NAME
+            values:
+              - copy
+              - copy2
+              - copyfile
+              - copymode
+              - copystat
+              - copytree
+  - pattern: $<SHUTIL>($<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+      - variable: SHUTIL
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [shutil]
+          - variable: NAME
+            values: [rmtree]
+  - pattern: $<PATH>.$<METHOD>($<...>)
+    filters:
+      - variable: PATH
+        detection: python_lang_path_using_user_input_path_module_init_with_user_input
+        scope: result
+      - variable: METHOD
+        values:
+          - joinpath
+          - mkdir
+          - open
+          - read_bytes
+          - read_text
+          - rename
+          - replace
+          - rmdir
+          - symlink_to
+          - touch
+          - unlink
+          - walk
+          - write_bytes
+          - write_text
+  - pattern: $<PATH>.$<METHOD>($<USER_INPUT>)
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+      - variable: PATH
+        detection: python_lang_path_using_user_input_path_module_init_without_user_input
+        scope: result
+      - variable: METHOD
+        values:
+          - joinpath
+          - rename
+          - replace
+          - symlink_to
+          - touch
+auxiliary:
+  - id: python_lang_path_using_user_input_path_module_init_without_user_input
+    patterns:
+      - pattern: $<PATH_MODULE>
+        filters:
+          - variable: PATH_MODULE
+            detection: python_lang_path_using_user_input_path_module
+      - pattern: $<PATH_MODULE>($<...>)
+        filters:
+          - variable: PATH_MODULE
+            detection: python_lang_path_using_user_input_path_module
+  - id: python_lang_path_using_user_input_path_module_init_with_user_input
+    patterns:
+      - pattern: $<PATH_MODULE>($<USER_INPUT>)
+        filters:
+          - variable: PATH_MODULE
+            detection: python_lang_path_using_user_input_path_module
+          - variable: USER_INPUT
+            detection: python_shared_common_user_input
+            scope: result
+  - id: python_lang_path_using_user_input_path_module
+    patterns:
+      - pattern: $<PATH_MODULE>
+        filters:
+          - variable: PATH_MODULE
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [pathlib]
+              - variable: NAME
+                values:
+                  - Path
+                  - PurePath
+                  - WindowsPath
+                  - PureWindowsPath
+                  - PosixPath
+                  - PurePosixPath
+languages:
+  - python
+severity: high
+metadata:
+  description: Unsanitized user input in file path
+  remediation_message: |-
+    ## Description
+
+    Unsanitized user input in file path resolution can lead to security vulnerabilities. This issue arises when an application directly uses input from the user to determine file paths or names without proper validation or sanitization. Attackers can exploit this to access unauthorized files or directories, leading to data breaches or other security compromises.
+
+    ## Remediations
+
+    - **Do not** directly use user input in file paths without sanitization. This prevents attackers from manipulating file paths to access or manipulate unauthorized files.
+    - **Do** use a safelist to define accessible paths or directories. Only allow user input to influence file paths within these predefined, safe boundaries.
+    - **Do** sanitize user input used in file path resolution. For example, use absolute paths and check against the expected base directory
+      ```python
+        BASE_DIRECTORY = '/path/to/safe/directory'
+        my_path = os.path.abspath(os.path.join(BASE_DIRECTORY, user_input))
+
+        if my_path.startswith(BASE_DIRECTORY):
+          open(my_path)
+      ```
+  cwe_id:
+    - 73
+  id: python_lang_path_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_path_using_user_input
