@@ -1,5 +1,6 @@
 imports:
   - python_shared_lang_datatype
+  - python_shared_lang_import2
 patterns:
   - pattern: $<COOKIE_INIT>[$<_>] = $<DATA_TYPE>
     filters:
@@ -15,26 +16,24 @@ auxiliary:
       - pattern: $<COOKIE>()
         filters:
           - variable: COOKIE
-            detection: python_lang_cookies_class
+            detection: python_lang_cookies_cookie_class
             scope: result
-  - id: python_lang_cookies_class
+  - id: python_lang_cookies_cookie_class
     patterns:
       - pattern: $<COOKIE_CLASS>
         filters:
           - variable: COOKIE_CLASS
-            regex: \A(http\.)?(cookies\.)?(Simple|Base)Cookie\z
-      - pattern: from http.cookies import $<COOKIE_CLASS>
-        filters:
-          - variable: COOKIE_CLASS
-            values:
-              - SimpleCookie
-              - BaseCookie
-      - pattern: from http.cookies import $<COOKIE_CLASS> as $<!>$<_>
-        filters:
-          - variable: COOKIE_CLASS
-            values:
-              - SimpleCookie
-              - BaseCookie
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [http]
+              - variable: MODULE2
+                values: [cookies]
+              - variable: NAME
+                values:
+                  - BaseCookie
+                  - SimpleCookie
 languages:
   - python
 severity: high

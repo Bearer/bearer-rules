@@ -6,8 +6,7 @@ patterns:
       $<RESPONSE>.set_cookie($<KEY>, $<VALUE>, $<...>)
     filters:
       - variable: RESPONSE
-        detection: python_shared_django_http_response
-        scope: cursor
+        detection: python_django_cookies_http_response_instance
       - either:
           - variable: KEY
             detection: python_shared_lang_datatype
@@ -15,6 +14,14 @@ patterns:
           - variable: VALUE
             detection: python_shared_lang_datatype
             scope: result
+auxiliary:
+  - id: python_django_cookies_http_response_instance
+    patterns:
+      - pattern: $<HTTP_RESPONSE>($<...>)
+        filters:
+          - variable: HTTP_RESPONSE
+            detection: python_shared_django_http_response
+            scope: cursor
 languages:
   - python
 severity: high

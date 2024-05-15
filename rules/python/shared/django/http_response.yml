@@ -1,22 +1,21 @@
 type: shared
+imports:
+  - python_shared_lang_import2
 languages:
   - python
 patterns:
   - pattern: $<HTTP_RESPONSE>
     filters:
       - variable: HTTP_RESPONSE
-        detection: python_shared_django_http_response_class
-        scope: result
-auxiliary:
-  - id: python_shared_django_http_response_class
-    patterns:
-      - HttpResponse
-      - from django.http import $<!>HttpResponse
-      - from django.http import HttpResponse as $<!>$<_>
-      - pattern: $<HTTP_RESPONSE>
+        detection: python_shared_lang_import2
+        scope: cursor
         filters:
-          - variable: HTTP_RESPONSE
-            regex: \A(django\.)?(http\.)?HttpResponse\z
+          - variable: MODULE1
+            values: [django]
+          - variable: MODULE2
+            values: [http]
+          - variable: NAME
+            values: [HttpResponse]
 metadata:
   description: "Python Django HTTP Response object."
   id: python_shared_django_http_response

@@ -6,7 +6,7 @@ def bad(user):
   myCookie["user"] = user.email
   
 def bad2(customer):
-  myBasicCookie = http.cookies.BaseCookie()
+  myBasicCookie = cookies.BaseCookie()
   # bearer:expected python_lang_cookies
   myBasicCookie["logged customer"] = customer.email
  
