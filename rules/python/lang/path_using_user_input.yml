@@ -1,54 +1,81 @@
 imports:
   - python_shared_common_user_input
+  - python_shared_lang_import1
+  - python_shared_lang_import2
 patterns:
   - pattern: open($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: python_shared_common_user_input
         scope: result
-  - pattern: fileinput.$<METHOD>($<...>files=$<USER_INPUT>$<...>)
+  - pattern: $<FILEINPUT>($<...>files=$<USER_INPUT>$<...>)
+    filters:
+      - variable: FILEINPUT
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [fileinput]
+          - variable: NAME
+            values:
+              - input
+              - FileInput
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<IO>($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: python_shared_common_user_input
         scope: result
-      - variable: METHOD
-        values:
-          - input
-          - FileInput
-  - pattern: io.$<METHOD>($<USER_INPUT>$<...>)
+      - variable: IO
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [io]
+          - variable: NAME
+            values:
+              - open
+              - open_code
+  - pattern: $<OS>($<USER_INPUT>)
     filters:
       - variable: USER_INPUT
         detection: python_shared_common_user_input
         scope: result
-      - variable: METHOD
-        values:
-          - open
-          - open_code
-  - pattern: os.$<METHOD>($<USER_INPUT>)
+      - variable: OS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [os]
+          - variable: NAME
+            values:
+              - listdir
+              - chdir
+              - mkdir
+              - makedirs
+              - open
+              - rmdir
+              - remove
+              - rename
+              - unlink
+  - pattern: $<OS_PATH>($<USER_INPUT>)
     filters:
       - variable: USER_INPUT
         detection: python_shared_common_user_input
         scope: result
-      - variable: METHOD
-        values:
-          - listdir
-          - chdir
-          - mkdir
-          - makedirs
-          - open
-          - rmdir
-          - remove
-          - rename
-          - unlink
-  - pattern: os.path.$<METHOD>($<USER_INPUT>)
-    filters:
-      - variable: USER_INPUT
-        detection: python_shared_common_user_input
-        scope: result
-      - variable: METHOD
-        values:
-          - join
-  - pattern: shutil.$<METHOD>($<SOURCE>, $<DEST>, $<...>)
+      - variable: OS_PATH
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [os]
+          - variable: MODULE2
+            values: [path]
+          - variable: NAME
+            values: [join]
+  - pattern: $<SHUTIL>($<SOURCE>, $<DEST>, $<...>)
     filters:
       - either:
           - variable: SOURCE
@@ -57,19 +84,33 @@ patterns:
           - variable: DEST
             detection: python_shared_common_user_input
             scope: result
-      - variable: METHOD
-        values:
-          - copy
-          - copy2
-          - copyfile
-          - copymode
-          - copystat
-          - copytree
-  - pattern: shutil.rmtree($<USER_INPUT>$<...>)
+      - variable: SHUTIL
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [shutil]
+          - variable: NAME
+            values:
+              - copy
+              - copy2
+              - copyfile
+              - copymode
+              - copystat
+              - copytree
+  - pattern: $<SHUTIL>($<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT
         detection: python_shared_common_user_input
         scope: result
+      - variable: SHUTIL
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [shutil]
+          - variable: NAME
+            values: [rmtree]
   - pattern: $<PATH>.$<METHOD>($<...>)
     filters:
       - variable: PATH
@@ -128,18 +169,22 @@ auxiliary:
             scope: result
   - id: python_lang_path_using_user_input_path_module
     patterns:
-      - pattern: from pathlib import $<!>$<PATH_MODULE>
-        filters:
-          - variable: PATH_MODULE
-            regex: \A(Pure)?(Windows|Posix)?Path\z
-      - pattern: from pathlib import $<PATH_MODULE> as $<!>$<_>
-        filters:
-          - variable: PATH_MODULE
-            regex: \A(Pure)?(Windows|Posix)?Path\z
       - pattern: $<PATH_MODULE>
         filters:
           - variable: PATH_MODULE
-            regex: \A(pathlib\.)?(Pure)?(Windows|Posix)?Path\z
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [pathlib]
+              - variable: NAME
+                values:
+                  - Path
+                  - PurePath
+                  - WindowsPath
+                  - PureWindowsPath
+                  - PosixPath
+                  - PurePosixPath
 languages:
   - python
 severity: high
@@ -158,7 +203,7 @@ metadata:
       ```python
         BASE_DIRECTORY = '/path/to/safe/directory'
         my_path = os.path.abspath(os.path.join(BASE_DIRECTORY, user_input))
-        
+
         if my_path.startswith(BASE_DIRECTORY):
           open(my_path)
       ```
