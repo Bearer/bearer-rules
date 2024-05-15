@@ -8,7 +8,8 @@ def bad2():
   username = input("what hack today?")
   # bearer:expected python_lang_code_injection
   setattr(current_user, "name", username)
-  
+
+import os
 def bad3(request):
   unsafe = request.GET.get("some_code")
   # bearer:expected python_lang_code_injection

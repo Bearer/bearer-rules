@@ -1,5 +1,6 @@
 imports:
   - python_shared_common_user_input
+  - python_shared_lang_import1
 patterns:
   - pattern: exec($<...>$<USER_INPUT>$<...>)
     filters:
@@ -16,29 +17,27 @@ patterns:
       - variable: USER_INPUT
         detection: python_shared_common_user_input
         scope: result
-  - pattern: $<OS>.$<METHOD>($<...>$<USER_INPUT>$<...>)
+  - pattern: $<OS>($<...>$<USER_INPUT>$<...>)
     filters:
       - variable: OS
-        detection: python_lang_code_injection_os
-        scope: result
-      - variable: METHOD
-        values:
-          - execl
-          - execle
-          - execlp
-          - execlpe
-          - execv
-          - execve
-          - execvp
-          - execvpe
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [os]
+          - variable: NAME
+            values:
+              - execl
+              - execle
+              - execlp
+              - execlpe
+              - execv
+              - execve
+              - execvp
+              - execvpe
       - variable: USER_INPUT
         detection: python_shared_common_user_input
         scope: result
-auxiliary:
-  - id: python_lang_code_injection_os
-    patterns:
-      - os
-      - __import__("os")
 languages:
   - python
 severity: critical
