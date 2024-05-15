@@ -4,15 +4,17 @@ my_os = __import__("os")
 # bearer:expected python_lang_os_command_injection
 getattr(my_os, "system")(input())
 
+import os
+import subprocess as subproc
 def bad():
   unsafe = input("what hack today?")
   # bearer:expected python_lang_os_command_injection
-  subprocess.run([unsafe, "exit 0"], shell=True, capture_output=True)
+  subproc.run([unsafe, "exit 0"], shell=True, capture_output=True)
   # bearer:expected python_lang_os_command_injection
   os.system(unsafe)
   
   # bearer:expected python_lang_os_command_injection
-  subprocess.check_output(
+  subproc.check_output(
     unsafe,
     stderr=subprocess.STDOUT,
     shell=True)
@@ -26,4 +28,4 @@ def bad2():
  
 def ok():
   os.spawnve(os.P_WAIT, "/bin/ls", ["-a"], os.environ)
-  subprocess.run(["dir"], shell=False)
+  subproc.run(["dir"], shell=False)

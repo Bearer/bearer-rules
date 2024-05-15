@@ -1,97 +1,122 @@
 imports:
   - python_shared_common_external_input
+  - python_shared_lang_import1
 patterns:
-  - pattern: $<OS>.$<METHOD>($<...>$<EXTERNAL_INPUT>$<...>)
+  - pattern: $<OS>($<...>$<EXTERNAL_INPUT>$<...>)
     filters:
       - variable: OS
-        detection: python_lang_os_command_injection_external_os_init
-      - variable: METHOD
-        values:
-          - system
-          - popen
-          - popen2
-          - popen3
-          - popen4
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [os]
+          - variable: NAME
+            values:
+              - system
+              - popen
+              - popen2
+              - popen3
+              - popen4
       - variable: EXTERNAL_INPUT
         detection: python_shared_common_external_input
         scope: result
   - pattern: getattr($<OS>, "system")($<...>$<EXTERNAL_INPUT>$<...>)
     filters:
       - variable: OS
-        detection: python_lang_os_command_injection_external_os_init
+        detection: python_lang_os_command_injection_external_os_module
       - variable: EXTERNAL_INPUT
         detection: python_shared_common_external_input
         scope: result
-  - pattern: subprocess.$<METHOD>($<EXTERNAL_INPUT>$<...>)
+  - pattern: $<SUBPROCESS>($<EXTERNAL_INPUT>$<...>)
     filters:
-      - variable: METHOD
-        values:
-          - call
-          - check_call
-          - check_output
-          - run
-          - Popen
+      - variable: SUBPROCESS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [subprocess]
+          - variable: NAME
+            values:
+              - call
+              - check_call
+              - check_output
+              - run
+              - Popen
       - variable: EXTERNAL_INPUT
         detection: python_shared_common_external_input
         scope: result
-  - pattern: $<OS>.$<METHOD>($<_>, $<...>$<EXTERNAL_INPUT>$<...>, $<...>)
-    filters:
-      - variable: OS
-        detection: python_lang_os_command_injection_external_os_init
-      - variable: METHOD
-        values:
-          - spawnl
-          - spawnle
-          - spawnlp
-          - spawnlpe
-          - spawnv
-          - spawnve
-          - spawnvp
-          - spawnvpe
-          - posix_spawn
-          - posix_spawnp
-          - startfile
-      - variable: EXTERNAL_INPUT
-        detection: python_shared_common_external_input
-        scope: result
-  - pattern: $<OS>.$<METHOD>($<_>, $<BASH>, ["-c", $<...>$<EXTERNAL_INPUT>$<...>], $<...>)
+  - pattern: $<OS>($<_>, $<...>$<EXTERNAL_INPUT>$<...>, $<...>)
     filters:
       - variable: OS
-        detection: python_lang_os_command_injection_external_os_init
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [os]
+          - variable: NAME
+            values:
+              - spawnl
+              - spawnle
+              - spawnlp
+              - spawnlpe
+              - spawnv
+              - spawnve
+              - spawnvp
+              - spawnvpe
+              - posix_spawn
+              - posix_spawnp
+              - startfile
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
+        scope: result
+  - pattern: $<OS>($<_>, $<BASH>, ["-c", $<...>$<EXTERNAL_INPUT>$<...>], $<...>)
+    filters:
+      - variable: OS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [os]
+          - variable: NAME
+            values:
+              - spawnv
+              - spawnve
+              - spawnvp
+              - spawnvp
+              - spawnvpe
+              - posix_spawn
+              - posix_spawnp
       - variable: BASH
         regex: (.*)(sh|bash|ksh|csh|tcsh|zsh)
-      - variable: METHOD
-        values:
-          - spawnv
-          - spawnve
-          - spawnvp
-          - spawnvp
-          - spawnvpe
-          - posix_spawn
-          - posix_spawnp
       - variable: EXTERNAL_INPUT
         detection: python_shared_common_external_input
         scope: result
   - pattern: $<OS>.$<METHOD>($<_>, $<BASH>, "-c", $<...>$<EXTERNAL_INPUT>$<...>, $<...>)
     filters:
       - variable: OS
-        detection: python_lang_os_command_injection_external_os_init
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [os]
+          - variable: NAME
+            values:
+              - spawnl
+              - spawnle
+              - spawnlp
+              - spawnlpe
       - variable: BASH
         regex: (.*)(sh|bash|ksh|csh|tcsh|zsh)
-      - variable: METHOD
-        values:
-          - spawnl
-          - spawnle
-          - spawnlp
-          - spawnlpe
       - variable: EXTERNAL_INPUT
         detection: python_shared_common_external_input
         scope: result
 auxiliary:
-  - id: python_lang_os_command_injection_external_os_init
+  - id: python_lang_os_command_injection_external_os_module
     patterns:
       - os
       - __import__("os")
+      - import $<!>os
+      - import os as $<!>$<_>
 languages:
   - python
 severity: critical
