@@ -3,7 +3,7 @@ myLogger = logging.getLogger(__name__)
 
 def bad(user):
   # bearer:expected python_lang_logger
-  logging.info(f"User '{user.email}' logged")
+  myLogger.info(f"User '{user.email}' logged")
 
 def bad2(user):
   # bearer:expected python_lang_logger

@@ -1,5 +1,6 @@
 imports:
   - python_shared_lang_datatype
+  - python_shared_lang_import1
 patterns:
   - pattern: $<LOGGER>.$<METHOD>($<DATA_TYPE>)
     filters:
@@ -20,20 +21,16 @@ patterns:
 auxiliary:
   - id: python_lang_logger_init
     patterns:
-      - pattern: $<LOGGING>.getLogger($<...>)
+      - pattern: $<GET_LOGGER>($<...>)
         filters:
-          - variable: LOGGING
-            detection: python_lang_logger_logging_instance
-      # fallback
-      - logging
-      - logger
-      - log
-      - self.logger
-  - id: python_lang_logger_logging_instance
-    patterns:
-      - import $<!>logging
-      - import logging as $<!>$<_>
-      - logging
+          - variable: GET_LOGGER
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [logging]
+              - variable: NAME
+                values: [getLogger]
 languages:
   - python
 skip_data_types:
