@@ -23,4 +23,11 @@ class FooRepository extends ServiceEntityRepository
         $data = $query->getResult();
         return $data;
     }
+    
+    public function okay(): array
+    {
+      $queryBuilder->where(
+        $queryBuilder->expr()->like('name', $queryBuilder->createNamedParameter($_GET['username'])
+      );
+    }
 }
