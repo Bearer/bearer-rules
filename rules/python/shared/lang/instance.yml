@@ -1,0 +1,13 @@
+type: shared
+languages:
+  - python
+patterns:
+  - $<CLASS>($<...>)
+  - |
+    class $<_>($<CLASS>):
+      def $<_>($<!>self$<...>):
+  - |
+    def $<_>($<...>$<!>$<_>: $<CLASS>$<...>):
+metadata:
+  description: "Python CLASS instance"
+  id: python_shared_lang_instance
