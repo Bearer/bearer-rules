@@ -1,4 +1,5 @@
 import logging
+
 myLogger = logging.getLogger(__name__)
 
 def bad(user):
