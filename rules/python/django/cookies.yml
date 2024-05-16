@@ -3,7 +3,7 @@ imports:
   - python_shared_django_http_response
 patterns:
   - pattern: |
-      $<RESPONSE>.set_cookie($<KEY>, $<VALUE>, $<...>)
+      $<RESPONSE>.set_cookie($<KEY>, $<VALUE>$<...>)
     filters:
       - variable: RESPONSE
         detection: python_shared_django_http_response
