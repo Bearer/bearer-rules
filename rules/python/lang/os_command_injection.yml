@@ -1,0 +1,141 @@
+imports:
+  - python_shared_common_external_input
+  - python_shared_lang_import1
+patterns:
+  - pattern: $<OS>($<...>$<EXTERNAL_INPUT>$<...>)
+    filters:
+      - variable: OS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [os]
+          - variable: NAME
+            values:
+              - system
+              - popen
+              - popen2
+              - popen3
+              - popen4
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
+        scope: result
+  - pattern: getattr($<OS>, "system")($<...>$<EXTERNAL_INPUT>$<...>)
+    filters:
+      - variable: OS
+        detection: python_lang_os_command_injection_external_os_module
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
+        scope: result
+  - pattern: $<SUBPROCESS>($<EXTERNAL_INPUT>$<...>)
+    filters:
+      - variable: SUBPROCESS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [subprocess]
+          - variable: NAME
+            values:
+              - call
+              - check_call
+              - check_output
+              - run
+              - Popen
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
+        scope: result
+  - pattern: $<OS>($<_>, $<...>$<EXTERNAL_INPUT>$<...>, $<...>)
+    filters:
+      - variable: OS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [os]
+          - variable: NAME
+            values:
+              - spawnl
+              - spawnle
+              - spawnlp
+              - spawnlpe
+              - spawnv
+              - spawnve
+              - spawnvp
+              - spawnvpe
+              - posix_spawn
+              - posix_spawnp
+              - startfile
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
+        scope: result
+  - pattern: $<OS>($<_>, $<BASH>, ["-c", $<...>$<EXTERNAL_INPUT>$<...>], $<...>)
+    filters:
+      - variable: OS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [os]
+          - variable: NAME
+            values:
+              - spawnv
+              - spawnve
+              - spawnvp
+              - spawnvp
+              - spawnvpe
+              - posix_spawn
+              - posix_spawnp
+      - variable: BASH
+        regex: (.*)(sh|bash|ksh|csh|tcsh|zsh)
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
+        scope: result
+  - pattern: $<OS>.$<METHOD>($<_>, $<BASH>, "-c", $<...>$<EXTERNAL_INPUT>$<...>, $<...>)
+    filters:
+      - variable: OS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [os]
+          - variable: NAME
+            values:
+              - spawnl
+              - spawnle
+              - spawnlp
+              - spawnlpe
+      - variable: BASH
+        regex: (.*)(sh|bash|ksh|csh|tcsh|zsh)
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
+        scope: result
+auxiliary:
+  - id: python_lang_os_command_injection_external_os_module
+    patterns:
+      - os
+      - __import__("os")
+      - import $<!>os
+      - import os as $<!>$<_>
+languages:
+  - python
+severity: critical
+metadata:
+  description: Unsanitized user input in OS command
+  remediation_message: |-
+    ## Description
+
+    Directly incorporating external or user-defined input into an OS command exposes the system to possible command injection attacks. This vulnerability allows attackers to execute unauthorized commands on the operating system, potentially leading to a compromise of system integrity.
+
+    ## Remediations
+
+    - **Do not** use OS commands that include dynamic input directly. Instead, explore safer alternatives such as libraries or built-in functions that achieve the same goal without executing system commands. 
+    - **Do** use hardcoded values for any input that is incorporated into OS commands. This approach minimizes the risk by ensuring only predefined inputs are used, thus preventing attackers from injecting malicious commands. Use safe lists or dictionaries if you need to be dynamic. 
+
+    ## References
+
+    - [OWASP command injection explained](https://owasp.org/www-community/attacks/Command_Injection)
+  cwe_id:
+    - 78
+  id: python_lang_os_command_injection
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_os_command_injection
