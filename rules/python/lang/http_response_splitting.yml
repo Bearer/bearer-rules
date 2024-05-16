@@ -1,0 +1,65 @@
+imports:
+  - python_shared_common_user_input
+  - python_shared_lang_instance
+  - python_shared_lang_import2
+patterns:
+  - pattern: $<HANDLER>.send_header($<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: HANDLER
+        detection: python_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [http]
+              - variable: MODULE2
+                values: [server]
+              - variable: NAME
+                values: [BaseHTTPRequestHandler]
+      - variable: USER_INPUT
+        detection: python_lang_http_response_splitting_user_input
+        scope: result
+auxiliary:
+  - id: python_lang_http_response_splitting_user_input
+    sanitizer: python_lang_http_response_splitting_sanitizer
+    patterns:
+      - pattern: $<UNSANITIZED_USER_INPUT>
+        filters:
+          - variable: UNSANITIZED_USER_INPUT
+            detection: python_shared_common_user_input
+            scope: cursor
+  - id: python_lang_http_response_splitting_sanitizer
+    patterns:
+      - pattern: $<_>.replace($<SOURCE>, $<REPLACEMENT>)
+        filters:
+          - variable: SOURCE
+            string_regex: "\\r\\n|\\\\r\\\\n"
+          - not:
+              variable: REPLACEMENT
+              string_regex: "\\r\\n|\\\\r\\\\n"
+languages:
+  - python
+severity: high
+metadata:
+  description: "Unsanitized user input in HTTP response (XSS)"
+  remediation_message: |-
+    ## Description
+
+    Including unsanitized user input in a HTTP response could allow an attacker inject Carriage Return Line Feed (CRLF) characters into the response. An entirely attacker-controlled response can then be returned, creating a cross-site scripting (XSS) vulnerability.
+
+    ## Remediations
+
+    - **Do not** include user input in cookies or other HTTP headers without proper sanitization. This can prevent attackers from exploiting the input to manipulate the response.
+    - **Do** remove CRLF sequences from user input to mitigate the risk of response splitting and XSS attacks. Use the following code snippet as a reference for sanitizing input in Java:
+      ```python
+      input = request.getParameter("data");
+      var sanitized = input.replaceAll("\r\n", "");
+      cookie.setValue(sanitized);
+      ```
+  cwe_id:
+    - 79
+  id: python_lang_http_response_splitting
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_http_response_splitting
