@@ -7,11 +7,6 @@ patterns:
       - variable: USER_INPUT
         detection: python_shared_common_user_input
         scope: result
-  - pattern: getattr($<_>, $<...>$<USER_INPUT>$<...>)
-    filters:
-      - variable: USER_INPUT
-        detection: python_shared_common_user_input
-        scope: result
   - pattern: setattr($<_>, $<_>, $<...>$<USER_INPUT>$<...>)
     filters:
       - variable: USER_INPUT

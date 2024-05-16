@@ -1,0 +1,51 @@
+imports:
+  - python_shared_common_user_input
+  - python_shared_lang_import1
+patterns:
+  - pattern: getattr($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: globals()[$<USER_INPUT>]$<...>
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: __import__($<USER_INPUT>)
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<IMPORT>($<USER_INPUT>)
+    filters:
+      - variable: IMPORT
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [importlib]
+          - variable: NAME
+            values: [import_module]
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+languages:
+  - python
+severity: high
+metadata:
+  description: Usage of external input in code reflection
+  remediation_message: |
+    ## Description
+
+    Using external input for dynamic class loading or code execution through reflection poses a significant security risk. This practice can be exploited by attackers to load harmful classes or execute malicious methods, potentially resulting in remote code execution and other severe security threats.
+
+    ## Remediations
+
+    - **Do not** - wherever possible - use external input with code reflection. Avoiding this practice altogether significantly lowers the risk of executing unauthorized or malicious code.
+    - **Do** limit the allowed class names and method names to a predefined safelist. This approach restricts the scope of classes and methods that can be dynamically accessed, reducing the risk of unauthorized actions.
+    - **Do** sanitize external input by removing special and unexpected characters that could facilitate code injection attacks. Characters such as single or double quotation marks and backslashes are particularly risky and should be filtered out.
+  cwe_id:
+    - 470
+  id: python_lang_reflection_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_reflection_using_user_input
