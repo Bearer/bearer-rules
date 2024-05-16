@@ -1,0 +1,16 @@
+type: shared
+languages:
+  - python
+imports:
+  - python_shared_common_user_input
+  - python_shared_django_html_sanitizer
+patterns:
+  - pattern: $<USER_INPUT>
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: cursor
+sanitizer: python_shared_django_html_sanitizer
+metadata:
+  description: "Python HTML user input."
+  id: python_shared_common_html_user_input

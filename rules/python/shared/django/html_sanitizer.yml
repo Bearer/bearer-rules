@@ -1,0 +1,25 @@
+type: shared
+languages:
+  - python
+imports:
+  - python_shared_lang_import3
+patterns:
+  - pattern: $<FUNCTION>($<_>)
+    filters:
+      - variable: FUNCTION
+        detection: python_shared_lang_import3
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [django]
+          - variable: MODULE2
+            values: [utils]
+          - variable: MODULE3
+            values: [http]
+          - variable: NAME
+            values:
+              - escape
+              - strip_tags
+metadata:
+  description: "Django HTML sanitizer."
+  id: python_shared_django_html_sanitizer

@@ -1,0 +1,73 @@
+imports:
+  - python_shared_common_html_user_input
+  - python_shared_django_http_response
+  - python_shared_lang_import2
+patterns:
+  - pattern: $<CLASS>($<USER_INPUT>$<...>)
+    filters:
+      - variable: CLASS
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [django]
+          - variable: MODULE2
+            values: [http]
+          - variable: NAME
+            values: [HttpResponse]
+      - variable: USER_INPUT
+        detection: python_shared_common_html_user_input
+        scope: result
+  - pattern: $<RESPONSE>.content = $<USER_INPUT>
+    filters:
+      - variable: RESPONSE
+        detection: python_shared_django_http_response
+        scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_html_user_input
+        scope: result
+  - pattern: $<RESPONSE>.$<METHOD>($<USER_INPUT>)
+    filters:
+      - variable: RESPONSE
+        detection: python_shared_django_http_response
+        scope: cursor
+      - variable: METHOD
+        values:
+          - write
+          - writelines
+      - variable: USER_INPUT
+        detection: python_shared_common_html_user_input
+        scope: result
+languages:
+  - python
+metadata:
+  description: "Unsanitized user input in output stream (XSS)"
+  remediation_message: |-
+    ## Description
+    
+    Cross-site scripting (XSS) vulnerabilities occur when unsanitized user input is included in web page content. This flaw can lead to malicious scripts being executed in the context of the user's browser, compromising the security of user data and interactions with the application.
+
+    ## Remediations
+
+    - **Do** use templating engines that automatically encode data based on its context.
+    - **Do** use an encoder to handle user input before incorporating it into the output stream. This step helps minimize the risk of XSS attacks by converting potentially dangerous characters into a safe format.
+      ```python
+      user_input = request.GET["user"]
+      encoded_user_input = django.utils.html.escape(user_input)
+      response = HttpResponse(encoded_user_input)
+      ```
+    - **Do** sanitize user input to remove or neutralize unwanted scripts. Sanitization goes beyond encoding by actively removing harmful content from user input before it is used in the output.
+      ```python
+      user_input = request.GET["user"]
+      sanitized_user_input = django.utils.html.strip_tags(user_input)
+      response = HttpResponse(sanitized_user_input)
+      ```
+
+    ## References
+
+    - [OWASP XSS Prevention Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+  cwe_id:
+    - 79
+  id: "python_django_response_using_user_input"
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_response_using_user_input
+severity: high
