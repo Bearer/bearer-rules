@@ -19,7 +19,8 @@ patterns:
   - pattern: $<FORM>.$<METHOD>[$<_>]
     filters:
       - variable: FORM
-        regex: \A(un)?(bound_)?form\z
+        detection: python_shared_django_user_input_form
+        scope: result
       - variable: METHOD
         values:
           - data
@@ -28,9 +29,19 @@ patterns:
   - pattern: $<FORM>[$<_>].value()
     filters:
       - variable: FORM
-        regex: \A(un)?(bound_)?form\z
+        detection: python_shared_django_user_input_form
+        scope: result
 auxiliary:
+  - id: python_shared_django_user_input_form
+    patterns:
+      - pattern: $<FORM>
+        # from <some_form_module> import <SomeFormName>
+        # form = FormName(request.POST)
+        filters:
+          - variable: FORM
+            regex: \A(un)?(bound_)?form\z
   - id: python_shared_django_user_input_request
+    # passed to a view method e.g. def my_view(request)
     patterns:
       - request
       - req
