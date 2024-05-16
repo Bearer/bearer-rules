@@ -1,0 +1,60 @@
+imports:
+  - python_shared_lang_datatype
+  - python_shared_lang_import2
+patterns:
+  - pattern: $<COOKIE_INIT>[$<_>] = $<DATA_TYPE>
+    filters:
+      - variable: COOKIE_INIT
+        detection: python_lang_cookies_init
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: python_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: python_lang_cookies_init
+    patterns:
+      - pattern: $<COOKIE>()
+        filters:
+          - variable: COOKIE
+            detection: python_lang_cookies_cookie_class
+            scope: result
+  - id: python_lang_cookies_cookie_class
+    patterns:
+      - pattern: $<COOKIE_CLASS>
+        filters:
+          - variable: COOKIE_CLASS
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [http]
+              - variable: MODULE2
+                values: [cookies]
+              - variable: NAME
+                values:
+                  - BaseCookie
+                  - SimpleCookie
+languages:
+  - python
+severity: high
+metadata:
+  description: Leakage of sensitive data in cookie
+  remediation_message: |-
+    ## Description
+
+    Storing sensitive data in cookies can lead to a data breach. This vulnerability occurs when sensitive information is stored in browser cookies, putting it at risk of unauthorized access.
+
+    ## Remediations
+
+    - **Do not** store sensitive data in unencrypted cookies. This practice can expose sensitive information to potential security threats.
+      ```python
+      HttpResponse.set_cookie("user", "john@doe.com", ...) # unsafe
+      ```
+    - **Do** use encrypted cookies to protect sensitive data stored in cookies.
+      ```python
+      HttpResponse.set_signed_cookie("user", "john@doe.com", ...)
+      ```
+  cwe_id:
+    - 315
+  id: python_lang_cookies
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_cookies
