@@ -6,35 +6,14 @@ const { ruleId, ruleFile, testBase } = getEnvironment(__dirname)
 
 describe(ruleId, () => {
   const invoke = createNewInvoker(ruleId, ruleFile, testBase)
+  test("main", () => {
+    const testCase = "main.py"
 
-  
-    test("bad", () => {
-      const testCase = "bad.py"
+    const results = invoke(testCase)
 
-      const results = invoke(testCase)
-
-      expect(results.Missing).toEqual([])
-      expect(results.Extra).toEqual([])
+    expect(results).toEqual({
+      Missing: [],
+      Extra: []
     })
-  
-
-    test("ok", () => {
-      const testCase = "ok.py"
-
-      const results = invoke(testCase)
-
-      expect(results.Missing).toEqual([])
-      expect(results.Extra).toEqual([])
-    })
-  
-
-    test("shared_datatype", () => {
-      const testCase = "shared_datatype.py"
-
-      const results = invoke(testCase)
-
-      expect(results.Missing).toEqual([])
-      expect(results.Extra).toEqual([])
-    })
-  
+  })
 })
