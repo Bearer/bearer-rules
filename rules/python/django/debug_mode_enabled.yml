@@ -1,0 +1,36 @@
+patterns:
+  - pattern: DEBUG = $<TRUE>
+    filters:
+      - variable: "TRUE"
+        detection: python_django_debug_mode_enabled_true
+        scope: cursor
+auxiliary:
+  - id: python_django_debug_mode_enabled_true
+    patterns:
+      - "True"
+languages:
+  - python
+severity: medium
+metadata:
+  description: Usage of Django debug mode
+  remediation_message: |
+    ## Description
+      
+    When debug mode is enabled, Django displays detailed error pages with stack traces and other sensitive information when an error occurs. While this can be useful during development, debug mode should never be enabled in production or other such environments because it can lead to the exposure of sensitive data to unauthorized users.  
+
+    ## Remediations
+
+    - **Do not** set DEBUG to True in production or other such environments
+    ```python
+    DEBUG = True # not safe for production
+    ```
+    - **Do** use environment variables to configure DEBUG mode appropriately for development and production.
+    ```python
+    import os
+
+    DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
+    ```
+  cwe_id:
+    - 200
+  id: python_django_debug_mode_enabled
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_debug_mode_enabled
