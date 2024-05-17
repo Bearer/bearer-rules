@@ -1,0 +1,90 @@
+imports:
+  - python_shared_common_user_input
+  - python_shared_lang_import1
+patterns:
+  - pattern: $<RE>($<USER_INPUT>$<...>)
+    filters:
+      - variable: RE
+        detection: python_shared_lang_import1
+        filters:
+          - variable: MODULE1
+            values:
+              - re
+              - re2
+              - regex
+          - variable: NAME
+            values:
+              - compile
+              - findall
+              - finditer
+              - fullmatch
+              - match
+              - search
+              - split
+              - splititer
+              - sub
+              - subn
+      - variable: USER_INPUT
+        detection: python_lang_regex_using_user_input_unsanitized_input
+        scope: result
+  - pattern: $<SRE_PARSE>($<USER_INPUT>)
+    filters:
+      - variable: SRE_PARSE
+        detection: python_shared_lang_import1
+        filters:
+          - variable: MODULE1
+            values: [sre_parse]
+          - variable: NAME
+            values: [parse]
+      - variable: USER_INPUT
+        detection: python_lang_regex_using_user_input_unsanitized_input
+        scope: result
+auxiliary:
+  - id: python_lang_regex_using_user_input_unsanitized_input
+    sanitizer: python_lang_regex_using_user_input_sanitizer
+    patterns:
+      - pattern: $<USER_INPUT>
+        filters:
+          - variable: USER_INPUT
+            detection: python_shared_common_user_input
+            scope: cursor
+  - id: python_lang_regex_using_user_input_sanitizer
+    patterns:
+      - pattern: $<RE_ESCAPE>($<...>$<!>$<_>$<...>)
+        filters:
+          - variable: RE_ESCAPE
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values:
+                  - re
+                  - re2
+                  - regex
+              - variable: NAME
+                values: [escape]
+languages:
+  - python
+severity: medium
+metadata:
+  description: Unsanitized user input in regular expression
+  remediation_message: |-
+    ## Description
+
+    Creating regular expressions from user input can lead to a vulnerability known as Regular Expression Denial of Service (ReDoS). This issue arises because some regular expressions can be processed with exponential time complexity. When attackers exploit this, it can significantly drain CPU resources, effectively causing a denial of service.
+
+    ## Remediations
+
+    - **Do not** construct regular expressions directly from user inputs. This can make your application susceptible to ReDoS attacks.
+    - **Do** consider using the `regex` module for regular expressions in Python. Unlike the `re` module, `regex` allows you to set a timeout for regular expressions to prevent excessive CPU usage. This can help mitigate the impact of potential ReDoS attacks.
+      ```python
+      regex.match(pattern, string, timeout=0.1)
+      ```
+
+    ## References
+
+    - [OWASP ReDoS attacks explained](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)
+  cwe_id:
+    - 1287
+  id: python_lang_regex_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_regex_using_user_input
