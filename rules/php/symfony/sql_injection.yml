@@ -48,9 +48,9 @@ auxiliary:
             scope: cursor
   - id: php_symfony_sql_injection_input_sanitizer
     patterns:
-      - pattern: $<_>->createNamedParameter($<!>$<_>)
       - pattern: $<_>->quote($<!>$<_>)
-      - pattern: $<_>->setParameter($<!>$<_>)
+      - pattern: $<_>->createNamedParameter($<!>$<_>$<...>)
+      - pattern: $<_>->setParameter($<!>$<_>$<...>)
 languages:
   - php
 severity: critical
