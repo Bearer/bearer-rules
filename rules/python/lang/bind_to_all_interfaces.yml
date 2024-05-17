@@ -1,0 +1,45 @@
+imports:
+  - python_shared_lang_import1
+patterns:
+  - pattern: $<SOCKET>.bind($<PERMISSIVE_ADDR>$<...>)
+    filters:
+      - variable: SOCKET
+        detection: python_lang_bind_to_all_interfaces_socket
+      - variable: PERMISSIVE_ADDR
+        # "0.0.0.0", "::", or ""
+        string_regex: \A(0\.0\.0\.0|\:\:|^$)\z
+auxiliary:
+  - id: python_lang_bind_to_all_interfaces_socket
+    patterns:
+      - pattern: $<SOCKET>()
+        filters:
+          - variable: SOCKET
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [socket]
+              - variable: NAME
+                values: [socket]
+languages:
+  - python
+severity: medium
+metadata:
+  description: Permissive server network interface configuration
+  remediation_message: |-
+    ## Description
+
+    Binding a service to "0.0.0.0" (or an empty string) makes it accessible on all network interfaces. This configuration can lead to unintended exposure over insecure or unintended network interfaces, creating potential security risks.
+
+    ## Remediations
+
+    - **Do not** bind services to "0.0.0.0" without considering the security implications. This default setting can expose your service on all network interfaces, including those that are not secure.
+    - **Do** bind your service to a specific IP address or network interface to limit access and enhance security. This can be achieved through various methods:
+        - Specify the IP address using an environment variable for flexible and secure configuration.
+        - Define the IP address in a configuration file that the application reads at startup.
+        - Dynamically identify the appropriate network interface and bind the service to its IP address.
+    - **Do** implement security best practices when configuring network services. Use firewalls to control access and encrypt communication with TLS to protect data in transit.
+  cwe_id:
+    - 200
+  id: python_lang_bind_to_all_interfaces
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_bind_to_all_interfaces
