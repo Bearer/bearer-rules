@@ -3,6 +3,7 @@ from html_sanitizer import Sanitizer
 user_input = input()
 
 def bad():
+    1+1
     # bearer:expected python_lang_manual_html_sanitization
     sanitized_value = user_input.replace('<', '&lt;')
     # bearer:expected python_lang_manual_html_sanitization

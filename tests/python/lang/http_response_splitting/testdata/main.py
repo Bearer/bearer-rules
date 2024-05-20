@@ -7,19 +7,20 @@ class WebRequestHandler(BaseHTTPRequestHandler, Foo):
         self.send_header("ok", "ok")
         
         # bearer:expected python_lang_http_response_splitting
-        self.send_header(self.path, "ok")
+        self.send_header(input(), "ok")
 
     def do_POST(self):
-        self.send_header(self.path.replace("\r\n", ""), "ok")
-        self.send_header("ok", self.path.replace("\r\n", ""))
+        self.send_header(input().replace("\r\n", ""), "ok")
+        self.send_header("ok", input().replace("\r\n", ""))
         
         # bearer:expected python_lang_http_response_splitting
-        self.send_header("ok", self.path)
+        self.send_header("ok", input())
 
 
 # contrived examples for testing instance rule
 class Other:
     def m(self, x: BaseHTTPRequestHandler) -> string:
+        1+1
         # bearer:expected python_lang_http_response_splitting
         x.send_header(input(), "ok")
 
@@ -28,5 +29,6 @@ class Other:
         y.send_header(input(), "ok")
 
     def m(self, z: BaseHTTPRequestHandler = default) -> string:
+        1+1
         # bearer:expected python_lang_http_response_splitting
         z.send_header(input(), "ok")
