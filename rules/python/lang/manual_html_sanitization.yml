@@ -1,0 +1,43 @@
+patterns:
+  - pattern: |
+      $<_>.$<METHOD>($<_>, $<REPLACEMENT>)
+    filters:
+      - variable: METHOD
+        values:
+          - replace
+      - variable: REPLACEMENT
+        string_regex: "&(lt|gt|apos|quot|amp);"
+languages:
+  - python
+severity: high
+metadata:
+  description: "Usage of manual HTML sanitization (XSS)"
+  remediation_message: |-
+    ## Description
+
+    Manually sanitizing HTML is prone to mistakes and can lead to Cross-Site Scripting (XSS) vulnerabilities. This occurs when user input is not properly sanitized, allowing attackers to inject malicious scripts into web pages viewed by other users.
+
+    ## Remediations
+
+    - **Do not** manually escape HTML to sanitize user input. This method is unreliable and can easily miss certain exploits.
+      ```python
+      sanitized_value = user_input.replace('<', '&lt;').replace('>', '&gt;'); # unsafe
+      html = f"<strong>{sanitized_value}</strong>"
+      ```
+    - **Do** use a trusted HTML sanitization library to handle user input safely. Libraries designed for sanitization are more reliable as they cover a wide range of XSS attack vectors.
+      ```python
+      from html_sanitizer import Sanitizer
+
+      sanitizer = Sanitizer()
+      sanitized_value = sanitizer.sanitize(user_input)
+
+      html = f"<strong>{sanitized_value}</strong>"
+      ```
+
+    ## References
+
+    - [OWASP XSS explained](https://owasp.org/www-community/attacks/xss/)
+  cwe_id:
+    - 79
+  id: python_lang_manual_html_sanitization
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_manual_html_sanitization
