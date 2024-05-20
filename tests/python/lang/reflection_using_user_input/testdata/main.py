@@ -4,6 +4,10 @@ def bad(num1, num2):
 
   # bearer:expected python_lang_reflection_using_user_input
   result = globals()[operation](num1, num2)
+  
+  my_globals = globals()
+  # bearer:expected python_lang_reflection_using_user_input
+  my_globals[operation](num1, num2)
 
 def bad2():
   user_action = input("what hack today? get_username or get_password")

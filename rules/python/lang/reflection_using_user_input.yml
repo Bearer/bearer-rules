@@ -7,8 +7,11 @@ patterns:
       - variable: USER_INPUT
         detection: python_shared_common_user_input
         scope: result
-  - pattern: globals()[$<USER_INPUT>]$<...>
+  - pattern: $<GLOBALS>[$<USER_INPUT>]$<...>
     filters:
+      - variable: GLOBALS
+        detection: python_lang_reflection_using_user_input_globals
+        scope: result
       - variable: USER_INPUT
         detection: python_shared_common_user_input
         scope: result
@@ -30,6 +33,10 @@ patterns:
       - variable: USER_INPUT
         detection: python_shared_common_user_input
         scope: result
+auxiliary:
+  - id: python_lang_reflection_using_user_input_globals
+    patterns:
+      - globals()
 languages:
   - python
 severity: high
