@@ -1,0 +1,43 @@
+imports:
+  - python_shared_common_html_user_input
+patterns:
+  - pattern: $<STRING>
+    filters:
+      - variable: STRING
+        string_regex: <\w+(\s[^>]*)?>
+      - variable: STRING
+        detection: python_shared_common_html_user_input
+        scope: result
+languages:
+  - python
+severity: high
+metadata:
+  description: "Unsanitized user input in raw HTML strings (XSS)"
+  remediation_message: |-
+    ## Description
+
+    Including unsanitized user input in HTML exposes your application to cross-site scripting (XSS) attacks. This vulnerability allows attackers to inject malicious scripts into web pages viewed by other users.
+
+    ## Remediations
+
+    - **Do not** include user input directly in HTML strings. This practice can lead to XSS vulnerabilities.
+      ```python
+      html = f"<h1>{user_input}</h1>" # unsafe
+      ```
+    - **Do** use a framework or templating language that automatically handles the encoding and sanitization of user input when constructing HTML. This approach minimizes the risk of XSS attacks.
+    - **Do** sanitize user input if you must use HTML strings directly. Utilize libraries designed for input sanitization to ensure that user input does not contain malicious content.
+      ```python
+      from html_sanitizer import Sanitizer
+
+      sanitizer = Sanitizer()
+      sanitized_value = sanitizer.sanitize(user_input)
+      html = f"<h1>{sanitized_value}</h1>"
+      ```
+
+    ## References
+
+    - [OWASP Cross-Site Scripting (XSS) Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+  cwe_id:
+    - 79
+  id: python_lang_raw_html_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_raw_html_using_user_input
