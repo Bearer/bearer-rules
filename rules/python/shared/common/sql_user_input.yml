@@ -1,0 +1,80 @@
+type: shared
+languages:
+  - python
+imports:
+  - python_shared_common_external_input
+  - python_shared_lang_instance
+  - python_shared_lang_import1
+  - python_shared_lang_import2
+  - python_shared_lang_import3
+sanitizer: python_shared_common_sql_user_input_sanitizer
+patterns:
+  - pattern: $<INPUT>
+    filters:
+      - variable: INPUT
+        detection: python_shared_common_external_input
+        scope: cursor
+auxiliary:
+  - id: python_shared_common_sql_user_input_sanitizer
+    patterns:
+      - pattern: $<CONVERTER>.escape($<_>)
+        filters:
+          - variable: CONVERTER
+            detection: python_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: CLASS
+                detection: python_shared_lang_import3
+                scope: cursor
+                filters:
+                  - variable: MODULE1
+                    values: [mysql]
+                  - variable: MODULE2
+                    values: [connector]
+                  - variable: MODULE3
+                    values: [conversion]
+                  - variable: NAME
+                    values: [MySQLConverter]
+      - pattern: $<CONNECTION>.$<METHOD>($<...>)
+        filters:
+          - variable: CONNECTION
+            detection: python_shared_common_sql_user_input_pymysql_connection
+            scope: cursor
+          - variable: METHOD
+            values:
+              - escape
+              - escape_string
+      - pattern: $<ADAPTER>.getquoted()
+        filters:
+          - variable: ADAPTER
+            detection: python_shared_common_sql_user_input_psycopg_adapter
+            scope: cursor
+  - id: python_shared_common_sql_user_input_pymysql_connection
+    patterns:
+      - pattern: $<CONNECT>($<...>)
+        filters:
+          - variable: CONNECT
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [pymysql]
+              - variable: NAME
+                values: [connect]
+  - id: python_shared_common_sql_user_input_psycopg_adapter
+    patterns:
+      - pattern: $<ADAPT>($<...>)
+        filters:
+          - variable: ADAPT
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [psycopg2]
+              - variable: MODULE2
+                values: [extensions]
+              - variable: NAME
+                values: [adapt]
+metadata:
+  description: "Python SQL user input."
+  id: python_shared_common_sql_user_input
