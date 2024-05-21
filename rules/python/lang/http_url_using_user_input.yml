@@ -1,0 +1,632 @@
+languages:
+  - python
+imports:
+  - python_shared_common_user_input
+  - python_shared_lang_instance
+  - python_shared_lang_import1
+  - python_shared_lang_import2
+patterns:
+  - pattern: $<CONNECTION_CLASS>($<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: CONNECTION_CLASS
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [http]
+          - variable: MODULE2
+            values: [client]
+          - variable: NAME
+            values:
+              - HTTPConnection
+              - HTTPSConnection
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<CONNECTION>.$<METHOD>($<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: CONNECTION
+        detection: python_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [http]
+              - variable: MODULE2
+                values: [client]
+              - variable: NAME
+                values:
+                  - HTTPConnection
+                  - HTTPSConnection
+      - variable: METHOD
+        values:
+          - request
+          - set_tunnel
+          - putrequest
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<URLOPEN>($<USER_INPUT>$<...>)
+    filters:
+      - variable: URLOPEN
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [urllib]
+          - variable: MODULE2
+            values: [request]
+          - variable: NAME
+            values: [urlopen]
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<REQUEST_CLASS>($<USER_INPUT>$<...>)
+    filters:
+      - variable: REQUEST_CLASS
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [urllib]
+          - variable: MODULE2
+            values: [request]
+          - variable: NAME
+            values: [Request]
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<REQUEST>.$<ATTRIBUTE> = $<USER_INPUT>
+    filters:
+      - variable: REQUEST
+        detection: python_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [urllib]
+              - variable: MODULE2
+                values: [request]
+              - variable: NAME
+                values: [Request]
+      - variable: ATTRIBUTE
+        values:
+          - full_url
+          - type
+          - host
+          - selector
+          - method
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<FUNCTION>($<USER_INPUT>$<...>)
+    filters:
+      - variable: FUNCTION
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [requests]
+          - variable: NAME
+            values:
+              - get
+              - post
+              - put
+              - delete
+              - head
+              - options
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<REQUEST>($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: REQUEST
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [requests]
+          - variable: NAME
+            values: [request, Request]
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<SESSION>.$<METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: SESSION
+        detection: python_lang_http_url_using_user_input_requests_session
+        scope: cursor
+      - variable: METHOD
+        values:
+          - get
+          - post
+          - put
+          - delete
+          - head
+          - options
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<SESSION>.request($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: SESSION
+        detection: python_lang_http_url_using_user_input_requests_session
+        scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<FUNCTION>($<USER_INPUT>$<...>)
+    filters:
+      - variable: FUNCTION
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [httpx]
+          - variable: NAME
+            values:
+              - get
+              - options
+              - head
+              - post
+              - put
+              - delete
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<FUNCTION>($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: FUNCTION
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [httpx]
+          - variable: NAME
+            values:
+              - request
+              - stream
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<CLIENT_CLASS>($<...>base_url=$<USER_INPUT>$<...>)
+    filters:
+      - variable: CLIENT_CLASS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [httpx]
+          - variable: NAME
+            values: [Client]
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<CLIENT>.$<METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: CLIENT
+        detection: python_lang_http_url_using_user_input_httpx_client
+        scope: cursor
+      - variable: METHOD
+        values:
+          - get
+          - options
+          - head
+          - post
+          - put
+          - delete
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<CLIENT>.$<METHOD>($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: CLIENT
+        detection: python_lang_http_url_using_user_input_httpx_client
+        scope: cursor
+      - variable: METHOD
+        values:
+          - request
+          - stream
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<FUNCTION>($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: FUNCTION
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [aiohttp]
+          - variable: NAME
+            values: [request]
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<SESSION_CLASS>($<USER_INPUT>$<...>)
+    filters:
+      - variable: SESSION_CLASS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [aiohttp]
+          - variable: NAME
+            values: [ClientSession]
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<SESSION>.$<METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: SESSION
+        detection: python_lang_http_url_using_user_input_aiohttp_session
+        scope: cursor
+      - variable: METHOD
+        values:
+          - get
+          - put
+          - post
+          - delete
+          - head
+          - options
+          - patch
+          - ws_connect
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<SESSION>.request($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: SESSION
+        detection: python_lang_http_url_using_user_input_aiohttp_session
+        scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<HTTP>.request($<USER_INPUT>$<...>)
+    filters:
+      - variable: HTTP
+        detection: python_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [httplib2]
+              - variable: NAME
+                values: [Http]
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<REQUEST>($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: REQUEST
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [urllib3]
+          - variable: NAME
+            values: [request]
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<PROXY_CLASS>($<USER_INPUT>$<...>)
+    filters:
+      - variable: PROXY_CLASS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [urllib3]
+          - variable: NAME
+            values: [ProxyManager]
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<MANAGER>.$<METHOD>($<USER_INPUT>$<...>)
+    filters:
+      - variable: MANAGER
+        detection: python_lang_http_url_using_user_input_urllib3_manager
+        scope: cursor
+      - variable: METHOD
+        values:
+          - connection_from_host
+          - connection_from_url
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<MANAGER>.$<METHOD>($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: MANAGER
+        detection: python_lang_http_url_using_user_input_urllib3_manager
+        scope: cursor
+      - variable: METHOD
+        values:
+          - connection_from_host
+          - request
+          - request_encode_body
+          - request_encode_url
+          - urlopen
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<MANAGER>.proxy = $<USER_INPUT>
+    filters:
+      - variable: MANAGER
+        detection: python_lang_http_url_using_user_input_urllib3_manager
+        scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<POOL_CLASS>($<USER_INPUT>$<...>)
+    filters:
+      - variable: POOL_CLASS
+        detection: python_lang_http_url_using_user_input_urllib3_pool_class
+        scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<POOL_CLASS>($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: POOL_CLASS
+        detection: python_lang_http_url_using_user_input_urllib3_pool_class
+        scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<FUNCTION>($<USER_INPUT>$<...>)
+    filters:
+      - variable: FUNCTION
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [urllib3]
+          - variable: MODULE2
+            values: [connectionpool]
+          - variable: NAME
+            values: [connection_from_url]
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<POOL>.urlopen($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: POOL
+        detection: python_lang_http_url_using_user_input_urllib3_pool
+        scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<CONNECTION_CLASS>($<USER_INPUT>$<...>)
+    filters:
+      - variable: CONNECTION_CLASS
+        detection: python_lang_http_url_using_user_input_urllib3_connection_class
+        scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<CONNECTION_CLASS>($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: CONNECTION_CLASS
+        detection: python_lang_http_url_using_user_input_urllib3_connection_class
+        scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<CONNECTION_CLASS>($<...>proxy=$<USER_INPUT>$<...>)
+    filters:
+      - variable: CONNECTION_CLASS
+        detection: python_lang_http_url_using_user_input_urllib3_connection_class
+        scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<CONNECTION>.$<METHOD>($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: CONNECTION
+        detection: python_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            detection: python_lang_http_url_using_user_input_urllib3_connection_class
+            scope: cursor
+      - variable: METHOD
+        values:
+          - request
+          - request_chunked
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<CONNECTION>.set_tunnel($<USER_INPUT>$<...>)
+    filters:
+      - variable: CONNECTION
+        detection: python_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            detection: python_lang_http_url_using_user_input_urllib3_connection_class
+            scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<CONNECTION>.set_tunnel($<_>, $<USER_INPUT>$<...>)
+    filters:
+      - variable: CONNECTION
+        detection: python_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            detection: python_lang_http_url_using_user_input_urllib3_connection_class
+            scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+auxiliary:
+  - id: python_lang_http_url_using_user_input_requests_session
+    patterns:
+      - pattern: $<SESSION>
+        filters:
+          - variable: SESSION
+            detection: python_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                detection: python_shared_lang_import1
+                scope: cursor
+                filters:
+                  - variable: MODULE1
+                    values: [requests]
+                  - variable: NAME
+                    values: [Session]
+  - id: python_lang_http_url_using_user_input_httpx_client
+    patterns:
+      - pattern: $<CLIENT>
+        filters:
+          - variable: CLIENT
+            detection: python_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                detection: python_shared_lang_import1
+                scope: cursor
+                filters:
+                  - variable: MODULE1
+                    values: [httpx]
+                  - variable: NAME
+                    values: [Client]
+  - id: python_lang_http_url_using_user_input_aiohttp_session
+    patterns:
+      - pattern: $<SESSION>
+        filters:
+          - variable: SESSION
+            detection: python_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                detection: python_shared_lang_import1
+                scope: cursor
+                filters:
+                  - variable: MODULE1
+                    values: [aiohttp]
+                  - variable: NAME
+                    values: [ClientSession]
+  - id: python_lang_http_url_using_user_input_urllib3_manager
+    patterns:
+      - pattern: $<MANAGER>
+        filters:
+          - variable: MANAGER
+            detection: python_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                detection: python_shared_lang_import1
+                scope: cursor
+                filters:
+                  - variable: MODULE1
+                    values: [urllib3]
+                  - variable: NAME
+                    values:
+                      - PoolManager
+                      - ProxyManager
+  - id: python_lang_http_url_using_user_input_urllib3_pool
+    patterns:
+      - pattern: $<MANAGER>.$<METHOD>($<...>)
+        filters:
+          - variable: MANAGER
+            detection: python_lang_http_url_using_user_input_urllib3_manager
+            scope: cursor
+          - variable: METHOD
+            values:
+              - connection_from_context
+              - connection_from_host
+              - connection_from_pool_key
+              - connection_from_url
+      - pattern: $<POOL>
+        filters:
+          - variable: POOL
+            detection: python_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                detection: python_lang_http_url_using_user_input_urllib3_pool_class
+                scope: cursor
+      - pattern: $<FUNCTION>($<...>)
+        filters:
+          - variable: FUNCTION
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [urllib3]
+              - variable: MODULE2
+                values: [connectionpool]
+              - variable: NAME
+                values: [connection_from_url]
+  - id: python_lang_http_url_using_user_input_urllib3_pool_class
+    patterns:
+      - pattern: $<CLASS>
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [urllib3]
+              - variable: NAME
+                values:
+                  - HTTPConnectionPool
+                  - HTTPSConnectionPool
+  - id: python_lang_http_url_using_user_input_urllib3_connection_class
+    patterns:
+      - pattern: $<CLASS>
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [urllib3]
+              - variable: MODULE2
+                values: [connection]
+              - variable: NAME
+                values:
+                  - HTTPConnection
+                  - HTTPSConnection
+severity: high
+metadata:
+  description: "Unsanitized user input in HTTP request (SSRF)"
+  remediation_message: |-
+    ## Description
+
+    Your application is vulnerable to Server-Side Request Forgery (SSRF) attacks when it connects to URLs that include user-supplied data. This vulnerability occurs because attackers can manipulate these URLs to force your application to make unintended requests to internal or external resources.
+
+    ## Remediations
+
+    - **Do not** directly include user input in HTTP URLs. This practice can lead to SSRF vulnerabilities, where attackers exploit the application to send requests to unintended destinations.
+      ```python
+      host = request.GET["host"]
+      
+      urllib.request.urlopen(f"https://{host}") # unsafe
+      ```
+    - **Do** validate or map user input against a predefined list of safe values before using it to form URLs. This approach ensures that the application only connects to intended and safe locations.
+      ```python
+      host = "api1.com" if request.GET["host"] == "option1" else "api2.com"
+      
+      urllib.request.urlopen(f"https://{host}")
+      ```
+
+    ## References
+
+    - [OWASP - Server-Side Request Forgery (SSRF) prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)
+  cwe_id:
+    - 918
+  id: python_lang_http_url_using_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_http_url_using_user_input
