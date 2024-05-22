@@ -1,0 +1,47 @@
+imports:
+  - python_shared_lang_import1
+  - python_shared_lang_datatype
+patterns:
+  - pattern: |
+      $<FUNCTION>($<OPTIONAL_DATA_TYPE>$<...>)
+    filters:
+      - variable: FUNCTION
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [zlib]
+          - variable: NAME
+            values: [adler32]
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: python_shared_lang_datatype
+            scope: result
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: python_shared_lang_datatype
+              scope: result
+languages:
+  - python
+metadata:
+  description: "Usage of weak hashing library (Adler-32)"
+  remediation_message: |-
+    ## Description
+
+    Adler-32 is a weak hashing algorithm that offers minimal security. It is not suitable for protecting data against intentional modifications.
+
+    ## Remediations
+
+    - **Do not** use Adler-32 for hashing when security is a concern. Its simplicity and speed do not compensate for its lack of protection against data tampering.
+      ```python
+      myhash = zlib.adler32(data) # unsafe
+      ```
+    - **Do** opt for stronger hashing algorithms like SHA-256 to ensure data integrity and security.
+      ```python
+      myhash = hashlib.sha256(data).digest()
+      ```
+  cwe_id:
+    - 328
+  id: python_lang_weak_hash_adler32
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_weak_hash_adler32
+severity: medium
