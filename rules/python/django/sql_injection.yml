@@ -1,0 +1,49 @@
+imports:
+  - python_shared_common_sql_user_input
+patterns:
+  - pattern: $<_>.objects.raw($<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_sql_user_input
+        scope: result
+languages:
+  - python
+severity: critical
+metadata:
+  description: Unsanitized external input in SQL query
+  remediation_message: |-
+    ## Description
+
+    Using unsanitized data, such as user input or request data, or externally influenced data passed to a function, in SQL query exposes your application to SQL injection attacks. This vulnerability arises when externally controlled data is directly included in SQL statements without proper sanitation, allowing attackers to manipulate queries and access or modify data.
+
+    ## Remediations
+
+    - **Do not** include raw external input in SQL queries. This practice can lead to SQL injection vulnerabilities.
+      ```python
+      sorting_order = request.GET["untrusted"]
+      query = f"SELECT id, name FROM products ORDER BY name LIMIT 20 {sorting_order};"; # unsafe
+      ```
+    - **Do** validate all external input to ensure it meets the expected format before including it in SQL queries.
+      ```python
+      sorting_order = "DESC" if request.GET["sortingOrder"] == "DESC" else "ASC"
+      ```
+    - **Do** use parameters for database queries to separate SQL logic from external input, significantly reducing the risk of SQL injection.
+      ```python
+      Product.objects.raw("SELECT * FROM products WHERE id LIKE ?", [f"%{product_id}%"])
+      ```
+    - **Do** escape all external input using appropriate database-specific escaping functions before including it in SQL queries.
+      ```python
+      from mysql.connector.conversion import MySQLConverter
+
+      converter = MySQLConverter(connection)
+      ok = converter.escape(request.GET["value"])
+      ```
+
+    ## References
+
+    - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
+    - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+  cwe_id:
+    - 89
+  id: python_django_sql_injection
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_sql_injection
