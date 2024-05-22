@@ -1,0 +1,94 @@
+imports:
+  - python_shared_common_user_input
+  - python_shared_lang_import2
+  - python_shared_lang_import3
+patterns:
+  - pattern: $<CALLER>.xpath($<USER_INPUT>$<...>)
+    filters:
+      - variable: CALLER
+        detection: python_lang_xpath_injection_caller
+        scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<XML_ET>.findall($<USER_INPUT>$<...>)
+    filters:
+      - variable: XML_ET
+        detection: python_lang_xpath_injection_xml_et
+        scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+auxiliary:
+  - id: python_lang_xpath_injection_caller
+    patterns:
+      - pattern: $<ETREE>
+        filters:
+          - variable: ETREE
+            detection: python_lang_xpath_injection_etree_parse
+  - id: python_lang_xpath_injection_etree_parse
+    patterns:
+      - pattern: $<ETREE>($<...>)
+        filters:
+          - variable: ETREE
+            detection: python_shared_lang_import2
+            scope: cursor_strict
+            filters:
+              - variable: MODULE1
+                values: [lxml]
+              - variable: MODULE2
+                values: [etree]
+              - variable: NAME
+                values:
+                  - parse
+                  - XML
+  - id: python_lang_xpath_injection_xml_et
+    patterns:
+      - pattern: $<XML_ET>
+        filters:
+          - variable: XML_ET
+            detection: python_lang_xpath_injection_xml_et_parse
+  - id: python_lang_xpath_injection_xml_et_parse
+    patterns:
+      - pattern: $<XML_ELEMENT_TREE>($<...>)
+        filters:
+          - variable: XML_ELEMENT_TREE
+            detection: python_shared_lang_import3
+            scope: cursor_strict
+            filters:
+              - variable: MODULE1
+                values: [xml]
+              - variable: MODULE2
+                values: [etree]
+              - variable: MODULE3
+                values: [ElementTree]
+              - variable: NAME
+                values:
+                  - fromstring
+                  - fromstringlist
+                  - parse
+languages:
+  - python
+severity: medium
+metadata:
+  description: Unsanitized user input in XPath
+  remediation_message: |-
+    ## Description
+
+    Unsanitized user input in XPath expressions can result in XPath injection. This vulnerability occurs when user input is directly used in XPath queries without proper sanitation, potentially granting unauthorized access to sensitive data within XML documents.
+
+    ## Remediations
+
+    - **Do not** directly use user input in XPath expressions. This can lead to XPath injection vulnerabilities.
+    - **Do** sanitize user input before including it in XPath queries. Ensure that any data derived from user input is properly cleaned to prevent injection attacks.
+    - **Do** use parameterized queries wherever possible, to ensure that user input is treated as a literal value and not executable code.
+    - **Do** prefer `defusedxml.lxml` module as it is a more secure XML module that offers in-built protections against XML-related attacks including XPath injection.  
+
+    ## References
+
+    - [XPath Injection](https://owasp.org/www-community/attacks/XPATH_Injection)
+    - [defusedxml Package](https://docs.python.org/3/library/xml.html#the-defusedxml-package)
+  cwe_id:
+    - 643
+  id: python_lang_xpath_injection
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_xpath_injection
