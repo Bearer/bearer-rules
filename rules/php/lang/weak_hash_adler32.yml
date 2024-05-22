@@ -15,10 +15,10 @@ patterns:
           - hash_update_stream
           - hash_update
       - variable: CONTEXT
-        detection: php_lang_weak_hash_crc32_context
+        detection: php_lang_weak_hash_adler32_context
         scope: cursor
 auxiliary:
-  - id: php_lang_weak_hash_crc32_context
+  - id: php_lang_weak_hash_adler32_context
     patterns:
       - pattern: hash_init($<ALGORITHM>$<...>)
         filters:
