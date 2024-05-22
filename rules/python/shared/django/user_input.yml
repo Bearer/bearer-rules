@@ -1,21 +1,69 @@
 type: shared
 languages:
   - python
+imports:
+  - python_shared_lang_instance
+  - python_shared_lang_import2
 patterns:
+  - pattern: $<REQUEST>.$<ATTRIBUTE>
+    filters:
+      - variable: REQUEST
+        detection: python_shared_django_user_input_request
+        scope: cursor
+      - variable: ATTRIBUTE
+        values:
+          - body
+          - path
+          - path_info
+          - content_type
+          - content_params
+          - GET
+          - POST
+          - COOKIES
+          - FILES
+          - META
+          - headers
+  - pattern: $<REQUEST>.$<METHOD>($<...>)
+    filters:
+      - variable: REQUEST
+        detection: python_shared_django_user_input_request
+        scope: cursor
+      - variable: METHOD
+        values:
+          - get_full_path
+          - get_full_path_info
+          - build_absolute_uri
+          - read
+          - readline
+          - readlines
+          - __iter__
   - pattern: $<REQUEST>.$<METHOD>.get()
     filters:
       - variable: REQUEST
         detection: python_shared_django_user_input_request
         scope: cursor
       - variable: METHOD
-        regex: (?i)\A(post|files|get|data|query_params|content_type|stream)\z
+        values:
+          - content_params
+          - GET
+          - POST
+          - COOKIES
+          - FILES
+          - META
+          - headers
   - pattern: $<REQUEST>.$<METHOD>[$<_>]
     filters:
       - variable: REQUEST
         detection: python_shared_django_user_input_request
         scope: cursor
-      - variable: METHOD
-        regex: (?i)\A(post|files|get|data|query_params|content_type|stream)\z
+        values:
+          - content_params
+          - GET
+          - POST
+          - COOKIES
+          - FILES
+          - META
+          - headers
   - pattern: $<FORM>.$<METHOD>[$<_>]
     filters:
       - variable: FORM
@@ -43,6 +91,22 @@ auxiliary:
   - id: python_shared_django_user_input_request
     # passed to a view method e.g. def my_view(request)
     patterns:
+      - pattern: $<INSTANCE>
+        filters:
+          - variable: INSTANCE
+            detection: python_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                detection: python_shared_lang_import2
+                scope: cursor
+                filters:
+                  - variable: MODULE1
+                    values: [django]
+                  - variable: MODULE2
+                    values: [http]
+                  - variable: NAME
+                    values: [HttpRequest]
       - request
       - req
       - r
