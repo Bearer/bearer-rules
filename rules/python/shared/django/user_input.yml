@@ -56,6 +56,7 @@ patterns:
       - variable: REQUEST
         detection: python_shared_django_user_input_request
         scope: cursor
+      - variable: METHOD
         values:
           - content_params
           - GET
