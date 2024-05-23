@@ -1,0 +1,10 @@
+type: shared
+languages:
+  - python
+patterns:
+  - |
+    def $<_>($<!>event, context):
+    end
+metadata:
+  description: "AWS Lambda user input."
+  id: python_shared_aws_lambda_user_input
