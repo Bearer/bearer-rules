@@ -4,7 +4,7 @@ imports:
 patterns:
   - pattern: $<RESPONSE_CLASS>($<USER_INPUT>$<...>)
     filters:
-      - variable: FUNCTION
+      - variable: RESPONSE_CLASS
         detection: python_shared_lang_import2
         scope: cursor
         filters:
