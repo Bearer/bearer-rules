@@ -1,0 +1,149 @@
+imports:
+  - python_shared_common_user_input
+  - python_shared_lang_import1
+patterns:
+  # simple db
+  - pattern: $<CALLER>.select($<...>SelectExpression=$<USER_INPUT>$<...>)
+    filters:
+      - variable: CALLER
+        detection: python_third_parties_aws_query_injection_simpledb_caller
+        scope: result
+      - variable: USER_INPUT
+        detection: python_third_parties_aws_query_injection_user_input
+        scope: result
+  # dynamodb
+  - pattern: $<CALLER>.$<METHOD>($<...>FilterExpression=$<USER_INPUT>$<...>)
+    filters:
+      - variable: CALLER
+        detection: python_third_parties_aws_query_injection_dynamodb_caller
+        scope: result
+      - variable: METHOD
+        values:
+          - query
+          - scan
+      - variable: USER_INPUT
+        detection: python_third_parties_aws_query_injection_user_input
+        scope: result
+  - pattern: $<CALLER>.update_item($<...>UpdateExpression=$<USER_INPUT>$<...>)
+    filters:
+      - variable: CALLER
+        detection: python_third_parties_aws_query_injection_dynamodb_caller
+        scope: result
+      - variable: USER_INPUT
+        detection: python_third_parties_aws_query_injection_user_input
+        scope: result
+  # legacy dynamodb
+  - pattern: $<CALLER>.query($<...>QueryFilter=$<USER_INPUT>$<...>)
+    filters:
+      - variable: CALLER
+        detection: python_third_parties_aws_query_injection_dynamodb_caller
+        scope: result
+      - variable: USER_INPUT
+        detection: python_third_parties_aws_query_injection_user_input
+        scope: result
+  - pattern: $<CALLER>.scan($<...>ScanFilter=$<USER_INPUT>$<...>)
+    filters:
+      - variable: CALLER
+        detection: python_third_parties_aws_query_injection_dynamodb_caller
+        scope: result
+      - variable: USER_INPUT
+        detection: python_third_parties_aws_query_injection_user_input
+        scope: result
+auxiliary:
+  - id: python_third_parties_aws_query_injection_simpledb_caller
+    patterns:
+      - pattern: $<BOTO3_CLIENT>($<SIMPLEDB>$<...>)
+        filters:
+          - variable: SIMPLEDB
+            string_regex: \Asdb\z
+          - variable: BOTO3_CLIENT
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [boto3]
+              - variable: NAME
+                values: [client]
+  - id: python_third_parties_aws_query_injection_dynamodb_caller
+    patterns:
+      - pattern: $<DYNAMODB_INIT>.Table($<...>)
+        filters:
+          - variable: DYNAMODB_INIT
+            detection: python_third_parties_aws_query_injection_dynamodb_init
+            scope: result
+      - pattern: $<BOTO3_CLIENT>($<DYNAMODB>$<...>)
+        filters:
+          - variable: DYNAMODB
+            string_regex: \Adynamodb\z
+          - variable: BOTO3_CLIENT
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [boto3]
+              - variable: NAME
+                values: [client]
+  - id: python_third_parties_aws_query_injection_dynamodb_init
+    patterns:
+      - pattern: $<BOTO3_RESOURCE>($<DYNAMODB>$<...>)
+        filters:
+          - variable: DYNAMODB
+            string_regex: \Adynamodb\z
+          - variable: BOTO3_RESOURCE
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [boto3]
+              - variable: NAME
+                values: [resource]
+  - id: python_third_parties_aws_query_injection_user_input
+    sanitizer: python_third_parties_aws_query_injection_sanitizer
+    patterns:
+      - pattern: $<USER_INPUT>
+        filters:
+          - variable: USER_INPUT
+            detection: python_shared_common_user_input
+            scope: cursor
+  - id: python_third_parties_aws_query_injection_sanitizer
+    patterns:
+      - pattern: |
+          { $<_>: $<!>$<_> }
+languages:
+  - python
+severity: critical
+metadata:
+  description: Unsanitized user input in AWS query
+  remediation_message: |
+    ## Description
+
+    Including unsanitized data, such as user input or request data, in raw queries makes your application vulnerable to injection attacks.
+
+    ## Remediations
+
+    - **Do** always sanitize user input especially if it is to be used in database queries. Where possible, such sanitization should include the removal of special characters (like ' or ") that could be used to alter the semantics of a database query.
+    - **Do** validate user input wherever possible, to ensure it is the expected format and length
+    - **Do** use parameterized queries rather than concatenating user input directly into a query string. This separates query logic from user input, which is good practice. With DynamoDB, for example, you can make use of `ExpressionAttributeNames` and `ExpressionAttributeValues` parameters for this separation: 
+      ```python
+        dynamodb = boto3.resource('dynamodb')
+        table = dynamodb.Table('users')
+        
+        table.update_item(
+          Key={
+              'username': 'johndoe',
+              'last_name': 'Doe'
+          },
+          UpdateExpression='SET age = :val1',
+          ExpressionAttributeValues={
+              ':val1': 42
+          }
+        )
+      ```
+
+    ## References
+    - [AWS DynamoDB docs](https://docs.aws.amazon.com/dynamodb/)
+    - [AWS SimpleDB docs](https://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/Welcome.html)
+  cwe_id:
+    - 943
+  id: python_third_parties_aws_query_injection
+  documentation_url: https://docs.bearer.com/reference/rules/python_third_parties_aws_query_injection
