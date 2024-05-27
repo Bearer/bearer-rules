@@ -1,0 +1,96 @@
+imports:
+  - python_shared_lang_instance
+  - python_shared_lang_import1
+patterns:
+  - pattern: $<FTP_CLASS>($<...>)
+    filters:
+      - variable: FTP_CLASS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [ftplib]
+          - variable: NAME
+            values: [FTP]
+  - pattern: $<INSECURE_AIOFTP>
+    filters:
+      - variable: INSECURE_AIOFTP
+        detection: python_lang_insecure_ftp_aioftp_init
+        scope: cursor
+      - not:
+          variable: INSECURE_AIOFTP
+          detection: python_lang_insecure_ftp_aioftp_secure
+          scope: cursor
+auxiliary:
+  - id: python_lang_insecure_ftp_aioftp_init
+    patterns:
+      - pattern: $<CLASS>($<...>)
+        filters:
+          - variable: CLASS
+            detection: python_lang_insecure_ftp_aioftp_client_class
+            scope: cursor
+      - pattern: $<CLASS>.context($<...>)
+        filters:
+          - variable: CLASS
+            detection: python_lang_insecure_ftp_aioftp_client_class
+            scope: cursor
+  - id: python_lang_insecure_ftp_aioftp_client_class
+    patterns:
+      - pattern: $<CLASS>
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [aioftp]
+              - variable: NAME
+                values: [Client]
+  - id: python_lang_insecure_ftp_aioftp_secure
+    patterns:
+      - pattern: $<_>($<...>ssl=$<TRUE>)
+        filters:
+          - variable: "TRUE"
+            detection: python_lang_insecure_ftp_true
+            scope: cursor
+      - pattern: $<_>($<...>ssl=$<CONTEXT>)
+        filters:
+          - variable: CONTEXT
+            detection: python_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: CLASS
+                detection: python_shared_lang_import1
+                scope: cursor
+                filters:
+                  - variable: MODULE1
+                    values: [ssl]
+                  - variable: NAME
+                    values: [SSLContext]
+  - id: python_lang_insecure_ftp_true
+    patterns:
+      - "True"
+languages:
+  - python
+severity: critical
+metadata:
+  description: "Usage of insecure FTP connection"
+  remediation_message: |-
+    ## Description
+
+    Using insecure FTP connections can compromise the security of sensitive data. This vulnerability arises when applications that handle sensitive information communicate with FTP servers without secure protocols. Always verify that FTP connections in your application utilize SFTP for enhanced security.
+
+    ## Remediations
+
+    - **Do** use the `FTP_TLS` class to establish secure FTP connections. This function ensures that your connection to the FTP server is encrypted, protecting the data transmitted from potential interception or eavesdropping.
+      ```python
+      ftp = FTP_TLS("ftp.example.com")
+      ```
+
+    ## References
+
+    - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
+  cwe_id:
+    - 319
+  id: python_lang_insecure_ftp
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_insecure_ftp

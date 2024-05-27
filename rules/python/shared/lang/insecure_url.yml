@@ -1,0 +1,14 @@
+type: shared
+languages:
+  - python
+patterns:
+  - pattern: $<INSECURE_URL>
+    filters:
+      - variable: INSECURE_URL
+        string_regex: '\A(ws|http):'
+      - not:
+          variable: INSECURE_URL
+          string_regex: '\A(ws|http)://(localhost|127\.0\.0\.1)'
+metadata:
+  description: "Python insecure URL."
+  id: python_shared_lang_insecure_url
