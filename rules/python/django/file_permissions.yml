@@ -1,0 +1,67 @@
+imports:
+  - python_shared_lang_import4
+patterns:
+  - pattern: FILE_UPLOAD_PERMISSIONS = $<MODE>
+    filters:
+      - variable: MODE
+        detection: python_django_file_permissions_modes
+  - pattern: $<FILE_SYSTEM_STORAGE>($<...>$<PARAM>=$<MODE>$<...>)
+    filters:
+      - variable: PARAM
+        values:
+          - file_permissions_mode
+          - directory_permissions_mode
+      - variable: MODE
+        detection: python_django_file_permissions_modes
+      - variable: FILE_SYSTEM_STORAGE
+        detection: python_shared_lang_import4
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [django]
+          - variable: MODULE2
+            values: [core]
+          - variable: MODULE3
+            values: [files]
+          - variable: MODULE4
+            values: [storage]
+          - variable: NAME
+            values: [FileSystemStorage]
+auxiliary:
+  - id: python_django_file_permissions_modes
+    patterns:
+      - pattern: $<MASK>
+        filters:
+          - either:
+              - variable: MASK
+                regex: \A0o?7
+              - variable: MASK
+                regex: \A0o?\d[1-7]
+              - variable: MASK
+                regex: \A0o?\d\d[1-7]
+languages:
+  - python
+severity: high
+metadata:
+  description: Permissive file assignment
+  remediation_message: |-
+    ## Description
+
+    Permissive file assignment exposes sensitive information by granting unnecessary read, write, or execute permissions to users without ownership privileges.
+
+    ## Remediations
+
+    - **Do** keep file permissions as restrictive as possible to minimize the risk of unauthorized access. Use the principle of least privilege to only grant permissions that are absolutely necessary for the operation of the application.
+        ```python
+        FileSystemStorage(location="my_file.txt", file_permissions_mode=0o500) # only you have full read and write access
+        ```
+    - **Do** prefer assigning file permissions to 'groups' rather than 'other' when you need to extend privileges to users who are not the owners. This approach helps in limiting access to a more controlled set of users.
+    - **Do** set an appropriate default value for file permissions mode in setting.py
+      ```python
+        # settings.py
+        FILE_UPLOAD_PERMISSIONS = 0o600
+      ```
+  cwe_id:
+    - 276
+  id: python_django_file_permissions
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_file_permissions
