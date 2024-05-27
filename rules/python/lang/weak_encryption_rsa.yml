@@ -1,0 +1,80 @@
+imports:
+  - python_shared_lang_datatype
+  - python_shared_lang_import2
+patterns:
+  - pattern: $<INSTANCE>.encrypt($<OPTIONAL_DATA_TYPE>$<...>)
+    filters:
+      - variable: INSTANCE
+        detection: python_lang_weak_encryption_rsa_instance
+        scope: cursor
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: python_shared_lang_datatype
+            scope: result
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: python_shared_lang_datatype
+              scope: result
+auxiliary:
+  - id: python_lang_weak_encryption_rsa_instance
+    patterns:
+      - pattern: $<_>.new($<KEY>$<...>)
+        filters:
+          - variable: KEY
+            detection: python_lang_weak_encryption_rsa_weak_key
+            scope: cursor
+      - pattern: $<_>.new($<...>key=$<KEY>$<...>)
+        filters:
+          - variable: KEY
+            detection: python_lang_weak_encryption_rsa_weak_key
+            scope: cursor
+  - id: python_lang_weak_encryption_rsa_weak_key
+    patterns:
+      - pattern: $<RSA>.generate($<LENGTH>$<...>)
+        filters:
+          - variable: RSA
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [Crypto]
+              - variable: MODULE2
+                values: [PublicKey]
+              - variable: NAME
+                values: [RSA]
+          - variable: LENGTH
+            less_than: 2048
+languages:
+  - python
+skip_data_types:
+  - Passwords # see python_lang_weak_password_encryption_rsa
+metadata:
+  description: "Usage of weak encryption algorithm (RSA)"
+  remediation_message: |-
+    ## Description
+
+    Using a weak encryption algorithm, specifically 1024-bit RSA, compromises data security. This vulnerability can lead to unauthorized access to sensitive information.
+
+    ## Remediations
+
+    - **Do not** use 1024-bit RSA for encryption. It is no longer considered secure.
+      ```python
+      RSA.generate(1024) # unsafe
+      ```
+    - **Do** use stronger encryption algorithms to enhance data security. AES (Advanced Encryption Standard) is a recommended choice.
+      ```python
+      from Crypto.Cipher import AES
+
+      cipher = AES.new(aes_key, AES.MODE_OCB)
+      ciphertext, tag = cipher.encrypt_and_digest(plaintext)
+      ```
+
+    ## References
+
+    - [PyCryptodome modern ciphers](https://pycryptodome.readthedocs.io/en/latest/src/cipher/modern.html)
+  cwe_id:
+    - 327
+  id: python_lang_weak_encryption_rsa
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_weak_encryption_rsa
+  cloud_code_suggestions: true
+severity: high
