@@ -1,0 +1,40 @@
+imports:
+  - python_shared_lang_import1
+patterns:
+  - pattern: $<SMTP_CLASS>($<...>)
+    filters:
+      - variable: SMTP_CLASS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [smtplib]
+          - variable: NAME
+            values:
+              - SMTP
+              - LMTP
+languages:
+  - python
+metadata:
+  description: "Usage of insecure SMTP connection"
+  remediation_message: |-
+    ## Description
+
+    An insecure SMTP connection can expose transmitted data to unauthorized access. This rule identifies if SMTP settings are configured to enforce secure connections.
+
+    ## Remediations
+
+    - **Do** use the `SMTP_SSL` class to establish secure SMTP connections. This prevents unauthorized access to the data being transmitted.
+      ```python
+      smtp = smtplib.SMTP_SSL("smtp.example.com")
+      ```
+
+    ## References
+
+    - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
+  cwe_id:
+    - 319
+  id: python_lang_insecure_smtp
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_insecure_smtp
+  cloud_code_suggestions: true
+severity: critical

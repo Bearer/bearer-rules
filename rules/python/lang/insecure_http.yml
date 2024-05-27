@@ -1,0 +1,41 @@
+languages:
+  - python
+imports:
+  - python_shared_lang_http_location
+  - python_shared_lang_insecure_url
+patterns:
+  - pattern: $<INSECURE_LOCATION>
+    filters:
+      - variable: INSECURE_LOCATION
+        detection: python_shared_lang_http_location
+        scope: cursor_strict
+        filters:
+          - variable: LOCATION
+            detection: python_shared_lang_insecure_url
+            scope: result
+severity: critical
+metadata:
+  description: "Usage of insecure HTTP connection"
+  remediation_message: |-
+    ## Description
+
+    Your application is at risk when it connects to APIs using insecure HTTP connections. This vulnerability occurs because HTTP lacks encryption, making data susceptible to interception and alteration. Always verify that your application exclusively uses HTTPS connections for enhanced security.
+
+    ## Remediations
+
+    - **Do not** initiate connections using unsecured HTTP. This exposes your data to potential interception and manipulation.
+      ```python
+      urllib.request.urlopen("http://insecure-api.com") # unsafe
+      ```
+    - **Do** ensure all connections are made through HTTPS to encrypt data and protect against eavesdropping and tampering.
+      ```python
+      urllib.request.urlopen("https://secure-api.com")
+      ```
+
+    ## References
+
+    - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
+  cwe_id:
+    - 319
+  id: python_lang_insecure_http
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_insecure_http

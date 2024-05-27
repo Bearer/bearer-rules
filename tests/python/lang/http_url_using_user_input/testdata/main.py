@@ -1,3 +1,5 @@
+# this file is also testing the http location shared rule
+
 user_input = input()
 
 def http_client():

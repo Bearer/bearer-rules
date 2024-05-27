@@ -1,0 +1,35 @@
+patterns:
+  - pattern: EMAIL_USE_TLS = $<FALSE>
+    filters:
+      - variable: "FALSE"
+        detection: python_django_insecure_smtp_false
+        scope: cursor
+auxiliary:
+  - id: python_django_insecure_smtp_false
+    patterns:
+      - "False"
+languages:
+  - python
+metadata:
+  description: "Usage of insecure SMTP connection"
+  remediation_message: |-
+    ## Description
+
+    An insecure SMTP connection can expose transmitted data to unauthorized access. This rule identifies if SMTP settings are configured to enforce secure connections.
+
+    ## Remediations
+
+    - **Do** enable SSL encryption in your SMTP configuration to secure the connection. This prevents unauthorized access to the data being transmitted.
+      ```python
+      EMAIL_USE_TLS = True
+      ```
+
+    ## References
+
+    - [OWASP insecure transport](https://owasp.org/www-community/vulnerabilities/Insecure_Transport)
+  cwe_id:
+    - 319
+  id: python_django_insecure_smtp
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_insecure_smtp
+  cloud_code_suggestions: true
+severity: critical

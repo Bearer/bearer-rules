@@ -1,0 +1,503 @@
+type: shared
+imports:
+  - python_shared_lang_instance
+  - python_shared_lang_import1
+  - python_shared_lang_import2
+patterns:
+  - pattern: $<CONNECTION_CLASS>($<...>$<LOCATION>$<...>)
+    filters:
+      - variable: CONNECTION_CLASS
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [http]
+          - variable: MODULE2
+            values: [client]
+          - variable: NAME
+            values:
+              - HTTPConnection
+              - HTTPSConnection
+  - pattern: $<CONNECTION>.$<METHOD>($<...>$<LOCATION>$<...>)
+    filters:
+      - variable: CONNECTION
+        detection: python_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [http]
+              - variable: MODULE2
+                values: [client]
+              - variable: NAME
+                values:
+                  - HTTPConnection
+                  - HTTPSConnection
+      - variable: METHOD
+        values:
+          - request
+          - set_tunnel
+          - putrequest
+  - pattern: $<URLOPEN>($<LOCATION>$<...>)
+    filters:
+      - variable: URLOPEN
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [urllib]
+          - variable: MODULE2
+            values: [request]
+          - variable: NAME
+            values: [urlopen]
+  - pattern: $<REQUEST_CLASS>($<LOCATION>$<...>)
+    filters:
+      - variable: REQUEST_CLASS
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [urllib]
+          - variable: MODULE2
+            values: [request]
+          - variable: NAME
+            values: [Request]
+  - pattern: $<REQUEST>.$<ATTRIBUTE> = $<LOCATION>
+    filters:
+      - variable: REQUEST
+        detection: python_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [urllib]
+              - variable: MODULE2
+                values: [request]
+              - variable: NAME
+                values: [Request]
+      - variable: ATTRIBUTE
+        values:
+          - full_url
+          - type
+          - host
+          - selector
+          - method
+  - pattern: $<FUNCTION>($<LOCATION>$<...>)
+    filters:
+      - variable: FUNCTION
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [requests]
+          - variable: NAME
+            values:
+              - get
+              - post
+              - put
+              - delete
+              - head
+              - options
+  - pattern: $<REQUEST>($<_>, $<LOCATION>$<...>)
+    filters:
+      - variable: REQUEST
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [requests]
+          - variable: NAME
+            values: [request, Request]
+  - pattern: $<SESSION>.$<METHOD>($<LOCATION>$<...>)
+    filters:
+      - variable: SESSION
+        detection: python_shared_lang_http_location_requests_session
+        scope: cursor
+      - variable: METHOD
+        values:
+          - get
+          - post
+          - put
+          - delete
+          - head
+          - options
+  - pattern: $<SESSION>.request($<_>, $<LOCATION>$<...>)
+    filters:
+      - variable: SESSION
+        detection: python_shared_lang_http_location_requests_session
+        scope: cursor
+  - pattern: $<FUNCTION>($<LOCATION>$<...>)
+    filters:
+      - variable: FUNCTION
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [httpx]
+          - variable: NAME
+            values:
+              - get
+              - options
+              - head
+              - post
+              - put
+              - delete
+  - pattern: $<FUNCTION>($<_>, $<LOCATION>$<...>)
+    filters:
+      - variable: FUNCTION
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [httpx]
+          - variable: NAME
+            values:
+              - request
+              - stream
+  - pattern: $<CLIENT_CLASS>($<...>base_url=$<LOCATION>$<...>)
+    filters:
+      - variable: CLIENT_CLASS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [httpx]
+          - variable: NAME
+            values: [Client]
+  - pattern: $<CLIENT>.$<METHOD>($<LOCATION>$<...>)
+    filters:
+      - variable: CLIENT
+        detection: python_shared_lang_http_location_httpx_client
+        scope: cursor
+      - variable: METHOD
+        values:
+          - get
+          - options
+          - head
+          - post
+          - put
+          - delete
+  - pattern: $<CLIENT>.$<METHOD>($<_>, $<LOCATION>$<...>)
+    filters:
+      - variable: CLIENT
+        detection: python_shared_lang_http_location_httpx_client
+        scope: cursor
+      - variable: METHOD
+        values:
+          - request
+          - stream
+  - pattern: $<FUNCTION>($<_>, $<LOCATION>$<...>)
+    filters:
+      - variable: FUNCTION
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [aiohttp]
+          - variable: NAME
+            values: [request]
+  - pattern: $<SESSION_CLASS>($<LOCATION>$<...>)
+    filters:
+      - variable: SESSION_CLASS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [aiohttp]
+          - variable: NAME
+            values: [ClientSession]
+  - pattern: $<SESSION>.$<METHOD>($<LOCATION>$<...>)
+    filters:
+      - variable: SESSION
+        detection: python_shared_lang_http_location_aiohttp_session
+        scope: cursor
+      - variable: METHOD
+        values:
+          - get
+          - put
+          - post
+          - delete
+          - head
+          - options
+          - patch
+          - ws_connect
+  - pattern: $<SESSION>.request($<_>, $<LOCATION>$<...>)
+    filters:
+      - variable: SESSION
+        detection: python_shared_lang_http_location_aiohttp_session
+        scope: cursor
+  - pattern: $<HTTP>.request($<LOCATION>$<...>)
+    filters:
+      - variable: HTTP
+        detection: python_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [httplib2]
+              - variable: NAME
+                values: [Http]
+  - pattern: $<REQUEST>($<_>, $<LOCATION>$<...>)
+    filters:
+      - variable: REQUEST
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [urllib3]
+          - variable: NAME
+            values: [request]
+  - pattern: $<PROXY_CLASS>($<LOCATION>$<...>)
+    filters:
+      - variable: PROXY_CLASS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [urllib3]
+          - variable: NAME
+            values: [ProxyManager]
+  - pattern: $<MANAGER>.$<METHOD>($<LOCATION>$<...>)
+    filters:
+      - variable: MANAGER
+        detection: python_shared_lang_http_location_urllib3_manager
+        scope: cursor
+      - variable: METHOD
+        values:
+          - connection_from_host
+          - connection_from_url
+  - pattern: $<MANAGER>.$<METHOD>($<_>, $<LOCATION>$<...>)
+    filters:
+      - variable: MANAGER
+        detection: python_shared_lang_http_location_urllib3_manager
+        scope: cursor
+      - variable: METHOD
+        values:
+          - connection_from_host
+          - request
+          - request_encode_body
+          - request_encode_url
+          - urlopen
+  - pattern: $<MANAGER>.proxy = $<LOCATION>
+    filters:
+      - variable: MANAGER
+        detection: python_shared_lang_http_location_urllib3_manager
+        scope: cursor
+  - pattern: $<POOL_CLASS>($<LOCATION>$<...>)
+    filters:
+      - variable: POOL_CLASS
+        detection: python_shared_lang_http_location_urllib3_pool_class
+        scope: cursor
+  - pattern: $<POOL_CLASS>($<_>, $<LOCATION>$<...>)
+    filters:
+      - variable: POOL_CLASS
+        detection: python_shared_lang_http_location_urllib3_pool_class
+        scope: cursor
+  - pattern: $<FUNCTION>($<LOCATION>$<...>)
+    filters:
+      - variable: FUNCTION
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [urllib3]
+          - variable: MODULE2
+            values: [connectionpool]
+          - variable: NAME
+            values: [connection_from_url]
+  - pattern: $<POOL>.urlopen($<_>, $<LOCATION>$<...>)
+    filters:
+      - variable: POOL
+        detection: python_shared_lang_http_location_urllib3_pool
+        scope: cursor
+  - pattern: $<CONNECTION_CLASS>($<LOCATION>$<...>)
+    filters:
+      - variable: CONNECTION_CLASS
+        detection: python_shared_lang_http_location_urllib3_connection_class
+        scope: cursor
+  - pattern: $<CONNECTION_CLASS>($<_>, $<LOCATION>$<...>)
+    filters:
+      - variable: CONNECTION_CLASS
+        detection: python_shared_lang_http_location_urllib3_connection_class
+        scope: cursor
+  - pattern: $<CONNECTION_CLASS>($<...>proxy=$<LOCATION>$<...>)
+    filters:
+      - variable: CONNECTION_CLASS
+        detection: python_shared_lang_http_location_urllib3_connection_class
+        scope: cursor
+  - pattern: $<CONNECTION>.$<METHOD>($<_>, $<LOCATION>$<...>)
+    filters:
+      - variable: CONNECTION
+        detection: python_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_http_location_urllib3_connection_class
+            scope: cursor
+      - variable: METHOD
+        values:
+          - request
+          - request_chunked
+  - pattern: $<CONNECTION>.set_tunnel($<LOCATION>$<...>)
+    filters:
+      - variable: CONNECTION
+        detection: python_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_http_location_urllib3_connection_class
+            scope: cursor
+  - pattern: $<CONNECTION>.set_tunnel($<_>, $<LOCATION>$<...>)
+    filters:
+      - variable: CONNECTION
+        detection: python_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_http_location_urllib3_connection_class
+            scope: cursor
+auxiliary:
+  - id: python_shared_lang_http_location_requests_session
+    patterns:
+      - pattern: $<SESSION>
+        filters:
+          - variable: SESSION
+            detection: python_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                detection: python_shared_lang_import1
+                scope: cursor
+                filters:
+                  - variable: MODULE1
+                    values: [requests]
+                  - variable: NAME
+                    values: [Session]
+  - id: python_shared_lang_http_location_httpx_client
+    patterns:
+      - pattern: $<CLIENT>
+        filters:
+          - variable: CLIENT
+            detection: python_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                detection: python_shared_lang_import1
+                scope: cursor
+                filters:
+                  - variable: MODULE1
+                    values: [httpx]
+                  - variable: NAME
+                    values: [Client]
+  - id: python_shared_lang_http_location_aiohttp_session
+    patterns:
+      - pattern: $<SESSION>
+        filters:
+          - variable: SESSION
+            detection: python_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                detection: python_shared_lang_import1
+                scope: cursor
+                filters:
+                  - variable: MODULE1
+                    values: [aiohttp]
+                  - variable: NAME
+                    values: [ClientSession]
+  - id: python_shared_lang_http_location_urllib3_manager
+    patterns:
+      - pattern: $<MANAGER>
+        filters:
+          - variable: MANAGER
+            detection: python_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                detection: python_shared_lang_import1
+                scope: cursor
+                filters:
+                  - variable: MODULE1
+                    values: [urllib3]
+                  - variable: NAME
+                    values:
+                      - PoolManager
+                      - ProxyManager
+  - id: python_shared_lang_http_location_urllib3_pool
+    patterns:
+      - pattern: $<MANAGER>.$<METHOD>($<...>)
+        filters:
+          - variable: MANAGER
+            detection: python_shared_lang_http_location_urllib3_manager
+            scope: cursor
+          - variable: METHOD
+            values:
+              - connection_from_context
+              - connection_from_host
+              - connection_from_pool_key
+              - connection_from_url
+      - pattern: $<POOL>
+        filters:
+          - variable: POOL
+            detection: python_shared_lang_instance
+            scope: cursor_strict
+            filters:
+              - variable: CLASS
+                detection: python_shared_lang_http_location_urllib3_pool_class
+                scope: cursor
+      - pattern: $<FUNCTION>($<...>)
+        filters:
+          - variable: FUNCTION
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [urllib3]
+              - variable: MODULE2
+                values: [connectionpool]
+              - variable: NAME
+                values: [connection_from_url]
+  - id: python_shared_lang_http_location_urllib3_pool_class
+    patterns:
+      - pattern: $<CLASS>
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [urllib3]
+              - variable: NAME
+                values:
+                  - HTTPConnectionPool
+                  - HTTPSConnectionPool
+  - id: python_shared_lang_http_location_urllib3_connection_class
+    patterns:
+      - pattern: $<CLASS>
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [urllib3]
+              - variable: MODULE2
+                values: [connection]
+              - variable: NAME
+                values:
+                  - HTTPConnection
+                  - HTTPSConnection
+languages:
+  - python
+metadata:
+  description: "Python HTTP request URL, host, port, path, etc."
+  id: python_shared_lang_http_location
