@@ -1,0 +1,66 @@
+imports:
+  - python_shared_common_user_input
+  - python_shared_django_http_response
+  - python_shared_lang_import2
+patterns:
+  - pattern: $<RESPONSE>.headers[$<ALLOW_ORIGIN>] = $<...>$<USER_INPUT>$<...>
+    filters:
+      - variable: RESPONSE
+        detection: python_shared_django_http_response
+        scope: cursor
+      - variable: ALLOW_ORIGIN
+        string_regex: (?i)\Aaccess-control-allow-origin\z
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: |
+      $<RESPONSE>($<...> headers={$<...>$<ALLOW_ORIGIN>: $<...>$<USER_INPUT>$<...>} $<...>)
+    filters:
+      - variable: RESPONSE
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [django]
+          - variable: MODULE2
+            values: [http]
+          - variable: NAME
+            values: [HttpResponse]
+      - variable: ALLOW_ORIGIN
+        string_regex: (?i)\Aaccess-control-allow-origin\z
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+languages:
+  - python
+severity: medium
+metadata:
+  description: Unsanitized user input in Access-Control-Allow-Origin
+  remediation_message: |-
+    ## Description
+
+    Using unverified user-defined input to set the Access-Control-Allow-Origin header can result in unauthorized access to sensitive data. This vulnerability exposes your application to potential security risks by allowing attackers to specify origins that can access resources.
+
+    ## Remediations
+
+    - **Do not** use user input to define the `Access-Control-Allow-Origin` header without validation. This practice can inadvertently grant access to sensitive information.
+      ```python
+      response.headers['Access-Control-Allow-Origin'] = request.GET["my_origin"] # unsafe
+      ```
+    - **Do** validate user input if it must be used to set the `Access-Control-Allow-Origin` header. Ensure that only trusted origins are allowed by implementing a safelist of approved origins.
+      ```python
+        allowed_origins = ['http://www.example.com', 'https://www.secure.example.com']
+
+        user_origin = request.GET["my_origin"]
+
+        if user_origin in allowed_origins:
+          response.headers['Access-Control-Allow-Origin'] = user_origin
+      ```
+
+    ## References
+
+    - [OWASP Origin & Access-Control-Allow-Origin](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/07-Testing_Cross_Origin_Resource_Sharing)
+  cwe_id:
+    - 346
+  id: python_django_insecure_allow_origin
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_insecure_allow_origin
