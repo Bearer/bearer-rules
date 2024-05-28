@@ -1,0 +1,229 @@
+imports:
+  - python_shared_lang_import1
+  - python_shared_lang_import2
+patterns:
+  - pattern: $<URLLIB3_CLASS>($<...>cert_reqs=$<NONE>$<...>)
+    filters:
+      - variable: URLLIB3_CLASS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [urllib3]
+          - variable: NAME
+            values:
+              - HTTPSConnectionPool
+              - PoolManager
+              - ProxyManager
+      - variable: NONE
+        detection: python_lang_ssl_verification_urllibs_ignore_cert
+        scope: cursor
+  - pattern: $<URLLIB3_FUNC>($<...>cert_reqs=$<NONE>$<...>)
+    filters:
+      - either:
+          - variable: URLLIB3_FUNC
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [urllib3]
+              - variable: NAME
+                values: [proxy_from_url]
+          - variable: URLLIB3_FUNC
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [urllib3]
+              - variable: MODULE2
+                values: [connectionpool]
+              - variable: NAME
+                values: [connection_from_url]
+          - variable: URLLIB3_FUNC
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [urllib3]
+              - variable: MODULE2
+                values: [util]
+              - variable: NAME
+                values: [ssl_wrap_socket]
+      - variable: NONE
+        detection: python_lang_ssl_verification_urllibs_ignore_cert
+        scope: cursor
+  - pattern: $<URLLIB3_CONTEXT>.cert_reqs = $<NONE>
+    filters:
+      - variable: URLLIB3_CONTEXT
+        detection: python_lang_ssl_verification_urllib3_context
+        scope: result
+      - variable: NONE
+        detection: python_lang_ssl_verification_urllibs_ignore_cert
+        scope: cursor
+  - pattern: $<CREATE_CONTEXT>($<...>cert_reqs=$<NONE>$<...>)
+    filters:
+      - variable: CREATE_CONTEXT
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [urllib3]
+          - variable: MODULE2
+            values: [util]
+          - variable: NAME
+            values: [create_urllib3_context]
+  - pattern: $<REQUESTS_METHODS>($<...>verify=$<FALSE>$<...>)
+    filters:
+      - variable: REQUESTS_METHODS
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [requests]
+          - variable: NAME
+            values:
+              - get
+              - post
+              - put
+              - patch
+              - delete
+              - head
+              - options
+              - request
+      - variable: "FALSE"
+        detection: python_lang_ssl_verification_false
+        scope: result
+  - pattern: $<SESSION>.verify = $<FALSE>
+    filters:
+      - variable: SESSION
+        detection: python_lang_ssl_verification_requests_session
+      - variable: "FALSE"
+        detection: python_lang_ssl_verification_false
+        scope: result
+  - pattern: $<SSL_CONTEXT>.verify_mode = $<NONE>
+    filters:
+      - variable: SSL_CONTEXT
+        detection: python_lang_ssl_verification_sll_context
+      - variable: NONE
+        detection: python_lang_ssl_verification_urllibs_ignore_cert
+        scope: cursor
+  # legacy
+  - pattern: $<SSL_CREATE_CONTEXT>()
+    filters:
+      - variable: SSL_CREATE_CONTEXT
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [ssl]
+          - variable: NAME
+            values: [_create_unverified_context]
+  - pattern: $<SSL_WRAP_SOCKET>($<...>cert_reqs=$<NONE>$<...>)
+    filters:
+      - variable: SSL_WRAP_SOCKET
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [ssl]
+          - variable: NAME
+            values: [wrap_socket]
+      - variable: NONE
+        detection: python_lang_ssl_verification_urllibs_ignore_cert
+        scope: cursor
+auxiliary:
+  - id: python_lang_ssl_verification_urllibs_ignore_cert
+    patterns:
+      - pattern: $<NONE>
+        filters:
+          - variable: NONE
+            values: [None]
+      - pattern: $<CERT_NONE_OR_OPTIONAL>
+        filters:
+          - variable: CERT_NONE_OR_OPTIONAL
+            string_regex: \A(CERT_)?(NONE|OPTIONAL)\z
+      - pattern: $<SSL_NONE_OR_OPTIONAL>
+        filters:
+          - variable: SSL_NONE_OR_OPTIONAL
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [ssl]
+              - variable: NAME
+                values:
+                  - CERT_NONE
+                  - CERT_OPTIONAL
+  - id: python_lang_ssl_verification_urllib3_context
+    patterns:
+      - pattern: $<CREATE_CONTEXT>($<...>)
+        filters:
+          - variable: CREATE_CONTEXT
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [urllib3]
+              - variable: MODULE2
+                values: [util]
+              - variable: NAME
+                values: [create_urllib3_context]
+  - id: python_lang_ssl_verification_sll_context
+    patterns:
+      - pattern: $<SSL_CONTEXT>()
+        filters:
+          - variable: SSL_CONTEXT
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [ssl]
+              - variable: NAME
+                values: [SSLContext]
+  - id: python_lang_ssl_verification_requests_session
+    patterns:
+      - pattern: $<REQUESTS_SESSION>()
+        filters:
+          - variable: REQUESTS_SESSION
+            detection: python_shared_lang_import1
+            filters:
+              - variable: MODULE1
+                values: [requests]
+              - variable: NAME
+                values: [Session]
+  - id: python_lang_ssl_verification_false
+    patterns:
+      - "False"
+languages:
+  - python
+severity: high
+metadata:
+  description: Missing SSL certificate verification
+  remediation_message: |-
+    ## Description
+
+    Missing or optional SSL certificate verification can compromise the security of sensitive data. This vulnerability arises when an application fails to check for valid SSL certificates during data transmission, potentially allowing attackers to intercept or manipulate data and leading to Man-in-the-Middle attacks. To protect against these kinds of attacks and to maintain secure communication, SSL certificates should always be properly validated in production environments.
+
+    ## Remediations
+
+    - **Do not** disable SSL certificate verification in your HTTP client. Disabling it removes a critical layer of security and makes your application vulnerable to Man-in-the-Middle attacks.
+    ```python
+    urllib3.HTTPSConnectionPool(..., cert_reqs="CERT_NONE", ...) # unsafe
+    # or
+    requests.get(..., verify=False, ...) # unsafe
+    ```
+    - **Do** ensure SSL certificate verification is enabled when configuring connections, as well as hostname checking. For example, use `ssl.CERT_REQUIRED` to ensure SSL certificates are verified. 
+      ```python
+      urllib3.HTTPSConnectionPool("my-host.com", cert_reqs=ssl.CERT_REQUIRED, assert_hostname=True ...)
+      ```
+    - **Do not** create custom SSL contexts that disable certificate verification
+    ```python
+    ctx = urllib3.create_urllib3_context(cert_reqs=ssl.CERT_NONE) # unsafe
+    ```
+
+    ## References
+    - [Python 3 ssl module security considerations](https://docs.python.org/3/library/ssl.html#ssl-security)
+  cwe_id:
+    - 295
+  id: python_lang_ssl_verification
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_ssl_verification
