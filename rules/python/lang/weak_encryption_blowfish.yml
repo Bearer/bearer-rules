@@ -1,0 +1,63 @@
+imports:
+  - python_shared_lang_datatype
+  - python_shared_lang_import2
+patterns:
+  - pattern: $<CIPHER>.encrypt($<OPTIONAL_DATA_TYPE>$<...>)
+    filters:
+      - variable: CIPHER
+        detection: python_lang_weak_encryption_blowfish_instance
+        scope: cursor
+      - either:
+          - variable: OPTIONAL_DATA_TYPE
+            detection: python_shared_lang_datatype
+            scope: result
+          - not:
+              variable: OPTIONAL_DATA_TYPE
+              detection: python_shared_lang_datatype
+              scope: result
+auxiliary:
+  - id: python_lang_weak_encryption_blowfish_instance
+    patterns:
+      - pattern: $<BLOWFISH>.new($<...>)
+        filters:
+          - variable: BLOWFISH
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [Crypto]
+              - variable: MODULE2
+                values: [Cipher]
+              - variable: NAME
+                values: [Blowfish]
+languages:
+  - python
+skip_data_types:
+  - Passwords # see python_lang_weak_password_encryption_blowfish
+metadata:
+  description: "Usage of weak encryption algorithm (Blowfish)"
+  remediation_message: |-
+    ## Description
+
+    Your code is at risk due to the use of Blowfish, a weak encryption algorithm. This vulnerability can lead to data breaches and compromises your security measures.
+
+    ## Remediations
+
+    - **Do not** use Blowfish as it is outdated and vulnerable to attacks. Its use can significantly weaken your application's security.
+    - **Do** use stronger encryption algorithms to enhance data security. AES (Advanced Encryption Standard) is a recommended choice.
+      ```python
+      from Crypto.Cipher import AES
+
+      cipher = AES.new(aes_key, AES.MODE_OCB)
+      ciphertext, tag = cipher.encrypt_and_digest(plaintext)
+      ```
+
+    ## References
+
+    - [PyCryptodome modern ciphers](https://pycryptodome.readthedocs.io/en/latest/src/cipher/modern.html)
+  cwe_id:
+    - 327
+  id: python_lang_weak_encryption_blowfish
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_weak_encryption_blowfish
+  cloud_code_suggestions: true
+severity: high

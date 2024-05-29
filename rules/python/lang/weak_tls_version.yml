@@ -1,0 +1,61 @@
+imports:
+  - python_shared_lang_import1
+patterns:
+  - pattern: $<PROTOCOL_VERSION>
+    filters:
+      - variable: PROTOCOL_VERSION
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [ssl]
+          - variable: NAME
+            values:
+              - PROTOCOL_SSLv3
+              - PROTOCOL_TLSv1
+              - PROTOCOL_TLSv1_1
+  - pattern: $<TLS_VERSION>.$<NAME>
+    filters:
+      - variable: TLS_VERSION
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [ssl]
+          - variable: NAME
+            values: [TLSVersion]
+      - variable: NAME
+        values:
+          - SSLv3
+          - TLSv1
+          - TLSv1_1
+languages:
+  - python
+metadata:
+  description: "Usage of deprecated TLS version"
+  remediation_message: |-
+    ## Description
+
+    TLS (Transport Layer Security) versions 1.0 and 1.1 have known vulnerabilities and using them introduces security risks to your application. These outdated TLS versions can lead to the interception and compromise of sensitive data during transmission.
+
+    ## Remediations
+
+    - **Do** enforce the use of TLS 1.3 when configuring SSL. TLS 1.3 offers significant security improvements, helping to protect data from known vulnerabilities present in older versions.
+      ```python
+      context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+      context.minimum_version = ssl.TLSVersion.TLSv1_3
+      ```
+    - **Do** utilize configurations that support Perfect Forward Secrecy (PFS) with TLS 1.3. PFS enhances security by ensuring that past communications remain secure even if future session keys are compromised.
+    - **Do not** configure your server to accept TLS versions 1.0 or 1.1. Removing these options from your TLS configuration is crucial to prevent downgrade attacks.
+
+    ## References
+
+    - [IETF's Deprecation of TLS 1.0 and 1.1](https://tools.ietf.org/html/rfc8996)
+    - [OWASP TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html)
+    - [Python `ssl` module documentation](https://docs.python.org/3/library/ssl.html)
+
+  cwe_id:
+    - 327
+  id: python_lang_weak_tls_version
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_weak_tls_version
+severity: high

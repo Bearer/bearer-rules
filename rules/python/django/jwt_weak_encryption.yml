@@ -1,0 +1,45 @@
+patterns:
+  - pattern: |
+      SIMPLE_JWT = { $<...>$<KEY>: $<ALGORITHM>$<...> }
+    focus: ALGORITHM
+    filters:
+      - variable: KEY
+        string_regex: \AALGORITHM\z
+      - variable: ALGORITHM
+        detection: python_django_jwt_weak_encryption_none
+        scope: cursor
+auxiliary:
+  - id: python_django_jwt_weak_encryption_none
+    patterns:
+      - pattern: $<NONE>
+        filters:
+          - variable: NONE
+            string_regex: (?i)\Anone\z
+      - None
+languages:
+  - python
+metadata:
+  description: Usage of weak encryption algorithm in JWT
+  remediation_message: |-
+    ## Description
+
+    Implementing weak encryption algorithms in JWT (JSON Web Tokens) compromises the security of the tokens. This vulnerability occurs when an encryption algorithm that does not offer sufficient security strength is used, making the tokens susceptible to attacks.
+
+    ## Remediations
+
+    - **Do** use robust encryption algorithms recommended for JWT. HS256 (HMAC with SHA-256) is a secure choice for signing JWTs.
+      ```python
+      SIMPLE_JWT = {
+        "ALGORITHM": "HS256"
+      }
+      ```
+
+    ## References
+
+    - [OWASP weak encryption](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption)
+  cwe_id:
+    - 327
+  id: python_django_jwt_weak_encryption
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_jwt_weak_encryption
+  cloud_code_suggestions: true
+severity: high

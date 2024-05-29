@@ -1,0 +1,43 @@
+imports:
+  - python_shared_lang_import2
+patterns:
+  - pattern: $<AES>.MODE_ECB
+    filters:
+      - variable: AES
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [Crypto]
+          - variable: MODULE2
+            values: [Cipher]
+          - variable: NAME
+            values: [AES]
+languages:
+  - python
+metadata:
+  description: Usage of ECB cipher mode
+  remediation_message: |-
+    ## Description
+
+    The ECB (Electronic Codebook) cipher mode is recognized as insecure and is not recommended for use in cryptographic protocols. This mode does not provide adequate data protection because it encrypts identical plaintext blocks into identical ciphertext blocks, making it vulnerable to pattern analysis. For stronger security, it's essential to use encryption algorithms that have built-in message integrity and do not require a mode of operation to be configured, such as ChaCha20-Poly1305 or, for older applications that do not support this, AES-256-GCM.
+
+    ## Remediations
+
+    - **Do** choose ChaCha20-Poly1305 or AES-256-GCM for encryption. These algorithms include built-in message integrity, offering a more secure alternative to ECB mode.
+      ```python
+      from Crypto.Cipher import ChaCha20_Poly1305
+
+      cipher = ChaCha20_Poly1305.new(key)
+      ciphertext, tag = cipher.encrypt_and_digest(plaintext)
+      ```
+
+    ## References
+
+    - [PyCryptodome modern ciphers](https://pycryptodome.readthedocs.io/en/latest/src/cipher/modern.html)
+  cwe_id:
+    - 327
+  id: python_lang_weak_encryption_ecb_mode
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_weak_encryption_ecb_mode
+  cloud_code_suggestions: true
+severity: high
