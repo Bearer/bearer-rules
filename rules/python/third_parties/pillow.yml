@@ -1,0 +1,30 @@
+patterns:
+  - import pillow
+  - from pillow import $<_>
+dependency_check: true
+dependency:
+  name: pillow
+  min_version: 6.2.1
+  filename: requirements.txt
+languages:
+  - python
+severity: medium
+metadata:
+  description: Usage of vulnerable Pillow library
+  remediation_message: |
+    ## Description
+
+    A vulnerability was identified in Pillow versions less than 6.2.2, meaning that the library may allocate excessive memory, or have unusually long time processing times, when processing certain (specially crafted, malformed) image files.  
+
+    ## Remediations
+
+    - **Do** ensure that your application uses version 6.2.2 or greater of Pillow.
+
+    ## References
+
+    - [Pillow documentation](https://pillow.readthedocs.io/en/stable/)
+    - [NIST detail for vulnerability](https://nvd.nist.gov/vuln/detail/CVE-2019-16865)
+  cwe_id:
+    - 770
+  id: python_third_parties_pillow
+  documentation_url: https://docs.bearer.com/reference/rules/python_third_parties_pillow

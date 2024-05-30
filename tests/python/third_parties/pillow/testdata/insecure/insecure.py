@@ -1,0 +1,2 @@
+# bearer:expected python_third_parties_pillow
+import pillow
