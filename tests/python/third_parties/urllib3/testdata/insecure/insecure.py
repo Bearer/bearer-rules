@@ -1,0 +1,2 @@
+# bearer:expected python_third_parties_urllib3
+import urllib3

@@ -1,0 +1,30 @@
+patterns:
+  - import urllib3
+  - from urllib3 import $<_>
+dependency_check: true
+dependency:
+  name: urllib3
+  min_version: 1.24.1
+  filename: requirements.txt
+languages:
+  - python
+severity: high
+metadata:
+  description: Usage of vulnerable urllib3 library
+  remediation_message: |
+    ## Description
+
+    Versions of urllib3 less than 1.24.2 have multiple security issues and vulnerabilities around SSL certificate validation bypass. This means that SSL connections may succeed in cases where they should be invalidated.  
+
+    ## Remediations
+
+    - **Do** ensure that your application uses version 1.24.2 or greater of urllib3.
+
+    ## References
+
+    - [urllib3 documentation](https://urllib3.readthedocs.io/)
+    - [NIST detail for vulnerability](https://nvd.nist.gov/vuln/detail/cve-2019-11324)
+  cwe_id:
+    - 295
+  id: python_third_parties_urllib3
+  documentation_url: https://docs.bearer.com/reference/rules/python_third_parties_urllib3
