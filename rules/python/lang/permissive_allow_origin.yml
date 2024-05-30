@@ -1,0 +1,52 @@
+imports:
+  - python_shared_lang_instance
+  - python_shared_lang_import2
+patterns:
+  - pattern: $<HANDLER>.send_header($<ALLOW_ORIGIN>, $<...>$<VALUE>$<...>)
+    filters:
+      - variable: ALLOW_ORIGIN
+        string_regex: (?i)\Aaccess-control-allow-origin\z
+      - variable: VALUE
+        string_regex: \A\*\z
+      - variable: HANDLER
+        detection: python_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: CLASS
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [http]
+              - variable: MODULE2
+                values: [server]
+              - variable: NAME
+                values: [BaseHTTPRequestHandler]
+languages:
+  - python
+severity: medium
+metadata:
+  description: Permissive Access-Control-Allow-Origin configuration
+  remediation_message: |-
+    ## Description
+
+    A permissive Access-Control-Allow-Origin configuration can expose your application to security risks. When this header is set to "*", it means your application's responses can be accessed by any website, potentially leading to unauthorized access to sensitive information.
+
+    ## Remediations
+
+    - **Do not** set the Access-Control-Allow-Origin header to "*". This overly permissive setting can make your application vulnerable to attacks.
+      ```python
+      self.send_header('Access-Control-Allow-Origin', '*') # unsafe
+      ```
+    - **Do** restrict the Access-Control-Allow-Origin header to only allow specific, trusted origins that need access to your application. This minimizes the risk of sensitive data exposure.
+      ```python
+      self.send_header('Access-Control-Allow-Origin', 'myapp.example.com');
+      ```
+
+    ## References
+
+    - [OWASP Origin & Access-Control-Allow-Origin](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/07-Testing_Cross_Origin_Resource_Sharing)
+  cwe_id:
+    - 942
+  id: python_lang_permissive_allow_origin
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_permissive_allow_origin
