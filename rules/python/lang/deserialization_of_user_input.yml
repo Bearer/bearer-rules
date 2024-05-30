@@ -1,0 +1,178 @@
+imports:
+  - python_shared_common_user_input
+  - python_shared_lang_import1
+  - python_shared_lang_import2
+patterns:
+  - pattern: $<PICKLE>($<USER_INPUT>$<...>)
+    filters:
+      - variable: PICKLE
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values:
+              - pickle
+              - _pickle
+              - cPickle
+          - variable: NAME
+            values:
+              - load
+              - loads
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<SHELVE>($<USER_INPUT>$<...>)
+    filters:
+      - variable: SHELVE
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [shelve]
+          - variable: NAME
+            values:
+              - open
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<PY_YAML>($<USER_INPUT>$<...>)
+    filters:
+      - variable: PY_YAML
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [yaml]
+          - variable: NAME
+            values:
+              - load
+              - load_all
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<DILL>($<USER_INPUT>$<...>)
+    filters:
+      - variable: DILL
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [dill]
+          - variable: NAME
+            values:
+              - load
+              - loads
+              - load_module
+              - load_session
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<MARSHAL>($<USER_INPUT>$<...>)
+    filters:
+      - variable: MARSHAL
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [marshal]
+          - variable: NAME
+            values:
+              - load
+              - loads
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<JSON_PICKLE>($<USER_INPUT>$<...>)
+    filters:
+      - variable: JSON_PICKLE
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [jsonpickle]
+          - variable: NAME
+            values:
+              - decode
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<UNPICKLER>.$<METHOD>()
+    filters:
+      - variable: UNPICKLER
+        detection: python_lang_deserialization_of_user_input_unpickler_with_user_input
+        scope: cursor
+      - variable: METHOD
+        values:
+          - load
+          - persistent_load
+  - pattern: $<UNSAFE_RUAMEL_YAML>.load($<USER_DATA>$<...>)
+    filters:
+      - variable: UNSAFE_RUAMEL_YAML
+        detection: python_lang_deserialization_of_user_input_unsafe_ruamel_yaml
+        scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+auxiliary:
+  - id: python_lang_deserialization_of_user_input_unpickler_with_user_input
+    patterns:
+      - pattern: $<UNPICKLER>($<USER_INPUT>$<...>)
+        filters:
+          - variable: UNPICKLER
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values:
+                  - pickle
+                  - _pickle
+                  - cPickle
+                  - dill
+              - variable: NAME
+                values: [Unpickler]
+          - variable: USER_INPUT
+            detection: python_shared_common_user_input
+            scope: result
+  - id: python_lang_deserialization_of_user_input_unsafe_ruamel_yaml
+    patterns:
+      - pattern: $<RUAMEL_YAML>($<...>typ=$<UNSAFE_TYPE>$<...>)
+        filters:
+          - variable: RUAMEL_YAML
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [ruamel]
+              - variable: MODULE2
+                values: [yaml]
+              - variable: NAME
+                values: [YAML]
+          - variable: UNSAFE_TYPE
+            string_regex: \A(unsafe|base)\z
+languages:
+  - python
+severity: critical
+metadata:
+  description: Unsanitized user input in deserialization method
+  remediation_message: |-
+    ## Description
+
+    Deserializing data from untrusted sources, like user inputs or request parameters, without proper verification is a security risk. Attackers can embed malicious code or payloads within serialized data. When your application deserializes this data without checks, it becomes vulnerable to attacks.
+
+    ## Remediations
+
+    - **Do not** deserialize data from untrusted sources directly. This can lead to security vulnerabilities.
+    - **Do** validate and sanitize all data before deserializing it. Ensure that the data is coming from a trusted source and is in the expected format.
+    - **Do** use data formats that are purely data-oriented and not tied to a specific programming language, such as JSON or XML, for serialization and deserialization. This approach minimizes the risk of executing malicious code during deserialization.
+    - **Do** use recommended safer alternatives wherever possible. For example, instead of PyYAML's `load` function, use the `safe_load` function which limits results to simple Python objects like integers or lists.
+      ```python
+        yaml.safe_load(some_input) # safer alternative to PyYAML load 
+      ```
+
+    ## References
+
+    - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
+  cwe_id:
+    - 502
+  id: python_lang_deserialization_of_user_input
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_deserialization_of_user_input
