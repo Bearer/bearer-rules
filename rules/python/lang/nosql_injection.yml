@@ -1,0 +1,172 @@
+imports:
+  - python_shared_common_user_input
+  - python_shared_lang_import1
+  - python_shared_lang_import2
+patterns:
+  - pattern: |
+      $<MONGODB_COLLECTION>.$<METHOD>($<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: MONGODB_COLLECTION
+        detection: python_lang_nosql_injection_mongodb_collection
+        scope: cursor
+      - variable: METHOD
+        values:
+          - bulk_write
+          - insert_one
+          - insert_many
+          - replace_one
+          - update_one
+          - update_many
+          - delete_one
+          - delete_many
+          - find
+          - find_one
+          - find_one_and_delete
+          - find_one_and_replace
+          - find_one_and_update
+      - variable: USER_INPUT
+        detection: python_lang_nosql_injection_user_input
+        scope: result
+auxiliary:
+  - id: python_lang_nosql_injection_mongodb_collection
+    patterns:
+      - pattern: $<MONGO_DB>[$<STR>]
+        filters:
+          - variable: MONGO_DB
+            detection: python_lang_nosql_injection_mongodb_database
+            scope: result
+          - variable: STR
+            string_regex: \A.*\z
+      - pattern: $<MONGO_DB>.$<COLLECTION>
+        filters:
+          - variable: MONGO_DB
+            detection: python_lang_nosql_injection_mongodb_database
+            scope: result
+          - not:
+              variable: COLLECTION
+              values:
+                - codec_options
+                - read_preference
+                - write_concern
+                - read_concern
+                - client
+                - name
+  - id: python_lang_nosql_injection_mongodb_database
+    patterns:
+      - pattern: $<MONGO_CLIENT>[$<STR>]
+        filters:
+          - variable: MONGO_CLIENT
+            detection: python_lang_nosql_injection_mongodb_client
+            scope: result
+          - variable: STR
+            string_regex: \A.*\z
+      - pattern: $<MONGO_CLIENT>.$<DB>
+        filters:
+          - variable: MONGO_CLIENT
+            detection: python_lang_nosql_injection_mongodb_client
+            scope: cursor
+          - not:
+              variable: DB
+              values:
+                - topology_description
+                - address
+                - primary
+                - secondaries
+                - arbiters
+                - is_primary
+                - is_mongos
+                - nodes
+                - codec_options
+                - read_preference
+                - write_concern
+                - read_concern
+                - options
+  - id: python_lang_nosql_injection_mongodb_client
+    patterns:
+      - pattern: $<MONGO_CLIENT>($<STR>)
+        filters:
+          - variable: STR
+            string_regex: \A.*\z
+          - variable: MONGO_CLIENT
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [pymongo]
+              - variable: NAME
+                values: [MongoClient]
+  - id: python_lang_nosql_injection_user_input
+    sanitizer: python_lang_nosql_injection_sanitizer
+    patterns:
+      - pattern: $<USER_INPUT>
+        filters:
+          - variable: USER_INPUT
+            detection: python_shared_common_user_input
+            scope: cursor
+  - id: python_lang_nosql_injection_sanitizer
+    patterns:
+      - str($<!>$<_>)
+      - pattern: $<BSON_TYPE>($<!>$<_>)
+        filters:
+          - variable: BSON_TYPE
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [bson]
+              - variable: NAME
+                values: [ObjectId]
+      - pattern: $<BSON_TYPE>($<!>$<_>)
+        filters:
+          - variable: BSON_TYPE
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [bson]
+              - variable: MODULE2
+                values:
+                  - int64
+                  - decimal128
+                  - datetime_ms
+              - variable: NAME
+                values:
+                  - Int64
+                  - Decimal128
+                  - DatetimeMS
+languages:
+  - python
+severity: critical
+metadata:
+  description: Unsanitized input in NoSQL query
+  remediation_message: |
+    ## Description
+
+    Using unsanitized data in NoSQL queries exposes your application to NoSQL injection attacks. This vulnerability arises when user input, request data, or any externally influenced data is directly passed into a NoSQL query function without proper sanitization.
+
+    ## Remediations
+
+    - **Do not** include raw, unsanitized user input in NoSQL queries. This practice can lead to NoSQL injection vulnerabilities.
+      ```python
+        query = '{ "username": "' + unsafe_input + '" }'
+        collection.findOne(query) # unsafe
+      ```
+    - **Do** use parameterized queries instead of concatenating strings. This ensures that you take advantage of any built-in input sanitization that your NoSQL client may offer.
+      ```python
+        collection.findOne({ "username": unsafe_input });
+      ```
+    - **Do** sanitize and validate all input data before using it in NoSQL queries. Ensuring data is properly sanitized and validated can prevent NoSQL injection attacks. For example, you could parse external data as a string or convert the data into an appropriate BSON type. 
+      ```python
+        username = request.GET.get("username")
+        collection.findOne({ "username": str(unsafe_input) });
+        # or 
+        collection.findOne({ "uuid": bson.ObjectId(unsafe_input) })
+      ```
+
+    ## References
+
+    - [OWASP NoSQL injection explained](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection)
+  cwe_id:
+    - 943
+  id: python_lang_nosql_injection
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_nosql_injection
