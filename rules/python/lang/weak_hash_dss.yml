@@ -53,7 +53,6 @@ auxiliary:
 languages:
   - python
 skip_data_types:
-  - "Unique Identifier"
   - "Passwords" # see python_lang_weak_password_hash_dss
 metadata:
   description: "Usage of weak hashing library (DSS)"

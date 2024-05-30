@@ -23,6 +23,8 @@ patterns:
               scope: result
 languages:
   - python
+skip_data_types:
+  - Passwords # see python_lang_weak_password_hash_crc32
 metadata:
   description: "Usage of weak hashing library (CRC32)"
   remediation_message: |-
