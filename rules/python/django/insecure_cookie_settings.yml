@@ -1,0 +1,38 @@
+patterns:
+  - pattern: SESSION_COOKIE_SECURE = $<FALSE>
+    filters:
+      - variable: "FALSE"
+        detection: python_django_insecure_cookie_settings_false
+        scope: result
+  - pattern: CSRF_COOKIE_SECURE = $<FALSE>
+    filters:
+      - variable: "FALSE"
+        detection: python_django_insecure_cookie_settings_false
+        scope: result
+auxiliary:
+  - id: python_django_insecure_cookie_settings_false
+    patterns:
+      - "False"
+languages:
+  - python
+severity: medium
+metadata:
+  description: Usage of insecure cookie settings
+  remediation_message: |
+    ## Description
+
+    Using insecure cookie settings when configuring your application poses a significant security risk. If session (or CSRF) cookies are transmitted over an unencrypted HTTP connection, an attacker could capture a cookie and use this to hijack a user's session, thereby gaining unauthorized access to - potentially sensitive - data and resources. 
+
+    To prevent this vulnerability, always enable to secure attributes for session and CSRF cookies in your settings.py file. This is especially important for production environments.  
+
+    ## Remediations
+
+    - **Do not** disable secure session cookies or CSRF cookies in production environments
+    ```python
+      SESSION_COOKIE_SECURE = False # unsafe
+      CSRF_COOKIE_SECURE = False # unsafe
+    ```
+  cwe_id:
+    - 693
+  id: python_django_insecure_cookie_settings
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_insecure_cookie_settings
