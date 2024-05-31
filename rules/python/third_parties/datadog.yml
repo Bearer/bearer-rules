@@ -1,0 +1,62 @@
+imports:
+  - python_shared_lang_datatype
+  - python_shared_lang_import2
+patterns:
+  - pattern: |
+      $<DD_SPAN>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: DD_SPAN
+        detection: python_third_parties_datadog_span
+        scope: result
+      - variable: METHOD
+        values:
+          - set_tag
+          - set_tags
+          - set_struct_tag
+          - set_tag_str
+      - variable: DATA_TYPE
+        detection: python_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: python_third_parties_datadog_span
+    patterns:
+      - pattern: $<TRACER>($<...>)
+        filters:
+          - variable: TRACER
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [ddtrace]
+              - variable: MODULE2
+                values: [tracer]
+              - variable: NAME
+                values:
+                  - trace
+                  - start_span
+                  - current_span
+                  - current_root_span
+languages:
+  - python
+severity: medium
+skip_data_types:
+  - Unique Identifier
+metadata:
+  description: Leakage of sensitive data to Datadog
+  remediation_message: |
+    ## Description
+
+    Leaking sensitive data to third-party loggers like Datadog is a common cause of data leaks and can lead to data breaches.
+
+    ## Remediations
+
+    - **Do** ensure all sensitive data is removed when sending data to third-party loggers like Datadog.
+
+    ## References
+    - [Datadog docs](https://docs.datadoghq.com)
+    - [Scrubbing data](https://docs.datadoghq.com/tracing/configure_data_security/?tab=python#scrub-sensitive-data-from-your-spans)
+  cwe_id:
+    - 201
+  associated_recipe: Datadog
+  id: python_third_parties_datadog
+  documentation_url: https://docs.bearer.com/reference/rules/python_third_parties_datadog
