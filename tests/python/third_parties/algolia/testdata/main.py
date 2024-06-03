@@ -28,8 +28,4 @@ index.replace_all_objects(
 )
 
 # ok 
-index.save_object({
-  'firstname': 'Mish',
-  'lastname': 'Bear',
-  'objectID': 'mish001'
-})
+index.save_object({ 'objectID': user.uuid })
