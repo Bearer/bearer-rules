@@ -1,0 +1,97 @@
+imports:
+  - python_shared_lang_datatype
+  - python_shared_lang_import1
+  - python_shared_lang_import2
+patterns:
+  - pattern: |
+      $<SENTRY_METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: SENTRY_METHOD
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [sentry_sdk]
+          - variable: NAME
+            values:
+              - add_breadcrumb
+              - set_context
+              - set_tag
+              - set_user
+      - variable: DATA_TYPE
+        detection: python_shared_lang_datatype
+        scope: result
+  - pattern: $<SCOPE>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: SCOPE
+        detection: python_third_parties_sentry_scope
+        scope: cursor
+      - variable: METHOD
+        values:
+          - set_tag
+          - user
+      - variable: DATA_TYPE
+        detection: python_shared_lang_datatype
+        scope: result
+  - pattern: $<SCOPE>.$<METHOD> = $<...>$<DATA_TYPE>$<...>
+    filters:
+      - variable: SCOPE
+        detection: python_third_parties_sentry_scope
+        scope: cursor
+      - variable: METHOD
+        values:
+          - set_tag
+          - user
+      - variable: DATA_TYPE
+        detection: python_shared_lang_datatype
+        scope: result
+  - pattern: $<CRUMB>['user'] = current_user.email
+    filters:
+      - variable: CRUMB
+        detection: python_third_parties_sentry_breadcrumb
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: python_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: python_third_parties_sentry_breadcrumb
+    patterns:
+      - |
+        def before_breadcrumb($<!>$<_>):
+  - id: python_third_parties_sentry_scope
+    patterns:
+      - pattern: $<SENTRY_SCOPE>.get_current_scope($<...>)
+        filters:
+          - variable: SENTRY_SCOPE
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [sentry_sdk]
+              - variable: MODULE2
+                values: [scope]
+              - variable: NAME
+                values: [Scope]
+languages:
+  - python
+severity: medium
+skip_data_types:
+  - Unique Identifier
+metadata:
+  description: Leakage of sensitive data to Sentry
+  remediation_message: |
+    ## Description
+
+    Leaking sensitive data to third-party loggers like Sentry is a common cause of data leaks and can lead to data breaches.
+
+    ## Remediations
+
+    - **Do** ensure all sensitive data is removed when sending data to third-party loggers like Sentry.
+
+    ## References
+    - [Sentry Docs](https://docs.sentry.io/)
+  cwe_id:
+    - 201
+  associated_recipe: Sentry
+  id: python_third_parties_sentry
+  documentation_url: https://docs.bearer.com/reference/rules/python_third_parties_sentry
