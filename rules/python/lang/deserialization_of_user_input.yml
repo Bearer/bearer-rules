@@ -105,7 +105,7 @@ patterns:
         values:
           - load
           - persistent_load
-  - pattern: $<UNSAFE_RUAMEL_YAML>.load($<USER_DATA>$<...>)
+  - pattern: $<UNSAFE_RUAMEL_YAML>.load($<USER_INPUT>$<...>)
     filters:
       - variable: UNSAFE_RUAMEL_YAML
         detection: python_lang_deserialization_of_user_input_unsafe_ruamel_yaml
