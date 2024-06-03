@@ -1,0 +1,55 @@
+imports:
+  - python_shared_lang_datatype
+  - python_shared_lang_import1
+patterns:
+  - pattern: |
+      $<BUGSNAG_NOTIFY>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: BUGSNAG_NOTIFY
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [bugsnag]
+          - variable: NAME
+            values: [notify]
+      - variable: DATA_TYPE
+        detection: python_shared_lang_datatype
+        scope: result
+  - pattern: |
+      $<BUGSNAG_BREADCRUMB>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: BUGSNAG_BREADCRUMB
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [bugsnag]
+          - variable: NAME
+            values: [leave_breadcrumb]
+      - variable: DATA_TYPE
+        detection: python_shared_lang_datatype
+        scope: result
+languages:
+  - python
+severity: medium
+skip_data_types:
+  - Unique Identifier
+metadata:
+  description: Leakage of sensitive data to Bugsnag
+  remediation_message: |
+    ## Description
+
+    Leaking sensitive data to third-party loggers like Bugsnag is a common cause of data leaks and can lead to data breaches.
+
+    ## Remediations
+
+    - **Do** ensure all sensitive data is removed when sending data to third-party loggers like Bugsnag.
+
+    ## References
+    - [Bugsnag Docs](https://docs.bugsnag.com/platforms/python/django/)
+  cwe_id:
+    - 201
+  associated_recipe: Bugsnag
+  id: python_third_parties_bugsnag
+  documentation_url: https://docs.bearer.com/reference/rules/python_third_parties_bugsnag
