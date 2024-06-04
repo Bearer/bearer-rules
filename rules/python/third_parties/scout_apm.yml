@@ -1,0 +1,83 @@
+imports:
+  - python_shared_lang_datatype
+  - python_shared_lang_import2
+  - python_shared_lang_import3
+patterns:
+  - pattern: $<SCOUT_APM_CONTEXT>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: SCOUT_APM_CONTEXT
+        detection: python_shared_lang_import3
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [scout_apm]
+          - variable: MODULE2
+            values: [api]
+          - variable: MODULE3
+            values: [Context]
+          - variable: NAME
+            values: [add]
+      - variable: DATA_TYPE
+        detection: python_shared_lang_datatype
+        scope: result
+  - pattern: $<SCOUT_APM_INSTRUMENT>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: SCOUT_APM_INSTRUMENT
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [scout_apm]
+          - variable: MODULE2
+            values: [api]
+          - variable: NAME
+            values: [instrument]
+      - variable: DATA_TYPE
+        detection: python_shared_lang_datatype
+        scope: result
+  - pattern: $<SCOUT_APM_INSTRUMENT>.tag($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: SCOUT_APM_INSTRUMENT
+        detection: python_third_parties_scout_apm_instrument
+        scope: cursor
+      - variable: DATA_TYPE
+        detection: python_shared_lang_datatype
+        scope: result
+auxiliary:
+  - id: python_third_parties_scout_apm_instrument
+    patterns:
+      - pattern: $<INSTRUMENT>($<...>) as $<!>$<_>
+        filters:
+          - variable: INSTRUMENT
+            detection: python_shared_lang_import2
+            scope: result
+            filters:
+              - variable: MODULE1
+                values: [scout_apm]
+              - variable: MODULE2
+                values: [api]
+              - variable: NAME
+                values: [instrument]
+languages:
+  - python
+severity: medium
+skip_data_types:
+  - Unique Identifier
+metadata:
+  description: Leakage of sensitive data to Scout APM
+  remediation_message: |
+    ## Description
+
+    Leaking sensitive data to third-party loggers like Scout APM is a common cause of data leaks and can lead to data breaches.
+
+    ## Remediations
+
+    - **Do** ensure all sensitive data is removed when sending data to third-party loggers like Scout APM.
+
+    ## References
+    - [Scout APM docs](https://scoutapm.com/docs/python)
+  cwe_id:
+    - 201
+  associated_recipe: Scout APM
+  id: python_third_parties_scout_apm
+  documentation_url: https://docs.bearer.com/reference/rules/python_third_parties_scout_apm
