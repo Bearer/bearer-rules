@@ -1,0 +1,52 @@
+imports:
+  - python_shared_lang_datatype
+  - python_shared_lang_import2
+patterns:
+  - pattern: |
+      $<NEW_RELIC>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: NEW_RELIC
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [newrelic]
+          - variable: MODULE2
+            values: [agent]
+          - variable: NAME
+            values:
+              - add_custom_attribute
+              - add_custom_attributes
+              - add_custom_span_attribute
+              - record_log_event
+              - record_custom_event
+              - record_custom_metric
+              - record_custom_metrics
+              - notice_error
+      - variable: DATA_TYPE
+        detection: python_shared_lang_datatype
+        scope: result
+languages:
+  - python
+severity: medium
+skip_data_types:
+  - Unique Identifier
+metadata:
+  description: Leakage of sensitive data to New Relic
+  remediation_message: |
+    ## Description
+
+    Leaking sensitive data to third-party loggers like New Relic is a common cause of data leaks and can lead to data breaches.
+
+    ## Remediations
+
+    - **Do** ensure all sensitive data is removed when sending data to third-party loggers like New Relic
+
+    ## References
+    - [New Relic Docs](https://docs.newrelic.com/)
+    - [Log obfuscation](https://docs.newrelic.com/docs/logs/ui-data/obfuscation-ui/)
+  cwe_id:
+    - 201
+  associated_recipe: New Relic
+  id: python_third_parties_new_relic
+  documentation_url: https://docs.bearer.com/reference/rules/python_third_parties_new_relic
