@@ -15,6 +15,21 @@ def generic():
         # bearer:expected python_lang_sql_injection
         c.executemany(f"UPDATE bar SET foo = 1 WHERE baz = {user_input}", {})
 
+def asyncpg():
+  import asyncpg
+  conn = await asyncpg.connect(user='mish', password='password')
+  query = "SELECT * FROM bar WHERE foo=" + user_input
+  # bearer:expected python_lang_sql_injection
+  values = await conn.fetch(query)   
+  await conn.close()
+  
+def pg8000():
+  import pg8000.native as pg
+  import pg8000.dbapi
+  conn = pg.Connection("postgres", password="password")
+  query = "SELECT * FROM bar WHERE foo=" + user_input
+  # bearer:expected python_lang_sql_injection
+  values = await conn.run(query)
 
 def sqlalchemy():
     from sqlalchemy import create_engine, text
