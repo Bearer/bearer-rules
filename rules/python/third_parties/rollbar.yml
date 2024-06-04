@@ -1,0 +1,41 @@
+imports:
+  - python_shared_lang_datatype
+  - python_shared_lang_import1
+patterns:
+  - pattern: |
+      $<ROLLBAR>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: ROLLBAR
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [rollbar]
+          - variable: NAME
+            values: [report_message]
+      - variable: DATA_TYPE
+        detection: python_shared_lang_datatype
+        scope: result
+languages:
+  - python
+severity: medium
+skip_data_types:
+  - Unique Identifier
+metadata:
+  description: Leakage of sensitive data to RollBar
+  remediation_message: |
+    ## Description
+
+    Leaking sensitive data to third-party loggers like Rollbar is a common cause of data leaks and can lead to data breaches.
+
+    ## Remediations
+
+    - **Do** ensure all sensitive data is removed when sending data to third-party loggers like Rollbar.
+
+    ## References
+    - [Rollbar docs](https://docs.rollbar.com/docs/python)
+  cwe_id:
+    - 201
+  associated_recipe: Rollbar
+  id: python_third_parties_rollbar
+  documentation_url: https://docs.bearer.com/reference/rules/python_third_parties_rollbar
