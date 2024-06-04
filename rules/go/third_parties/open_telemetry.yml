@@ -107,18 +107,18 @@ auxiliary:
 skip_data_types:
   - "Unique Identifier"
 metadata:
-  description: "Leakage of sensitive data to Open Telemetry"
+  description: "Leakage of sensitive data to OpenTelemetry"
   remediation_message: |
     ## Description
 
-    Leaking sensitive data to third parties like Open Telemetry is a common cause of data leaks and can lead to data breaches.
+    Leaking sensitive data to third parties like OpenTelemetry is a common cause of data leaks and can lead to data breaches.
 
     ## Remediations
 
-    - **Do** ensure all sensitive data is removed when sending data to third parties like Open Telemetry.
+    - **Do** ensure all sensitive data is removed when sending data to third parties like OpenTelemetry.
 
     ## References
-    - [Open Telemetry Docs](https://opentelemetry.io/docs/)
+    - [OpenTelemetry Docs](https://opentelemetry.io/docs/)
   cwe_id:
     - 201
   id: go_third_parties_open_telemetry
