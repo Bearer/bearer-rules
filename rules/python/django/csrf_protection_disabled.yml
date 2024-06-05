@@ -1,0 +1,32 @@
+imports:
+  - python_shared_lang_import4
+patterns:
+  - pattern: $<CSRF_EXEMPT>
+    filters:
+      - variable: CSRF_EXEMPT
+        regex: \A@(django\.)?(views\.)?(decorators\.)?(csrf\.)?csrf_exempt\z
+languages:
+  - python
+severity: medium
+metadata:
+  description: Missing Cross-Site Request Forgery (CSRF) token(s)
+  remediation_message: |-
+    ## Description
+
+    In a Django application, using `@csrf_exempt` to disable CSRF (Cross-Site Request Forgery) protection can introduce increased security risks. CSRF is a forgery attack that tricks authenticated users into executing unintended actions on the website, potentially compromising security or data integrity of your application.
+
+    ## Remediations
+
+    - **Do not** mark Djanog routes as CSRF exempt
+      ```python
+      @csrf_exempt # unsafe
+      def my_risky_route():
+      ```
+
+    ## References
+
+    - [Django CSRF protection](https://docs.djangoproject.com/en/5.0/ref/csrf/)
+  cwe_id:
+    - 352
+  id: python_django_csrf_protection_disabled
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_csrf_protection_disabled
