@@ -1,0 +1,51 @@
+imports:
+  - python_shared_common_user_input
+patterns:
+  - pattern: |
+      $<FILE>.write($<USER_INPUT>$<...>)
+    filters:
+      - variable: FILE
+        detection: python_django_crlf_injection_file
+        scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+      - not:
+          variable: USER_INPUT
+          detection: python_django_crlf_injection_sanitized_dynamic_input
+          scope: result
+auxiliary:
+  - id: python_django_crlf_injection_file
+    patterns:
+      - open($<...>)
+  - id: python_django_crlf_injection_sanitized_dynamic_input
+    patterns:
+      - $<_>.strip()
+      - pattern: $<_>.strip($<SOURCE>)
+        filters:
+          - variable: SOURCE
+            string_regex: \A(\\r\\n|\\n\\r)n\z
+languages:
+  - python
+severity: medium
+metadata:
+  description: Possible CLRF injection detected
+  remediation_message: |-
+    ## Description
+
+    CRLF (Carriage Return Line Feed) injection vulnerability occurs when an attacker is able to insert a sequence of line termination characters into a log message or a file. This can lead to forged log entries, compromising the integrity of log files, or worse, a denial-of-service (DoS) if an attacker abuses the vulnerability by using up all available disk space. 
+
+    ## Remediations
+
+    - **Do** strip any carriage return and line feed characters from user input data before logging it or writing to a file. This prevents attackers from injecting malicious CRLF sequences.
+      ```pyhton
+      response.write(user_input.replaceAll("[\r\n]+", ""));
+      ```
+
+    ## References
+
+    - [OWASP CRLF Injection](https://owasp.org/www-community/vulnerabilities/CRLF_Injection)
+  cwe_id:
+    - 93
+  id: python_django_crlf_injection
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_crlf_injection
