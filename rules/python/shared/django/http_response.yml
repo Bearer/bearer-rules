@@ -21,6 +21,10 @@ patterns:
                 values: [http]
               - variable: NAME
                 values: [HttpResponse]
+  # fallback
+  - response
+  - res
+  - r
 metadata:
   description: "Python Django HTTP Response instance."
   id: python_shared_django_http_response
