@@ -1,0 +1,67 @@
+imports:
+  - python_shared_django_http_response
+  - python_shared_lang_import2
+  - python_shared_lang_instance
+patterns:
+  - pattern: $<SET_COOKIE>
+    filters:
+      - variable: SET_COOKIE
+        detection: python_django_cookie_missing_http_only_set_cookie_call
+        scope: cursor
+      - not:
+          variable: SET_COOKIE
+          detection: python_django_cookie_missing_http_only_set_cookie_http_only
+          scope: cursor
+auxiliary:
+  - id: python_django_cookie_missing_http_only_set_cookie_call
+    patterns:
+      - pattern: $<CALLER>.set_cookie($<...>)
+        filters:
+          - either: 
+            - variable: CALLER
+              detection: python_shared_django_http_response
+              scope: cursor
+            - variable: CALLER
+              detection: python_shared_lang_instance
+              scope: cursor
+              filters:
+                - variable: CLASS
+                  detection: python_shared_lang_import2
+                  scope: cursor
+                  filters:
+                    - variable: MODULE1
+                      values: [django]
+                    - variable: MODULE2
+                      values: [shortcuts]
+                    - variable: NAME
+                      values: [render]
+  - id: python_django_cookie_missing_http_only_set_cookie_http_only
+    patterns:
+      - pattern: $<_>($<...>httponly=$<TRUE>)
+        filters:
+          - variable: "TRUE"
+            detection: python_django_cookie_missing_http_only_true
+            scope: cursor
+  - id: python_django_cookie_missing_http_only_true
+    patterns:
+      - "True"
+languages:
+  - python
+severity: medium
+metadata:
+  description: Missing HTTP Only option in cookie configuration
+  remediation_message: |-
+    ## Description
+
+    Not setting the HTTP Only attribute to "true" in cookie configurations leaves the cookie vulnerable to being accessed by client-side JavaScript. This oversight can lead to the exposure of cookie values, especially on websites susceptible to Cross-Site Scripting (XSS) attacks. Enabling HTTP Only is a critical step in preventing malicious scripts from reading the cookie values through JavaScript.
+
+    ## Remediations
+
+    - **Do** set the HTTP Only attribute to `true` for cookies to prevent them from being accessed by client-side JavaScript. This is a critical step in safeguarding your cookies against unauthorized access, especially in the context of XSS vulnerabilities.
+      ```python
+      response.set_cookie(httponly=True);
+      ```
+  cwe_id:
+    - 1004
+  id: python_django_cookie_missing_http_only
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_cookie_missing_http_only

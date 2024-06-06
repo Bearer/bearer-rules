@@ -1,0 +1,67 @@
+imports:
+  - python_shared_django_http_response
+  - python_shared_lang_instance
+  - python_shared_lang_import2
+patterns:
+  - pattern: $<SET_COOKIE>
+    filters:
+      - variable: SET_COOKIE
+        detection: python_django_cookie_missing_secure_set_cookie_call
+        scope: cursor
+      - not:
+          variable: SET_COOKIE
+          detection: python_django_cookie_missing_secure_set_cookie_secure
+          scope: cursor
+auxiliary:
+  - id: python_django_cookie_missing_secure_set_cookie_call
+    patterns:
+      - pattern: $<CALLER>.set_cookie($<...>)
+        filters:
+          - either:
+              - variable: CALLER
+                detection: python_shared_django_http_response
+                scope: cursor
+              - variable: CALLER
+                detection: python_shared_lang_instance
+                scope: cursor
+                filters:
+                  - variable: CLASS
+                    detection: python_shared_lang_import2
+                    scope: cursor
+                    filters:
+                      - variable: MODULE1
+                        values: [django]
+                      - variable: MODULE2
+                        values: [shortcuts]
+                      - variable: NAME
+                        values: [render]
+  - id: python_django_cookie_missing_secure_set_cookie_secure
+    patterns:
+      - pattern: $<_>($<...>secure=$<TRUE>)
+        filters:
+          - variable: "TRUE"
+            detection: python_django_cookie_missing_secure_true
+            scope: cursor
+  - id: python_django_cookie_missing_secure_true
+    patterns:
+      - "True"
+languages:
+  - python
+severity: medium
+metadata:
+  description: Missing Secure option in cookie configuration
+  remediation_message: |-
+    ## Description
+
+    Not setting the "Secure" attribute in cookie configuration can lead to unauthorized third-party access. This attribute, when enabled, ensures cookies are sent to the server only over HTTPS, enhancing security by preventing potential eavesdropping.
+
+    ## Remediations
+
+    - **Do** set the `secure` attribute to `true` to enforce the transmission of cookies over HTTPS only.
+      ```python
+      response.set_cookie(secure=True)
+      ```
+  cwe_id:
+    - 614
+  id: python_django_cookie_missing_secure
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_cookie_missing_secure
