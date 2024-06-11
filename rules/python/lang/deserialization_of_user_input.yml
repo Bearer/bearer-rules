@@ -18,6 +18,8 @@ patterns:
             values:
               - load
               - loads
+              - dump
+              - dumps
       - variable: USER_INPUT
         detection: python_shared_common_user_input
         scope: result
