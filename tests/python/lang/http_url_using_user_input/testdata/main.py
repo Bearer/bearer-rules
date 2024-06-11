@@ -20,6 +20,12 @@ def http_client():
     conn.putrequest("GET", "ok")
     # bearer:expected python_lang_http_url_using_user_input
     conn.putrequest("GET", user_input)
+    
+
+from django.http import HttpResponseRedirect
+def django():
+    # bearer:expected python_lang_http_url_using_user_input
+    HttpResponseRedirect("%s://%s" % (user_input, user_input))
 
 
 def urllib():

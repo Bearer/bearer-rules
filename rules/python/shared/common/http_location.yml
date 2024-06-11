@@ -1,0 +1,25 @@
+type: shared
+languages:
+  - python
+imports:
+  - python_shared_django_http_location
+  - python_shared_lang_http_location
+patterns:
+  - pattern: $<PYTHON_SHARED_COMMON_HTTP_LOCATION>
+    filters:
+      - either:
+          - variable: PYTHON_SHARED_COMMON_HTTP_LOCATION
+            detection: python_shared_lang_http_location
+            scope: cursor_strict
+            imports:
+              - variable: LOCATION
+                as: LOCATION
+          - variable: PYTHON_SHARED_COMMON_HTTP_LOCATION
+            detection: python_shared_django_http_location
+            scope: cursor_strict
+            imports:
+              - variable: LOCATION
+                as: LOCATION
+metadata:
+  description: "Python HTTP location."
+  id: python_shared_common_http_location
