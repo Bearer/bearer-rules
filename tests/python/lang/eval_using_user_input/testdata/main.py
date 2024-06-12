@@ -10,5 +10,11 @@ def bad2(interpreter_id: int = 0):
   # bearer:expected python_lang_eval_using_user_input
   subinterpreters.run_string(interpreter_id, unsafe)
 
+from sys import stdin
+def bad3():
+  code = stdin.readlines()
+  # bearer:expected python_lang_eval_using_user_input
+  return eval(code, {}, {"datetime": datetime, "timezone": timezone})
+
 def ok():
   subinterpreters.run_string(interpreter_id, "print 'hello world'")

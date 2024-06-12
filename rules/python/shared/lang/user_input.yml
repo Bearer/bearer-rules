@@ -1,8 +1,25 @@
+imports:
+  - python_shared_lang_import2
 type: shared
 languages:
   - python
 patterns:
   - input($<...>)
+  - pattern: $<SYS_STDIN>($<...>)
+    filters:
+      - variable: SYS_STDIN
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [sys]
+          - variable: MODULE2
+            values: [stdin]
+          - variable: NAME
+            values:
+              - read
+              - readline
+              - readlines
 metadata:
   description: "Python lang user input."
   id: python_shared_lang_user_input
