@@ -1,0 +1,50 @@
+imports:
+  - python_shared_lang_import1
+patterns:
+  - pattern: |
+      $<JWT>($<...>options=$<OPTS>$<...>)
+    filters:
+      - variable: JWT
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [jwt]
+          - variable: NAME
+            values:
+              - decode
+      - variable: OPTS
+        detection: python_lang_jwt_verification_bypass_options
+auxiliary:
+  - id: python_lang_jwt_verification_bypass_options
+    patterns:
+      - pattern: |
+          { $<...>"verify_signature": $<FALSE>$<...> }
+        filters:
+          - variable: FALSE
+            detection: python_lang_jwt_verification_bypass_false
+            scope: cursor
+  - id: python_lang_jwt_verification_bypass_false
+    patterns:
+      - "False"
+languages:
+  - python
+severity: critical
+metadata:
+  description: Missing signature verification of JWT
+  remediation_message: |-
+    ## Description
+
+    Failing to verify the signature of JSON Web Tokens (JWTs) compromises the security of an application. Signature verification is crucial for confirming the authenticity and integrity of JWTs. Without this verification, your application is open to token forgery and replay attacks, where attackers can manipulate or reuse tokens to gain unauthorized access.
+
+    ## Remediations
+
+    - **Do not** disable verification of the token's signature, because this leaves a significant security gap.
+      ```python
+      jwt.decode(token, options={"verify_signature": False}) # unsafe
+      ```
+
+  cwe_id:
+    - 347
+  id: python_lang_jwt_verification_bypass
+  documentation_url: https://docs.bearer.com/reference/rules/python_lang_jwt_verification_bypass
