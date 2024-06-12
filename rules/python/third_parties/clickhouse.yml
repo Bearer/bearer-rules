@@ -1,22 +1,16 @@
 imports:
   - python_shared_lang_import1
+  - python_shared_lang_instance
   - python_shared_lang_datatype
 patterns:
   - pattern: |
       $<CLIENT>.insert($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: CLIENT
-        detection: python_third_parties_clickhouse_connect_client
-        scope: result
-      - variable: DATA_TYPE
-        detection: python_shared_lang_datatype
-        scope: result
-auxiliary:
-  - id: python_third_parties_clickhouse_connect_client
-    patterns:
-      - pattern: $<CLICKHOUSE_CLIENT>
+        detection: python_shared_lang_instance
+        scope: cursor
         filters:
-          - variable: CLICKHOUSE_CLIENT
+          - variable: CLASS
             detection: python_shared_lang_import1
             scope: cursor
             filters:
@@ -24,6 +18,9 @@ auxiliary:
                 values: [clickhouse_connect]
               - variable: NAME
                 values: [get_client]
+      - variable: DATA_TYPE
+        detection: python_shared_lang_datatype
+        scope: result
 languages:
   - python
 severity: medium
