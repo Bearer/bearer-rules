@@ -12,6 +12,29 @@ patterns:
       - variable: USER_INPUT
         detection: python_shared_common_user_input
         scope: result
+  - pattern: compile($<_>, $<_>, $<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: $<IMPORT_MODULE>($<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: IMPORT_MODULE
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [importlib]
+          - variable: NAME
+            values: [import_module]
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
+  - pattern: __import__($<...>$<USER_INPUT>$<...>)
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
   - pattern: $<OS>($<...>$<USER_INPUT>$<...>)
     filters:
       - variable: OS

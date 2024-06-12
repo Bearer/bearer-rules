@@ -14,3 +14,11 @@ def bad3(request):
   unsafe = request.GET.get("some_code")
   # bearer:expected python_lang_code_injection
   os.execl("/bin/bash", "/bin/bash", "-c", unsafe)
+
+from importlib import import_module
+def bad4(request):
+  # bearer:expected python_lang_code_injection
+  module1 = __import__("user.commands.%s" % (request.GET.get("module1")))
+  # bearer:expected python_lang_code_injection
+  module = import_module("user.commands.%s" % (request.GET.get("module_name")))
+  return  module.Command()
