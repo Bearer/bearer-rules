@@ -41,6 +41,12 @@ def sqlalchemy():
         # bearer:expected python_lang_sql_injection
         result = sqlalcon.execute(text(f"SELECT * FROM {user_input}"))
 
+def bad2(scenario: dict, conn):
+  query = f"INSERT INTO scenario (config_id) VALUES ({scenario['config_id']})"
+  # bearer:expected python_lang_sql_injection
+  conn.execute(query)
+  conn.commit()
+
 
 def mysql_connector_sanitizer():
     import mysql.connector

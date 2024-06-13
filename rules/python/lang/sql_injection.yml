@@ -3,6 +3,14 @@ imports:
   - python_shared_lang_instance
   - python_shared_lang_import1
 patterns:
+  - pattern: $<CONN>.execute($<USER_INPUT>$<...>)
+    filters:
+      - variable: CONN
+        detection: python_lang_sql_injection_conn
+        scope: cursor
+      - variable: USER_INPUT
+        detection: python_shared_common_sql_user_input
+        scope: result
   - pattern: $<CURSOR>.$<METHOD>($<USER_INPUT>$<...>)
     filters:
       - variable: CURSOR
@@ -78,6 +86,10 @@ auxiliary:
   - id: python_lang_sql_injection_cursor
     patterns:
       - $<_>.cursor()
+  - id: python_lang_sql_injection_conn
+    patterns:
+      - pattern: |
+          def $<_>($<...>$<!>conn$<...>):
   - id: python_lang_sql_injection_pg8000_conn
     patterns:
       - pattern: $<GENERIC_CURSOR>
