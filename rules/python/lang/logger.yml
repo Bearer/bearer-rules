@@ -3,7 +3,7 @@ imports:
   - python_shared_lang_instance
   - python_shared_lang_import1
 patterns:
-  - pattern: $<LOGGER>.$<METHOD>($<DATA_TYPE>)
+  - pattern: $<LOGGER>.$<METHOD>($<...>$<DATA_TYPE>$<...>)
     filters:
       - variable: LOGGER
         detection: python_lang_logger_init
@@ -22,6 +22,8 @@ patterns:
 auxiliary:
   - id: python_lang_logger_init
     patterns:
+      - logger
+      - $<_>.get_logger()
       - pattern: $<LOGGER>
         filters:
           - variable: LOGGER
