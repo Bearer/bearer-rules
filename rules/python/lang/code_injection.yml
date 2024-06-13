@@ -35,6 +35,11 @@ patterns:
       - variable: USER_INPUT
         detection: python_shared_common_user_input
         scope: result
+  - pattern: globals()[$<...>$<USER_INPUT>$<...>]
+    filters:
+      - variable: USER_INPUT
+        detection: python_shared_common_user_input
+        scope: result
   - pattern: $<OS>($<...>$<USER_INPUT>$<...>)
     filters:
       - variable: OS

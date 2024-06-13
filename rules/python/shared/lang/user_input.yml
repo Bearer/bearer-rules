@@ -1,4 +1,5 @@
 imports:
+  - python_shared_lang_import1
   - python_shared_lang_import2
 type: shared
 languages:
@@ -20,6 +21,16 @@ patterns:
               - read
               - readline
               - readlines
+  - pattern: $<SYS_ARGV>[$<_>]
+    filters:
+      - variable: SYS_ARGV
+        detection: python_shared_lang_import1
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [sys]
+          - variable: NAME
+            values: [argv]
 metadata:
   description: "Python lang user input."
   id: python_shared_lang_user_input
