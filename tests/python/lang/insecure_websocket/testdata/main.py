@@ -19,8 +19,8 @@ def websocket():
   import websocket
   # bearer:expected python_lang_insecure_websocket
   websocket.WebSocketApp("ws://example.com")
-  # bearer:expected python_lang_insecure_websocket
   ws = websocket.WebSocket()
+  # bearer:expected python_lang_insecure_websocket
   ws.connect("ws://example.com")
 
 def socketio():

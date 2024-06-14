@@ -1,12 +1,12 @@
-# Use bearer:expected python_lang_path_traversal to flag expected findings
-
 import os
 
-# bearer:expected python_lang_path_traversal
-os.mkdir(sys.argv[2])
+def bad(dynamic_input):
+  # bearer:expected python_lang_path_traversal
+  os.mkdir(dynamic_input)
 
 import os.path
 
 # ok (sanitized)
-normalized = os.path.normpath(sys.argv[1])
-os.mkdir(normalized)
+def ok(dynamic_input):
+  normalized = os.path.normpath(dynamic_input)
+  os.mkdir(normalized)

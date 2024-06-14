@@ -24,13 +24,3 @@ def custom_bad():
   # bearer:expected python_lang_logger
   logger.info("changing password for %s", user.username)
   
-def custom_bad2(self):
-    form = ResetPasswordEmailForm()
-    if form.validate_on_submit():
-        user = form.user
-        # bearer:expected python_lang_logger
-        logger.info('Password reset requested for user %s', user)
-        return redirect(url_for('.resetpass'))
-    return WPAuth.render_template('reset_password.html', form=form, identity=None, widget_attrs={},
-                                  email_sent=session.pop('resetpass_email_sent', False))
-  

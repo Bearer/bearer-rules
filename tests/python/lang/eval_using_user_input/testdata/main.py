@@ -5,6 +5,7 @@ def bad(request):
   # bearer:expected python_lang_eval_using_user_input
   eval(form.cleaned_data["bad_eval"])
 
+import sys
 def bad2(interpreter_id: int = 0):
   unsafe = sys.argv[2]
   # bearer:expected python_lang_eval_using_user_input
