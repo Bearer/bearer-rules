@@ -40,7 +40,7 @@ auxiliary:
       # ok if it is not False
       - pattern: $<_>($<...>httponly=$<FALSE>$<...>)
         filters:
-          - not: 
+          - not:
               variable: "FALSE"
               detection: python_django_cookie_missing_http_only_false
               scope: cursor

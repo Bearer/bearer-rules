@@ -11,8 +11,7 @@ patterns:
           - variable: MODULE1
             values: [jwt]
           - variable: NAME
-            values:
-              - decode
+            values: [decode]
       - variable: OPTS
         detection: python_lang_jwt_verification_bypass_options
 auxiliary:
@@ -21,7 +20,7 @@ auxiliary:
       - pattern: |
           { $<...>"verify_signature": $<FALSE>$<...> }
         filters:
-          - variable: FALSE
+          - variable: "FALSE"
             detection: python_lang_jwt_verification_bypass_false
             scope: cursor
   - id: python_lang_jwt_verification_bypass_false

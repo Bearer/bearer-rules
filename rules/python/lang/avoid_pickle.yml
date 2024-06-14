@@ -45,13 +45,13 @@ auxiliary:
                 values: [Unpickler]
 languages:
   - python
-severity:
+severity: critical
 metadata:
   description: Usage of unsafe Pickle libraries
   remediation_message: |
     ## Description
 
-    Using pickle, _pickle and cPickle can make your application vulnerable to unsafe code execution. This is because the deserialization logic of these libraries allows for arbitrary code execution. It is best practices to avoid these libraries and to use a safer serialization formats like JSON. 
+    Using pickle, _pickle and cPickle can make your application vulnerable to unsafe code execution. This is because the deserialization logic of these libraries allows for arbitrary code execution. It is best practices to avoid these libraries and to use a safer serialization formats like JSON.
 
     ## Remediations
 
@@ -69,6 +69,6 @@ metadata:
     - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
 
   cwe_id:
-    - 501
+    - 502
   id: python_lang_avoid_pickle
   documentation_url: https://docs.bearer.com/reference/rules/python_lang_avoid_pickle
