@@ -1,23 +1,23 @@
 imports:
-  - python_shared_common_user_input
+  - python_shared_common_external_input
   - python_shared_lang_import1
 patterns:
-  - pattern: exec($<...>$<USER_INPUT>$<...>)
+  - pattern: exec($<...>$<EXTERNAL_INPUT>$<...>)
     filters:
-      - variable: USER_INPUT
-        detection: python_shared_common_user_input
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
         scope: result
-  - pattern: setattr($<_>, $<_>, $<...>$<USER_INPUT>$<...>)
+  - pattern: setattr($<_>, $<_>, $<...>$<EXTERNAL_INPUT>$<...>)
     filters:
-      - variable: USER_INPUT
-        detection: python_shared_common_user_input
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
         scope: result
-  - pattern: compile($<_>, $<_>, $<...>$<USER_INPUT>$<...>)
+  - pattern: compile($<_>, $<_>, $<...>$<EXTERNAL_INPUT>$<...>)
     filters:
-      - variable: USER_INPUT
-        detection: python_shared_common_user_input
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
         scope: result
-  - pattern: $<IMPORT_MODULE>($<...>$<USER_INPUT>$<...>)
+  - pattern: $<IMPORT_MODULE>($<...>$<EXTERNAL_INPUT>$<...>)
     filters:
       - variable: IMPORT_MODULE
         detection: python_shared_lang_import1
@@ -27,20 +27,20 @@ patterns:
             values: [importlib]
           - variable: NAME
             values: [import_module]
-      - variable: USER_INPUT
-        detection: python_shared_common_user_input
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
         scope: result
-  - pattern: __import__($<...>$<USER_INPUT>$<...>)
+  - pattern: __import__($<...>$<EXTERNAL_INPUT>$<...>)
     filters:
-      - variable: USER_INPUT
-        detection: python_shared_common_user_input
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
         scope: result
-  - pattern: globals()[$<...>$<USER_INPUT>$<...>]
+  - pattern: globals()[$<...>$<EXTERNAL_INPUT>$<...>]
     filters:
-      - variable: USER_INPUT
-        detection: python_shared_common_user_input
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
         scope: result
-  - pattern: $<OS>($<...>$<USER_INPUT>$<...>)
+  - pattern: $<OS>($<...>$<EXTERNAL_INPUT>$<...>)
     filters:
       - variable: OS
         detection: python_shared_lang_import1
@@ -58,22 +58,22 @@ patterns:
               - execve
               - execvp
               - execvpe
-      - variable: USER_INPUT
-        detection: python_shared_common_user_input
+      - variable: EXTERNAL_INPUT
+        detection: python_shared_common_external_input
         scope: result
 languages:
   - python
 severity: critical
 metadata:
-  description: Unsanitized user input in code generation
+  description: Unsanitized external input in code generation
   remediation_message: |-
     ## Description
 
-    Allowing user input to directly influence code generation or scripting functions without proper sanitization can lead to code injection vulnerabilities. This occurs when an attacker is able to insert malicious code into your application, which is then executed, potentially leading to unauthorized actions or data access.
+    Allowing external input (dynamic or user-controlled) to directly influence code generation or scripting functions without proper sanitization can lead to code injection vulnerabilities. This occurs when an attacker is able to insert malicious code into your application, which is then executed, potentially leading to unauthorized actions or data access.
 
     ## Remediations
 
-    - **Do not** pass unsanitized user input to functions or methods that dynamically execute code.
+    - **Do not** pass unsanitized external input to functions or methods that dynamically execute code.
     - **Do** always validate or sanitize input to ensure it does not contain harmful code before using it in such contexts.
 
     ## References
