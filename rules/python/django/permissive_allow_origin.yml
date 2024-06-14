@@ -12,7 +12,7 @@ patterns:
       - variable: VALUE
         string_regex: \A\*\z
   - pattern: |
-      $<RESPONSE>($<...> headers={$<...>$<ALLOW_ORIGIN>: $<...>$<VALUE>$<...>} $<...>)
+      $<RESPONSE>($<...>headers=$<HEADERS_HASH>$<...>)
     filters:
       - variable: RESPONSE
         detection: python_shared_lang_import2
@@ -23,11 +23,22 @@ patterns:
           - variable: MODULE2
             values: [http]
           - variable: NAME
-            values: [HttpResponse]
-      - variable: ALLOW_ORIGIN
-        string_regex: (?i)\Aaccess-control-allow-origin\z
-      - variable: VALUE
-        string_regex: \A\*\z
+            values:
+              - HttpResponse
+              - JsonResponse
+      - variable: HEADERS_HASH
+        detection: python_django_permissive_allow_origin_headers_hash
+        scope: cursor
+auxiliary:
+  - id: python_django_permissive_allow_origin_headers_hash
+    patterns:
+      - pattern: |
+          {$<...>$<ALLOW_ORIGIN>: $<VALUE>$<...>}
+        filters:
+          - variable: ALLOW_ORIGIN
+            string_regex: (?i)\Aaccess-control-allow-origin\z
+          - variable: VALUE
+            string_regex: \A\*\z
 languages:
   - python
 severity: medium

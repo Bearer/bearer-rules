@@ -14,7 +14,7 @@ patterns:
         detection: python_shared_common_user_input
         scope: result
   - pattern: |
-      $<RESPONSE>($<...> headers={$<...>$<ALLOW_ORIGIN>: $<...>$<USER_INPUT>$<...>} $<...>)
+      $<RESPONSE>($<...>headers=$<HEADERS_HASH>$<...>)
     filters:
       - variable: RESPONSE
         detection: python_shared_lang_import2
@@ -25,12 +25,23 @@ patterns:
           - variable: MODULE2
             values: [http]
           - variable: NAME
-            values: [HttpResponse]
-      - variable: ALLOW_ORIGIN
-        string_regex: (?i)\Aaccess-control-allow-origin\z
-      - variable: USER_INPUT
-        detection: python_shared_common_user_input
-        scope: result
+            values:
+              - HttpResponse
+              - JsonResponse
+      - variable: HEADERS_HASH
+        detection: python_django_insecure_allow_origin_headers_hash
+        scope: cursor
+auxiliary:
+  - id: python_django_insecure_allow_origin_headers_hash
+    patterns:
+      - pattern: |
+          {$<...>$<ALLOW_ORIGIN>: $<USER_INPUT>$<...>}
+        filters:
+          - variable: ALLOW_ORIGIN
+            string_regex: (?i)\Aaccess-control-allow-origin\z
+          - variable: USER_INPUT
+            detection: python_shared_common_user_input
+            scope: result
 languages:
   - python
 severity: medium
