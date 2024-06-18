@@ -38,7 +38,7 @@ metadata:
     ## Remediations
 
     - **Do** strip any carriage return and line feed characters from user input data before logging it or writing to a file. This prevents attackers from injecting malicious CRLF sequences.
-      ```pyhton
+      ```python
       response.write(user_input.replaceAll("[\r\n]+", ""));
       ```
 
