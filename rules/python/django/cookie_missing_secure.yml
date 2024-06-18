@@ -37,14 +37,16 @@ auxiliary:
                         values: [render]
   - id: python_django_cookie_missing_secure_set_cookie_secure
     patterns:
-      - pattern: $<_>($<...>secure=$<TRUE>)
+      # ok if it is not False
+      - pattern: $<_>($<...>secure=$<FALSE>$<...>)
         filters:
-          - variable: "TRUE"
-            detection: python_django_cookie_missing_secure_true
-            scope: cursor
-  - id: python_django_cookie_missing_secure_true
+          - not:
+              variable: "FALSE"
+              detection: python_django_cookie_missing_secure_false
+              scope: cursor
+  - id: python_django_cookie_missing_secure_false
     patterns:
-      - "True"
+      - "False"
 languages:
   - python
 severity: medium

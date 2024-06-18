@@ -15,6 +15,14 @@ patterns:
             scope: cursor
             filters:
               - variable: MODULE1
+                values: [websocket]
+              - variable: NAME
+                values: [WebSocketApp]
+          - variable: CONNECT
+            detection: python_shared_lang_import1
+            scope: cursor
+            filters:
+              - variable: MODULE1
                 values: [websockets]
               - variable: NAME
                 values: [connect]
@@ -45,22 +53,36 @@ patterns:
         scope: cursor
   - pattern: $<CLIENT>.connect($<INSECURE_URL>$<...>)
     filters:
-      - variable: CLIENT
-        detection: python_shared_lang_instance
-        scope: cursor
-        filters:
-          - variable: CLASS
-            detection: python_shared_lang_import1
+      - either:
+          - variable: CLIENT
+            detection: python_shared_lang_instance
             scope: cursor
             filters:
-              - variable: MODULE1
-                values: [socketio]
-              - variable: NAME
-                values:
-                  - Client
-                  - AsyncClient
-                  - SimpleClient
-                  - AsyncSimpleClient
+              - variable: CLASS
+                detection: python_shared_lang_import1
+                scope: cursor
+                filters:
+                  - variable: MODULE1
+                    values: [websocket]
+                  - variable: NAME
+                    values:
+                      - WebSocket
+          - variable: CLIENT
+            detection: python_shared_lang_instance
+            scope: cursor
+            filters:
+              - variable: CLASS
+                detection: python_shared_lang_import1
+                scope: cursor
+                filters:
+                  - variable: MODULE1
+                    values: [socketio]
+                  - variable: NAME
+                    values:
+                      - Client
+                      - AsyncClient
+                      - SimpleClient
+                      - AsyncSimpleClient
       - variable: INSECURE_URL
         detection: python_shared_lang_insecure_url
         scope: cursor

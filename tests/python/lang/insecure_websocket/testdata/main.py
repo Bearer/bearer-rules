@@ -14,7 +14,14 @@ async def websockets():
     connect_sync("ws://example.com")
     # bearer:expected python_lang_insecure_websocket
     await connect_async("ws://example.com")
-
+    
+def websocket():
+  import websocket
+  # bearer:expected python_lang_insecure_websocket
+  websocket.WebSocketApp("ws://example.com")
+  ws = websocket.WebSocket()
+  # bearer:expected python_lang_insecure_websocket
+  ws.connect("ws://example.com")
 
 def socketio():
     import socketio

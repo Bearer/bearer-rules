@@ -16,3 +16,11 @@ def bad3(user):
   myOtherLogger = something_else.getLogger(__name__)
   # bearer:expected python_lang_logger
   myOtherLogger.debug(f"User '{user.email}' logged")
+  
+  
+import my_custom
+def custom_bad():
+  logger = my_custom.get_logger()
+  # bearer:expected python_lang_logger
+  logger.info("changing password for %s", user.username)
+  

@@ -1,0 +1,26 @@
+patterns:
+  - |
+    def __html__($<...>):
+languages:
+  - python
+severity: high
+metadata:
+  description: Usage of __html__ magic method
+  remediation_message: |
+    ## Description
+
+    The Django template engine considers values returned by the `__html__` method as "safe" for rendering and therefore no HTML escaping is applied (escaping special characters like ampersands or quotes). Using this method exposes your application to Cross-Site Scripting (XSS) vulnerabilities.  
+
+    ## Remediations
+
+    - **Do not** use the `__html__` magic method
+    - **Do** use `format_html` instead to build up HTML fragments. This is more appropriate because it applies escaping to its arguments by default. 
+      ```python
+      from django.utils.html import format_html
+
+      format_html("{} <b>{}</b> {}", mark_safe(some_html), some text)
+      ```
+  cwe_id:
+    - 79
+  id: python_django_html_magic_method
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_html_magic_method

@@ -1,0 +1,58 @@
+imports:
+  - python_shared_lang_import3
+sanitizer: python_django_mark_safe_sanitizer
+patterns:
+  - pattern: $<MARK_SAFE>($<...>)
+    filters:
+      - variable: MARK_SAFE
+        detection: python_shared_lang_import3
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [django]
+          - variable: MODULE2
+            values: [utils]
+          - variable: MODULE3
+            values: [safestring]
+          - variable: NAME
+            values: [mark_safe]
+auxiliary:
+  - id: python_django_mark_safe_sanitizer
+    patterns:
+      - pattern: $<FORMAT_HTML>($<...>)
+        filters:
+          - variable: FORMAT_HTML
+            detection: python_shared_lang_import3
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [django]
+              - variable: MODULE2
+                values: [utils]
+              - variable: MODULE3
+                values: [html]
+              - variable: NAME
+                values: [format_html]
+languages:
+  - python
+severity: high
+metadata:
+  description: Usage of mark_safe
+  remediation_message: |
+    ## Description
+
+    The Django utils method `mark_safe` is used to mark a string as "safe" for output as HTML, but it does not escape special characters like ampersands or quotes, and therefore could expose your application to XSS attacks if an external string is passed to it.   
+
+    ## Remediations
+
+    - **Do not** use `mark_safe` wherever possible
+    - **Do** use `format_html` instead to build up HTML fragments. This is more appropriate because it applies escaping to its arguments by default. 
+      ```python
+      from django.utils.html import format_html
+
+      format_html("{} <b>{}</b> {}", mark_safe(some_html), some text)
+      ```
+  cwe_id:
+    - 79
+  id: python_django_mark_safe
+  documentation_url: https://docs.bearer.com/reference/rules/python_django_mark_safe

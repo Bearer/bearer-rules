@@ -19,6 +19,7 @@ def bad():
     stderr=subprocess.STDOUT,
     shell=True)
 
+import sys
 def bad2():
   unsafe = sys.argv[1]
   # bearer:expected python_lang_os_command_injection

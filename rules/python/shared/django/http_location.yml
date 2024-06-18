@@ -1,0 +1,23 @@
+type: shared
+imports:
+  - python_shared_lang_import2
+patterns:
+  - pattern: $<CONNECTION_CLASS>($<LOCATION>$<...>)
+    filters:
+      - variable: CONNECTION_CLASS
+        detection: python_shared_lang_import2
+        scope: cursor
+        filters:
+          - variable: MODULE1
+            values: [django]
+          - variable: MODULE2
+            values: [http]
+          - variable: NAME
+            values:
+              - HttpResponseRedirect
+              - HttpResponsePermanentRedirect
+languages:
+  - python
+metadata:
+  description: "Python Django HTTP request URL, redirect etc."
+  id: python_shared_django_http_location

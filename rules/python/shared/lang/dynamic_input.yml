@@ -4,7 +4,6 @@ languages:
 imports:
   - python_shared_lang_import1
 patterns:
-  - sys.argv[$<_>]
   - pattern: $<PARSER>.parse_args($<...>)
     filters:
       - variable: PARSER
@@ -44,6 +43,8 @@ auxiliary:
         def $<_>($<...>$<!>$<ARG>$<...>):
       - |
         def $<_>($<...>$<!>$<ARG>=$<_>$<...>):
+      - |
+        def $<_>($<...>$<!>$<ARG>:$<_>$<...>):
 metadata:
   description: "Python dynamic input."
   id: python_shared_lang_dynamic_input

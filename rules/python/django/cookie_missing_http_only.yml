@@ -37,14 +37,16 @@ auxiliary:
                         values: [render]
   - id: python_django_cookie_missing_http_only_set_cookie_http_only
     patterns:
-      - pattern: $<_>($<...>httponly=$<TRUE>$<...>)
+      # ok if it is not False
+      - pattern: $<_>($<...>httponly=$<FALSE>$<...>)
         filters:
-          - variable: "TRUE"
-            detection: python_django_cookie_missing_http_only_true
-            scope: cursor
-  - id: python_django_cookie_missing_http_only_true
+          - not:
+              variable: "FALSE"
+              detection: python_django_cookie_missing_http_only_false
+              scope: cursor
+  - id: python_django_cookie_missing_http_only_false
     patterns:
-      - "True"
+      - "False"
 languages:
   - python
 severity: medium
