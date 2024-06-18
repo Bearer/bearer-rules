@@ -52,6 +52,16 @@ metadata:
       ```php
       $sortingOrder = $_GET['sortingOrder'] === 'DESC' ? 'DESC' : 'ASC';
       ```
+    - **Do** use safe lists to validate external input, if dynamic input is required.
+      ```php
+      private function validatedTableName($table_name)
+      {
+        if in_array($table_name, $ALLOWED_TABLE_NAMES) {
+          return $table_name
+        }
+        // handle invalid table name
+      }
+      ```
     - **Do** use prepared statements for database queries to separate SQL logic from external input, significantly reducing the risk of SQL injection.
       ```php
       $stmt = $pdo->prepare("SELECT * FROM products WHERE id LIKE ? ORDER BY price {$sortingOrder}");
