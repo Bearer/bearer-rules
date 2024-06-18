@@ -71,6 +71,16 @@ metadata:
       ```php
       $sql = "SELECT * FROM foo WHERE bar = '" . $conn->quote($_GET['bar']) . "'";
       ```
+    - **Do** use safe lists to validate external input, if dynamic input is required.
+      ```php
+      private function validatedTableName($table_name)
+      {
+        if in_array($table_name, $ALLOWED_TABLE_NAMES) {
+          return $table_name
+        }
+        // handle invalid table name
+      }
+      ```
     - **Do** use prepared statements with bound parameters to safely include external data in SQL queries. This method ensures that external input is treated as data and not as part of the SQL command.
       ```php
       $sql = "SELECT * FROM users WHERE username = :user";
