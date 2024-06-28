@@ -1,0 +1,26 @@
+patterns:
+  - pattern: $<STRING>
+    filters:
+      - variable: STRING
+        string_regex: cdn\.polyfill\.io
+languages:
+  - javascript
+severity:
+metadata:
+  description:
+  remediation_message: |
+    ## Description
+
+    ## Remediations
+
+    - **Do**
+    - **Do not**
+
+    ## References
+
+    - []()
+
+  cwe_id:
+    - CWE_ID
+  id: javascript_third_parties_polyfill
+  documentation_url: https://docs.bearer.com/reference/rules/javascript_third_parties_polyfill
