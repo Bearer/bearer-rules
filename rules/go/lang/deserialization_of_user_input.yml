@@ -1,25 +1,27 @@
 imports:
   - go_shared_lang_dynamic_input_combined
 patterns:
-  - pattern: $<DECODER>.Decode($<USER_INPUT>);
+  - pattern: $<DECODER>.Decode($<...>);
     filters:
       - variable: DECODER
         detection: go_lang_deserialization_of_user_input_decoder
-      - variable: USER_INPUT
-        detection: go_shared_lang_dynamic_input_combined
-  - pattern: $<ENCODER>.Encode($<...>$<USER_INPUT>$<...>);
+  - pattern: $<ENCODER>.Encode($<...>);
     filters:
       - variable: ENCODER
         detection: go_lang_deserialization_of_user_input_encoder
-      - variable: USER_INPUT
-        detection: go_shared_lang_dynamic_input_combined
 auxiliary:
   - id: go_lang_deserialization_of_user_input_decoder
     patterns:
-      - gob.NewDecoder();
+      - pattern: gob.NewDecoder($<USER_INPUT>);
+        filters:
+          - variable: USER_INPUT
+            detection: go_shared_lang_dynamic_input_combined
   - id: go_lang_deserialization_of_user_input_encoder
     patterns:
-      - gob.NewEncoder();
+      - pattern: gob.NewEncoder($<USER_INPUT>);
+        filters:
+          - variable: USER_INPUT
+            detection: go_shared_lang_dynamic_input_combined
 languages:
   - go
 metadata:
