@@ -15,10 +15,10 @@ type Employee struct {
 
 func bad() {
 
-	dec := gob.NewDecoder(&os.Args[0])
+	dec := gob.NewDecoder(bytes.NewReader([]byte(os.Args[0])))
 	var v Vector
-	err = dec.Decode(&v)
 	// bearer:expected go_lang_deserialization_of_user_input
+	err = dec.Decode(&v)
 }
 
 func ok() {
