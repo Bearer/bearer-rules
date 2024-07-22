@@ -13,28 +13,13 @@ patterns:
         detection: go_lang_deserialization_of_user_input_encoder
       - variable: USER_INPUT
         detection: go_shared_lang_dynamic_input_combined
-  - pattern: $<CALLER>.$<METHOD>($<...>$<USER_INPUT>$<...>);
-    filters:
-      - variable: CALLER
-        values:
-          - yaml
-          - json
-          - proto
-      - variable: METHOD
-        values:
-          - Unmarshal
-          - Marshal
-      - variable: USER_INPUT
-        detection: go_shared_lang_dynamic_input_combined
 auxiliary:
   - id: go_lang_deserialization_of_user_input_decoder
     patterns:
       - gob.NewDecoder();
-      - json.NewDecoder();
   - id: go_lang_deserialization_of_user_input_encoder
     patterns:
       - gob.NewEncoder();
-      - json.NewEncoder();
 languages:
   - go
 metadata:
@@ -51,6 +36,7 @@ metadata:
 
     ## References
 
+    - [Gob Security Documentation](https://pkg.go.dev/encoding/gob#hdr-Security)
     - [OWASP Deserialization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
   cwe_id:
     - 502
