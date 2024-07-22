@@ -8,34 +8,21 @@ import (
 	"fmt"
 )
 
+type Employee struct {
+	Name string
+	Role string
+}
+
 func bad() {
-	decoder := gob.NewDecoder(os.Args[0])
+
+	dec := gob.NewDecoder(&os.Args[0])
+	var v Vector
+	err = dec.Decode(&v)
 	// bearer:expected go_lang_deserialization_of_user_input
-	decoder.Decode(os.Args[0])
-	// ...
 }
 
-func bad2() {
-	// bearer:expected go_lang_deserialization_of_user_input
-	yaml.Unmarshal(os.Args[0])
-	// bearer:expected go_lang_deserialization_of_user_input
-	yaml.Marshal(os.Args[0])
-	// ...
-}
-
-func bad3() {
-	// bearer:expected go_lang_deserialization_of_user_input
-	json.Unmarshal(os.Args[0])
-	// bearer:expected go_lang_deserialization_of_user_input
-	json.Marshal(os.Args[0])
-	// ...
-}
-
-func bad4() {
-	newMessage := &example.Message{}
-	// bearer:expected go_lang_deserialization_of_user_input
-	proto.Unmarshal(os.Args[0], newMessage)
-	// bearer:expected go_lang_deserialization_of_user_input
-	proto.Marshal(os.Args[0])
-	// ...
+func ok() {
+	data = &Employee{}
+	json.Unmarshal(os.Args[0], data)
+	json.Marshal(data)
 }
