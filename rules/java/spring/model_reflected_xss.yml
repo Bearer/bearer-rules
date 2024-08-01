@@ -1,0 +1,55 @@
+imports:
+  - java_shared_lang_external_input
+  - java_shared_lang_instance
+patterns:
+  - pattern: |
+      $<MODEL_INSTANCE>.addAttribute($<_>, $<USER_INPUT>);
+    filters:
+      - variable: MODEL_INSTANCE
+        detection: java_shared_lang_instance
+        scope: cursor
+        filters:
+          - variable: JAVA_SHARED_LANG_INSTANCE_TYPE
+            regex: \A(org\.springframework\.ui\.)?Model\z
+      - variable: USER_INPUT
+        detection: java_spring_model_reflected_xss_unsanitized_input
+        scope: cursor
+auxiliary:
+  - id: java_spring_model_reflected_xss_unsanitized_input
+    patterns:
+      - pattern: $<USER_INPUT>;
+        filters:
+          - variable: USER_INPUT
+            detection: java_shared_lang_external_input
+            scope: cursor_strict
+          - not:
+              variable: USER_INPUT
+              detection: java_spring_model_reflected_xss_request_url_string
+  - id: java_spring_model_reflected_xss_request_url_string
+    patterns:
+      - pattern: $<_>.getRequestURL().toString();
+
+languages:
+  - java
+metadata:
+  description: "Unsanitized request data in Spring UI model (XSS)"
+  remediation_message: |-
+    ## Description
+
+    Cross-site scripting (XSS) vulnerabilities occur when unsanitized user input is included in web page content. This flaw can lead to malicious scripts being executed in the context of the user's browser, compromising the security of user data and interactions with the application.
+
+    ## Remediations
+
+    - **Do** validate the input before adding it to the UI model.
+    - **Do** sanitize user input to remove or neutralize unwanted scripts.
+
+    ## References
+
+    - [OWASP XSS Prevention Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+    - [OWASP Java Encoder](https://owasp.org/www-project-java-encoder/)
+    - [Spring HtmlUtils](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/util/HtmlUtils.html)
+  cwe_id:
+    - 79
+  id: "java_spring_model_reflected_xss"
+  documentation_url: https://docs.bearer.com/reference/rules/java_spring_model_reflected_xss
+severity: high
