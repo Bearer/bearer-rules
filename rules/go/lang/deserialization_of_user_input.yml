@@ -5,20 +5,10 @@ patterns:
     filters:
       - variable: DECODER
         detection: go_lang_deserialization_of_user_input_decoder
-  - pattern: $<ENCODER>.Encode($<...>);
-    filters:
-      - variable: ENCODER
-        detection: go_lang_deserialization_of_user_input_encoder
 auxiliary:
   - id: go_lang_deserialization_of_user_input_decoder
     patterns:
       - pattern: gob.NewDecoder($<USER_INPUT>);
-        filters:
-          - variable: USER_INPUT
-            detection: go_shared_lang_dynamic_input_combined
-  - id: go_lang_deserialization_of_user_input_encoder
-    patterns:
-      - pattern: gob.NewEncoder($<USER_INPUT>);
         filters:
           - variable: USER_INPUT
             detection: go_shared_lang_dynamic_input_combined
