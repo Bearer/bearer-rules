@@ -4,8 +4,6 @@ User.find_by(params[:oops])
 find_by!("oops #{params[:oops]}")
 # bearer:expected ruby_rails_sql_injection
 User.joins("INNER JOIN #{params[:oops]}")
-# bearer:expected ruby_rails_sql_injection
-select("#{params[:oops]} AS oops")
 
 # chained case
 # bearer:expected ruby_rails_sql_injection

@@ -14,3 +14,7 @@ ITEMS = [:apple, :carrot, "orange"]
 ITEMS.count
 ITEMS.count(:apple)
 
+# bearer:expected ruby_rails_sql_injection
+User.select("#{params[:oops]} AS oops")
+# bearer:expected ruby_rails_sql_injection
+user.posts.select("#{params[:oops]} AS oops")
