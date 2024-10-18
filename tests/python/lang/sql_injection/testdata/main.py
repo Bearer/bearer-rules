@@ -20,9 +20,9 @@ def asyncpg():
   conn = await asyncpg.connect(user='mish', password='password')
   query = "SELECT * FROM bar WHERE foo=" + user_input
   # bearer:expected python_lang_sql_injection
-  values = await conn.fetch(query)   
+  values = await conn.fetch(query)
   await conn.close()
-  
+
 def pg8000():
   import pg8000.native as pg
   import pg8000.dbapi
@@ -59,6 +59,19 @@ def mysql_connector_sanitizer():
     # bearer:expected python_lang_sql_injection
     cursor.execute(user_input)
     cursor.execute(converter.escape(user_input))
+
+def mysql_connector_sanitizer_2():
+    import mysql.connector
+    from mysql.connector.conversion import MySQLConverter
+
+    cursor = self.con.cursor()
+    # bearer:expected python_lang_sql_injection
+    cursor.callproc(user_input, user_input)
+
+    sanitized_input = MySQLConverter.escape(str(user_input))
+    sanitized_values = [MySQLConverter.escape(str(value)) for value in user_input]
+    # ok
+    cursor.callproc(sanitized_input, sanitized_values)
 
 def pymysql_sanitizer():
     import pymysql

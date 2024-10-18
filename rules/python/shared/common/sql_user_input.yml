@@ -7,6 +7,7 @@ imports:
   - python_shared_lang_import1
   - python_shared_lang_import2
   - python_shared_lang_import3
+  - python_shared_lang_import4
 sanitizer: python_shared_common_sql_user_input_sanitizer
 patterns:
   - pattern: $<INPUT>
@@ -17,6 +18,22 @@ patterns:
 auxiliary:
   - id: python_shared_common_sql_user_input_sanitizer
     patterns:
+      - pattern: $<CONVERTER_CLASS>($<_>)
+        filters:
+          - variable: CONVERTER_CLASS
+            detection: python_shared_lang_import4
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [mysql]
+              - variable: MODULE2
+                values: [connector]
+              - variable: MODULE3
+                values: [conversion]
+              - variable: MODULE4
+                values: [MySQLConverter]
+              - variable: NAME
+                values: [escape]
       - pattern: $<CONVERTER>.escape($<_>)
         filters:
           - variable: CONVERTER
