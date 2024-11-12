@@ -113,6 +113,10 @@ auxiliary:
   - id: javascript_lang_sql_injection_mysql_pool
     patterns:
       - mysql.createPool()
+      - pattern: $<MYSQL_POOL>.promise()
+        filters:
+          - variable: MYSQL_POOL
+            detection: javascript_lang_sql_injection_mysql_pool
   - id: javascript_lang_sql_injection_pool_conn
     patterns:
       - pattern: $<MYSQL_POOL>.getConnection(function($<_>, $<!>$<_>) {})
