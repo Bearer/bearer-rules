@@ -60,21 +60,11 @@ patterns:
               - remove
               - rename
               - unlink
-  - pattern: $<OS_PATH>($<UNSANITIZED_DYNAMIC_INPUT>)
+  - pattern: $<OS_PATH_JOIN>
     filters:
-      - variable: UNSANITIZED_DYNAMIC_INPUT
-        detection: python_lang_path_traversal_dynamic_input
-        scope: result
-      - variable: OS_PATH
-        detection: python_shared_lang_import2
+      - variable: OS_PATH_JOIN
+        detection: python_lang_path_traversal_os_path_join
         scope: cursor
-        filters:
-          - variable: MODULE1
-            values: [os]
-          - variable: MODULE2
-            values: [path]
-          - variable: NAME
-            values: [join]
   - pattern: $<SHUTIL>($<SOURCE>, $<DEST>, $<...>)
     filters:
       - either:
@@ -155,10 +145,10 @@ auxiliary:
         filters:
           - variable: UNSANITIZED_DYNAMIC_INPUT
             detection: python_shared_lang_dynamic_input
-            scope: result
+            scope: cursor
   - id: python_lang_path_traversal_sanitizer
     patterns:
-      - pattern: $<OS_PATH_NORMPATH>()
+      - pattern: $<OS_PATH_NORMPATH>($<...>$<!>$<_>$<...>)
         filters:
           - variable: OS_PATH_NORMPATH
             detection: python_shared_lang_import2
@@ -169,7 +159,25 @@ auxiliary:
               - variable: MODULE2
                 values: [path]
               - variable: NAME
-                values: [normpath]
+                values: [normpath, abspath]
+  - id: python_lang_path_traversal_os_path_join
+    sanitizer: python_lang_path_traversal_sanitizer
+    patterns:
+      - pattern: $<OS_PATH>($<...>$<UNSANITIZED_DYNAMIC_INPUT>$<...>)
+        filters:
+          - variable: UNSANITIZED_DYNAMIC_INPUT
+            detection: python_lang_path_traversal_dynamic_input
+            scope: result
+          - variable: OS_PATH
+            detection: python_shared_lang_import2
+            scope: cursor
+            filters:
+              - variable: MODULE1
+                values: [os]
+              - variable: MODULE2
+                values: [path]
+              - variable: NAME
+                values: [join]
   - id: python_lang_path_traversal_path_module_init_without_user_input
     patterns:
       - pattern: $<PATH_MODULE>
@@ -220,16 +228,14 @@ metadata:
     ## Remediations
 
     - **Do not** directly use external input to construct file paths. This can lead to unauthorized file access.
-    - **Do** sanitize external input used in file paths. Use `os.path.normpath` to normalize paths and remove any redundant separators in order to prevent path traversal attacks.
-      ```python
-      os.path.normpath(os.path.join(base_directory, user_input))
-      ```
+    - **Do** use a safelist to define accessible paths or directories. Only allow user input to influence file paths within these predefined, safe boundaries.
     - **Do** use absolute path checks to confirm that the constructed path is within the expected directory
         ```python
-        base = os.path.abspath(base_directory)
-        user_path = os.path.abspath(os.path.join(base_directory, user_input))
-        if user_path.startswith(base)
-          # Handle or reject the input
+        BASE_DIRECTORY = '/path/to/safe/directory'
+        my_path = os.path.abspath(os.path.join(BASE_DIRECTORY, dynamic_input))
+
+        if my_path.startswith(BASE_DIRECTORY):
+          open(my_path)
        ```
 
     ## References
