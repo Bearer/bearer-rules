@@ -103,6 +103,7 @@ auxiliary:
   - id: javascript_lang_sql_injection_sequelize_init
     patterns:
       - new Sequelize()
+      - sequelize # fallback
   - id: javascript_lang_sql_injection_sqlite3_init
     patterns:
       - new sqlite3.Database()
