@@ -34,6 +34,7 @@ metadata:
       System.out.println(user.email) // unsafe
       ```
     - **Do** use non-sensitive, unique identifiers like UUIDs to refer to users or entities in standard output, instead of printing sensitive data
+      ```java
       System.out.println(user.uuid)
       ```
     - **Do** use static messages that do not contain dynamic variables or user attributes. This reduces the risk of accidental information disclosure.
