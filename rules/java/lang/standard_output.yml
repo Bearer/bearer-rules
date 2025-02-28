@@ -1,0 +1,50 @@
+imports:
+  - java_shared_lang_datatype
+patterns:
+  - pattern: System.$<FIELD>.$<PRINT>($<...>$<DATA_TYPE>$<...>)
+    filters:
+      - variable: FIELD
+        values:
+          - out
+          - err
+      - variable: PRINT
+        values:
+          - print
+          - printf
+          - println
+      - variable: DATA_TYPE
+        detection: java_shared_lang_datatype
+        scope: result
+languages:
+  - java
+skip_data_types:
+  - Unique Identifier
+severity: medium
+metadata:
+  description: Leakage of sensitive information to standard output stream
+  remediation_message: |
+    ## Description
+
+    Exposing sensitive information in a standard output stream can compromise user privacy and security. This vulnerability occurs when Personally Identifiable Information (PII) or other confidential data is printed to standard output, making it potentially accessible to unauthorized individuals.
+
+    ## Remediations
+
+    - **Do not** print sensitive data to standard output. This can lead to unintended exposure of user information.
+      ```java
+      System.out.println(user.email) // unsafe
+      ```
+    - **Do** use non-sensitive, unique identifiers like UUIDs to refer to users or entities in standard output, instead of printing sensitive data
+      System.out.println(user.uuid)
+      ```
+    - **Do** use static messages that do not contain dynamic variables or user attributes. This reduces the risk of accidental information disclosure.
+      ```java
+      System.out.println("user signed in")
+      ```
+
+    ## References
+
+    - [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
+  cwe_id:
+    - 200
+  id: java_lang_standard_output
+  documentation_url: https://docs.bearer.com/reference/rules/java_lang_standard_output
