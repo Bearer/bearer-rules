@@ -19,7 +19,6 @@ socketFactory.setDefaultHostnameVerifier((HostnameVerifier) new NullHostnameVeri
 
 public class DummyHostnameVerifier implements HostnameVerifier {
   // bearer:expected java_lang_ssl_hostname_verifier
-  @Override
   public boolean verify(String s, SSLSession sslSession) {
     return true;
   }
@@ -59,7 +58,6 @@ protected void getAcceptedIssuersOverride() {
   TrustManager[] trustAllCerts = new TrustManager[] {
     new X509TrustManager() {
       // bearer:expected java_lang_ssl_hostname_verifier
-      @Override
       public X509Certificate[] getAcceptedIssuers() {
         return new java.security.cert.X509Certificate[] {};
       }
@@ -97,7 +95,6 @@ final static HostnameVerifier NO_VERIFY = new HostnameVerifier() {
 try {
   HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
     // bearer:expected java_lang_ssl_hostname_verifier
-    @Override
     public boolean verify(String s, SSLSession sslSession) {
       return true;
     }
