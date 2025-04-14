@@ -15,4 +15,5 @@ module.exports.fooBar = function(req, _res, name) {
 
   connection.query("SELECT * FROM `user` WHERE name = " + currentUser().name);
   connection.query("SELECT * FROM `user` WHERE name = ?", { replacements: [name] });
+  connection.query("SELECT * FROM `user` WHERE name = ?", [name]);
 }
