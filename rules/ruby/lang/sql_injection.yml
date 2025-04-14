@@ -1,0 +1,58 @@
+imports:
+  - ruby_shared_common_external_input
+patterns:
+  - pattern: $<SQLITE_DB>.$<METHOD>($<EXTERNAL_INPUT>$<...>)
+    filters:
+      - variable: SQLITE_DB
+        detection: ruby_lang_sql_injection_sqlite_db
+      - variable: METHOD
+        values:
+          - execute
+          - execute2
+          - execute_batch
+          - execute_batch2
+          - query
+      - variable: EXTERNAL_INPUT
+        detection: ruby_shared_common_external_input
+        scope: result
+auxiliary:
+  - id: ruby_lang_sql_injection_sqlite_db
+    patterns:
+      - SQLite3::Database.new($<...>)
+      - |
+        SQLite3::Database.new($<...>) do |$<!>$<DB>|
+        end
+languages:
+  - ruby
+severity: critical
+metadata:
+  description: Unsanitized user input in SQL query
+  remediation_message: |
+    ## Description
+
+    Using unsanitized data, such as user input or request data, or externally influenced data passed to a function, in SQL query exposes your application to SQL injection attacks. This vulnerability arises when externally controlled data is directly included in SQL statements without proper sanitation, allowing attackers to manipulate queries and access or modify data.
+
+    ## Remediations
+
+    - **Do** employ bind variables in SQL queries to separate the query structure from the data, effectively preventing SQL injection.
+      ```ruby
+      SQLite3::Database.new("data.db") do |db|
+        db.execute("SELECT * FROM users WHERE username = ?", [unsafe_input])
+      end
+      ```
+
+    - **Do not** use raw SQL queries that incorporate unsanitized external input directly. This approach is vulnerable to SQL injection.
+      ```ruby
+      SQLite3::Database.new("data.db") do |db|
+        db.execute("SELECT * FROM users WHERE username = '#{unsafe_input}'")
+      end
+      ```
+
+    ## References
+
+    - [OWASP SQL injection explained](https://owasp.org/www-community/attacks/SQL_Injection)
+    - [OWASP SQL injection prevention cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+  cwe_id:
+    - 89
+  id: ruby_lang_sql_injection
+  documentation_url: https://docs.bearer.com/reference/rules/ruby_lang_sql_injection
