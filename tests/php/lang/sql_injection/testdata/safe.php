@@ -20,4 +20,16 @@ class Foo {
   }
 }
 
+$servername = "localhost";
+$username = "mish";
+$password = "secret";
+$dbname = "users";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if (isset($_GET['id'])) {
+    $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
+    $stmt->bind_param("s", $_GET['id']);
+    $stmt->execute();
+}
+
 ?>
