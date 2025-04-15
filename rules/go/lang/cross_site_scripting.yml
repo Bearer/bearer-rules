@@ -36,7 +36,7 @@ metadata:
     ## Remediations
 
     - **Do not** include user input directly in a response. This practice can lead to XSS vulnerabilities.
-    ```golang
+    ```go
       func bad(w http.ResponseWriter, r *http.Request) {
         userInput := r.URL.Query().Get("input")
         fmt.Fprintf(w, "<html><body>%s</body></html>", userInput)
