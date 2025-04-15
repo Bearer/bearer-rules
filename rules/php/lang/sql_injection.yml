@@ -12,7 +12,21 @@ patterns:
       - variable: UNSANITIZED_INPUT
         detection: php_lang_sql_injection_external_input_unsanitized
         scope: result
+  - pattern: $<CONN>->query($<UNSANITIZED_INPUT>)
+    filters:
+      - variable: CONN
+        detection: php_lang_sql_injection_sql_connection
+      - variable: UNSANITIZED_INPUT
+        detection: php_lang_sql_injection_external_input_unsanitized
+        scope: result
 auxiliary:
+  - id: php_lang_sql_injection_sql_connection
+    patterns:
+      - pattern: new $<SQL_CONN_CLASS>($<...>)
+        filters:
+          - variable: SQL_CONN_CLASS
+            values:
+              - mysqli
   - id: php_lang_sql_injection_external_input_unsanitized
     sanitizer: php_lang_sql_injection_external_input_sanitizer
     patterns:

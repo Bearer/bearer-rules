@@ -39,7 +39,7 @@ patterns:
         detection: javascript_lang_sql_injection_sequelize_init
         scope: cursor
   - pattern: |
-      $<MYSQL_CONN>.$<METHOD>($<...>$<USER_INPUT>$<...>)
+      $<MYSQL_CONN>.$<METHOD>($<USER_INPUT>$<...>)
     filters:
       - variable: MYSQL_CONN
         detection: javascript_lang_sql_injection_mysql_conn

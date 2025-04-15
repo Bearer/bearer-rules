@@ -28,4 +28,18 @@ class Foo {
   }
 }
 
+
+$servername = "localhost";
+$username = "mish";
+$password = "secret";
+$dbname = "users";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if (isset($_GET['id'])) {
+    $userInput = $_GET['id'];
+    $query = "SELECT * FROM users WHERE id = '$userInput'";
+    # bearer:expected php_lang_sql_injection
+    $result = $conn->query($query);
+}
+
 ?>
