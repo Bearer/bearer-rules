@@ -21,9 +21,9 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
-          node-version: "14"
+          node-version: "22.x"
           cache: "npm"
           cache-dependency-path: "**/.github/workflows/*.yml"
       - name: Lint YML

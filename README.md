@@ -3,12 +3,11 @@
 
 bearer-rules is the default rules repository for [Bearer](https://github.com/Bearer/bearer). Here you'll find all the rules that Bearer runs during a scan.
 
-[Bearer Documentation](https://docs.bearer.com) - [Report a Bug](https://github.com/Bearer/bearer-rules/issues/new/choose) - [Discord Community][discord]
+[Bearer Documentation](https://docs.bearer.com) - [Report a Bug](https://github.com/Bearer/bearer-rules/issues/new/choose)
 
 [![GitHub Release][release-img]][release]
 [![Test][test-img]][test]
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
-[![Discord](https://img.shields.io/discord/1042147477765242973?label=discord)][discord]
 
 ## :question: FAQs
 
@@ -38,7 +37,7 @@ Everyone interacting with this project is expected to follow the guidelines of o
 
 ## :shield: Security
 
-To report a vulnerability or suspected vulnerability, [see our security policy](https://github.com/Bearer/bearer-rules/security/policy). For any questions, concerns or other security matters, feel free to [open an issue](https://github.com/Bearer/bearer-rules/issues/new/choose) or join the [Discord Community][discord].
+To report a vulnerability or suspected vulnerability, [see our security policy](https://github.com/Bearer/bearer-rules/security/policy). For any questions, concerns or other security matters, feel free to [open an issue](https://github.com/Bearer/bearer-rules/issues/new/choose).
 
 ## :mortar_board: License
 
@@ -48,7 +47,6 @@ You are not allowed to provide Bearer to third parties as a hosted or managed se
 
 ---
 
-[discord]: https://discord.gg/eaHZBJUXRF
 [test]: https://github.com/Bearer/bearer-rules/actions/workflows/integration_tests.yml
 [test-img]: https://github.com/Bearer/bearer-rules/actions/workflows/integration_tests.yml/badge.svg
 [release]: https://github.com/Bearer/bearer-rules/releases
