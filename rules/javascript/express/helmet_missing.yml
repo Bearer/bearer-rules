@@ -9,6 +9,7 @@ patterns:
           - variable: EXPRESS
             values:
               - app
+              - this.app
       - variable: MIDDLEWARE
         detection: javascript_express_helmet_missing_middleware
         scope: cursor
