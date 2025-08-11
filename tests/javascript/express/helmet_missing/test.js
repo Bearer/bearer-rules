@@ -46,5 +46,15 @@ describe(ruleId, () => {
       expect(results.Missing).toEqual([])
       expect(results.Extra).toEqual([])
     })
-  
+
+
+    test("secure_this", () => {
+      const testCase = "secure_this.js"
+
+      const results = invoke(testCase)
+
+      expect(results.Missing).toEqual([])
+      expect(results.Extra).toEqual([])
+    })
+
 })
