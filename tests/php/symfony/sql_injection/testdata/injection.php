@@ -33,4 +33,20 @@ class FooRepository extends ServiceEntityRepository
         $data = $query->getResult();
         return $data;
     }
+
+    public function oops4(string $bar): void
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder();
+        $fqcnToDelete = 'App\Entity\\' . $bar;
+        # bearer:expected php_symfony_sql_injection
+        $qb->delete($fqcnToDelete);
+    }
+
+    public function oops5(string $bar): void
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder();
+        $qb->delete(MyBar::class);
+        # bearer:expected php_symfony_sql_injection
+        $qb->where("p.name = '" . $bar . "'");
+    }
 }

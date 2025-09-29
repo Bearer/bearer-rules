@@ -1,13 +1,21 @@
 imports:
   - php_shared_lang_external_input
 patterns:
+  # Doctrine QueryBuilder: restricted case (method name too general)
+  - pattern: $<QUERY_BUILDER>->delete($<UNSANITIZED_INPUT>)
+    filters:
+      - variable: QUERY_BUILDER
+        detection: php_symfony_sql_injection_query_builder
+      - variable: UNSANITIZED_INPUT
+        detection: php_symfony_sql_injection_input_unsanitized
+        scope: result
+  # Doctrine QueryBuilder: permissive cases
   - pattern: $<_>->$<METHOD>($<UNSANITIZED_INPUT>)
     filters:
       - variable: METHOD
         values:
           - select
           - addSelect
-          - delete
           - update
           - set
           - from
@@ -38,6 +46,9 @@ patterns:
             detection: php_symfony_sql_injection_input_unsanitized
             scope: result
 auxiliary:
+  - id: php_symfony_sql_injection_query_builder
+    patterns:
+      - $<_>->createQueryBuilder();
   - id: php_symfony_sql_injection_input_unsanitized
     sanitizer: php_symfony_sql_injection_input_sanitizer
     patterns:
