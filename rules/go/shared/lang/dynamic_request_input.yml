@@ -9,16 +9,22 @@ patterns:
       - variable: INPUT
         detection: go_shared_lang_dymamic_request_input_input
         scope: cursor_strict
-  - pattern: $<READER>.ReadString()
+
+  - pattern: $<READER>.ReadString($<...>)
     filters:
       - variable: READER
         detection: go_shared_lang_dynamic_request_input_reader
         scope: cursor
-  - pattern: $<REQUEST>.FormValue()
+
+  - pattern: $<REQUEST>.$<METHOD>()
     filters:
       - variable: REQUEST
         detection: go_shared_lang_dynamic_request_input_request
         scope: cursor
+      - variable: METHOD
+        values:
+          - FormValue
+          - PostFormValue
 
 auxiliary:
   - id: go_shared_lang_dymamic_request_input_input
@@ -28,6 +34,12 @@ auxiliary:
           - variable: QUERY
             detection: go_shared_lang_dynamic_request_input_query
             scope: cursor
+      - pattern: $<QUERY>[$<_>]
+        filters:
+          - variable: QUERY
+            detection: go_shared_lang_dynamic_request_input_query
+            scope: cursor
+
   - id: go_shared_lang_dynamic_request_input_reader
     patterns:
       - pattern: bufio.NewReader($<INPUT>)
@@ -57,6 +69,13 @@ auxiliary:
       - func $<_>($<...>$<!>$<_> http.Request$<...>) {}
       - var $<!>$<_> *http.Request
       - var $<!>$<_> http.Request
+  - id: go_shared_lang_dynamic_request_input_query_index
+    patterns:
+      - pattern: $<REQ>.URL.Query()[$<_>]
+        filters:
+          - variable: REQ
+            detection: go_shared_lang_dynamic_request_input_request
+            scope: cursor
 metadata:
   description: "Go dynamic request input."
   id: go_shared_lang_dynamic_request_input
