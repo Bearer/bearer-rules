@@ -69,13 +69,6 @@ auxiliary:
       - func $<_>($<...>$<!>$<_> http.Request$<...>) {}
       - var $<!>$<_> *http.Request
       - var $<!>$<_> http.Request
-  - id: go_shared_lang_dynamic_request_input_query_index
-    patterns:
-      - pattern: $<REQ>.URL.Query()[$<_>]
-        filters:
-          - variable: REQ
-            detection: go_shared_lang_dynamic_request_input_request
-            scope: cursor
 metadata:
   description: "Go dynamic request input."
   id: go_shared_lang_dynamic_request_input
