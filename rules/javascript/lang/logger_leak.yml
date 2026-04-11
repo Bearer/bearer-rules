@@ -103,7 +103,14 @@ metadata:
       ```javascript
       logger.info(`Results: ${data}`) // unsafe
       ```
+    - **Do** log only non-sensitive data when using production-level loggers such as `info` or `warn`.
+      ```javascript
+      logger.info(`Results received: ${data.id}`) // safe, no sensitive data in info level
+      ```
     - **Do** use logging levels appropriately to control the verbosity of log output and minimize the risk of leaking sensitive information in production environments.
+      ```javascript
+      logger.debug(`Results: ${data}`) // safe when debug is disabled in production
+      ```
   cwe_id:
     - 532
   id: javascript_lang_logger_leak
